@@ -4,8 +4,8 @@ namespace AUF.EMR.MVC.Models
 {
     public class HouseHoldProfileVM
     {
-        public HouseHold HouseHold { get; set; } = new();
-        public HouseHoldMember HouseHoldMember { get; set; }
-        public List<HouseHoldMember> HouseHoldMembers { get; set; } = new();
+        public Household HouseHold { get; set; } = new();
+        public HouseholdMember HouseHoldMember { get; set; }
+        public List<HouseholdMember> HouseHoldMembers { get; set; } = new();
     }
 }

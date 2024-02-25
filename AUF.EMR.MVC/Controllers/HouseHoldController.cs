@@ -26,6 +26,12 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHolds
+        public async Task<IActionResult> HouseholdProfile(string householdNo)
+        {
+            var searched = await _houseHoldService.GetSearchedHouseHoldWithDetails(householdNo);
+            return View(searched);
+        }
+
         public async Task<IActionResult> Index(string query)
         {
             if (string.IsNullOrEmpty(query))
@@ -41,7 +47,14 @@ namespace AUF.EMR.MVC.Controllers
         // GET: HouseHolds/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            var model = await _houseHoldService.GetHouseHoldWithDetails(id.Value);
+            var houseHold = await _houseHoldService.GetHouseHoldWithDetails(id.Value);
+            var houseHoldMembers = await _houseHoldMemberService.GetHouseHoldMembersWithDetails(houseHold.HouseholdNo);
+            var model = new HouseHoldProfileVM
+            {
+                HouseHold = houseHold,
+                HouseHoldMembers = houseHoldMembers
+            };
+
             return View(model);
         }
 
@@ -54,7 +67,7 @@ namespace AUF.EMR.MVC.Controllers
         // POST: HouseHolds/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(HouseHold houseHold)
+        public async Task<IActionResult> Create(Household houseHold)
         {
             try
             {
@@ -73,7 +86,7 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             var houseHold = await _houseHoldService.GetHouseHoldWithDetails(id.Value);
-            var houseHoldMembers = await _houseHoldMemberService.GetHouseHoldMembersWithDetails(houseHold.HouseHoldNo);
+            var houseHoldMembers = await _houseHoldMemberService.GetHouseHoldMembersWithDetails(houseHold.HouseholdNo);
             var model = new HouseHoldProfileVM
             {
                 HouseHold = houseHold,
@@ -86,7 +99,7 @@ namespace AUF.EMR.MVC.Controllers
         // POST: HouseHolds/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, HouseHold houseHold)
+        public async Task<IActionResult> Edit(int id, Household houseHold)
         {
             try
             {

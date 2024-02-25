@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Application.Contracts.Services
 {
-    public interface IHouseHoldMemberService : IGenericService<HouseHoldMember>
+    public interface IHouseHoldMemberService : IGenericService<HouseholdMember>
     {
-        Task<List<HouseHoldMember>> GetHouseHoldMembersWithDetails(string houseHoldNo);
-        Task<HouseHoldMember> GetHouseHoldMemberWithDetails(int id);
+        Task<List<HouseholdMember>> GetHouseHoldMembersWithDetails(string houseHoldNo);
+        Task<HouseholdMember> GetHouseHoldMemberWithDetails(int id);
     }
 }

@@ -13,9 +13,9 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="HouseHold.HouseHoldNo" class="control-label"></label>
-                <input asp-for="HouseHold.HouseHoldNo" class="form-control" />
-                <span asp-validation-for="HouseHold.HouseHoldNo" class="text-danger"></span>
+                <label asp-for="HouseHold.HouseholdNo" class="control-label"></label>
+                <input asp-for="HouseHold.HouseholdNo" class="form-control" />
+                <span asp-validation-for="HouseHold.HouseholdNo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="HouseHold.FirstQtrVisit" class="control-label"></label>
@@ -196,7 +196,7 @@
                             @Html.DisplayFor(modelItem => item.Remarks)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.HouseHoldNo)
+                            @Html.DisplayFor(modelItem => item.HouseholdNo)
                         </td>
                         <td>
                             <a asp-action="Edit" asp-controller="HouseHoldMember" asp-route-id="@item.Id">Edit</a> |

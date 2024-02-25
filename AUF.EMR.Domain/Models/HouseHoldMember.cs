@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Domain.Models
 {
-    public class HouseHoldMember : BaseDomainEntity
+    public class HouseholdMember : BaseDomainEntity
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }
@@ -22,8 +22,8 @@ namespace AUF.EMR.Domain.Models
         public string ThirdQtrClassification { get; set; }
         public string FourthQtrClassification { get; set; }
         public string Remarks { get; set; }
-        public string HouseHoldNo { get; set; }
-        public int? HouseHoldId { get; set; }
-        public HouseHold? HouseHold { get; set; }
+        public string HouseholdNo { get; set; }
+        public int? HouseholdId { get; set; }
+        public Household? Household { get; set; }
     }
 }

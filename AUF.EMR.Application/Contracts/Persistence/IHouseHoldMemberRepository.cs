@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Application.Contracts.Persistence
 {
-    public interface IHouseHoldMemberRepository : IGenericRepository<HouseHoldMember>
+    public interface IHouseHoldMemberRepository : IGenericRepository<HouseholdMember>
     {
-        Task<List<HouseHoldMember>> GetHouseHoldMembersWithDetails(string houseHoldNo);
-        Task<HouseHoldMember> GetHouseHoldMemberWithDetails(int id);
+        Task<List<HouseholdMember>> GetHouseHoldMembersWithDetails(string houseHoldNo);
+        Task<HouseholdMember> GetHouseHoldMemberWithDetails(int id);
     }
 }

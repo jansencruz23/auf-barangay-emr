@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Persistence.Repositories
 {
-    public class HouseHoldRepository : GenericRepository<HouseHold>, IHouseHoldRepository
+    public class HouseHoldRepository : GenericRepository<Household>, IHouseHoldRepository
     {
         private readonly EMRDbContext _dbContext;
 
@@ -23,46 +23,57 @@ namespace AUF.EMR.Persistence.Repositories
         public async Task<int> GetHouseHoldId(string houseHoldNo)
         {
             var houseHold = await _dbContext.HouseHolds
-                .FirstOrDefaultAsync(h => h.HouseHoldNo.Equals(houseHoldNo));
+                .FirstOrDefaultAsync(h => h.HouseholdNo.Equals(houseHoldNo));
 
             return houseHold.Id;
         }
 
-        public async Task<List<HouseHold>> GetHouseHoldsWithDetails()
+        public async Task<List<Household>> GetHouseHoldsWithDetails()
         {
             var houseHolds = await _dbContext.HouseHolds
                 .AsNoTracking()
-                .Include(h => h.HouseHoldMembers)
+                .Include(h => h.HouseholdMembers)
                 .ToListAsync();
 
             return houseHolds;
         }
 
-        public async Task<HouseHold> GetHouseHoldWithDetails(int id)
+        public async Task<Household> GetHouseHoldWithDetails(int id)
         {
             var houseHold = await _dbContext.HouseHolds
                 .AsNoTracking()
-                .Include(h => h.HouseHoldMembers)
+                .Include(h => h.HouseholdMembers)
                 .FirstOrDefaultAsync(h => h.Id == id);
 
             return houseHold;
         }
 
-        public async Task<List<HouseHold>> GetSearchedHouseHoldsWithDetails(string query)
+        public async Task<List<Household>> GetSearchedHouseHoldsWithDetails(string query)
         {
             var houseHolds = await _dbContext.HouseHolds
                 .AsNoTracking()
-                .Include(h => h.HouseHoldMembers)
+                .Include(h => h.HouseholdMembers)
                 .Where(h =>
                     h.LastName.Contains(query) ||
                     h.FirstName.Contains(query) ||
-                    h.HouseHoldNo.Contains(query) ||
-                    h.HouseHoldMembers.Any(m =>
+                    h.HouseholdNo.Contains(query) ||
+                    h.HouseholdMembers.Any(m =>
                         m.LastName.Contains(query) ||
                         m.FirstName.Contains(query)))
                 .ToListAsync();
 
             return houseHolds;
+        }
+
+        public async Task<List<Household>> GetSearchedHouseHoldWithDetails(string query)
+        {
+            var household = await _dbContext.HouseHolds
+                .AsNoTracking()
+                .Include(h => h.HouseholdMembers)
+                .Where(h => h.HouseholdNo.Equals(query))
+                .ToListAsync();
+
+            return household;
         }
     }
 }

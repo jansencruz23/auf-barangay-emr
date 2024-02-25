@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AUF.EMR.Domain.Models.HouseHoldMember>
+﻿@model IEnumerable<AUF.EMR.Domain.Models.HouseholdMember>
 
 @{
     ViewData["Title"] = "Index";
@@ -49,7 +49,7 @@
                 @Html.DisplayNameFor(model => model.Remarks)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HouseHold)
+                @Html.DisplayNameFor(model => model.Household)
             </th>
             <th></th>
         </tr>
@@ -94,7 +94,7 @@
                 @Html.DisplayFor(modelItem => item.Remarks)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.HouseHold.Barangay)
+                @Html.DisplayFor(modelItem => item.Household.Barangay)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

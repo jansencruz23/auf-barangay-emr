@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Domain.Models
 {
-    public class HouseHold : BaseDomainEntity
+    public class Household : BaseDomainEntity
     {
-        public string HouseHoldNo { get; set; }
+        public string HouseholdNo { get; set; }
         public DateTime? FirstQtrVisit { get; set; }
         public DateTime? SecondQtrVisit { get; set; }
         public DateTime? ThirdQtrVisit { get; set; }
@@ -27,6 +27,6 @@ namespace AUF.EMR.Domain.Models
         public string? PhilhealthNo { get; set; }
         public string? Category { get; set; }
         public bool IsIP { get; set; }
-        public List<HouseHoldMember> HouseHoldMembers { get; set; } = new();
+        public List<HouseholdMember> HouseholdMembers { get; set; } = new();
     }
 }

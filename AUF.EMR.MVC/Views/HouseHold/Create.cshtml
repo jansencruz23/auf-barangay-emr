@@ -1,4 +1,4 @@
-﻿@model HouseHold
+﻿@model Household
 
 @{
     ViewData["Title"] = "Create";
@@ -13,9 +13,9 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="HouseHoldNo" class="control-label"></label>
-                <input asp-for="HouseHoldNo" class="form-control" />
-                <span asp-validation-for="HouseHoldNo" class="text-danger"></span>
+                <label asp-for="HouseholdNo" class="control-label"></label>
+                <input asp-for="HouseholdNo" class="form-control" />
+                <span asp-validation-for="HouseholdNo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FirstQtrVisit" class="control-label"></label>

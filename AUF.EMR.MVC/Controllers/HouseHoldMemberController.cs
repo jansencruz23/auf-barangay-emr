@@ -39,14 +39,14 @@ namespace AUF.EMR.MVC.Controllers
         // POST: HouseHoldMemberController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(HouseHoldMember houseHoldMember)
+        public async Task<ActionResult> Create(HouseholdMember houseHoldMember)
         {
             try
             {
-                houseHoldMember.HouseHoldId = await _houseHoldService.GetHouseHoldId(houseHoldMember.HouseHoldNo);
+                houseHoldMember.HouseholdId = await _houseHoldService.GetHouseHoldId(houseHoldMember.HouseholdNo);
                 var houseHold = await _houseHoldMemberService.GetHouseHoldMemberWithDetails(houseHoldMember.Id);
                 var completed = await _houseHoldMemberService.Add(houseHoldMember);
-                return RedirectToAction(nameof(Create), nameof(HouseHold));
+                return RedirectToAction(nameof(Edit), nameof(Household), new { id = houseHold.Household.Id });
             }
             catch (Exception ex)
             {
@@ -66,14 +66,14 @@ namespace AUF.EMR.MVC.Controllers
         // POST: HouseHoldMemberController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, HouseHoldMember houseHoldMember)
+        public async Task<ActionResult> Edit(int id, HouseholdMember houseHoldMember)
         {
             try
             {
-                houseHoldMember.HouseHoldId = await _houseHoldService.GetHouseHoldId(houseHoldMember.HouseHoldNo);
+                houseHoldMember.HouseholdId = await _houseHoldService.GetHouseHoldId(houseHoldMember.HouseholdNo);
                 var houseHold = await _houseHoldMemberService.GetHouseHoldMemberWithDetails(id);
                 await _houseHoldMemberService.Update(houseHoldMember);
-                return RedirectToAction(nameof(Edit), nameof(HouseHold), new { id = houseHold.HouseHold.Id });
+                return RedirectToAction(nameof(Edit), nameof(Household), new { id = houseHold.Household.Id });
             }
             catch (Exception ex)
             {

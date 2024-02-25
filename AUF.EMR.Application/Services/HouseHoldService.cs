@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Application.Services
 {
-    public class HouseHoldService : GenericService<HouseHold>, IHouseHoldService
+    public class HouseHoldService : GenericService<Household>, IHouseHoldService
     {
         private readonly IHouseHoldRepository _repository;
 
@@ -26,19 +26,24 @@ namespace AUF.EMR.Application.Services
             return await _repository.GetHouseHoldId(houseHoldNo);
         }
 
-        public async Task<List<HouseHold>> GetHouseHoldsWithDetails()
+        public async Task<List<Household>> GetHouseHoldsWithDetails()
         {
             return await _repository.GetHouseHoldsWithDetails();
         }
 
-        public async Task<HouseHold> GetHouseHoldWithDetails(int id)
+        public async Task<Household> GetHouseHoldWithDetails(int id)
         {
             return await _repository.GetHouseHoldWithDetails(id);
         }
 
-        public async Task<List<HouseHold>> GetSearchedHouseHoldsWithDetails(string query)
+        public async Task<List<Household>> GetSearchedHouseHoldsWithDetails(string query)
         {
             return await _repository.GetSearchedHouseHoldsWithDetails(query);
+        }
+
+        public async Task<List<Household>> GetSearchedHouseHoldWithDetails(string query)
+        {
+            return await _repository.GetSearchedHouseHoldWithDetails(query);
         }
     }
 }

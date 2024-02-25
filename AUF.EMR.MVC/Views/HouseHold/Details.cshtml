@@ -1,4 +1,4 @@
-﻿@model AUF.EMR.Domain.Models.HouseHold
+﻿@model HouseHoldProfileVM
 
 @{
     ViewData["Title"] = "Details";
@@ -10,117 +10,119 @@
     <h4>HouseHold</h4>
     <hr />
     <dl class="row">
+        <div class="col-md-6">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HouseHoldNo)
+            @Html.DisplayNameFor(model => model.HouseHold.HouseholdNo)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HouseHoldNo)
+            @Html.DisplayFor(model => model.HouseHold.HouseholdNo)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstQtrVisit)
+            @Html.DisplayNameFor(model => model.HouseHold.FirstQtrVisit)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirstQtrVisit)
+            @Html.DisplayFor(model => model.HouseHold.FirstQtrVisit)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SecondQtrVisit)
+            @Html.DisplayNameFor(model => model.HouseHold.SecondQtrVisit)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SecondQtrVisit)
+            @Html.DisplayFor(model => model.HouseHold.SecondQtrVisit)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ThirdQtrVisit)
+            @Html.DisplayNameFor(model => model.HouseHold.ThirdQtrVisit)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ThirdQtrVisit)
+            @Html.DisplayFor(model => model.HouseHold.ThirdQtrVisit)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FourthQtrVisit)
+            @Html.DisplayNameFor(model => model.HouseHold.FourthQtrVisit)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FourthQtrVisit)
+            @Html.DisplayFor(model => model.HouseHold.FourthQtrVisit)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.HouseHold.LastName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
+            @Html.DisplayFor(model => model.HouseHold.LastName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.HouseHold.FirstName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.HouseHold.FirstName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MotherMaidenName)
+            @Html.DisplayNameFor(model => model.HouseHold.MotherMaidenName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MotherMaidenName)
+            @Html.DisplayFor(model => model.HouseHold.MotherMaidenName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HouseNoAndStreet)
+            @Html.DisplayNameFor(model => model.HouseHold.HouseNoAndStreet)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HouseNoAndStreet)
+            @Html.DisplayFor(model => model.HouseHold.HouseNoAndStreet)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Barangay)
+            @Html.DisplayNameFor(model => model.HouseHold.Barangay)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Barangay)
+            @Html.DisplayFor(model => model.HouseHold.Barangay)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.City)
+            @Html.DisplayNameFor(model => model.HouseHold.City)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.City)
+            @Html.DisplayFor(model => model.HouseHold.City)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Province)
+            @Html.DisplayNameFor(model => model.HouseHold.Province)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Province)
+            @Html.DisplayFor(model => model.HouseHold.Province)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ContactNo)
+            @Html.DisplayNameFor(model => model.HouseHold.ContactNo)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ContactNo)
+            @Html.DisplayFor(model => model.HouseHold.ContactNo)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsNHTS)
+            @Html.DisplayNameFor(model => model.HouseHold.IsNHTS)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsNHTS)
+            @Html.DisplayFor(model => model.HouseHold.IsNHTS)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsHeadPhilhealthMember)
+            @Html.DisplayNameFor(model => model.HouseHold.IsHeadPhilhealthMember)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsHeadPhilhealthMember)
+            @Html.DisplayFor(model => model.HouseHold.IsHeadPhilhealthMember)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhilhealthNo)
+            @Html.DisplayNameFor(model => model.HouseHold.PhilhealthNo)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PhilhealthNo)
+            @Html.DisplayFor(model => model.HouseHold.PhilhealthNo)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
+            @Html.DisplayNameFor(model => model.HouseHold.Category)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category)
+            @Html.DisplayFor(model => model.HouseHold.Category)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsIP)
+            @Html.DisplayNameFor(model => model.HouseHold.IsIP)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsIP)
+            @Html.DisplayFor(model => model.HouseHold.IsIP)
         </dd>
+        </div>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.HouseHold.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
