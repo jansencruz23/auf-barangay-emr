@@ -1,0 +1,137 @@
+﻿@model IEnumerable<HouseHold>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HouseHoldNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstQtrVisit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondQtrVisit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThirdQtrVisit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FourthQtrVisit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotherMaidenName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HouseNoAndStreet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Barangay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Province)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsNHTS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsHeadPhilhealthMember)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhilhealthNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsIP)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseHoldNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstQtrVisit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondQtrVisit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThirdQtrVisit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FourthQtrVisit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotherMaidenName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseNoAndStreet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Barangay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Province)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsNHTS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsHeadPhilhealthMember)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhilhealthNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsIP)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,118 @@
+﻿@model HouseHold
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>HouseHold</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="HouseHoldNo" class="control-label"></label>
+                <input asp-for="HouseHoldNo" class="form-control" />
+                <span asp-validation-for="HouseHoldNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstQtrVisit" class="control-label"></label>
+                <input asp-for="FirstQtrVisit" class="form-control" />
+                <span asp-validation-for="FirstQtrVisit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecondQtrVisit" class="control-label"></label>
+                <input asp-for="SecondQtrVisit" class="form-control" />
+                <span asp-validation-for="SecondQtrVisit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThirdQtrVisit" class="control-label"></label>
+                <input asp-for="ThirdQtrVisit" class="form-control" />
+                <span asp-validation-for="ThirdQtrVisit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FourthQtrVisit" class="control-label"></label>
+                <input asp-for="FourthQtrVisit" class="form-control" />
+                <span asp-validation-for="FourthQtrVisit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MotherMaidenName" class="control-label"></label>
+                <input asp-for="MotherMaidenName" class="form-control" />
+                <span asp-validation-for="MotherMaidenName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseNoAndStreet" class="control-label"></label>
+                <input asp-for="HouseNoAndStreet" class="form-control" />
+                <span asp-validation-for="HouseNoAndStreet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Barangay" class="control-label"></label>
+                <input asp-for="Barangay" class="form-control" />
+                <span asp-validation-for="Barangay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Province" class="control-label"></label>
+                <input asp-for="Province" class="form-control" />
+                <span asp-validation-for="Province" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactNo" class="control-label"></label>
+                <input asp-for="ContactNo" class="form-control" />
+                <span asp-validation-for="ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsNHTS" /> @Html.DisplayNameFor(model => model.IsNHTS)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsHeadPhilhealthMember" /> @Html.DisplayNameFor(model => model.IsHeadPhilhealthMember)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhilhealthNo" class="control-label"></label>
+                <input asp-for="PhilhealthNo" class="form-control" />
+                <span asp-validation-for="PhilhealthNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsIP" /> @Html.DisplayNameFor(model => model.IsIP)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+     </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

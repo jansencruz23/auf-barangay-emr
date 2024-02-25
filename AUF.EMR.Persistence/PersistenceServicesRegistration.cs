@@ -1,0 +1,33 @@
+﻿using AUF.EMR.Application.Contracts.Persistence;
+using AUF.EMR.Application.Contracts.Persistence.Common;
+using AUF.EMR.Persistence.Repositories;
+using AUF.EMR.Persistence.Repositories.Common;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AUF.EMR.Persistence
+{
+    public static class PersistenceServicesRegistration
+    {
+        public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services,
+            IConfiguration configuration)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContext<EMRDbContext>(options =>
+                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IHouseHoldRepository, HouseHoldRepository>();
+            services.AddScoped<IHouseHoldMemberRepository, HouseHoldMemberRepository>();
+
+            return services;
+        }
+    }
+}

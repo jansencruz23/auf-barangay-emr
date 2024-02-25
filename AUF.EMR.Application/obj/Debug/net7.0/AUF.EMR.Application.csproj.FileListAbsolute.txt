@@ -1,0 +1,17 @@
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.deps.json
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.pdb
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Domain.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Domain.pdb
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.csproj.AssemblyReference.cache
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.AssemblyInfoInputs.cache
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.AssemblyInfo.cs
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.csproj.CoreCompileInputs.cache
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.csproj.CopyComplete
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\refint\AUF.EMR.Application.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.pdb
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\ref\AUF.EMR.Application.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.runtimeconfig.json
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.genruntimeconfig.cache
