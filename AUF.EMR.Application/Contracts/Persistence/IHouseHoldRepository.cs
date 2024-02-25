@@ -11,6 +11,8 @@ namespace AUF.EMR.Application.Contracts.Persistence
     public interface IHouseHoldRepository : IGenericRepository<HouseHold>
     {
         Task<List<HouseHold>> GetHouseHoldsWithDetails();
+        Task<List<HouseHold>> GetSearchedHouseHoldsWithDetails(string query);
         Task<HouseHold> GetHouseHoldWithDetails(int id);
+        Task<int> GetHouseHoldId(string houseHoldNo);
     }
 }

@@ -9,6 +9,16 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form asp-action="Index">
+    <div class="input-group md-form form-sm form-2 pl-0">
+        <input name="query" class="form-control my-0 py-1" type="text" placeholder="Search House Hold No. or Name" />
+        <div class="input-group-append">
+            <span class="input-group-text list-group-numbered lighten-3" id="search-text">
+                <i class="fas fa-search text-grey" aria-hidden="true"></i>
+            </span>
+        </div>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -135,3 +145,13 @@
 }
     </tbody>
 </table>
+
+@section scripts {
+    <script>
+        $(function () {
+            $("#search-text").click(function () {
+                $("Form").submit();
+            });
+        });
+    </script>
+}

@@ -20,6 +20,14 @@ namespace AUF.EMR.Persistence.Repositories
             _dbContext = dbContext;
         }
 
+        public async Task<int> GetHouseHoldId(string houseHoldNo)
+        {
+            var houseHold = await _dbContext.HouseHolds
+                .FirstOrDefaultAsync(h => h.HouseHoldNo.Equals(houseHoldNo));
+
+            return houseHold.Id;
+        }
+
         public async Task<List<HouseHold>> GetHouseHoldsWithDetails()
         {
             var houseHolds = await _dbContext.HouseHolds
@@ -38,6 +46,23 @@ namespace AUF.EMR.Persistence.Repositories
                 .FirstOrDefaultAsync(h => h.Id == id);
 
             return houseHold;
+        }
+
+        public async Task<List<HouseHold>> GetSearchedHouseHoldsWithDetails(string query)
+        {
+            var houseHolds = await _dbContext.HouseHolds
+                .AsNoTracking()
+                .Include(h => h.HouseHoldMembers)
+                .Where(h =>
+                    h.LastName.Contains(query) ||
+                    h.FirstName.Contains(query) ||
+                    h.HouseHoldNo.Contains(query) ||
+                    h.HouseHoldMembers.Any(m =>
+                        m.LastName.Contains(query) ||
+                        m.FirstName.Contains(query)))
+                .ToListAsync();
+
+            return houseHolds;
         }
     }
 }

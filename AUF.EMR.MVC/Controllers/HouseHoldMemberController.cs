@@ -9,10 +9,13 @@ namespace AUF.EMR.MVC.Controllers
     public class HouseHoldMemberController : Controller
     {
         private readonly IHouseHoldMemberService _houseHoldMemberService;
+        private readonly IHouseHoldService _houseHoldService;
 
-        public HouseHoldMemberController(IHouseHoldMemberService houseHoldMemberService)
+        public HouseHoldMemberController(IHouseHoldMemberService houseHoldMemberService,
+            IHouseHoldService houseHoldService)
         {
             _houseHoldMemberService = houseHoldMemberService;
+            _houseHoldService = houseHoldService;
         }
 
         // GET: HouseHoldMemberController
@@ -40,6 +43,7 @@ namespace AUF.EMR.MVC.Controllers
         {
             try
             {
+                houseHoldMember.HouseHoldId = await _houseHoldService.GetHouseHoldId(houseHoldMember.HouseHoldNo);
                 var houseHold = await _houseHoldMemberService.GetHouseHoldMemberWithDetails(houseHoldMember.Id);
                 var completed = await _houseHoldMemberService.Add(houseHoldMember);
                 return RedirectToAction(nameof(Create), nameof(HouseHold));
@@ -66,6 +70,7 @@ namespace AUF.EMR.MVC.Controllers
         {
             try
             {
+                houseHoldMember.HouseHoldId = await _houseHoldService.GetHouseHoldId(houseHoldMember.HouseHoldNo);
                 var houseHold = await _houseHoldMemberService.GetHouseHoldMemberWithDetails(id);
                 await _houseHoldMemberService.Update(houseHoldMember);
                 return RedirectToAction(nameof(Edit), nameof(HouseHold), new { id = houseHold.HouseHold.Id });

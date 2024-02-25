@@ -21,14 +21,24 @@ namespace AUF.EMR.Application.Services
             _repository = repository;
         }
 
-        public Task<List<HouseHold>> GetHouseHoldsWithDetails()
+        public async Task<int> GetHouseHoldId(string houseHoldNo)
         {
-            return _repository.GetHouseHoldsWithDetails();
+            return await _repository.GetHouseHoldId(houseHoldNo);
         }
 
-        public Task<HouseHold> GetHouseHoldWithDetails(int id)
+        public async Task<List<HouseHold>> GetHouseHoldsWithDetails()
         {
-            return _repository.GetHouseHoldWithDetails(id);
+            return await _repository.GetHouseHoldsWithDetails();
+        }
+
+        public async Task<HouseHold> GetHouseHoldWithDetails(int id)
+        {
+            return await _repository.GetHouseHoldWithDetails(id);
+        }
+
+        public async Task<List<HouseHold>> GetSearchedHouseHoldsWithDetails(string query)
+        {
+            return await _repository.GetSearchedHouseHoldsWithDetails(query);
         }
     }
 }

@@ -26,10 +26,16 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHolds
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string query)
         {
-            var model = await _houseHoldService.GetHouseHoldsWithDetails();
-            return View(model);
+            if (string.IsNullOrEmpty(query))
+            {
+                var model = await _houseHoldService.GetHouseHoldsWithDetails();
+                return View(model);
+            }
+
+            var searched = await _houseHoldService.GetSearchedHouseHoldsWithDetails(query);
+            return View(searched);
         }
 
         // GET: HouseHolds/Details/5

@@ -11,6 +11,8 @@ namespace AUF.EMR.Application.Contracts.Services
     public interface IHouseHoldService : IGenericService<HouseHold>
     {
         Task<List<HouseHold>> GetHouseHoldsWithDetails();
+        Task<List<HouseHold>> GetSearchedHouseHoldsWithDetails(string query);
         Task<HouseHold> GetHouseHoldWithDetails(int id);
+        Task<int> GetHouseHoldId(string houseHoldNo);
     }
 }
