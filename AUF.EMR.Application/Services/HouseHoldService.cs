@@ -11,39 +11,39 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Application.Services
 {
-    public class HouseHoldService : GenericService<Household>, IHouseHoldService
+    public class HouseholdService : GenericService<Household>, IHouseholdService
     {
-        private readonly IHouseHoldRepository _repository;
+        private readonly IHouseholdRepository _repository;
 
-        public HouseHoldService(IHouseHoldRepository repository) 
+        public HouseholdService(IHouseholdRepository repository) 
             : base(repository)
         {
             _repository = repository;
         }
 
-        public async Task<int> GetHouseHoldId(string houseHoldNo)
+        public async Task<int> GetHouseholdId(string houseHoldNo)
         {
-            return await _repository.GetHouseHoldId(houseHoldNo);
+            return await _repository.GetHouseholdId(houseHoldNo);
         }
 
-        public async Task<List<Household>> GetHouseHoldsWithDetails()
+        public async Task<List<Household>> GetHouseholdsWithDetails()
         {
-            return await _repository.GetHouseHoldsWithDetails();
+            return await _repository.GetHouseholdsWithDetails();
         }
 
-        public async Task<Household> GetHouseHoldWithDetails(int id)
+        public async Task<Household> GetHouseholdWithDetails(int id)
         {
-            return await _repository.GetHouseHoldWithDetails(id);
+            return await _repository.GetHouseholdWithDetails(id);
         }
 
-        public async Task<List<Household>> GetSearchedHouseHoldsWithDetails(string query)
+        public async Task<List<Household>> GetSearchedhouseHoldsWithDetails(string query)
         {
-            return await _repository.GetSearchedHouseHoldsWithDetails(query);
+            return await _repository.GetSearchedHouseholdsWithDetails(query);
         }
 
-        public async Task<List<Household>> GetSearchedHouseHoldWithDetails(string query)
+        public async Task<List<Household>> GetSearchedhouseHoldWithDetails(string query)
         {
-            return await _repository.GetSearchedHouseHoldWithDetails(query);
+            return await _repository.GetSearchedHouseholdWithDetails(query);
         }
     }
 }

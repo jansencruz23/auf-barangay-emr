@@ -1,0 +1,53 @@
+﻿@model CreateMasterListVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>MasterListChildren</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MasterListChildren.NameOfMother" class="control-label"></label>
+                <input asp-for="MasterListChildren.NameOfMother" class="form-control" />
+                <span asp-validation-for="MasterListChildren.NameOfMother" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MasterListChildren.NameOfFather" class="control-label"></label>
+                <input asp-for="MasterListChildren.NameOfFather" class="form-control" />
+                <span asp-validation-for="MasterListChildren.NameOfFather" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="MasterListChildren.IsNhts" /> @Html.DisplayNameFor(model => model.MasterListChildren.IsNhts)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="MasterListChildren.IsInSchool" /> @Html.DisplayNameFor(model => model.MasterListChildren.IsInSchool)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="MasterListChildren.HouseholdMemberId" class="control-label"></label>
+                <select asp-for="MasterListChildren.HouseholdMemberId" class="form-control" 
+                    asp-items="@(new SelectList(Model.HouseholdMembers, nameof(Model.HouseholdMember.Id), nameof(Model.HouseholdMember.LastName)))"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

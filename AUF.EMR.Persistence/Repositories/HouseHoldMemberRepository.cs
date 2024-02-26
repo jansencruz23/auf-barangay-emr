@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Persistence.Repositories
 {
-    public class HouseHoldMemberRepository : GenericRepository<HouseholdMember>, IHouseHoldMemberRepository
+    public class HouseholdMemberRepository : GenericRepository<HouseholdMember>, IHouseholdMemberRepository
     {
         private readonly EMRDbContext _dbContext;
 
-        public HouseHoldMemberRepository(EMRDbContext dbContext) 
+        public HouseholdMemberRepository(EMRDbContext dbContext) 
             : base(dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task<List<HouseholdMember>> GetHouseHoldMembersWithDetails(string houseHoldNo)
+        public async Task<List<HouseholdMember>> GetHouseholdMembersWithDetails(string houseHoldNo)
         {
             var houseHoldMembers = await _dbContext.HouseHoldMembers
                 .AsNoTracking()
@@ -31,7 +31,7 @@ namespace AUF.EMR.Persistence.Repositories
             return houseHoldMembers;
         }
 
-        public async Task<HouseholdMember> GetHouseHoldMemberWithDetails(int id)
+        public async Task<HouseholdMember> GetHouseholdMemberWithDetails(int id)
         {
             var houseHoldMember = await _dbContext.HouseHoldMembers
                 .AsNoTracking()

@@ -10,24 +10,24 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Application.Services
 {
-    public class HouseHoldMemberService : GenericService<HouseholdMember>, IHouseHoldMemberService
+    public class HouseholdMemberService : GenericService<HouseholdMember>, IHouseholdMemberService
     {
-        private readonly IHouseHoldMemberRepository _repository;
+        private readonly IHouseholdMemberRepository _repository;
 
-        public HouseHoldMemberService(IHouseHoldMemberRepository repository)
+        public HouseholdMemberService(IHouseholdMemberRepository repository)
             : base(repository)
         {
             _repository = repository;
         }
 
-        public async Task<List<HouseholdMember>> GetHouseHoldMembersWithDetails(string houseHoldNo)
+        public async Task<List<HouseholdMember>> GetHouseholdMembersWithDetails(string houseHoldNo)
         {
-            return await _repository.GetHouseHoldMembersWithDetails(houseHoldNo);
+            return await _repository.GetHouseholdMembersWithDetails(houseHoldNo);
         }
 
-        public async Task<HouseholdMember> GetHouseHoldMemberWithDetails(int id)
+        public async Task<HouseholdMember> GetHouseholdMemberWithDetails(int id)
         {
-            return await _repository.GetHouseHoldMemberWithDetails(id);
+            return await _repository.GetHouseholdMemberWithDetails(id);
         }
     }
 }

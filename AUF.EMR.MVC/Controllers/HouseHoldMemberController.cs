@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
-    public class HouseHoldMemberController : Controller
+    public class HouseholdMemberController : Controller
     {
-        private readonly IHouseHoldMemberService _houseHoldMemberService;
-        private readonly IHouseHoldService _houseHoldService;
+        private readonly IHouseholdMemberService _houseHoldMemberService;
+        private readonly IHouseholdService _houseHoldService;
 
-        public HouseHoldMemberController(IHouseHoldMemberService houseHoldMemberService,
-            IHouseHoldService houseHoldService)
+        public HouseholdMemberController(IHouseholdMemberService houseHoldMemberService,
+            IHouseholdService houseHoldService)
         {
             _houseHoldMemberService = houseHoldMemberService;
             _houseHoldService = houseHoldService;
@@ -43,8 +43,8 @@ namespace AUF.EMR.MVC.Controllers
         {
             try
             {
-                houseHoldMember.HouseholdId = await _houseHoldService.GetHouseHoldId(houseHoldMember.HouseholdNo);
-                var houseHold = await _houseHoldMemberService.GetHouseHoldMemberWithDetails(houseHoldMember.Id);
+                houseHoldMember.HouseholdId = await _houseHoldService.GetHouseholdId(houseHoldMember.HouseholdNo);
+                var houseHold = await _houseHoldMemberService.GetHouseholdMemberWithDetails(houseHoldMember.Id);
                 var completed = await _houseHoldMemberService.Add(houseHoldMember);
                 return RedirectToAction(nameof(Edit), nameof(Household), new { id = houseHold.Household.Id });
             }
@@ -59,7 +59,7 @@ namespace AUF.EMR.MVC.Controllers
         // GET: HouseHoldMemberController/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
-            var model = await _houseHoldMemberService.GetHouseHoldMemberWithDetails(id);
+            var model = await _houseHoldMemberService.GetHouseholdMemberWithDetails(id);
             return View(model);
         }
 
@@ -70,8 +70,8 @@ namespace AUF.EMR.MVC.Controllers
         {
             try
             {
-                houseHoldMember.HouseholdId = await _houseHoldService.GetHouseHoldId(houseHoldMember.HouseholdNo);
-                var houseHold = await _houseHoldMemberService.GetHouseHoldMemberWithDetails(id);
+                houseHoldMember.HouseholdId = await _houseHoldService.GetHouseholdId(houseHoldMember.HouseholdNo);
+                var houseHold = await _houseHoldMemberService.GetHouseholdMemberWithDetails(id);
                 await _houseHoldMemberService.Update(houseHoldMember);
                 return RedirectToAction(nameof(Edit), nameof(Household), new { id = houseHold.Household.Id });
             }

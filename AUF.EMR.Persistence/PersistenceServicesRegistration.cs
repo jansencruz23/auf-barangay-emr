@@ -24,8 +24,9 @@ namespace AUF.EMR.Persistence
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<IHouseHoldRepository, HouseHoldRepository>();
-            services.AddScoped<IHouseHoldMemberRepository, HouseHoldMemberRepository>();
+            services.AddScoped<IHouseholdRepository, HouseholdRepository>();
+            services.AddScoped<IHouseholdMemberRepository, HouseholdMemberRepository>();
+            services.AddScoped<IMasterListChildrenRepository, MasterListChildrenRepository>();
 
             return services;
         }

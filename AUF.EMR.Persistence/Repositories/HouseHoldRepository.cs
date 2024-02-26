@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Persistence.Repositories
 {
-    public class HouseHoldRepository : GenericRepository<Household>, IHouseHoldRepository
+    public class HouseholdRepository : GenericRepository<Household>, IHouseholdRepository
     {
         private readonly EMRDbContext _dbContext;
 
-        public HouseHoldRepository(EMRDbContext dbContext) 
+        public HouseholdRepository(EMRDbContext dbContext) 
             : base(dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task<int> GetHouseHoldId(string houseHoldNo)
+        public async Task<int> GetHouseholdId(string houseHoldNo)
         {
             var houseHold = await _dbContext.HouseHolds
                 .FirstOrDefaultAsync(h => h.HouseholdNo.Equals(houseHoldNo));
@@ -28,7 +28,7 @@ namespace AUF.EMR.Persistence.Repositories
             return houseHold.Id;
         }
 
-        public async Task<List<Household>> GetHouseHoldsWithDetails()
+        public async Task<List<Household>> GetHouseholdsWithDetails()
         {
             var houseHolds = await _dbContext.HouseHolds
                 .AsNoTracking()
@@ -38,7 +38,7 @@ namespace AUF.EMR.Persistence.Repositories
             return houseHolds;
         }
 
-        public async Task<Household> GetHouseHoldWithDetails(int id)
+        public async Task<Household> GetHouseholdWithDetails(int id)
         {
             var houseHold = await _dbContext.HouseHolds
                 .AsNoTracking()
@@ -48,7 +48,7 @@ namespace AUF.EMR.Persistence.Repositories
             return houseHold;
         }
 
-        public async Task<List<Household>> GetSearchedHouseHoldsWithDetails(string query)
+        public async Task<List<Household>> GetSearchedHouseholdsWithDetails(string query)
         {
             var houseHolds = await _dbContext.HouseHolds
                 .AsNoTracking()
@@ -65,7 +65,7 @@ namespace AUF.EMR.Persistence.Repositories
             return houseHolds;
         }
 
-        public async Task<List<Household>> GetSearchedHouseHoldWithDetails(string query)
+        public async Task<List<Household>> GetSearchedHouseholdWithDetails(string query)
         {
             var household = await _dbContext.HouseHolds
                 .AsNoTracking()

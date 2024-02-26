@@ -9,8 +9,11 @@ namespace AUF.EMR.Domain.Models
 {
     public class MasterListChildren : BaseDomainEntity
     {
-        public HouseholdMember HouseholdMember { get; set; }
+        public string NameOfMother { get; set; }
+        public string NameOfFather { get; set; }
         public bool IsNhts { get; set; }
         public bool IsInSchool { get; set; }
+        public int HouseholdMemberId { get; set; }
+        public HouseholdMember HouseholdMember { get; set; }
     }
 }

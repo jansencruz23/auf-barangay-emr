@@ -16,8 +16,9 @@ namespace AUF.EMR.Application
         public static IServiceCollection ConfigureApplicationServices(this IServiceCollection services)
         {
             services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
-            services.AddScoped<IHouseHoldService, HouseHoldService>();
-            services.AddScoped<IHouseHoldMemberService, HouseHoldMemberService>();
+            services.AddScoped<IHouseholdService, HouseholdService>();
+            services.AddScoped<IHouseholdMemberService, HouseholdMemberService>();
+            services.AddScoped<IMasterListChildrenService, MasterListChildrenService>();
 
             return services;
         }

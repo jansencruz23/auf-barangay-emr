@@ -15,7 +15,7 @@ namespace AUF.EMR.Domain.Models
         public string MotherMaidenName { get; set; }
         public string RelationshipToHouseholdHead { get; set; }
         public string Sex { get; set; }
-        public int Age { get; set; }
+        public string Age { get; set; }
         public DateTime Birthday { get; set; }
         public string FirstQtrClassification { get; set; }
         public string SecondQtrClassification { get; set; }

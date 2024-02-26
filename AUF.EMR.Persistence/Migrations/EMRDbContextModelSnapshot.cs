@@ -19,7 +19,7 @@ namespace AUF.EMR.Persistence.Migrations
                 .HasAnnotation("ProductVersion", "7.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("AUF.EMR.Domain.Models.HouseHold", b =>
+            modelBuilder.Entity("AUF.EMR.Domain.Models.Household", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -50,11 +50,11 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<DateTime?>("FourthQtrVisit")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("HouseHoldNo")
+                    b.Property<string>("HouseNoAndStreet")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("HouseNoAndStreet")
+                    b.Property<string>("HouseholdNo")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -92,14 +92,15 @@ namespace AUF.EMR.Persistence.Migrations
                     b.ToTable("HouseHolds");
                 });
 
-            modelBuilder.Entity("AUF.EMR.Domain.Models.HouseHoldMember", b =>
+            modelBuilder.Entity("AUF.EMR.Domain.Models.HouseholdMember", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
+                    b.Property<string>("Age")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("Birthday")
                         .HasColumnType("datetime(6)");
@@ -116,10 +117,10 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("HouseHoldId")
+                    b.Property<int?>("HouseholdId")
                         .HasColumnType("int");
 
-                    b.Property<string>("HouseHoldNo")
+                    b.Property<string>("HouseholdNo")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -153,7 +154,7 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HouseHoldId");
+                    b.HasIndex("HouseholdId");
 
                     b.ToTable("HouseHoldMembers");
                 });
@@ -247,6 +248,36 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.MasterListChildren", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("HouseholdMemberId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsInSchool")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("IsNhts")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("NameOfFather")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NameOfMother")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HouseholdMemberId");
+
+                    b.ToTable("MasterListChildren");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -377,13 +408,24 @@ namespace AUF.EMR.Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("AUF.EMR.Domain.Models.HouseHoldMember", b =>
+            modelBuilder.Entity("AUF.EMR.Domain.Models.HouseholdMember", b =>
                 {
-                    b.HasOne("AUF.EMR.Domain.Models.HouseHold", "HouseHold")
-                        .WithMany("HouseHoldMembers")
-                        .HasForeignKey("HouseHoldId");
+                    b.HasOne("AUF.EMR.Domain.Models.Household", "Household")
+                        .WithMany("HouseholdMembers")
+                        .HasForeignKey("HouseholdId");
 
-                    b.Navigation("HouseHold");
+                    b.Navigation("Household");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.MasterListChildren", b =>
+                {
+                    b.HasOne("AUF.EMR.Domain.Models.HouseholdMember", "HouseholdMember")
+                        .WithMany()
+                        .HasForeignKey("HouseholdMemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HouseholdMember");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -437,9 +479,9 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("AUF.EMR.Domain.Models.HouseHold", b =>
+            modelBuilder.Entity("AUF.EMR.Domain.Models.Household", b =>
                 {
-                    b.Navigation("HouseHoldMembers");
+                    b.Navigation("HouseholdMembers");
                 });
 #pragma warning restore 612, 618
         }

@@ -13,13 +13,13 @@ using Microsoft.Identity.Client;
 
 namespace AUF.EMR.MVC.Controllers
 {
-    public class HouseHoldController : Controller
+    public class HouseholdController : Controller
     {
-        private readonly IHouseHoldService _houseHoldService;
-        private readonly IHouseHoldMemberService _houseHoldMemberService;
+        private readonly IHouseholdService _houseHoldService;
+        private readonly IHouseholdMemberService _houseHoldMemberService;
 
-        public HouseHoldController(IHouseHoldService houseHoldService,
-            IHouseHoldMemberService houseHoldMemberService)
+        public HouseholdController(IHouseholdService houseHoldService,
+            IHouseholdMemberService houseHoldMemberService)
         {
             _houseHoldService = houseHoldService;
             _houseHoldMemberService = houseHoldMemberService;
@@ -28,7 +28,7 @@ namespace AUF.EMR.MVC.Controllers
         // GET: HouseHolds
         public async Task<IActionResult> HouseholdProfile(string householdNo)
         {
-            var searched = await _houseHoldService.GetSearchedHouseHoldWithDetails(householdNo);
+            var searched = await _houseHoldService.GetSearchedhouseHoldWithDetails(householdNo);
             return View(searched);
         }
 
@@ -36,19 +36,19 @@ namespace AUF.EMR.MVC.Controllers
         {
             if (string.IsNullOrEmpty(query))
             {
-                var model = await _houseHoldService.GetHouseHoldsWithDetails();
+                var model = await _houseHoldService.GetHouseholdsWithDetails();
                 return View(model);
             }
 
-            var searched = await _houseHoldService.GetSearchedHouseHoldsWithDetails(query);
+            var searched = await _houseHoldService.GetSearchedhouseHoldsWithDetails(query);
             return View(searched);
         }
 
         // GET: HouseHolds/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            var houseHold = await _houseHoldService.GetHouseHoldWithDetails(id.Value);
-            var houseHoldMembers = await _houseHoldMemberService.GetHouseHoldMembersWithDetails(houseHold.HouseholdNo);
+            var houseHold = await _houseHoldService.GetHouseholdWithDetails(id.Value);
+            var houseHoldMembers = await _houseHoldMemberService.GetHouseholdMembersWithDetails(houseHold.HouseholdNo);
             var model = new HouseHoldProfileVM
             {
                 HouseHold = houseHold,
@@ -85,8 +85,8 @@ namespace AUF.EMR.MVC.Controllers
         // GET: HouseHolds/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            var houseHold = await _houseHoldService.GetHouseHoldWithDetails(id.Value);
-            var houseHoldMembers = await _houseHoldMemberService.GetHouseHoldMembersWithDetails(houseHold.HouseholdNo);
+            var houseHold = await _houseHoldService.GetHouseholdWithDetails(id.Value);
+            var houseHoldMembers = await _houseHoldMemberService.GetHouseholdMembersWithDetails(houseHold.HouseholdNo);
             var model = new HouseHoldProfileVM
             {
                 HouseHold = houseHold,
