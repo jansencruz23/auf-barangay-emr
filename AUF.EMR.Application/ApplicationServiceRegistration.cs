@@ -18,7 +18,7 @@ namespace AUF.EMR.Application
             services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
             services.AddScoped<IHouseholdService, HouseholdService>();
             services.AddScoped<IHouseholdMemberService, HouseholdMemberService>();
-            services.AddScoped<IMasterListChildrenService, MasterListChildrenService>();
+            services.AddScoped<IMasterlistChildrenService, MasterlistChildrenService>();
 
             return services;
         }

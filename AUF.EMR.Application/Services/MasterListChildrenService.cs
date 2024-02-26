@@ -10,24 +10,24 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Application.Services
 {
-    public class MasterListChildrenService : GenericService<MasterListChildren>, IMasterListChildrenService
+    public class MasterlistChildrenService : GenericService<MasterlistChildren>, IMasterlistChildrenService
     {
-        private readonly IMasterListChildrenRepository _repository;
+        private readonly IMasterlistChildrenRepository _repository;
 
-        public MasterListChildrenService(IMasterListChildrenRepository repository)
+        public MasterlistChildrenService(IMasterlistChildrenRepository repository)
             : base(repository)
         {
             _repository = repository;
         }
 
-        public async Task<List<MasterListChildren>> GetMasterListChildrenWithDetails(string householdNo)
+        public async Task<List<MasterlistChildren>> GetMasterlistChildrenWithDetails(string householdNo)
         {
-            return await _repository.GetMasterListChildrenWithDetails(householdNo);
+            return await _repository.GetMasterlistChildrenWithDetails(householdNo);
         }
 
-        public async Task<MasterListChildren> GetMasterListChildWithDetails(int id)
+        public async Task<MasterlistChildren> GetMasterlistChildWithDetails(int id)
         {
-            return await _repository.GetMasterListChildWithDetails(id);
+            return await _repository.GetMasterlistChildWithDetails(id);
         }
     }
 }

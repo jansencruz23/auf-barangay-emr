@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
-    public class MasterListChildrenController : Controller
+    public class MasterlistChildrenController : Controller
     {
-        private readonly IMasterListChildrenService _masterListChildrenService;
+        private readonly IMasterlistChildrenService _masterListChildrenService;
         private readonly IHouseholdMemberService _householdMemberService;
 
-        public MasterListChildrenController(IMasterListChildrenService masterListChildrenService,
+        public MasterlistChildrenController(IMasterlistChildrenService masterListChildrenService,
             IHouseholdMemberService householdMemberService)
         {
             _masterListChildrenService = masterListChildrenService;
@@ -22,7 +22,7 @@ namespace AUF.EMR.MVC.Controllers
         // GET: MasterListChildrenController
         public async Task<ActionResult> Index(string householdNo)
         {
-            var searched = await _masterListChildrenService.GetMasterListChildrenWithDetails(householdNo);
+            var searched = await _masterListChildrenService.GetMasterlistChildrenWithDetails(householdNo);
             return View(searched);
         }
 
@@ -36,8 +36,9 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> Create(string householdNo)
         {
             var members = await _householdMemberService.GetHouseholdMembersWithDetails(householdNo);
-            var model = new CreateMasterListVM
+            var model = new CreateMasterlistChildrenVM
             {
+                HouseholdNo = householdNo,
                 HouseholdMembers = members
             };
             
@@ -47,12 +48,12 @@ namespace AUF.EMR.MVC.Controllers
         // POST: MasterListChildrenController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(CreateMasterListVM model)
+        public async Task<ActionResult> Create(CreateMasterlistChildrenVM model)
         {
             try
             {
-                await _masterListChildrenService.Add(model.MasterListChildren);
-                return RedirectToAction(nameof(Index), new { householdNo = model.MasterListChildren.HouseholdMember.HouseholdNo });
+                await _masterListChildrenService.Add(model.MasterlistChildren);
+                return RedirectToAction(nameof(Index), new { householdNo = model.HouseholdNo });
             }
             catch (Exception ex)
             {

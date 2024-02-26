@@ -2,9 +2,10 @@
 
 namespace AUF.EMR.MVC.Models
 {
-    public class CreateMasterListVM
+    public class CreateMasterlistChildrenVM
     {
-        public MasterListChildren MasterListChildren { get; set; } = new();
+        public string HouseholdNo { get; set; }
+        public MasterlistChildren MasterlistChildren { get; set; } = new();
         public HouseholdMember HouseholdMember { get; set; }
         public List<HouseholdMember>? HouseholdMembers { get; set; }
     }

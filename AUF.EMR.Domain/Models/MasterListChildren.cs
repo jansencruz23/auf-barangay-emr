@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Domain.Models
 {
-    public class MasterListChildren : BaseDomainEntity
+    public class MasterlistChildren : BaseDomainEntity
     {
         public string NameOfMother { get; set; }
         public string NameOfFather { get; set; }

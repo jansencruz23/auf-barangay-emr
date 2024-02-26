@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Application.Contracts.Services
 {
-    public interface IMasterListChildrenService : IGenericService<MasterListChildren>
+    public interface IMasterlistChildrenService : IGenericService<MasterlistChildren>
     {
-        Task<List<MasterListChildren>> GetMasterListChildrenWithDetails(string householdNo);
-        Task<MasterListChildren> GetMasterListChildWithDetails(int id);
+        Task<List<MasterlistChildren>> GetMasterlistChildrenWithDetails(string householdNo);
+        Task<MasterlistChildren> GetMasterlistChildWithDetails(int id);
     }
 }

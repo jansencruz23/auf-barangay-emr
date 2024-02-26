@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Persistence.Repositories
 {
-    public class MasterListChildrenRepository : GenericRepository<MasterListChildren>, IMasterListChildrenRepository
+    public class MasterlistChildrenRepository : GenericRepository<MasterlistChildren>, IMasterlistChildrenRepository
     {
         private readonly EMRDbContext _dbContext;
 
-        public MasterListChildrenRepository(EMRDbContext dbContext)
+        public MasterlistChildrenRepository(EMRDbContext dbContext)
             : base(dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task<List<MasterListChildren>> GetMasterListChildrenWithDetails(string householdNo)
+        public async Task<List<MasterlistChildren>> GetMasterlistChildrenWithDetails(string householdNo)
         {
             var masterList = await _dbContext.MasterListChildren
                 .AsNoTracking()
@@ -32,7 +32,7 @@ namespace AUF.EMR.Persistence.Repositories
             return masterList;
         }
 
-        public async Task<MasterListChildren> GetMasterListChildWithDetails(int id)
+        public async Task<MasterlistChildren> GetMasterlistChildWithDetails(int id)
         {
             var child = await _dbContext.MasterListChildren
                 .AsNoTracking()
