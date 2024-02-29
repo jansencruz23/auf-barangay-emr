@@ -1,6 +1,8 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Application.Services;
 using AUF.EMR.Domain.Models;
+using AUF.EMR.MVC.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,12 +12,14 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IHouseholdMemberService _houseHoldMemberService;
         private readonly IHouseholdService _houseHoldService;
+        private readonly IMapper _mapper;
 
         public HouseholdMemberController(IHouseholdMemberService houseHoldMemberService,
-            IHouseholdService houseHoldService)
+            IHouseholdService houseHoldService, IMapper mapper)
         {
             _houseHoldMemberService = houseHoldMemberService;
             _houseHoldService = houseHoldService;
+            _mapper = mapper;
         }
 
         // GET: HouseHoldMemberController
@@ -31,29 +35,35 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHoldMemberController/Create
-        public ActionResult Create()
+        public ActionResult Create(string householdNo)
         {
-            return View();
+            var model = new CreateHouseholdMemberVM
+            {
+                HouseholdNo = householdNo
+            };
+
+            return View(model);
         }
 
         // POST: HouseHoldMemberController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(HouseholdMember houseHoldMember)
+        public async Task<ActionResult> Create(CreateHouseholdMemberVM householdMemberVM)
         {
             try
             {
-                houseHoldMember.HouseholdId = await _houseHoldService.GetHouseholdId(houseHoldMember.HouseholdNo);
-                var houseHold = await _houseHoldMemberService.GetHouseholdMemberWithDetails(houseHoldMember.Id);
-                var completed = await _houseHoldMemberService.Add(houseHoldMember);
-                return RedirectToAction(nameof(Edit), nameof(Household), new { id = houseHold.Household.Id });
+                var householdMember = householdMemberVM.HouseholdMember;
+                var completed = await _houseHoldMemberService.Add(householdMember);
+                var householdId = await _houseHoldService.GetHouseholdId(householdMember.HouseholdNo);
+
+                return RedirectToAction(nameof(Edit), nameof(Household), new { id = householdId });
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(houseHoldMember);
+            return View(householdMemberVM);
         }
 
         // GET: HouseHoldMemberController/Edit/5
@@ -66,21 +76,21 @@ namespace AUF.EMR.MVC.Controllers
         // POST: HouseHoldMemberController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, HouseholdMember houseHoldMember)
+        public async Task<ActionResult> Edit(int id, HouseholdMember householdMember)
         {
             try
             {
-                houseHoldMember.HouseholdId = await _houseHoldService.GetHouseholdId(houseHoldMember.HouseholdNo);
-                var houseHold = await _houseHoldMemberService.GetHouseholdMemberWithDetails(id);
-                await _houseHoldMemberService.Update(houseHoldMember);
-                return RedirectToAction(nameof(Edit), nameof(Household), new { id = houseHold.Household.Id });
+                var completed = await _houseHoldMemberService.Update(householdMember);
+                var householdId = await _houseHoldService.GetHouseholdId(householdMember.HouseholdNo);
+
+                return RedirectToAction(nameof(Edit), nameof(Household), new { id = householdId });
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(houseHoldMember);
+            return View(householdMember);
         }
 
         // GET: HouseHoldMemberController/Delete/5

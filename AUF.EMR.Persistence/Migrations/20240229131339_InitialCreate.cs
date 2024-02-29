@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AUF.EMR.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class AddHouseHoldIdAgain : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -88,7 +88,7 @@ namespace AUF.EMR.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    HouseHoldNo = table.Column<string>(type: "longtext", nullable: false)
+                    HouseholdNo = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     FirstQtrVisit = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     SecondQtrVisit = table.Column<DateTime>(type: "datetime(6)", nullable: true),
@@ -267,7 +267,8 @@ namespace AUF.EMR.Persistence.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Sex = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Age = table.Column<int>(type: "int", nullable: false),
+                    Age = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Birthday = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     FirstQtrClassification = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -279,19 +280,24 @@ namespace AUF.EMR.Persistence.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Remarks = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    HouseHoldNo = table.Column<string>(type: "longtext", nullable: false)
+                    HouseholdNo = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    HouseHoldId = table.Column<int>(type: "int", nullable: false)
+                    HouseholdId = table.Column<int>(type: "int", nullable: true),
+                    NameOfMother = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    NameOfFather = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IsNhts = table.Column<bool>(type: "tinyint(1)", nullable: true),
+                    IsInSchool = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_HouseHoldMembers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_HouseHoldMembers_HouseHolds_HouseHoldId",
-                        column: x => x.HouseHoldId,
+                        name: "FK_HouseHoldMembers_HouseHolds_HouseholdId",
+                        column: x => x.HouseholdId,
                         principalTable: "HouseHolds",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -333,9 +339,9 @@ namespace AUF.EMR.Persistence.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_HouseHoldMembers_HouseHoldId",
+                name: "IX_HouseHoldMembers_HouseholdId",
                 table: "HouseHoldMembers",
-                column: "HouseHoldId");
+                column: "HouseholdId");
         }
 
         /// <inheritdoc />

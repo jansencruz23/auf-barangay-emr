@@ -29,7 +29,13 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<IActionResult> HouseholdProfile(string householdNo)
         {
             var searched = await _houseHoldService.GetSearchedhouseHoldWithDetails(householdNo);
-            return View(searched);
+            var model = new HouseholdProfileVM
+            {
+                HouseholdNo = householdNo,
+                Households = searched
+            };
+
+            return View(model);
         }
 
         public async Task<IActionResult> Index(string query)
@@ -49,10 +55,10 @@ namespace AUF.EMR.MVC.Controllers
         {
             var houseHold = await _houseHoldService.GetHouseholdWithDetails(id.Value);
             var houseHoldMembers = await _houseHoldMemberService.GetHouseholdMembersWithDetails(houseHold.HouseholdNo);
-            var model = new HouseHoldProfileVM
+            var model = new CreateHouseholdProfileVM
             {
-                HouseHold = houseHold,
-                HouseHoldMembers = houseHoldMembers
+                Household = houseHold,
+                HouseholdMembers = houseHoldMembers
             };
 
             return View(model);
@@ -87,10 +93,10 @@ namespace AUF.EMR.MVC.Controllers
         {
             var houseHold = await _houseHoldService.GetHouseholdWithDetails(id.Value);
             var houseHoldMembers = await _houseHoldMemberService.GetHouseholdMembersWithDetails(houseHold.HouseholdNo);
-            var model = new HouseHoldProfileVM
+            var model = new CreateHouseholdProfileVM
             {
-                HouseHold = houseHold,
-                HouseHoldMembers = houseHoldMembers
+                Household = houseHold,
+                HouseholdMembers = houseHoldMembers
             };
            
             return View(model);

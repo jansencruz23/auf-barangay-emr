@@ -1,6 +1,7 @@
 ﻿using AUF.EMR.Domain.Models.Common;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,17 @@ namespace AUF.EMR.Domain.Models
     public class Household : BaseDomainEntity
     {
         public string HouseholdNo { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime? FirstQtrVisit { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime? SecondQtrVisit { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime? ThirdQtrVisit { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime? FourthQtrVisit { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }

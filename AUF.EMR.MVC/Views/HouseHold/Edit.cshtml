@@ -1,4 +1,4 @@
-﻿@model HouseHoldProfileVM
+﻿@model CreateHouseholdProfileVM
 
 @{
     ViewData["Title"] = "Edit";
@@ -13,96 +13,96 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="HouseHold.HouseholdNo" class="control-label"></label>
-                <input asp-for="HouseHold.HouseholdNo" class="form-control" />
-                <span asp-validation-for="HouseHold.HouseholdNo" class="text-danger"></span>
+                <label asp-for="Household.HouseholdNo" class="control-label"></label>
+                <input asp-for="Household.HouseholdNo" class="form-control" />
+                <span asp-validation-for="Household.HouseholdNo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.FirstQtrVisit" class="control-label"></label>
-                <input asp-for="HouseHold.FirstQtrVisit" class="form-control" />
-                <span asp-validation-for="HouseHold.FirstQtrVisit" class="text-danger"></span>
+                <label asp-for="Household.FirstQtrVisit" class="control-label"></label>
+                <input asp-for="Household.FirstQtrVisit" class="form-control" />
+                <span asp-validation-for="Household.FirstQtrVisit" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.SecondQtrVisit" class="control-label"></label>
-                <input asp-for="HouseHold.SecondQtrVisit" class="form-control" />
-                <span asp-validation-for="HouseHold.SecondQtrVisit" class="text-danger"></span>
+                <label asp-for="Household.SecondQtrVisit" class="control-label"></label>
+                <input asp-for="Household.SecondQtrVisit" class="form-control" />
+                <span asp-validation-for="Household.SecondQtrVisit" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.ThirdQtrVisit" class="control-label"></label>
-                <input asp-for="HouseHold.ThirdQtrVisit" class="form-control" />
-                <span asp-validation-for="HouseHold.ThirdQtrVisit" class="text-danger"></span>
+                <label asp-for="Household.ThirdQtrVisit" class="control-label"></label>
+                <input asp-for="Household.ThirdQtrVisit" class="form-control" />
+                <span asp-validation-for="Household.ThirdQtrVisit" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.FourthQtrVisit" class="control-label"></label>
-                <input asp-for="HouseHold.FourthQtrVisit" class="form-control" />
-                <span asp-validation-for="HouseHold.FourthQtrVisit" class="text-danger"></span>
+                <label asp-for="Household.FourthQtrVisit" class="control-label"></label>
+                <input asp-for="Household.FourthQtrVisit" class="form-control" />
+                <span asp-validation-for="Household.FourthQtrVisit" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.LastName" class="control-label"></label>
-                <input asp-for="HouseHold.LastName" class="form-control" />
-                <span asp-validation-for="HouseHold.LastName" class="text-danger"></span>
+                <label asp-for="Household.LastName" class="control-label"></label>
+                <input asp-for="Household.LastName" class="form-control" />
+                <span asp-validation-for="Household.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.FirstName" class="control-label"></label>
-                <input asp-for="HouseHold.FirstName" class="form-control" />
-                <span asp-validation-for="HouseHold.FirstName" class="text-danger"></span>
+                <label asp-for="Household.FirstName" class="control-label"></label>
+                <input asp-for="Household.FirstName" class="form-control" />
+                <span asp-validation-for="Household.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.MotherMaidenName" class="control-label"></label>
-                <input asp-for="HouseHold.MotherMaidenName" class="form-control" />
-                <span asp-validation-for="HouseHold.MotherMaidenName" class="text-danger"></span>
+                <label asp-for="Household.MotherMaidenName" class="control-label"></label>
+                <input asp-for="Household.MotherMaidenName" class="form-control" />
+                <span asp-validation-for="Household.MotherMaidenName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.HouseNoAndStreet" class="control-label"></label>
-                <input asp-for="HouseHold.HouseNoAndStreet" class="form-control" />
-                <span asp-validation-for="HouseHold.HouseNoAndStreet" class="text-danger"></span>
+                <label asp-for="Household.HouseNoAndStreet" class="control-label"></label>
+                <input asp-for="Household.HouseNoAndStreet" class="form-control" />
+                <span asp-validation-for="Household.HouseNoAndStreet" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.Barangay" class="control-label"></label>
-                <input asp-for="HouseHold.Barangay" class="form-control" />
-                <span asp-validation-for="HouseHold.Barangay" class="text-danger"></span>
+                <label asp-for="Household.Barangay" class="control-label"></label>
+                <input asp-for="Household.Barangay" class="form-control" />
+                <span asp-validation-for="Household.Barangay" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.City" class="control-label"></label>
-                <input asp-for="HouseHold.City" class="form-control" />
-                <span asp-validation-for="HouseHold.City" class="text-danger"></span>
+                <label asp-for="Household.City" class="control-label"></label>
+                <input asp-for="Household.City" class="form-control" />
+                <span asp-validation-for="Household.City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.Province" class="control-label"></label>
-                <input asp-for="HouseHold.Province" class="form-control" />
-                <span asp-validation-for="HouseHold.Province" class="text-danger"></span>
+                <label asp-for="Household.Province" class="control-label"></label>
+                <input asp-for="Household.Province" class="form-control" />
+                <span asp-validation-for="Household.Province" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.ContactNo" class="control-label"></label>
-                <input asp-for="HouseHold.ContactNo" class="form-control" />
-                <span asp-validation-for="HouseHold.ContactNo" class="text-danger"></span>
+                <label asp-for="Household.ContactNo" class="control-label"></label>
+                <input asp-for="Household.ContactNo" class="form-control" />
+                <span asp-validation-for="Household.ContactNo" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="HouseHold.IsNHTS" /> @Html.DisplayNameFor(model => model.HouseHold.IsNHTS)
+                    <input class="form-check-input" asp-for="Household.IsNHTS" /> @Html.DisplayNameFor(model => model.Household.IsNHTS)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="HouseHold.IsHeadPhilhealthMember" /> @Html.DisplayNameFor(model => model.HouseHold.IsHeadPhilhealthMember)
+                    <input class="form-check-input" asp-for="Household.IsHeadPhilhealthMember" /> @Html.DisplayNameFor(model => model.Household.IsHeadPhilhealthMember)
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.PhilhealthNo" class="control-label"></label>
-                <input asp-for="HouseHold.PhilhealthNo" class="form-control" />
-                <span asp-validation-for="HouseHold.PhilhealthNo" class="text-danger"></span>
+                <label asp-for="Household.PhilhealthNo" class="control-label"></label>
+                <input asp-for="Household.PhilhealthNo" class="form-control" />
+                <span asp-validation-for="Household.PhilhealthNo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseHold.Category" class="control-label"></label>
-                <input asp-for="HouseHold.Category" class="form-control" />
-                <span asp-validation-for="HouseHold.Category" class="text-danger"></span>
+                <label asp-for="Household.Category" class="control-label"></label>
+                <input asp-for="Household.Category" class="form-control" />
+                <span asp-validation-for="Household.Category" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="HouseHold.IsIP" /> @Html.DisplayNameFor(model => model.HouseHold.IsIP)
+                    <input class="form-check-input" asp-for="Household.IsIP" /> @Html.DisplayNameFor(model => model.Household.IsIP)
                 </label>
             </div>
-            <input type="hidden" asp-for="HouseHold.Id" />
+            <input type="hidden" asp-for="Household.Id" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -114,49 +114,49 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHoldMember.LastName)
+                        @Html.DisplayNameFor(model => model.HouseholdMember.LastName)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHoldMember.FirstName)
+                        @Html.DisplayNameFor(model => model.HouseholdMember.FirstName)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHoldMember.MotherMaidenName)
+                        @Html.DisplayNameFor(model => model.HouseholdMember.MotherMaidenName)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHoldMember.RelationshipToHouseholdHead)
+                        @Html.DisplayNameFor(model => model.HouseholdMember.RelationshipToHouseholdHead)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHoldMember.Sex)
+                        @Html.DisplayNameFor(model => model.HouseholdMember.Sex)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHoldMember.Age)
+                        @Html.DisplayNameFor(model => model.HouseholdMember.Age)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHoldMember.Birthday)
+                        @Html.DisplayNameFor(model => model.HouseholdMember.Birthday)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHoldMember.FirstQtrClassification)
+                        @Html.DisplayNameFor(model => model.HouseholdMember.FirstQtrClassification)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHoldMember.SecondQtrClassification)
+                        @Html.DisplayNameFor(model => model.HouseholdMember.SecondQtrClassification)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHoldMember.ThirdQtrClassification)
+                        @Html.DisplayNameFor(model => model.HouseholdMember.ThirdQtrClassification)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHoldMember.FourthQtrClassification)
+                        @Html.DisplayNameFor(model => model.HouseholdMember.FourthQtrClassification)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHoldMember.Remarks)
+                        @Html.DisplayNameFor(model => model.HouseholdMember.Remarks)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HouseHold)
+                        @Html.DisplayNameFor(model => model.Household)
                     </th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.HouseHoldMembers)
+                @foreach (var item in Model.HouseholdMembers)
                 {
                     <tr>
                         <td>
@@ -207,7 +207,8 @@
                 }
             </tbody>
         </table>
-        <a asp-action="Create" asp-controller="HouseHoldMember">Add Member</a>
+        <a asp-action="Create" asp-controller="HouseHoldMember" 
+            asp-route-householdNo="@Model.Household.HouseholdNo">Add Member</a>
     </div>
     </div>
 </div>

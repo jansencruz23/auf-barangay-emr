@@ -38,9 +38,9 @@ namespace AUF.EMR.Application.Services.Common
             await _repository.Delete(entity);
         }
 
-        public async Task Update(T entity)
+        public async Task<T> Update(T entity)
         {
-            await _repository.Update(entity);
+            return await _repository.Update(entity);
         }
 
         public Task<bool> Exists(int id)

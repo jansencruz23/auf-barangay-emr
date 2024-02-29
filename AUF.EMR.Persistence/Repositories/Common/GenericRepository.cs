@@ -35,10 +35,11 @@ namespace AUF.EMR.Persistence.Repositories.Common
             return entity;
         }
 
-        public async Task Update(T entity)
+        public async Task<T> Update(T entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;
             await _dbContext.SaveChangesAsync();
+            return entity;
         }
 
         public async Task Delete(T entity)

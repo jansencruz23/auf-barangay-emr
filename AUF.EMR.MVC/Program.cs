@@ -1,14 +1,17 @@
 using AUF.EMR.Application;
 using AUF.EMR.Domain.Models.Identity;
+using AUF.EMR.MVC;
 using AUF.EMR.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.ConfigureApplicationServices();
 builder.Services.ConfigurePersistenceServices(builder.Configuration);
+builder.Services.ConfigureMVCService();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => {

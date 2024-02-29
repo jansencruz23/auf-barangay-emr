@@ -26,7 +26,7 @@ namespace AUF.EMR.Persistence
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IHouseholdRepository, HouseholdRepository>();
             services.AddScoped<IHouseholdMemberRepository, HouseholdMemberRepository>();
-            services.AddScoped<IMasterlistChildrenRepository, MasterlistChildrenRepository>();
+            services.AddScoped<IMasterlistRepository, MasterlistRepository>();
 
             return services;
         }

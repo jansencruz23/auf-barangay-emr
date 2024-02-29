@@ -20,6 +20,5 @@ namespace AUF.EMR.Persistence
 
         public DbSet<Household> HouseHolds { get; set; }
         public DbSet<HouseholdMember> HouseHoldMembers { get; set; }
-        public DbSet<MasterlistChildren> MasterListChildren { get; set; }
     }
 }

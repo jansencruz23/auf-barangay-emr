@@ -110,11 +110,9 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("FirstQtrClassification")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("FourthQtrClassification")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int?>("HouseholdId")
@@ -124,6 +122,12 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<bool?>("IsInSchool")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsNhts")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -132,16 +136,20 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("NameOfFather")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NameOfMother")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("RelationshipToHouseholdHead")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Remarks")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("SecondQtrClassification")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Sex")
@@ -149,7 +157,6 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("ThirdQtrClassification")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -248,36 +255,6 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("AUF.EMR.Domain.Models.MasterListChildren", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("HouseholdMemberId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsInSchool")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("IsNhts")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("NameOfFather")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("NameOfMother")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HouseholdMemberId");
-
-                    b.ToTable("MasterListChildren");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -415,17 +392,6 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasForeignKey("HouseholdId");
 
                     b.Navigation("Household");
-                });
-
-            modelBuilder.Entity("AUF.EMR.Domain.Models.MasterListChildren", b =>
-                {
-                    b.HasOne("AUF.EMR.Domain.Models.HouseholdMember", "HouseholdMember")
-                        .WithMany()
-                        .HasForeignKey("HouseholdMemberId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("HouseholdMember");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

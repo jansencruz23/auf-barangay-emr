@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AUF.EMR.Persistence.Migrations
 {
     [DbContext(typeof(EMRDbContext))]
-    [Migration("20240225132423_ChangeAgeDataType")]
-    partial class ChangeAgeDataType
+    [Migration("20240229131339_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -127,12 +127,24 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<bool?>("IsInSchool")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsNhts")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("MotherMaidenName")
                         .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NameOfFather")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NameOfMother")
                         .HasColumnType("longtext");
 
                     b.Property<string>("RelationshipToHouseholdHead")

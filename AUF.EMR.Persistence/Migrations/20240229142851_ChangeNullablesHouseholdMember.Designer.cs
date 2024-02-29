@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AUF.EMR.Persistence.Migrations
 {
     [DbContext(typeof(EMRDbContext))]
-    [Migration("20240225022551_MakeFKNullable")]
-    partial class MakeFKNullable
+    [Migration("20240229142851_ChangeNullablesHouseholdMember")]
+    partial class ChangeNullablesHouseholdMember
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,7 +22,7 @@ namespace AUF.EMR.Persistence.Migrations
                 .HasAnnotation("ProductVersion", "7.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("AUF.EMR.Domain.Models.HouseHold", b =>
+            modelBuilder.Entity("AUF.EMR.Domain.Models.Household", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,11 +53,11 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<DateTime?>("FourthQtrVisit")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("HouseHoldNo")
+                    b.Property<string>("HouseNoAndStreet")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("HouseNoAndStreet")
+                    b.Property<string>("HouseholdNo")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -95,14 +95,15 @@ namespace AUF.EMR.Persistence.Migrations
                     b.ToTable("HouseHolds");
                 });
 
-            modelBuilder.Entity("AUF.EMR.Domain.Models.HouseHoldMember", b =>
+            modelBuilder.Entity("AUF.EMR.Domain.Models.HouseholdMember", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
+                    b.Property<string>("Age")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("Birthday")
                         .HasColumnType("datetime(6)");
@@ -112,19 +113,23 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("FirstQtrClassification")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("FourthQtrClassification")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("HouseHoldId")
+                    b.Property<int?>("HouseholdId")
                         .HasColumnType("int");
 
-                    b.Property<string>("HouseHoldNo")
+                    b.Property<string>("HouseholdNo")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<bool?>("IsInSchool")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsNhts")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -134,16 +139,20 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("NameOfFather")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NameOfMother")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("RelationshipToHouseholdHead")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Remarks")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("SecondQtrClassification")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Sex")
@@ -151,12 +160,11 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("ThirdQtrClassification")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HouseHoldId");
+                    b.HasIndex("HouseholdId");
 
                     b.ToTable("HouseHoldMembers");
                 });
@@ -380,13 +388,13 @@ namespace AUF.EMR.Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("AUF.EMR.Domain.Models.HouseHoldMember", b =>
+            modelBuilder.Entity("AUF.EMR.Domain.Models.HouseholdMember", b =>
                 {
-                    b.HasOne("AUF.EMR.Domain.Models.HouseHold", "HouseHold")
-                        .WithMany("HouseHoldMembers")
-                        .HasForeignKey("HouseHoldId");
+                    b.HasOne("AUF.EMR.Domain.Models.Household", "Household")
+                        .WithMany("HouseholdMembers")
+                        .HasForeignKey("HouseholdId");
 
-                    b.Navigation("HouseHold");
+                    b.Navigation("Household");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -440,9 +448,9 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("AUF.EMR.Domain.Models.HouseHold", b =>
+            modelBuilder.Entity("AUF.EMR.Domain.Models.Household", b =>
                 {
-                    b.Navigation("HouseHoldMembers");
+                    b.Navigation("HouseholdMembers");
                 });
 #pragma warning restore 612, 618
         }
