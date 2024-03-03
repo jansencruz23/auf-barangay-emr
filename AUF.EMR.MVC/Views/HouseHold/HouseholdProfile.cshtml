@@ -5,8 +5,16 @@
 }
 
 <h1>F1 - Household Profile</h1>
-<a asp-action="Newborn" asp-controller="Masterlist" 
-    asp-route-householdNo="@Model.HouseholdNo">MasterList of Newborns</a>
+
+<a asp-action="Newborn" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Newborns</a>
+<a asp-action="Infant" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Infants</a>
+<a asp-action="UnderFive" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Under-five Children</a>
+<a asp-action="UnderFive" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Under-five Children</a>
+<a asp-action="SchoolAged" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of School-aged Children</a>
+<a asp-action="Adolescent" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Adolescents</a>
+<a asp-action="Adult" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Adults</a>
+<a asp-action="SeniorCitizen" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Senior Citizens</a>
+
 <table class="table">
     <thead>
         <tr>

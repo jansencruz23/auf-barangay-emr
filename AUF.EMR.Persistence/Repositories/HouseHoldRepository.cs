@@ -23,6 +23,8 @@ namespace AUF.EMR.Persistence.Repositories
         public async Task<int> GetHouseholdId(string houseHoldNo)
         {
             var houseHold = await _dbContext.HouseHolds
+                .AsNoTracking()
+                .Where(h => h.Status)
                 .FirstOrDefaultAsync(h => h.HouseholdNo.Equals(houseHoldNo));
 
             return houseHold.Id;
@@ -33,6 +35,7 @@ namespace AUF.EMR.Persistence.Repositories
             var houseHolds = await _dbContext.HouseHolds
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers)
+                .Where(h => h.Status)
                 .ToListAsync();
 
             return houseHolds;
@@ -43,6 +46,7 @@ namespace AUF.EMR.Persistence.Repositories
             var houseHold = await _dbContext.HouseHolds
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers)
+                .Where(h => h.Status)
                 .FirstOrDefaultAsync(h => h.Id == id);
 
             return houseHold;
@@ -54,12 +58,13 @@ namespace AUF.EMR.Persistence.Repositories
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers)
                 .Where(h =>
+                    h.Status &&
                     h.LastName.Contains(query) ||
                     h.FirstName.Contains(query) ||
                     h.HouseholdNo.Contains(query) ||
                     h.HouseholdMembers.Any(m =>
                         m.LastName.Contains(query) ||
-                        m.FirstName.Contains(query)))
+                        m.FirstName.Contains(query) && m.Status))
                 .ToListAsync();
 
             return houseHolds;
@@ -70,7 +75,7 @@ namespace AUF.EMR.Persistence.Repositories
             var household = await _dbContext.HouseHolds
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers)
-                .Where(h => h.HouseholdNo.Equals(query))
+                .Where(h => h.HouseholdNo.Equals(query) && h.Status)
                 .ToListAsync();
 
             return household;

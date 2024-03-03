@@ -35,11 +35,13 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHoldMemberController/Create
-        public ActionResult Create(string householdNo)
+        public async Task<ActionResult> Create(string householdNo)
         {
+            var householdId = await _houseHoldService.GetHouseholdId(householdNo);
             var model = new CreateHouseholdMemberVM
             {
-                HouseholdNo = householdNo
+                HouseholdNo = householdNo,
+                HouseholdId = householdId
             };
 
             return View(model);
@@ -53,8 +55,9 @@ namespace AUF.EMR.MVC.Controllers
             try
             {
                 var householdMember = householdMemberVM.HouseholdMember;
-                var completed = await _houseHoldMemberService.Add(householdMember);
                 var householdId = await _houseHoldService.GetHouseholdId(householdMember.HouseholdNo);
+                householdMember.HouseholdId = householdId;
+                var completed = await _houseHoldMemberService.Add(householdMember);
 
                 return RedirectToAction(nameof(Edit), nameof(Household), new { id = householdId });
             }
@@ -80,8 +83,9 @@ namespace AUF.EMR.MVC.Controllers
         {
             try
             {
-                var completed = await _houseHoldMemberService.Update(householdMember);
                 var householdId = await _houseHoldService.GetHouseholdId(householdMember.HouseholdNo);
+                householdMember.HouseholdId = householdId;
+                var completed = await _houseHoldMemberService.Update(householdMember);
 
                 return RedirectToAction(nameof(Edit), nameof(Household), new { id = householdId });
             }

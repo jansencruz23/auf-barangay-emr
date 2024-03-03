@@ -8,13 +8,23 @@ namespace AUF.EMR.Application.Constants
 {
     public static class MasterlistAgeRange
     {
-        public const int Month = -30;
         public const int NewbornStart = -28;
 
-        public const int InfantStart = -11;
+        public const int InfantStart = -12;
         public const int InfantEnd = -29;
 
-        public const int UnderFiveStart = -4;
+        public const int UnderFiveStart = -5;
         public const int UnderFiveEnd = -1;
+
+        public const int SchoolAgedStart = -10;
+        public const int SchoolAgedEnd = -5;
+
+        public const int AdolescentStart = -20;
+        public const int AdolescentEnd = -10;
+
+        public const int AdultStart = -60;
+        public const int AdultEnd = -20;
+
+        public const int SeniorEnd = -60;
     }
 }

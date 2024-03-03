@@ -32,5 +32,6 @@ namespace AUF.EMR.Domain.Models
         public string? NameOfFather { get; set; }
         public bool? IsNhts { get; set; }
         public bool? IsInSchool { get; set; }
+        public bool Status { get; set; } = true;
     }
 }

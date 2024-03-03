@@ -19,6 +19,9 @@
                 Name of Mother
             </th>
             <th>
+                Name of Father
+            </th>
+            <th>
                 Address
             </th>
             <th>
@@ -50,6 +53,12 @@
                     @Html.DisplayFor(modelItem => item.FirstName)
                     @Html.DisplayFor(modelItem => item.MotherMaidenName)
                     @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameOfMother)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameOfFather)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Household.HouseNoAndStreet)

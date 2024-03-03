@@ -45,6 +45,34 @@ namespace AUF.EMR.MVC.Controllers
             return View(underFiveChildren);
         }
 
+        // GET: MasterlistController/SchoolAged
+        public async Task<ActionResult> SchoolAged(string householdNo)
+        {
+            var schoolAgedChildren = await _masterlistService.GetMasterlistSchoolAge(householdNo);
+            return View(schoolAgedChildren);
+        }
+
+        // GET: MasterlistController/Adolescent
+        public async Task<ActionResult> Adolescent(string householdNo)
+        {
+            var schoolAgedChildren = await _masterlistService.GetMasterlistAdolescent(householdNo);
+            return View(schoolAgedChildren);
+        }
+
+        // GET: MasterlistController/Adult
+        public async Task<ActionResult> Adult(string householdNo)
+        {
+            var schoolAgedChildren = await _masterlistService.GetMasterlistAdult(householdNo);
+            return View(schoolAgedChildren);
+        }
+
+        // GET: MasterlistController/SeniorCitizen
+        public async Task<ActionResult> SeniorCitizen(string householdNo)
+        {
+            var schoolAgedChildren = await _masterlistService.GetMasterlistSeniorCitizen(householdNo);
+            return View(schoolAgedChildren);
+        }
+
         // GET: MasterlistController/Details/5
         public ActionResult Details(int id)
         {

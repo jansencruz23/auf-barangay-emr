@@ -25,7 +25,8 @@ namespace AUF.EMR.Persistence.Repositories
             var houseHoldMembers = await _dbContext.HouseHoldMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
-                .Where(m => m.HouseholdNo.Equals(houseHoldNo))
+                .Where(m => m.Household.Status)
+                .Where(m => m.HouseholdNo.Equals(houseHoldNo) && m.Status)
                 .ToListAsync();
 
             return houseHoldMembers;
@@ -36,6 +37,8 @@ namespace AUF.EMR.Persistence.Repositories
             var houseHoldMember = await _dbContext.HouseHoldMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
+                .Where(m => m.Household.Status)
+                .Where(m => m.Status)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             return houseHoldMember;

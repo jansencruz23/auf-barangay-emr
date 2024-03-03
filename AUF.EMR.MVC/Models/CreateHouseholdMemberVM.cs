@@ -6,5 +6,6 @@ namespace AUF.EMR.MVC.Models
     {
         public HouseholdMember HouseholdMember { get; set; }
         public string HouseholdNo { get; set; }
+        public int HouseholdId { get; set; }
     }
 }
