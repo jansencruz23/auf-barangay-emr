@@ -36,15 +36,27 @@ namespace AUF.EMR.Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<HouseholdMember>> GetMasterlistInfant(string householdNo)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<List<HouseholdMember>> GetMasterlistNewborn(string householdNo)
         {
-            var startDate = DateTime.Today.AddDays(MasterlistAgeRange.NEWBORN);
+            var startDate = DateTime.Today.AddDays(MasterlistAgeRange.NewbornStart);
             return await _repository.GetMasterlistQuery(householdNo, startDate);
+        }
+
+        public async Task<List<HouseholdMember>> GetMasterlistInfant(string householdNo)
+        {
+            var startDate = DateTime.Today.AddMonths(MasterlistAgeRange.InfantStart)
+                .AddDays(MasterlistAgeRange.Month);
+            var endDate = DateTime.Today.AddDays(MasterlistAgeRange.InfantStart);
+
+            return await _repository.GetMasterlistQuery(householdNo, startDate, endDate);
+        }
+
+        public async Task<List<HouseholdMember>> GetMasterlistUnderFive(string householdNo)
+        {
+            var startDate = DateTime.Today.AddYears(MasterlistAgeRange.UnderFiveStart);
+            var endDate = DateTime.Today.AddYears(MasterlistAgeRange.UnderFiveEnd);
+
+            return await _repository.GetMasterlistQuery(householdNo, startDate, endDate);
         }
 
         public Task<List<HouseholdMember>> GetMasterlistSchoolAge(string householdNo)
@@ -53,11 +65,6 @@ namespace AUF.EMR.Application.Services
         }
 
         public Task<List<HouseholdMember>> GetMasterlistSeniorCitizen(string householdNo)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<HouseholdMember>> GetMasterlistUnderFive(string householdNo)
         {
             throw new NotImplementedException();
         }

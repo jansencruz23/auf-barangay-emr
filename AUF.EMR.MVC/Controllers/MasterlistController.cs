@@ -28,8 +28,21 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> Newborn(string householdNo)
         {
             var newborns = await _masterlistService.GetMasterlistNewborn(householdNo);
-            var model = _mapper.Map<List<HouseholdMember>>(newborns);
-            return View(model);
+            return View(newborns);
+        }
+
+        // GET: MasterlistController/Infant
+        public async Task<ActionResult> Infant(string householdNo)
+        {
+            var infants = await _masterlistService.GetMasterlistInfant(householdNo);
+            return View(infants);
+        }
+
+        // GET: MasterlistController/UnderFive
+        public async Task<ActionResult> UnderFive(string householdNo)
+        {
+            var underFiveChildren = await _masterlistService.GetMasterlistUnderFive(householdNo);
+            return View(underFiveChildren);
         }
 
         // GET: MasterlistController/Details/5

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<AUF.EMR.Domain.Models.HouseholdMember>
+
+@{
+    ViewData["Title"] = "Masterlist of Infants";
+}
+
+<h1>List of Infants</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                HH. NO/ Family Serial No.
+            </th>
+            <th>
+                Name of Child
+            </th>
+            <th>
+                Name of Mother
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Sex
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Birthday
+            </th>
+            <th>
+                NHTS
+            </th>
+            <th>
+                In School
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HouseholdNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                    @Html.DisplayFor(modelItem => item.MotherMaidenName)
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Household.HouseNoAndStreet)
+                    @Html.DisplayFor(modelItem => item.Household.Barangay)
+                    @Html.DisplayFor(modelItem => item.Household.City)
+                    @Html.DisplayFor(modelItem => item.Household.Province)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birthday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsNhts)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsInSchool)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -60,8 +60,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/Infant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxJbmZhbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/Newborn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxOZXdib3JuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/UnderFive.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxVbmRlckZpdmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Error.cshtml]

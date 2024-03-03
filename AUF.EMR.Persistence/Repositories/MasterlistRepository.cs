@@ -20,9 +20,9 @@ namespace AUF.EMR.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public Task<List<HouseholdMember>> GetMasterlistQuery(string householdNo, DateTime startDate)
+        public async Task<List<HouseholdMember>> GetMasterlistQuery(string householdNo, DateTime startDate)
         {
-            var newborns = _dbContext.HouseHoldMembers
+            var newborns = await _dbContext.HouseHoldMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.HouseholdNo.Equals(householdNo))
@@ -32,9 +32,28 @@ namespace AUF.EMR.Persistence.Repositories
             return newborns;
         }
 
-        public Task<List<HouseholdMember>> GetAllMasterlist(string householdNo)
+        public async Task<List<HouseholdMember>> GetAllMasterlist(string householdNo)
         {
-            throw new NotImplementedException();
+            var masterlist = await _dbContext.HouseHoldMembers
+                .AsNoTracking()
+                .Include(m => m.Household)
+                .Where(m => m.HouseholdNo.Equals(householdNo))
+                .ToListAsync();
+
+            return masterlist;
+        }
+
+        public async Task<List<HouseholdMember>> GetMasterlistQuery(string householdNo, 
+            DateTime startDate, DateTime endDate)
+        {
+            var newborns = await _dbContext.HouseHoldMembers
+                .AsNoTracking()
+                .Include(m => m.Household)
+                .Where(m => m.HouseholdNo.Equals(householdNo))
+                .Where(m => m.Birthday >= startDate && m.Birthday <= endDate)
+                .ToListAsync();
+
+            return newborns;
         }
     }
 }
