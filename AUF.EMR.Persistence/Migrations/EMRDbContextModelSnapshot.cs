@@ -145,9 +145,11 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<string>("NameOfMother")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("RelationshipToHouseholdHead")
-                        .IsRequired()
+                    b.Property<string>("OtherRelation")
                         .HasColumnType("longtext");
+
+                    b.Property<int>("RelationshipToHouseholdHead")
+                        .HasColumnType("int");
 
                     b.Property<string>("Remarks")
                         .HasColumnType("longtext");
@@ -157,7 +159,7 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.Property<string>("Sex")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(1)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("tinyint(1)");
@@ -261,6 +263,68 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.WomanOfReproductiveAge", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<bool>("AcceptModernFpMethod")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("CivilStatus")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FPAcceptedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("HouseholdMemberId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HouseholdNo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("IsFPMethod")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsFPModern")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("IsFecund")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("IsMFPUnmet")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsPlanChildrenLimiting")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsPlanChildrenNow")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsPlanChildrenSpacing")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("IsPlanningChildren")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("ModernFPMethod")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool?>("ShiftToModern")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HouseholdMemberId");
+
+                    b.ToTable("WomanOfReproductiveAges");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -398,6 +462,17 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasForeignKey("HouseholdId");
 
                     b.Navigation("Household");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.WomanOfReproductiveAge", b =>
+                {
+                    b.HasOne("AUF.EMR.Domain.Models.HouseholdMember", "HouseholdMember")
+                        .WithMany()
+                        .HasForeignKey("HouseholdMemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HouseholdMember");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

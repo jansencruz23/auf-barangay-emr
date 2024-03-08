@@ -33,6 +33,11 @@
                 <span asp-validation-for="HouseholdMember.RelationshipToHouseholdHead" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="HouseholdMember.OtherRelation" class="control-label"></label>
+                <input asp-for="HouseholdMember.OtherRelation" class="form-control" />
+                <span asp-validation-for="HouseholdMember.OtherRelation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="HouseholdMember.Sex" class="control-label"></label>
                 <input asp-for="HouseholdMember.Sex" class="form-control" />
                 <span asp-validation-for="HouseholdMember.Sex" class="text-danger"></span>

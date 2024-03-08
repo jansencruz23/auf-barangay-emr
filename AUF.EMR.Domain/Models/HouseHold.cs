@@ -36,7 +36,6 @@ namespace AUF.EMR.Domain.Models
         public string? PhilhealthNo { get; set; }
         public string? Category { get; set; }
         public bool IsIP { get; set; }
-        public bool Status { get; set; } = true;
         public List<HouseholdMember> HouseholdMembers { get; set; } = new();
     }
 }

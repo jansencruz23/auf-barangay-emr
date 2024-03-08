@@ -1,4 +1,5 @@
-﻿using AUF.EMR.Application.Contracts.Persistence;
+﻿using AUF.EMR.Application.Constants;
+using AUF.EMR.Application.Contracts.Persistence;
 using AUF.EMR.Domain.Models;
 using AUF.EMR.Persistence.Repositories.Common;
 using Microsoft.EntityFrameworkCore;
@@ -42,6 +43,21 @@ namespace AUF.EMR.Persistence.Repositories
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             return houseHoldMember;
+        }
+
+        public async Task<List<HouseholdMember>> GetWRAHouseholdMember(string householdNo)
+        {
+            var startDate = DateTime.Today.AddYears(WRAAgeRange.WRAStart).AddDays(1);
+            var endDate = DateTime.Today.AddYears(WRAAgeRange.WRAEnd);
+
+            var WraMembers = await _dbContext.HouseHoldMembers
+                .AsNoTracking()
+                .Include(m => m.Household)
+                .Where(m => m.Status && m.Household.Status && m.HouseholdNo.Equals(householdNo))
+                .Where(m => m.Sex.Equals('F') && m.Birthday >= startDate && m.Birthday <= endDate)
+                .ToListAsync();
+
+            return WraMembers;
         }
     }
 }

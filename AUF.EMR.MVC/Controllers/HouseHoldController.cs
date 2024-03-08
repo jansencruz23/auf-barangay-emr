@@ -78,7 +78,7 @@ namespace AUF.EMR.MVC.Controllers
             try
             {
                 await _houseHoldService.Add(houseHold);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(HouseholdProfile), new { householdNo = houseHold.HouseholdNo });
             }
             catch (Exception ex)
             {
@@ -110,7 +110,7 @@ namespace AUF.EMR.MVC.Controllers
             try
             {
                 await _houseHoldService.Update(houseHold);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(HouseholdProfile), new { householdNo = houseHold.HouseholdNo });
             }
             catch (Exception ex)
             {

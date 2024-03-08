@@ -1,0 +1,125 @@
+﻿@model WRAListVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                HouseholdMember
+            </th>
+            <th>
+                HouseholdNo
+            </th>
+            <th>
+                CivilStatus
+            </th>
+            <th>
+                IsPlanningChildren
+            </th>
+            <th>
+                IsPlanChildrenNow
+            </th>
+            <th>
+                IsPlanChildrenSpacing
+            </th>
+            <th>
+                IsPlanChildrenLimiting
+            </th>
+            <th>
+                IsFecund
+            </th>
+            <th>
+                IsFPMethod
+            </th>
+            <th>
+                IsFPModern
+            </th>
+            <th>
+                ShiftToModern
+            </th>
+            <th>
+                IsMFPUnmet
+            </th>
+            <th>
+                AcceptModernFpMethod
+            </th>
+            <th>
+                ModernFPMethod
+            </th>
+            <th>
+                FPAcceptedDate
+            </th>
+            <th>
+                WRA.Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.WRAs) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseholdMember.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseholdNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CivilStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPlanningChildren)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPlanChildrenNow)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPlanChildrenSpacing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPlanChildrenLimiting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsFecund)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsFPMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsFPModern)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShiftToModern)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsMFPUnmet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcceptModernFpMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModernFPMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FPAcceptedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

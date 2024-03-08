@@ -9,5 +9,6 @@ namespace AUF.EMR.Domain.Models.Common
     public class BaseDomainEntity
     {
         public int Id { get; set; }
+        public bool Status { get; set; } = true;
     }
 }
