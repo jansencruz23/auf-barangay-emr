@@ -29,7 +29,7 @@ namespace AUF.EMR.Application.Services
         public async Task<List<HouseholdMember>> GetMasterlistNewborn(string householdNo)
         {
             var startDate = DateTime.Today.AddDays(MasterlistAgeRange.NewbornStart);
-            return await _repository.GetMasterlistQuery(householdNo, startDate);
+            return await _repository.GetListQuery(householdNo, startDate);
         }
 
         public async Task<List<HouseholdMember>> GetMasterlistInfant(string householdNo)
@@ -37,7 +37,7 @@ namespace AUF.EMR.Application.Services
             var startDate = DateTime.Today.AddMonths(MasterlistAgeRange.InfantStart).AddDays(1);
             var endDate = DateTime.Today.AddDays(MasterlistAgeRange.InfantStart);
 
-            return await _repository.GetMasterlistQuery(householdNo, startDate, endDate);
+            return await _repository.GetListQuery(householdNo, startDate, endDate);
         }
 
         public async Task<List<HouseholdMember>> GetMasterlistUnderFive(string householdNo)
@@ -45,7 +45,7 @@ namespace AUF.EMR.Application.Services
             var startDate = DateTime.Today.AddYears(MasterlistAgeRange.UnderFiveStart).AddDays(1);
             var endDate = DateTime.Today.AddYears(MasterlistAgeRange.UnderFiveEnd);
 
-            return await _repository.GetMasterlistQuery(householdNo, startDate, endDate);
+            return await _repository.GetListQuery(householdNo, startDate, endDate);
         }
 
         public async Task<List<HouseholdMember>> GetMasterlistSchoolAge(string householdNo)
@@ -53,7 +53,7 @@ namespace AUF.EMR.Application.Services
             var startDate = DateTime.Today.AddYears(MasterlistAgeRange.SchoolAgedStart).AddDays(1);
             var endDate = DateTime.Today.AddYears(MasterlistAgeRange.SchoolAgedEnd);
 
-            return await _repository.GetMasterlistQuery(householdNo, startDate, endDate);
+            return await _repository.GetListQuery(householdNo, startDate, endDate);
         }
 
         public async Task<List<HouseholdMember>> GetMasterlistAdolescent(string householdNo)
@@ -61,7 +61,7 @@ namespace AUF.EMR.Application.Services
             var startDate = DateTime.Today.AddYears(MasterlistAgeRange.AdolescentStart).AddDays(1);
             var endDate = DateTime.Today.AddYears(MasterlistAgeRange.AdolescentEnd);
 
-            return await _repository.GetMasterlistQuery(householdNo, startDate, endDate);
+            return await _repository.GetListQuery(householdNo, startDate, endDate);
         }
 
         public async Task<List<HouseholdMember>> GetMasterlistAdult(string householdNo)
@@ -69,7 +69,7 @@ namespace AUF.EMR.Application.Services
             var startDate = DateTime.Today.AddYears(MasterlistAgeRange.AdultStart).AddDays(1);
             var endDate = DateTime.Today.AddYears(MasterlistAgeRange.AdultEnd);
 
-            return await _repository.GetMasterlistQuery(householdNo, startDate, endDate);
+            return await _repository.GetListQuery(householdNo, startDate, endDate);
         }
 
         public async Task<List<HouseholdMember>> GetMasterlistSeniorCitizen(string householdNo)
@@ -77,7 +77,7 @@ namespace AUF.EMR.Application.Services
             var startDate = DateTime.MinValue; 
             var endDate = DateTime.Today.AddYears(MasterlistAgeRange.SeniorEnd);
 
-            return await _repository.GetMasterlistQuery(householdNo, startDate, endDate);
+            return await _repository.GetListQuery(householdNo, startDate, endDate);
         }
     }
 }

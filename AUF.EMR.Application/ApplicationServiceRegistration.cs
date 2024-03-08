@@ -19,6 +19,7 @@ namespace AUF.EMR.Application
             services.AddScoped<IHouseholdService, HouseholdService>();
             services.AddScoped<IHouseholdMemberService, HouseholdMemberService>();
             services.AddScoped<IMasterlistService, MasterlistService>();
+            services.AddScoped<IOralHealthService, OralHealthService>();
 
             return services;
         }
