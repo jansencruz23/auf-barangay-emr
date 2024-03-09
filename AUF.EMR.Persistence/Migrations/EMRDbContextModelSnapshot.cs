@@ -265,6 +265,71 @@ namespace AUF.EMR.Persistence.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("AUF.EMR.Domain.Models.PregnancyTracking", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("EarlyNewbornDeath")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("ExpectedDateOfDelivery")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("FirstAntenatalCheckUp")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("Gravidity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HouseholdMemberId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HouseholdNo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("LiveBirth")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("MaternalDeath")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("Parity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("PostnatalCheckUp24hrs")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("PostnatalCheckUp7days")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("PregnancyOutcome")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("SecondAntenatalCheckUp")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("StillBirth")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("ThirdAntenatalCheckUp")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HouseholdMemberId");
+
+                    b.ToTable("PregnancyTrackings");
+                });
+
             modelBuilder.Entity("AUF.EMR.Domain.Models.WomanOfReproductiveAge", b =>
                 {
                     b.Property<int>("Id")
@@ -277,7 +342,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<int>("CivilStatus")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("FPAcceptedDate")
+                    b.Property<DateTime?>("FPAcceptedDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<int>("HouseholdMemberId")
@@ -462,6 +527,17 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasForeignKey("HouseholdId");
 
                     b.Navigation("Household");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.PregnancyTracking", b =>
+                {
+                    b.HasOne("AUF.EMR.Domain.Models.HouseholdMember", "HouseholdMember")
+                        .WithMany()
+                        .HasForeignKey("HouseholdMemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HouseholdMember");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.WomanOfReproductiveAge", b =>

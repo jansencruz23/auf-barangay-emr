@@ -21,7 +21,7 @@ namespace AUF.EMR.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<List<WomanOfReproductiveAge>> GetWRAWithDetails(string householdNo)
+        public async Task<List<WomanOfReproductiveAge>> GetWRAListWithDetails(string householdNo)
         {
             var WraList = await _dbContext.WomanOfReproductiveAges
                 .AsNoTracking()
@@ -31,6 +31,18 @@ namespace AUF.EMR.Persistence.Repositories
                 .ToListAsync();
 
             return WraList;
+        }
+
+        public async Task<WomanOfReproductiveAge> GetWRAWithDetails(int id)
+        {
+            var wra = await _dbContext.WomanOfReproductiveAges
+                .AsNoTracking()
+                .Include(w => w.HouseholdMember)
+                    .ThenInclude(m => m.Household)
+                .Where(w => w.Status)
+                .FirstOrDefaultAsync(w => w.Id == id);
+
+            return wra;
         }
     }
 }

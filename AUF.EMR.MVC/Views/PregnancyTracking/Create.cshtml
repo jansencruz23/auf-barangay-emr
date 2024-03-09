@@ -1,0 +1,108 @@
+﻿@using AUF.EMR.Domain.Models.Enums;
+@model CreatePregnancyTrackingVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PregnancyTracking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="PregnancyTracking.HouseholdNo" value="@Model.HouseholdNo" />
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.HouseholdMemberId" class="control-label"></label>
+                <select asp-for="PregnancyTracking.HouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.WomenInHousehold, nameof(HouseholdMember.Id), nameof(HouseholdMember.FullName)))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.Age" class="control-label"></label>
+                <input asp-for="PregnancyTracking.Age" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.Gravidity" class="control-label"></label>
+                <input asp-for="PregnancyTracking.Gravidity" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.Gravidity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.Parity" class="control-label"></label>
+                <input asp-for="PregnancyTracking.Parity" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.Parity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.ExpectedDateOfDelivery" class="control-label"></label>
+                <input asp-for="PregnancyTracking.ExpectedDateOfDelivery" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.ExpectedDateOfDelivery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.FirstAntenatalCheckUp" class="control-label"></label>
+                <input asp-for="PregnancyTracking.FirstAntenatalCheckUp" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.FirstAntenatalCheckUp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.SecondAntenatalCheckUp" class="control-label"></label>
+                <input asp-for="PregnancyTracking.SecondAntenatalCheckUp" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.SecondAntenatalCheckUp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.ThirdAntenatalCheckUp" class="control-label"></label>
+                <input asp-for="PregnancyTracking.ThirdAntenatalCheckUp" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.ThirdAntenatalCheckUp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.PregnancyOutcome" class="control-label"></label>
+                <select asp-for="PregnancyTracking.PregnancyOutcome" class="form-control" asp-items="Html.GetEnumSelectList<PregnancyOutcome>()">
+                    <option selected="selected" value="">Please select</option>
+                </select>
+                <span asp-validation-for="PregnancyTracking.PregnancyOutcome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.PostnatalCheckUp24hrs" class="control-label"></label>
+                <input asp-for="PregnancyTracking.PostnatalCheckUp24hrs" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.PostnatalCheckUp24hrs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.PostnatalCheckUp7days" class="control-label"></label>
+                <input asp-for="PregnancyTracking.PostnatalCheckUp7days" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.PostnatalCheckUp7days" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.LiveBirth" class="control-label"></label>
+                <input asp-for="PregnancyTracking.LiveBirth" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.LiveBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.MaternalDeath" class="control-label"></label>
+                <input asp-for="PregnancyTracking.MaternalDeath" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.MaternalDeath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.StillBirth" class="control-label"></label>
+                <input asp-for="PregnancyTracking.StillBirth" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.StillBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTracking.EarlyNewbornDeath" class="control-label"></label>
+                <input asp-for="PregnancyTracking.EarlyNewbornDeath" class="form-control" />
+                <span asp-validation-for="PregnancyTracking.EarlyNewbornDeath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-householdNo="@Model.HouseholdNo">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

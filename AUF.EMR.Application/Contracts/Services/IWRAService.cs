@@ -10,6 +10,7 @@ namespace AUF.EMR.Application.Contracts.Services
 {
     public interface IWRAService : IGenericService<WomanOfReproductiveAge>
     {
-        Task<List<WomanOfReproductiveAge>> GetWRAWithDetails(string householdNo);
+        Task<List<WomanOfReproductiveAge>> GetWRAListWithDetails(string householdNo);
+        Task<WomanOfReproductiveAge> GetWRAWithDetails(int id);
     }
 }

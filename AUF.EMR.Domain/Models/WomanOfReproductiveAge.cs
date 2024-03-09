@@ -27,6 +27,6 @@ namespace AUF.EMR.Domain.Models
         public string? ModernFPMethod { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime FPAcceptedDate { get; set; }
+        public DateTime? FPAcceptedDate { get; set; }
     }
 }

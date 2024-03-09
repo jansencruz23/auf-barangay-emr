@@ -29,6 +29,7 @@ namespace AUF.EMR.Persistence
             services.AddScoped<IMasterlistRepository, MasterlistRepository>();
             services.AddScoped<IOralHealthRepository, OralHealthRepository>();
             services.AddScoped<IWRARepository, WRARepository>();
+            services.AddScoped<IPregnancyTrackingRepository, PregnancyTrackingRepository>();
 
             return services;
         }

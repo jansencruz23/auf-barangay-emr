@@ -21,6 +21,7 @@ namespace AUF.EMR.Application
             services.AddScoped<IMasterlistService, MasterlistService>();
             services.AddScoped<IOralHealthService, OralHealthService>();
             services.AddScoped<IWRAService, WRAService>();
+            services.AddScoped<IPregnancyTrackingService, PregnancyTrackingService>();
 
             return services;
         }

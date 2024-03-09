@@ -28,7 +28,7 @@ namespace AUF.EMR.MVC.Controllers
         // GET: WRAController
         public async Task<ActionResult> Index(string householdNo)
         {
-            var wraList = await _wraService.GetWRAWithDetails(householdNo);
+            var wraList = await _wraService.GetWRAListWithDetails(householdNo);
             var model = new WRAListVM
             {
                 HouseholdNo = householdNo,
@@ -50,7 +50,7 @@ namespace AUF.EMR.MVC.Controllers
             var womenInHousehold = await _householdMemberService.GetWRAHouseholdMember(householdNo);
             var model = new CreateWRAVM
             {
-                HouseholdMembers = womenInHousehold,
+                WomenInHousehold = womenInHousehold,
                 HouseholdNo = householdNo
             };
 
@@ -78,12 +78,12 @@ namespace AUF.EMR.MVC.Controllers
         // GET: WRAController/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
-            var wra = await _wraService.Get(id);
+            var wra = await _wraService.GetWRAWithDetails(id);
             var womenInHousehold = await _householdMemberService.GetWRAHouseholdMember(wra.HouseholdNo);
 
             var model = new EditWRAVM
             {
-                HouseholdMembers = womenInHousehold,
+                WomenInHousehold = womenInHousehold,
                 WRA = wra
             };
 
@@ -93,16 +93,19 @@ namespace AUF.EMR.MVC.Controllers
         // POST: WRAController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, EditWRAVM wraVM)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var completed = await _wraService.Update(wraVM.WRA);
+                return RedirectToAction(nameof(Index), new { houseHoldNo = completed.HouseholdNo });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
             }
+
+            return View(wraVM);
         }
 
         // GET: WRAController/Delete/5

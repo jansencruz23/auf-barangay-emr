@@ -20,9 +20,14 @@ namespace AUF.EMR.Application.Services
             _repository = repository;
         }
 
-        public async Task<List<WomanOfReproductiveAge>> GetWRAWithDetails(string householdNo)
+        public async Task<List<WomanOfReproductiveAge>> GetWRAListWithDetails(string householdNo)
         {
-            return await _repository.GetWRAWithDetails(householdNo);
+            return await _repository.GetWRAListWithDetails(householdNo);
+        }
+
+        public async Task<WomanOfReproductiveAge> GetWRAWithDetails(int id)
+        {
+            return await _repository.GetWRAWithDetails(id);
         }
     }
 }

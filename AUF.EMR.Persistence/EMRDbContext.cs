@@ -21,5 +21,6 @@ namespace AUF.EMR.Persistence
         public DbSet<Household> HouseHolds { get; set; }
         public DbSet<HouseholdMember> HouseHoldMembers { get; set; }
         public DbSet<WomanOfReproductiveAge> WomanOfReproductiveAges { get; set; }
+        public DbSet<PregnancyTracking> PregnancyTrackings { get; set; }
     }
 }

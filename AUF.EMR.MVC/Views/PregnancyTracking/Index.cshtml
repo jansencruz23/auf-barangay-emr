@@ -1,0 +1,119 @@
+﻿@model PregnancyTrackingListVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>National Safe Motherhood Program - Pregnancy Tracking</h1>
+
+<p>
+    <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                HouseholdMember
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Gravidity
+            </th>
+            <th>
+                Parity
+            </th>
+            <th>
+                ExpectedDateOfDelivery
+            </th>
+            <th>
+                FirstAntenatalCheckUp
+            </th>
+            <th>
+                SecondAntenatalCheckUp
+            </th>
+            <th>
+                ThirdAntenatalCheckUp
+            </th>
+            <th>
+                PregnancyOutcome
+            </th>
+            <th>
+                PostnatalCheckUp24hrs
+            </th>
+            <th>
+                PostnatalCheckUp7days
+            </th>
+            <th>
+                LiveBirth
+            </th>
+            <th>
+                MaternalDeath
+            </th>
+            <th>
+                StillBirth
+            </th>
+            <th>
+                EarlyNewbornDeath
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PregnancyTrackingList) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseholdMember.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gravidity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpectedDateOfDelivery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstAntenatalCheckUp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondAntenatalCheckUp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThirdAntenatalCheckUp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PregnancyOutcome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostnatalCheckUp24hrs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostnatalCheckUp7days)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LiveBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaternalDeath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StillBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EarlyNewbornDeath)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

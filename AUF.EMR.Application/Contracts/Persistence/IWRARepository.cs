@@ -11,6 +11,7 @@ namespace AUF.EMR.Application.Contracts.Persistence
 {
     public interface IWRARepository : IGenericRepository<WomanOfReproductiveAge>
     {
-        Task<List<WomanOfReproductiveAge>> GetWRAWithDetails(string householdNo);
+        Task<List<WomanOfReproductiveAge>> GetWRAListWithDetails(string householdNo);
+        Task<WomanOfReproductiveAge> GetWRAWithDetails(int id);
     }
 }

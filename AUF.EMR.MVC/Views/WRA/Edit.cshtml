@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="WRA.HouseholdMemberId" class="control-label"></label>
-                <select asp-for="WRA.HouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.HouseholdMembers, nameof(HouseholdMember.Id), nameof(HouseholdMember.FullName)))"></select>
+                <select asp-for="WRA.HouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.WomenInHousehold, nameof(HouseholdMember.Id), nameof(HouseholdMember.FullName)))"></select>
             </div>
             <div class="form-group">
                 <input type="hidden" asp-for="WRA.HouseholdNo" value="@Model.WRA.HouseholdNo" />
@@ -84,6 +84,7 @@
                 <input asp-for="WRA.FPAcceptedDate" class="form-control" />
                 <span asp-validation-for="WRA.FPAcceptedDate" class="text-danger"></span>
             </div>
+            <input type="hidden" asp-for="WRA.Id" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -92,7 +93,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" asp-route-householdNo="@Model.WRA.HouseholdNo">Back to List</a>
 </div>
 
 @section Scripts {
