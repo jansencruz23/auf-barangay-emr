@@ -1,0 +1,100 @@
+﻿@model EditWRAVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>WomanOfReproductiveAge</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="WRA.HouseholdMemberId" class="control-label"></label>
+                <select asp-for="WRA.HouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.HouseholdMembers, nameof(HouseholdMember.Id), nameof(HouseholdMember.FullName)))"></select>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="WRA.HouseholdNo" value="@Model.WRA.HouseholdNo" />
+            </div>
+            <div class="form-group">
+                <label asp-for="WRA.CivilStatus" class="control-label"></label>
+                <input asp-for="WRA.CivilStatus" class="form-control" />
+                <span asp-validation-for="WRA.CivilStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="WRA.IsPlanningChildren" /> @Html.DisplayNameFor(model => model.WRA.IsPlanningChildren)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="WRA.IsPlanChildrenNow" class="control-label"></label>
+                <input asp-for="WRA.IsPlanChildrenNow" class="form-control" />
+                <span asp-validation-for="WRA.IsPlanChildrenNow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WRA.IsPlanChildrenSpacing" class="control-label"></label>
+                <input asp-for="WRA.IsPlanChildrenSpacing" class="form-control" />
+                <span asp-validation-for="WRA.IsPlanChildrenSpacing" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WRA.IsPlanChildrenLimiting" class="control-label"></label>
+                <input asp-for="WRA.IsPlanChildrenLimiting" class="form-control" />
+                <span asp-validation-for="WRA.IsPlanChildrenLimiting" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="WRA.IsFecund" /> @Html.DisplayNameFor(model => model.WRA.IsFecund)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="WRA.IsFPMethod" /> @Html.DisplayNameFor(model => model.WRA.IsFPMethod)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="WRA.IsFPModern" class="control-label"></label>
+                <input asp-for="WRA.IsFPModern" class="form-control" />
+                <span asp-validation-for="WRA.IsFPModern" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WRA.ShiftToModern" class="control-label"></label>
+                <input asp-for="WRA.ShiftToModern" class="form-control" />
+                <span asp-validation-for="WRA.ShiftToModern" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="WRA.IsMFPUnmet" /> @Html.DisplayNameFor(model => model.WRA.IsMFPUnmet)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="WRA.AcceptModernFpMethod" /> @Html.DisplayNameFor(model => model.WRA.AcceptModernFpMethod)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="WRA.ModernFPMethod" class="control-label"></label>
+                <input asp-for="WRA.ModernFPMethod" class="form-control" />
+                <span asp-validation-for="WRA.ModernFPMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WRA.FPAcceptedDate" class="control-label"></label>
+                <input asp-for="WRA.FPAcceptedDate" class="form-control" />
+                <span asp-validation-for="WRA.FPAcceptedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

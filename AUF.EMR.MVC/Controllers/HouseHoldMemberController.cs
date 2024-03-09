@@ -1,7 +1,7 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Application.Services;
 using AUF.EMR.Domain.Models;
-using AUF.EMR.MVC.Models;
+using AUF.EMR.MVC.Models.CreateVM;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

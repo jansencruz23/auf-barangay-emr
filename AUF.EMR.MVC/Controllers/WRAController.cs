@@ -2,6 +2,9 @@
 using AUF.EMR.Application.Services;
 using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models;
+using AUF.EMR.MVC.Models.CreateVM;
+using AUF.EMR.MVC.Models.EditVM;
+using AUF.EMR.MVC.Models.IndexVM;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -73,9 +76,18 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: WRAController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            var wra = await _wraService.Get(id);
+            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMember(wra.HouseholdNo);
+
+            var model = new EditWRAVM
+            {
+                HouseholdMembers = womenInHousehold,
+                WRA = wra
+            };
+
+            return View(model);
         }
 
         // POST: WRAController/Edit/5

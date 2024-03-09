@@ -10,6 +10,7 @@ using AUF.EMR.Persistence;
 using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.MVC.Models;
 using Microsoft.Identity.Client;
+using AUF.EMR.MVC.Models.CreateVM;
 
 namespace AUF.EMR.MVC.Controllers
 {
