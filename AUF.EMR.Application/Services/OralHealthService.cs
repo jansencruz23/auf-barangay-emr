@@ -9,11 +9,14 @@ namespace AUF.EMR.Application.Services
     public class OralHealthService : GenericService<HouseholdMember>, IOralHealthService
     {
         private readonly IOralHealthRepository _oralRepository;
+        private readonly IPregnancyTrackingService _pregnancyService;
 
-        public OralHealthService(IOralHealthRepository oralRepository)
+        public OralHealthService(IOralHealthRepository oralRepository,
+            IPregnancyTrackingService pregnancyService)
             : base(oralRepository)
         {
             _oralRepository = oralRepository;
+            _pregnancyService = pregnancyService;
         }
 
         public Task<List<HouseholdMember>> GetAllOralClients(string householdNo)
@@ -67,14 +70,20 @@ namespace AUF.EMR.Application.Services
             return await _oralRepository.GetListQuery(householdNo, startDate, endDate);
         }
 
-        public Task<List<HouseholdMember>> GetOralClientPregnant15to19(string householdNo)
+        public async Task<List<HouseholdMember>> GetOralClientPregnant15to19(string householdNo)
         {
-            throw new NotImplementedException();
+            var startDate = DateTime.Today.AddYears(OralClientAgeRange.FifteenToNineteenStart).AddDays(1);
+            var endDate = DateTime.Today.AddYears(OralClientAgeRange.FifteenToNineteenEnd);
+
+            return await _pregnancyService.GetPregnantHouseholdMembers(householdNo, startDate, endDate);
         }
 
-        public Task<List<HouseholdMember>> GetOralClientPregnant20to49(string householdNo)
+        public async Task<List<HouseholdMember>> GetOralClientPregnant20to49(string householdNo)
         {
-            throw new NotImplementedException();
+            var startDate = DateTime.Today.AddYears(OralClientAgeRange.TwentyToFourtynineStart).AddDays(1);
+            var endDate = DateTime.Today.AddYears(OralClientAgeRange.TwentyToFourtynineEnd);
+
+            return await _pregnancyService.GetPregnantHouseholdMembers(householdNo, startDate, endDate);
         }
     }
 }

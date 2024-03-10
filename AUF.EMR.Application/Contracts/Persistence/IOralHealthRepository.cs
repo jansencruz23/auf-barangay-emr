@@ -10,6 +10,6 @@ namespace AUF.EMR.Application.Contracts.Persistence
 {
     public interface IOralHealthRepository : IBaseListRepository
     {
-        Task<List<HouseholdMember>> GetPregnantListQuery(string householdNo, DateTime startDate, DateTime endDate);
+
     }
 }

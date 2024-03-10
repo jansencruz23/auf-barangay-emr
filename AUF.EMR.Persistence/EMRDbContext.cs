@@ -1,7 +1,9 @@
 ﻿using AUF.EMR.Domain.Models;
+using AUF.EMR.Domain.Models.Common;
 using AUF.EMR.Domain.Models.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +24,20 @@ namespace AUF.EMR.Persistence
         public DbSet<HouseholdMember> HouseHoldMembers { get; set; }
         public DbSet<WomanOfReproductiveAge> WomanOfReproductiveAges { get; set; }
         public DbSet<PregnancyTracking> PregnancyTrackings { get; set; }
+
+            public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+            {
+                foreach (var entry in ChangeTracker.Entries<BaseDomainEntity>())
+                {
+                    entry.Entity.LastModified = DateTime.Now;
+
+                    if (entry.State == EntityState.Added)
+                    {
+                        entry.Entity.DateCreated = DateTime.Now;
+                    }
+                }
+
+                return base.SaveChangesAsync(cancellationToken);
+            }
     }
 }

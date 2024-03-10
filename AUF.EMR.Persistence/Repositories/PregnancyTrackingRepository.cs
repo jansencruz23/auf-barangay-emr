@@ -43,5 +43,20 @@ namespace AUF.EMR.Persistence.Repositories
 
             return pregnantWoman;
         }
+
+        public async Task<List<HouseholdMember>> GetPregnantHouseholdMembers(string householdNo, DateTime startDate, DateTime endDate)
+        {
+            var pregnantMembers = await _dbContext.PregnancyTrackings
+                .AsNoTracking()
+                .Include(p => p.HouseholdMember)
+                    .ThenInclude(m => m.Household)
+                .Where(p => p.Status && p.HouseholdMember.HouseholdNo.Equals(householdNo))
+                .Where(p => p.PregnancyOutcome == null)
+                .Where(p => p.HouseholdMember.Birthday >= startDate && p.HouseholdMember.Birthday <= endDate)
+                .Select(p => p.HouseholdMember)
+                .ToListAsync();
+
+            return pregnantMembers;
+        }
     }
 }

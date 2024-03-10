@@ -62,7 +62,7 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: OralHealthClientController/PregnantFifteenToNineteen
-        public async Task<ActionResult> PregnantFourteenToNineteen(string householdNo)
+        public async Task<ActionResult> PregnantFifteenToNineteen(string householdNo)
         {
             var clients = await _oralHealthService.GetOralClientPregnant15to19(householdNo);
             return View(clients);

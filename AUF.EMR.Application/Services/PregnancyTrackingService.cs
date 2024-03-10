@@ -30,5 +30,11 @@ namespace AUF.EMR.Application.Services
         {
             return await _repository.GetPregnancyTrackingWithDetails(id);
         }
+
+        public async Task<List<HouseholdMember>> GetPregnantHouseholdMembers(string householdNo,
+            DateTime startDate, DateTime endDate)
+        {
+            return await _repository.GetPregnantHouseholdMembers(householdNo, startDate, endDate);
+        }
     }
 }

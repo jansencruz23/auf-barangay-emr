@@ -18,11 +18,5 @@ namespace AUF.EMR.Persistence.Repositories
         {
             _dbContext = dbContext;
         }
-
-        public Task<List<HouseholdMember>> GetPregnantListQuery(string householdNo, 
-            DateTime startDate, DateTime endDate)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

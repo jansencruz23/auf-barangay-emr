@@ -10,5 +10,7 @@ namespace AUF.EMR.Domain.Models.Common
     {
         public int Id { get; set; }
         public bool Status { get; set; } = true;
+        public DateTime DateCreated { get; set; }
+        public DateTime LastModified { get; set; }
     }
 }

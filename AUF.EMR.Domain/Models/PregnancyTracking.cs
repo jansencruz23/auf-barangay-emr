@@ -25,7 +25,7 @@ namespace AUF.EMR.Domain.Models
         public DateTime? SecondAntenatalCheckUp { get; set; }
         [DataType(DataType.Date)]
         public DateTime? ThirdAntenatalCheckUp { get; set; }
-        public PregnancyOutcome PregnancyOutcome { get; set; }
+        public PregnancyOutcome? PregnancyOutcome { get; set; }
         [DataType(DataType.Date)]
         public DateTime? PostnatalCheckUp24hrs { get; set; }
         [DataType(DataType.Date)]

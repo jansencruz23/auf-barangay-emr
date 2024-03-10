@@ -40,6 +40,9 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -66,6 +69,9 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.Property<bool>("IsNHTS")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -108,6 +114,9 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<DateTime>("Birthday")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -130,6 +139,9 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.Property<bool?>("IsNhts")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -274,6 +286,9 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<DateTime?>("EarlyNewbornDeath")
                         .HasColumnType("datetime(6)");
 
@@ -293,6 +308,9 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<DateTime?>("LiveBirth")
                         .HasColumnType("datetime(6)");
 
@@ -308,7 +326,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<DateTime?>("PostnatalCheckUp7days")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("PregnancyOutcome")
+                    b.Property<int?>("PregnancyOutcome")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("SecondAntenatalCheckUp")
@@ -341,6 +359,9 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.Property<int>("CivilStatus")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("FPAcceptedDate")
                         .HasColumnType("datetime(6)");
@@ -375,6 +396,9 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.Property<bool>("IsPlanningChildren")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("ModernFPMethod")
                         .HasColumnType("longtext");

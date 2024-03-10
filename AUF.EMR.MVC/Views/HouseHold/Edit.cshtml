@@ -103,6 +103,7 @@
                 </label>
             </div>
             <input type="hidden" asp-for="Household.Id" />
+            <input type="hidden" asp-for="Household.DateCreated" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -199,7 +200,7 @@
                             @Html.DisplayFor(modelItem => item.HouseholdNo)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-controller="HouseHoldMember" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Edit" asp-controller="HouseHoldMember" asp-route-id="@item.Id" asp-route-requestUrl="@Context.Request.Path">Edit</a> |
                             <a asp-action="Details" asp-controller="HouseHoldMember" asp-route-id="@item.Id">Details</a> |
                             <a asp-action="Delete" asp-controller="HouseHoldMember" asp-route-id="@item.Id">Delete</a>
                         </td>
