@@ -34,6 +34,14 @@ namespace AUF.EMR.Domain.Models
         public bool? IsNhts { get; set; }
         public bool? IsInSchool { get; set; }
 
-        public string FullName { get => $"{FirstName} {LastName}"; }
+        public string FullName { get => $"{FirstName} {GetMiddleInitial()}. {LastName}"; }
+
+        private string GetMiddleInitial()
+        {
+            if (string.IsNullOrEmpty(MotherMaidenName) || MotherMaidenName.Length < 2)
+                return string.Empty;
+
+            return MotherMaidenName.Split(' ').Last()[0].ToString();
+        }
     }
 }

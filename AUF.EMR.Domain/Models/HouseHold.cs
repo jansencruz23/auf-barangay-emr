@@ -37,5 +37,7 @@ namespace AUF.EMR.Domain.Models
         public string? Category { get; set; }
         public bool IsIP { get; set; }
         public List<HouseholdMember> HouseholdMembers { get; set; } = new();
+
+        public string FullAddress { get => $"{HouseNoAndStreet} {Barangay}, {City}, {Province}"; }
     }
 }

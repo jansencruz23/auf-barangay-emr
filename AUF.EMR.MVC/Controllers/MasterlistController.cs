@@ -30,7 +30,7 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> Newborn(string householdNo)
         {
             var members = await _masterlistService.GetMasterlistNewborn(householdNo);
-            var model = new MasterlistListVM
+            var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
@@ -42,7 +42,7 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> Infant(string householdNo)
         {
             var members = await _masterlistService.GetMasterlistInfant(householdNo);
-            var model = new MasterlistListVM
+            var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
@@ -54,7 +54,7 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> UnderFive(string householdNo)
         {
             var members = await _masterlistService.GetMasterlistUnderFive(householdNo);
-            var model = new MasterlistListVM
+            var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
@@ -66,7 +66,7 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> SchoolAged(string householdNo)
         {
             var members = await _masterlistService.GetMasterlistSchoolAge(householdNo);
-            var model = new MasterlistListVM
+            var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
@@ -78,7 +78,7 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> Adolescent(string householdNo)
         {
             var members = await _masterlistService.GetMasterlistAdolescent(householdNo);
-            var model = new MasterlistListVM
+            var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
@@ -90,7 +90,7 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> Adult(string householdNo)
         {
             var members = await _masterlistService.GetMasterlistAdult(householdNo);
-            var model = new MasterlistListVM
+            var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
@@ -102,7 +102,7 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> SeniorCitizen(string householdNo)
         {
             var members = await _masterlistService.GetMasterlistSeniorCitizen(householdNo);
-            var model = new MasterlistListVM
+            var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString

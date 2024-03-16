@@ -1,4 +1,4 @@
-﻿@model MasterlistListVM
+﻿@model HouseholdMemberListVM
 
 @{
     ViewData["Title"] = "Masterlist of Senior Citizens";
@@ -41,15 +41,10 @@
                     @Html.DisplayFor(modelItem => item.HouseholdNo)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                    @Html.DisplayFor(modelItem => item.MotherMaidenName)
-                    @Html.DisplayFor(modelItem => item.LastName)
+                    @Html.DisplayFor(modelItem => item.FullName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Household.HouseNoAndStreet)
-                    @Html.DisplayFor(modelItem => item.Household.Barangay)
-                    @Html.DisplayFor(modelItem => item.Household.City)
-                    @Html.DisplayFor(modelItem => item.Household.Province)
+                    @Html.DisplayFor(modelItem => item.Household.FullAddress)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Sex)
