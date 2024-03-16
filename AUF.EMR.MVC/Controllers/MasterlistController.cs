@@ -2,12 +2,14 @@
 using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.IndexVM;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize]
     public class MasterlistController : Controller
     {
         private readonly IMasterlistService _masterlistService;

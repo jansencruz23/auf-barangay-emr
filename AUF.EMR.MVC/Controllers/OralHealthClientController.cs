@@ -1,11 +1,13 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Application.Services;
 using AUF.EMR.MVC.Models.IndexVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize]
     public class OralHealthClientController : Controller
     {
         private readonly IOralHealthService _oralHealthService;

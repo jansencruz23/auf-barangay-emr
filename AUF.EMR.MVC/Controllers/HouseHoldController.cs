@@ -11,9 +11,11 @@ using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.MVC.Models;
 using Microsoft.Identity.Client;
 using AUF.EMR.MVC.Models.CreateVM;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize]
     public class HouseholdController : Controller
     {
         private readonly IHouseholdService _houseHoldService;

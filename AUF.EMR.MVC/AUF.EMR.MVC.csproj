@@ -11,10 +11,10 @@
     <PackageReference Include="AutoMapper" Version="12.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.16" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.16" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.16" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.16" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.16">
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.17">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -24,10 +24,6 @@
   <ItemGroup>
     <ProjectReference Include="..\AUF.EMR.Application\AUF.EMR.Application.csproj" />
     <ProjectReference Include="..\AUF.EMR.Persistence\AUF.EMR.Persistence.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

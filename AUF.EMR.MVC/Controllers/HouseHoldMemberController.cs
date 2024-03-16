@@ -4,11 +4,13 @@ using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.EditVM;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize]
     public class HouseholdMemberController : Controller
     {
         private readonly IHouseholdMemberService _houseHoldMemberService;

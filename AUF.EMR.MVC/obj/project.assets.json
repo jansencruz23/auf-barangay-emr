@@ -669,7 +669,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Cryptography.Internal/7.0.16": {
+      "Microsoft.AspNetCore.Cryptography.Internal/7.0.17": {
         "type": "package",
         "compile": {
           "lib/net7.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
@@ -682,10 +682,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Cryptography.KeyDerivation/7.0.16": {
+      "Microsoft.AspNetCore.Cryptography.KeyDerivation/7.0.17": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Cryptography.Internal": "7.0.16"
+          "Microsoft.AspNetCore.Cryptography.Internal": "7.0.17"
         },
         "compile": {
           "lib/net7.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
@@ -717,11 +717,11 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.16": {
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.17": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "7.0.16",
-          "Microsoft.Extensions.Identity.Stores": "7.0.16"
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.17",
+          "Microsoft.Extensions.Identity.Stores": "7.0.17"
         },
         "compile": {
           "lib/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
@@ -734,11 +734,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Identity.UI/7.0.16": {
+      "Microsoft.AspNetCore.Identity.UI/7.0.17": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Embedded": "7.0.16",
-          "Microsoft.Extensions.Identity.Stores": "7.0.16"
+          "Microsoft.Extensions.FileProviders.Embedded": "7.0.17",
+          "Microsoft.Extensions.Identity.Stores": "7.0.17"
         },
         "compile": {
           "lib/net7.0/Microsoft.AspNetCore.Identity.UI.dll": {
@@ -1303,14 +1303,14 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Microsoft.Data.SqlClient/5.1.4": {
+      "Microsoft.Data.SqlClient/5.1.5": {
         "type": "package",
         "dependencies": {
           "Azure.Identity": "1.10.3",
           "Microsoft.Data.SqlClient.SNI.runtime": "5.1.1",
           "Microsoft.Identity.Client": "4.56.0",
-          "Microsoft.IdentityModel.JsonWebTokens": "6.24.0",
-          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.24.0",
+          "Microsoft.IdentityModel.JsonWebTokens": "6.35.0",
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.35.0",
           "Microsoft.SqlServer.Server": "1.0.0",
           "System.Configuration.ConfigurationManager": "6.0.1",
           "System.Diagnostics.DiagnosticSource": "6.0.1",
@@ -1397,11 +1397,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/7.0.16": {
+      "Microsoft.EntityFrameworkCore/7.0.17": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.16",
-          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.16",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.17",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.17",
           "Microsoft.Extensions.Caching.Memory": "7.0.0",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.Extensions.Logging": "7.0.0"
@@ -1420,7 +1420,7 @@
           "buildTransitive/net6.0/Microsoft.EntityFrameworkCore.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/7.0.16": {
+      "Microsoft.EntityFrameworkCore.Abstractions/7.0.17": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
@@ -1433,7 +1433,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/7.0.16": {
+      "Microsoft.EntityFrameworkCore.Analyzers/7.0.17": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -1442,11 +1442,11 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Design/7.0.16": {
+      "Microsoft.EntityFrameworkCore.Design/7.0.17": {
         "type": "package",
         "dependencies": {
           "Humanizer.Core": "2.14.1",
-          "Microsoft.EntityFrameworkCore.Relational": "7.0.16",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.17",
           "Microsoft.Extensions.DependencyModel": "7.0.0",
           "Mono.TextTemplating": "2.2.1"
         },
@@ -1464,10 +1464,10 @@
           "build/net6.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/7.0.16": {
+      "Microsoft.EntityFrameworkCore.Relational/7.0.17": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "7.0.16",
+          "Microsoft.EntityFrameworkCore": "7.0.17",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
         },
         "compile": {
@@ -1481,11 +1481,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/7.0.16": {
+      "Microsoft.EntityFrameworkCore.SqlServer/7.0.17": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Data.SqlClient": "5.1.4",
-          "Microsoft.EntityFrameworkCore.Relational": "7.0.16"
+          "Microsoft.Data.SqlClient": "5.1.5",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.17"
         },
         "compile": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
@@ -1498,10 +1498,10 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Tools/7.0.16": {
+      "Microsoft.EntityFrameworkCore.Tools/7.0.17": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "7.0.16"
+          "Microsoft.EntityFrameworkCore.Design": "7.0.17"
         },
         "compile": {
           "lib/net6.0/_._": {}
@@ -1730,7 +1730,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Embedded/7.0.16": {
+      "Microsoft.Extensions.FileProviders.Embedded/7.0.17": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Abstractions": "7.0.0"
@@ -1789,10 +1789,10 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Identity.Core/7.0.16": {
+      "Microsoft.Extensions.Identity.Core/7.0.17": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "7.0.16",
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "7.0.17",
           "Microsoft.Extensions.Logging": "7.0.0",
           "Microsoft.Extensions.Options": "7.0.1"
         },
@@ -1807,11 +1807,11 @@
           }
         }
       },
-      "Microsoft.Extensions.Identity.Stores/7.0.16": {
+      "Microsoft.Extensions.Identity.Stores/7.0.17": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Caching.Abstractions": "7.0.0",
-          "Microsoft.Extensions.Identity.Core": "7.0.16",
+          "Microsoft.Extensions.Identity.Core": "7.0.17",
           "Microsoft.Extensions.Logging": "7.0.0"
         },
         "compile": {
@@ -1956,7 +1956,7 @@
           }
         }
       },
-      "Microsoft.IdentityModel.Abstractions/6.24.0": {
+      "Microsoft.IdentityModel.Abstractions/6.35.0": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.IdentityModel.Abstractions.dll": {
@@ -1969,11 +1969,12 @@
           }
         }
       },
-      "Microsoft.IdentityModel.JsonWebTokens/6.24.0": {
+      "Microsoft.IdentityModel.JsonWebTokens/6.35.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Tokens": "6.24.0",
+          "Microsoft.IdentityModel.Tokens": "6.35.0",
           "System.Text.Encoding": "4.3.0",
+          "System.Text.Encodings.Web": "4.7.2",
           "System.Text.Json": "4.7.2"
         },
         "compile": {
@@ -1987,10 +1988,10 @@
           }
         }
       },
-      "Microsoft.IdentityModel.Logging/6.24.0": {
+      "Microsoft.IdentityModel.Logging/6.35.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Abstractions": "6.24.0"
+          "Microsoft.IdentityModel.Abstractions": "6.35.0"
         },
         "compile": {
           "lib/net6.0/Microsoft.IdentityModel.Logging.dll": {
@@ -2003,11 +2004,11 @@
           }
         }
       },
-      "Microsoft.IdentityModel.Protocols/6.24.0": {
+      "Microsoft.IdentityModel.Protocols/6.35.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Logging": "6.24.0",
-          "Microsoft.IdentityModel.Tokens": "6.24.0"
+          "Microsoft.IdentityModel.Logging": "6.35.0",
+          "Microsoft.IdentityModel.Tokens": "6.35.0"
         },
         "compile": {
           "lib/net6.0/Microsoft.IdentityModel.Protocols.dll": {
@@ -2020,11 +2021,11 @@
           }
         }
       },
-      "Microsoft.IdentityModel.Protocols.OpenIdConnect/6.24.0": {
+      "Microsoft.IdentityModel.Protocols.OpenIdConnect/6.35.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Protocols": "6.24.0",
-          "System.IdentityModel.Tokens.Jwt": "6.24.0"
+          "Microsoft.IdentityModel.Protocols": "6.35.0",
+          "System.IdentityModel.Tokens.Jwt": "6.35.0"
         },
         "compile": {
           "lib/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {
@@ -2037,11 +2038,11 @@
           }
         }
       },
-      "Microsoft.IdentityModel.Tokens/6.24.0": {
+      "Microsoft.IdentityModel.Tokens/6.35.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.5.0",
-          "Microsoft.IdentityModel.Logging": "6.24.0",
+          "Microsoft.IdentityModel.Logging": "6.35.0",
           "System.Security.Cryptography.Cng": "4.5.0"
         },
         "compile": {
@@ -3044,11 +3045,11 @@
           }
         }
       },
-      "System.IdentityModel.Tokens.Jwt/6.24.0": {
+      "System.IdentityModel.Tokens.Jwt/6.35.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.JsonWebTokens": "6.24.0",
-          "Microsoft.IdentityModel.Tokens": "6.24.0"
+          "Microsoft.IdentityModel.JsonWebTokens": "6.35.0",
+          "Microsoft.IdentityModel.Tokens": "6.35.0"
         },
         "compile": {
           "lib/net6.0/System.IdentityModel.Tokens.Jwt.dll": {
@@ -5118,10 +5119,10 @@
         "logo.png"
       ]
     },
-    "Microsoft.AspNetCore.Cryptography.Internal/7.0.16": {
-      "sha512": "PdxOQFPl0F2Rmk5Nnd0j0rAeJf3ktabxQ4iODIa07qbCzV9HRAigsT7Zat5+mjUVVGs919Ukk0Jjb2AV7B/z9Q==",
+    "Microsoft.AspNetCore.Cryptography.Internal/7.0.17": {
+      "sha512": "PToMbo4CYljmNETDhB7LRO4Ns9sCN55VY3BfkK0dRjm3NOANZSfWWOdER0HpXHMhiA1vwI8RjSA7gJ3QoA/LXg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.cryptography.internal/7.0.16",
+      "path": "microsoft.aspnetcore.cryptography.internal/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5133,14 +5134,14 @@
         "lib/net7.0/Microsoft.AspNetCore.Cryptography.Internal.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.xml",
-        "microsoft.aspnetcore.cryptography.internal.7.0.16.nupkg.sha512",
+        "microsoft.aspnetcore.cryptography.internal.7.0.17.nupkg.sha512",
         "microsoft.aspnetcore.cryptography.internal.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Cryptography.KeyDerivation/7.0.16": {
-      "sha512": "W5SUDOljLXCOBMBjZoheohLT9HffqXT/4cwR9Cucz6J/beYl1x2kByS5VJKezUg1roiEUUEGaASYiNZJbj2oUQ==",
+    "Microsoft.AspNetCore.Cryptography.KeyDerivation/7.0.17": {
+      "sha512": "ZfJd6OvXO+wm46YQu8d6MK7kEib8rqKxvC0CsTnxCkRTHy4Uvrwtv730RUKvxRfROTUVUIgCP7qSRxauqrowKQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.cryptography.keyderivation/7.0.16",
+      "path": "microsoft.aspnetcore.cryptography.keyderivation/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5152,7 +5153,7 @@
         "lib/net7.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
-        "microsoft.aspnetcore.cryptography.keyderivation.7.0.16.nupkg.sha512",
+        "microsoft.aspnetcore.cryptography.keyderivation.7.0.17.nupkg.sha512",
         "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
       ]
     },
@@ -5171,10 +5172,10 @@
         "microsoft.aspnetcore.diagnostics.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.16": {
-      "sha512": "PfenWOumqoSiCgOm7Y2QSgrgq9j3ZfYwrm1MHixAn6eBbw2V6Gkza85ZVh5wvh4KJ/KYP1M1B/3JnKGJWWCrTQ==",
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.17": {
+      "sha512": "8WKlv/9jGwnhwgGL+c+ulAc5vTjqTviDVecVMghlw8ie7GxWbVin2YoGDg3ihJnajUakrWLY3am990kqYFCbuw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.identity.entityframeworkcore/7.0.16",
+      "path": "microsoft.aspnetcore.identity.entityframeworkcore/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5182,14 +5183,14 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
         "lib/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
-        "microsoft.aspnetcore.identity.entityframeworkcore.7.0.16.nupkg.sha512",
+        "microsoft.aspnetcore.identity.entityframeworkcore.7.0.17.nupkg.sha512",
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Identity.UI/7.0.16": {
-      "sha512": "lS9fL31UmCR8PuaU68YvtS6awLl8JaEeXEEoyLhH7yhtKS35bLuMNXO2tTwMDaL+/UralDxIa/Ij/TDCRuMBxg==",
+    "Microsoft.AspNetCore.Identity.UI/7.0.17": {
+      "sha512": "kgnZlEcpHGSD4LZX9Kc56gfahX+zRKkyDqjwgfSE7PvPOk/l1mhlfmMU3FvhzgG9Rp0qszcUJDr985U7rCm4Ig==",
       "type": "package",
-      "path": "microsoft.aspnetcore.identity.ui/7.0.16",
+      "path": "microsoft.aspnetcore.identity.ui/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5204,7 +5205,7 @@
         "buildTransitive/Microsoft.AspNetCore.Identity.UI.targets",
         "lib/net7.0/Microsoft.AspNetCore.Identity.UI.dll",
         "lib/net7.0/Microsoft.AspNetCore.Identity.UI.xml",
-        "microsoft.aspnetcore.identity.ui.7.0.16.nupkg.sha512",
+        "microsoft.aspnetcore.identity.ui.7.0.17.nupkg.sha512",
         "microsoft.aspnetcore.identity.ui.nuspec",
         "staticwebassets/V4/css/site.css",
         "staticwebassets/V4/favicon.ico",
@@ -6069,10 +6070,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.Data.SqlClient/5.1.4": {
-      "sha512": "RSGSodusrPSVPKBLETRTH51G0yUQS28rD1hi2svTKS1GOsvUWxUpE8hgnKnUFC9RNjzfQmfUp+T0lJHFtlT3HQ==",
+    "Microsoft.Data.SqlClient/5.1.5": {
+      "sha512": "6kvhQjY5uBCdBccezFD2smfnpQjQ33cZtUZVrNvxlwoBu6uopM5INH6uSgLI7JRLtlQ3bMPwnhMq4kchsXeZ5w==",
       "type": "package",
-      "path": "microsoft.data.sqlclient/5.1.4",
+      "path": "microsoft.data.sqlclient/5.1.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6099,7 +6100,7 @@
         "lib/netstandard2.1/Microsoft.Data.SqlClient.dll",
         "lib/netstandard2.1/Microsoft.Data.SqlClient.pdb",
         "lib/netstandard2.1/Microsoft.Data.SqlClient.xml",
-        "microsoft.data.sqlclient.5.1.4.nupkg.sha512",
+        "microsoft.data.sqlclient.5.1.5.nupkg.sha512",
         "microsoft.data.sqlclient.nuspec",
         "ref/net462/Microsoft.Data.SqlClient.dll",
         "ref/net462/Microsoft.Data.SqlClient.pdb",
@@ -6178,10 +6179,10 @@
         "microsoft.dotnet.scaffolding.shared.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore/7.0.16": {
-      "sha512": "SbMHFQG7iXgBTUFv5XxVMwpRqDKah4qTraDAGUv4gkaudFAOSuNfNRfCXY282hij79P1oxg/M9Wni+8GXavxQQ==",
+    "Microsoft.EntityFrameworkCore/7.0.17": {
+      "sha512": "bKZbiZp/eF2t7/IFTubo8ZnMGtgPj6ffy6CRuMOSS3arETcnVAIPbMyWMeobG0W67rjxWzWUF+6lWp7IqNdO0g==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/7.0.16",
+      "path": "microsoft.entityframeworkcore/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6189,42 +6190,42 @@
         "buildTransitive/net6.0/Microsoft.EntityFrameworkCore.props",
         "lib/net6.0/Microsoft.EntityFrameworkCore.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.7.0.16.nupkg.sha512",
+        "microsoft.entityframeworkcore.7.0.17.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/7.0.16": {
-      "sha512": "emuQo430RBfwZSxwTYKu0/+ohRixXaRNi3njEbzcnaFqc94oU6afcx5KYtk5/lrBQn58Oo0CUmDRhMeFQI4Kgg==",
+    "Microsoft.EntityFrameworkCore.Abstractions/7.0.17": {
+      "sha512": "Umq1ik7FekatqAspsd7O+3GJrJZVCgZNSZI4otqny5VXwXlo/hpdqEtbpN/iuVyI1m4m0dbgYyRsSKaFt/0MYw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.abstractions/7.0.16",
+      "path": "microsoft.entityframeworkcore.abstractions/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
-        "microsoft.entityframeworkcore.abstractions.7.0.16.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.7.0.17.nupkg.sha512",
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/7.0.16": {
-      "sha512": "DO8M/90nqgq7fFoR4SIty9thhK22RBIwxoJxPIwrATy9FV1QKGPUeG9iMnz1yHv5/NxZWr8xF44oFAsrgcHgXg==",
+    "Microsoft.EntityFrameworkCore.Analyzers/7.0.17": {
+      "sha512": "Je9eCOYnYm7TVqAbvNurZTCRMboo4sPCEBD2/h0Pq9Uow4+bHTcegeNQLEf2lraWONo/QLR2YD/PF0v7JjdnMw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/7.0.16",
+      "path": "microsoft.entityframeworkcore.analyzers/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.analyzers.7.0.16.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.7.0.17.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Design/7.0.16": {
-      "sha512": "Z5Ra/VP8JfWPHE/3Ix0WzTlupk0KDhlCuUTOdUWREg1JpWpk8B8k7i3dX5TOLkAIvFfph1F3KT/5+sspuJtiEg==",
+    "Microsoft.EntityFrameworkCore.Design/7.0.17": {
+      "sha512": "tGUDMY1ghDKfrpO/xVsSUSnQv79bGJRYI9l1iyP8f5G56XXKpyc5Owy0tyvZl3XxZhs1YnkWqARICtsDiH98PQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.design/7.0.16",
+      "path": "microsoft.entityframeworkcore.design/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6232,49 +6233,49 @@
         "build/net6.0/Microsoft.EntityFrameworkCore.Design.props",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Design.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Design.xml",
-        "microsoft.entityframeworkcore.design.7.0.16.nupkg.sha512",
+        "microsoft.entityframeworkcore.design.7.0.17.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/7.0.16": {
-      "sha512": "g5G9SDhhxi9jUvUIrWl8r5Xi3cxY1W549ijLjO6y/2xTQv5ZF83u9MOrO9LYVi1wmm7Dih37U46rh9ZNcWBl0g==",
+    "Microsoft.EntityFrameworkCore.Relational/7.0.17": {
+      "sha512": "gaPsFpz/16mibXVP7ryZKzdJhs7YtqEk5Begx6Nz1aLArA6dVVpvNU3dL7fc8BUlcI4Vgw5mxT7cixZzjbndCw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/7.0.16",
+      "path": "microsoft.entityframeworkcore.relational/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.7.0.16.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.7.0.17.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/7.0.16": {
-      "sha512": "90vBWjQ69ukpxCq+MBputcMY9A/3bRQ5WnFGSCuiT/EKTyYa+PQJ+wvtsYtyE/PWz8NMGdFly5823CJ0hjRqyA==",
+    "Microsoft.EntityFrameworkCore.SqlServer/7.0.17": {
+      "sha512": "GVEe9+EI3dcPhdXbprYtqmECi2ZVt37U+rjRbIyehoAVtTVAG89sIsz4PcuyfQjnsNvmPFKwToOJteQeSwCj9w==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver/7.0.16",
+      "path": "microsoft.entityframeworkcore.sqlserver/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "microsoft.entityframeworkcore.sqlserver.7.0.16.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.7.0.17.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Tools/7.0.16": {
-      "sha512": "ZqBGxy8X1877dnGMVwmLzuMhZz8IstuX5QfUoKiQGIGRYV4r2YvxZX3oLw9BvyMZBgtm95dcW6Bev0gerKRNfA==",
+    "Microsoft.EntityFrameworkCore.Tools/7.0.17": {
+      "sha512": "/2BQZU0aALScLFrQE4omnjB84/+8BFViTAHRlL36Mu8M5XurjxqESsDOcZvRJnB/GecQH219Dt+mJHjGjh82qg==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.tools/7.0.16",
+      "path": "microsoft.entityframeworkcore.tools/7.0.17",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/_._",
-        "microsoft.entityframeworkcore.tools.7.0.16.nupkg.sha512",
+        "microsoft.entityframeworkcore.tools.7.0.17.nupkg.sha512",
         "microsoft.entityframeworkcore.tools.nuspec",
         "tools/EntityFrameworkCore.PS2.psd1",
         "tools/EntityFrameworkCore.PS2.psm1",
@@ -6593,10 +6594,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Embedded/7.0.16": {
-      "sha512": "eAo1QFERLU7ExSD850Tb+7C4xNp3hZv3IzK6NOb1neAJpcpK6Fs12D2bPZ2LXEoCA+B4Fxg+oaxdhu55YTlwTg==",
+    "Microsoft.Extensions.FileProviders.Embedded/7.0.17": {
+      "sha512": "wxNhflnIjiIc/TAwDQ5cP8uXxmy9q5Y2jinUzFO3AY4kJca932kmctEJsM+DWK4jolNqdZxphzoD8tXDfCtL5w==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.embedded/7.0.16",
+      "path": "microsoft.extensions.fileproviders.embedded/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6611,7 +6612,7 @@
         "lib/net7.0/Microsoft.Extensions.FileProviders.Embedded.xml",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.xml",
-        "microsoft.extensions.fileproviders.embedded.7.0.16.nupkg.sha512",
+        "microsoft.extensions.fileproviders.embedded.7.0.17.nupkg.sha512",
         "microsoft.extensions.fileproviders.embedded.nuspec",
         "tasks/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.Manifest.Task.dll"
       ]
@@ -6670,10 +6671,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Identity.Core/7.0.16": {
-      "sha512": "749jZUhPppWiMg2+GZtlBPkO56qW8MkbdXzRYp/DJEVQNvuct7XJoywmBamYJcculUj8f//q+KIkeCMreKUv9w==",
+    "Microsoft.Extensions.Identity.Core/7.0.17": {
+      "sha512": "ULxXqf53olI69GnZeWJbDHRYdrQUn40qoB0/nPre0+2kZEiqgrsUMGW12/96XIDg2XRKM7PZoOx9lVWPcYc0bw==",
       "type": "package",
-      "path": "microsoft.extensions.identity.core/7.0.16",
+      "path": "microsoft.extensions.identity.core/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6685,14 +6686,14 @@
         "lib/net7.0/Microsoft.Extensions.Identity.Core.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.xml",
-        "microsoft.extensions.identity.core.7.0.16.nupkg.sha512",
+        "microsoft.extensions.identity.core.7.0.17.nupkg.sha512",
         "microsoft.extensions.identity.core.nuspec"
       ]
     },
-    "Microsoft.Extensions.Identity.Stores/7.0.16": {
-      "sha512": "qokuwVDpwO5qtI818EJnqXHkjm76QTSZxwdNOYJW6PtukzqwhvhVftIyVjhWsgqjGgasoiNHRne/m06sZeNITw==",
+    "Microsoft.Extensions.Identity.Stores/7.0.17": {
+      "sha512": "Eu4Tvl3vTWwSpitqQn5irFBOADBUBQd5C9p4KrMsTrFUquPCpNfAL18glmMMnKocybS2r5o/6ucXIbMeKWx3bg==",
       "type": "package",
-      "path": "microsoft.extensions.identity.stores/7.0.16",
+      "path": "microsoft.extensions.identity.stores/7.0.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6704,7 +6705,7 @@
         "lib/net7.0/Microsoft.Extensions.Identity.Stores.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.xml",
-        "microsoft.extensions.identity.stores.7.0.16.nupkg.sha512",
+        "microsoft.extensions.identity.stores.7.0.17.nupkg.sha512",
         "microsoft.extensions.identity.stores.nuspec"
       ]
     },
@@ -6939,10 +6940,10 @@
         "microsoft.identity.client.extensions.msal.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.Abstractions/6.24.0": {
-      "sha512": "X6aBK56Ot15qKyG7X37KsPnrwah+Ka55NJWPppWVTDi8xWq7CJgeNw2XyaeHgE1o/mW4THwoabZkBbeG2TPBiw==",
+    "Microsoft.IdentityModel.Abstractions/6.35.0": {
+      "sha512": "xuR8E4Rd96M41CnUSCiOJ2DBh+z+zQSmyrYHdYhD6K4fXBcQGVnRCFQ0efROUYpP+p0zC1BLKr0JRpVuujTZSg==",
       "type": "package",
-      "path": "microsoft.identitymodel.abstractions/6.24.0",
+      "path": "microsoft.identitymodel.abstractions/6.35.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6950,20 +6951,22 @@
         "lib/net45/Microsoft.IdentityModel.Abstractions.xml",
         "lib/net461/Microsoft.IdentityModel.Abstractions.dll",
         "lib/net461/Microsoft.IdentityModel.Abstractions.xml",
+        "lib/net462/Microsoft.IdentityModel.Abstractions.dll",
+        "lib/net462/Microsoft.IdentityModel.Abstractions.xml",
         "lib/net472/Microsoft.IdentityModel.Abstractions.dll",
         "lib/net472/Microsoft.IdentityModel.Abstractions.xml",
         "lib/net6.0/Microsoft.IdentityModel.Abstractions.dll",
         "lib/net6.0/Microsoft.IdentityModel.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.xml",
-        "microsoft.identitymodel.abstractions.6.24.0.nupkg.sha512",
+        "microsoft.identitymodel.abstractions.6.35.0.nupkg.sha512",
         "microsoft.identitymodel.abstractions.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.JsonWebTokens/6.24.0": {
-      "sha512": "XDWrkThcxfuWp79AvAtg5f+uRS1BxkIbJnsG/e8VPzOWkYYuDg33emLjp5EWcwXYYIDsHnVZD/00kM/PYFQc/g==",
+    "Microsoft.IdentityModel.JsonWebTokens/6.35.0": {
+      "sha512": "9wxai3hKgZUb4/NjdRKfQd0QJvtXKDlvmGMYACbEC8DFaicMFCFhQFZq9ZET1kJLwZahf2lfY5Gtcpsx8zYzbg==",
       "type": "package",
-      "path": "microsoft.identitymodel.jsonwebtokens/6.24.0",
+      "path": "microsoft.identitymodel.jsonwebtokens/6.35.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6971,20 +6974,22 @@
         "lib/net45/Microsoft.IdentityModel.JsonWebTokens.xml",
         "lib/net461/Microsoft.IdentityModel.JsonWebTokens.dll",
         "lib/net461/Microsoft.IdentityModel.JsonWebTokens.xml",
+        "lib/net462/Microsoft.IdentityModel.JsonWebTokens.dll",
+        "lib/net462/Microsoft.IdentityModel.JsonWebTokens.xml",
         "lib/net472/Microsoft.IdentityModel.JsonWebTokens.dll",
         "lib/net472/Microsoft.IdentityModel.JsonWebTokens.xml",
         "lib/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll",
         "lib/net6.0/Microsoft.IdentityModel.JsonWebTokens.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.xml",
-        "microsoft.identitymodel.jsonwebtokens.6.24.0.nupkg.sha512",
+        "microsoft.identitymodel.jsonwebtokens.6.35.0.nupkg.sha512",
         "microsoft.identitymodel.jsonwebtokens.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.Logging/6.24.0": {
-      "sha512": "qLYWDOowM/zghmYKXw1yfYKlHOdS41i8t4hVXr9bSI90zHqhyhQh9GwVy8pENzs5wHeytU23DymluC9NtgYv7w==",
+    "Microsoft.IdentityModel.Logging/6.35.0": {
+      "sha512": "jePrSfGAmqT81JDCNSY+fxVWoGuJKt9e6eJ+vT7+quVS55nWl//jGjUQn4eFtVKt4rt5dXaleZdHRB9J9AJZ7Q==",
       "type": "package",
-      "path": "microsoft.identitymodel.logging/6.24.0",
+      "path": "microsoft.identitymodel.logging/6.35.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6992,20 +6997,22 @@
         "lib/net45/Microsoft.IdentityModel.Logging.xml",
         "lib/net461/Microsoft.IdentityModel.Logging.dll",
         "lib/net461/Microsoft.IdentityModel.Logging.xml",
+        "lib/net462/Microsoft.IdentityModel.Logging.dll",
+        "lib/net462/Microsoft.IdentityModel.Logging.xml",
         "lib/net472/Microsoft.IdentityModel.Logging.dll",
         "lib/net472/Microsoft.IdentityModel.Logging.xml",
         "lib/net6.0/Microsoft.IdentityModel.Logging.dll",
         "lib/net6.0/Microsoft.IdentityModel.Logging.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Logging.xml",
-        "microsoft.identitymodel.logging.6.24.0.nupkg.sha512",
+        "microsoft.identitymodel.logging.6.35.0.nupkg.sha512",
         "microsoft.identitymodel.logging.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.Protocols/6.24.0": {
-      "sha512": "+NzKCkvsQ8X1r/Ff74V7CFr9OsdMRaB6DsV+qpH7NNLdYJ8O4qHbmTnNEsjFcDmk/gVNDwhoL2gN5pkPVq0lwQ==",
+    "Microsoft.IdentityModel.Protocols/6.35.0": {
+      "sha512": "BPQhlDzdFvv1PzaUxNSk+VEPwezlDEVADIKmyxubw7IiELK18uJ06RQ9QKKkds30XI+gDu9n8j24XQ8w7fjWcg==",
       "type": "package",
-      "path": "microsoft.identitymodel.protocols/6.24.0",
+      "path": "microsoft.identitymodel.protocols/6.35.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7013,20 +7020,22 @@
         "lib/net45/Microsoft.IdentityModel.Protocols.xml",
         "lib/net461/Microsoft.IdentityModel.Protocols.dll",
         "lib/net461/Microsoft.IdentityModel.Protocols.xml",
+        "lib/net462/Microsoft.IdentityModel.Protocols.dll",
+        "lib/net462/Microsoft.IdentityModel.Protocols.xml",
         "lib/net472/Microsoft.IdentityModel.Protocols.dll",
         "lib/net472/Microsoft.IdentityModel.Protocols.xml",
         "lib/net6.0/Microsoft.IdentityModel.Protocols.dll",
         "lib/net6.0/Microsoft.IdentityModel.Protocols.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.xml",
-        "microsoft.identitymodel.protocols.6.24.0.nupkg.sha512",
+        "microsoft.identitymodel.protocols.6.35.0.nupkg.sha512",
         "microsoft.identitymodel.protocols.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.Protocols.OpenIdConnect/6.24.0": {
-      "sha512": "a/2RRrc8C9qaw8qdD9hv1ES9YKFgxaqr/SnwMSLbwQZJSUQDd4qx1K4EYgWaQWs73R+VXLyKSxN0f/uE9CsBiQ==",
+    "Microsoft.IdentityModel.Protocols.OpenIdConnect/6.35.0": {
+      "sha512": "LMtVqnECCCdSmyFoCOxIE5tXQqkOLrvGrL7OxHg41DIm1bpWtaCdGyVcTAfOQpJXvzND9zUKIN/lhngPkYR8vg==",
       "type": "package",
-      "path": "microsoft.identitymodel.protocols.openidconnect/6.24.0",
+      "path": "microsoft.identitymodel.protocols.openidconnect/6.35.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7034,20 +7043,22 @@
         "lib/net45/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
         "lib/net461/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
         "lib/net461/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
+        "lib/net462/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
+        "lib/net462/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
         "lib/net472/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
         "lib/net472/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
         "lib/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
         "lib/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
-        "microsoft.identitymodel.protocols.openidconnect.6.24.0.nupkg.sha512",
+        "microsoft.identitymodel.protocols.openidconnect.6.35.0.nupkg.sha512",
         "microsoft.identitymodel.protocols.openidconnect.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.Tokens/6.24.0": {
-      "sha512": "ZPqHi86UYuqJXJ7bLnlEctHKkPKT4lGUFbotoCNiXNCSL02emYlcxzGYsRGWWmbFEcYDMi2dcTLLYNzHqWOTsw==",
+    "Microsoft.IdentityModel.Tokens/6.35.0": {
+      "sha512": "RN7lvp7s3Boucg1NaNAbqDbxtlLj5Qeb+4uSS1TeK5FSBVM40P4DKaTKChT43sHyKfh7V0zkrMph6DdHvyA4bg==",
       "type": "package",
-      "path": "microsoft.identitymodel.tokens/6.24.0",
+      "path": "microsoft.identitymodel.tokens/6.35.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7055,13 +7066,15 @@
         "lib/net45/Microsoft.IdentityModel.Tokens.xml",
         "lib/net461/Microsoft.IdentityModel.Tokens.dll",
         "lib/net461/Microsoft.IdentityModel.Tokens.xml",
+        "lib/net462/Microsoft.IdentityModel.Tokens.dll",
+        "lib/net462/Microsoft.IdentityModel.Tokens.xml",
         "lib/net472/Microsoft.IdentityModel.Tokens.dll",
         "lib/net472/Microsoft.IdentityModel.Tokens.xml",
         "lib/net6.0/Microsoft.IdentityModel.Tokens.dll",
         "lib/net6.0/Microsoft.IdentityModel.Tokens.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.xml",
-        "microsoft.identitymodel.tokens.6.24.0.nupkg.sha512",
+        "microsoft.identitymodel.tokens.6.35.0.nupkg.sha512",
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
@@ -9142,10 +9155,10 @@
         "system.globalization.extensions.nuspec"
       ]
     },
-    "System.IdentityModel.Tokens.Jwt/6.24.0": {
-      "sha512": "Qibsj9MPWq8S/C0FgvmsLfIlHLE7ay0MJIaAmK94ivN3VyDdglqReed5qMvdQhSL0BzK6v0Z1wB/sD88zVu6Jw==",
+    "System.IdentityModel.Tokens.Jwt/6.35.0": {
+      "sha512": "yxGIQd3BFK7F6S62/7RdZk3C/mfwyVxvh6ngd1VYMBmbJ1YZZA9+Ku6suylVtso0FjI0wbElpJ0d27CdsyLpBQ==",
       "type": "package",
-      "path": "system.identitymodel.tokens.jwt/6.24.0",
+      "path": "system.identitymodel.tokens.jwt/6.35.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -9153,13 +9166,15 @@
         "lib/net45/System.IdentityModel.Tokens.Jwt.xml",
         "lib/net461/System.IdentityModel.Tokens.Jwt.dll",
         "lib/net461/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/net462/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net462/System.IdentityModel.Tokens.Jwt.xml",
         "lib/net472/System.IdentityModel.Tokens.Jwt.dll",
         "lib/net472/System.IdentityModel.Tokens.Jwt.xml",
         "lib/net6.0/System.IdentityModel.Tokens.Jwt.dll",
         "lib/net6.0/System.IdentityModel.Tokens.Jwt.xml",
         "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll",
         "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.xml",
-        "system.identitymodel.tokens.jwt.6.24.0.nupkg.sha512",
+        "system.identitymodel.tokens.jwt.6.35.0.nupkg.sha512",
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
@@ -12250,10 +12265,10 @@
       "AutoMapper >= 12.0.0",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 7.0.16",
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.16",
-      "Microsoft.AspNetCore.Identity.UI >= 7.0.16",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.16",
-      "Microsoft.EntityFrameworkCore.Tools >= 7.0.16",
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.17",
+      "Microsoft.AspNetCore.Identity.UI >= 7.0.17",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.17",
+      "Microsoft.EntityFrameworkCore.Tools >= 7.0.17",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.12"
     ]
   },
@@ -12324,21 +12339,21 @@
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[7.0.16, )"
+            "version": "[7.0.17, )"
           },
           "Microsoft.AspNetCore.Identity.UI": {
             "target": "Package",
-            "version": "[7.0.16, )"
+            "version": "[7.0.17, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
-            "version": "[7.0.16, )"
+            "version": "[7.0.17, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[7.0.16, )"
+            "version": "[7.0.17, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",

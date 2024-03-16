@@ -14,11 +14,12 @@ builder.Services.ConfigurePersistenceServices(builder.Configuration);
 builder.Services.ConfigureMVCService();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
-
-    })
-    .AddEntityFrameworkStores<EMRDbContext>();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<EMRDbContext>()
+    .AddDefaultUI()
+    .AddDefaultTokenProviders();
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
