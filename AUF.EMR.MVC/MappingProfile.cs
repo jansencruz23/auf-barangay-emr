@@ -8,7 +8,7 @@ namespace AUF.EMR.MVC
     {
         public MappingProfile()
         {
-            CreateMap<HouseholdMember, MasterlistVM>().ReverseMap();
+
         }
     }
 }

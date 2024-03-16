@@ -1,8 +1,10 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Domain.Models;
+using AUF.EMR.MVC.Models.IndexVM;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -27,50 +29,85 @@ namespace AUF.EMR.MVC.Controllers
         // GET: MasterlistController/Newborn
         public async Task<ActionResult> Newborn(string householdNo)
         {
-            var newborns = await _masterlistService.GetMasterlistNewborn(householdNo);
-            return View(newborns);
+            var members = await _masterlistService.GetMasterlistNewborn(householdNo);
+            var model = new MasterlistListVM
+            {
+                HouseholdMembers = members,
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+            };
+            return View(model);
         }
 
         // GET: MasterlistController/Infant
         public async Task<ActionResult> Infant(string householdNo)
         {
-            var infants = await _masterlistService.GetMasterlistInfant(householdNo);
-            return View(infants);
+            var members = await _masterlistService.GetMasterlistInfant(householdNo);
+            var model = new MasterlistListVM
+            {
+                HouseholdMembers = members,
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+            };
+            return View(model);
         }
 
         // GET: MasterlistController/UnderFive
         public async Task<ActionResult> UnderFive(string householdNo)
         {
-            var underFiveChildren = await _masterlistService.GetMasterlistUnderFive(householdNo);
-            return View(underFiveChildren);
+            var members = await _masterlistService.GetMasterlistUnderFive(householdNo);
+            var model = new MasterlistListVM
+            {
+                HouseholdMembers = members,
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+            };
+            return View(model);
         }
 
         // GET: MasterlistController/SchoolAged
         public async Task<ActionResult> SchoolAged(string householdNo)
         {
-            var schoolAgedChildren = await _masterlistService.GetMasterlistSchoolAge(householdNo);
-            return View(schoolAgedChildren);
+            var members = await _masterlistService.GetMasterlistSchoolAge(householdNo);
+            var model = new MasterlistListVM
+            {
+                HouseholdMembers = members,
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+            };
+            return View(model);
         }
 
         // GET: MasterlistController/Adolescent
         public async Task<ActionResult> Adolescent(string householdNo)
         {
-            var schoolAgedChildren = await _masterlistService.GetMasterlistAdolescent(householdNo);
-            return View(schoolAgedChildren);
+            var members = await _masterlistService.GetMasterlistAdolescent(householdNo);
+            var model = new MasterlistListVM
+            {
+                HouseholdMembers = members,
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+            };
+            return View(model);
         }
 
         // GET: MasterlistController/Adult
         public async Task<ActionResult> Adult(string householdNo)
         {
-            var schoolAgedChildren = await _masterlistService.GetMasterlistAdult(householdNo);
-            return View(schoolAgedChildren);
+            var members = await _masterlistService.GetMasterlistAdult(householdNo);
+            var model = new MasterlistListVM
+            {
+                HouseholdMembers = members,
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+            };
+            return View(model);
         }
 
         // GET: MasterlistController/SeniorCitizen
         public async Task<ActionResult> SeniorCitizen(string householdNo)
         {
-            var schoolAgedChildren = await _masterlistService.GetMasterlistSeniorCitizen(householdNo);
-            return View(schoolAgedChildren);
+            var members = await _masterlistService.GetMasterlistSeniorCitizen(householdNo);
+            var model = new MasterlistListVM
+            {
+                HouseholdMembers = members,
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+            };
+            return View(model);
         }
 
         // GET: MasterlistController/Details/5

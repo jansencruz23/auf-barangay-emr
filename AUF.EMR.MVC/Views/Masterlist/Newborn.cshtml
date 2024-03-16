@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AUF.EMR.Domain.Models.HouseholdMember>
+﻿@model MasterlistListVM
 
 @{
     ViewData["Title"] = "Masterlist of Newborns";
@@ -43,7 +43,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.HouseholdMembers)
         {
             <tr>
                 <td>
@@ -82,7 +82,7 @@
                     @Html.DisplayFor(modelItem => item.IsInSchool)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Edit" asp-controller="HouseholdMember" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
