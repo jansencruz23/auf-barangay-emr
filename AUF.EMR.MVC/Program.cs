@@ -46,6 +46,12 @@ using (var scope = app.Services.CreateScope())
     {
         await adminSeeder.SeedAsync();
     }
+
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    if (!await roleManager.RoleExistsAsync("User"))
+    {
+        await roleManager.CreateAsync(new IdentityRole("User"));
+    }
 }
 
 // Configure the HTTP request pipeline.

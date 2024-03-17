@@ -19,5 +19,29 @@ namespace AUF.EMR.Domain.Models.Identity
         public string? ContactNo { get; set; }
         public string? Address { get; set; }
         public string Position { get; set; }
+
+        public string FullName { get => $"{FirstName} {GetMiddleInitial()}. {LastName}"; }
+        public string Age { get => $"{GetAge()} years old"; }
+
+        private string GetMiddleInitial()
+        {
+            if (string.IsNullOrEmpty(MiddleName) || MiddleName.Length < 2)
+                return string.Empty;
+
+            return MiddleName.Split(' ').Last()[0].ToString();
+        }
+
+        private int GetAge()
+        {
+            var today = DateTime.Today;
+            var age = today.Year - Birthday.Year;
+
+            if (Birthday > today.AddYears(-age))
+            {
+                age--;
+            }
+
+            return age;
+        }
     }
 }

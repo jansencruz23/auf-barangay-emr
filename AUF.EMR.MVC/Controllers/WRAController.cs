@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "User")]
     public class WRAController : Controller
     {
         private readonly IWRAService _wraService;

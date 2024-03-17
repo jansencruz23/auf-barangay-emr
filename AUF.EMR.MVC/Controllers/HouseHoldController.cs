@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AUF.EMR.MVC.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "User")]
     public class HouseholdController : Controller
     {
         private readonly IHouseholdService _houseHoldService;

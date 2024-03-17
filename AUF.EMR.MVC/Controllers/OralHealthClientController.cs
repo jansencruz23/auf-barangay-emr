@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "User")]
     public class OralHealthClientController : Controller
     {
         private readonly IOralHealthService _oralHealthService;

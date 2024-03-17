@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "User")]
     public class HouseholdMemberController : Controller
     {
         private readonly IHouseholdMemberService _houseHoldMemberService;

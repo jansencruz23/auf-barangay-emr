@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Routing;
 
 namespace AUF.EMR.MVC.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "User")]
     public class MasterlistController : Controller
     {
         private readonly IMasterlistService _masterlistService;

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "User")]
     public class PregnancyTrackingController : Controller
     {
         private readonly IPregnancyTrackingService _pregnancyService;
