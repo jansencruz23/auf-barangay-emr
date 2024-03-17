@@ -24,20 +24,39 @@ namespace AUF.EMR.Persistence
         public DbSet<HouseholdMember> HouseHoldMembers { get; set; }
         public DbSet<WomanOfReproductiveAge> WomanOfReproductiveAges { get; set; }
         public DbSet<PregnancyTracking> PregnancyTrackings { get; set; }
+        public DbSet<RecordLog> RecordLogs { get; set; }
 
-            public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var modifiedEntities = ChangeTracker.Entries()
+                .Where(e => e.State == EntityState.Added
+                    || e.State == EntityState.Modified
+                    || e.State == EntityState.Deleted)
+                .ToList();
+            
+            foreach (var modifiedEntity in modifiedEntities)
             {
-                foreach (var entry in ChangeTracker.Entries<BaseDomainEntity>())
+                var recordLog = new RecordLog
                 {
-                    entry.Entity.LastModified = DateTime.Now;
+                    EntityName = modifiedEntity.Entity.GetType().Name,
+                    Action = modifiedEntity.State.ToString(),
+                    Timestamp = DateTime.Now
+                };
 
-                    if (entry.State == EntityState.Added)
-                    {
-                        entry.Entity.DateCreated = DateTime.Now;
-                    }
-                }
-
-                return base.SaveChangesAsync(cancellationToken);
+                RecordLogs.Add(recordLog);
             }
+
+            foreach (var entry in ChangeTracker.Entries<BaseDomainEntity>())
+            {
+                entry.Entity.LastModified = DateTime.Now;
+
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Entity.DateCreated = DateTime.Now;
+                }
+            }
+
+            return base.SaveChangesAsync(cancellationToken);
+        }
     }
 }

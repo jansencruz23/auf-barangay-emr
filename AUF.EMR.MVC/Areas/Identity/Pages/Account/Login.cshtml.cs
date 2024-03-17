@@ -22,11 +22,16 @@ namespace AUF.EMR.MVC.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger,
+            UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         /// <summary>
@@ -114,8 +119,20 @@ namespace AUF.EMR.MVC.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    var user = await _userManager.FindByNameAsync(Input.Username);
+                    var roles = await _userManager.GetRolesAsync(user);
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+
+                    if (roles.Contains("Admin"))
+                    {
+                        return RedirectToAction("Index", "User");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    
+                    //return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
                 {

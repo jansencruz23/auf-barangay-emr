@@ -345,6 +345,28 @@ namespace AUF.EMR.Persistence.Migrations
                     b.ToTable("PregnancyTrackings");
                 });
 
+            modelBuilder.Entity("AUF.EMR.Domain.Models.RecordLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("EntityName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RecordLogs");
+                });
+
             modelBuilder.Entity("AUF.EMR.Domain.Models.WomanOfReproductiveAge", b =>
                 {
                     b.Property<int>("Id")

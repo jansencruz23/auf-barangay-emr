@@ -108,19 +108,20 @@ namespace AUF.EMR.MVC.Controllers
         // POST: HouseHolds/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Household houseHold)
+        public async Task<IActionResult> Edit(int id, CreateHouseholdProfileVM householdVM)
         {
             try
             {
-                await _houseHoldService.Update(houseHold);
-                return RedirectToAction(nameof(HouseholdProfile), new { householdNo = houseHold.HouseholdNo });
+                var household = householdVM.Household;
+                await _houseHoldService.Update(household);
+                return RedirectToAction(nameof(HouseholdProfile), new { householdNo = household.HouseholdNo });
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(houseHold);
+            return View(householdVM);
         }
 
         // GET: HouseHolds/Delete/5
