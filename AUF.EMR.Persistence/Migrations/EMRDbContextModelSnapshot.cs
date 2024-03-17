@@ -16,7 +16,7 @@ namespace AUF.EMR.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.16")
+                .HasAnnotation("ProductVersion", "7.0.17")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.Household", b =>
@@ -195,7 +195,6 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("Birthday")
@@ -206,7 +205,6 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("ContactNo")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Email")
@@ -231,7 +229,6 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("MiddleName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("NormalizedEmail")

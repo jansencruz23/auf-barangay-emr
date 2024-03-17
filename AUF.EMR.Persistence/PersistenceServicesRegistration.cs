@@ -2,6 +2,7 @@
 using AUF.EMR.Application.Contracts.Persistence.Common;
 using AUF.EMR.Persistence.Repositories;
 using AUF.EMR.Persistence.Repositories.Common;
+using AUF.EMR.Persistence.Seeders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +31,7 @@ namespace AUF.EMR.Persistence
             services.AddScoped<IOralHealthRepository, OralHealthRepository>();
             services.AddScoped<IWRARepository, WRARepository>();
             services.AddScoped<IPregnancyTrackingRepository, PregnancyTrackingRepository>();
+            services.AddScoped<AdminSeeder>();
 
             return services;
         }
