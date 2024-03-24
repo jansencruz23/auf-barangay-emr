@@ -6,6 +6,8 @@
 
 <h1>National Safe Motherhood Program - Pregnancy Tracking</h1>
 
+@Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
+
 <p>
     <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo">Create New</a>
 </p>

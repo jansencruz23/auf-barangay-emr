@@ -35,7 +35,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
-                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
+                HouseholdNo = householdNo
             };
             return View(model);
         }
@@ -47,7 +48,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
-                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
+                HouseholdNo = householdNo
             };
             return View(model);
         }
@@ -59,7 +61,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
-                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
+                HouseholdNo = householdNo
             };
             return View(model);
         }
@@ -71,7 +74,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
-                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
+                HouseholdNo = householdNo
             };
             return View(model);
         }
@@ -83,7 +87,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
-                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
+                HouseholdNo = householdNo
             };
             return View(model);
         }
@@ -95,7 +100,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
-                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
+                HouseholdNo = householdNo
             };
             return View(model);
         }
@@ -107,7 +113,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new HouseholdMemberListVM
             {
                 HouseholdMembers = members,
-                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
+                HouseholdNo = householdNo
             };
             return View(model);
         }

@@ -6,27 +6,7 @@
 
 <h1>F1 - Household Profile</h1>
 
-<a asp-action="Newborn" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Newborns</a>
-<a asp-action="Infant" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Infants</a>
-<a asp-action="UnderFive" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Under-five Children</a>
-<a asp-action="UnderFive" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Under-five Children</a>
-<a asp-action="SchoolAged" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of School-aged Children</a>
-<a asp-action="Adolescent" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Adolescents</a>
-<a asp-action="Adult" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Adults</a>
-<a asp-action="SeniorCitizen" asp-controller="Masterlist" asp-route-householdNo="@Model.HouseholdNo">MasterList of Senior Citizens</a>
-<br />
-<a asp-action="Infant" asp-controller="OralHealthClient" asp-route-householdNo="@Model.HouseholdNo">Infant Oral Health Client</a>
-<a asp-action="OneToFour" asp-controller="OralHealthClient" asp-route-householdNo="@Model.HouseholdNo">1-4 Oral Health Client</a>
-<a asp-action="FiveToNine" asp-controller="OralHealthClient" asp-route-householdNo="@Model.HouseholdNo">5-9 Oral Health Client</a>
-<a asp-action="TenToFourteen" asp-controller="OralHealthClient" asp-route-householdNo="@Model.HouseholdNo">10-14 Oral Health Client</a>
-<a asp-action="FifteenToNineteen" asp-controller="OralHealthClient" asp-route-householdNo="@Model.HouseholdNo">15-19 Oral Health Client</a>
-<a asp-action="TwentyToFourtynine" asp-controller="OralHealthClient" asp-route-householdNo="@Model.HouseholdNo">20-49 Oral Health Client</a>
-<a asp-action="PregnantFifteenToNineteen" asp-controller="OralHealthClient" asp-route-householdNo="@Model.HouseholdNo">Pregnant 15-19 Oral Health Client</a>
-<a asp-action="PregnantTwentyToFourtynine" asp-controller="OralHealthClient" asp-route-householdNo="@Model.HouseholdNo">Pregnant 20-49 Oral Health Client</a>
-<br />
-<a asp-action="Index" asp-controller="WRA" asp-route-householdNo="@Model.HouseholdNo">List of Women of Reproductive Age</a>
-<br />
-<a asp-action="Index" asp-controller="PregnancyTracking" asp-route-householdNo="@Model.HouseholdNo">List of National Safe Motherhood Program</a>
+@Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 
 <table class="table">
     <thead>

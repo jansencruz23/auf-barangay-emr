@@ -6,6 +6,8 @@
 
 <h1>List of Women of Reproductive Age and Adolescent Women for Family Planning Services</h1>
 
+@Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
+
 <p>
     <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo">Create New</a>
 </p>
