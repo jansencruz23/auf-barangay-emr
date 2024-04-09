@@ -25,6 +25,7 @@ namespace AUF.EMR.Persistence
         public DbSet<WomanOfReproductiveAge> WomanOfReproductiveAges { get; set; }
         public DbSet<PregnancyTracking> PregnancyTrackings { get; set; }
         public DbSet<RecordLog> RecordLogs { get; set; }
+        public DbSet<Barangay> Barangays { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

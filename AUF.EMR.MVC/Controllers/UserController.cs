@@ -36,21 +36,6 @@ namespace AUF.EMR.MVC.Controllers
             return RedirectToPage("/Account/Register", new { area = "Identity" });
         }
 
-        // POST: UserController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         // GET: UserController/Edit/5
         public ActionResult Edit(int id)
         {

@@ -1,0 +1,86 @@
+﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.Application.Services;
+using AUF.EMR.Domain.Models;
+using AUF.EMR.MVC.Models.EditVM;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace AUF.EMR.MVC.Controllers
+{
+    public class BarangayController : Controller
+    {
+        private readonly IBarangayService _barangayService;
+
+        public BarangayController(IBarangayService barangayService)
+        {
+            _barangayService = barangayService;
+        }
+
+        // GET: BarangayController
+        public async Task<ActionResult> Index()
+        {
+            var barangay = await _barangayService.GetBarangay();
+            return View(barangay);
+        }
+
+        // GET: BarangayController/Edit/5
+        public async Task<ActionResult> Edit()
+        {
+            var barangay = await _barangayService.GetBarangay();
+            var model = new EditBarangayVM
+            {
+                Barangay = barangay,
+                LogoFile = null
+            };
+
+            return View(model);
+        }
+
+        // POST: BarangayController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(EditBarangayVM barangayVM)
+        {
+            try
+            {
+                if (barangayVM.LogoFile != null && barangayVM.LogoFile.Length > 0)
+                {
+                    using var memoryStream = new MemoryStream();
+                    await barangayVM.LogoFile.CopyToAsync(memoryStream);
+                    byte[] logoBytes = memoryStream.ToArray();
+
+                    barangayVM.Barangay.Logo = logoBytes;
+                }
+                var completed = await _barangayService.Update(barangayVM.Barangay);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
+
+            return View(barangayVM);
+        }
+
+        // GET: BarangayController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: BarangayController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
+}

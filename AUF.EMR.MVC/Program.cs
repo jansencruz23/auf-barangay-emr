@@ -52,6 +52,12 @@ using (var scope = app.Services.CreateScope())
     {
         await roleManager.CreateAsync(new IdentityRole("User"));
     }
+
+    var barangaySeeder = scope.ServiceProvider.GetRequiredService<BarangaySeeder>();
+    if (barangaySeeder != null)
+    {
+        await barangaySeeder.SeedAsync();
+    }
 }
 
 // Configure the HTTP request pipeline.
