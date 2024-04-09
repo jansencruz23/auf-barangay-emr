@@ -24,7 +24,7 @@ namespace AUF.EMR.Persistence.Seeders
             {
                 var barangay = new Barangay
                 {
-                    BarangayName = "Brgy. Ninoy Aquino",
+                    BarangayName = "Ninoy Aquino",
                     Logo = null,
                     BarangayHealthStation = "",
                     ContactNo = "09123456789",

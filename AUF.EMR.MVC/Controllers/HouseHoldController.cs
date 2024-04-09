@@ -12,6 +12,8 @@ using AUF.EMR.MVC.Models;
 using Microsoft.Identity.Client;
 using AUF.EMR.MVC.Models.CreateVM;
 using Microsoft.AspNetCore.Authorization;
+using AUF.EMR.MVC.Models.IndexVM;
+
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -20,22 +22,28 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IHouseholdService _houseHoldService;
         private readonly IHouseholdMemberService _houseHoldMemberService;
+        private readonly IBarangayService _brgyService;
 
         public HouseholdController(IHouseholdService houseHoldService,
-            IHouseholdMemberService houseHoldMemberService)
+            IHouseholdMemberService houseHoldMemberService,
+            IBarangayService brgyService)
         {
             _houseHoldService = houseHoldService;
             _houseHoldMemberService = houseHoldMemberService;
+            _brgyService = brgyService;
         }
 
         // GET: HouseHolds
         public async Task<IActionResult> HouseholdProfile(string householdNo)
         {
             var searched = await _houseHoldService.GetSearchedhouseHoldWithDetails(householdNo);
+            var barangay = await _brgyService.GetBarangay();
+
             var model = new HouseholdProfileVM
             {
                 HouseholdNo = householdNo,
-                Households = searched
+                Households = searched,
+                Barangay = barangay
             };
 
             return View(model);
@@ -43,14 +51,21 @@ namespace AUF.EMR.MVC.Controllers
 
         public async Task<IActionResult> Index(string query)
         {
+            var barangay = await _brgyService.GetBarangay();
+            var model = new HouseholdVM { Barangay = barangay };
+
             if (string.IsNullOrEmpty(query))
             {
-                var model = await _houseHoldService.GetHouseholdsWithDetails();
+                var households = await _houseHoldService.GetHouseholdsWithDetails();
+                model.Households = households;
+
                 return View(model);
             }
 
             var searched = await _houseHoldService.GetSearchedhouseHoldsWithDetails(query);
-            return View(searched);
+            model.Households = searched;
+
+            return View(model);
         }
 
         // GET: HouseHolds/Details/5

@@ -7,5 +7,6 @@ namespace AUF.EMR.MVC.Models
         public List<Household> Households { get; set; }
         public Household Household { get; set; }
         public string HouseholdNo { get; set; }
+        public Barangay Barangay { get; set; }
     }
 }

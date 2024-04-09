@@ -39,5 +39,14 @@ namespace AUF.EMR.Domain.Models
         public List<HouseholdMember> HouseholdMembers { get; set; } = new();
 
         public string FullAddress { get => $"{HouseNoAndStreet} {Barangay}, {City}, {Province}"; }
+        public string FullName { get => $"{FirstName} {GetMiddleInitial()}. {LastName}"; }
+
+        private string GetMiddleInitial()
+        {
+            if (string.IsNullOrEmpty(MotherMaidenName) || MotherMaidenName.Length < 2)
+                return string.Empty;
+
+            return MotherMaidenName.Split(' ').Last()[0].ToString();
+        }
     }
 }

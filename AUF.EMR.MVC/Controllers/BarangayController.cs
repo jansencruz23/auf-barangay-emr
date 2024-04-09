@@ -2,11 +2,13 @@
 using AUF.EMR.Application.Services;
 using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.EditVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize]
     public class BarangayController : Controller
     {
         private readonly IBarangayService _barangayService;
@@ -24,6 +26,7 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: BarangayController/Edit/5
+        [Authorize(Policy = "Admin")]
         public async Task<ActionResult> Edit()
         {
             var barangay = await _barangayService.GetBarangay();
@@ -38,6 +41,7 @@ namespace AUF.EMR.MVC.Controllers
 
         // POST: BarangayController/Edit/5
         [HttpPost]
+        [Authorize(Policy = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(EditBarangayVM barangayVM)
         {

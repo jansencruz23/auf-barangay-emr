@@ -15,13 +15,15 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IHouseholdMemberService _houseHoldMemberService;
         private readonly IHouseholdService _houseHoldService;
+        private readonly IBarangayService _brgyService;
         private readonly IMapper _mapper;
 
         public HouseholdMemberController(IHouseholdMemberService houseHoldMemberService,
-            IHouseholdService houseHoldService, IMapper mapper)
+            IHouseholdService houseHoldService, IBarangayService brgyService, IMapper mapper)
         {
             _houseHoldMemberService = houseHoldMemberService;
             _houseHoldService = houseHoldService;
+            _brgyService = brgyService;
             _mapper = mapper;
         }
 
@@ -41,10 +43,13 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> Create(string householdNo)
         {
             var householdId = await _houseHoldService.GetHouseholdId(householdNo);
+            var barangay = await _brgyService.GetBarangay();
+
             var model = new CreateHouseholdMemberVM
             {
                 HouseholdNo = householdNo,
-                HouseholdId = householdId
+                HouseholdId = householdId,
+                Barangay = barangay
             };
 
             return View(model);

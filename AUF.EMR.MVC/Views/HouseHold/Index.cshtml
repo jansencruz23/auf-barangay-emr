@@ -1,7 +1,8 @@
-﻿@model IEnumerable<Household>
+﻿@model HouseholdVM
 
 @{
     ViewData["Title"] = "Index";
+    ViewData["Barangay"] = Model.Barangay.BarangayName;
 }
 
 <h1>Index</h1>
@@ -23,62 +24,32 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.HouseholdNo)
+                HouseholdNo
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                Address
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MotherMaidenName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HouseNoAndStreet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Barangay)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Province)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContactNo)
+                ContactNo
             </th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Households)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.HouseholdNo)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
+                    @Html.DisplayFor(modelItem => item.FullName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MotherMaidenName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HouseNoAndStreet)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Barangay)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.City)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Province)
+                    @Html.DisplayFor(modelItem => item.FullAddress)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ContactNo)
