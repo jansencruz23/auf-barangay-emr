@@ -24,8 +24,9 @@ namespace AUF.EMR.Persistence.Repositories.Common
             var masterlist = await _dbContext.HouseHoldMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
-                .Where(m => m.Household.Status)
-                .Where(m => m.HouseholdNo.Equals(householdNo) && m.Status)
+                .Where(m => m.Household.Status &&
+                    m.HouseholdNo.Equals(householdNo) && 
+                    m.Status)
                 .ToListAsync();
 
             return masterlist;
@@ -41,9 +42,11 @@ namespace AUF.EMR.Persistence.Repositories.Common
             var newborns = await _dbContext.HouseHoldMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
-                .Where(m => m.Household.Status)
-                .Where(m => m.HouseholdNo.Equals(householdNo) && m.Status)
-                .Where(m => m.Birthday >= startDate && m.Birthday <= DateTime.Today)
+                .Where(m => m.Household.Status &&
+                    m.HouseholdNo.Equals(householdNo) && 
+                    m.Status &&
+                    m.Birthday >= startDate && 
+                    m.Birthday <= DateTime.Today)
                 .ToListAsync();
 
             return newborns;
@@ -54,9 +57,11 @@ namespace AUF.EMR.Persistence.Repositories.Common
             var newborns = await _dbContext.HouseHoldMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
-                .Where(m => m.Household.Status)
-                .Where(m => m.HouseholdNo.Equals(householdNo) && m.Status)
-                .Where(m => m.Birthday >= startDate && m.Birthday <= endDate)
+                .Where(m => m.Household.Status &&
+                    m.HouseholdNo.Equals(householdNo) && 
+                    m.Status &&
+                    m.Birthday >= startDate && 
+                    m.Birthday <= endDate)
                 .ToListAsync();
 
             return newborns;

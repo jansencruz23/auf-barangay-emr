@@ -35,7 +35,7 @@ namespace AUF.EMR.Application.Services
         public async Task<List<HouseholdMember>> GetMasterlistInfant(string householdNo)
         {
             var startDate = DateTime.Today.AddMonths(MasterlistAgeRange.InfantStart).AddDays(1);
-            var endDate = DateTime.Today.AddDays(MasterlistAgeRange.InfantStart);
+            var endDate = DateTime.Today.AddDays(MasterlistAgeRange.InfantEnd);
 
             return await _repository.GetListQuery(householdNo, startDate, endDate);
         }

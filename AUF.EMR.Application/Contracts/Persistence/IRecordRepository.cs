@@ -9,6 +9,7 @@ namespace AUF.EMR.Application.Contracts.Persistence
 {
     public interface IRecordRepository
     {
-        Task<IReadOnlyList<RecordLog>> GetRecords(DateTime startTime, DateTime endTime);
+        Task<IReadOnlyList<RecordLog>> GetRecords(DateTime startDate, DateTime endDate);
+        Task<IReadOnlyList<RecordLog>> GetRecordsToday(Guid id);
     }
 }

@@ -26,11 +26,25 @@ namespace AUF.EMR.Persistence.Repositories
             var houseHoldMembers = await _dbContext.HouseHoldMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
-                .Where(m => m.Household.Status)
-                .Where(m => m.HouseholdNo.Equals(houseHoldNo) && m.Status)
+                .Where(m => m.Household.Status && m.HouseholdNo.Equals(houseHoldNo) && m.Status)
                 .ToListAsync();
 
             return houseHoldMembers;
+        }
+
+        public async Task<List<HouseholdMember>> GetHouseholdMembersWithDetails(Guid id, DateTime startDate, DateTime endDate)
+        {
+            var householdMembers = await _dbContext.HouseHoldMembers
+                .AsNoTracking()
+                .Include(m => m.Household)
+                .Where(m => m.ModifiedById == id &&
+                            m.Household.Status &&
+                            m.Status &&
+                            m.LastModified >= startDate &&
+                            m.LastModified <= endDate)
+                .ToListAsync();
+
+            return householdMembers;
         }
 
         public async Task<HouseholdMember> GetHouseholdMemberWithDetails(int id)
@@ -38,8 +52,7 @@ namespace AUF.EMR.Persistence.Repositories
             var houseHoldMember = await _dbContext.HouseHoldMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
-                .Where(m => m.Household.Status)
-                .Where(m => m.Status)
+                .Where(m => m.Household.Status && m.Status)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             return houseHoldMember;
@@ -53,8 +66,11 @@ namespace AUF.EMR.Persistence.Repositories
             var WraMembers = await _dbContext.HouseHoldMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
-                .Where(m => m.Status && m.Household.Status && m.HouseholdNo.Equals(householdNo))
-                .Where(m => m.Sex.Equals('F') && m.Birthday >= startDate && m.Birthday <= endDate)
+                .Where(m => m.Status && m.Household.Status &&
+                            m.HouseholdNo.Equals(householdNo) &&
+                            m.Sex.Equals('F') &&
+                            m.Birthday >= startDate &&
+                            m.Birthday <= endDate)
                 .ToListAsync();
 
             return WraMembers;

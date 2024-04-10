@@ -1,4 +1,5 @@
-﻿using AUF.EMR.Application.Contracts.Persistence;
+﻿using AUF.EMR.Application.Constants;
+using AUF.EMR.Application.Contracts.Persistence;
 using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Application.Services.Common;
 using AUF.EMR.Domain.Models;
