@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "5/RbixZqxsbHaYhwTneZz524BzNingT1dlPkFePIKUg164r6UCkFy1f1D80kZz5sZ6zJrHMDu9cIwF639qGx2w==",
+  "dgSpecHash": "9Mz5h8KqjLBftqfZmBQtpPyHaX/5fK4qDmVQZpskBCRSU4crXg3NtUfCKN+D5XXZrNItLPPPp1HNED+zX+3tbg==",
   "success": true,
   "projectFilePath": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.Persistence\\AUF.EMR.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.16\\microsoft.aspnetcore.cryptography.internal.7.0.16.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.16\\microsoft.aspnetcore.cryptography.keyderivation.7.0.16.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.16\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.16.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.16\\microsoft.entityframeworkcore.7.0.16.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.16\\microsoft.entityframeworkcore.abstractions.7.0.16.nupkg.sha512",

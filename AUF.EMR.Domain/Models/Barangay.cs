@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace AUF.EMR.Domain.Models
 {
-    public class Barangay : BaseDomainEntity
+    public class Barangay 
     {
+        public int Id { get; set; }
         public string BarangayName { get; set; }
         public byte[]? Logo { get; set; }
         public string Street { get; set; }

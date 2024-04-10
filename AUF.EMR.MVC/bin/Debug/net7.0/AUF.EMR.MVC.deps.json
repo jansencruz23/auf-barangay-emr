@@ -650,6 +650,17 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "System.Text.Encodings.Web": "7.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "7.0.0"
+        }
+      },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.17": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "7.0.17",
@@ -2718,6 +2729,7 @@
       "AUF.EMR.Persistence/1.0.0": {
         "dependencies": {
           "AUF.EMR.Application": "1.0.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.17",
           "Microsoft.EntityFrameworkCore": "7.0.17",
           "Microsoft.Extensions.Configuration": "7.0.0",
@@ -3137,6 +3149,20 @@
       "sha512": "sha512-2l5PMbGTufL6gOwM4JgMh4gC2AtoUyrArsjW3+p0ChrKuGIqO4XZgCSaxZWgi8r9lhjjAoEy9ongEJoPpMilVw==",
       "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/7.0.16",
       "hashPath": "microsoft.aspnetcore.diagnostics.entityframeworkcore.7.0.16.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
+      "path": "microsoft.aspnetcore.http.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.17": {
       "type": "package",

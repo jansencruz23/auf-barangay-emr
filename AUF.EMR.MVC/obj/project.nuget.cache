@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BquWtTG0eQM4m8rVPBewDmCQbdekR2XWY4DGMHP3/9AjKy09ryktDtatjkFdsJVFM3kq9pf046he+76RvptdUw==",
+  "dgSpecHash": "tLfGFvYpa+zmEbHV4FwSrgPZxrXLLsS9uuxgIMcM3JPKX8itCYr00BH1A1lkWFhvI04X3MypnmqwhDo2QgtDtw==",
   "success": true,
   "projectFilePath": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\AUF.EMR.MVC.csproj",
   "expectedPackageFiles": [
@@ -61,6 +61,8 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.17\\microsoft.aspnetcore.cryptography.internal.7.0.17.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.17\\microsoft.aspnetcore.cryptography.keyderivation.7.0.17.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\7.0.16\\microsoft.aspnetcore.diagnostics.entityframeworkcore.7.0.16.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.17\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.17.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.17\\microsoft.aspnetcore.identity.ui.7.0.17.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.11\\microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",

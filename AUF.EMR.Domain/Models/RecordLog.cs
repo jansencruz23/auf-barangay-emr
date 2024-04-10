@@ -11,9 +11,10 @@ namespace AUF.EMR.Domain.Models
 {
     public class RecordLog
     {
-        public int Id { get; set; } 
+        public int Id { get; set; }
         public string EntityName { get; set; }
         public string Action { get; set; }
         public DateTime Timestamp { get; set; }
+        public Guid? ModifiedById { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -11,6 +12,18 @@ namespace AUF.EMR.Persistence
 {
     public class EMRDbContextFactory : IDesignTimeDbContextFactory<EMRDbContext>
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public EMRDbContextFactory()
+        {
+
+        }
+
+        public EMRDbContextFactory(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
+
         public EMRDbContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
@@ -23,7 +36,7 @@ namespace AUF.EMR.Persistence
 
             builder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 
-            return new EMRDbContext(builder.Options);
+            return new EMRDbContext(builder.Options, _httpContextAccessor);
         }
     }
 }

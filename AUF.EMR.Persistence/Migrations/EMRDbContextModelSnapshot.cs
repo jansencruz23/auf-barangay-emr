@@ -36,14 +36,8 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<string>("ContactNo")
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
-
-                    b.Property<DateTime>("LastModified")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<byte[]>("Logo")
                         .HasColumnType("longblob");
@@ -63,9 +57,6 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<string>("RuralHealthUnit")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Street")
                         .IsRequired()
@@ -133,6 +124,9 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("MotherMaidenName")
                         .HasColumnType("longtext");
@@ -203,6 +197,9 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("MotherMaidenName")
                         .IsRequired()
@@ -371,6 +368,9 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<DateTime?>("MaternalDeath")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
+
                     b.Property<int>("Parity")
                         .HasColumnType("int");
 
@@ -415,6 +415,9 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<string>("EntityName")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime(6)");
@@ -478,6 +481,9 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.Property<string>("ModernFPMethod")
                         .HasColumnType("longtext");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
 
                     b.Property<bool?>("ShiftToModern")
                         .HasColumnType("tinyint(1)");

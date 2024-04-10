@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AUF.EMR.Domain.Models.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,6 @@ namespace AUF.EMR.Domain.Models.Common
         public bool Status { get; set; } = true;
         public DateTime DateCreated { get; set; }
         public DateTime LastModified { get; set; }
+        public Guid? ModifiedById { get; set; }
     }
 }

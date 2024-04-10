@@ -1,12 +1,14 @@
 ﻿using AUF.EMR.Domain.Models;
 using AUF.EMR.Domain.Models.Common;
 using AUF.EMR.Domain.Models.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,10 +16,13 @@ namespace AUF.EMR.Persistence
 {
     public class EMRDbContext : IdentityDbContext<ApplicationUser>
     {
-        public EMRDbContext(DbContextOptions<EMRDbContext> options)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public EMRDbContext(DbContextOptions<EMRDbContext> options,
+            IHttpContextAccessor httpContextAccessor)
             : base(options)
         {
-
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public DbSet<Household> HouseHolds { get; set; }
@@ -29,31 +34,37 @@ namespace AUF.EMR.Persistence
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            var modifiedEntities = ChangeTracker.Entries()
+            var modifiedEntities = ChangeTracker.Entries<BaseDomainEntity>()
                 .Where(e => e.State == EntityState.Added
                     || e.State == EntityState.Modified
                     || e.State == EntityState.Deleted)
                 .ToList();
-            
-            foreach (var modifiedEntity in modifiedEntities)
+
+            var currentUserId = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (currentUserId != null)
             {
-                var recordLog = new RecordLog
+                foreach (var modifiedEntity in modifiedEntities)
                 {
-                    EntityName = modifiedEntity.Entity.GetType().Name,
-                    Action = modifiedEntity.State.ToString(),
-                    Timestamp = DateTime.Now
-                };
+                    var recordLog = new RecordLog
+                    {
+                        EntityName = modifiedEntity.Entity.GetType().Name,
+                        Action = modifiedEntity.State.ToString(),
+                        Timestamp = DateTime.Now,
+                        ModifiedById = Guid.Parse(currentUserId)
+                    };
 
-                RecordLogs.Add(recordLog);
-            }
+                    RecordLogs.Add(recordLog);
+                }
 
-            foreach (var entry in ChangeTracker.Entries<BaseDomainEntity>())
-            {
-                entry.Entity.LastModified = DateTime.Now;
-
-                if (entry.State == EntityState.Added)
+                foreach (var entry in ChangeTracker.Entries<BaseDomainEntity>())
                 {
-                    entry.Entity.DateCreated = DateTime.Now;
+                    entry.Entity.LastModified = DateTime.Now;
+                    entry.Entity.ModifiedById = Guid.Parse(currentUserId);
+
+                    if (entry.State == EntityState.Added)
+                    {
+                        entry.Entity.DateCreated = DateTime.Now;
+                    }
                 }
             }
 
