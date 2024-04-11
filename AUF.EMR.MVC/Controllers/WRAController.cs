@@ -1,12 +1,15 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Application.Services;
 using AUF.EMR.Domain.Models;
+using AUF.EMR.Domain.Models.Identity;
 using AUF.EMR.MVC.Models;
 using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
+using AUF.EMR.MVC.Models.PrintVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
@@ -17,14 +20,20 @@ namespace AUF.EMR.MVC.Controllers
         private readonly IWRAService _wraService;
         private readonly IHouseholdMemberService _householdMemberService;
         private readonly IHouseholdService _householdService;
+        private readonly IBarangayService _brgyService;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         public WRAController(IWRAService wraService,
             IHouseholdMemberService householdMemberService,
-            IHouseholdService householdService)
+            IHouseholdService householdService,
+            IBarangayService brgyService,
+            UserManager<ApplicationUser> userManager)
         {
             _wraService = wraService;
             _householdMemberService = householdMemberService;
             _householdService = householdService;
+            _userManager = userManager;
+            _brgyService = brgyService;
         }
 
         // GET: WRAController
@@ -129,6 +138,27 @@ namespace AUF.EMR.MVC.Controllers
             {
                 return View();
             }
+        }
+
+        public async Task<ActionResult> Print(string householdNo)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var model = new PrintWRAVM
+            {
+                Barangay = await _brgyService.GetBarangay(),
+                Midwife = user.FullName,
+                WRAs = await _wraService.GetWRAListWithDetails(householdNo),
+                DatePrepared = DateTime.Now,
+                Quarter = GetCurrentQuarter()
+            };
+
+            return View(model);
+        }
+
+        private int GetCurrentQuarter()
+        {
+            int month = DateTime.Today.Month;
+            return (month - 1) / 3 + 1;
         }
     }
 }

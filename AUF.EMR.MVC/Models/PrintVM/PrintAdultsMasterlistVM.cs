@@ -3,8 +3,9 @@ using AUF.EMR.MVC.Models.Common;
 
 namespace AUF.EMR.MVC.Models.PrintVM
 {
-    public class PrintAdultsMasterlistVM : BaseVM
+    public class PrintAdultsMasterlistVM 
     {
         public List<HouseholdMember> Adults { get; set; }
+        public string RequestUrl { get; set; }
     }
 }

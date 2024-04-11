@@ -1,0 +1,28 @@
+﻿@using AUF.EMR.MVC.Models.PrintVM;
+@model PrintWRAVM
+
+<p>Quarter/Year @Model.Quarter</p>
+<p>Brgy: @Model.Barangay.BarangayName</p>
+<p>Name of BHS Midwife: @Model.Midwife</p>
+<p>Date Prepared: @Model.DatePrepared</p>
+
+@foreach (var woman in Model.WRAs){
+    <p>
+        @woman.HouseholdMember.FormattedFullName - 
+        @woman.HouseholdMember.Household.FullAddress -
+        @woman.HouseholdMember.Age -
+        @woman.HouseholdMember.Birthday - 
+        @woman.HouseholdMember.IsNhts -
+        @woman.CivilStatus -
+        @woman.IsPlanChildrenNow - 
+        @woman.IsPlanChildrenSpacing - 
+        @woman.IsPlanChildrenLimiting -
+        @woman.IsFecund - 
+        @woman.IsFPMethod -
+        @woman.ModernFPMethod - 
+        @woman.ShiftToModern - 
+        @woman.IsMFPUnmet - 
+        @woman.AcceptModernFpMethod - 
+        @woman.FPAcceptedDate 
+    </p>
+}

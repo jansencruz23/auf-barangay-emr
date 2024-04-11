@@ -3,7 +3,7 @@ using AUF.EMR.MVC.Models.Common;
 
 namespace AUF.EMR.MVC.Models.PrintVM
 {
-    public class PrintOralListVM : BaseVM
+    public class PrintOralListVM : BasePrintListVM
     {
         public List<HouseholdMember> Infants { get; set; }
         public List<HouseholdMember> OneToFour { get; set; }

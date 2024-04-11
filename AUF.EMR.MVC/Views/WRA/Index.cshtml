@@ -5,6 +5,8 @@
 }
 
 <h1>List of Women of Reproductive Age and Adolescent Women for Family Planning Services</h1>
+<a asp-action="Print" class="btn btn-primary" asp-route-householdNo="@Model.HouseholdNo">Print</a>
+<br />
 
 @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 
