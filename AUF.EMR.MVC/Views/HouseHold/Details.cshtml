@@ -9,120 +9,73 @@
 <div>
     <h4>HouseHold</h4>
     <hr />
-    <dl class="row">
-        <div class="col-md-6">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.HouseholdNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.HouseholdNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.FirstQtrVisit)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.FirstQtrVisit)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.SecondQtrVisit)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.SecondQtrVisit)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.ThirdQtrVisit)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.ThirdQtrVisit)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.FourthQtrVisit)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.FourthQtrVisit)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.LastName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.LastName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.FirstName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.FirstName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.MotherMaidenName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.MotherMaidenName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.HouseNoAndStreet)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.HouseNoAndStreet)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.Barangay)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.Barangay)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.City)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.City)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.Province)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.Province)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.ContactNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.ContactNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.IsNHTS)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.IsNHTS)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.IsHeadPhilhealthMember)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.IsHeadPhilhealthMember)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.PhilhealthNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.PhilhealthNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.Category)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.Category)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Household.IsIP)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Household.IsIP)
-        </dd>
+    <div>
+        <p>Household No.: @Model.Household.HouseholdNo</p>
+    </div>
+    <hr />
+    <div class="row">
+        <p class="col-3">1a. First Quarter: Date of Visit: @Html.DisplayFor(m => m.Household.FirstQtrVisit)</p>
+        <p class="col-3">1b. Second Quarter: Date of Visit: @Html.DisplayFor(m => m.Household.SecondQtrVisit)</p>
+        <p class="col-3">1c. Third Quarter: Date of Visit: @Html.DisplayFor(m => m.Household.ThirdQtrVisit)</p>
+        <p class="col-3">1d. Fourth Quarter: Date of Visit: @Html.DisplayFor(m => m.Household.FourthQtrVisit)</p>
+    </div>
+    <hr />
+    <div class="row">
+        <p class="col-3">2. Name of Respondent:</p>
+        <p class="col-3">LastName: @Html.DisplayFor(m => m.Household.LastName)</p>
+        <p class="col-3">First Name: @Html.DisplayFor(m => m.Household.FirstName)</p>
+        <p class="col-3">Mother's Maiden Name: @Html.DisplayFor(m => m.Household.MotherMaidenName)</p>
+    </div>
+    <div class="row">
+        <div class="col-6 row">
+            <p class="col-4">3. NHTS Household:</p>
+            <label class="col-4">
+                <input type="checkbox" disabled="disabled" @(Model.Household.IsNHTS ? "checked" : "") /> NHTS
+            </label>
+            <label class="col-4">
+                <input type="checkbox" disabled="disabled" @(Model.Household.IsNHTS ? "" : "checked") /> Non NHTS
+            </label>
+            <div class="col-6 row">
+                <label class="col">
+                    4. <input type="checkbox" disabled="disabled" @(Model.Household.IsIP ? "checked" : "") /> IP
+                </label>
+                <label class="col">
+                    <input type="checkbox" disabled="disabled" @(Model.Household.IsNHTS ? "" : "checked") /> Non-IP
+                </label>
+            </div>
         </div>
-    </dl>
+        <div class="col row">
+            <p class="col-12">5. HH Head Philhealth Member?</p>
+            <label class="col-6">
+                <input type="checkbox" disabled="disabled" @(Model.Household.IsHeadPhilhealthMember ? "" : "checked") /> No
+            </label>
+            <label class="col-6">
+                <input type="checkbox" disabled="disabled" @(Model.Household.IsHeadPhilhealthMember ? "checked" :"") />
+                Yes, Philhealth ID No. @Html.DisplayFor(m => m.Household.PhilhealthNo)
+            </label>
+            <div class="col-6">
+                <p class="col-6">Category: @Html.DisplayFor(m => m.Household.Category)</p>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        @foreach (var member in Model.HouseholdMembers)
+        {
+            <p class="col-3">@member.FullName</p>
+            <p class="col-1">@member.RelationshipToHouseholdHead @member.OtherRelation</p>
+            <p class="col-1">@member.Sex</p>
+            <p class="col-2">@member.Birthday</p>
+            <p class="col-1">@member.FirstQtrClassification</p>
+            <p class="col-1">@member.SecondQtrClassification</p>
+            <p class="col-1">@member.ThirdQtrClassification</p>
+            <p class="col-1">@member.FourthQtrClassification</p>
+            <p class="col-1">@member.Remarks</p>
+            <hr />
+        }
+    </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Household.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="HouseholdProfile" asp-route-householdNo="@Model.Household.HouseholdNo">Back to List</a>
 </div>

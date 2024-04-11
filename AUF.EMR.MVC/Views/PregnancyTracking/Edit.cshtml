@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="PregnancyTracking.HouseholdMemberId" class="control-label"></label>
-                <select asp-for="PregnancyTracking.HouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.WomenInHousehold, nameof(HouseholdMember.Id), nameof(HouseholdMember.FullName)))"></select>
+                <select asp-for="PregnancyTracking.HouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.WomenInHousehold, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PregnancyTracking.Age" class="control-label"></label>

@@ -34,7 +34,8 @@ namespace AUF.EMR.Domain.Models
         public bool? IsNhts { get; set; }
         public bool? IsInSchool { get; set; }
 
-        public string FullName { get => $"{FirstName} {GetMiddleInitial()}. {LastName}"; }
+        public string FormattedFullName { get => $"{FirstName} {GetMiddleInitial()}. {LastName}"; }
+        public string FullName { get => $"{LastName}, {FirstName}, {MotherMaidenName}"; }
 
         private string GetMiddleInitial()
         {

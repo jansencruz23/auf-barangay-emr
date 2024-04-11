@@ -69,7 +69,7 @@
 @foreach (var item in Model.WRAs) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.HouseholdMember.FullName)
+                @Html.DisplayFor(modelItem => item.HouseholdMember.FormattedFullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.HouseholdNo)
