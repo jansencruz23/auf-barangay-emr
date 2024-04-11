@@ -1,9 +1,12 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Domain.Models;
+using AUF.EMR.Domain.Models.Identity;
 using AUF.EMR.MVC.Models.IndexVM;
+using AUF.EMR.MVC.Models.PrintVM;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 
@@ -13,13 +16,15 @@ namespace AUF.EMR.MVC.Controllers
     public class MasterlistController : Controller
     {
         private readonly IMasterlistService _masterlistService;
-        private readonly IMapper _mapper;
+        private readonly IBarangayService _brgyService;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         public MasterlistController(IMasterlistService masterlistService,
-            IMapper mapper)
+            IBarangayService brgyService, UserManager<ApplicationUser> userManager)
         {
             _masterlistService = masterlistService;
-            _mapper = mapper;
+            _brgyService = brgyService;
+            _userManager = userManager;
         }
 
         // GET: MasterlistController
@@ -119,73 +124,44 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
-        // GET: MasterlistController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> PrintChildren(string householdNo, string requestUrl)
         {
-            return View();
+            var user = await _userManager.GetUserAsync(User);
+            var model = new PrintChildrenMasterlistVM
+            {
+                Newborns = await _masterlistService.GetMasterlistNewborn(householdNo),
+                Infants = await _masterlistService.GetMasterlistInfant(householdNo),
+                UnderFive = await _masterlistService.GetMasterlistUnderFive(householdNo),
+                SchoolAged = await _masterlistService.GetMasterlistSchoolAge(householdNo),
+                Adolescents = await _masterlistService.GetMasterlistAdolescent(householdNo),
+                RequestUrl = requestUrl,
+                Barangay = await _brgyService.GetBarangay(),
+                Midwife = user.FullName
+            };
+
+            return View(model);
         }
 
-        // GET: MasterlistController/Create
-        public ActionResult Create()
+        public async Task<ActionResult> PrintAdults(string householdNo, string requestUrl)
         {
-            return View();
+            var model = new PrintAdultsMasterlistVM
+            {
+                Adults = await _masterlistService.GetMasterlistAdult(householdNo),
+                RequestUrl = requestUrl,
+            };
+
+            return View(model);
         }
 
-        // POST: MasterlistController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> PrintSeniors(string householdNo, string requestUrl)
         {
-            try
+            var model = new PrintAdultsMasterlistVM
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                Adults = await _masterlistService.GetMasterlistSeniorCitizen(householdNo),
+                RequestUrl = requestUrl,
+            };
 
-        // GET: MasterlistController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: MasterlistController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: MasterlistController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: MasterlistController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
     }
 }

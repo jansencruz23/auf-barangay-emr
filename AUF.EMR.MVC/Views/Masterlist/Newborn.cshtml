@@ -5,7 +5,8 @@
 }
 
 <h1>List of Newborns</h1>
-
+<a asp-action="PrintChildren" asp-route-requestUrl="@Model.RequestUrl" asp-route-householdNo="@Model.HouseholdNo">Print Masterlist</a>
+<br />
 @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 
 <table class="table">

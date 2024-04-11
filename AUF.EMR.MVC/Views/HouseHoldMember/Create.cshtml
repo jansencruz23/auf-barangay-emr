@@ -78,7 +78,33 @@
                 <input asp-for="HouseholdMember.Remarks" class="form-control" />
                 <span asp-validation-for="HouseholdMember.Remarks" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="HouseholdMember.HouseholdNo" value="@Model.HouseholdNo"/>
+            <div class="form-group ">
+                <label class="control-label"></label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" asp-for="HouseholdMember.IsNhts" value="true" />
+                    <label class="form-check-label">NHTS</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" asp-for="HouseholdMember.IsNhts" value="false" />
+                    <label class="form-check-label">Non NHTS</label>
+                </div>
+            </div>
+            <div class="form-group ">
+                <div class="control-label">For ages 19 and below</div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" asp-for="HouseholdMember.IsInSchool" value="true" />
+                    <label class="form-check-label">In School</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" asp-for="HouseholdMember.IsInSchool" value="false" />
+                    <label class="form-check-label">Out of School Youth</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" asp-for="HouseholdMember.IsInSchool" value="null" />
+                    <label class="form-check-label">Not in School</label>
+                </div>
+            </div>
+            <input type="hidden" asp-for="HouseholdMember.HouseholdNo" value="@Model.HouseholdNo" />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -91,5 +117,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

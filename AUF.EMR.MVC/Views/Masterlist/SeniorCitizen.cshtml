@@ -5,6 +5,8 @@
 }
 
 <h1>List of Senior Citizens</h1>
+<a asp-action="PrintSeniors" asp-route-requestUrl="@Model.RequestUrl" asp-route-householdNo="@Model.HouseholdNo">Print Masterlist</a>
+<br />
 
 @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 
