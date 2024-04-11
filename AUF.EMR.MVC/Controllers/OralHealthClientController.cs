@@ -1,6 +1,7 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Application.Services;
 using AUF.EMR.MVC.Models.IndexVM;
+using AUF.EMR.MVC.Models.PrintVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -126,73 +127,20 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
-        // GET: OralHealthClientController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Print(string householdNo, string requestUrl)
         {
-            return View();
-        }
-
-        // GET: OralHealthClientController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: OralHealthClientController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
+            var model = new PrintOralListVM
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                Infants = await _oralHealthService.GetOralClientInfant(householdNo),
+                OneToFour = await _oralHealthService.GetOralClient1to4(householdNo),
+                FiveToNine = await _oralHealthService.GetOralClient5to9(householdNo),
+                TenToFourteen = await _oralHealthService.GetOralClient10to14(householdNo),
+                PregnantFifteenToNineteen = await _oralHealthService.GetOralClientPregnant15to19(householdNo),
+                PregnantTwentyToFourtyNine = await _oralHealthService.GetOralClientPregnant20to49(householdNo),
+                RequestUrl = requestUrl
+            };
 
-        // GET: OralHealthClientController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: OralHealthClientController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: OralHealthClientController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: OralHealthClientController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
     }
 }

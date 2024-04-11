@@ -5,6 +5,8 @@
 }
 
 <h1>Masterlist of Oral Health Care Clients - 1 to 4 years old</h1>
+<a asp-action="Print" asp-route-requestUrl="@Model.RequestUrl" asp-route-householdNo="@Model.HouseholdNo">Print Masterlist</a>
+<br />
 
 @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 

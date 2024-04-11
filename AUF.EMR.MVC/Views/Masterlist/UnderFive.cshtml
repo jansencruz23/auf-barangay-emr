@@ -5,7 +5,7 @@
 }
 
 <h1>List Under-five Children</h1>
-<a asp-action="PrintChildren" asp-route-requestUrl="@Model.RequestUrl" asp-route-householdNo="@Model.HouseholdNo">Print Masterlist</a>
+<a asp-action="PrintChildren" class="btn btn-primary" asp-route-requestUrl="@Model.RequestUrl" asp-route-householdNo="@Model.HouseholdNo">Print Masterlist</a>
 <br />
 
 @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
