@@ -1,12 +1,14 @@
 ﻿using AUF.EMR.Application.Contracts.Persistence;
 using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.MVC.Models.IndexVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize(Policy = "User")]
     public class SummaryController : Controller
     {
         private readonly ISummaryService _dashboardService;

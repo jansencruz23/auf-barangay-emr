@@ -76,34 +76,41 @@ namespace AUF.EMR.MVC.Controllers
             var model = new CreateHouseholdProfileVM
             {
                 Household = houseHold,
-                HouseholdMembers = houseHoldMembers
+                HouseholdMembers = houseHoldMembers,
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);
         }
 
         // GET: HouseHolds/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            var model = new CreateHouseholdVM
+            {
+                Barangay = await _brgyService.GetBarangay()
+            };
+
+            return View(model);
         }
 
         // POST: HouseHolds/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Household houseHold)
+        public async Task<IActionResult> Create(CreateHouseholdVM householdVM)
         {
             try
             {
-                await _houseHoldService.Add(houseHold);
-                return RedirectToAction(nameof(HouseholdProfile), new { householdNo = houseHold.HouseholdNo });
+                var household = householdVM.Household;
+                await _houseHoldService.Add(household);
+                return RedirectToAction(nameof(HouseholdProfile), new { householdNo = household.HouseholdNo });
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(houseHold);
+            return View(householdVM);
         }
 
         // GET: HouseHolds/Edit/5
@@ -114,7 +121,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new CreateHouseholdProfileVM
             {
                 Household = houseHold,
-                HouseholdMembers = houseHoldMembers
+                HouseholdMembers = houseHoldMembers,
+                Barangay = await _brgyService.GetBarangay()
             };
            
             return View(model);

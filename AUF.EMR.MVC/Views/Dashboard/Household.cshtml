@@ -1,5 +1,9 @@
 ﻿@model DashboardVM
 
+@{
+    ViewData["Barangay"] = Model.Barangay.BarangayName;
+}
+
 <p>Household Member #: @Model.HouseholdMemberCount</p>
 <p>Newborns #: @Model.NewbornCount</p>
 <p>Infant #: @Model.InfantCount</p>
