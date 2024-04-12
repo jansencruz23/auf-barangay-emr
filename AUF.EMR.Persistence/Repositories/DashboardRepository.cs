@@ -1,5 +1,4 @@
-﻿using AUF.EMR.Application.Constants;
-using AUF.EMR.Application.Contracts.Persistence;
+﻿using AUF.EMR.Application.Contracts.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,16 +17,57 @@ namespace AUF.EMR.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<int> GetCheckedPatientsToday(Guid id, DateTime startDate, DateTime endDate)
+        public async Task<int> GetHouseholdCount()
+        {
+            var count = await _dbContext.HouseHolds
+                .AsNoTracking()
+                .Where(h => h.Status)
+                .CountAsync();
+
+            return count;
+        }
+
+        public async Task<int> GetHouseholdMemberCount()
         {
             var count = await _dbContext.HouseHoldMembers
                 .AsNoTracking()
-                .Include(m => m.Household)
+                .Where(h => h.Status)
+                .CountAsync();
+
+            return count;
+        }
+
+        public async Task<int> GetHouseholdMemberCount(string householdNo)
+        {
+            var count = await _dbContext.HouseHoldMembers
+                .AsNoTracking()
                 .Where(m => m.Status &&
-                    m.ModifiedById == id &&
-                    m.Household.Status &&
-                    m.Birthday >= startDate && m.Birthday <= endDate &&
-                    m.LastModified >= DateRange.TodayStart && m.LastModified <= DateRange.TodayEnd)
+                    m.HouseholdNo.Equals(householdNo))
+                .CountAsync();
+
+            return count;
+        }
+
+        public async Task<int> GetMemberByAgeCount(DateTime startDate, DateTime endDate)
+        {
+            var count = await _dbContext.HouseHoldMembers
+                .AsNoTracking()
+                .Where(m => m.Status &&
+                    m.Birthday >= startDate &&
+                    m.Birthday <= endDate)
+                .CountAsync();
+
+            return count;
+        }
+
+        public async Task<int> GetMemberByAgeCount(string householdNo, DateTime startDate, DateTime endDate)
+        {
+            var count = await _dbContext.HouseHoldMembers
+                .AsNoTracking()
+                .Where(m => m.Status &&
+                    m.HouseholdNo.Equals(householdNo) &&
+                    m.Birthday >= startDate &&
+                    m.Birthday <= endDate)
                 .CountAsync();
 
             return count;

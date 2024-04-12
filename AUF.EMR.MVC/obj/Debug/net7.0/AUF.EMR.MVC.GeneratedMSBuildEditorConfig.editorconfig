@@ -184,8 +184,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFyYW5nYXlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Dashboard/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Dashboard/Barangay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEJhcmFuZ2F5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Dashboard/Household.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEhvdXNlaG9sZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Home/Index.cshtml]
@@ -330,6 +334,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Summary/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VtbWFyeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/User/Index.cshtml]

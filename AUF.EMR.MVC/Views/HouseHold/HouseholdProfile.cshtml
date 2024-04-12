@@ -6,7 +6,9 @@
 }
 
 <h1>F1 - Household Profile</h1>
-
+<p>
+    <a asp-action="Household" asp-controller="Dashboard" asp-route-householdNo="@Model.HouseholdNo">See Household Summary</a>
+</p>
 @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 
 <table class="table">

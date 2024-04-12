@@ -32,8 +32,9 @@ namespace AUF.EMR.Persistence
             services.AddScoped<IWRARepository, WRARepository>();
             services.AddScoped<IPregnancyTrackingRepository, PregnancyTrackingRepository>();
             services.AddScoped<IBarangayRepository, BarangayRepository>();
-            services.AddScoped<IDashboardRepository, DashboardRepository>();
+            services.AddScoped<ISummaryRepository, SumarryRepository>();
             services.AddScoped<IRecordRepository, RecordRepository>();
+            services.AddScoped<IDashboardRepository, DashboardRepository>();
 
             services.AddScoped<AdminSeeder>();
             services.AddScoped<BarangaySeeder>();

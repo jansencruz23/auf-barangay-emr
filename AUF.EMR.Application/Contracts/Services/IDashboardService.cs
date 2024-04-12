@@ -1,5 +1,4 @@
-﻿using AUF.EMR.Domain.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,13 +8,22 @@ namespace AUF.EMR.Application.Contracts.Services
 {
     public interface IDashboardService
     {
-        Task<IReadOnlyList<RecordLog>> GetAllCheckedToday(Guid id);
-        Task<int> GetCheckedNewbornToday(Guid id);
-        Task<int> GetCheckedInfantToday(Guid id);
-        Task<int> GetCheckedUnderFiveToday(Guid id);
-        Task<int> GetCheckedSchoolAgedToday(Guid id);
-        Task<int> GetCheckedAdolescentToday(Guid id);
-        Task<int> GetCheckedAdultToday(Guid id);
-        Task<int> GetCheckedSeniorToday(Guid id);
+        Task<int> GetHouseholdCount();
+        Task<int> GetHouseholdMemberCount();
+        Task<int> GetHouseholdMemberCount(string householdNo);
+        Task<int> GetNewbornCount();
+        Task<int> GetNewbornCount(string householdNo);
+        Task<int> GetInfantCount();
+        Task<int> GetInfantCount(string householdNo);
+        Task<int> GetUnderFiveCount();
+        Task<int> GetUnderFiveCount(string householdNo);
+        Task<int> GetSchoolAgedCount();
+        Task<int> GetSchoolAgedCount(string householdNo);
+        Task<int> GetAdolescentCount();
+        Task<int> GetAdolescentCount(string householdNo);
+        Task<int> GetAdultsCount();
+        Task<int> GetAdultsCount(string householdNo);
+        Task<int> GetSeniorCount();
+        Task<int> GetSeniorCount(string householdNo);
     }
 }

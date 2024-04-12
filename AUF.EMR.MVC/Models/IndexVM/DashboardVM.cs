@@ -1,16 +1,15 @@
-﻿using AUF.EMR.Domain.Models;
-
-namespace AUF.EMR.MVC.Models.IndexVM
+﻿namespace AUF.EMR.MVC.Models.IndexVM
 {
     public class DashboardVM
     {
-        public int NewbornCount { get; set; }
-        public int InfantCount { get; set; }
-        public int UnderFiveCount { get; set; }
-        public int SchoolAgedCount { get; set; }
-        public int AdolescentCount { get; set; }
-        public int AdultCount { get; set; }
+        public int HouseholdCount { get; set; } 
+        public int HouseholdMemberCount { get; set; } 
+        public int NewbornCount { get; set; } 
+        public int InfantCount { get; set; } 
+        public int UnderFiveCount { get; set; } 
+        public int SchoolAgedCount { get; set; } 
+        public int AdolescentsCount { get; set; } 
+        public int AdultCount { get; set; } 
         public int SeniorCount { get; set; }
-        public IReadOnlyList<RecordLog>? TotalRecords { get; set; }
     }
 }

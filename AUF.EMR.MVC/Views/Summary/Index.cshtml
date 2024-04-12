@@ -1,0 +1,12 @@
+﻿@model SummaryVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+total modified forms today: @Model.TotalRecords.Count(m => m.Action.Equals("Modified"))
+total created forms today: @Model.TotalRecords.Count(m => m.Action.Equals("Added"))
+
+total adults: @Model.AdultCount
