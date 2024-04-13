@@ -1,6 +1,10 @@
 ﻿@using AUF.EMR.MVC.Models.PrintVM;
 @model PrintOralListVM
 
+@{
+    ViewData["Barangay"] = Model.Barangay.BarangayName;
+}
+
 <h2>Masterlist of Oral Health Clients</h2>
 
 <h6>0-11 months old infants</h6>

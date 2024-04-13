@@ -15,12 +15,15 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IPregnancyTrackingService _pregnancyService;
         private readonly IHouseholdMemberService _householdMemberService;
+        private readonly IBarangayService _brgyService;
 
         public PregnancyTrackingController(IPregnancyTrackingService pregnancyService,
-            IHouseholdMemberService householdMemberService)
+            IHouseholdMemberService householdMemberService,
+            IBarangayService brgyService)
         {
             _pregnancyService = pregnancyService;
             _householdMemberService = householdMemberService;
+            _brgyService = brgyService;
         }
 
         // GET: PregnancyTrackingController
@@ -30,7 +33,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new PregnancyTrackingListVM
             {
                 HouseholdNo = householdNo,
-                PregnancyTrackingList = pregnancyList
+                PregnancyTrackingList = pregnancyList,
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);
@@ -49,7 +53,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new CreatePregnancyTrackingVM
             {
                 HouseholdNo = householdNo,
-                WomenInHousehold = womenInHousehold
+                WomenInHousehold = womenInHousehold,
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);
@@ -82,7 +87,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new EditPregnancyTrackingVM
             {
                 WomenInHousehold = womenInHousehold,
-                PregnancyTracking = pregnant
+                PregnancyTracking = pregnant,
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);

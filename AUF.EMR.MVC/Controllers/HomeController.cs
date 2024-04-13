@@ -1,4 +1,5 @@
-﻿using AUF.EMR.MVC.Models;
+﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,15 +8,19 @@ namespace AUF.EMR.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IBarangayService _brgyService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,
+            IBarangayService brgyService)
         {
             _logger = logger;
+            _brgyService = brgyService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var barangay = await _brgyService.GetBarangay();
+            return View(barangay);
         }
 
         public IActionResult Privacy()

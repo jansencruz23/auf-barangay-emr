@@ -204,6 +204,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkTWVtYmVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/HouseholdMember/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkTWVtYmVyXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/HouseholdMember/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkTWVtYmVyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -344,8 +348,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VtbWFyeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/User/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/User/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/User/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/WRA/Create.cshtml]

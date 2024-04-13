@@ -12,12 +12,15 @@ namespace AUF.EMR.MVC.Controllers
     public class SummaryController : Controller
     {
         private readonly ISummaryService _dashboardService;
+        private readonly IBarangayService _brgyService;
         private readonly IHttpContextAccessor _httpContext;
 
         public SummaryController(ISummaryService dashboardService,
+            IBarangayService brgyService,
             IHttpContextAccessor httpContext)
         {
             _dashboardService = dashboardService;
+            _brgyService = brgyService;
             _httpContext = httpContext;
         }
 
@@ -41,79 +44,11 @@ namespace AUF.EMR.MVC.Controllers
                 AdolescentCount = await _dashboardService.GetCheckedAdolescentToday(userId),
                 AdultCount = await _dashboardService.GetCheckedAdultToday(userId),
                 SeniorCount = await _dashboardService.GetCheckedSeniorToday(userId),
-                TotalRecords = totalChecked
+                TotalRecords = totalChecked,
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);
-        }
-
-        // GET: SummaryController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: SummaryController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: SummaryController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: SummaryController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: SummaryController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: SummaryController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: SummaryController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using AUF.EMR.Application.Services;
 using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.CreateVM;
+using AUF.EMR.MVC.Models.DetailVM;
 using AUF.EMR.MVC.Models.EditVM;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -34,9 +35,16 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHoldMemberController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id, string requestUrl)
         {
-            return View();
+            var model = new DetailHouseholdMemberVM
+            {
+                HouseholdMember = await _houseHoldMemberService.GetHouseholdMemberWithDetails(id),
+                Barangay = await _brgyService.GetBarangay(),
+                ReturnUrl = requestUrl
+            };
+
+            return View(model);
         }
 
         // GET: HouseHoldMemberController/Create
@@ -84,7 +92,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new EditHouseholdMemberVM
             {
                 HouseholdMember = member,
-                ReturnUrl = requestUrl
+                ReturnUrl = requestUrl,
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);

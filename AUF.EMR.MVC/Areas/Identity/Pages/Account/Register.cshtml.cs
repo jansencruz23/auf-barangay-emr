@@ -95,6 +95,9 @@ namespace AUF.EMR.MVC.Areas.Identity.Pages.Account
             [Display(Name = "Middle Name")]
             public string MiddleName { get; set; }
 
+            [Display(Name = "Profile Picture")]
+            public byte[] Picture { get; set; }
+
             [Required]
             [DataType(DataType.Date)]
             [Display(Name = "Birthday")]
