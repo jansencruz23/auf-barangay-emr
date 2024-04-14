@@ -112,25 +112,28 @@ namespace AUF.EMR.MVC.Controllers
             return View(pregnancyTrackingVM);
         }
 
-        // GET: PregnancyTrackingController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: PregnancyTrackingController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, string householdNo)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var preg = await _pregnancyService.Get(id);
+                if (preg == null)
+                {
+                    return NotFound();
+                }
+
+                await _pregnancyService.Delete(preg);
+                return RedirectToAction(nameof(Index), new { householdNo = householdNo });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
             }
+
+            return BadRequest();
         }
     }
 }

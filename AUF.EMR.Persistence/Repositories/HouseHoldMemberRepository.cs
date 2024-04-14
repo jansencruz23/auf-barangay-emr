@@ -21,6 +21,36 @@ namespace AUF.EMR.Persistence.Repositories
             _dbContext = dbContext;
         }
 
+        public async Task DeleteHouseholdMember(int id)
+        {
+            var member = await _dbContext.HouseholdMembers
+                .FindAsync(id);
+
+            var wraForms = await _dbContext.WomanOfReproductiveAges
+                .Where(w => w.HouseholdMemberId == id)
+                .ToListAsync();
+
+            var pregForms = await _dbContext.PregnancyTrackings
+                .Where(p => p.HouseholdMemberId == id)
+                .ToListAsync();
+
+            if (member != null)
+            {
+                foreach (var wra in wraForms)
+                {
+                    wra.Status = false;
+                }
+
+                foreach (var preg in pregForms)
+                {
+                    preg.Status = false;
+                }
+
+                member.Status = false;
+                await _dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task<List<HouseholdMember>> GetHouseholdMembersWithDetails(string houseHoldNo)
         {
             var houseHoldMembers = await _dbContext.HouseholdMembers
@@ -75,5 +105,7 @@ namespace AUF.EMR.Persistence.Repositories
 
             return WraMembers;
         }
+
+
     }
 }

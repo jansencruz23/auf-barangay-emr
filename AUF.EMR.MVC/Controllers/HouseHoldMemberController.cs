@@ -141,25 +141,28 @@ namespace AUF.EMR.MVC.Controllers
             return View(householdMemberVM);
         }
 
-        // GET: HouseHoldMemberController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: HouseHoldMemberController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, string householdId)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var member = await _houseHoldMemberService.Get(id);
+                if (member == null)
+                {
+                    return NotFound();
+                }
+
+                await _houseHoldMemberService.DeleteHouseholdMember(id);
+                return RedirectToAction(nameof(Edit), nameof(Household), new { id = householdId });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
             }
+
+            return BadRequest();
         }
     }
 }

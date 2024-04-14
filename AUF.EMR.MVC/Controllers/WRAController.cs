@@ -49,12 +49,6 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
-        // GET: WRAController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: WRAController/Create
         public async Task<ActionResult> Create(string householdNo)
         {
@@ -119,25 +113,28 @@ namespace AUF.EMR.MVC.Controllers
             return View(wraVM);
         }
 
-        // GET: WRAController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: WRAController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, string householdNo)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var wra = await _wraService.Get(id);
+                if (wra == null)
+                {
+                    return NotFound();
+                }
+
+                await _wraService.Delete(wra);
+                return RedirectToAction(nameof(Index), new { householdNo = householdNo });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
             }
+
+            return BadRequest();
         }
 
         public async Task<ActionResult> Print(string householdNo)

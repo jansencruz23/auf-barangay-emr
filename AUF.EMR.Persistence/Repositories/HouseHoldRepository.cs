@@ -26,11 +26,29 @@ namespace AUF.EMR.Persistence.Repositories
                 .Include(h => h.HouseholdMembers)
                 .FirstOrDefaultAsync(h => h.Id == id);
 
+            var wras = await _dbContext.WomanOfReproductiveAges
+                .Where(w => w.HouseholdNo.Equals(household.HouseholdNo))
+                .ToListAsync();
+
+            var pregTrack = await _dbContext.PregnancyTrackings
+                .Where(p => p.HouseholdNo.Equals(household.HouseholdNo))
+                .ToListAsync();
+
             if (household != null)
             {
                 foreach (var member in household.HouseholdMembers)
                 {
                     member.Status = false;
+                }
+
+                foreach (var wra in wras)
+                {
+                    wra.Status = false;
+                }
+
+                foreach (var preg in pregTrack)
+                {
+                    preg.Status = false;
                 }
 
                 household.Status = false;

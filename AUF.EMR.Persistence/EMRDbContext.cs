@@ -4,10 +4,12 @@ using AUF.EMR.Domain.Models.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,26 +36,66 @@ namespace AUF.EMR.Persistence
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            var modifiedEntities = ChangeTracker.Entries<BaseDomainEntity>()
+            var modifiedEntities = GetModifiedEntities();
+            HandleEntityDelete();
+            LogEntityChanges(modifiedEntities);
+
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
+        private List<EntityEntry<BaseDomainEntity>> GetModifiedEntities()
+        {
+            return ChangeTracker.Entries<BaseDomainEntity>()
                 .Where(e => e.State == EntityState.Added
                     || e.State == EntityState.Modified
                     || e.State == EntityState.Deleted)
                 .ToList();
+        }
 
+        private void HandleEntityDelete()
+        {
+            var entities = ChangeTracker.Entries()
+                .Where(e => e.State == EntityState.Deleted)
+                .ToList();
+
+            if (entities.Any())
+            {
+                foreach (var entity in entities)
+                {
+                    if (entity.Entity is BaseDomainEntity)
+                    {
+                        entity.State = EntityState.Modified;
+                        var domainEntity = entity.Entity as BaseDomainEntity;
+                        domainEntity.Status = false;
+                    }
+                }
+            }
+        }
+
+        private void LogEntityChanges(List<EntityEntry<BaseDomainEntity>> modifiedEntities)
+        {
             var currentUserId = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (currentUserId != null)
             {
                 foreach (var modifiedEntity in modifiedEntities)
                 {
-                    var recordLog = new RecordLog
+                    if (modifiedEntity.Entity is BaseDomainEntity entity)
                     {
-                        EntityName = modifiedEntity.Entity.GetType().Name,
-                        Action = modifiedEntity.State.ToString(),
-                        Timestamp = DateTime.Now,
-                        ModifiedById = Guid.Parse(currentUserId)
-                    };
+                        var recordLog = new RecordLog
+                        {
+                            EntityName = modifiedEntity.Entity.GetType().Name,
+                            Action = modifiedEntity.State.ToString(),
+                            Timestamp = DateTime.Now,
+                            ModifiedById = Guid.Parse(currentUserId)
+                        };
 
-                    RecordLogs.Add(recordLog);
+                        if (!entity.Status)
+                        {
+                            recordLog.Action = "Deleted";
+                        }
+
+                        RecordLogs.Add(recordLog);
+                    }
                 }
 
                 foreach (var entry in ChangeTracker.Entries<BaseDomainEntity>())
@@ -67,8 +109,6 @@ namespace AUF.EMR.Persistence
                     }
                 }
             }
-
-            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }
