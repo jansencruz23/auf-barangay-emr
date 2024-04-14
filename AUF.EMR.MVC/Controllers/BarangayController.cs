@@ -4,6 +4,7 @@ using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.EditVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
@@ -27,7 +28,7 @@ namespace AUF.EMR.MVC.Controllers
 
         // GET: BarangayController/Edit/5
         [Authorize(Policy = "Admin")]
-        public async Task<ActionResult> Edit()
+        public async Task<ActionResult> Edit(int id)
         {
             var barangay = await _barangayService.GetBarangay();
             var model = new EditBarangayVM
@@ -45,6 +46,11 @@ namespace AUF.EMR.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(EditBarangayVM barangayVM)
         {
+            if (!ModelState.IsValid)
+            {
+                barangayVM.Barangay = await _barangayService.GetBarangay();
+                return View(barangayVM);
+            }
             try
             {
                 if (barangayVM.LogoFile != null && barangayVM.LogoFile.Length > 0)

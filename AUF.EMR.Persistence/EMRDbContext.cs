@@ -25,8 +25,8 @@ namespace AUF.EMR.Persistence
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public DbSet<Household> HouseHolds { get; set; }
-        public DbSet<HouseholdMember> HouseHoldMembers { get; set; }
+        public DbSet<Household> Households { get; set; }
+        public DbSet<HouseholdMember> HouseholdMembers { get; set; }
         public DbSet<WomanOfReproductiveAge> WomanOfReproductiveAges { get; set; }
         public DbSet<PregnancyTracking> PregnancyTrackings { get; set; }
         public DbSet<RecordLog> RecordLogs { get; set; }

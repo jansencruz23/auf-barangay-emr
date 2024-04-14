@@ -13,6 +13,7 @@ using Microsoft.Identity.Client;
 using AUF.EMR.MVC.Models.CreateVM;
 using Microsoft.AspNetCore.Authorization;
 using AUF.EMR.MVC.Models.IndexVM;
+using Microsoft.AspNetCore.Identity;
 
 
 namespace AUF.EMR.MVC.Controllers
@@ -97,11 +98,25 @@ namespace AUF.EMR.MVC.Controllers
         // POST: HouseHolds/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CreateHouseholdVM householdVM)
+        public async Task<IActionResult> Create(CreateHouseholdVM model)
         {
+            if (!ModelState.IsValid)
+            {
+                model.Barangay = await _brgyService.GetBarangay();
+                return View(model);
+            }
+
             try
             {
-                var household = householdVM.Household;
+                var isExisting = await _houseHoldService.IsHouseholdNoExisting(model.Household.HouseholdNo);
+                if (isExisting)
+                {
+                    ModelState.AddModelError("", "Household No. is already existing.");
+                    model.Barangay = await _brgyService.GetBarangay();
+                    return View(model);
+                }
+
+                var household = model.Household;
                 await _houseHoldService.Add(household);
                 return RedirectToAction(nameof(HouseholdProfile), new { householdNo = household.HouseholdNo });
             }
@@ -110,7 +125,7 @@ namespace AUF.EMR.MVC.Controllers
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(householdVM);
+            return View(model);
         }
 
         // GET: HouseHolds/Edit/5
@@ -147,13 +162,19 @@ namespace AUF.EMR.MVC.Controllers
             return View(householdVM);
         }
 
-        // GET: HouseHolds/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int? id)
         {
             try
             {
-                var houseHold = await _houseHoldService.Get(id.Value);
-                await _houseHoldService.Update(houseHold);
+                var household = await _houseHoldService.Get(id.Value);
+                if (household == null)
+                {
+                    return NotFound();
+                }
+
+                await _houseHoldService.DeleteHousehold(id.Value);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)

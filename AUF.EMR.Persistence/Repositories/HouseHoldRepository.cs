@@ -20,9 +20,27 @@ namespace AUF.EMR.Persistence.Repositories
             _dbContext = dbContext;
         }
 
+        public async Task DeleteHousehold(int id)
+        {
+            var household = await _dbContext.Households
+                .Include(h => h.HouseholdMembers)
+                .FirstOrDefaultAsync(h => h.Id == id);
+
+            if (household != null)
+            {
+                foreach (var member in household.HouseholdMembers)
+                {
+                    member.Status = false;
+                }
+
+                household.Status = false;
+                await _dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task<int> GetHouseholdId(string houseHoldNo)
         {
-            var houseHold = await _dbContext.HouseHolds
+            var houseHold = await _dbContext.Households
                 .AsNoTracking()
                 .Where(h => h.Status)
                 .FirstOrDefaultAsync(h => h.HouseholdNo.Equals(houseHoldNo));
@@ -32,7 +50,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<List<Household>> GetHouseholdsWithDetails()
         {
-            var houseHolds = await _dbContext.HouseHolds
+            var houseHolds = await _dbContext.Households
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers)
                 .Where(h => h.Status)
@@ -43,7 +61,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<Household> GetHouseholdWithDetails(int id)
         {
-            var houseHold = await _dbContext.HouseHolds
+            var houseHold = await _dbContext.Households
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers)
                 .Where(h => h.Status)
@@ -54,7 +72,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<List<Household>> GetSearchedHouseholdsWithDetails(string query)
         {
-            var houseHolds = await _dbContext.HouseHolds
+            var houseHolds = await _dbContext.Households
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers)
                 .Where(h =>
@@ -72,13 +90,23 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<List<Household>> GetSearchedHouseholdWithDetails(string query)
         {
-            var household = await _dbContext.HouseHolds
+            var household = await _dbContext.Households
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers)
                 .Where(h => h.HouseholdNo.Equals(query) && h.Status)
                 .ToListAsync();
 
             return household;
+        }
+
+        public async Task<bool> IsHouseholdNoExisting(string householdNo)
+        {
+            var household = await _dbContext.Households
+                .AsNoTracking()
+                .Where(h => h.Status)
+                .FirstOrDefaultAsync(h => h.HouseholdNo.Equals(householdNo));
+
+            return household != null;
         }
     }
 }

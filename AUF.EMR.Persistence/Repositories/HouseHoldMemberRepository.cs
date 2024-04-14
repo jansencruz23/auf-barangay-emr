@@ -23,7 +23,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<List<HouseholdMember>> GetHouseholdMembersWithDetails(string houseHoldNo)
         {
-            var houseHoldMembers = await _dbContext.HouseHoldMembers
+            var houseHoldMembers = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Household.Status && m.HouseholdNo.Equals(houseHoldNo) && m.Status)
@@ -34,7 +34,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<List<HouseholdMember>> GetHouseholdMembersWithDetails(Guid id, DateTime startDate, DateTime endDate)
         {
-            var householdMembers = await _dbContext.HouseHoldMembers
+            var householdMembers = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.ModifiedById == id &&
@@ -49,7 +49,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<HouseholdMember> GetHouseholdMemberWithDetails(int id)
         {
-            var houseHoldMember = await _dbContext.HouseHoldMembers
+            var houseHoldMember = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Household.Status && m.Status)
@@ -63,7 +63,7 @@ namespace AUF.EMR.Persistence.Repositories
             var startDate = DateTime.Today.AddYears(WRAAgeRange.WRAStart).AddDays(1);
             var endDate = DateTime.Today.AddYears(WRAAgeRange.WRAEnd);
 
-            var WraMembers = await _dbContext.HouseHoldMembers
+            var WraMembers = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Status && m.Household.Status &&

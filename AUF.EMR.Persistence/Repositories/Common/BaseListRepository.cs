@@ -21,7 +21,7 @@ namespace AUF.EMR.Persistence.Repositories.Common
 
         public async Task<List<HouseholdMember>> GetAllList(string householdNo)
         {
-            var masterlist = await _dbContext.HouseHoldMembers
+            var masterlist = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Household.Status &&
@@ -39,7 +39,7 @@ namespace AUF.EMR.Persistence.Repositories.Common
 
         public async Task<List<HouseholdMember>> GetListQuery(string householdNo, DateTime startDate)
         {
-            var newborns = await _dbContext.HouseHoldMembers
+            var newborns = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Household.Status &&
@@ -54,7 +54,7 @@ namespace AUF.EMR.Persistence.Repositories.Common
 
         public async Task<List<HouseholdMember>> GetListQuery(string householdNo, DateTime startDate, DateTime endDate)
         {
-            var newborns = await _dbContext.HouseHoldMembers
+            var newborns = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Household.Status &&

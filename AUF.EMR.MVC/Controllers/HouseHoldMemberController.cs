@@ -4,6 +4,7 @@ using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.DetailVM;
 using AUF.EMR.MVC.Models.EditVM;
+using AUF.EMR.MVC.Models.IndexVM;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -29,9 +30,22 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHoldMemberController
-        public ActionResult Index()
+        public async Task<ActionResult> Index(int id)
         {
-            return View();
+            var household = await _houseHoldService.GetHouseholdWithDetails(id);
+            if (household == null)
+            {
+                return NotFound();
+            }
+
+            var model = new HouseholdMemberListVM
+            {
+                Barangay = await _brgyService.GetBarangay(),
+                HouseholdMembers = household.HouseholdMembers,
+                Household = household,
+            };
+
+            return View(model);
         }
 
         // GET: HouseHoldMemberController/Details/5
