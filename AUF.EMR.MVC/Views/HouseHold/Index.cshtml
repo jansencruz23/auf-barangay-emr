@@ -1,69 +1,79 @@
 ﻿@model HouseholdVM
 
 @{
+    Layout = "Layouts/_HouseholdLayout";
     ViewData["Title"] = "Index";
-    ViewData["Barangay"] = Model.Barangay.BarangayName;
 }
 
-<h1>Index</h1>
+<section class="flex justify-center">
+    <div class="container-half my-12 overflow-x-auto">
+        <div class="flex justify-between w-full">
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800">Search Household</h1>
+            <a asp-action="Create" class="min-w-max bg-primary-50 text-white rounded-lg text-sm px-5 py-2.5 text-center flex items-center">
+                <i class="fi fi-sr-layer-plus"></i>
+                <span class="hidden md:inline">&nbsp; Add a Household</span>
+            </a>
+        </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<p>
-    <a asp-action="Barangay" asp-controller="Dashboard">See Barangay Summary</a>
-</p>
-<form asp-action="Index">
-    <div class="input-group md-form form-sm form-2 pl-0">
-        <input name="query" class="form-control my-0 py-1" type="text" placeholder="Search House Hold No. or Name" />
-        <div class="input-group-append">
-            <span class="input-group-text list-group-numbered lighten-3" id="search-text">
-                <i class="fas fa-search text-grey" aria-hidden="true"></i>
-            </span>
+    <p>
+        <a asp-action="Barangay" asp-controller="Dashboard">See Barangay Dashboard</a>
+    </p>
+
+    <form asp-action="Index">
+        <div class="flex justify-between w-full mt-8 gap-3">
+            <input name="query" class="bg-gray-50 border px-5 py-2.5 border-gray-300 text-gray-900 text-sm rounded-lg w-full" type="text" placeholder="Search Household No. or Household Member" />
+            <button class="bg-primary-50 text-white rounded-lg text-sm px-5 py-2.5 text-center min-w-max" id="search-text">
+                <i class="fas fa-search"></i> &nbsp; Search
+            </button>
+        </div>
+    </form>
+
+    <div class="mt-8">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        HouseholdNo
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        ContactNo
+                    </th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Households)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HouseholdNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContactNo)
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="HouseholdProfile" asp-route-householdNo="@item.HouseholdNo">View Household</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
         </div>
     </div>
-</form>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                HouseholdNo
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Address
-            </th>
-            <th>
-                ContactNo
-            </th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Households)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HouseholdNo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FullAddress)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ContactNo)
-                </td>
-                <td>
-                    <a class="btn btn-primary" asp-action="HouseholdProfile" asp-route-householdNo="@item.HouseholdNo">View Household</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+</section>
+
 
 @section scripts {
     <script>

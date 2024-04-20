@@ -17,15 +17,13 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IHouseholdMemberService _houseHoldMemberService;
         private readonly IHouseholdService _houseHoldService;
-        private readonly IBarangayService _brgyService;
         private readonly IMapper _mapper;
 
         public HouseholdMemberController(IHouseholdMemberService houseHoldMemberService,
-            IHouseholdService houseHoldService, IBarangayService brgyService, IMapper mapper)
+            IHouseholdService houseHoldService, IMapper mapper)
         {
             _houseHoldMemberService = houseHoldMemberService;
             _houseHoldService = houseHoldService;
-            _brgyService = brgyService;
             _mapper = mapper;
         }
 
@@ -40,7 +38,6 @@ namespace AUF.EMR.MVC.Controllers
 
             var model = new HouseholdMemberListVM
             {
-                Barangay = await _brgyService.GetBarangay(),
                 HouseholdMembers = household.HouseholdMembers,
                 Household = household,
             };
@@ -54,7 +51,6 @@ namespace AUF.EMR.MVC.Controllers
             var model = new DetailHouseholdMemberVM
             {
                 HouseholdMember = await _houseHoldMemberService.GetHouseholdMemberWithDetails(id),
-                Barangay = await _brgyService.GetBarangay(),
                 ReturnUrl = requestUrl
             };
 
@@ -65,13 +61,11 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> Create(string householdNo)
         {
             var householdId = await _houseHoldService.GetHouseholdId(householdNo);
-            var barangay = await _brgyService.GetBarangay();
 
             var model = new CreateHouseholdMemberVM
             {
                 HouseholdNo = householdNo,
                 HouseholdId = householdId,
-                Barangay = barangay
             };
 
             return View(model);
@@ -107,7 +101,6 @@ namespace AUF.EMR.MVC.Controllers
             {
                 HouseholdMember = member,
                 ReturnUrl = requestUrl,
-                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);

@@ -93,9 +93,8 @@ namespace AUF.EMR.Persistence.Repositories
             var houseHolds = await _dbContext.Households
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers)
-                .Where(h =>
-                    h.Status &&
-                    h.LastName.Contains(query) ||
+                .Where(h => h.Status)
+                .Where(h => h.LastName.Contains(query) ||
                     h.FirstName.Contains(query) ||
                     h.HouseholdNo.Contains(query) ||
                     h.HouseholdMembers.Any(m =>

@@ -213,6 +213,258 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\README.md",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\README.md"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\changelog.md",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\changelog.md"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\all\\all.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\all\\all.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\all\\all.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\all\\all.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\all\\all.rounded.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\all\\all.rounded.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\all\\all.rounded.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\all\\all.rounded.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\all\\all.straight.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\all\\all.straight.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\all\\all.straight.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\all\\all.straight.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\bold\\all.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\bold\\all.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\bold\\all.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\bold\\all.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\bold\\rounded.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\bold\\rounded.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\bold\\rounded.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\bold\\rounded.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\bold\\straight.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\bold\\straight.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\bold\\straight.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\bold\\straight.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\brands\\all.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\brands\\all.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\brands\\all.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\brands\\all.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\regular\\all.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\regular\\all.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\regular\\all.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\regular\\all.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\regular\\rounded.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\regular\\rounded.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\regular\\rounded.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\regular\\rounded.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\regular\\straight.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\regular\\straight.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\regular\\straight.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\regular\\straight.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\solid\\all.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\solid\\all.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\solid\\all.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\solid\\all.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\solid\\rounded.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\solid\\rounded.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\solid\\rounded.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\solid\\rounded.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\solid\\straight.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\solid\\straight.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\solid\\straight.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\solid\\straight.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\thin\\rounded.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\thin\\rounded.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\thin\\rounded.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\thin\\rounded.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\thin\\straight.css",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\thin\\straight.css"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\thin\\straight.css.map",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\thin\\straight.css.map"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-bold-rounded-4YSX3ME3.woff2",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-bold-rounded-4YSX3ME3.woff2"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-bold-rounded-GYHBFZ7R.woff",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-bold-rounded-GYHBFZ7R.woff"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-bold-rounded-SUEIJKEC.eot",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-bold-rounded-SUEIJKEC.eot"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-bold-straight-QRRKTUJ3.woff2",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-bold-straight-QRRKTUJ3.woff2"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-bold-straight-W7ZE3HVC.eot",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-bold-straight-W7ZE3HVC.eot"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-bold-straight-YALUUIRG.woff",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-bold-straight-YALUUIRG.woff"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-brands-CHURMF2T.eot",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-brands-CHURMF2T.eot"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-brands-KRQTPALM.woff",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-brands-KRQTPALM.woff"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-brands-U24MVEEA.woff2",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-brands-U24MVEEA.woff2"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-regular-rounded-7VVMVFVQ.woff",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-regular-rounded-7VVMVFVQ.woff"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-regular-rounded-G7QZAJOP.woff2",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-regular-rounded-G7QZAJOP.woff2"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-regular-rounded-WYM4NWBO.eot",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-regular-rounded-WYM4NWBO.eot"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-regular-straight-BSMDD24K.woff2",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-regular-straight-BSMDD24K.woff2"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-regular-straight-BWOEOX4N.eot",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-regular-straight-BWOEOX4N.eot"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-regular-straight-E4ILMKQE.woff",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-regular-straight-E4ILMKQE.woff"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-solid-rounded-CYZ4X6CD.woff2",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-solid-rounded-CYZ4X6CD.woff2"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-solid-rounded-LOZ5Y5MG.eot",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-solid-rounded-LOZ5Y5MG.eot"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-solid-rounded-Z5USPLMQ.woff",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-solid-rounded-Z5USPLMQ.woff"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-solid-straight-AUVBWMYN.eot",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-solid-straight-AUVBWMYN.eot"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-solid-straight-IILGUA3V.woff2",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-solid-straight-IILGUA3V.woff2"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-solid-straight-OFAGFQPX.woff",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-solid-straight-OFAGFQPX.woff"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-thin-rounded-HYPT2RMP.woff",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-thin-rounded-HYPT2RMP.woff"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-thin-rounded-MVABKYM3.eot",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-thin-rounded-MVABKYM3.eot"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-thin-rounded-SPMGLG45.woff2",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-thin-rounded-SPMGLG45.woff2"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-thin-straight-463B2YPK.woff",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-thin-straight-463B2YPK.woff"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-thin-straight-ASPVWBIL.woff2",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-thin-straight-ASPVWBIL.woff2"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\css\\uicons-thin-straight-RNZBF6OT.eot",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\css\\uicons-thin-straight-RNZBF6OT.eot"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\license.js",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\license.js"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\package.json",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\package.json"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flaticon-uicons\\utils\\update-fonts.js",
+      "PackagePath": "staticwebassets\\lib\\flaticon-uicons\\utils\\update-fonts.js"
+    },
+    {
       "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flowbite\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\flowbite\\LICENSE.md"
     },

@@ -30,7 +30,6 @@ namespace AUF.EMR.MVC.Controllers
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
                 HouseholdNo = householdNo,
-                Barangay = await _brgyService.GetBarangay()
             };
             return View(model);
         }
@@ -44,7 +43,6 @@ namespace AUF.EMR.MVC.Controllers
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
                 HouseholdNo = householdNo,
-                Barangay = await _brgyService.GetBarangay()
             };
             return View(model);
         }
@@ -58,7 +56,6 @@ namespace AUF.EMR.MVC.Controllers
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
                 HouseholdNo = householdNo,
-                Barangay = await _brgyService.GetBarangay()
             };
             return View(model);
         }
@@ -72,7 +69,6 @@ namespace AUF.EMR.MVC.Controllers
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
                 HouseholdNo = householdNo,
-                Barangay = await _brgyService.GetBarangay()
             };
             return View(model);
         }
@@ -86,7 +82,6 @@ namespace AUF.EMR.MVC.Controllers
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
                 HouseholdNo = householdNo,
-                Barangay = await _brgyService.GetBarangay()
             };
             return View(model);
         }
@@ -100,7 +95,6 @@ namespace AUF.EMR.MVC.Controllers
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
                 HouseholdNo = householdNo,
-                Barangay = await _brgyService.GetBarangay()
             };
             return View(model);
         }
@@ -114,7 +108,6 @@ namespace AUF.EMR.MVC.Controllers
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
                 HouseholdNo = householdNo,
-                Barangay = await _brgyService.GetBarangay()
             };
             return View(model);
         }
@@ -128,7 +121,6 @@ namespace AUF.EMR.MVC.Controllers
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
                 HouseholdNo = householdNo,
-                Barangay = await _brgyService.GetBarangay()
             };
             return View(model);
         }

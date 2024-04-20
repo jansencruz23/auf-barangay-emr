@@ -10,13 +10,10 @@ namespace AUF.EMR.MVC.Controllers
     public class DashboardController : Controller
     {
         private readonly IDashboardService _summaryService;
-        private readonly IBarangayService _brgyService;
 
-        public DashboardController(IDashboardService summaryService,
-            IBarangayService brgyService)
+        public DashboardController(IDashboardService summaryService)
         {
             _summaryService = summaryService;
-            _brgyService = brgyService;
         }
 
         // GET: DashboardController/Barangay
@@ -33,7 +30,6 @@ namespace AUF.EMR.MVC.Controllers
                 AdolescentsCount = await _summaryService.GetAdolescentCount(),
                 AdultCount = await _summaryService.GetAdultsCount(),
                 SeniorCount = await _summaryService.GetSeniorCount(),
-                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);
@@ -52,7 +48,6 @@ namespace AUF.EMR.MVC.Controllers
                 AdolescentsCount = await _summaryService.GetAdolescentCount(householdNo),
                 AdultCount = await _summaryService.GetAdultsCount(householdNo),
                 SeniorCount = await _summaryService.GetSeniorCount(householdNo),
-                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);

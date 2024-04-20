@@ -20,20 +20,17 @@ namespace AUF.EMR.MVC.Controllers
         private readonly IWRAService _wraService;
         private readonly IHouseholdMemberService _householdMemberService;
         private readonly IHouseholdService _householdService;
-        private readonly IBarangayService _brgyService;
         private readonly UserManager<ApplicationUser> _userManager;
 
         public WRAController(IWRAService wraService,
             IHouseholdMemberService householdMemberService,
             IHouseholdService householdService,
-            IBarangayService brgyService,
             UserManager<ApplicationUser> userManager)
         {
             _wraService = wraService;
             _householdMemberService = householdMemberService;
             _householdService = householdService;
             _userManager = userManager;
-            _brgyService = brgyService;
         }
 
         // GET: WRAController
@@ -142,7 +139,6 @@ namespace AUF.EMR.MVC.Controllers
             var user = await _userManager.GetUserAsync(User);
             var model = new PrintWRAVM
             {
-                Barangay = await _brgyService.GetBarangay(),
                 Midwife = user.FullName,
                 WRAs = await _wraService.GetWRAListWithDetails(householdNo),
                 DatePrepared = DateTime.Now,

@@ -22,12 +22,25 @@
     .w-login {
         width: 100%;
     }
-}
+
+    .householdTitle {
+        font-size: 1rem;
+    }
+}   
 
 .bg-primary-50 {
     background-color: #accb8f;
 }
 
 .bg-primary-50:hover {
-    background-color: #9eb87e;
+    background-color: #bddc9f;
+}
+
+.container-half {
+    padding-left: 5em;
+    padding-right: 5em;
+}
+
+.householdTitle {
+    font-size: 1.875rem;
 }
