@@ -27,8 +27,8 @@ namespace AUF.EMR.Domain.Models
         public string? FourthQtrClassification { get; set; }
         public string? Remarks { get; set; }
         public string HouseholdNo { get; set; }
-        public int? HouseholdId { get; set; }
-        public Household? Household { get; set; }
+        public int HouseholdId { get; set; }
+        public Household Household { get; set; }
         public string? NameOfMother { get; set; }
         public string? NameOfFather { get; set; }
         public bool? IsNhts { get; set; }

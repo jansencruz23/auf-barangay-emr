@@ -149,7 +149,7 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HouseHolds");
+                    b.ToTable("Households");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.HouseholdMember", b =>
@@ -178,7 +178,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<string>("FourthQtrClassification")
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("HouseholdId")
+                    b.Property<int>("HouseholdId")
                         .HasColumnType("int");
 
                     b.Property<string>("HouseholdNo")
@@ -237,7 +237,7 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.HasIndex("HouseholdId");
 
-                    b.ToTable("HouseHoldMembers");
+                    b.ToTable("HouseholdMembers");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.Identity.ApplicationUser", b =>
@@ -249,6 +249,7 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("Birthday")
@@ -259,6 +260,7 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("ContactNo")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Email")
@@ -633,7 +635,9 @@ namespace AUF.EMR.Persistence.Migrations
                 {
                     b.HasOne("AUF.EMR.Domain.Models.Household", "Household")
                         .WithMany("HouseholdMembers")
-                        .HasForeignKey("HouseholdId");
+                        .HasForeignKey("HouseholdId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Household");
                 });

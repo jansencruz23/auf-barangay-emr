@@ -1,0 +1,33 @@
+﻿body {
+    font-family: Poppins
+}
+
+.w-login {
+    width: 40%;
+}
+
+@media (max-width: 1200px) {
+    .w-login {
+        width: 60%;
+    }
+}
+
+@media (max-width: 900px) {
+    .w-login {
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    .w-login {
+        width: 100%;
+    }
+}
+
+.bg-primary-50 {
+    background-color: #accb8f;
+}
+
+.bg-primary-50:hover {
+    background-color: #9eb87e;
+}

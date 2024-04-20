@@ -271,3 +271,6 @@ D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.pdb
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.genruntimeconfig.cache
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\ref\AUF.EMR.MVC.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\Tailwind.Extensions.AspNetCore.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\wwwroot\img\logo.png

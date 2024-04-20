@@ -122,6 +122,7 @@ namespace AUF.EMR.MVC.Areas.Identity.Pages.Account
                     var user = await _userManager.FindByNameAsync(Input.Username);
                     var roles = await _userManager.GetRolesAsync(user);
                     _logger.LogInformation("User logged in.");
+                    ErrorMessage = null;
 
                     if (roles.Contains("Admin"))
                     {
@@ -146,6 +147,7 @@ namespace AUF.EMR.MVC.Areas.Identity.Pages.Account
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ErrorMessage = "Invalid username or password.";
                     return Page();
                 }
             }

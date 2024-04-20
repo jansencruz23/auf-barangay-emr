@@ -17,8 +17,8 @@ namespace AUF.EMR.Domain.Models.Identity
 
         [DataType(DataType.Date)]
         public DateTime Birthday { get; set; }
-        public string? ContactNo { get; set; }
-        public string? Address { get; set; }
+        public string ContactNo { get; set; }
+        public string Address { get; set; }
         public string Position { get; set; }
 
         public string FullName { get => $"{FirstName} {GetMiddleInitial()}. {LastName}"; }
