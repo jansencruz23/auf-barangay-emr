@@ -32,9 +32,25 @@
     background-color: #accb8f;
 }
 
-.bg-primary-50:hover {
-    background-color: #bddc9f;
+    .bg-primary-50:hover {
+        background-color: #A6C188;
+    }
+
+.bg-secondary-50 {
+    background-color: #fec444;
 }
+
+    .bg-secondary-50:hover {
+        background-color: #feca59;
+    }
+
+.bg-danger-50 {
+    background-color: #fd7976;
+}
+
+    .bg-danger-50:hover {
+        background-color: #fe8987;
+    }
 
 .container-half {
     padding-left: 5em;
@@ -43,4 +59,9 @@
 
 .householdTitle {
     font-size: 1.875rem;
+}
+
+.hover-household:hover {
+    background-color: #f4f7fa;
+    cursor: pointer;
 }

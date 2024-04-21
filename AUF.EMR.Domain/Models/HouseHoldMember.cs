@@ -44,5 +44,21 @@ namespace AUF.EMR.Domain.Models
 
             return MotherMaidenName.Split(' ').Last()[0].ToString();
         }
+
+        public string GetRelationshipString
+        {
+            get
+            {
+                return RelationshipToHouseholdHead switch
+                {
+                    1 => "Head",
+                    2 => "Spouse",
+                    3 => "Son",
+                    4 => "Daughter",
+                    5 => "Other: " + OtherRelation,
+                    _ => "Unknown"
+                };
+            }
+        }
     }
 }

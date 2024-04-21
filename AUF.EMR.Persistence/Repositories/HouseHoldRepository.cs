@@ -74,6 +74,15 @@ namespace AUF.EMR.Persistence.Repositories
                 .Where(h => h.Status)
                 .ToListAsync();
 
+            foreach (var household in houseHolds)
+            {
+                household.HouseholdMembers = household.HouseholdMembers
+                    .OrderBy(m => m.RelationshipToHouseholdHead == 1 ? 0 : m.RelationshipToHouseholdHead)
+                        .ThenBy(m => m.RelationshipToHouseholdHead == 2 ? 1 : m.RelationshipToHouseholdHead)
+                        .ThenBy(m => m.RelationshipToHouseholdHead == 3 || m.RelationshipToHouseholdHead == 4 ? m.Birthday : DateTime.MaxValue)
+                    .ToList();
+            }
+
             return houseHolds;
         }
 
