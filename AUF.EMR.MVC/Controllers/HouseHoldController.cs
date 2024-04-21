@@ -101,6 +101,7 @@ namespace AUF.EMR.MVC.Controllers
                 if (isExisting)
                 {
                     ModelState.AddModelError("", "Household No. is already existing.");
+                    model.ErrorMessage = "Household No. is already existing.";
                     return View(model);
                 }
 
@@ -110,6 +111,7 @@ namespace AUF.EMR.MVC.Controllers
             }
             catch (Exception ex)
             {
+                model.ErrorMessage = ex.Message;
                 ModelState.AddModelError("", ex.Message);
             }
 

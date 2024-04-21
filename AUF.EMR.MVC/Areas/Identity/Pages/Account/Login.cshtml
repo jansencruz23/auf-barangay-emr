@@ -8,20 +8,7 @@
 
 @if (Model.ErrorMessage != null)
 {
-    <div id="alert-border-1" class="flex items-center p-4 mb-4 text-red-800 border-t-4 border-red-300 bg-red-50" role="alert">
-        <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-        </svg>
-        <div class="ms-3 text-sm font-medium">
-            @Model.ErrorMessage
-        </div>
-        <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-border-1" aria-label="Close">
-            <span class="sr-only">Dismiss</span>
-            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-            </svg>
-        </button>
-    </div>
+    @await Html.PartialAsync("Popups/AlertError", Model.ErrorMessage);
 }
 
 <section class="flex items-center justify-center h-screen">
@@ -35,12 +22,12 @@
                 <form class="space-y-4 md:space-y-6" id="account" method="post">
                     <div>
                         <label asp-for="Input.Username" class="block mb-2 text-sm text-gray-700">Username</label>
-                        <input asp-for="Input.Username" type="text" class="border border-gray-300 text-gray-900 focus:outline-none focus:ring-0 focus:border-gray-900 sm:text-sm rounded-lg block w-full p-2.5" required="true">
+                        <input asp-for="Input.Username" type="text" class="border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-lg block w-full p-2.5" required="true">
                         <span asp-validation-for="Input.Username" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div>
                         <label asp-for="Input.Password" class="block mb-2 text-sm text-gray-700">Password</label>
-                        <input asp-for="Input.Password" type="password" class="border border-gray-300 text-gray-900 focus:border-green-50 focus:outline-none focus:ring-0 sm:text-sm rounded-lg block w-full p-2.5" required="true">
+                        <input asp-for="Input.Password" type="password" class="border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-lg block w-full p-2.5" required="true">
                         <span asp-validation-for="Input.Password" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="flex items-center justify-end">
