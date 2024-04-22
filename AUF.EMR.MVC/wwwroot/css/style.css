@@ -67,10 +67,6 @@
 }
 
 /* FLOWBITE TAILWIND EXTENSIONS KASI DI COMPLETE ATA NASA LIB T.T */
-.custom-ml-72 {
-    margin-left: 18rem;
-}
-
-.smaple {
-    background-color: gray;
+.align-baseline {
+    vertical-align: baseline;
 }

@@ -1,3 +1,4 @@
+
 /*
 ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
 *//*
@@ -7570,7 +7571,9 @@ input:checked + .toggle-bg {
   .md\:h-auto {
     height: auto;
   }
-
+.md\:w-4\/5 {
+    width: 80%;
+}
   .md\:w-32 {
     width: 8rem;
   }

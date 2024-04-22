@@ -9,11 +9,14 @@ namespace AUF.EMR.MVC.Controllers
     [Authorize(Policy = "User")]
     public class DashboardController : Controller
     {
-        private readonly IDashboardService _summaryService;
+        private readonly IDashboardService _dashboardService;
+        private readonly IHouseholdService _householdService;
 
-        public DashboardController(IDashboardService summaryService)
+        public DashboardController(IDashboardService dashboardService,
+            IHouseholdService householdService)
         {
-            _summaryService = summaryService;
+            _dashboardService = dashboardService;
+            _householdService = householdService;
         }
 
         // GET: DashboardController/Barangay
@@ -21,15 +24,15 @@ namespace AUF.EMR.MVC.Controllers
         {
             var model = new DashboardVM
             {
-                HouseholdCount = await _summaryService.GetHouseholdCount(),
-                HouseholdMemberCount = await _summaryService.GetHouseholdMemberCount(),
-                NewbornCount = await _summaryService.GetNewbornCount(),
-                InfantCount = await _summaryService.GetInfantCount(),
-                UnderFiveCount = await _summaryService.GetUnderFiveCount(),
-                SchoolAgedCount = await _summaryService.GetSchoolAgedCount(),
-                AdolescentsCount = await _summaryService.GetAdolescentCount(),
-                AdultCount = await _summaryService.GetAdultsCount(),
-                SeniorCount = await _summaryService.GetSeniorCount(),
+                HouseholdCount = await _dashboardService.GetHouseholdCount(),
+                HouseholdMemberCount = await _dashboardService.GetHouseholdMemberCount(),
+                NewbornCount = await _dashboardService.GetNewbornCount(),
+                InfantCount = await _dashboardService.GetInfantCount(),
+                UnderFiveCount = await _dashboardService.GetUnderFiveCount(),
+                SchoolAgedCount = await _dashboardService.GetSchoolAgedCount(),
+                AdolescentsCount = await _dashboardService.GetAdolescentCount(),
+                AdultCount = await _dashboardService.GetAdultsCount(),
+                SeniorCount = await _dashboardService.GetSeniorCount(),
             };
 
             return View(model);
@@ -38,16 +41,22 @@ namespace AUF.EMR.MVC.Controllers
         // GET: DashboardController/Household/5
         public async Task<ActionResult> Household(string householdNo)
         {
+            var householdExisting = await _householdService.IsHouseholdNoExisting(householdNo);
+            if (!householdExisting)
+            {
+                return NotFound();
+            }
+
             var model = new DashboardVM
             {
-                HouseholdMemberCount = await _summaryService.GetHouseholdMemberCount(householdNo),
-                NewbornCount = await _summaryService.GetNewbornCount(householdNo),
-                InfantCount = await _summaryService.GetInfantCount(householdNo),
-                UnderFiveCount = await _summaryService.GetUnderFiveCount(householdNo),
-                SchoolAgedCount = await _summaryService.GetSchoolAgedCount(householdNo),
-                AdolescentsCount = await _summaryService.GetAdolescentCount(householdNo),
-                AdultCount = await _summaryService.GetAdultsCount(householdNo),
-                SeniorCount = await _summaryService.GetSeniorCount(householdNo),
+                HouseholdMemberCount = await _dashboardService.GetHouseholdMemberCount(householdNo),
+                NewbornCount = await _dashboardService.GetNewbornCount(householdNo),
+                InfantCount = await _dashboardService.GetInfantCount(householdNo),
+                UnderFiveCount = await _dashboardService.GetUnderFiveCount(householdNo),
+                SchoolAgedCount = await _dashboardService.GetSchoolAgedCount(householdNo),
+                AdolescentsCount = await _dashboardService.GetAdolescentCount(householdNo),
+                AdultCount = await _dashboardService.GetAdultsCount(householdNo),
+                SeniorCount = await _dashboardService.GetSeniorCount(householdNo),
             };
 
             return View(model);

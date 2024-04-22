@@ -35,6 +35,10 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<IActionResult> HouseholdProfile(string householdNo)
         {
             var searched = await _houseHoldService.GetSearchedhouseHoldWithDetails(householdNo);
+            if (searched == null)
+            {
+                return NotFound();
+            }
 
             var model = new HouseholdProfileVM
             {
