@@ -39,7 +39,7 @@ namespace AUF.EMR.MVC.Controllers
             var model = new HouseholdProfileVM
             {
                 HouseholdNo = householdNo,
-                Households = searched,
+                Household = searched
             };
 
             return View(model);

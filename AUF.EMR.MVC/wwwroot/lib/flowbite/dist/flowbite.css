@@ -3734,6 +3734,9 @@ input:checked + .toggle-bg {
 .p-8 {
   padding: 2rem;
 }
+.p-10 {
+  padding: 2.5rem;
+}
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -7132,6 +7135,10 @@ input:checked + .toggle-bg {
   .sm\:ml-64 {
     margin-left: 16rem;
   }
+
+    .sm\:ml-72 {
+        margin-left: 18rem;
+    }
 
   .sm\:ms-2 {
     -webkit-margin-start: 0.5rem;
