@@ -13,6 +13,7 @@ using Microsoft.Identity.Client;
 using AUF.EMR.MVC.Models.CreateVM;
 using Microsoft.AspNetCore.Authorization;
 using AUF.EMR.MVC.Models.IndexVM;
+using Microsoft.AspNetCore.Identity;
 
 
 namespace AUF.EMR.MVC.Controllers
@@ -22,28 +23,27 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IHouseholdService _houseHoldService;
         private readonly IHouseholdMemberService _houseHoldMemberService;
-        private readonly IBarangayService _brgyService;
 
         public HouseholdController(IHouseholdService houseHoldService,
-            IHouseholdMemberService houseHoldMemberService,
-            IBarangayService brgyService)
+            IHouseholdMemberService houseHoldMemberService)
         {
             _houseHoldService = houseHoldService;
             _houseHoldMemberService = houseHoldMemberService;
-            _brgyService = brgyService;
         }
 
         // GET: HouseHolds
         public async Task<IActionResult> HouseholdProfile(string householdNo)
         {
             var searched = await _houseHoldService.GetSearchedhouseHoldWithDetails(householdNo);
-            var barangay = await _brgyService.GetBarangay();
+            if (searched == null)
+            {
+                return NotFound();
+            }
 
             var model = new HouseholdProfileVM
             {
                 HouseholdNo = householdNo,
-                Households = searched,
-                Barangay = barangay
+                Household = searched
             };
 
             return View(model);
@@ -51,8 +51,7 @@ namespace AUF.EMR.MVC.Controllers
 
         public async Task<IActionResult> Index(string query)
         {
-            var barangay = await _brgyService.GetBarangay();
-            var model = new HouseholdVM { Barangay = barangay };
+            var model = new HouseholdVM();
 
             if (string.IsNullOrEmpty(query))
             {
@@ -83,27 +82,44 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHolds/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            var model = new CreateHouseholdVM();
+
+            return View(model);
         }
 
         // POST: HouseHolds/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Household houseHold)
+        public async Task<IActionResult> Create(CreateHouseholdVM model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             try
             {
-                await _houseHoldService.Add(houseHold);
-                return RedirectToAction(nameof(HouseholdProfile), new { householdNo = houseHold.HouseholdNo });
+                var isExisting = await _houseHoldService.IsHouseholdNoExisting(model.Household.HouseholdNo);
+                if (isExisting)
+                {
+                    ModelState.AddModelError("", "Household No. is already existing.");
+                    model.ErrorMessage = "Household No. is already existing.";
+                    return View(model);
+                }
+
+                var household = model.Household;
+                await _houseHoldService.Add(household);
+                return RedirectToAction(nameof(HouseholdProfile), new { householdNo = household.HouseholdNo });
             }
             catch (Exception ex)
             {
+                model.ErrorMessage = ex.Message;
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(houseHold);
+            return View(model);
         }
 
         // GET: HouseHolds/Edit/5
@@ -139,13 +155,19 @@ namespace AUF.EMR.MVC.Controllers
             return View(householdVM);
         }
 
-        // GET: HouseHolds/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int? id)
         {
             try
             {
-                var houseHold = await _houseHoldService.Get(id.Value);
-                await _houseHoldService.Update(houseHold);
+                var household = await _houseHoldService.Get(id.Value);
+                if (household == null)
+                {
+                    return NotFound();
+                }
+
+                await _houseHoldService.DeleteHousehold(id.Value);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)

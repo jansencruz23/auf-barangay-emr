@@ -1,3 +1,4 @@
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\wwwroot\img\logo.png
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\appsettings.Development.json
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\appsettings.json
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\AUF.EMR.MVC.staticwebassets.runtime.json
@@ -17,6 +18,7 @@ D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.UI.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.Build.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.Build.Framework.dll
@@ -89,6 +91,7 @@ D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Security.Permissions.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Windows.Extensions.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\Tailwind.Extensions.AspNetCore.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\af\Humanizer.resources.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\ar\Humanizer.resources.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\az\Humanizer.resources.dll
@@ -271,6 +274,7 @@ D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.pdb
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.genruntimeconfig.cache
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\ref\AUF.EMR.MVC.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\wwwroot\img\logo.png
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\appsettings.json
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\AUF.EMR.MVC.staticwebassets.runtime.json
@@ -290,6 +294,7 @@ C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.AspNetCo
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.UI.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.Build.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.Build.Framework.dll
@@ -362,6 +367,7 @@ C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Runtime.Cac
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Security.Permissions.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Windows.Extensions.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\Tailwind.Extensions.AspNetCore.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\af\Humanizer.resources.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\ar\Humanizer.resources.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\az\Humanizer.resources.dll

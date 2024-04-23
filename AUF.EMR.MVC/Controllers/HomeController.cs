@@ -1,4 +1,5 @@
-﻿using AUF.EMR.MVC.Models;
+﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -13,7 +14,7 @@ namespace AUF.EMR.MVC.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             return View();
         }

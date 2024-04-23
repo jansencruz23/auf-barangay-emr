@@ -27,8 +27,8 @@ namespace AUF.EMR.Domain.Models
         public string? FourthQtrClassification { get; set; }
         public string? Remarks { get; set; }
         public string HouseholdNo { get; set; }
-        public int? HouseholdId { get; set; }
-        public Household? Household { get; set; }
+        public int HouseholdId { get; set; }
+        public Household Household { get; set; }
         public string? NameOfMother { get; set; }
         public string? NameOfFather { get; set; }
         public bool? IsNhts { get; set; }
@@ -43,6 +43,22 @@ namespace AUF.EMR.Domain.Models
                 return string.Empty;
 
             return MotherMaidenName.Split(' ').Last()[0].ToString();
+        }
+
+        public string GetRelationshipString
+        {
+            get
+            {
+                return RelationshipToHouseholdHead switch
+                {
+                    1 => "Head",
+                    2 => "Spouse",
+                    3 => "Son",
+                    4 => "Daughter",
+                    5 => "Other: " + OtherRelation,
+                    _ => "Unknown"
+                };
+            }
         }
     }
 }

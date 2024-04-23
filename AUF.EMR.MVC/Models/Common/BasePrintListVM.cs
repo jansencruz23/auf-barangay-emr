@@ -2,7 +2,7 @@
 
 namespace AUF.EMR.MVC.Models.Common
 {
-    public class BasePrintListVM
+    public class BasePrintListVM : BaseVM
     {
         public Barangay Barangay { get; set; }
         public string RequestUrl { get; set; }

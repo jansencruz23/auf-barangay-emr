@@ -1,0 +1,59 @@
+﻿@model EditUserVM
+
+@{
+
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" method="post">
+            <h2>Create a new account.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <input type="hidden" asp-for="User.Id" />
+            <div class="form-floating mb-3">
+                <input asp-for="User.FirstName" class="form-control" autocomplete="firstname" aria-required="true" placeholder="First Name" />
+                <label asp-for="User.FirstName">First Name</label>
+                <span asp-validation-for="User.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="User.MiddleName" class="form-control" autocomplete="middlename" aria-required="true" placeholder="Middle Name" />
+                <label asp-for="User.MiddleName">Middle Name</label>
+                <span asp-validation-for="User.MiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="User.LastName" class="form-control" autocomplete="lastname" aria-required="true" placeholder="Last Name" />
+                <label asp-for="User.LastName">Last Name</label>
+                <span asp-validation-for="User.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.Picture" class="control-label"></label>
+                <input asp-for="User.Picture" type="file" class="form-control" accept="image/*" />
+                <span asp-validation-for="User.Picture" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="User.Birthday" class="form-control" autocomplete="birthday" aria-required="true" placeholder="Date of Birth" />
+                <label asp-for="User.Birthday">Date of Birth</label>
+                <span asp-validation-for="User.Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="User.ContactNo" class="form-control" autocomplete="contactno" aria-required="true" placeholder="Contact No" />
+                <label asp-for="User.ContactNo">Contact No</label>
+                <span asp-validation-for="User.ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="User.Address" class="form-control" autocomplete="address" aria-required="true" placeholder="Address" />
+                <label asp-for="User.Address">Address</label>
+                <span asp-validation-for="User.Address" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="User.Position" class="form-control" autocomplete="position" aria-required="true" placeholder="Position" />
+                <label asp-for="User.Position">Position</label>
+                <span asp-validation-for="User.Position" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Update Employee</button>
+        </form>
+        <a asp-action="ResetPassword" asp-route-id="@Model.User.Id">Reset Password</a>
+    </div>

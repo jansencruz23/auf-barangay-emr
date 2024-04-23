@@ -20,20 +20,17 @@ namespace AUF.EMR.MVC.Controllers
         private readonly IWRAService _wraService;
         private readonly IHouseholdMemberService _householdMemberService;
         private readonly IHouseholdService _householdService;
-        private readonly IBarangayService _brgyService;
         private readonly UserManager<ApplicationUser> _userManager;
 
         public WRAController(IWRAService wraService,
             IHouseholdMemberService householdMemberService,
             IHouseholdService householdService,
-            IBarangayService brgyService,
             UserManager<ApplicationUser> userManager)
         {
             _wraService = wraService;
             _householdMemberService = householdMemberService;
             _householdService = householdService;
             _userManager = userManager;
-            _brgyService = brgyService;
         }
 
         // GET: WRAController
@@ -47,12 +44,6 @@ namespace AUF.EMR.MVC.Controllers
             };
 
             return View(model);
-        }
-
-        // GET: WRAController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
         }
 
         // GET: WRAController/Create
@@ -119,25 +110,28 @@ namespace AUF.EMR.MVC.Controllers
             return View(wraVM);
         }
 
-        // GET: WRAController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: WRAController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, string householdNo)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var wra = await _wraService.Get(id);
+                if (wra == null)
+                {
+                    return NotFound();
+                }
+
+                await _wraService.Delete(wra);
+                return RedirectToAction(nameof(Index), new { householdNo = householdNo });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
             }
+
+            return BadRequest();
         }
 
         public async Task<ActionResult> Print(string householdNo)
@@ -145,7 +139,6 @@ namespace AUF.EMR.MVC.Controllers
             var user = await _userManager.GetUserAsync(User);
             var model = new PrintWRAVM
             {
-                Barangay = await _brgyService.GetBarangay(),
                 Midwife = user.FullName,
                 WRAs = await _wraService.GetWRAListWithDetails(householdNo),
                 DatePrepared = DateTime.Now,

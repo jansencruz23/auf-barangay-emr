@@ -12,15 +12,13 @@ namespace AUF.EMR.MVC.Controllers
     public class OralHealthClientController : Controller
     {
         private readonly IOralHealthService _oralHealthService;
+        private readonly IBarangayService _brgyService;
 
-        public OralHealthClientController(IOralHealthService oralHealthService)
+        public OralHealthClientController(IOralHealthService oralHealthService,
+            IBarangayService brgyService)
         {
             _oralHealthService = oralHealthService;
-        }
-
-        public ActionResult Index()
-        {
-            return View();
+            _brgyService = brgyService;
         }
 
         // GET: OralHealthClientController/Infant
@@ -31,7 +29,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
-                HouseholdNo = householdNo
+                HouseholdNo = householdNo,
             };
             return View(model);
         }
@@ -44,7 +42,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
-                HouseholdNo = householdNo
+                HouseholdNo = householdNo,
             };
             return View(model);
         }
@@ -57,7 +55,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
-                HouseholdNo = householdNo
+                HouseholdNo = householdNo,
             };
             return View(model);
         }
@@ -70,7 +68,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
-                HouseholdNo = householdNo
+                HouseholdNo = householdNo,
             };
             return View(model);
         }
@@ -83,7 +81,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
-                HouseholdNo = householdNo
+                HouseholdNo = householdNo,
             };
             return View(model);
         }
@@ -96,7 +94,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
-                HouseholdNo = householdNo
+                HouseholdNo = householdNo,
             };
             return View(model);
         }
@@ -109,7 +107,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
-                HouseholdNo = householdNo
+                HouseholdNo = householdNo,
             };
             return View(model);
         }
@@ -122,7 +120,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 HouseholdMembers = members,
                 RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
-                HouseholdNo = householdNo
+                HouseholdNo = householdNo,
             };
             return View(model);
         }
@@ -137,7 +135,8 @@ namespace AUF.EMR.MVC.Controllers
                 TenToFourteen = await _oralHealthService.GetOralClient10to14(householdNo),
                 PregnantFifteenToNineteen = await _oralHealthService.GetOralClientPregnant15to19(householdNo),
                 PregnantTwentyToFourtyNine = await _oralHealthService.GetOralClientPregnant20to49(householdNo),
-                RequestUrl = requestUrl
+                RequestUrl = requestUrl,
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);

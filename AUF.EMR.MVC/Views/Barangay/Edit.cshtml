@@ -1,76 +1,88 @@
 ﻿@model EditBarangayVM
 
 @{
+    Layout = "Layouts/_HouseholdLayout";
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
 
-<h4>Barangay</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Barangay.BarangayName" class="control-label"></label>
-                <input asp-for="Barangay.BarangayName" class="form-control" />
-                <span asp-validation-for="Barangay.BarangayName" class="text-danger"></span>
+<section class="flex justify-center pt-16">
+    <div class="w-2/3 my-12">
+        <form asp-action="Edit">
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Edit Barangay Health Center Information</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Left Column -->
+                <div>
+                    <div class="mb-4">
+                        <label asp-for="Barangay.BarangayName" class="block mb-2 text-sm font-medium text-gray-700">Barangay Name</label>
+                        <input type="text" asp-for="Barangay.BarangayName" placeholder="eg. Ninoy Aquino" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" required />
+                        <span asp-validation-for="Barangay.BarangayName" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="LogoFile" class="block mb-2 text-sm font-medium text-gray-700">Barangay Logo</label>
+                        <input type="file" asp-for="LogoFile" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" required />
+                        <span asp-validation-for="LogoFile" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Location</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="Barangay.Street" class="block mb-2 text-sm font-medium text-gray-700">Street</label>
+                        <input type="text" asp-for="Barangay.Street" placeholder="eg. 123 Mabuhay St." class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" required />
+                        <span asp-validation-for="Barangay.Street" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="Barangay.Municipality" class="block mb-2 text-sm font-medium text-gray-700">Municipality</label>
+                        <input type="text" asp-for="Barangay.Municipality" placeholder="eg. Angeles City" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" required />
+                        <span asp-validation-for="Barangay.Municipality" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="Barangay.Province" class="block mb-2 text-sm font-medium text-gray-700">Province</label>
+                        <input type="text" asp-for="Barangay.Province" placeholder="eg. Pampanga" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" required />
+                        <span asp-validation-for="Barangay.Province" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="Barangay.Region" class="block mb-2 text-sm font-medium text-gray-700">Region</label>
+                        <input type="text" asp-for="Barangay.Region" placeholder="eg. III" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" required />
+                        <span asp-validation-for="Barangay.Region" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                </div>
+                <!-- Right Column -->
+                <div>
+                    <div class="mb-2">
+                        <h6 class="text-md font-bold text-gray-800">Contact Information</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="Barangay.ContactNo" class="block mb-2 text-sm font-medium text-gray-700">Phone No.</label>
+                        <input type="tel" asp-for="Barangay.ContactNo" placeholder="eg. Ninoy Aquino" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" required />
+                        <span asp-validation-for="Barangay.ContactNo" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-2">
+                        <h6 class="text-md font-bold text-gray-800">Others</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="Barangay.BarangayHealthStation" class="block mb-2 text-sm font-medium text-gray-700">Barangay Health Station</label>
+                        <input type="text" asp-for="Barangay.BarangayHealthStation" placeholder="eg. Ninoy Aquino" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" required />
+                        <span asp-validation-for="Barangay.BarangayHealthStation" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="Barangay.RuralHealthUnit" class="block mb-2 text-sm font-medium text-gray-700">Rural Health Unit</label>
+                        <input type="text" asp-for="Barangay.RuralHealthUnit" placeholder="eg. Ninoy Aquino" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" required />
+                        <span asp-validation-for="Barangay.RuralHealthUnit" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="Barangay.Description" class="block mb-2 text-sm font-medium text-gray-700">Description</label>
+                        <input type="text" asp-for="Barangay.Description" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" required />
+                        <span asp-validation-for="Barangay.Description" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="LogoFile" class="control-label"></label>
-                <input asp-for="LogoFile" type="file" class="form-control" accept="image/*" />
-                <span asp-validation-for="LogoFile" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Barangay.Street" class="control-label"></label>
-                <input asp-for="Barangay.Street" class="form-control" />
-                <span asp-validation-for="Barangay.Street" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Barangay.Municipality" class="control-label"></label>
-                <input asp-for="Barangay.Municipality" class="form-control" />
-                <span asp-validation-for="Barangay.Municipality" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Barangay.Province" class="control-label"></label>
-                <input asp-for="Barangay.Province" class="form-control" />
-                <span asp-validation-for="Barangay.Province" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Barangay.Region" class="control-label"></label>
-                <input asp-for="Barangay.Region" class="form-control" />
-                <span asp-validation-for="Barangay.Region" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Barangay.ContactNo" class="control-label"></label>
-                <input asp-for="Barangay.ContactNo" class="form-control" />
-                <span asp-validation-for="Barangay.ContactNo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Barangay.BarangayHealthStation" class="control-label"></label>
-                <input asp-for="Barangay.BarangayHealthStation" class="form-control" />
-                <span asp-validation-for="Barangay.BarangayHealthStation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Barangay.RuralHealthUnit" class="control-label"></label>
-                <input asp-for="Barangay.RuralHealthUnit" class="form-control" />
-                <span asp-validation-for="Barangay.RuralHealthUnit" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Barangay.Description" class="control-label"></label>
-                <input asp-for="Barangay.Description" class="form-control" />
-                <span asp-validation-for="Barangay.Description" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Barangay.Id" />
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="flex justify-end">
+                <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-500 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back</a>
+                <button type="submit" class="focus:outline-none text-white bg-primary-50 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Save</button>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</section>
 

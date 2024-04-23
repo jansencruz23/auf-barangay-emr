@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vMcfge4RlMzyvFFp4Cyt60BfQcSmUHR3EYuqQ375ZgU2WeFPC4Tzeyae/Jnajw+GBvQktJSWwFgQxYxp2JwrRw==",
+  "dgSpecHash": "E+qwrkwjgNTG9YdDL0ajKGtEpRvtfEYqMpcM7i02mT94eR+hUDUKzE3ZpkxhryhJjW14/YKKsBXd0CRA8waJ5w==",
   "success": true,
   "projectFilePath": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\AUF.EMR.MVC.csproj",
   "expectedPackageFiles": [
@@ -66,6 +66,7 @@
     "C:\\Users\\jamai\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.17\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.17.nupkg.sha512",
     "C:\\Users\\jamai\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.17\\microsoft.aspnetcore.identity.ui.7.0.17.nupkg.sha512",
     "C:\\Users\\jamai\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.11\\microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",
+    "C:\\Users\\jamai\\.nuget\\packages\\microsoft.aspnetcore.spaservices.extensions\\6.0.1\\microsoft.aspnetcore.spaservices.extensions.6.0.1.nupkg.sha512",
     "C:\\Users\\jamai\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\jamai\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",
     "C:\\Users\\jamai\\.nuget\\packages\\microsoft.build.framework\\17.3.2\\microsoft.build.framework.17.3.2.nupkg.sha512",
@@ -248,7 +249,8 @@
     "C:\\Users\\jamai\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\jamai\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\jamai\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\jamai\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\jamai\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\jamai\\.nuget\\packages\\tailwind.extensions.aspnetcore\\1.0.0\\tailwind.extensions.aspnetcore.1.0.0.nupkg.sha512"
   ],
   "logs": []
 }
