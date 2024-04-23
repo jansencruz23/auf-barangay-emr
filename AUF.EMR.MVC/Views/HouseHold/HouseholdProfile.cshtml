@@ -7,7 +7,7 @@
 
 <h1>F1 - Household Profile</h1>
 <p>
-    <a asp-action="Household" asp-controller="Dashboard" asp-route-householdNo="@Model.HouseholdNo">See Household Summary</a>
+    <a asp-action="Household" asp-controller="Dashboard" asp-route-householdNo="@Model.HouseholdNo">See Household Dashboard</a>
 </p>
 @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 
@@ -78,7 +78,9 @@
                 <td>
                     <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">View</a>
                     <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <form asp-action="Delete" asp-route-id="@item.Id">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
                 </td>
             </tr>
         }

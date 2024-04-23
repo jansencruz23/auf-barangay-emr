@@ -15,12 +15,15 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IPregnancyTrackingService _pregnancyService;
         private readonly IHouseholdMemberService _householdMemberService;
+        private readonly IBarangayService _brgyService;
 
         public PregnancyTrackingController(IPregnancyTrackingService pregnancyService,
-            IHouseholdMemberService householdMemberService)
+            IHouseholdMemberService householdMemberService,
+            IBarangayService brgyService)
         {
             _pregnancyService = pregnancyService;
             _householdMemberService = householdMemberService;
+            _brgyService = brgyService;
         }
 
         // GET: PregnancyTrackingController
@@ -30,7 +33,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new PregnancyTrackingListVM
             {
                 HouseholdNo = householdNo,
-                PregnancyTrackingList = pregnancyList
+                PregnancyTrackingList = pregnancyList,
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);
@@ -49,7 +53,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new CreatePregnancyTrackingVM
             {
                 HouseholdNo = householdNo,
-                WomenInHousehold = womenInHousehold
+                WomenInHousehold = womenInHousehold,
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);
@@ -82,7 +87,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new EditPregnancyTrackingVM
             {
                 WomenInHousehold = womenInHousehold,
-                PregnancyTracking = pregnant
+                PregnancyTracking = pregnant,
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);
@@ -106,25 +112,28 @@ namespace AUF.EMR.MVC.Controllers
             return View(pregnancyTrackingVM);
         }
 
-        // GET: PregnancyTrackingController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: PregnancyTrackingController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, string householdNo)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var preg = await _pregnancyService.Get(id);
+                if (preg == null)
+                {
+                    return NotFound();
+                }
+
+                await _pregnancyService.Delete(preg);
+                return RedirectToAction(nameof(Index), new { householdNo = householdNo });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
             }
+
+            return BadRequest();
         }
     }
 }

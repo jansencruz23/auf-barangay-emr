@@ -302,6 +302,9 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<byte[]>("Picture")
+                        .HasColumnType("longblob");
+
                     b.Property<string>("Position")
                         .IsRequired()
                         .HasColumnType("longtext");

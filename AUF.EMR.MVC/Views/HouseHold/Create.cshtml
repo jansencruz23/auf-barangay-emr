@@ -1,7 +1,8 @@
-﻿@model Household
+﻿@model CreateHouseholdVM
 
 @{
     ViewData["Title"] = "Create";
+    ViewData["Barangay"] = Model.Barangay.BarangayName;
 }
 
 <h1>Create</h1>
@@ -13,99 +14,99 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="HouseholdNo" class="control-label"></label>
-                <input asp-for="HouseholdNo" class="form-control" />
-                <span asp-validation-for="HouseholdNo" class="text-danger"></span>
+                <label asp-for="Household.HouseholdNo" class="control-label"></label>
+                <input asp-for="Household.HouseholdNo" class="form-control" />
+                <span asp-validation-for="Household.HouseholdNo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FirstQtrVisit" class="control-label"></label>
-                <input asp-for="FirstQtrVisit" class="form-control" />
-                <span asp-validation-for="FirstQtrVisit" class="text-danger"></span>
+                <label asp-for="Household.FirstQtrVisit" class="control-label"></label>
+                <input asp-for="Household.FirstQtrVisit" class="form-control" />
+                <span asp-validation-for="Household.FirstQtrVisit" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SecondQtrVisit" class="control-label"></label>
-                <input asp-for="SecondQtrVisit" class="form-control" />
-                <span asp-validation-for="SecondQtrVisit" class="text-danger"></span>
+                <label asp-for="Household.SecondQtrVisit" class="control-label"></label>
+                <input asp-for="Household.SecondQtrVisit" class="form-control" />
+                <span asp-validation-for="Household.SecondQtrVisit" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ThirdQtrVisit" class="control-label"></label>
-                <input asp-for="ThirdQtrVisit" class="form-control" />
-                <span asp-validation-for="ThirdQtrVisit" class="text-danger"></span>
+                <label asp-for="Household.ThirdQtrVisit" class="control-label"></label>
+                <input asp-for="Household.ThirdQtrVisit" class="form-control" />
+                <span asp-validation-for="Household.ThirdQtrVisit" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FourthQtrVisit" class="control-label"></label>
-                <input asp-for="FourthQtrVisit" class="form-control" />
-                <span asp-validation-for="FourthQtrVisit" class="text-danger"></span>
+                <label asp-for="Household.FourthQtrVisit" class="control-label"></label>
+                <input asp-for="Household.FourthQtrVisit" class="form-control" />
+                <span asp-validation-for="Household.FourthQtrVisit" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
+                <label asp-for="Household.LastName" class="control-label"></label>
+                <input asp-for="Household.LastName" class="form-control" />
+                <span asp-validation-for="Household.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
+                <label asp-for="Household.FirstName" class="control-label"></label>
+                <input asp-for="Household.FirstName" class="form-control" />
+                <span asp-validation-for="Household.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MotherMaidenName" class="control-label"></label>
-                <input asp-for="MotherMaidenName" class="form-control" />
-                <span asp-validation-for="MotherMaidenName" class="text-danger"></span>
+                <label asp-for="Household.MotherMaidenName" class="control-label"></label>
+                <input asp-for="Household.MotherMaidenName" class="form-control" />
+                <span asp-validation-for="Household.MotherMaidenName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseNoAndStreet" class="control-label"></label>
-                <input asp-for="HouseNoAndStreet" class="form-control" />
-                <span asp-validation-for="HouseNoAndStreet" class="text-danger"></span>
+                <label asp-for="Household.HouseNoAndStreet" class="control-label"></label>
+                <input asp-for="Household.HouseNoAndStreet" class="form-control" />
+                <span asp-validation-for="Household.HouseNoAndStreet" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Barangay" class="control-label"></label>
-                <input asp-for="Barangay" class="form-control" />
-                <span asp-validation-for="Barangay" class="text-danger"></span>
+                <label asp-for="Household.Barangay" class="control-label"></label>
+                <input asp-for="Household.Barangay" class="form-control" />
+                <span asp-validation-for="Household.Barangay" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
+                <label asp-for="Household.City" class="control-label"></label>
+                <input asp-for="Household.City" class="form-control" />
+                <span asp-validation-for="Household.City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Province" class="control-label"></label>
-                <input asp-for="Province" class="form-control" />
-                <span asp-validation-for="Province" class="text-danger"></span>
+                <label asp-for="Household.Province" class="control-label"></label>
+                <input asp-for="Household.Province" class="form-control" />
+                <span asp-validation-for="Household.Province" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ContactNo" class="control-label"></label>
-                <input asp-for="ContactNo" class="form-control" />
-                <span asp-validation-for="ContactNo" class="text-danger"></span>
+                <label asp-for="Household.ContactNo" class="control-label"></label>
+                <input asp-for="Household.ContactNo" class="form-control" />
+                <span asp-validation-for="Household.ContactNo" class="text-danger"></span>
             </div>
             <div class="form-group ">
                 <label class="control-label"></label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" asp-for="IsNHTS" value="true" />
+                    <input class="form-check-input" type="radio" asp-for="Household.IsNHTS" value="true" />
                     <label class="form-check-label">NHTS</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" asp-for="IsNHTS" value="false" />
+                    <input class="form-check-input" type="radio" asp-for="Household.IsNHTS" value="false" />
                     <label class="form-check-label">Non NHTS</label>
                 </div>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsHeadPhilhealthMember" /> @Html.DisplayNameFor(model => model.IsHeadPhilhealthMember)
+                    <input class="form-check-input" asp-for="Household.IsHeadPhilhealthMember" /> @Html.DisplayNameFor(model => model.Household.IsHeadPhilhealthMember)
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="PhilhealthNo" class="control-label"></label>
-                <input asp-for="PhilhealthNo" class="form-control" />
-                <span asp-validation-for="PhilhealthNo" class="text-danger"></span>
+                <label asp-for="Household.PhilhealthNo" class="control-label"></label>
+                <input asp-for="Household.PhilhealthNo" class="form-control" />
+                <span asp-validation-for="Household.PhilhealthNo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Category" class="control-label"></label>
-                <input asp-for="Category" class="form-control" />
-                <span asp-validation-for="Category" class="text-danger"></span>
+                <label asp-for="Household.Category" class="control-label"></label>
+                <input asp-for="Household.Category" class="form-control" />
+                <span asp-validation-for="Household.Category" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsIP" /> @Html.DisplayNameFor(model => model.IsIP)
+                    <input class="form-check-input" asp-for="Household.IsIP" /> @Html.DisplayNameFor(model => model.Household.IsIP)
                 </label>
             </div>
             <div class="form-group">

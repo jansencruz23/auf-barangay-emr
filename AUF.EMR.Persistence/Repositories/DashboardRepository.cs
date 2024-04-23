@@ -19,7 +19,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<int> GetHouseholdCount()
         {
-            var count = await _dbContext.HouseHolds
+            var count = await _dbContext.Households
                 .AsNoTracking()
                 .Where(h => h.Status)
                 .CountAsync();
@@ -29,7 +29,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<int> GetHouseholdMemberCount()
         {
-            var count = await _dbContext.HouseHoldMembers
+            var count = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Where(h => h.Status)
                 .CountAsync();
@@ -39,7 +39,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<int> GetHouseholdMemberCount(string householdNo)
         {
-            var count = await _dbContext.HouseHoldMembers
+            var count = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Where(m => m.Status &&
                     m.HouseholdNo.Equals(householdNo))
@@ -50,7 +50,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<int> GetMemberByAgeCount(DateTime startDate, DateTime endDate)
         {
-            var count = await _dbContext.HouseHoldMembers
+            var count = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Where(m => m.Status &&
                     m.Birthday >= startDate &&
@@ -62,7 +62,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<int> GetMemberByAgeCount(string householdNo, DateTime startDate, DateTime endDate)
         {
-            var count = await _dbContext.HouseHoldMembers
+            var count = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Where(m => m.Status &&
                     m.HouseholdNo.Equals(householdNo) &&

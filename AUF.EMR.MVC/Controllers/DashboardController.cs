@@ -1,17 +1,22 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.MVC.Models.IndexVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize(Policy = "User")]
     public class DashboardController : Controller
     {
         private readonly IDashboardService _summaryService;
+        private readonly IBarangayService _brgyService;
 
-        public DashboardController(IDashboardService summaryService)
+        public DashboardController(IDashboardService summaryService,
+            IBarangayService brgyService)
         {
             _summaryService = summaryService;
+            _brgyService = brgyService;
         }
 
         // GET: DashboardController/Barangay
@@ -28,6 +33,7 @@ namespace AUF.EMR.MVC.Controllers
                 AdolescentsCount = await _summaryService.GetAdolescentCount(),
                 AdultCount = await _summaryService.GetAdultsCount(),
                 SeniorCount = await _summaryService.GetSeniorCount(),
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);
@@ -46,6 +52,7 @@ namespace AUF.EMR.MVC.Controllers
                 AdolescentsCount = await _summaryService.GetAdolescentCount(householdNo),
                 AdultCount = await _summaryService.GetAdultsCount(householdNo),
                 SeniorCount = await _summaryService.GetSeniorCount(householdNo),
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);

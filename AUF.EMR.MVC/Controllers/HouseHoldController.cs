@@ -13,6 +13,7 @@ using Microsoft.Identity.Client;
 using AUF.EMR.MVC.Models.CreateVM;
 using Microsoft.AspNetCore.Authorization;
 using AUF.EMR.MVC.Models.IndexVM;
+using Microsoft.AspNetCore.Identity;
 
 
 namespace AUF.EMR.MVC.Controllers
@@ -76,34 +77,55 @@ namespace AUF.EMR.MVC.Controllers
             var model = new CreateHouseholdProfileVM
             {
                 Household = houseHold,
-                HouseholdMembers = houseHoldMembers
+                HouseholdMembers = houseHoldMembers,
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);
         }
 
         // GET: HouseHolds/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            var model = new CreateHouseholdVM
+            {
+                Barangay = await _brgyService.GetBarangay()
+            };
+
+            return View(model);
         }
 
         // POST: HouseHolds/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Household houseHold)
+        public async Task<IActionResult> Create(CreateHouseholdVM model)
         {
+            if (!ModelState.IsValid)
+            {
+                model.Barangay = await _brgyService.GetBarangay();
+                return View(model);
+            }
+
             try
             {
-                await _houseHoldService.Add(houseHold);
-                return RedirectToAction(nameof(HouseholdProfile), new { householdNo = houseHold.HouseholdNo });
+                var isExisting = await _houseHoldService.IsHouseholdNoExisting(model.Household.HouseholdNo);
+                if (isExisting)
+                {
+                    ModelState.AddModelError("", "Household No. is already existing.");
+                    model.Barangay = await _brgyService.GetBarangay();
+                    return View(model);
+                }
+
+                var household = model.Household;
+                await _houseHoldService.Add(household);
+                return RedirectToAction(nameof(HouseholdProfile), new { householdNo = household.HouseholdNo });
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(houseHold);
+            return View(model);
         }
 
         // GET: HouseHolds/Edit/5
@@ -114,7 +136,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new CreateHouseholdProfileVM
             {
                 Household = houseHold,
-                HouseholdMembers = houseHoldMembers
+                HouseholdMembers = houseHoldMembers,
+                Barangay = await _brgyService.GetBarangay()
             };
            
             return View(model);
@@ -139,13 +162,19 @@ namespace AUF.EMR.MVC.Controllers
             return View(householdVM);
         }
 
-        // GET: HouseHolds/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int? id)
         {
             try
             {
-                var houseHold = await _houseHoldService.Get(id.Value);
-                await _houseHoldService.Update(houseHold);
+                var household = await _houseHoldService.Get(id.Value);
+                if (household == null)
+                {
+                    return NotFound();
+                }
+
+                await _houseHoldService.DeleteHousehold(id.Value);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)

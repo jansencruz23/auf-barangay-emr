@@ -21,9 +21,39 @@ namespace AUF.EMR.Persistence.Repositories
             _dbContext = dbContext;
         }
 
+        public async Task DeleteHouseholdMember(int id)
+        {
+            var member = await _dbContext.HouseholdMembers
+                .FindAsync(id);
+
+            var wraForms = await _dbContext.WomanOfReproductiveAges
+                .Where(w => w.HouseholdMemberId == id)
+                .ToListAsync();
+
+            var pregForms = await _dbContext.PregnancyTrackings
+                .Where(p => p.HouseholdMemberId == id)
+                .ToListAsync();
+
+            if (member != null)
+            {
+                foreach (var wra in wraForms)
+                {
+                    wra.Status = false;
+                }
+
+                foreach (var preg in pregForms)
+                {
+                    preg.Status = false;
+                }
+
+                member.Status = false;
+                await _dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task<List<HouseholdMember>> GetHouseholdMembersWithDetails(string houseHoldNo)
         {
-            var houseHoldMembers = await _dbContext.HouseHoldMembers
+            var houseHoldMembers = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Household.Status && m.HouseholdNo.Equals(houseHoldNo) && m.Status)
@@ -34,7 +64,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<List<HouseholdMember>> GetHouseholdMembersWithDetails(Guid id, DateTime startDate, DateTime endDate)
         {
-            var householdMembers = await _dbContext.HouseHoldMembers
+            var householdMembers = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.ModifiedById == id &&
@@ -49,7 +79,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<HouseholdMember> GetHouseholdMemberWithDetails(int id)
         {
-            var houseHoldMember = await _dbContext.HouseHoldMembers
+            var houseHoldMember = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Household.Status && m.Status)
@@ -63,7 +93,7 @@ namespace AUF.EMR.Persistence.Repositories
             var startDate = DateTime.Today.AddYears(WRAAgeRange.WRAStart).AddDays(1);
             var endDate = DateTime.Today.AddYears(WRAAgeRange.WRAEnd);
 
-            var WraMembers = await _dbContext.HouseHoldMembers
+            var WraMembers = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Status && m.Household.Status &&
@@ -75,5 +105,7 @@ namespace AUF.EMR.Persistence.Repositories
 
             return WraMembers;
         }
+
+
     }
 }

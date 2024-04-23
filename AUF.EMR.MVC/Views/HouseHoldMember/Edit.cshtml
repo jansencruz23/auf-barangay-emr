@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Edit";
+    ViewData["Barangay"] = Model.Barangay.BarangayName;
 }
 
 <h1>Edit</h1>
@@ -115,7 +116,7 @@
 </div>
 
 <div>
-    <a asp-action="Edit" asp-controller="Household" asp-route-id="@Model.HouseholdMember.HouseholdId">Back to List</a>
+    <a href="@Model.ReturnUrl">Back to List</a>
 </div>
 
 @section Scripts {

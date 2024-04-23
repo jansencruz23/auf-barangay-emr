@@ -1,4 +1,5 @@
 ﻿using AUF.EMR.Application.Contracts.Persistence.Common;
+using AUF.EMR.Domain.Models.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

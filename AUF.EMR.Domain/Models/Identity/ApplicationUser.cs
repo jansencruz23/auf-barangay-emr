@@ -13,6 +13,7 @@ namespace AUF.EMR.Domain.Models.Identity
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string? MiddleName { get; set; }
+        public byte[]? Picture { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime Birthday { get; set; }

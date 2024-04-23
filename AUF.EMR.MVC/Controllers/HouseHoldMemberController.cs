@@ -2,7 +2,9 @@
 using AUF.EMR.Application.Services;
 using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.CreateVM;
+using AUF.EMR.MVC.Models.DetailVM;
 using AUF.EMR.MVC.Models.EditVM;
+using AUF.EMR.MVC.Models.IndexVM;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -28,15 +30,35 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHoldMemberController
-        public ActionResult Index()
+        public async Task<ActionResult> Index(int id)
         {
-            return View();
+            var household = await _houseHoldService.GetHouseholdWithDetails(id);
+            if (household == null)
+            {
+                return NotFound();
+            }
+
+            var model = new HouseholdMemberListVM
+            {
+                Barangay = await _brgyService.GetBarangay(),
+                HouseholdMembers = household.HouseholdMembers,
+                Household = household,
+            };
+
+            return View(model);
         }
 
         // GET: HouseHoldMemberController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id, string requestUrl)
         {
-            return View();
+            var model = new DetailHouseholdMemberVM
+            {
+                HouseholdMember = await _houseHoldMemberService.GetHouseholdMemberWithDetails(id),
+                Barangay = await _brgyService.GetBarangay(),
+                ReturnUrl = requestUrl
+            };
+
+            return View(model);
         }
 
         // GET: HouseHoldMemberController/Create
@@ -84,7 +106,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new EditHouseholdMemberVM
             {
                 HouseholdMember = member,
-                ReturnUrl = requestUrl
+                ReturnUrl = requestUrl,
+                Barangay = await _brgyService.GetBarangay()
             };
 
             return View(model);
@@ -118,25 +141,28 @@ namespace AUF.EMR.MVC.Controllers
             return View(householdMemberVM);
         }
 
-        // GET: HouseHoldMemberController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: HouseHoldMemberController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, string householdId)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var member = await _houseHoldMemberService.Get(id);
+                if (member == null)
+                {
+                    return NotFound();
+                }
+
+                await _houseHoldMemberService.DeleteHouseholdMember(id);
+                return RedirectToAction(nameof(Edit), nameof(Household), new { id = householdId });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
             }
+
+            return BadRequest();
         }
     }
 }

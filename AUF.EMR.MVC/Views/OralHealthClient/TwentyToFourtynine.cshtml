@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Masterlist of Oral Health Care Clients - Pregnant 20 to 49 years old";
+    ViewData["Barangay"] = Model.Barangay.BarangayName;
 }
 
 <h1>Masterlist of Oral Health Care Clients - Pregnant 20 to 49 years old</h1>
@@ -64,7 +65,7 @@
                 </td>
                 <td>
                     <a asp-action="Edit" asp-controller="HouseholdMember" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Details" asp-controller="HouseholdMember" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>

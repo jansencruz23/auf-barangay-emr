@@ -27,6 +27,11 @@
                 <label asp-for="Input.LastName">Last Name</label>
                 <span asp-validation-for="Input.LastName" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Input.Picture" class="control-label"></label>
+                <input asp-for="Input.Picture" type="file" class="form-control" accept="image/*" />
+                <span asp-validation-for="Input.Picture" class="text-danger"></span>
+            </div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Birthday" class="form-control" autocomplete="birthday" aria-required="true" placeholder="Date of Birth" />
                 <label asp-for="Input.Birthday">Date of Birth</label>
@@ -46,11 +51,6 @@
                 <input asp-for="Input.Position" class="form-control" autocomplete="position" aria-required="true" placeholder="Position" />
                 <label asp-for="Input.Position">Position</label>
                 <span asp-validation-for="Input.Position" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Input.Email">Email</label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Username" class="form-control" autocomplete="username" aria-required="true" placeholder="Username" />

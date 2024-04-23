@@ -20,7 +20,7 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<int> GetCheckedPatientsToday(Guid id, DateTime startDate, DateTime endDate)
         {
-            var count = await _dbContext.HouseHoldMembers
+            var count = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Status &&

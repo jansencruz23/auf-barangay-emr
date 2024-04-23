@@ -1,6 +1,10 @@
 ﻿@using AUF.EMR.MVC.Models.PrintVM;
 @model PrintAdultsMasterlistVM
 
+@{
+    ViewData["Barangay"] = Model.Barangay.BarangayName;
+}
+
 <h6>Masterlist of Senior Citizen</h6>
 @foreach (var member in Model.Adults)
 {

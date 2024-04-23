@@ -1,6 +1,8 @@
-﻿namespace AUF.EMR.MVC.Models.IndexVM
+﻿using AUF.EMR.MVC.Models.Common;
+
+namespace AUF.EMR.MVC.Models.IndexVM
 {
-    public class DashboardVM
+    public class DashboardVM : BaseVM
     {
         public int HouseholdCount { get; set; } 
         public int HouseholdMemberCount { get; set; } 
