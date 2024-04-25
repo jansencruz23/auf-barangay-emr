@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eOaTovbGV60U1oS+hO9hzlmCY4EZWAbiVL/WBRmT4NQ=",
+  "Hash": "U29UYD7dddbPfqT3rjQi7+dJdVEc6vcuugkBM31w6e8=",
   "Source": "AUF.EMR.MVC",
   "BasePath": "_content/AUF.EMR.MVC",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\AUF.EMR.MVC.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\css\\barangay-index.css",
+      "SourceId": "AUF.EMR.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\",
+      "BasePath": "_content/AUF.EMR.MVC",
+      "RelativePath": "css/barangay-index.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\barangay-index.css"
     },
     {
       "Identity": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\css\\input.css",
