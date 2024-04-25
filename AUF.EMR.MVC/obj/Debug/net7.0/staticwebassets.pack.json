@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\AUF.EMR.MVC.bundle.scp.css"
     },
     {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\css\\barangay-index.css",
+      "PackagePath": "staticwebassets\\css\\barangay-index.css"
+    },
+    {
       "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\css\\input.css",
       "PackagePath": "staticwebassets\\css\\input.css"
     },
