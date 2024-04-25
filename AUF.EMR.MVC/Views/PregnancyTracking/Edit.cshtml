@@ -14,7 +14,7 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <input type="hidden" asp-for="PregnancyTracking.HouseholdNo" value="@Model.PregnancyTracking.HouseholdNo" />
+                <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             </div>
             <div class="form-group">
                 <label asp-for="PregnancyTracking.HouseholdMemberId" class="control-label"></label>
@@ -102,7 +102,7 @@
 </div>
 
 <div>
-    <a asp-action="Index" asp-route-householdNo="@Model.PregnancyTracking.HouseholdNo">Back to List</a>
+    <a asp-action="Index" asp-route-householdNo="@Model.PregnancyTracking.HouseholdMember.Household.HouseholdNo">Back to List</a>
 </div>
 
 @section Scripts {

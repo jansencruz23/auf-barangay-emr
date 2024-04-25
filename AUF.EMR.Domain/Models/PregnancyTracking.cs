@@ -11,7 +11,6 @@ namespace AUF.EMR.Domain.Models
 {
     public class PregnancyTracking : BaseDomainEntity
     {
-        public string HouseholdNo { get; set; }
         public int HouseholdMemberId { get; set; }
         public HouseholdMember HouseholdMember { get; set; }
         public int Age { get; set; }

@@ -14,7 +14,7 @@ using AUF.EMR.MVC.Models.CreateVM;
 using Microsoft.AspNetCore.Authorization;
 using AUF.EMR.MVC.Models.IndexVM;
 using Microsoft.AspNetCore.Identity;
-
+using AUF.EMR.Domain.Models.Identity;
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -23,12 +23,18 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IHouseholdService _houseHoldService;
         private readonly IHouseholdMemberService _houseHoldMemberService;
+        private readonly IBarangayService _brgyService;
+        private readonly IPregnancyTrackingHHService _ptHHService;
 
         public HouseholdController(IHouseholdService houseHoldService,
-            IHouseholdMemberService houseHoldMemberService)
+            IHouseholdMemberService houseHoldMemberService,
+            IBarangayService brgyService,
+            IPregnancyTrackingHHService ptHHService)
         {
             _houseHoldService = houseHoldService;
             _houseHoldMemberService = houseHoldMemberService;
+            _brgyService = brgyService;
+            _ptHHService = ptHHService;
         }
 
         // GET: HouseHolds
@@ -82,10 +88,9 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHolds/Create
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             var model = new CreateHouseholdVM();
-
             return View(model);
         }
 
@@ -111,6 +116,9 @@ namespace AUF.EMR.MVC.Controllers
 
                 var household = model.Household;
                 await _houseHoldService.Add(household);
+
+                var pregTrackHH = await CreatePregnancyTrackingHH(model.Household);
+                await _ptHHService.Add(pregTrackHH);
                 return RedirectToAction(nameof(HouseholdProfile), new { householdNo = household.HouseholdNo });
             }
             catch (Exception ex)
@@ -120,6 +128,28 @@ namespace AUF.EMR.MVC.Controllers
             }
 
             return View(model);
+        }
+
+        private async Task<PregnancyTrackingHH> CreatePregnancyTrackingHH(Household household)
+        {
+            var barangay = await _brgyService.GetBarangay();
+            return new PregnancyTrackingHH
+            {
+                Barangay = barangay.BarangayName,
+                Region = barangay.Region,
+                Municipality = barangay.Municipality,
+                Province = barangay.Province,
+                Year = DateTime.Now.Year,
+                BHWName = string.Empty,
+                BirthingCenter = string.Empty,
+                BirthingCenterAddress = string.Empty,
+                MidwifeName = string.Empty,
+                ReferralCenter = string.Empty,
+                ReferralCenterAddress = string.Empty,
+                BarangayHealthStation = barangay.BarangayHealthStation,
+                RuralHealthUnit = barangay.RuralHealthUnit,
+                HouseholdId = household.Id,
+            };
         }
 
         // GET: HouseHolds/Edit/5
@@ -139,11 +169,19 @@ namespace AUF.EMR.MVC.Controllers
         // POST: HouseHolds/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, CreateHouseholdProfileVM householdVM)
+        public async Task<IActionResult> Edit(int id, CreateHouseholdProfileVM model)
         {
             try
             {
-                var household = householdVM.Household;
+                var isExisting = await _houseHoldService.IsHouseholdNoExisting(model.Household.HouseholdNo);
+                if (isExisting)
+                {
+                    ModelState.AddModelError("", "Household No. is already existing.");
+                    model.ErrorMessage = "Household No. is already existing.";
+                    return View(model);
+                }
+
+                var household = model.Household;
                 await _houseHoldService.Update(household);
                 return RedirectToAction(nameof(HouseholdProfile), new { householdNo = household.HouseholdNo });
             }
@@ -152,7 +190,7 @@ namespace AUF.EMR.MVC.Controllers
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(householdVM);
+            return View(model);
         }
 
         [HttpPost]

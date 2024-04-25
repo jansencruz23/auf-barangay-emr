@@ -93,7 +93,8 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<DateTime?>("FirstQtrVisit")
                         .HasColumnType("datetime(6)");
@@ -123,13 +124,15 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<Guid?>("ModifiedById")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("MotherMaidenName")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("PhilhealthNo")
                         .HasColumnType("longtext");
@@ -180,10 +183,6 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.Property<int>("HouseholdId")
                         .HasColumnType("int");
-
-                    b.Property<string>("HouseholdNo")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.Property<bool?>("IsInSchool")
                         .HasColumnType("tinyint(1)");
@@ -360,10 +359,6 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<int>("HouseholdMemberId")
                         .HasColumnType("int");
 
-                    b.Property<string>("HouseholdNo")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<DateTime>("LastModified")
                         .HasColumnType("datetime(6)");
 
@@ -405,6 +400,74 @@ namespace AUF.EMR.Persistence.Migrations
                     b.HasIndex("HouseholdMemberId");
 
                     b.ToTable("PregnancyTrackings");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.PregnancyTrackingHH", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("BHWName")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Barangay")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("BarangayHealthStation")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("BirthingCenter")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("BirthingCenterAddress")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("HouseholdId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("MidwifeName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Municipality")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Province")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ReferralCenter")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ReferralCenterAddress")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Region")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("RuralHealthUnit")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HouseholdId");
+
+                    b.ToTable("PregnancyTrackingHHs");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.RecordLog", b =>
@@ -452,10 +515,6 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.Property<int>("HouseholdMemberId")
                         .HasColumnType("int");
-
-                    b.Property<string>("HouseholdNo")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.Property<bool>("IsFPMethod")
                         .HasColumnType("tinyint(1)");
@@ -651,6 +710,17 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("HouseholdMember");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.PregnancyTrackingHH", b =>
+                {
+                    b.HasOne("AUF.EMR.Domain.Models.Household", "Household")
+                        .WithMany()
+                        .HasForeignKey("HouseholdId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Household");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.WomanOfReproductiveAge", b =>

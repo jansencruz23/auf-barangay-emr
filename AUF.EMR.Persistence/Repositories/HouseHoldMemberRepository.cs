@@ -56,7 +56,7 @@ namespace AUF.EMR.Persistence.Repositories
             var houseHoldMembers = await _dbContext.HouseholdMembers
                 .AsNoTracking()
                 .Include(m => m.Household)
-                .Where(m => m.Household.Status && m.HouseholdNo.Equals(houseHoldNo) && m.Status)
+                .Where(m => m.Household.Status && m.Household.HouseholdNo.Equals(houseHoldNo) && m.Status)
                 .OrderBy(m => m.RelationshipToHouseholdHead == 1 ? 0 : m.RelationshipToHouseholdHead)
                     .ThenBy(m => m.RelationshipToHouseholdHead == 2 ? 1 : m.RelationshipToHouseholdHead)
                     .ThenBy(m => m.RelationshipToHouseholdHead == 3 || m.RelationshipToHouseholdHead == 4 ? m.Birthday : DateTime.MaxValue)
@@ -100,7 +100,7 @@ namespace AUF.EMR.Persistence.Repositories
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Status && m.Household.Status &&
-                            m.HouseholdNo.Equals(householdNo) &&
+                            m.Household.HouseholdNo.Equals(householdNo) &&
                             m.Sex.Equals('F') &&
                             m.Birthday >= startDate &&
                             m.Birthday <= endDate)

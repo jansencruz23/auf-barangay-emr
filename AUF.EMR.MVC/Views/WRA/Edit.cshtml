@@ -17,7 +17,7 @@
                 <select asp-for="WRA.HouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.WomenInHousehold, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
             </div>
             <div class="form-group">
-                <input type="hidden" asp-for="WRA.HouseholdNo" value="@Model.WRA.HouseholdNo" />
+                <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             </div>
             <div class="form-group">
                 <label asp-for="WRA.CivilStatus" class="control-label"></label>
@@ -94,7 +94,7 @@
 </div>
 
 <div>
-    <a asp-action="Index" asp-route-householdNo="@Model.WRA.HouseholdNo">Back to List</a>
+    <a asp-action="Index" asp-route-householdNo="@Model.HouseholdNo">Back to List</a>
 </div>
 
 @section Scripts {

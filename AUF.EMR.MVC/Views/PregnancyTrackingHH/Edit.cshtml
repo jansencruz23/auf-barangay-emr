@@ -1,0 +1,91 @@
+﻿@model EditPregnancyTrackingHHVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PregnancyTrackingHH</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.Year" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.Year" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.Region" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.Region" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.Region" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.Province" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.Province" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.Province" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.Municipality" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.Municipality" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.Municipality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.Barangay" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.Barangay" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.Barangay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.BirthingCenter" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.BirthingCenter" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.BirthingCenter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.BirthingCenterAddress" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.BirthingCenterAddress" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.BirthingCenterAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.ReferralCenter" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.ReferralCenter" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.ReferralCenter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.ReferralCenterAddress" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.ReferralCenterAddress" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.ReferralCenterAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.BHWName" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.BHWName" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.BHWName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.MidwifeName" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.MidwifeName" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.MidwifeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.BarangayHealthStation" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.BarangayHealthStation" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.BarangayHealthStation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyTrackingHH.RuralHealthUnit" class="control-label"></label>
+                <input asp-for="PregnancyTrackingHH.RuralHealthUnit" class="form-control" />
+                <span asp-validation-for="PregnancyTrackingHH.RuralHealthUnit" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="PregnancyTrackingHH.Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "Admin")]
     public class BarangayController : Controller
     {
         private readonly IBarangayService _barangayService;
@@ -44,24 +44,24 @@ namespace AUF.EMR.MVC.Controllers
         [HttpPost]
         [Authorize(Policy = "Admin")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(EditBarangayVM barangayVM)
+        public async Task<ActionResult> Edit(EditBarangayVM model)
         {
             if (!ModelState.IsValid)
             {
-                barangayVM.Barangay = await _barangayService.GetBarangay();
-                return View(barangayVM);
+                model.Barangay = await _barangayService.GetBarangay();
+                return View(model);
             }
             try
             {
-                if (barangayVM.LogoFile != null && barangayVM.LogoFile.Length > 0)
+                if (model.LogoFile != null && model.LogoFile.Length > 0)
                 {
                     using var memoryStream = new MemoryStream();
-                    await barangayVM.LogoFile.CopyToAsync(memoryStream);
+                    await model.LogoFile.CopyToAsync(memoryStream);
                     byte[] logoBytes = memoryStream.ToArray();
 
-                    barangayVM.Barangay.Logo = logoBytes;
+                    model.Barangay.Logo = logoBytes;
                 }
-                var completed = await _barangayService.Update(barangayVM.Barangay);
+                var completed = await _barangayService.Update(model.Barangay);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
@@ -69,7 +69,7 @@ namespace AUF.EMR.MVC.Controllers
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(barangayVM);
+            return View(model);
         }
     }
 }

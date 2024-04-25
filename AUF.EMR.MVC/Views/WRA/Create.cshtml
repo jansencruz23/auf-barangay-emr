@@ -17,7 +17,7 @@
                 <select asp-for="WRA.HouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.WomenInHousehold, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
             </div>
             <div class="form-group">
-                <input type="hidden" asp-for="WRA.HouseholdNo" value="@Model.HouseholdNo" />
+                <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             </div>
             <div class="form-group">
                 <label asp-for="WRA.CivilStatus" class="control-label"></label>

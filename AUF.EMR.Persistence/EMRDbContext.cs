@@ -33,6 +33,7 @@ namespace AUF.EMR.Persistence
         public DbSet<PregnancyTracking> PregnancyTrackings { get; set; }
         public DbSet<RecordLog> RecordLogs { get; set; }
         public DbSet<Barangay> Barangays { get; set; }
+        public DbSet<PregnancyTrackingHH> PregnancyTrackingHHs { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

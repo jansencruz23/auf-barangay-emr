@@ -74,23 +74,23 @@ namespace AUF.EMR.MVC.Controllers
         // POST: HouseHoldMemberController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(CreateHouseholdMemberVM householdMemberVM)
+        public async Task<ActionResult> Create(CreateHouseholdMemberVM model)
         {
             try
             {
-                var householdMember = householdMemberVM.HouseholdMember;
-                var householdId = await _houseHoldService.GetHouseholdId(householdMember.HouseholdNo);
+                var householdMember = model.HouseholdMember;
+                var householdId = await _houseHoldService.GetHouseholdId(model.HouseholdNo);
                 householdMember.HouseholdId = householdId;
                 var completed = await _houseHoldMemberService.Add(householdMember);
 
-                return RedirectToAction(nameof(Edit), nameof(Household), new { id = householdId });
+                return RedirectToAction("HouseholdProfile", nameof(Household), new { householdNo = model.HouseholdNo });
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(householdMemberVM);
+            return View(model);
         }
 
         // GET: HouseHoldMemberController/Edit/5
@@ -101,6 +101,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 HouseholdMember = member,
                 ReturnUrl = requestUrl,
+                HouseholdNo = member.Household.HouseholdNo
             };
 
             return View(model);
@@ -109,19 +110,19 @@ namespace AUF.EMR.MVC.Controllers
         // POST: HouseHoldMemberController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, EditHouseholdMemberVM householdMemberVM)
+        public async Task<ActionResult> Edit(int id, EditHouseholdMemberVM model)
         {
             try
             {
-                var householdMember = householdMemberVM.HouseholdMember;
-                var householdId = await _houseHoldService.GetHouseholdId(householdMember.HouseholdNo);
+                var householdMember = model.HouseholdMember;
+                var householdId = await _houseHoldService.GetHouseholdId(householdMember.Household.HouseholdNo);
                 householdMember.HouseholdId = householdId;
                 var completed = await _houseHoldMemberService.Update(householdMember);
 
-                if (!string.IsNullOrEmpty(householdMemberVM.ReturnUrl) 
-                    && Url.IsLocalUrl(householdMemberVM.ReturnUrl))
+                if (!string.IsNullOrEmpty(model.ReturnUrl) 
+                    && Url.IsLocalUrl(model.ReturnUrl))
                 {
-                    return Redirect(householdMemberVM.ReturnUrl);
+                    return Redirect(model.ReturnUrl);
                 }
 
                 return RedirectToAction(nameof(Edit), nameof(Household), new { id = householdId });
@@ -131,7 +132,7 @@ namespace AUF.EMR.MVC.Controllers
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(householdMemberVM);
+            return View(model);
         }
 
         // POST: HouseHoldMemberController/Delete/5
