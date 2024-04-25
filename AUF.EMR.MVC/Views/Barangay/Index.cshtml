@@ -35,6 +35,10 @@
                     <dd class="text-gray-900">@Html.DisplayFor(model => model.BarangayName)</dd>
                 </div>
                 <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Phone No.</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.ContactNo)</dd>
+                </div>
+                <div class="flex items-center">
                     <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Logo</dt>
                     <dd class="text-gray-900">
                         @if (!string.IsNullOrEmpty(Model.LogoBase64String))
@@ -44,37 +48,37 @@
                     </dd>
                 </div>
                 <div class="flex items-center">
-                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Street</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Street)</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Municipality</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Municipality)</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Province</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Province)</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Region</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Region)</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Contact Number</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.ContactNo)</dd>
-                </div>
-                <div class="flex items-center">
                     <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Barangay Health Station</dt>
                     <dd class="text-gray-900">@Html.DisplayFor(model => model.BarangayHealthStation)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Street</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Street)</dd>
                 </div>
                 <div class="flex items-center">
                     <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Rural Health Unit</dt>
                     <dd class="text-gray-900">@Html.DisplayFor(model => model.RuralHealthUnit)</dd>
                 </div>
                 <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Municipality</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Municipality)</dd>
+                </div>
+                <div class="flex items-center">
                     <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Description</dt>
                     <dd class="text-gray-900">@Html.DisplayFor(model => model.Description)</dd>
                 </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Province</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Province)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24"></dt>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Region</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Region)</dd>
+                </div>
+
             </dl>
 
             <div class="flex justify-end mt-8">
