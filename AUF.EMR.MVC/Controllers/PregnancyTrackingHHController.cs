@@ -1,6 +1,8 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.MVC.Models.CreateVM;
+using AUF.EMR.MVC.Models.EditVM;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
@@ -14,45 +16,50 @@ namespace AUF.EMR.MVC.Controllers
             _ptHHService = ptHHService;
         }
 
-        // GET: PregnancyTrackingHHController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: PregnancyTrackingHHController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(CreatePregnancyTrackingHHVM model)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         // GET: PregnancyTrackingHHController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id, string householdNo)
         {
-            return View();
+            var pregTrackHH = await _ptHHService.GetPregnancyTrackingHHWithDetails(householdNo);
+            var model = new EditPregnancyTrackingHHVM
+            {
+                PregnancyTrackingHH = pregTrackHH,
+                HouseholdNo = householdNo
+            };
+
+            return View(model);
         }
 
         // POST: PregnancyTrackingHHController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, EditPregnancyTrackingHHVM model)
         {
+            if (!id.Equals(model.PregnancyTrackingHH.Id))
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                var pregTrackHH = await _ptHHService.GetPregnancyTrackingHHWithDetails(id);
+                if (pregTrackHH == null)
+                {
+                    return NotFound();
+                }
+
+                await _ptHHService.Update(pregTrackHH);
+
+                return RedirectToAction(nameof(Edit), new { id });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                model.ErrorMessage = ex.Message;
+                return View(model);
             }
         }
 

@@ -1,11 +1,11 @@
 ﻿using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.Common;
 
-namespace AUF.EMR.MVC.Models.CreateVM
+namespace AUF.EMR.MVC.Models.EditVM
 {
-    public class CreatePregnancyTrackingHHVM : BaseVM
+    public class EditPregnancyTrackingHHVM : BaseVM
     {
         public PregnancyTrackingHH PregnancyTrackingHH { get; set; }
-        public Household Household { get; set; }
+        public string HouseholdNo { get; set; }
     }
 }

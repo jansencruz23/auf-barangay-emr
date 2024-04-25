@@ -15,22 +15,27 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IPregnancyTrackingService _pregnancyService;
         private readonly IHouseholdMemberService _householdMemberService;
+        private readonly IPregnancyTrackingHHService _pregTrackHHService;
 
         public PregnancyTrackingController(IPregnancyTrackingService pregnancyService,
-            IHouseholdMemberService householdMemberService)
+            IHouseholdMemberService householdMemberService,
+            IPregnancyTrackingHHService pregTrackHHService)
         {
             _pregnancyService = pregnancyService;
             _householdMemberService = householdMemberService;
+            _pregTrackHHService = pregTrackHHService;
         }
 
         // GET: PregnancyTrackingController
         public async Task<ActionResult> Index(string householdNo)
         {
+            var pregTrackHH = await _pregTrackHHService.GetPregnancyTrackingHHWithDetails(householdNo);
             var pregnancyList = await _pregnancyService.GetPregnancyTrackingListWithDetails(householdNo);
             var model = new PregnancyTrackingListVM
             {
                 HouseholdNo = householdNo,
                 PregnancyTrackingList = pregnancyList,
+                PregnancyTrackingHH = pregTrackHH
             };
 
             return View(model);

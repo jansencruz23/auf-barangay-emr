@@ -88,10 +88,9 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHolds/Create
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             var model = new CreateHouseholdVM();
-
             return View(model);
         }
 
@@ -115,11 +114,11 @@ namespace AUF.EMR.MVC.Controllers
                     return View(model);
                 }
 
-                var pregTrackHH = await CreatePregnancyTrackingHH(model.Household);
-                await _ptHHService.Add(pregTrackHH);
-
                 var household = model.Household;
                 await _houseHoldService.Add(household);
+
+                var pregTrackHH = await CreatePregnancyTrackingHH(model.Household);
+                await _ptHHService.Add(pregTrackHH);
                 return RedirectToAction(nameof(HouseholdProfile), new { householdNo = household.HouseholdNo });
             }
             catch (Exception ex)

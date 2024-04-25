@@ -10,5 +10,7 @@ namespace AUF.EMR.Application.Contracts.Services
 {
     public interface IPregnancyTrackingHHService : IGenericService<PregnancyTrackingHH>
     {
+        public Task<PregnancyTrackingHH> GetPregnancyTrackingHHWithDetails(int id);
+        public Task<PregnancyTrackingHH> GetPregnancyTrackingHHWithDetails(string householdNo);
     }
 }

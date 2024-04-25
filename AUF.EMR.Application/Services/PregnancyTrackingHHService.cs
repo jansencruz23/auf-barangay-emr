@@ -20,5 +20,15 @@ namespace AUF.EMR.Application.Services
         {
             _repository = repository;
         }
+
+        public async Task<PregnancyTrackingHH> GetPregnancyTrackingHHWithDetails(int id)
+        {
+            return await _repository.GetPregnancyTrackingHHWithDetails(id);
+        }
+
+        public async Task<PregnancyTrackingHH> GetPregnancyTrackingHHWithDetails(string householdNo)
+        {
+            return await _repository.GetPregnancyTrackingHHWithDetails(householdNo);
+        }
     }
 }
