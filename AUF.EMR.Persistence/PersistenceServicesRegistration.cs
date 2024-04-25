@@ -35,6 +35,7 @@ namespace AUF.EMR.Persistence
             services.AddScoped<ISummaryRepository, SumarryRepository>();
             services.AddScoped<IRecordRepository, RecordRepository>();
             services.AddScoped<IDashboardRepository, DashboardRepository>();
+            services.AddScoped<IPregnancyTrackingHHRepository, PregnancyTrackingHHRepository>();
 
             services.AddScoped<AdminSeeder>();
             services.AddScoped<BarangaySeeder>();

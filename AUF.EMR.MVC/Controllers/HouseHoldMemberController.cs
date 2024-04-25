@@ -79,7 +79,7 @@ namespace AUF.EMR.MVC.Controllers
             try
             {
                 var householdMember = householdMemberVM.HouseholdMember;
-                var householdId = await _houseHoldService.GetHouseholdId(householdMember.HouseholdNo);
+                var householdId = await _houseHoldService.GetHouseholdId(householdMember.Household.HouseholdNo);
                 householdMember.HouseholdId = householdId;
                 var completed = await _houseHoldMemberService.Add(householdMember);
 
@@ -114,7 +114,7 @@ namespace AUF.EMR.MVC.Controllers
             try
             {
                 var householdMember = householdMemberVM.HouseholdMember;
-                var householdId = await _houseHoldService.GetHouseholdId(householdMember.HouseholdNo);
+                var householdId = await _houseHoldService.GetHouseholdId(householdMember.Household.HouseholdNo);
                 householdMember.HouseholdId = householdId;
                 var completed = await _houseHoldMemberService.Update(householdMember);
 

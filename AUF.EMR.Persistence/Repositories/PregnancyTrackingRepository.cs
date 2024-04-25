@@ -26,7 +26,7 @@ namespace AUF.EMR.Persistence.Repositories
                 .AsNoTracking()
                 .Include(p => p.HouseholdMember)
                     .ThenInclude(m => m.Household)
-                .Where(p => p.Status & p.HouseholdNo.Equals(householdNo))
+                .Where(p => p.Status & p.HouseholdMember.Household.HouseholdNo.Equals(householdNo))
                 .ToListAsync();
 
             return pregnancyLists;
@@ -50,7 +50,7 @@ namespace AUF.EMR.Persistence.Repositories
                 .AsNoTracking()
                 .Include(p => p.HouseholdMember)
                     .ThenInclude(m => m.Household)
-                .Where(p => p.Status && p.HouseholdMember.HouseholdNo.Equals(householdNo))
+                .Where(p => p.Status && p.HouseholdMember.Household.HouseholdNo.Equals(householdNo))
                 .Where(p => p.PregnancyOutcome == null)
                 .Where(p => p.HouseholdMember.Birthday >= startDate && p.HouseholdMember.Birthday <= endDate)
                 .Select(p => p.HouseholdMember)

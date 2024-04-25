@@ -10,7 +10,7 @@
 <h6>0-11 months old infants</h6>
 @foreach (var member in Model.Infants) {
     <p>
-        @member.HouseholdNo -
+        @member.Household.HouseholdNo -
         @member.FormattedFullName -
         @member.Household.FullAddress -
         @member.Sex - 
@@ -24,7 +24,7 @@
 @foreach (var member in Model.OneToFour)
 {
     <p>
-        @member.HouseholdNo -
+        @member.Household.HouseholdNo -
         @member.FormattedFullName -
         @member.Household.FullAddress -
         @member.Sex - 
@@ -38,7 +38,7 @@
 @foreach (var member in Model.FiveToNine)
 {
     <p>
-        @member.HouseholdNo -
+        @member.Household.HouseholdNo -
         @member.FormattedFullName -
         @member.Household.FullAddress -
         @member.Sex - 
@@ -52,7 +52,7 @@
 @foreach (var member in Model.TenToFourteen)
 {
     <p>
-        @member.HouseholdNo -
+        @member.Household.HouseholdNo -
         @member.FormattedFullName -
         @member.Household.FullAddress -
         @member.Sex -
@@ -66,7 +66,7 @@
 @foreach (var member in Model.PregnantFifteenToNineteen)
 {
     <p>
-        @member.HouseholdNo -
+        @member.Household.HouseholdNo -
         @member.FormattedFullName -
         @member.Household.FullAddress -
         @member.Sex -
@@ -80,7 +80,7 @@
 @foreach (var member in Model.PregnantTwentyToFourtyNine)
 {
     <p>
-        @member.HouseholdNo -
+        @member.Household.HouseholdNo -
         @member.FormattedFullName -
         @member.Household.FullAddress -
         @member.Sex -

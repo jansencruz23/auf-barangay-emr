@@ -15,3 +15,20 @@ D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Appl
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.pdb
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.genruntimeconfig.cache
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\ref\AUF.EMR.Application.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.deps.json
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.runtimeconfig.json
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.pdb
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Domain.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Domain.pdb
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.csproj.AssemblyReference.cache
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.AssemblyInfoInputs.cache
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.AssemblyInfo.cs
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.csproj.CoreCompileInputs.cache
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.csproj.CopyComplete
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\obj\Debug\net7.0\refint\AUF.EMR.Application.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.pdb
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.genruntimeconfig.cache
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Application\obj\Debug\net7.0\ref\AUF.EMR.Application.dll

@@ -103,7 +103,7 @@
                     <label class="form-check-label">Not in School</label>
                 </div>
             </div>
-            <input type="hidden" asp-for="HouseholdMember.HouseholdNo" value="@Model.HouseholdNo" />
+            @*<input type="hidden" asp-for="HouseholdMember.Household.HouseholdNo" value="@Model.HouseholdNo" />*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -112,7 +112,7 @@
 </div>
 
 <div>
-    <a asp-action="Edit" asp-controller="Household" asp-route-id="@Model.HouseholdId">Back to List</a>
+    <a asp-action="HouseholdProfile" asp-controller="Household" asp-route-householdNo="@Model.HouseholdNo">Back to List</a>
 </div>
 
 @section Scripts {

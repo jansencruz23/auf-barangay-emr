@@ -58,31 +58,32 @@ namespace AUF.EMR.MVC.Controllers
         // POST: PregnancyTrackingController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(CreatePregnancyTrackingVM pregnancyTrackingVM)
+        public async Task<ActionResult> Create(CreatePregnancyTrackingVM model)
         {
             try
             {
-                var completed = await _pregnancyService.Add(pregnancyTrackingVM.PregnancyTracking);
-                return RedirectToAction(nameof(Index), new { householdNo = pregnancyTrackingVM.PregnancyTracking.HouseholdNo });
+                var completed = await _pregnancyService.Add(model.PregnancyTracking);
+                return RedirectToAction(nameof(Index), new { householdNo = model.HouseholdNo });
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(pregnancyTrackingVM);
+            return View(model);
         }
 
         // GET: PregnancyTrackingController/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
             var pregnant = await _pregnancyService.GetPregnancyTrackingWithDetails(id);
-            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMember(pregnant.HouseholdNo);
+            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMember(pregnant.HouseholdMember.Household.HouseholdNo);
 
             var model = new EditPregnancyTrackingVM
             {
                 WomenInHousehold = womenInHousehold,
                 PregnancyTracking = pregnant,
+                HouseholdNo = pregnant.HouseholdMember.Household.HouseholdNo
             };
 
             return View(model);
@@ -91,19 +92,19 @@ namespace AUF.EMR.MVC.Controllers
         // POST: PregnancyTrackingController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, EditPregnancyTrackingVM pregnancyTrackingVM)
+        public async Task<ActionResult> Edit(int id, EditPregnancyTrackingVM model)
         {
             try
             {
-                var completed = await _pregnancyService.Update(pregnancyTrackingVM.PregnancyTracking);
-                return RedirectToAction(nameof(Index), new { houseHoldNo = completed.HouseholdNo });
+                var completed = await _pregnancyService.Update(model.PregnancyTracking);
+                return RedirectToAction(nameof(Index), new { houseHoldNo = model.HouseholdNo });
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(pregnancyTrackingVM);
+            return View(model);
         }
 
         // POST: PregnancyTrackingController/Delete/5

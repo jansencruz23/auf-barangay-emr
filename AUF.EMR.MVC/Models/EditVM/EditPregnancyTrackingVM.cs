@@ -7,5 +7,6 @@ namespace AUF.EMR.MVC.Models.EditVM
     {
         public PregnancyTracking PregnancyTracking { get; set; }
         public List<HouseholdMember> WomenInHousehold { get; set; } = new();
+        public string HouseholdNo { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace AUF.EMR.Persistence.Repositories
                 .AsNoTracking()
                 .Include(w => w.HouseholdMember)
                     .ThenInclude(m => m.Household)
-                .Where(w => w.HouseholdMember.HouseholdNo.Equals(householdNo) && w.Status)
+                .Where(w => w.HouseholdMember.Household.HouseholdNo.Equals(householdNo) && w.Status)
                 .ToListAsync();
 
             return WraList;

@@ -12,7 +12,6 @@ namespace AUF.EMR.Domain.Models
     {
         public int HouseholdMemberId { get; set; }
         public HouseholdMember HouseholdMember { get; set; }
-        public string HouseholdNo { get; set; }
         public int CivilStatus { get; set; }
         public bool IsPlanningChildren { get; set; }
         public bool? IsPlanChildrenNow { get; set; }
