@@ -12387,24 +12387,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {},
-    "D:\\Program Files\\Microsoft Visual Studio Shared\\NuGetPackages": {}
+    "C:\\Users\\jamai\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\AUF.EMR.MVC.csproj",
+      "projectUniqueName": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\AUF.EMR.MVC.csproj",
       "projectName": "AUF.EMR.MVC",
-      "projectPath": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\AUF.EMR.MVC.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\obj\\",
+      "projectPath": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\AUF.EMR.MVC.csproj",
+      "packagesPath": "C:\\Users\\jamai\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files\\Microsoft Visual Studio Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "D:\\User\\Jansen\\NuGet.Config",
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jamai\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -12420,11 +12419,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.Application\\AUF.EMR.Application.csproj": {
-              "projectPath": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.Application\\AUF.EMR.Application.csproj"
+            "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.Application\\AUF.EMR.Application.csproj": {
+              "projectPath": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.Application\\AUF.EMR.Application.csproj"
             },
-            "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.Persistence\\AUF.EMR.Persistence.csproj": {
-              "projectPath": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.Persistence\\AUF.EMR.Persistence.csproj"
+            "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.Persistence\\AUF.EMR.Persistence.csproj": {
+              "projectPath": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.Persistence\\AUF.EMR.Persistence.csproj"
             }
           }
         }
@@ -12497,7 +12496,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

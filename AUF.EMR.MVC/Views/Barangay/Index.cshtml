@@ -26,7 +26,7 @@
     <div class="container mx-auto px-4 py-8">
 
         <div class="bg-white shadow-md rounded-lg p-8 mb-8">
-            <h4 class="text-xl font-semibold mb-4">Barangay Health Center Information</h4>
+            <h2 class="text-2xl font-semibold mb-4">Barangay Health Center Information</h2>
             <hr class="mb-4">
 
             <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
@@ -76,12 +76,13 @@
                     <dd class="text-gray-900">@Html.DisplayFor(model => model.Description)</dd>
                 </div>
             </dl>
+
+            <div class="flex justify-end mt-8">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="focus:outline-none text-white bg-primary-50 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 w-20 flex items-center justify-center">Edit</a>
+                <!--<a asp-action="index" class="inline-block bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold py-2 px-4 rounded">back to list</a>-->  <!-- I don't think need pa nito kasi may side nav naman -->
+            </div>
         </div>
 
-        <div class="mb-8">
-            <a asp-action="Edit" asp-route-id="@Model?.Id" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded mr-2">Edit</a>
-            <a asp-action="Index" class="inline-block bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold py-2 px-4 rounded">Back to List</a>
-        </div>
 
     </div>
 
