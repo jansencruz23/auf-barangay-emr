@@ -1,4 +1,5 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.MVC.Models.IndexVM;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,9 +15,20 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: FamilyPlanningController
-        public ActionResult Index()
+        public async Task<ActionResult> Index(string householdNo)
         {
-            return View();
+            var records = await _fpService.GetFPRecordsWithDetails(householdNo);
+            if (records == null)
+            {
+                return NotFound();
+            }
+            var model = new FamilyPlanningVM
+            {
+                FPRecords = records,
+                HouseholdNo = householdNo
+            };
+
+            return View(model);
         }
 
         // GET: FamilyPlanningController/Details/5

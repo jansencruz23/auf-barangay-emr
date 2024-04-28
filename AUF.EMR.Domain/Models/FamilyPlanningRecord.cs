@@ -28,11 +28,17 @@ namespace AUF.EMR.Domain.Models
         public int? LivingChildrenNo { get; set; }
         public bool? IsPlanningChildren { get; set; }
         public double? AverageMonthlyIncome { get; set; }
+        public int ClientTypeId { get; set; }
         public ClientType ClientType { get; set; }
+        public int MedicalHistoryId { get; set; }
         public MedicalHistory MedicalHistory { get; set; }
+        public int ObstetricalHistoryId { get; set; }
         public ObstetricalHistory ObstetricalHistory { get; set; }
+        public int RisksForSTIId { get; set; }
         public RisksForSTI RisksForSTI { get; set; }
+        public int RisksForVAWId { get; set; }
         public RisksForVAW RisksForVAW { get; set; }
+        public int PhysicalExaminationId { get; set; }
         public PhysicalExamination PhysicalExamination { get; set; }
         public string FPMethod { get; set; }
         public string? ClientSignatureAcknowledgement { get; set; }

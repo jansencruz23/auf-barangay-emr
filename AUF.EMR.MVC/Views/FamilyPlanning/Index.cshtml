@@ -1,0 +1,173 @@
+﻿@model FamilyPlanningVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ClientId
+            </th>
+            <th>
+                PhilhealthNo
+            </th>
+            <th>
+                IsNHTS
+            </th>
+            <th>
+                ClientHouseholdMember
+            </th>
+            <th>
+                ClientAge
+            </th>
+            <th>
+                ClientOccupation
+            </th>
+            <th>
+                ContactNo
+            </th>
+            <th>
+                CivilStatus
+            </th>
+            <th>
+                Religion
+            </th>
+            <th>
+                SpouseHouseholdMember
+            </th>
+            <th>
+                SpouseAge
+            </th>
+            <th>
+                SpouseOccupation
+            </th>
+            <th>
+                LivingChildrenNo
+            </th>
+            <th>
+                IsPlanningChildren
+            </th>
+            <th>
+                AverageMonthlyIncome
+            </th>
+            <th>
+                FPMethod
+            </th>
+            <th>
+                ClientSignatureAcknowledgement
+            </th>
+            <th>
+                DateAcknowledgement
+            </th>
+            <th>
+                ClientSignatureConsent
+            </th>
+            <th>
+                DateConsent
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                DateCreated
+            </th>
+            <th>
+                LastModified
+            </th>
+            <th
+                ModifiedById
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.FPRecords) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhilhealthNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsNHTS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientHouseholdMember.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientOccupation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CivilStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Religion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpouseHouseholdMember.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpouseAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpouseOccupation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LivingChildrenNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPlanningChildren)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageMonthlyIncome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FPMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientSignatureAcknowledgement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAcknowledgement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientSignatureConsent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateConsent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedById)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

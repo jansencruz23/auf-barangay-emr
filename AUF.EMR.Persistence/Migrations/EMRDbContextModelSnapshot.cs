@@ -67,6 +67,514 @@ namespace AUF.EMR.Persistence.Migrations
                     b.ToTable("Barangays");
                 });
 
+            modelBuilder.Entity("AUF.EMR.Domain.Models.FamilyPlanning.ClientType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CurrentUserType")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("IsCurrentUser")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMethodBBT")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMethodBOM")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMethodBTL")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMethodCOC")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMethodCondom")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMethodIUD")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMethodImplant")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMethodInjectable")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMethodLAM")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMethodNSV")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMethodPOP")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsMethodSDM")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsReasonMedical")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsReasonSideEffects")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<int?>("ReasonForFP")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReasonMethodText")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ReasonOthers")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ClientTypes");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.FamilyPlanning.MedicalHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Disability")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("HasAbnormalDischarge")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasBreastCancer")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasChestPain")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasCough")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasDisability")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasHeartAttack")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasHematoma")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasJaundice")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasSevereHeadache")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasTakenRifampicin")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasVaginalBleeding")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("IsSmoker")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MedicalHistories");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.FamilyPlanning.ObstetricalHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("HadEctopicPregnancy")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasDysmenorrhea")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasHydatidiformMole")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsLastDeliveryVaginal")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("LastDelivery")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("LastMenstrualPeriod")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("MestrualFlow")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<int?>("NumAbortion")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NumFullTerm")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumGravidityPregnancies")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NumLivingChildren")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumParityPregnancies")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NumPremature")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("PreviousMenstrualPeriod")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ObstetricalHistories");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.FamilyPlanning.PhysicalExamination", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Abdomen")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("AdnexalMass")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("BloodPressure")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Breast")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CervicalConsistency")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("CervicalTenderness")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("Conjunctiva")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("Extremities")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Height")
+                        .HasColumnType("double");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<int>("Neck")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("PCABloodyDischarge")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("PCAInflammation")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("PCAPolyp")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("PCAWarts")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("PelvicAbnormalDischarge")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("PelvicCervicalAbnormalities")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("PelvicCervicalConsistency")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("PelvicMass")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("PelvicNormal")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("PulseRate")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Skin")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int?>("UterineDepth")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("UterinePosition")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int?>("UterinePositions")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Weight")
+                        .HasColumnType("double");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PhysicalExaminations");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.FamilyPlanning.RisksForSTI", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<bool>("AbnormalDischarge")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("Genitals")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("HadTreatmentForSTI")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasHIV")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasPainInGenitalArea")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HasSoresInGenitalArea")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RisksForSTIs");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.FamilyPlanning.RisksForVAW", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("HadUnpleasantRelationship")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("HadVAW")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<bool>("PartnerNotApproveFP")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("ReferredTo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReferredToOthers")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RisksForVAWs");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.FamilyPlanningRecord", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<double?>("AverageMonthlyIncome")
+                        .HasColumnType("double");
+
+                    b.Property<string>("CivilStatus")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("ClientAge")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClientHouseholdMemberId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ClientOccupation")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ClientSignatureAcknowledgement")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ClientSignatureConsent")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("ClientTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ContactNo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("DateAcknowledgement")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateConsent")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("FPMethod")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("IsNHTS")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool?>("IsPlanningChildren")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("LivingChildrenNo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MedicalHistoryId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<int>("ObstetricalHistoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PhilhealthNo")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("PhysicalExaminationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Religion")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("RisksForSTIId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RisksForVAWId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SpouseAge")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SpouseHouseholdMemberId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SpouseOccupation")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientHouseholdMemberId");
+
+                    b.HasIndex("ClientTypeId");
+
+                    b.HasIndex("MedicalHistoryId");
+
+                    b.HasIndex("ObstetricalHistoryId");
+
+                    b.HasIndex("PhysicalExaminationId");
+
+                    b.HasIndex("RisksForSTIId");
+
+                    b.HasIndex("RisksForVAWId");
+
+                    b.HasIndex("SpouseHouseholdMemberId");
+
+                    b.ToTable("FamilyPlanningRecords");
+                });
+
             modelBuilder.Entity("AUF.EMR.Domain.Models.Household", b =>
                 {
                     b.Property<int>("Id")
@@ -688,6 +1196,73 @@ namespace AUF.EMR.Persistence.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.FamilyPlanningRecord", b =>
+                {
+                    b.HasOne("AUF.EMR.Domain.Models.HouseholdMember", "ClientHouseholdMember")
+                        .WithMany()
+                        .HasForeignKey("ClientHouseholdMemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AUF.EMR.Domain.Models.FamilyPlanning.ClientType", "ClientType")
+                        .WithMany()
+                        .HasForeignKey("ClientTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AUF.EMR.Domain.Models.FamilyPlanning.MedicalHistory", "MedicalHistory")
+                        .WithMany()
+                        .HasForeignKey("MedicalHistoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AUF.EMR.Domain.Models.FamilyPlanning.ObstetricalHistory", "ObstetricalHistory")
+                        .WithMany()
+                        .HasForeignKey("ObstetricalHistoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AUF.EMR.Domain.Models.FamilyPlanning.PhysicalExamination", "PhysicalExamination")
+                        .WithMany()
+                        .HasForeignKey("PhysicalExaminationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AUF.EMR.Domain.Models.FamilyPlanning.RisksForSTI", "RisksForSTI")
+                        .WithMany()
+                        .HasForeignKey("RisksForSTIId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AUF.EMR.Domain.Models.FamilyPlanning.RisksForVAW", "RisksForVAW")
+                        .WithMany()
+                        .HasForeignKey("RisksForVAWId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AUF.EMR.Domain.Models.HouseholdMember", "SpouseHouseholdMember")
+                        .WithMany()
+                        .HasForeignKey("SpouseHouseholdMemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ClientHouseholdMember");
+
+                    b.Navigation("ClientType");
+
+                    b.Navigation("MedicalHistory");
+
+                    b.Navigation("ObstetricalHistory");
+
+                    b.Navigation("PhysicalExamination");
+
+                    b.Navigation("RisksForSTI");
+
+                    b.Navigation("RisksForVAW");
+
+                    b.Navigation("SpouseHouseholdMember");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.HouseholdMember", b =>
