@@ -23,7 +23,7 @@ namespace AUF.EMR.Domain.Models
         public string MidwifeName { get; set; }
         public string? BarangayHealthStation { get; set; }
         public string? RuralHealthUnit { get; set; }
-        public Household Household { get; set; }
+        public Household? Household { get; set; }
         public int HouseholdId { get; set; }
     }
 }
