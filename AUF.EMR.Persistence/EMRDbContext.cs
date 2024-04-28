@@ -1,5 +1,6 @@
 ﻿using AUF.EMR.Domain.Models;
 using AUF.EMR.Domain.Models.Common;
+using AUF.EMR.Domain.Models.FamilyPlanning;
 using AUF.EMR.Domain.Models.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -34,6 +35,13 @@ namespace AUF.EMR.Persistence
         public DbSet<RecordLog> RecordLogs { get; set; }
         public DbSet<Barangay> Barangays { get; set; }
         public DbSet<PregnancyTrackingHH> PregnancyTrackingHHs { get; set; }
+        public DbSet<FamilyPlanningRecord> FamilyPlanningRecords { get; set; }
+        public DbSet<ClientType> ClientTypes { get; set; }
+        public DbSet<MedicalHistory> MedicalHistories { get; set; }
+        public DbSet<ObstetricalHistory> ObstetricalHistories { get; set; }
+        public DbSet<PhysicalExamination> PhysicalExaminations { get; set; }
+        public DbSet<RisksForSTI> RisksForSTIs { get; set; }
+        public DbSet<RisksForVAW> RisksForVAWs { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

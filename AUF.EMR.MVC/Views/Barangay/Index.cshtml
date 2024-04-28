@@ -26,13 +26,17 @@
     <div class="container mx-auto px-4 py-8">
 
         <div class="bg-white shadow-md rounded-lg p-8 mb-8">
-            <h4 class="text-xl font-semibold mb-4">Barangay Health Center Information</h4>
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Barangay Health Center Information</h1>
             <hr class="mb-4">
 
             <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
                 <div class="flex items-center">
                     <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Barangay Name</dt>
                     <dd class="text-gray-900">@Html.DisplayFor(model => model.BarangayName)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Phone No.</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.ContactNo)</dd>
                 </div>
                 <div class="flex items-center">
                     <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Logo</dt>
@@ -44,43 +48,43 @@
                     </dd>
                 </div>
                 <div class="flex items-center">
-                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Street</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Street)</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Municipality</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Municipality)</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Province</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Province)</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Region</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Region)</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Contact Number</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.ContactNo)</dd>
-                </div>
-                <div class="flex items-center">
                     <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Barangay Health Station</dt>
                     <dd class="text-gray-900">@Html.DisplayFor(model => model.BarangayHealthStation)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Street</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Street)</dd>
                 </div>
                 <div class="flex items-center">
                     <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Rural Health Unit</dt>
                     <dd class="text-gray-900">@Html.DisplayFor(model => model.RuralHealthUnit)</dd>
                 </div>
                 <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Municipality</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Municipality)</dd>
+                </div>
+                <div class="flex items-center">
                     <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Description</dt>
                     <dd class="text-gray-900">@Html.DisplayFor(model => model.Description)</dd>
                 </div>
-            </dl>
-        </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Province</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Province)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24"></dt>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-4 flex-shrink-0 w-24">Region</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.Region)</dd>
+                </div>
 
-        <div class="mb-8">
-            <a asp-action="Edit" asp-route-id="@Model?.Id" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded mr-2">Edit</a>
-            <a asp-action="Index" class="inline-block bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold py-2 px-4 rounded">Back to List</a>
+            </dl>
+
+            <div class="flex justify-end mt-8">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="focus:outline-none text-white bg-primary-50 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 w-20 flex items-center justify-center">Edit</a>
+                <!--<a asp-action="index" class="inline-block bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold py-2 px-4 rounded">back to list</a>-->  <!-- I don't think need pa nito kasi may side nav naman -->
+            </div>
         </div>
 
     </div>

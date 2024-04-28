@@ -26,17 +26,20 @@ namespace AUF.EMR.Persistence.Repositories
                 .Include(h => h.HouseholdMembers)
                 .FirstOrDefaultAsync(h => h.Id == id);
 
-            var wras = await _dbContext.WomanOfReproductiveAges
+            var wraForms = await _dbContext.WomanOfReproductiveAges
                 .Include(w => w.HouseholdMember)
                     .ThenInclude(m => m.Household)
                 .Where(w => w.HouseholdMember.Household.HouseholdNo.Equals(household.HouseholdNo))
                 .ToListAsync();
 
-            var pregTrack = await _dbContext.PregnancyTrackings
+            var pregForms = await _dbContext.PregnancyTrackings
                 .Include(p => p.HouseholdMember)
                     .ThenInclude(m => m.Household)
                 .Where(p => p.HouseholdMember.Household.HouseholdNo.Equals(household.HouseholdNo))
                 .ToListAsync();
+
+            var pregHHForm = await _dbContext.PregnancyTrackingHHs
+                .FirstOrDefaultAsync(p => p.HouseholdId == id);
 
             if (household != null)
             {
@@ -45,14 +48,19 @@ namespace AUF.EMR.Persistence.Repositories
                     member.Status = false;
                 }
 
-                foreach (var wra in wras)
+                foreach (var wra in wraForms)
                 {
                     wra.Status = false;
                 }
 
-                foreach (var preg in pregTrack)
+                foreach (var preg in pregForms)
                 {
                     preg.Status = false;
+                }
+
+                if (pregHHForm != null)
+                {
+                    pregHHForm.Status = false;
                 }
 
                 household.Status = false;
