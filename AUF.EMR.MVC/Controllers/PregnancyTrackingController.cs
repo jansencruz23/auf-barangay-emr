@@ -50,7 +50,7 @@ namespace AUF.EMR.MVC.Controllers
         // GET: PregnancyTrackingController/Create
         public async Task<ActionResult> Create(string householdNo)
         {
-            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMember(householdNo);
+            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMembers(householdNo);
             var model = new CreatePregnancyTrackingVM
             {
                 HouseholdNo = householdNo,
@@ -82,7 +82,7 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> Edit(int id)
         {
             var pregnant = await _pregnancyService.GetPregnancyTrackingWithDetails(id);
-            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMember(pregnant.HouseholdMember.Household.HouseholdNo);
+            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMembers(pregnant.HouseholdMember.Household.HouseholdNo);
 
             var model = new EditPregnancyTrackingVM
             {

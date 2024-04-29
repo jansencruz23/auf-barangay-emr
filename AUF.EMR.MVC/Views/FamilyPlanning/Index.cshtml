@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -81,7 +81,7 @@
             <th>
                 LastModified
             </th>
-            <th
+            <th>
                 ModifiedById
             </th>
             <th></th>

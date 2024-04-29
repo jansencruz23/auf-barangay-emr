@@ -1,0 +1,269 @@
+﻿@using AUF.EMR.Application.Utilities;
+@using AUF.EMR.Domain.Models.Enums.FamilyPlanning;
+@model CreateFamilyPlanningVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>FamilyPlanningRecord</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FPRecord.ClientId" class="control-label"></label>
+                <input asp-for="FPRecord.ClientId" class="form-control" />
+                <span asp-validation-for="FPRecord.ClientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.PhilhealthNo" class="control-label"></label>
+                <input asp-for="FPRecord.PhilhealthNo" class="form-control" />
+                <span asp-validation-for="FPRecord.PhilhealthNo" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="FPRecord.IsNHTS" /> @Html.DisplayNameFor(model => model.FPRecord.IsNHTS)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.ClientHouseholdMemberId" class="control-label"></label>
+                <select asp-for="FPRecord.ClientHouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.WomenHouseholdMember, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.ClientAge" class="control-label"></label>
+                <input asp-for="FPRecord.ClientAge" class="form-control" />
+                <span asp-validation-for="FPRecord.ClientAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.ClientOccupation" class="control-label"></label>
+                <input asp-for="FPRecord.ClientOccupation" class="form-control" />
+                <span asp-validation-for="FPRecord.ClientOccupation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.ContactNo" class="control-label"></label>
+                <input asp-for="FPRecord.ContactNo" class="form-control" />
+                <span asp-validation-for="FPRecord.ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.CivilStatus" class="control-label"></label>
+                <input asp-for="FPRecord.CivilStatus" class="form-control" />
+                <span asp-validation-for="FPRecord.CivilStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.Religion" class="control-label"></label>
+                <input asp-for="FPRecord.Religion" class="form-control" />
+                <span asp-validation-for="FPRecord.Religion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.SpouseHouseholdMemberId" class="control-label"></label>
+                <select asp-for="FPRecord.SpouseHouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.MenHouseholdMember, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.SpouseAge" class="control-label"></label>
+                <input asp-for="FPRecord.SpouseAge" class="form-control" />
+                <span asp-validation-for="FPRecord.SpouseAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.SpouseOccupation" class="control-label"></label>
+                <input asp-for="FPRecord.SpouseOccupation" class="form-control" />
+                <span asp-validation-for="FPRecord.SpouseOccupation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.LivingChildrenNo" class="control-label"></label>
+                <input asp-for="FPRecord.LivingChildrenNo" class="form-control" />
+                <span asp-validation-for="FPRecord.LivingChildrenNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.IsPlanningChildren" class="control-label"></label>
+                <input asp-for="FPRecord.IsPlanningChildren" class="form-control" />
+                <span asp-validation-for="FPRecord.IsPlanningChildren" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.AverageMonthlyIncome" class="control-label"></label>
+                <input asp-for="FPRecord.AverageMonthlyIncome" class="form-control" />
+                <span asp-validation-for="FPRecord.AverageMonthlyIncome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.ClientTypeId" class="control-label"></label>
+                <select asp-for="FPRecord.ClientTypeId" class ="form-control" asp-items="ViewBag.ClientTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.MedicalHistoryId" class="control-label"></label>
+                <select asp-for="FPRecord.MedicalHistoryId" class="form-control" asp-items="ViewBag.MedicalHistoryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.ObstetricalHistoryId" class="control-label"></label>
+                <select asp-for="FPRecord.ObstetricalHistoryId" class ="form-control" asp-items="ViewBag.ObstetricalHistoryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.RisksForSTIId" class="control-label"></label>
+                <select asp-for="FPRecord.RisksForSTIId" class ="form-control" asp-items="ViewBag.RisksForSTIId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.RisksForVAWId" class="control-label"></label>
+                <select asp-for="FPRecord.RisksForVAWId" class ="form-control" asp-items="ViewBag.RisksForVAWId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.PhysicalExaminationId" class="control-label"></label>
+                <select asp-for="FPRecord.PhysicalExaminationId" class ="form-control" asp-items="ViewBag.PhysicalExaminationId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.FPMethod" class="control-label"></label>
+                <input asp-for="FPRecord.FPMethod" class="form-control" />
+                <span asp-validation-for="FPRecord.FPMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.ClientSignatureAcknowledgement" class="control-label"></label>
+                <input asp-for="FPRecord.ClientSignatureAcknowledgement" class="form-control" />
+                <span asp-validation-for="FPRecord.ClientSignatureAcknowledgement" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.DateAcknowledgement" class="control-label"></label>
+                <input asp-for="FPRecord.DateAcknowledgement" class="form-control" />
+                <span asp-validation-for="FPRecord.DateAcknowledgement" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.ClientSignatureConsent" class="control-label"></label>
+                <input asp-for="FPRecord.ClientSignatureConsent" class="form-control" />
+                <span asp-validation-for="FPRecord.ClientSignatureConsent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.DateConsent" class="control-label"></label>
+                <input asp-for="FPRecord.DateConsent" class="form-control" />
+                <span asp-validation-for="FPRecord.DateConsent" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
+
+            <hr />
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsCurrentUser" /> @Html.DisplayNameFor(model => model.ClientType.IsCurrentUser)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientType.CurrentUserType" class="control-label"></label>
+                <select asp-for="ClientType.CurrentUserType" class="form-control">
+                    <option selected="selected" value="">Please select</option>
+                    @foreach (var value in Enum.GetValues(typeof(CurrentUserType)))
+                    {
+                        <option value="@value">@EnumExtension.GetEnumTitleCase((CurrentUserType)value)</option>
+                    }
+                </select>
+                <span asp-validation-for="ClientType.CurrentUserType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientType.ReasonForFP" class="control-label"></label>
+                <select asp-for="ClientType.ReasonForFP" class="form-control">
+                    <option selected="selected" value="">Please select</option>
+                    @foreach (var value in Enum.GetValues(typeof(ReasonForFP)))
+                    {
+                            <option value="@value">@EnumExtension.GetEnumTitleCase((ReasonForFP)value)</option>
+                    }
+                </select>
+                <span asp-validation-for="ClientType.ReasonForFP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientType.ReasonOthers" class="control-label"></label>
+                <input asp-for="ClientType.ReasonOthers" class="form-control" />
+                <span asp-validation-for="ClientType.ReasonOthers" class="text-danger"></span>
+            </div>
+            <div class="form-group ">
+                <label class="control-label">IsReasonMedical</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" asp-for="ClientType.IsReasonMedical" value="true" />
+                    <label class="form-check-label">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" asp-for="ClientType.IsReasonMedical" value="false" />
+                    <label class="form-check-label">No</label>
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsReasonSideEffects" /> @Html.DisplayNameFor(model => model.ClientType.IsReasonSideEffects)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientType.ReasonMethodText" class="control-label"></label>
+                <input asp-for="ClientType.ReasonMethodText" class="form-control" />
+                <span asp-validation-for="ClientType.ReasonMethodText" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsMethodImplant" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodImplant)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsMethodInjectable" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodInjectable)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsMethodLAM" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodLAM)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsMethodIUD" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodIUD)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsMethodCOC" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodCOC)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsMethodSDM" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodSDM)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsMethodBTL" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodBTL)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsMethodPOP" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodPOP)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsMethodBBT" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodBBT)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsMethodNSV" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodNSV)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsMethodCondom" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodCondom)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClientType.IsMethodBOM" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodBOM)
+                </label>
+            </div>
+
+            <hr />
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

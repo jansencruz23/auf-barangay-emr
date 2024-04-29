@@ -1,17 +1,24 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.IndexVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize(Policy = "User")]
     public class FamilyPlanningController : Controller
     {
         private readonly IFamilyPlanningService _fpService;
+        private readonly IHouseholdMemberService _householdMemberService;
 
-        public FamilyPlanningController(IFamilyPlanningService fpService)
+        public FamilyPlanningController(IFamilyPlanningService fpService,
+            IHouseholdMemberService householdMemberService)
         {
             _fpService = fpService;
+            _householdMemberService = householdMemberService;
         }
 
         // GET: FamilyPlanningController
@@ -38,23 +45,61 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: FamilyPlanningController/Create
-        public ActionResult Create()
+        public async Task<ActionResult> Create(string householdNo)
         {
-            return View();
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var model = new CreateFamilyPlanningVM
+            {
+                HouseholdNo = householdNo,
+                WomenHouseholdMember = await _householdMemberService.GetWRAHouseholdMembers(householdNo),
+                MenHouseholdMember = await _householdMemberService.GetMenHouseholdMembers(householdNo)
+            };
+
+            return View(model);
         }
 
         // POST: FamilyPlanningController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(CreateFamilyPlanningVM model)
         {
+            if (model == null)
+            {
+                return NotFound();
+            }
+
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                var fpRecord = model.FPRecord;
+                fpRecord.ClientType = model.ClientType;
+                fpRecord.MedicalHistory = model.MedicalHistory;
+                fpRecord.ObstetricalHistory = model.ObstetricalHistory;
+                fpRecord.RisksForSTI = model.RisksForSTI;
+                fpRecord.RisksForVAW = model.RisksForVAW;
+                fpRecord.PhysicalExamination = model.PhysicalExamination;
+
+                if (fpRecord == null)
+                {
+                    return NotFound();
+                }
+
+                await _fpService.Add(fpRecord);
+
+                return RedirectToAction(nameof(Index), "PregnancyTracking", new { householdNo = model.HouseholdNo });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                model.ErrorMessage = ex.Message;
+                return View(model);
             }
         }
 

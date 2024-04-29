@@ -91,7 +91,20 @@ namespace AUF.EMR.Persistence.Repositories
             return houseHoldMember;
         }
 
-        public async Task<List<HouseholdMember>> GetWRAHouseholdMember(string householdNo)
+        public async Task<List<HouseholdMember>> GetMenHouseholdMembers(string householdNo)
+        {
+            var menMembers = await _dbContext.HouseholdMembers
+                .AsNoTracking()
+                .Include(m => m.Household)
+                .Where(m => m.Status && m.Household.Status &&
+                            m.Household.HouseholdNo.Equals(householdNo) &&
+                            m.Sex.Equals('M'))
+                .ToListAsync();
+
+            return menMembers;
+        }
+
+        public async Task<List<HouseholdMember>> GetWRAHouseholdMembers(string householdNo)
         {
             var startDate = DateTime.Today.AddYears(WRAAgeRange.WRAStart).AddDays(1);
             var endDate = DateTime.Today.AddYears(WRAAgeRange.WRAEnd);
@@ -108,7 +121,5 @@ namespace AUF.EMR.Persistence.Repositories
 
             return WraMembers;
         }
-
-
     }
 }

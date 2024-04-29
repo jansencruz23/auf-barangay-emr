@@ -11,7 +11,7 @@ namespace AUF.EMR.Domain.Models
 {
     public class FamilyPlanningRecord : BaseDomainEntity
     {
-        public int ClientId { get; set; }
+        public string ClientId { get; set; }
         public string? PhilhealthNo { get; set; }
         public bool IsNHTS { get; set; }
         public HouseholdMember ClientHouseholdMember { get; set; }

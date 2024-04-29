@@ -49,7 +49,7 @@ namespace AUF.EMR.MVC.Controllers
         // GET: WRAController/Create
         public async Task<ActionResult> Create(string householdNo)
         {
-            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMember(householdNo);
+            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMembers(householdNo);
             var model = new CreateWRAVM
             {
                 WomenInHousehold = womenInHousehold,
@@ -81,7 +81,7 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<ActionResult> Edit(int id)
         {
             var wra = await _wraService.GetWRAWithDetails(id);
-            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMember(wra.HouseholdMember.Household.HouseholdNo);
+            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMembers(wra.HouseholdMember.Household.HouseholdNo);
 
             var model = new EditWRAVM
             {

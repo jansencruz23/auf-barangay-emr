@@ -17,17 +17,17 @@ namespace AUF.EMR.Domain.Models.FamilyPlanning
         public bool? IsReasonMedical { get; set; }
         public bool? IsReasonSideEffects { get; set; }
         public string? ReasonMethodText { get; set; }
-        public bool? IsMethodImplant { get; set; } = false;
-        public bool? IsMethodInjectable { get; set; } = false;
-        public bool? IsMethodLAM { get; set; } = false;
-        public bool? IsMethodIUD { get; set; } = false;
-        public bool? IsMethodCOC { get; set; } = false;
-        public bool? IsMethodSDM { get; set; } = false;
-        public bool? IsMethodBTL { get; set; } = false;
-        public bool? IsMethodPOP { get; set; } = false;
-        public bool? IsMethodBBT { get; set; } = false;
-        public bool? IsMethodNSV { get; set; } = false;
-        public bool? IsMethodCondom { get; set; } = false;
-        public bool? IsMethodBOM { get; set; } = false;
+        public bool? IsMethodImplant { get; set; } 
+        public bool? IsMethodInjectable { get; set; } 
+        public bool? IsMethodLAM { get; set; } 
+        public bool? IsMethodIUD { get; set; } 
+        public bool? IsMethodCOC { get; set; } 
+        public bool? IsMethodSDM { get; set; } 
+        public bool? IsMethodBTL { get; set; } 
+        public bool? IsMethodPOP { get; set; } 
+        public bool? IsMethodBBT { get; set; }
+        public bool? IsMethodNSV { get; set; } 
+        public bool? IsMethodCondom { get; set; } 
+        public bool? IsMethodBOM { get; set; } 
     }
 }
