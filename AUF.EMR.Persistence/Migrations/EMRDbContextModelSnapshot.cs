@@ -239,7 +239,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<DateTime>("LastModified")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("MestrualFlow")
+                    b.Property<int>("MenstrualFlow")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("ModifiedById")
@@ -471,8 +471,9 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<int>("ClientHouseholdMemberId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ClientId")
-                        .HasColumnType("int");
+                    b.Property<string>("ClientId")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ClientOccupation")
                         .IsRequired()

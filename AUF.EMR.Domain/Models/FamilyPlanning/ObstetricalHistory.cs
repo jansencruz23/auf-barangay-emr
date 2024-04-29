@@ -24,7 +24,7 @@ namespace AUF.EMR.Domain.Models.FamilyPlanning
         public DateTime? LastMenstrualPeriod { get; set; }
         [DataType(DataType.Date)]
         public DateTime? PreviousMenstrualPeriod { get; set; }
-        public MenstrualFlow MestrualFlow { get; set; }
+        public MenstrualFlow MenstrualFlow { get; set; }
         public bool HasDysmenorrhea { get; set; } 
         public bool HasHydatidiformMole { get; set; } 
         public bool HadEctopicPregnancy { get; set; } 

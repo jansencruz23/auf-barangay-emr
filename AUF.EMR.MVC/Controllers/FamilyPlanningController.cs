@@ -29,6 +29,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 return NotFound();
             }
+
             var model = new FamilyPlanningVM
             {
                 FPRecords = records,
@@ -72,10 +73,10 @@ namespace AUF.EMR.MVC.Controllers
                 return NotFound();
             }
 
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(model);
-            //}
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
             try
             {
@@ -94,7 +95,7 @@ namespace AUF.EMR.MVC.Controllers
 
                 await _fpService.Add(fpRecord);
 
-                return RedirectToAction(nameof(Index), "PregnancyTracking", new { householdNo = model.HouseholdNo });
+                return RedirectToAction(nameof(Index), "FamilyPlanning", new { householdNo = model.HouseholdNo });
             }
             catch (Exception ex)
             {
