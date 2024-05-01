@@ -10,6 +10,7 @@ namespace AUF.EMR.Application.Contracts.Services
 {
     public interface IHouseholdService : IGenericService<Household>
     {
+        Task<string> GetHouseholdNo(int id);
         Task<List<Household>> GetHouseholdsWithDetails();
         Task<List<Household>> GetSearchedhouseHoldsWithDetails(string query);
         Task<Household> GetSearchedhouseHoldWithDetails(string query);

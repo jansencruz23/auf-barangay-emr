@@ -74,7 +74,6 @@ namespace AUF.EMR.MVC.Controllers
                 return NotFound();
             }
 
-
             try
             {
                 var fpRecord = model.FPRecord;
@@ -92,7 +91,7 @@ namespace AUF.EMR.MVC.Controllers
 
                 await _fpService.AddFamilyPlanning(fpRecord);
 
-                return RedirectToAction(nameof(Index), "FamilyPlanning");
+                return RedirectToAction(nameof(Index), "FamilyPlanning", new { householdNo = model.HouseholdNo });
             }
             catch (Exception ex)
             {

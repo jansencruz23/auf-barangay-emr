@@ -1,0 +1,76 @@
+﻿@model EditChildrenInfoVM
+
+@{
+    ViewData["Title"] = "EditChildrenInfo";
+}
+
+<h1>EditChildrenInfo</h1>
+
+<h4>HouseholdMember</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditChildrenInfo">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RequestUrl" value="@Model.RequestUrl" />
+            <div class="form-group">
+                <label asp-for="HouseholdMember.LastName" class="control-label"></label>
+                <input asp-for="HouseholdMember.LastName" class="form-control" />
+                <span asp-validation-for="HouseholdMember.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseholdMember.FirstName" class="control-label"></label>
+                <input asp-for="HouseholdMember.FirstName" class="form-control" />
+                <span asp-validation-for="HouseholdMember.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseholdMember.MotherMaidenName" class="control-label"></label>
+                <input asp-for="HouseholdMember.MotherMaidenName" class="form-control" />
+                <span asp-validation-for="HouseholdMember.MotherMaidenName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseholdMember.Sex" class="control-label"></label>
+                <input asp-for="HouseholdMember.Sex" class="form-control" />
+                <span asp-validation-for="HouseholdMember.Sex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseholdMember.Age" class="control-label"></label>
+                <input asp-for="HouseholdMember.Age" class="form-control" />
+                <span asp-validation-for="HouseholdMember.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseholdMember.Birthday" class="control-label"></label>
+                <input asp-for="HouseholdMember.Birthday" class="form-control" />
+                <span asp-validation-for="HouseholdMember.Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseholdMember.NameOfMother" class="control-label"></label>
+                <input asp-for="HouseholdMember.NameOfMother" class="form-control" />
+                <span asp-validation-for="HouseholdMember.NameOfMother" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseholdMember.NameOfFather" class="control-label"></label>
+                <input asp-for="HouseholdMember.NameOfFather" class="form-control" />
+                <span asp-validation-for="HouseholdMember.NameOfFather" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseholdMember.IsNhts" class="control-label"></label>
+                <input asp-for="HouseholdMember.IsNhts" class="form-control" />
+                <span asp-validation-for="HouseholdMember.IsNhts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseholdMember.IsInSchool" class="control-label"></label>
+                <input asp-for="HouseholdMember.IsInSchool" class="form-control" />
+                <span asp-validation-for="HouseholdMember.IsInSchool" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
