@@ -12,5 +12,6 @@ namespace AUF.EMR.Application.Contracts.Services
     {
         Task<FamilyPlanningRecord> GetFPRecordWithDetails(int id);
         Task<List<FamilyPlanningRecord>> GetFPRecordsWithDetails(string householdNo);
+        Task<FamilyPlanningRecord> AddFamilyPlanning(FamilyPlanningRecord fpRecord);
     }
 }

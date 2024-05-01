@@ -40,7 +40,16 @@
                 Religion
             </th>
             <th>
-                SpouseHouseholdMember
+                SpouseLastName
+            </th>
+            <th>
+                SpouseFirstName
+            </th>
+            <th>
+                SpouseMiddleInitial
+            </th>
+            <th>
+                SpouseBirthday
             </th>
             <th>
                 SpouseAge
@@ -118,7 +127,16 @@
                 @Html.DisplayFor(modelItem => item.Religion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SpouseHouseholdMember.Age)
+                @Html.DisplayFor(modelItem => item.SpouseLastName)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.SpouseLastName)
+            </td>          
+            <td>
+                @Html.DisplayFor(modelItem => item.SpouseMiddleInitial)
+            </td>       
+            <td>
+                @Html.DisplayFor(modelItem => item.SpouseBirthday)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SpouseAge)

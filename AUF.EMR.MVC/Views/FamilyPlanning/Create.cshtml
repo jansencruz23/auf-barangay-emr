@@ -60,14 +60,24 @@
                 <span asp-validation-for="FPRecord.Religion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FPRecord.SpouseHouseholdMemberId" class="control-label"></label>
-                <select asp-for="FPRecord.SpouseHouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.MenHouseholdMember, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
-                <input type="hidden" asp-for="MenHouseholdMember" value="@Model.MenHouseholdMember" />
+                <label asp-for="FPRecord.SpouseLastName" class="control-label"></label>
+                <input asp-for="FPRecord.SpouseLastName" class="form-control" />
+                <span asp-validation-for="FPRecord.SpouseLastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FPRecord.SpouseAge" class="control-label"></label>
-                <input asp-for="FPRecord.SpouseAge" class="form-control" />
-                <span asp-validation-for="FPRecord.SpouseAge" class="text-danger"></span>
+                <label asp-for="FPRecord.SpouseFirstName" class="control-label"></label>
+                <input asp-for="FPRecord.SpouseFirstName" class="form-control" />
+                <span asp-validation-for="FPRecord.SpouseFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.SpouseMiddleInitial" class="control-label"></label>
+                <input asp-for="FPRecord.SpouseMiddleInitial" class="form-control" />
+                <span asp-validation-for="FPRecord.SpouseMiddleInitial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPRecord.SpouseBirthday" class="control-label"></label>
+                <input asp-for="FPRecord.SpouseBirthday" class="form-control" />
+                <span asp-validation-for="FPRecord.SpouseBirthday" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FPRecord.SpouseOccupation" class="control-label"></label>
@@ -88,30 +98,6 @@
                 <label asp-for="FPRecord.AverageMonthlyIncome" class="control-label"></label>
                 <input asp-for="FPRecord.AverageMonthlyIncome" class="form-control" />
                 <span asp-validation-for="FPRecord.AverageMonthlyIncome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.ClientTypeId" class="control-label"></label>
-                <select asp-for="FPRecord.ClientTypeId" class="form-control" asp-items="ViewBag.ClientTypeId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.MedicalHistoryId" class="control-label"></label>
-                <select asp-for="FPRecord.MedicalHistoryId" class="form-control" asp-items="ViewBag.MedicalHistoryId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.ObstetricalHistoryId" class="control-label"></label>
-                <select asp-for="FPRecord.ObstetricalHistoryId" class="form-control" asp-items="ViewBag.ObstetricalHistoryId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.RisksForSTIId" class="control-label"></label>
-                <select asp-for="FPRecord.RisksForSTIId" class="form-control" asp-items="ViewBag.RisksForSTIId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.RisksForVAWId" class="control-label"></label>
-                <select asp-for="FPRecord.RisksForVAWId" class="form-control" asp-items="ViewBag.RisksForVAWId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.PhysicalExaminationId" class="control-label"></label>
-                <select asp-for="FPRecord.PhysicalExaminationId" class="form-control" asp-items="ViewBag.PhysicalExaminationId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="FPRecord.FPMethod" class="control-label"></label>
@@ -467,7 +453,7 @@
                         <option value="@value">@value</option>
                     }
                 </select>
-                <span asp-validation-for="RisksForSTI.Genitals" class="text-danger"></span>
+                <span asp-validation-for="RisksForVAW.ReferredTo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="RisksForVAW.ReferredToOthers" class="control-label"></label>
@@ -650,3 +636,8 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

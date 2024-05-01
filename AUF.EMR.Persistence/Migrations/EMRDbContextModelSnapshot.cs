@@ -545,8 +545,19 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<int>("SpouseAge")
                         .HasColumnType("int");
 
-                    b.Property<int>("SpouseHouseholdMemberId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("SpouseBirthday")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("SpouseFirstName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SpouseLastName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SpouseMiddleInitial")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("SpouseOccupation")
                         .IsRequired()
@@ -570,8 +581,6 @@ namespace AUF.EMR.Persistence.Migrations
                     b.HasIndex("RisksForSTIId");
 
                     b.HasIndex("RisksForVAWId");
-
-                    b.HasIndex("SpouseHouseholdMemberId");
 
                     b.ToTable("FamilyPlanningRecords");
                 });
@@ -1243,12 +1252,6 @@ namespace AUF.EMR.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AUF.EMR.Domain.Models.HouseholdMember", "SpouseHouseholdMember")
-                        .WithMany()
-                        .HasForeignKey("SpouseHouseholdMemberId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("ClientHouseholdMember");
 
                     b.Navigation("ClientType");
@@ -1262,8 +1265,6 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Navigation("RisksForSTI");
 
                     b.Navigation("RisksForVAW");
-
-                    b.Navigation("SpouseHouseholdMember");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.HouseholdMember", b =>

@@ -30,5 +30,10 @@ namespace AUF.EMR.Application.Services
         {
             return await _repository.GetFPRecordsWithDetails(householdNo);
         }
+
+        public async Task<FamilyPlanningRecord> AddFamilyPlanning(FamilyPlanningRecord fpRecord)
+        {
+            return await _repository.AddFamilyPlanning(fpRecord);
+        }
     }
 }

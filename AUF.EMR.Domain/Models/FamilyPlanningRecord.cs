@@ -21,8 +21,11 @@ namespace AUF.EMR.Domain.Models
         public string ContactNo { get; set; }
         public string CivilStatus { get; set; } 
         public string Religion { get; set; }
-        public HouseholdMember SpouseHouseholdMember { get; set; }
-        public int SpouseHouseholdMemberId { get; set; }
+        public string SpouseLastName { get; set; }
+        public string SpouseFirstName { get; set; }
+        public string? SpouseMiddleInitial { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime SpouseBirthday { get; set; }
         public int SpouseAge { get; set; }
         public string SpouseOccupation { get; set; }
         public int? LivingChildrenNo { get; set; }

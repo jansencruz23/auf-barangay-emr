@@ -1,4 +1,6 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.Domain.Models;
+using AUF.EMR.Domain.Models.FamilyPlanning;
 using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.IndexVM;
 using Microsoft.AspNetCore.Authorization;
@@ -57,7 +59,6 @@ namespace AUF.EMR.MVC.Controllers
             {
                 HouseholdNo = householdNo,
                 WomenHouseholdMember = await _householdMemberService.GetWRAHouseholdMembers(householdNo),
-                MenHouseholdMember = await _householdMemberService.GetMenHouseholdMembers(householdNo)
             };
 
             return View(model);
@@ -73,10 +74,6 @@ namespace AUF.EMR.MVC.Controllers
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
 
             try
             {
@@ -93,9 +90,9 @@ namespace AUF.EMR.MVC.Controllers
                     return NotFound();
                 }
 
-                await _fpService.Add(fpRecord);
+                await _fpService.AddFamilyPlanning(fpRecord);
 
-                return RedirectToAction(nameof(Index), "FamilyPlanning", new { householdNo = model.HouseholdNo });
+                return RedirectToAction(nameof(Index), "FamilyPlanning");
             }
             catch (Exception ex)
             {
