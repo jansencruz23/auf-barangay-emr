@@ -51,7 +51,7 @@ namespace AUF.EMR.MVC.Controllers
                 return NotFound();
             }
 
-            var model = new EditChildrenInfoVM
+            var model = new EditHouseholdMemberVM
             {
                 HouseholdMember = member,
                 RequestUrl = requestUrl,
@@ -64,7 +64,63 @@ namespace AUF.EMR.MVC.Controllers
         // POST: MasterlistController/EditChildrenInfo
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditChildrenInfo(int? id, EditChildrenInfoVM model)
+        public async Task<ActionResult> EditChildrenInfo(int? id, EditHouseholdMemberVM model)
+        {
+            if (model == null || id == null)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            try
+            {
+                var householdMember = model.HouseholdMember;
+                var householdId = await _householdService.GetHouseholdId(model.HouseholdNo);
+                householdMember.HouseholdId = householdId;
+                var completed = await _householdMemberService.Update(householdMember);
+
+                return Redirect(model.RequestUrl);
+            }
+            catch (Exception ex)
+            {
+                model.ErrorMessage = ex.Message;
+                return View(model);
+            }
+        }
+
+        // GET: MasterlistController/EditChildrenInfo
+        public async Task<ActionResult> EditAdultInfo(int? id, string requestUrl, string householdNo)
+        {
+            if (id == null || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var member = await _householdMemberService.GetHouseholdMemberWithDetails(id.Value);
+
+            if (member == null)
+            {
+                return NotFound();
+            }
+
+            var model = new EditHouseholdMemberVM
+            {
+                HouseholdMember = member,
+                RequestUrl = requestUrl,
+                HouseholdNo = householdNo
+            };
+
+            return View(model);
+        }
+
+        // POST: MasterlistController/EditChildrenInfo
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditAdultInfo(int? id, EditHouseholdMemberVM model)
         {
             if (model == null || id == null)
             {
