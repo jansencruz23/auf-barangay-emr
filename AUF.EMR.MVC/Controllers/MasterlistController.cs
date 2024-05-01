@@ -1,4 +1,5 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.Application.Services;
 using AUF.EMR.Domain.Models;
 using AUF.EMR.Domain.Models.Identity;
 using AUF.EMR.MVC.Models.EditVM;
@@ -20,27 +21,30 @@ namespace AUF.EMR.MVC.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IBarangayService _brgyService;
         private readonly IHouseholdMemberService _householdMemberService;
+        private readonly IHouseholdService _householdService;
 
         public MasterlistController(IMasterlistService masterlistService,
             UserManager<ApplicationUser> userManager,
             IBarangayService brgyService,
-            IHouseholdMemberService householdMemberService)
+            IHouseholdMemberService householdMemberService,
+            IHouseholdService householdService)
         {
             _masterlistService = masterlistService;
             _userManager = userManager;
             _brgyService = brgyService;
             _householdMemberService = householdMemberService;
+            _householdService = householdService;
         }
 
         // GET: MasterlistController/EditChildrenInfo
-        public async Task<ActionResult> EditChildrenInfo(int id, string requestUrl)
+        public async Task<ActionResult> EditChildrenInfo(int? id, string requestUrl, string householdNo)
         {
-            if (id == null)
+            if (id == null || string.IsNullOrWhiteSpace(householdNo))
             {
                 return NotFound();
             }
 
-            var member = await _householdMemberService.GetHouseholdMemberWithDetails(id);
+            var member = await _householdMemberService.GetHouseholdMemberWithDetails(id.Value);
 
             if (member == null)
             {
@@ -50,7 +54,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new EditChildrenInfoVM
             {
                 HouseholdMember = member,
-                RequestUrl = requestUrl
+                RequestUrl = requestUrl,
+                HouseholdNo = householdNo
             };
 
             return View(model);
@@ -59,9 +64,9 @@ namespace AUF.EMR.MVC.Controllers
         // POST: MasterlistController/EditChildrenInfo
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditChildrenInfo(EditChildrenInfoVM model)
+        public async Task<ActionResult> EditChildrenInfo(int? id, EditChildrenInfoVM model)
         {
-            if (model == null)
+            if (model == null || id == null)
             {
                 return NotFound();
             }
@@ -73,8 +78,10 @@ namespace AUF.EMR.MVC.Controllers
 
             try
             {
-                var member = model.HouseholdMember;
-                await _householdMemberService.Update(member);
+                var householdMember = model.HouseholdMember;
+                var householdId = await _householdService.GetHouseholdId(model.HouseholdNo);
+                householdMember.HouseholdId = householdId;
+                var completed = await _householdMemberService.Update(householdMember);
 
                 return Redirect(model.RequestUrl);
             }
