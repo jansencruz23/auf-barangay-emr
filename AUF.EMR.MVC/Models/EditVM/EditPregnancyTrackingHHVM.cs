@@ -6,6 +6,5 @@ namespace AUF.EMR.MVC.Models.EditVM
     public class EditPregnancyTrackingHHVM : BaseVM
     {
         public PregnancyTrackingHH PregnancyTrackingHH { get; set; }
-        public string HouseholdNo { get; set; }
     }
 }

@@ -13,7 +13,6 @@ namespace AUF.EMR.MVC.Models.CreateVM
         public RisksForSTI RisksForSTI { get; set; }
         public RisksForVAW RisksForVAW { get; set; }
         public PhysicalExamination PhysicalExamination { get; set; }
-        public string HouseholdNo { get; set; }
 
         public List<HouseholdMember> WomenHouseholdMember { get; set; }
         public List<HouseholdMember> MenHouseholdMember { get; set; }

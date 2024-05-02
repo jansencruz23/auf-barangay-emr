@@ -7,6 +7,5 @@ namespace AUF.EMR.MVC.Models.EditVM
     {
         public WomanOfReproductiveAge WRA { get; set; }
         public List<HouseholdMember> WomenInHousehold { get; set; }
-        public string HouseholdNo { get; set; }
     }
 }

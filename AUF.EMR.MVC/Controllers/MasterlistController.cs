@@ -92,7 +92,7 @@ namespace AUF.EMR.MVC.Controllers
             }
         }
 
-        // GET: MasterlistController/EditChildrenInfo
+        // GET: MasterlistController/EditAdultInfo
         public async Task<ActionResult> EditAdultInfo(int? id, string requestUrl, string householdNo)
         {
             if (id == null || string.IsNullOrWhiteSpace(householdNo))
@@ -117,7 +117,7 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
-        // POST: MasterlistController/EditChildrenInfo
+        // POST: MasterlistController/EditAdultInfo
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> EditAdultInfo(int? id, EditHouseholdMemberVM model)

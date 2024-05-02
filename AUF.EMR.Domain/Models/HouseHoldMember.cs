@@ -1,4 +1,5 @@
 ﻿using AUF.EMR.Domain.Models.Common;
+using AUF.EMR.Domain.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,6 +21,7 @@ namespace AUF.EMR.Domain.Models
         public string Age { get; set; }
 
         [DataType(DataType.Date)]
+        [Date]
         public DateTime Birthday { get; set; }
         public string? FirstQtrClassification { get; set; }
         public string? SecondQtrClassification { get; set; }

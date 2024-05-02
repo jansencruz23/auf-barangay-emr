@@ -7,6 +7,5 @@ namespace AUF.EMR.MVC.Models.EditVM
     {
         public HouseholdMember HouseholdMember { get; set; }
         public string RequestUrl { get; set; }
-        public string HouseholdNo { get; set; }
     }
 }

@@ -28,6 +28,9 @@ namespace AUF.EMR.Application
             services.AddScoped<IDashboardService, DashboardService>();
             services.AddScoped<IPregnancyTrackingHHService, PregnancyTrackingHHService>();
             services.AddScoped<IFamilyPlanningService, FamilyPlanningService>();
+            services.AddScoped<IPatientRecordService, PatientRecordService>();
+            services.AddScoped<IVaccinationAppointmentService, VaccinationAppointmentService>();
+            services.AddScoped<IVaccineService, VaccineService>();
 
             return services;
         }

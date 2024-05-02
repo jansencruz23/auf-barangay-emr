@@ -1,4 +1,5 @@
-﻿using AUF.EMR.Application.Contracts.Services;
+﻿using AUF.EMR.Application.Contracts.Persistence;
+using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -11,33 +12,35 @@ namespace AUF.EMR.Persistence.Seeders
 {
     public class BarangaySeeder
     {
-        private readonly IBarangayService _barangayService;
+        private readonly IBarangayRepository _repository;
 
-        public BarangaySeeder(IBarangayService barangayService)
+        public BarangaySeeder(IBarangayRepository repository)
         {
-            _barangayService = barangayService;
+            _repository = repository;
         }
 
         public async Task SeedAsync()
         {
-            if (!await _barangayService.HasData())
+            if (await _repository.HasData())
             {
-                var barangay = new Barangay
-                {
-                    BarangayName = "Ninoy Aquino",
-                    Logo = null,
-                    BarangayHealthStation = "",
-                    ContactNo = "09123456789",
-                    Street = "Marisol",
-                    Municipality = "Angeles City",
-                    Province = "Pampanga",
-                    Region = "III",
-                    RuralHealthUnit = "",
-                    Description = ""
-                };
-
-                await _barangayService.Add(barangay);
+                return;
             }
+
+            var barangay = new Barangay
+            {
+                BarangayName = "Ninoy Aquino",
+                Logo = null,
+                BarangayHealthStation = "",
+                ContactNo = "09123456789",
+                Street = "Marisol",
+                Municipality = "Angeles City",
+                Province = "Pampanga",
+                Region = "III",
+                RuralHealthUnit = "",
+                Description = ""
+            };
+
+            await _repository.Add(barangay);
         }
     }
 }

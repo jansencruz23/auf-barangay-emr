@@ -850,6 +850,70 @@ namespace AUF.EMR.Persistence.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("AUF.EMR.Domain.Models.PatientRecord", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Attended")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("BirthPlace")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ContactNumber")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("FatherAge")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FatherBirthday")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("FatherName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<int>("MotherAge")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("MotherBirthday")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("MotherName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("TypeOfDelivery")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("PatientRecords");
+                });
+
             modelBuilder.Entity("AUF.EMR.Domain.Models.PregnancyTracking", b =>
                 {
                     b.Property<int>("Id")
@@ -1011,6 +1075,66 @@ namespace AUF.EMR.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RecordLogs");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.VaccinationAppointment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<double>("Height")
+                        .HasColumnType("double");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid?>("ModifiedById")
+                        .HasColumnType("char(36)");
+
+                    b.Property<int>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<double?>("Temperature")
+                        .HasColumnType("double");
+
+                    b.Property<DateTime?>("VaccinationDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<double>("Weight")
+                        .HasColumnType("double");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("VaccinationAppointments");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.Vaccine", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("VaccinationAppointmentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VaccinationAppointmentId");
+
+                    b.ToTable("Vaccines");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.WomanOfReproductiveAge", b =>
@@ -1278,6 +1402,17 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Navigation("Household");
                 });
 
+            modelBuilder.Entity("AUF.EMR.Domain.Models.PatientRecord", b =>
+                {
+                    b.HasOne("AUF.EMR.Domain.Models.HouseholdMember", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patient");
+                });
+
             modelBuilder.Entity("AUF.EMR.Domain.Models.PregnancyTracking", b =>
                 {
                     b.HasOne("AUF.EMR.Domain.Models.HouseholdMember", "HouseholdMember")
@@ -1298,6 +1433,24 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Household");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.VaccinationAppointment", b =>
+                {
+                    b.HasOne("AUF.EMR.Domain.Models.PatientRecord", "Patient")
+                        .WithMany("VaccinationAppointments")
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.Vaccine", b =>
+                {
+                    b.HasOne("AUF.EMR.Domain.Models.VaccinationAppointment", null)
+                        .WithMany("Vaccines")
+                        .HasForeignKey("VaccinationAppointmentId");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.WomanOfReproductiveAge", b =>
@@ -1365,6 +1518,16 @@ namespace AUF.EMR.Persistence.Migrations
             modelBuilder.Entity("AUF.EMR.Domain.Models.Household", b =>
                 {
                     b.Navigation("HouseholdMembers");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.PatientRecord", b =>
+                {
+                    b.Navigation("VaccinationAppointments");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.VaccinationAppointment", b =>
+                {
+                    b.Navigation("Vaccines");
                 });
 #pragma warning restore 612, 618
         }

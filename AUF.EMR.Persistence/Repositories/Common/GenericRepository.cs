@@ -36,6 +36,12 @@ namespace AUF.EMR.Persistence.Repositories.Common
             return entity;
         }
 
+        public async Task AddRange(List<T> entities)
+        {
+            await _dbContext.Set<T>().AddRangeAsync(entities);
+            await _dbContext.SaveChangesAsync();
+        }
+
         public async Task<T> Update(T entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;

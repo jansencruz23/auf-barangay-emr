@@ -42,6 +42,9 @@ namespace AUF.EMR.Persistence
         public DbSet<PhysicalExamination> PhysicalExaminations { get; set; }
         public DbSet<RisksForSTI> RisksForSTIs { get; set; }
         public DbSet<RisksForVAW> RisksForVAWs { get; set; }
+        public DbSet<Vaccine> Vaccines { get; set; }
+        public DbSet<PatientRecord> PatientRecords { get; set; }
+        public DbSet<VaccinationAppointment> VaccinationAppointments { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

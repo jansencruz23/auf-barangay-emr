@@ -55,7 +55,7 @@ namespace AUF.EMR.MVC.Controllers
                 return NotFound();
             }
 
-            var model = new CreateFamilyPlanningVM
+            var model = new CreateFamilyPlanningVM  
             {
                 HouseholdNo = householdNo,
                 WomenHouseholdMember = await _householdMemberService.GetWRAHouseholdMembers(householdNo),
