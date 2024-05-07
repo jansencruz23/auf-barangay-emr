@@ -12,13 +12,13 @@ namespace AUF.EMR.Domain.Models
     public class VaccinationAppointment : BaseDomainEntity
     {
         public int PatientId { get; set; }
-        public PatientRecord Patient { get; set; }
+        public PatientRecord? Patient { get; set; }
         [DataType(DataType.Date)]
-        public DateTime? VaccinationDate { get; set; }
+        public DateTime VaccinationDate { get; set; }
         public double Weight { get; set; }
         public double Height { get; set; }
         public double? Temperature { get; set; }
 
-        public List<Vaccine>? Vaccines { get; set; }
+        public IEnumerable<VaccinationRecord>? VaccinationRecords { get; set; }
     }
 }

@@ -7,6 +7,20 @@
 
 <h1>Details</h1>
 
+<p>
+    <a asp-action="Create" asp-controller="VaccinationAppointment" 
+        asp-route-householdNo="@Model.HouseholdNo" asp-route-patientId="@Model.PatientRecord.Id">
+    Create New
+    </a>
+</p>
+
+<p>
+    <a asp-action="Edit" asp-route-householdNo="@Model.HouseholdNo" 
+    asp-route-Id="@Model.PatientRecord.Id">
+        Update
+    </a>
+</p>
+
 <div>
     <h4>PatientRecord</h4>
     <hr />
@@ -78,6 +92,21 @@
             @Html.DisplayFor(model => model.PatientRecord.Attended)
         </dd> 
     </dl>
+
+    <hr />
+
+    <h5>Vaccination Appointments</h5>
+    <div>
+        @foreach (var appointment in Model.PatientRecord.VaccinationAppointments)
+        {
+            <p>@appointment.VaccinationDate | @appointment.Weight | @appointment.Height | @appointment.Temperature
+                @foreach (var vaccine in appointment.VaccinationRecords)
+                {
+                    @vaccine.Vaccine.Name
+                }
+            </p>
+        }
+    </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.PatientRecord.Id">Edit</a> |

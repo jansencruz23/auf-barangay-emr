@@ -1104,7 +1104,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<double?>("Temperature")
                         .HasColumnType("double");
 
-                    b.Property<DateTime?>("VaccinationDate")
+                    b.Property<DateTime>("VaccinationDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<double>("Weight")
@@ -1117,22 +1117,35 @@ namespace AUF.EMR.Persistence.Migrations
                     b.ToTable("VaccinationAppointments");
                 });
 
+            modelBuilder.Entity("AUF.EMR.Domain.Models.VaccinationRecord", b =>
+                {
+                    b.Property<int>("VaccinationAppointmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VaccineId")
+                        .HasColumnType("int");
+
+                    b.HasKey("VaccinationAppointmentId", "VaccineId");
+
+                    b.HasIndex("VaccineId");
+
+                    b.ToTable("VaccinationRecord");
+                });
+
             modelBuilder.Entity("AUF.EMR.Domain.Models.Vaccine", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("VaccinationAppointmentId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("VaccinationAppointmentId");
 
                     b.ToTable("Vaccines");
                 });
@@ -1446,11 +1459,23 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Navigation("Patient");
                 });
 
-            modelBuilder.Entity("AUF.EMR.Domain.Models.Vaccine", b =>
+            modelBuilder.Entity("AUF.EMR.Domain.Models.VaccinationRecord", b =>
                 {
-                    b.HasOne("AUF.EMR.Domain.Models.VaccinationAppointment", null)
-                        .WithMany("Vaccines")
-                        .HasForeignKey("VaccinationAppointmentId");
+                    b.HasOne("AUF.EMR.Domain.Models.VaccinationAppointment", "VaccinationAppointment")
+                        .WithMany("VaccinationRecords")
+                        .HasForeignKey("VaccinationAppointmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AUF.EMR.Domain.Models.Vaccine", "Vaccine")
+                        .WithMany("VaccinationRecords")
+                        .HasForeignKey("VaccineId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("VaccinationAppointment");
+
+                    b.Navigation("Vaccine");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.WomanOfReproductiveAge", b =>
@@ -1527,7 +1552,12 @@ namespace AUF.EMR.Persistence.Migrations
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.VaccinationAppointment", b =>
                 {
-                    b.Navigation("Vaccines");
+                    b.Navigation("VaccinationRecords");
+                });
+
+            modelBuilder.Entity("AUF.EMR.Domain.Models.Vaccine", b =>
+                {
+                    b.Navigation("VaccinationRecords");
                 });
 #pragma warning restore 612, 618
         }

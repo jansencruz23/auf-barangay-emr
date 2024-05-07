@@ -46,6 +46,24 @@ namespace AUF.EMR.Persistence
         public DbSet<PatientRecord> PatientRecords { get; set; }
         public DbSet<VaccinationAppointment> VaccinationAppointments { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<VaccinationRecord>()
+                .HasKey(v => new { v.VaccinationAppointmentId, v.VaccineId });
+
+            builder.Entity<VaccinationRecord>()
+                .HasOne(v => v.VaccinationAppointment)
+                .WithMany(v => v.VaccinationRecords)
+                .HasForeignKey(v => v.VaccinationAppointmentId);
+
+            builder.Entity<VaccinationRecord>()
+                .HasOne(v => v.Vaccine)
+                .WithMany(v => v.VaccinationRecords)
+                .HasForeignKey(v => v.VaccineId);
+        }
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             var modifiedEntities = GetModifiedEntities();
