@@ -23,17 +23,18 @@
 
 <body class="bg-gray-100">
 
+    <h1 class="text-3xl font-bold mb-8">Employees</h1>
+
+    <div class="flex mb-4">
+        <input type="text" class="bg-white shadow-md rounded-lg p-8 mb-8" placeholder="Search...">
+        <a asp-action="Create" class="focus:outline-none text-white bg-primary-50 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add Employee</a>
+    </div>
+
     <div class="container mx-auto px-4 py-8">
 
         <div class="bg-white shadow-md rounded-lg p-8 mb-8">
 
-            <h1 class="text-3xl font-bold mb-8">Employees</h1>
-
-            < <div class="flex mb-4">
-                <input type="text" class="border-gray-300 border rounded-l-md px-4 py-2 w-3/4" placeholder="Search...">
-                <a asp-action="Create" class="focus:outline-none text-white bg-primary-50 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add Employee</a>
-            </div>
-
+     
             <table class="table-auto w-full">
                 <thead>
                     <tr class="bg-gray-200">
