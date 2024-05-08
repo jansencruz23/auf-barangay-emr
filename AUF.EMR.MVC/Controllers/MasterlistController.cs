@@ -1,6 +1,8 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.Application.Services;
 using AUF.EMR.Domain.Models;
 using AUF.EMR.Domain.Models.Identity;
+using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
 using AUF.EMR.MVC.Models.PrintVM;
 using AutoMapper;
@@ -18,14 +20,132 @@ namespace AUF.EMR.MVC.Controllers
         private readonly IMasterlistService _masterlistService;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IBarangayService _brgyService;
+        private readonly IHouseholdMemberService _householdMemberService;
+        private readonly IHouseholdService _householdService;
 
         public MasterlistController(IMasterlistService masterlistService,
             UserManager<ApplicationUser> userManager,
-            IBarangayService brgyService)
+            IBarangayService brgyService,
+            IHouseholdMemberService householdMemberService,
+            IHouseholdService householdService)
         {
             _masterlistService = masterlistService;
             _userManager = userManager;
             _brgyService = brgyService;
+            _householdMemberService = householdMemberService;
+            _householdService = householdService;
+        }
+
+        // GET: MasterlistController/EditChildrenInfo
+        public async Task<ActionResult> EditChildrenInfo(int? id, string requestUrl, string householdNo)
+        {
+            if (id == null || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var member = await _householdMemberService.GetHouseholdMemberWithDetails(id.Value);
+
+            if (member == null)
+            {
+                return NotFound();
+            }
+
+            var model = new EditHouseholdMemberVM
+            {
+                HouseholdMember = member,
+                RequestUrl = requestUrl,
+                HouseholdNo = householdNo
+            };
+
+            return View(model);
+        }
+
+        // POST: MasterlistController/EditChildrenInfo
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditChildrenInfo(int? id, EditHouseholdMemberVM model)
+        {
+            if (model == null || id == null)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            try
+            {
+                var householdMember = model.HouseholdMember;
+                var householdId = await _householdService.GetHouseholdId(model.HouseholdNo);
+                householdMember.HouseholdId = householdId;
+                var completed = await _householdMemberService.Update(householdMember);
+
+                return Redirect(model.RequestUrl);
+            }
+            catch (Exception ex)
+            {
+                model.ErrorMessage = ex.Message;
+                return View(model);
+            }
+        }
+
+        // GET: MasterlistController/EditAdultInfo
+        public async Task<ActionResult> EditAdultInfo(int? id, string requestUrl, string householdNo)
+        {
+            if (id == null || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var member = await _householdMemberService.GetHouseholdMemberWithDetails(id.Value);
+
+            if (member == null)
+            {
+                return NotFound();
+            }
+
+            var model = new EditHouseholdMemberVM
+            {
+                HouseholdMember = member,
+                RequestUrl = requestUrl,
+                HouseholdNo = householdNo
+            };
+
+            return View(model);
+        }
+
+        // POST: MasterlistController/EditAdultInfo
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditAdultInfo(int? id, EditHouseholdMemberVM model)
+        {
+            if (model == null || id == null)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            try
+            {
+                var householdMember = model.HouseholdMember;
+                var householdId = await _householdService.GetHouseholdId(model.HouseholdNo);
+                householdMember.HouseholdId = householdId;
+                var completed = await _householdMemberService.Update(householdMember);
+
+                return Redirect(model.RequestUrl);
+            }
+            catch (Exception ex)
+            {
+                model.ErrorMessage = ex.Message;
+                return View(model);
+            }
         }
 
         // GET: MasterlistController/Newborn

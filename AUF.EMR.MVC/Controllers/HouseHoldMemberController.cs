@@ -100,7 +100,7 @@ namespace AUF.EMR.MVC.Controllers
             var model = new EditHouseholdMemberVM
             {
                 HouseholdMember = member,
-                ReturnUrl = requestUrl,
+                RequestUrl = requestUrl,
                 HouseholdNo = member.Household.HouseholdNo
             };
 
@@ -119,10 +119,10 @@ namespace AUF.EMR.MVC.Controllers
                 householdMember.HouseholdId = householdId;
                 var completed = await _houseHoldMemberService.Update(householdMember);
 
-                if (!string.IsNullOrEmpty(model.ReturnUrl) 
-                    && Url.IsLocalUrl(model.ReturnUrl))
+                if (!string.IsNullOrEmpty(model.RequestUrl) 
+                    && Url.IsLocalUrl(model.RequestUrl))
                 {
-                    return Redirect(model.ReturnUrl);
+                    return Redirect(model.RequestUrl);
                 }
 
                 return RedirectToAction(nameof(Edit), nameof(Household), new { id = householdId });

@@ -10,6 +10,7 @@ namespace AUF.EMR.Application.Contracts.Persistence
 {
     public interface IHouseholdRepository : IGenericRepository<Household>
     {
+        Task<string> GetHouseholdNo(int id);
         Task<List<Household>> GetHouseholdsWithDetails();
         Task<List<Household>> GetSearchedHouseholdsWithDetails(string query);
         Task<Household> GetSearchedHouseholdWithDetails(string query);

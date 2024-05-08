@@ -7,7 +7,6 @@ namespace AUF.EMR.MVC.Models.IndexVM
     {
         public List<HouseholdMember> HouseholdMembers { get; set; }
         public string RequestUrl { get; set; }
-        public string HouseholdNo { get; set; }
         public Household Household { get; set; }
     }
 }

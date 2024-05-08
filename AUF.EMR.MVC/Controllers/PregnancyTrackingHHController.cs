@@ -1,12 +1,15 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.EditVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize(Policy = "User")]
     public class PregnancyTrackingHHController : Controller
     {
         private readonly IPregnancyTrackingHHService _ptHHService;
@@ -46,7 +49,7 @@ namespace AUF.EMR.MVC.Controllers
 
             try
             {
-                var pregTrackHH = await _ptHHService.GetPregnancyTrackingHHWithDetails(id);
+                var pregTrackHH = model.PregnancyTrackingHH;
                 if (pregTrackHH == null)
                 {
                     return NotFound();
@@ -54,33 +57,12 @@ namespace AUF.EMR.MVC.Controllers
 
                 await _ptHHService.Update(pregTrackHH);
 
-                return RedirectToAction(nameof(Edit), new { id });
+                return RedirectToAction(nameof(Index), "PregnancyTracking", new { householdNo = model.HouseholdNo });
             }
             catch (Exception ex)
             {
                 model.ErrorMessage = ex.Message;
                 return View(model);
-            }
-        }
-
-        // GET: PregnancyTrackingHHController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: PregnancyTrackingHHController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
             }
         }
     }

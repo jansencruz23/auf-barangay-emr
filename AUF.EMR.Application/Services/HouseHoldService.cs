@@ -21,6 +21,11 @@ namespace AUF.EMR.Application.Services
             _repository = repository;
         }
 
+        public async Task<string> GetHouseholdNo(int id)
+        {
+            return await _repository.GetHouseholdNo(id);
+        }
+
         public async Task DeleteHousehold(int id)
         {
             await _repository.DeleteHousehold(id);

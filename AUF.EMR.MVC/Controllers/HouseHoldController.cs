@@ -155,12 +155,23 @@ namespace AUF.EMR.MVC.Controllers
         // GET: HouseHolds/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            var houseHold = await _houseHoldService.GetHouseholdWithDetails(id.Value);
-            var houseHoldMembers = await _houseHoldMemberService.GetHouseholdMembersWithDetails(houseHold.HouseholdNo);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var household = await _houseHoldService.GetHouseholdWithDetails(id.Value);
+
+            if (household == null)
+            {
+                return NotFound();
+            }
+            
+            var householdMembers = await _houseHoldMemberService.GetHouseholdMembersWithDetails(household.HouseholdNo);
             var model = new CreateHouseholdProfileVM
             {
-                Household = houseHold,
-                HouseholdMembers = houseHoldMembers
+                Household = household,
+                HouseholdMembers = householdMembers
             };
            
             return View(model);
@@ -169,12 +180,18 @@ namespace AUF.EMR.MVC.Controllers
         // POST: HouseHolds/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, CreateHouseholdProfileVM model)
+        public async Task<IActionResult> Edit(int? id, CreateHouseholdProfileVM model)
         {
+            if (id == null || model == null)
+            {
+                return NotFound();
+            }
+
             try
             {
+                var prevHouseholdNo = await _houseHoldService.GetHouseholdNo(id.Value);
                 var isExisting = await _houseHoldService.IsHouseholdNoExisting(model.Household.HouseholdNo);
-                if (isExisting)
+                if (isExisting && model.Household.HouseholdNo != prevHouseholdNo)
                 {
                     ModelState.AddModelError("", "Household No. is already existing.");
                     model.ErrorMessage = "Household No. is already existing.";

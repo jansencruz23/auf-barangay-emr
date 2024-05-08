@@ -36,9 +36,9 @@ namespace AUF.EMR.Application.Services
             return await _repository.GetHouseholdMemberWithDetails(id);
         }
 
-        public async Task<List<HouseholdMember>> GetWRAHouseholdMember(string householdNo)
+        public async Task<List<HouseholdMember>> GetWRAHouseholdMembers(string householdNo)
         {
-            return await _repository.GetWRAHouseholdMember(householdNo);
+            return await _repository.GetWRAHouseholdMembers(householdNo);
         }
     }
 }

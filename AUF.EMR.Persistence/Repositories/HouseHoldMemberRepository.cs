@@ -91,7 +91,7 @@ namespace AUF.EMR.Persistence.Repositories
             return houseHoldMember;
         }
 
-        public async Task<List<HouseholdMember>> GetWRAHouseholdMember(string householdNo)
+        public async Task<List<HouseholdMember>> GetWRAHouseholdMembers(string householdNo)
         {
             var startDate = DateTime.Today.AddYears(WRAAgeRange.WRAStart).AddDays(1);
             var endDate = DateTime.Today.AddYears(WRAAgeRange.WRAEnd);
@@ -108,7 +108,5 @@ namespace AUF.EMR.Persistence.Repositories
 
             return WraMembers;
         }
-
-
     }
 }

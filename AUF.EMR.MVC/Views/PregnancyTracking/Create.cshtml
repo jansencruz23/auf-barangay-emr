@@ -1,4 +1,5 @@
-﻿@using AUF.EMR.Domain.Models.Enums;
+﻿@using AUF.EMR.Application.Utilities;
+@using AUF.EMR.Domain.Models.Enums;
 @model CreatePregnancyTrackingVM
 
 @{
@@ -57,8 +58,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="PregnancyTracking.PregnancyOutcome" class="control-label"></label>
-                <select asp-for="PregnancyTracking.PregnancyOutcome" class="form-control" asp-items="Html.GetEnumSelectList<PregnancyOutcome>()">
+                <select asp-for="PregnancyTracking.PregnancyOutcome" class="form-control">
                     <option selected="selected" value="">Please select</option>
+                    @foreach (var value in Enum.GetValues(typeof(PregnancyOutcome)))
+                    {
+                        <option value="@value">@EnumExtension.GetEnumTitleCase((PregnancyOutcome)value)</option>
+                    }
                 </select>
                 <span asp-validation-for="PregnancyTracking.PregnancyOutcome" class="text-danger"></span>
             </div>

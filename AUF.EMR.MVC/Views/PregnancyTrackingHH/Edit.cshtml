@@ -78,6 +78,8 @@
                 <span asp-validation-for="PregnancyTrackingHH.RuralHealthUnit" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="PregnancyTrackingHH.Id" />
+            <input type="hidden" asp-for="PregnancyTrackingHH.HouseholdId" value="@Model.PregnancyTrackingHH.HouseholdId" />
+            <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

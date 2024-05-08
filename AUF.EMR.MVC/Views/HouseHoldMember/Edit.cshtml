@@ -103,7 +103,7 @@
                     <label class="form-check-label">Clear</label>
                 </div>
             </div>
-            <input type="hidden" asp-for="ReturnUrl" />
+            <input type="hidden" asp-for="RequestUrl" />
             <input type="hidden" asp-for="HouseholdMember.Id" />
             <input type="hidden" asp-for="HouseholdMember.DateCreated" />
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdMember.Household.HouseholdNo" />
@@ -115,7 +115,7 @@
 </div>
 
 <div>
-    <a href="@Model.ReturnUrl">Back to List</a>
+    <a href="@Model.RequestUrl">Back to List</a>
 </div>
 
 @section Scripts {
