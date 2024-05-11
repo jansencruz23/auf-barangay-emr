@@ -21,7 +21,7 @@ namespace AUF.EMR.Application.Services
             _repository = repository;
         }
 
-        public List<VaccinationRecord> AddVaccinationRecords(int vaccinationAppointmentId, List<Vaccine> vaccines)
+        public async Task<List<VaccinationRecord>> AddVaccinationRecords(int vaccinationAppointmentId, List<Vaccine> vaccines)
         {
             var vaccinationRecords = new List<VaccinationRecord>();
 
@@ -35,6 +35,7 @@ namespace AUF.EMR.Application.Services
                 vaccinationRecords.Add(vaccinationRecord);
             }
 
+            await _repository.AddRange(vaccinationRecords);
             return vaccinationRecords;
         }
 

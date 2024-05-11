@@ -148,8 +148,10 @@
                     <td>
                         <a asp-action="Edit" asp-controller="VaccinationAppointment" 
                             asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo">Update</a> |
-                        <a asp-action="Delete" asp-controller="VaccinationAppointment" 
-                            asp-route-id="@appointment.Id">Delete</a>
+                        <form asp-action="Delete" asp-controller="VaccinationAppointment" 
+                            asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo">
+                            <button type="submit">Delete</button>
+                        </form>
                     </td>
                 </tr>
             }

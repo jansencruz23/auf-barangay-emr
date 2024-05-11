@@ -83,6 +83,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 var vaccines = model.Vaccines.Where(v => v.Selected).ToList();
                 var vaccinationRecords = new List<VaccinationRecord>();
+
                 foreach (var vaccine in vaccines)
                 {
                     var vaccinationRecord = new VaccinationRecord
@@ -92,17 +93,15 @@ namespace AUF.EMR.MVC.Controllers
                     };
                     vaccinationRecords.Add(vaccinationRecord);
                 }
-                
-                var appointment = model.Appointment;
-                appointment.VaccinationRecords = vaccinationRecords;
-                await _appointmentService.Add(appointment);
+
+                model.Appointment.VaccinationRecords = vaccinationRecords;
+                await _appointmentService.Add(model.Appointment);
+
                 return RedirectToAction(nameof(Details), nameof(PatientRecord), new { householdNo = model.HouseholdNo, id = model.PatientId });
             }
             catch (Exception ex)
             {
                 model.ErrorMessage = ex.Message;
-                model.HouseholdNo = model.HouseholdNo;
-                model.PatientId = model.PatientId;
                 return View();
             }
         }
@@ -165,9 +164,7 @@ namespace AUF.EMR.MVC.Controllers
                 var prevSelectedVaccines = model.SelectedVaccines;
 
                 await _vaccinationRecordService.DeleteVaccinationRecords(id, prevSelectedVaccines);
-                appointment.VaccinationRecords = _vaccinationRecordService.AddVaccinationRecords(id, vaccines);
-
-                await _vaccinationRecordService.AddRange(appointment.VaccinationRecords.ToList());
+                await _vaccinationRecordService.AddVaccinationRecords(id, vaccines);
                 await _appointmentService.Update(appointment);
 
                 return RedirectToAction(nameof(Details), nameof(PatientRecord), new { householdNo = model.HouseholdNo, id = model.PatientId });
@@ -175,28 +172,23 @@ namespace AUF.EMR.MVC.Controllers
             catch (Exception ex)
             {
                 model.ErrorMessage = ex.Message;
-                model.HouseholdNo = model.HouseholdNo;
-                model.PatientId = model.PatientId;
                 return View();
             }
-        }
-
-        // GET: VaccinationAppointmentController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
         }
 
         // POST: VaccinationAppointmentController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, string householdNo)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var appointment = await _appointmentService.GetVaccinationAppointmentWithDetails(id);
+                await _appointmentService.Delete(appointment);
+
+                return RedirectToAction(nameof(Details), nameof(PatientRecord), new { householdNo = householdNo, id = appointment.PatientId }); ;
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
