@@ -45,6 +45,7 @@ namespace AUF.EMR.Persistence
         public DbSet<Vaccine> Vaccines { get; set; }
         public DbSet<PatientRecord> PatientRecords { get; set; }
         public DbSet<VaccinationAppointment> VaccinationAppointments { get; set; }
+        public DbSet<VaccinationRecord> VaccinationRecords { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

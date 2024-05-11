@@ -20,5 +20,15 @@ namespace AUF.EMR.Application.Services
         {
             _repository = repository;
         }
+
+        public async Task DeleteVaccinationRecord(int vaccinationAppointmendId, int vaccineId)
+        {
+            await _repository.DeleteVaccinationRecord(vaccinationAppointmendId, vaccineId);
+        }
+
+        public async Task<List<VaccinationRecord>> GetVaccinationRecordsWithDetails(int id)
+        {
+            return await _repository.GetVaccinationRecordsWithDetails(id);
+        }
     }
 }

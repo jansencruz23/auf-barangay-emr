@@ -2,6 +2,7 @@
 using AUF.EMR.Application.Services;
 using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.CreateVM;
+using AUF.EMR.MVC.Models.EditVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -107,22 +108,90 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: VaccinationAppointmentController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id, string householdNo)
         {
-            return View();
+            if (id == 0 || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var appointment = await _appointmentService.GetVaccinationAppointmentWithDetails(id);
+            var vaccineRecords = await _vaccinationRecordService.GetVaccinationRecordsWithDetails(id);
+
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+
+            var selectedVaccines = new List<Vaccine>();
+
+            foreach (var vaccine in vaccineRecords)
+            {
+                selectedVaccines.Add(await _vaccineService.Get(vaccine.VaccineId));
+            }
+
+            var vaccines = await _vaccineService.GetAll();
+            var model = new EditVaccinationAppointmentVM
+            {
+                HouseholdNo = householdNo,
+                Appointment = appointment,
+                Vaccines = vaccines.ToList(),
+                SelectedVaccines = selectedVaccines,
+                PatientId = appointment.PatientId
+            };
+
+            return View(model);
         }
 
         // POST: VaccinationAppointmentController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, EditVaccinationAppointmentVM model)
         {
+            if (id == 0 || model == null)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                var vaccines = model.Vaccines.Where(v => v.Selected).ToList();
+                var vaccinationRecords = new List<VaccinationRecord>();
+                var prevSelectedVaccines = model.SelectedVaccines;
+
+                foreach (var vaccine in prevSelectedVaccines)
+                {
+                    await _vaccinationRecordService.DeleteVaccinationRecord(id, vaccine.Id);
+                }
+                
+                foreach (var vaccine in vaccines)
+                {
+                    var vaccinationRecord = new VaccinationRecord
+                    {
+                        VaccinationAppointmentId = model.Appointment.Id,
+                        VaccineId = vaccine.Id
+                    };
+                    vaccinationRecords.Add(vaccinationRecord);
+                }
+
+                var appointment = model.Appointment;
+                appointment.VaccinationRecords = vaccinationRecords;
+
+                await _vaccinationRecordService.AddRange(vaccinationRecords);
+                await _appointmentService.Update(appointment);
+
+                return RedirectToAction(nameof(Details), nameof(PatientRecord), new { householdNo = model.HouseholdNo, id = model.PatientId });
             }
-            catch
+            catch (Exception ex)
             {
+                model.ErrorMessage = ex.Message;
+                model.HouseholdNo = model.HouseholdNo;
+                model.PatientId = model.PatientId;
                 return View();
             }
         }

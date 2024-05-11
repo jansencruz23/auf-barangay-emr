@@ -1129,7 +1129,7 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.HasIndex("VaccineId");
 
-                    b.ToTable("VaccinationRecord");
+                    b.ToTable("VaccinationRecords");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.Vaccine", b =>

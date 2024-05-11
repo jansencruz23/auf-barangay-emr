@@ -10,5 +10,7 @@ namespace AUF.EMR.Application.Contracts.Services
 {
     public interface IVaccinationRecordService : IGenericService<VaccinationRecord>
     {
+        Task<List<VaccinationRecord>> GetVaccinationRecordsWithDetails(int id);
+        Task DeleteVaccinationRecord(int vaccinationAppointmendId, int vaccineId);
     }
 }

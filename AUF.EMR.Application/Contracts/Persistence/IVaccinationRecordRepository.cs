@@ -10,5 +10,7 @@ namespace AUF.EMR.Application.Contracts.Persistence
 {
     public interface IVaccinationRecordRepository : IGenericRepository<VaccinationRecord>
     {
+        Task<List<VaccinationRecord>> GetVaccinationRecordsWithDetails(int id);
+        Task DeleteVaccinationRecord(int vaccinationAppointmendId, int vaccineId);
     }
 }

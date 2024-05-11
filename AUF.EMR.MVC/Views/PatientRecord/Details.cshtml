@@ -96,17 +96,65 @@
     <hr />
 
     <h5>Vaccination Appointments</h5>
-    <div>
-        @foreach (var appointment in Model.PatientRecord.VaccinationAppointments)
-        {
-            <p>@appointment.VaccinationDate | @appointment.Weight | @appointment.Height | @appointment.Temperature
-                @foreach (var vaccine in appointment.VaccinationRecords)
-                {
-                    @vaccine.Vaccine.Name
-                }
-            </p>
-        }
-    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Patient
+                </th>
+                <th>
+                    VaccinationDate
+                </th>
+                <th>
+                    Weight
+                </th>
+                <th>
+                    Height
+                </th>
+                <th>
+                    Temperature
+                </th>
+                <th>
+                    Vaccines
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var appointment in Model.PatientRecord.VaccinationAppointments)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => appointment.Patient.Patient.FormattedFullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => appointment.VaccinationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => appointment.Weight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => appointment.Height)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => appointment.Temperature)
+                    </td>
+                    <td>
+                        @foreach (var vaccine in appointment.VaccinationRecords)
+                        {
+                            @vaccine.Vaccine.Name <br />
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="VaccinationAppointment" 
+                            asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo">Update</a> |
+                        <a asp-action="Delete" asp-controller="VaccinationAppointment" 
+                            asp-route-id="@appointment.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.PatientRecord.Id">Edit</a> |
