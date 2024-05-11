@@ -43,6 +43,8 @@ namespace AUF.EMR.Persistence
             services.AddScoped<IVaccinationAppointmentRepository, VaccinationAppointmentRepository>();
             services.AddScoped<IVaccineRepository, VaccineRepository>();
             services.AddScoped<IVaccinationRecordRepository, VaccinationRecordRepository>();
+            services.AddScoped<IPregnancyRecordRepository, PregnancyRecordRepository>();
+            services.AddScoped<IPregnancyAppointmentRepository, PregnancyAppointmentRepository>();
 
             services.AddScoped<AdminSeeder>();
             services.AddScoped<BarangaySeeder>();

@@ -36,6 +36,11 @@ namespace AUF.EMR.MVC.Controllers
         // GET: PatientRecordController/Details/5
         public async Task<ActionResult> Details(int id, string householdNo)
         {
+            if (id == 0 || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
             var record = await _patientRecordService.GetPatientRecordWithDetails(id);
 
             if (record == null)
@@ -61,6 +66,12 @@ namespace AUF.EMR.MVC.Controllers
             }
 
             var patientList = await _householdMemberService.GetHouseholdMembersWithDetails(householdNo);
+
+            if (patientList == null)
+            {
+                return NotFound();
+            }
+
             var model = new CreatePatientRecordVM
             {
                 HouseholdNo = householdNo,
