@@ -6,6 +6,13 @@
 
 <h1>Details</h1>
 
+<p>
+    <a asp-action="Create" asp-controller="PregnancyAppointment"
+       asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PregnancyRecord.Id">
+        Create New
+    </a>
+</p>
+
 <div>
     <h4>PregnancyRecord</h4>
     <hr />
@@ -59,6 +66,114 @@
             @Html.DisplayFor(model => model.PregnancyRecord.EDC)
         </dd>
     </dl>
+
+    <hr />
+
+    <h5>Pregnancy Appointments</h5>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    PregnancyRecord
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Weight
+                </th>
+                <th>
+                    BloodPressure
+                </th>
+                <th>
+                    Temperature
+                </th>
+                <th>
+                    AOG
+                </th>
+                <th>
+                    FH
+                </th>
+                <th>
+                    FHT
+                </th>
+                <th>
+                    TT1
+                </th>
+                <th>
+                    TT2
+                </th>
+                <th>
+                    TT3
+                </th>
+                <th>
+                    TT4
+                </th>
+                <th>
+                    TT5
+                </th>
+                <th>
+                    Remarks
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PregnancyRecord.PregnancyAppointments)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PregnancyRecord.CellphoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Weight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BloodPressure)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Temperature)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AOG)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FHT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TT1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TT2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TT3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TT4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TT5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Remarks)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.PregnancyRecord.Id" asp-route-householdNo="@Model.HouseholdNo">Edit</a> |

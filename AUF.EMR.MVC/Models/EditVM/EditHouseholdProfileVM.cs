@@ -8,6 +8,5 @@ namespace AUF.EMR.MVC.Models.EditVM
         public Household Household { get; set; } = new();
         public HouseholdMember HouseholdMember { get; set; }
         public List<HouseholdMember> HouseholdMembers { get; set; } = new();
-        public string RequestUrl { get; set; }
     }
 }

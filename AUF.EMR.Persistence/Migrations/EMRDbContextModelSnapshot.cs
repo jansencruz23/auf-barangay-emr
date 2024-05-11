@@ -921,11 +921,9 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("AOG")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("BloodPressure")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("Date")
@@ -935,11 +933,9 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("FH")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("FHT")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("LastModified")
@@ -952,36 +948,30 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Remarks")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("Status")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("TT1")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("TT2")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("TT3")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("TT4")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("TT5")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<double>("Temperature")
+                    b.Property<double?>("Temperature")
                         .HasColumnType("double");
 
-                    b.Property<double>("Weight")
+                    b.Property<double?>("Weight")
                         .HasColumnType("double");
 
                     b.HasKey("Id");
