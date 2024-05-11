@@ -160,29 +160,14 @@ namespace AUF.EMR.MVC.Controllers
 
             try
             {
+                var appointment = model.Appointment;
                 var vaccines = model.Vaccines.Where(v => v.Selected).ToList();
-                var vaccinationRecords = new List<VaccinationRecord>();
                 var prevSelectedVaccines = model.SelectedVaccines;
 
-                foreach (var vaccine in prevSelectedVaccines)
-                {
-                    await _vaccinationRecordService.DeleteVaccinationRecord(id, vaccine.Id);
-                }
-                
-                foreach (var vaccine in vaccines)
-                {
-                    var vaccinationRecord = new VaccinationRecord
-                    {
-                        VaccinationAppointmentId = model.Appointment.Id,
-                        VaccineId = vaccine.Id
-                    };
-                    vaccinationRecords.Add(vaccinationRecord);
-                }
+                await _vaccinationRecordService.DeleteVaccinationRecords(id, prevSelectedVaccines);
+                appointment.VaccinationRecords = _vaccinationRecordService.AddVaccinationRecords(id, vaccines);
 
-                var appointment = model.Appointment;
-                appointment.VaccinationRecords = vaccinationRecords;
-
-                await _vaccinationRecordService.AddRange(vaccinationRecords);
+                await _vaccinationRecordService.AddRange(appointment.VaccinationRecords.ToList());
                 await _appointmentService.Update(appointment);
 
                 return RedirectToAction(nameof(Details), nameof(PatientRecord), new { householdNo = model.HouseholdNo, id = model.PatientId });

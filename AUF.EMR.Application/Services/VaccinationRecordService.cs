@@ -21,9 +21,29 @@ namespace AUF.EMR.Application.Services
             _repository = repository;
         }
 
-        public async Task DeleteVaccinationRecord(int vaccinationAppointmendId, int vaccineId)
+        public List<VaccinationRecord> AddVaccinationRecords(int vaccinationAppointmentId, List<Vaccine> vaccines)
         {
-            await _repository.DeleteVaccinationRecord(vaccinationAppointmendId, vaccineId);
+            var vaccinationRecords = new List<VaccinationRecord>();
+
+            foreach (var vaccine in vaccines)
+            {
+                var vaccinationRecord = new VaccinationRecord
+                {
+                    VaccinationAppointmentId = vaccinationAppointmentId,
+                    VaccineId = vaccine.Id
+                };
+                vaccinationRecords.Add(vaccinationRecord);
+            }
+
+            return vaccinationRecords;
+        }
+
+        public async Task DeleteVaccinationRecords(int vaccinationAppointmentId, List<Vaccine> vaccines)
+        {
+            foreach (var vaccine in vaccines)
+            {
+                await _repository.DeleteVaccinationRecord(vaccinationAppointmentId, vaccine.Id);
+            }
         }
 
         public async Task<List<VaccinationRecord>> GetVaccinationRecordsWithDetails(int id)

@@ -46,6 +46,9 @@
             <!-- Dropdown menu -->
             <div id="dropdownHelper" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
                 <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHelperButton">
+                    @{
+                        int selectedIndex = 0;
+                    }
                     @for (var i = 0; i < Model.Vaccines.Count(); i++)
                     {
                         <li>
@@ -56,10 +59,12 @@
                                 <div class="flex items-center h-5">
                                     @if (Model.SelectedVaccines.Contains(Model.Vaccines[i]))
                                     {
-                                        <input asp-for="SelectedVaccines[i].Id" type="hidden" value="@Model.Vaccines[i].Id" />
-                                        <input asp-for="SelectedVaccines[i].Name" type="hidden" value="@Model.Vaccines[i].Name" />
-                                        <input asp-for="SelectedVaccines[i].Description" type="hidden" value="@Model.Vaccines[i].Description" />
+                                        <input asp-for="SelectedVaccines[selectedIndex].Id" type="hidden" value="@Model.Vaccines[i].Id" />
+                                        <input asp-for="SelectedVaccines[selectedIndex].Name" type="hidden" value="@Model.Vaccines[i].Name" />
+                                        <input asp-for="SelectedVaccines[selectedIndex].Description" type="hidden" value="@Model.Vaccines[i].Description" />
+
                                         <input asp-for="Vaccines[i].Selected" id="helper-checkbox-@i" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" checked />
+                                        selectedIndex++;
                                     }
                                     else
                                     {
