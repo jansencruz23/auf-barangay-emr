@@ -60,5 +60,10 @@ namespace AUF.EMR.Application.Services
         {
             return await _repository.IsHouseholdNoExisting(householdNo);
         }
+
+        public async Task<Household> GetHouseholdWithDetails(string householdNo)
+        {
+            return await _repository.GetHouseholdWithDetails(householdNo);
+        }
     }
 }

@@ -15,6 +15,11 @@ using Microsoft.AspNetCore.Authorization;
 using AUF.EMR.MVC.Models.IndexVM;
 using Microsoft.AspNetCore.Identity;
 using AUF.EMR.Domain.Models.Identity;
+using FastReport.Utils;
+using FastReport;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using FastReport.Export.PdfSimple;
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -25,16 +30,19 @@ namespace AUF.EMR.MVC.Controllers
         private readonly IHouseholdMemberService _houseHoldMemberService;
         private readonly IBarangayService _brgyService;
         private readonly IPregnancyTrackingHHService _ptHHService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public HouseholdController(IHouseholdService houseHoldService,
             IHouseholdMemberService houseHoldMemberService,
             IBarangayService brgyService,
-            IPregnancyTrackingHHService ptHHService)
+            IPregnancyTrackingHHService ptHHService,
+            IWebHostEnvironment webHostEnvironment)
         {
             _houseHoldService = houseHoldService;
             _houseHoldMemberService = houseHoldMemberService;
             _brgyService = brgyService;
             _ptHHService = ptHHService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: HouseHolds
@@ -231,6 +239,45 @@ namespace AUF.EMR.MVC.Controllers
             }
 
             return BadRequest();
+        }
+
+        public async Task<FileResult> Generate(string householdNo)
+        {
+            try
+            {
+                Config.WebMode = true;
+                var report = new Report();
+                var contentRootPath = _webHostEnvironment.ContentRootPath;
+                var path = Path.Combine(contentRootPath, "Reports", "HouseholdForm.frx");
+                var household = await _houseHoldService.GetHouseholdWithDetails(householdNo);
+                var list = new List<Household>();
+                list.Add(household);
+                report.Load(path);
+                report.RegisterData(list, "HouseholdRef");
+
+                if (report.Prepare())
+                {
+                    var pdfExport = new PDFSimpleExport();
+                    pdfExport.ShowProgress = true;
+                    pdfExport.Subject = "Subject Report";
+                    pdfExport.Title = "Report Title";
+                    var memoryStream = new MemoryStream();
+                    report.Report.Export(pdfExport, memoryStream);
+                    report.Dispose();
+                    pdfExport.Dispose();
+                    memoryStream.Position = 0;
+
+                    return File(memoryStream, "application/pdf", "household.pdf");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
     }
 }

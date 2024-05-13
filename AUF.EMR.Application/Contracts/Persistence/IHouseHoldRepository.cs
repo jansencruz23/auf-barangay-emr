@@ -15,6 +15,7 @@ namespace AUF.EMR.Application.Contracts.Persistence
         Task<List<Household>> GetSearchedHouseholdsWithDetails(string query);
         Task<Household> GetSearchedHouseholdWithDetails(string query);
         Task<Household> GetHouseholdWithDetails(int id);
+        Task<Household> GetHouseholdWithDetails(string householdNo);
         Task<int> GetHouseholdId(string householdNo);
         Task<bool> IsHouseholdNoExisting(string householdNo);
         Task DeleteHousehold(int id);
