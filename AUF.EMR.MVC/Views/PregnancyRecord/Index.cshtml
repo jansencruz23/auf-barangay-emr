@@ -68,7 +68,9 @@
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">View</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <form asp-action="Delete" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">
+                    <button type="submit"> Delete </button>
+                </form>
             </td>
         </tr>
 }

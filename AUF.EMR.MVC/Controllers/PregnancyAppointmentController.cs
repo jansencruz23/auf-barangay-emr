@@ -1,5 +1,6 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.MVC.Models.CreateVM;
+using AUF.EMR.MVC.Models.EditVM;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -69,42 +70,79 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: PregnancyAppointmentController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id, string householdNo)
         {
-            return View();
+            if (string.IsNullOrWhiteSpace(householdNo) || id == 0)
+            {
+                return NotFound();
+            }
+
+            var appointment = await _pregAppointmentService.GetPregnancyAppointmentWithDetails(id);
+
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+
+            var model = new EditPregnancyAppointmentVM
+            {
+                HouseholdNo = householdNo,
+                PregnancyAppointment = appointment,
+            };
+
+            return View(model);
         }
 
         // POST: PregnancyAppointmentController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, EditPregnancyAppointmentVM model)
         {
-            try
+            if (id == 0 || model == null)
             {
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            catch
+
+            if (!ModelState.IsValid)
             {
                 return View();
             }
-        }
 
-        // GET: PregnancyAppointmentController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
+            try
+            {
+                var appointment = model.PregnancyAppointment;
+                await _pregAppointmentService.Update(appointment);
+                return RedirectToAction("Details", "PregnancyRecord", new { householdNo = model.HouseholdNo, id = model.PregnancyAppointment.PregnancyRecordId });
+            }
+            catch (Exception ex)
+            {
+                model.ErrorMessage = ex.Message;
+                return View();
+            }
         }
 
         // POST: PregnancyAppointmentController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, int recordId, string householdNo)
         {
+            if (id == 0 || recordId == 0 || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                var appointment = await _pregAppointmentService.Get(id);
+                if (appointment == null)
+                {
+                    return NotFound();
+                }
+
+                await _pregAppointmentService.Delete(appointment);
+                return RedirectToAction("Details", "PregnancyRecord", new { householdNo = householdNo, id = recordId });
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }

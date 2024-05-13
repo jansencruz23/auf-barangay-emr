@@ -7,9 +7,15 @@
 <h1>Details</h1>
 
 <p>
+    <a asp-action="Edit" 
+       asp-route-householdNo="@Model.HouseholdNo" asp-route-Id="@Model.PregnancyRecord.Id">
+        Update
+    </a>
+</p>
+<p>
     <a asp-action="Create" asp-controller="PregnancyAppointment"
        asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PregnancyRecord.Id">
-        Create New
+        Create New Appointment
     </a>
 </p>
 
@@ -75,9 +81,6 @@
         <thead>
             <tr>
                 <th>
-                    PregnancyRecord
-                </th>
-                <th>
                     Date
                 </th>
                 <th>
@@ -124,9 +127,6 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.PregnancyRecord.CellphoneNumber)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.Date)
                     </td>
                     <td>
@@ -166,8 +166,12 @@
                         @Html.DisplayFor(modelItem => item.Remarks)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Edit" asp-controller="PregnancyAppointment" 
+                            asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">Edit</a> |
+                        <form asp-action="Delete" method="post" asp-controller="PregnancyAppointment"
+                          asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PregnancyRecord.Id">
+                            <button type="submit">Delete</button>
+                        </form>
                     </td>
                 </tr>
             }

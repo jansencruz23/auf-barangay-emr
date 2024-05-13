@@ -1,6 +1,8 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.Application.Services;
 using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.DetailVM;
+using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -119,19 +121,51 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: PregnancyRecordController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id, string householdNo)
         {
-            return View();
+            if (string.IsNullOrWhiteSpace(householdNo) || id == 0)
+            {
+                return NotFound();
+            }
+
+            var record = await _pregRecordService.GetPregnancyRecordWithDetails(id);
+
+            if (record == null)
+            {
+                return NotFound();
+            }
+
+            var women = await _householdMemberService.GetWRAHouseholdMembers(householdNo);
+            var model = new EditPregnancyRecordVM
+            {
+                HouseholdNo = householdNo,
+                PregnancyRecord = record,
+                Women = women
+            };
+
+            return View(model);
         }
 
         // POST: PregnancyRecordController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, EditPregnancyRecordVM model)
         {
+            if (id == 0 || model == null)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                var record = model.PregnancyRecord;
+                await _pregRecordService.Update(record);
+                return RedirectToAction(nameof(Details), new { householdNo = model.HouseholdNo, id = model.PregnancyRecord.Id });
             }
             catch
             {
@@ -139,22 +173,27 @@ namespace AUF.EMR.MVC.Controllers
             }
         }
 
-        // GET: PregnancyRecordController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: PregnancyRecordController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, string householdNo)
         {
+            if (id == 0 || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
             try
             {
-                return RedirectToAction(nameof(Index));
+                var record = await _pregRecordService.Get(id);
+                if (record == null)
+                {
+                    return NotFound();
+                }
+
+                await _pregRecordService.Delete(record);
+                return RedirectToAction(nameof(Index), new { householdNo = householdNo });
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }

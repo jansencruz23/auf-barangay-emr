@@ -164,12 +164,6 @@ namespace AUF.EMR.MVC.Controllers
             }
         }
 
-        // GET: PatientRecordController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: PatientRecordController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
