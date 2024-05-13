@@ -25,6 +25,8 @@ namespace AUF.EMR.Persistence.Repositories
             var records = await _dbContext.PatientRecords
                 .AsNoTracking()
                 .Include(p => p.VaccinationAppointments)
+                    .ThenInclude(v => v.VaccinationRecords)
+                        .ThenInclude(r => r.Vaccine)
                 .Include(p => p.Patient)
                     .ThenInclude(m => m.Household)
                 .Where(p => p.Status &&
@@ -40,7 +42,9 @@ namespace AUF.EMR.Persistence.Repositories
         {
             var record = await _dbContext.PatientRecords
                 .AsNoTracking()
-                .Include(p => p.VaccinationAppointments)
+                .Include(p => p.VaccinationAppointments.Where(a => a.Status))
+                    .ThenInclude(v => v.VaccinationRecords)
+                            .ThenInclude(r => r.Vaccine)
                 .Include(p => p.Patient)
                     .ThenInclude(m => m.Household)
                 .Where(p => p.Status &&

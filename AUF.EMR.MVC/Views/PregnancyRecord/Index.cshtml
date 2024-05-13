@@ -1,0 +1,78 @@
+﻿@model PregnancyRecordVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Patient
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Husband
+            </th>
+            <th>
+                Gravida
+            </th>
+            <th>
+                Para
+            </th>
+            <th>
+                LMP
+            </th>
+            <th>
+                CellphoneNumber
+            </th>
+            <th>
+                EDC
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PregnancyRecords) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.FormattedFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Husband)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gravida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Para)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LMP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CellphoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EDC)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">View</a> |
+                <form asp-action="Delete" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">
+                    <button type="submit"> Delete </button>
+                </form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

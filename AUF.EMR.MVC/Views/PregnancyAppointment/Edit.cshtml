@@ -1,0 +1,94 @@
+﻿@model EditPregnancyAppointmentVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PregnancyAppointment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PregnancyAppointment.Id" value="@Model.PregnancyAppointment.Id" />
+            <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
+            <input type="hidden" asp-for="RequestUrl" value="@Model.RequestUrl" />
+            <input type="hidden" asp-for="PregnancyAppointment.PregnancyRecordId" value="@Model.PregnancyAppointment.PregnancyRecordId" />
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.Date" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.Date" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.Weight" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.Weight" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.BloodPressure" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.BloodPressure" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.BloodPressure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.Temperature" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.Temperature" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.Temperature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.AOG" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.AOG" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.AOG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.FH" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.FH" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.FH" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.FHT" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.FHT" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.FHT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.TT1" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.TT1" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.TT1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.TT2" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.TT2" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.TT2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.TT3" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.TT3" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.TT3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.TT4" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.TT4" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.TT4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.TT5" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.TT5" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.TT5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyAppointment.Remarks" class="control-label"></label>
+                <input asp-for="PregnancyAppointment.Remarks" class="form-control" />
+                <span asp-validation-for="PregnancyAppointment.Remarks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,87 @@
+﻿@model EditPatientRecordVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PatientRecord</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
+            <input type="hidden" asp-for="PatientRecord.Id" value="@Model.PatientRecord.Id"/>
+            <input type="hidden" asp-for="PatientRecord.PatientId" value="@Model.PatientRecord.PatientId" />
+            <div class="form-group">
+                <label asp-for="PatientRecord.PatientId" class="control-label"></label>
+                <select asp-for="PatientRecord.PatientId" class="form-control" asp-items="@(new SelectList(Model.PatientList, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientRecord.BirthPlace" class="control-label"></label>
+                <input asp-for="PatientRecord.BirthPlace" class="form-control" />
+                <span asp-validation-for="PatientRecord.BirthPlace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientRecord.MotherName" class="control-label"></label>
+                <input asp-for="PatientRecord.MotherName" class="form-control" />
+                <span asp-validation-for="PatientRecord.MotherName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientRecord.MotherAge" class="control-label"></label>
+                <input asp-for="PatientRecord.MotherAge" class="form-control" />
+                <span asp-validation-for="PatientRecord.MotherAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientRecord.MotherBirthday" class="control-label"></label>
+                <input asp-for="PatientRecord.MotherBirthday" class="form-control" />
+                <span asp-validation-for="PatientRecord.MotherBirthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientRecord.FatherName" class="control-label"></label>
+                <input asp-for="PatientRecord.FatherName" class="form-control" />
+                <span asp-validation-for="PatientRecord.FatherName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientRecord.FatherAge" class="control-label"></label>
+                <input asp-for="PatientRecord.FatherAge" class="form-control" />
+                <span asp-validation-for="PatientRecord.FatherAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientRecord.FatherBirthday" class="control-label"></label>
+                <input asp-for="PatientRecord.FatherBirthday" class="form-control" />
+                <span asp-validation-for="PatientRecord.FatherBirthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientRecord.ContactNumber" class="control-label"></label>
+                <input asp-for="PatientRecord.ContactNumber" class="form-control" />
+                <span asp-validation-for="PatientRecord.ContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientRecord.TypeOfDelivery" class="control-label"></label>
+                <input asp-for="PatientRecord.TypeOfDelivery" class="form-control" />
+                <span asp-validation-for="PatientRecord.TypeOfDelivery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientRecord.Attended" class="control-label"></label>
+                <input asp-for="PatientRecord.Attended" class="form-control" />
+                <span asp-validation-for="PatientRecord.Attended" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

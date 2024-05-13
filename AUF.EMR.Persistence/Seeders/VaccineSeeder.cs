@@ -30,7 +30,7 @@ namespace AUF.EMR.Persistence.Seeders
                 new Vaccine { Name = "Hepatitis B birth dose" },
                 new Vaccine { Name = "Oral Poliovirus Vaccine" },
                 new Vaccine { Name = "Pentavalent Vaccine" },
-                new Vaccine { Name = "Measles Containing Vaccines" },
+                new Vaccine { Name = "Measles Containing Vaccines", Description = "(Antimeasles Vaccine, Measles, Mumps, Rubella)" },
                 new Vaccine { Name = "Tetanus Toxoid" },
                 new Vaccine { Name = "Pneumococcal Conjugate Vaccine 13" }
             };

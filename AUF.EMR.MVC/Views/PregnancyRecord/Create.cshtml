@@ -1,0 +1,70 @@
+﻿@model CreatePregnancyRecordVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PregnancyRecord</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
+            <div class="form-group">
+                <label asp-for="PregnancyRecord.PatientId" class="control-label"></label>
+                <select asp-for="PregnancyRecord.PatientId" class="form-control" asp-items="@(new SelectList(Model.Women, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyRecord.Age" class="control-label"></label>
+                <input asp-for="PregnancyRecord.Age" class="form-control" />
+                <span asp-validation-for="PregnancyRecord.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyRecord.Husband" class="control-label"></label>
+                <input asp-for="PregnancyRecord.Husband" class="form-control" />
+                <span asp-validation-for="PregnancyRecord.Husband" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyRecord.Gravida" class="control-label"></label>
+                <input asp-for="PregnancyRecord.Gravida" class="form-control" />
+                <span asp-validation-for="PregnancyRecord.Gravida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyRecord.Para" class="control-label"></label>
+                <input asp-for="PregnancyRecord.Para" class="form-control" />
+                <span asp-validation-for="PregnancyRecord.Para" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyRecord.LMP" class="control-label"></label>
+                <input asp-for="PregnancyRecord.LMP" class="form-control" />
+                <span asp-validation-for="PregnancyRecord.LMP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyRecord.CellphoneNumber" class="control-label"></label>
+                <input asp-for="PregnancyRecord.CellphoneNumber" class="form-control" />
+                <span asp-validation-for="PregnancyRecord.CellphoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PregnancyRecord.EDC" class="control-label"></label>
+                <input asp-for="PregnancyRecord.EDC" class="form-control" />
+                <span asp-validation-for="PregnancyRecord.EDC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

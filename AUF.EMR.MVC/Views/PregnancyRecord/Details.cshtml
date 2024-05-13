@@ -1,0 +1,185 @@
+﻿@model DetailPregnancyRecordVM
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<p>
+    <a asp-action="Edit" 
+       asp-route-householdNo="@Model.HouseholdNo" asp-route-Id="@Model.PregnancyRecord.Id">
+        Update
+    </a>
+</p>
+<p>
+    <a asp-action="Create" asp-controller="PregnancyAppointment"
+       asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PregnancyRecord.Id">
+        Create New Appointment
+    </a>
+</p>
+
+<div>
+    <h4>PregnancyRecord</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PregnancyRecord.Patient)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PregnancyRecord.Patient.FormattedFullName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PregnancyRecord.Age)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PregnancyRecord.Age)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PregnancyRecord.Husband)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PregnancyRecord.Husband)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PregnancyRecord.Gravida)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PregnancyRecord.Gravida)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PregnancyRecord.Para)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PregnancyRecord.Para)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PregnancyRecord.LMP)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PregnancyRecord.LMP)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PregnancyRecord.CellphoneNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PregnancyRecord.CellphoneNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PregnancyRecord.EDC)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PregnancyRecord.EDC)
+        </dd>
+    </dl>
+
+    <hr />
+
+    <h5>Pregnancy Appointments</h5>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Weight
+                </th>
+                <th>
+                    BloodPressure
+                </th>
+                <th>
+                    Temperature
+                </th>
+                <th>
+                    AOG
+                </th>
+                <th>
+                    FH
+                </th>
+                <th>
+                    FHT
+                </th>
+                <th>
+                    TT1
+                </th>
+                <th>
+                    TT2
+                </th>
+                <th>
+                    TT3
+                </th>
+                <th>
+                    TT4
+                </th>
+                <th>
+                    TT5
+                </th>
+                <th>
+                    Remarks
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PregnancyRecord.PregnancyAppointments)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Weight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BloodPressure)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Temperature)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AOG)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FHT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TT1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TT2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TT3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TT4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TT5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Remarks)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="PregnancyAppointment" 
+                            asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">Edit</a> |
+                        <form asp-action="Delete" method="post" asp-controller="PregnancyAppointment"
+                          asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PregnancyRecord.Id">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.PregnancyRecord.Id" asp-route-householdNo="@Model.HouseholdNo">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

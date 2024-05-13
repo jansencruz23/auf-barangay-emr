@@ -23,18 +23,30 @@
 
 <body class="bg-gray-100">
 
-    <h1 class="text-3xl font-bold mb-8">Employees</h1>
-
-    <div class="flex mb-4">
-        <input type="text" class="bg-white shadow-md rounded-lg p-8 mb-8" placeholder="Search...">
-        <a asp-action="Create" class="focus:outline-none text-white bg-primary-50 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add Employee</a>
-    </div>
-
     <div class="container mx-auto px-4 py-8">
+        <h1 class="text-2xl font-bold mb-8">List of Employees</h1>
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex-1 mr-4 relative">
+                <input type="text" class="w-full bg-white shadow-md rounded-lg p-3 pr-10 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                       placeholder="Search...">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                         stroke="currentColor">
+                        <path d="M21 21l-5.2-5.2m.8-.8a8 8 0 1 1-10.6-10.6 8 8 0 0 1 10.6 10.6z"></path>
+                    </svg>
+                </div>
+            </div>
+            <a asp-action="Create" class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out"
+               aria-label="Add Employee">
+                <svg class="h-5 w-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                Add Employee
+            </a>
+        </div>
 
-        <div class="bg-white shadow-md rounded-lg p-8 mb-8">
+        <div class="bg-white shadow-md rounded-lg p-8">
 
-     
             <table class="table-auto w-full">
                 <thead>
                     <tr class="bg-gray-200">

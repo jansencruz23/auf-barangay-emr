@@ -1,11 +1,24 @@
-﻿@using AUF.EMR.MVC.Models.DetailVM;
-@model DetailPatientRecordVM
+﻿@model DetailPatientRecordVM
 
 @{
     ViewData["Title"] = "Details";
 }
 
 <h1>Details</h1>
+
+<p>
+    <a asp-action="Create" asp-controller="VaccinationAppointment" 
+        asp-route-householdNo="@Model.HouseholdNo" asp-route-patientId="@Model.PatientRecord.Id">
+    Create New
+    </a>
+</p>
+
+<p>
+    <a asp-action="Edit" asp-route-householdNo="@Model.HouseholdNo" 
+    asp-route-Id="@Model.PatientRecord.Id">
+        Update
+    </a>
+</p>
 
 <div>
     <h4>PatientRecord</h4>
@@ -78,6 +91,71 @@
             @Html.DisplayFor(model => model.PatientRecord.Attended)
         </dd> 
     </dl>
+
+    <hr />
+
+    <h5>Vaccination Appointments</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Patient
+                </th>
+                <th>
+                    VaccinationDate
+                </th>
+                <th>
+                    Weight
+                </th>
+                <th>
+                    Height
+                </th>
+                <th>
+                    Temperature
+                </th>
+                <th>
+                    Vaccines
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var appointment in Model.PatientRecord.VaccinationAppointments)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => appointment.Patient.Patient.FormattedFullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => appointment.VaccinationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => appointment.Weight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => appointment.Height)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => appointment.Temperature)
+                    </td>
+                    <td>
+                        @foreach (var vaccine in appointment.VaccinationRecords)
+                        {
+                            @vaccine.Vaccine.Name <br />
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="VaccinationAppointment" 
+                            asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo">Update</a> |
+                        <form asp-action="Delete" asp-controller="VaccinationAppointment" 
+                            asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.PatientRecord.Id">Edit</a> |

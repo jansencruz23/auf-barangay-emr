@@ -51,7 +51,7 @@ namespace AUF.EMR.MVC.Controllers
             var model = new DetailHouseholdMemberVM
             {
                 HouseholdMember = await _houseHoldMemberService.GetHouseholdMemberWithDetails(id),
-                ReturnUrl = requestUrl
+                RequestUrl = requestUrl
             };
 
             return View(model);

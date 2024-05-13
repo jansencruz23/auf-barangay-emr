@@ -1,6 +1,7 @@
 ﻿using AUF.EMR.Application.Contracts.Persistence;
 using AUF.EMR.Application.Contracts.Persistence.Common;
 using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.Domain.Models;
 using AUF.EMR.Persistence.Repositories;
 using AUF.EMR.Persistence.Repositories.Common;
 using AUF.EMR.Persistence.Seeders;
@@ -41,6 +42,9 @@ namespace AUF.EMR.Persistence
             services.AddScoped<IPatientRecordRepository, PatientRecordRepository>();
             services.AddScoped<IVaccinationAppointmentRepository, VaccinationAppointmentRepository>();
             services.AddScoped<IVaccineRepository, VaccineRepository>();
+            services.AddScoped<IVaccinationRecordRepository, VaccinationRecordRepository>();
+            services.AddScoped<IPregnancyRecordRepository, PregnancyRecordRepository>();
+            services.AddScoped<IPregnancyAppointmentRepository, PregnancyAppointmentRepository>();
 
             services.AddScoped<AdminSeeder>();
             services.AddScoped<BarangaySeeder>();
