@@ -60,7 +60,7 @@
                         <input asp-for="User.Position" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" autocomplete="position" aria-required="true" placeholder="Position" />
                         <span asp-validation-for="User.Position" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                    <a asp-action="ResetPassword" asp-route-id="@Model.User.Id">Reset Password</a>
+                    <a asp-action="ResetPassword" asp-route-id="@Model.User.Id" class="text-sm text-blue-500">Reset Password?</a>
                 </div>
             </div>
             <div class="flex justify-end">
