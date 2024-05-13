@@ -2,7 +2,102 @@
 @model DetailUserVM
 
 @{
+    Layout = "Layouts/_BarangaySideLayout";
 
 }
 
-Name: @Model.User.FullName
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="container mx-auto px-4 py-8">
+
+        <div class="bg-white shadow-md rounded-lg p-8 mb-8">
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Profile of @Model.User.FullName</h1>
+            <hr class="mb-4">
+
+            <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-24">First Name</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.FirstName)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-24">Address</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.Address)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-24">Middle Name</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.MiddleName)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-24">Position</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.Position)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-24">Last Name</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.LastName)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-24">Username</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.UserName)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-24">Profile Picture</dt>
+                    <dd class="text-gray-900">
+                        @if (Model.User.Picture != null && Model.User.Picture.Length > 0)
+                        {
+                            <img src="data:image/png;base64,@Model.User.Picture" alt="Logo" width="100" height="100" class="rounded-lg">
+                        }
+                    </dd>
+                </div>
+                <div class="flex items-center">
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-24">Date of Birth</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.Birthday)</dd>
+                </div>
+                <div class="flex items-center">
+                </div>
+                <div class="flex items-center">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-24">Contact No.</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.ContactNo)</dd>
+                </div>
+            </dl>
+
+            <div class="flex justify-end mt-8">
+                <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-500 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back</a>
+                <a asp-action="Edit" class="focus:outline-none text-white bg-primary-50 focus:ring-4 focus:ring-green-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 w-20 flex items-center justify-center">Edit</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
