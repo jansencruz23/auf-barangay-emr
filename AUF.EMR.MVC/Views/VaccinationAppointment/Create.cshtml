@@ -2,20 +2,22 @@
 
 @{
     Layout = "Layouts/_HouseholdLayout";
+    Layout = "Layouts/_FormLayout";
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>VaccinationAppointment</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Appointment.PatientId" value="@Model.PatientId" />
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             <input type="hidden" asp-for="PatientId" value="@Model.PatientId" />
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Add Vaccination Appointment</h1>
+            <hr class="mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            </div>
             <div class="form-group">
                 <label asp-for="Appointment.VaccinationDate" class="control-label"></label>
                 <input asp-for="Appointment.VaccinationDate" class="form-control" />
