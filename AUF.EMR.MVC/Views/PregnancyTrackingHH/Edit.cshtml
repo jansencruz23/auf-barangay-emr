@@ -1,93 +1,100 @@
 ﻿@model EditPregnancyTrackingHHVM
 
 @{
+    Layout = "Layouts/_HouseholdLayout";
+    Layout = "Layouts/_FormLayout";
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
 
-<h4>PregnancyTrackingHH</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.Year" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.Year" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.Year" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.Region" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.Region" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.Region" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.Province" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.Province" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.Province" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.Municipality" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.Municipality" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.Municipality" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.Barangay" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.Barangay" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.Barangay" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.BirthingCenter" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.BirthingCenter" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.BirthingCenter" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.BirthingCenterAddress" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.BirthingCenterAddress" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.BirthingCenterAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.ReferralCenter" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.ReferralCenter" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.ReferralCenter" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.ReferralCenterAddress" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.ReferralCenterAddress" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.ReferralCenterAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.BHWName" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.BHWName" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.BHWName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.MidwifeName" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.MidwifeName" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.MidwifeName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.BarangayHealthStation" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.BarangayHealthStation" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.BarangayHealthStation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PregnancyTrackingHH.RuralHealthUnit" class="control-label"></label>
-                <input asp-for="PregnancyTrackingHH.RuralHealthUnit" class="form-control" />
-                <span asp-validation-for="PregnancyTrackingHH.RuralHealthUnit" class="text-danger"></span>
+            <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Edit Pregnancy Tracking HH</h1>
+            <hr class="mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.Year" class="block mb-2 text-sm font-medium text-gray-700">Year</label>
+                        <input asp-for="PregnancyTrackingHH.Year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.Year" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.Region" class="block mb-2 text-sm font-medium text-gray-700">Region</label>
+                        <input asp-for="PregnancyTrackingHH.Region" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.Region" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.Province" class="block mb-2 text-sm font-medium text-gray-700">Province</label>
+                        <input asp-for="PregnancyTrackingHH.Province" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.Province" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.Municipality" class="block mb-2 text-sm font-medium text-gray-700">Municipality</label>
+                        <input asp-for="PregnancyTrackingHH.Municipality" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.Municipality" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.Barangay" class="block mb-2 text-sm font-medium text-gray-700">Barangay</label>
+                        <input asp-for="PregnancyTrackingHH.Barangay" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.Barangay" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.BirthingCenter" class="block mb-2 text-sm font-medium text-gray-700">Birthing Center</label>
+                        <input asp-for="PregnancyTrackingHH.BirthingCenter" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.BirthingCenter" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.BirthingCenterAddress" class="block mb-2 text-sm font-medium text-gray-700">Birthing Center Address</label>
+                        <input asp-for="PregnancyTrackingHH.BirthingCenterAddress" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.BirthingCenterAddress" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    
+                </div>
+                <div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.ReferralCenter" class="block mb-2 text-sm font-medium text-gray-700">Referral Center</label>
+                        <input asp-for="PregnancyTrackingHH.ReferralCenter" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.ReferralCenter" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.ReferralCenterAddress" class="block mb-2 text-sm font-medium text-gray-700">Referral Center Address</label>
+                        <input asp-for="PregnancyTrackingHH.ReferralCenterAddress" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.ReferralCenterAddress" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.BHWName" class="block mb-2 text-sm font-medium text-gray-700">BHW Name</label>
+                        <input asp-for="PregnancyTrackingHH.BHWName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.BHWName" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.MidwifeName" class="block mb-2 text-sm font-medium text-gray-700">Midwife Name</label>
+                        <input asp-for="PregnancyTrackingHH.MidwifeName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.MidwifeName" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.BarangayHealthStation" class="block mb-2 text-sm font-medium text-gray-700">Barangay Health Station</label>
+                        <input asp-for="PregnancyTrackingHH.BarangayHealthStation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.BarangayHealthStation" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyTrackingHH.RuralHealthUnit" class="block mb-2 text-sm font-medium text-gray-700">Rural Health Unit</label>
+                        <input asp-for="PregnancyTrackingHH.RuralHealthUnit" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyTrackingHH.RuralHealthUnit" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                </div>
             </div>
             <input type="hidden" asp-for="PregnancyTrackingHH.Id" />
             <input type="hidden" asp-for="PregnancyTrackingHH.HouseholdId" value="@Model.PregnancyTrackingHH.HouseholdId" />
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="flex justify-end">
+                <a asp-action="Index" class="focus:outline-none text-white bg-red-400 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 hover:bg-red-450 !important">Back</a>
+                <button type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Save</button>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
