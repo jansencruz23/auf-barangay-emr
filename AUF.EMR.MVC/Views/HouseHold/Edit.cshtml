@@ -1,6 +1,7 @@
 ﻿@model CreateHouseholdProfileVM
 
 @{
+    Layout = "Layouts/_HouseholdLayout";
     ViewData["Title"] = "Edit";
 }
 
@@ -14,11 +15,11 @@
                     <div>
                         <div class="mb-4">
                             <label asp-for="Household.HouseholdNo" class="block mb-2 text-sm font-medium text-gray-700">Household No.</label>
-                            <input asp-for="Household.HouseholdNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                        <input asp-for="Household.HouseholdNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
                             <span asp-validation-for="Household.HouseholdNo" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-2 mt-8">
-                            <h6 class="text-md font-bold text-gray-800">Respondent personal info</h6>
+                            <h6 class="text-md font-bold text-gray-800">Respondent Personal Information</h6>
                         </div>
                         <div class="mb-4">
                             <label asp-for="Household.FirstName" class="block mb-2 text-sm font-medium text-gray-700">First Name</label>
@@ -26,67 +27,71 @@
                             <span asp-validation-for="Household.FirstName" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
-                            <label asp-for="Household.FirstName" class="block mb-2 text-sm font-medium text-gray-700">First Name</label>
-                            <input asp-for="Household.FirstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
-                            <span asp-validation-for="Household.FirstName" class="block mb-2 text-sm text-red-700"></span>
-                        </div>
-                        <div class="mb-4">
                             <label asp-for="Household.MotherMaidenName" class="block mb-2 text-sm font-medium text-gray-700">Mother's Maiden Name</label>
-                            <input asp-for="Household.MotherMaidenName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                            <input asp-for="Household.MotherMaidenName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="Household.MotherMaidenName" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
                             <label asp-for="Household.LastName" class="block mb-2 text-sm font-medium text-gray-700">Last Name</label>
-                            <input asp-for="Household.LastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                            <input asp-for="Household.LastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="Household.LastName" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
                             <label asp-for="Household.ContactNo" class="block mb-2 text-sm font-medium text-gray-700">Contact Number</label>
-                            <input asp-for="Household.ContactNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                        <input asp-for="Household.ContactNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
                             <span asp-validation-for="Household.ContactNo" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
+                        <div class="mb-2 mt-8">
+                            <h6 class="text-md font-bold text-gray-800">Home Address</h6>
                         </div>
                         <div class="mb-4">
                             <label asp-for="Household.HouseNoAndStreet" class="block mb-2 text-sm font-medium text-gray-700">House No. & Street</label>
-                            <input asp-for="Household.HouseNoAndStreet" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                            <input asp-for="Household.HouseNoAndStreet" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="Household.HouseNoAndStreet" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
                             <label asp-for="Household.Barangay" class="block mb-2 text-sm font-medium text-gray-700">Barangay</label>
-                            <input asp-for="Household.Barangay" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                            <input asp-for="Household.Barangay" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="Household.Barangay" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
                             <label asp-for="Household.City" class="block mb-2 text-sm font-medium text-gray-700">City</label>
-                            <input asp-for="Household.City" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                            <input asp-for="Household.City" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="Household.City" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
                             <label asp-for="Household.Province" class="block mb-2 text-sm font-medium text-gray-700">Province</label>
-                            <input asp-for="Household.Province" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                            <input asp-for="Household.Province" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="Household.Province" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                     </div>
                     <!-- Right Column-->
                     <div>
+                        <div class="mb-2">
+                            <h6 class="text-md font-bold text-gray-800">Quarterly Visit</h6>
+                        </div>
                          <div class="mb-4">
                             <label asp-for="Household.FirstQtrVisit" class="block mb-2 text-sm font-medium text-gray-700"></label>
-                            <input asp-for="Household.FirstQtrVisit" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                            <input asp-for="Household.FirstQtrVisit" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="Household.FirstQtrVisit" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
                             <label asp-for="Household.SecondQtrVisit" class="block mb-2 text-sm font-medium text-gray-700"></label>
-                            <input asp-for="Household.SecondQtrVisit" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                            <input asp-for="Household.SecondQtrVisit" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="Household.SecondQtrVisit" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
                             <label asp-for="Household.ThirdQtrVisit" class="block mb-2 text-sm font-medium text-gray-700"></label>
-                            <input asp-for="Household.ThirdQtrVisit" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                            <input asp-for="Household.ThirdQtrVisit" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="Household.ThirdQtrVisit" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
                             <label asp-for="Household.FourthQtrVisit" class="block mb-2 text-sm font-medium text-gray-700"></label>
-                            <input asp-for="Household.FourthQtrVisit" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                            <input asp-for="Household.FourthQtrVisit" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="Household.FourthQtrVisit" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
+                        <div class="mb-2 mt-8">
+                            <h6 class="text-md font-bold text-gray-800">NHTS Household</h6>
                         </div>
                         <div class="mb-4">
                             <label class="block mb-2 text-sm font-medium text-gray-700"></label>
@@ -99,10 +104,16 @@
                                 <label class="ms-2 text-sm font-medium text-gray-900">Non NHTS</label>
                             </div>
                         </div>
+                        <div class="mb-2 mt-8">
+                            <h6 class="text-md font-bold text-gray-800">IP Household</h6>
+                        </div>
                         <div class="mb-4">
                             <label class="flex items-center me-4">
                                     <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" asp-for="Household.IsIP" /> @Html.DisplayNameFor(model => model.Household.IsIP)
                             </label>
+                        </div>
+                        <div class="mb-2 mt-8">
+                            <h6 class="text-md font-bold text-gray-800">Household Head Philhealth Member</h6>
                         </div>
                         <div class="mb-4"
                             <label class="flex items-center me-4">
@@ -111,20 +122,21 @@
                         </div>
                         <div class="mb-4">
                             <label asp-for="Household.PhilhealthNo" class="block mb-2 text-sm font-medium text-gray-700"></label>
-                            <input asp-for="Household.PhilhealthNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                            <input asp-for="Household.PhilhealthNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="Household.PhilhealthNo" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
                             <label asp-for="Household.Category" class="block mb-2 text-sm font-medium text-gray-700"></label>
-                            <input asp-for="Household.Category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                            <input asp-for="Household.Category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="Household.Category" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                     </div>
                     <input type="hidden" asp-for="Household.Id" />
                     <input type="hidden" asp-for="Household.DateCreated" />
-                    <div class="mb-4">
-                    <input type="submit" value="Save" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" />
-                </div>
+            </div>
+            <div class="flex justify-end">
+                <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:ring-4 focus:ring-red-200">Back</a>
+                <button type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:ring-4 focus:ring-green-200">Save</button>
             </div>
         </form>
    </div>
