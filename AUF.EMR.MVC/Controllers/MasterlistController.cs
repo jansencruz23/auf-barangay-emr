@@ -151,6 +151,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: MasterlistController/Newborn
         public async Task<ActionResult> Newborn(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _masterlistService.GetMasterlistNewborn(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -164,6 +176,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: MasterlistController/Infant
         public async Task<ActionResult> Infant(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _masterlistService.GetMasterlistInfant(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -177,6 +201,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: MasterlistController/UnderFive
         public async Task<ActionResult> UnderFive(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+            
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _masterlistService.GetMasterlistUnderFive(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -190,6 +226,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: MasterlistController/SchoolAged
         public async Task<ActionResult> SchoolAged(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _masterlistService.GetMasterlistSchoolAge(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -203,6 +251,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: MasterlistController/Adolescent
         public async Task<ActionResult> Adolescent(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _masterlistService.GetMasterlistAdolescent(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -216,6 +276,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: MasterlistController/Adult
         public async Task<ActionResult> Adult(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _masterlistService.GetMasterlistAdult(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -229,6 +301,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: MasterlistController/SeniorCitizen
         public async Task<ActionResult> SeniorCitizen(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _masterlistService.GetMasterlistSeniorCitizen(householdNo);
             var model = new HouseholdMemberListVM
             {

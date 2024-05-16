@@ -110,13 +110,24 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<Household> GetHouseholdWithDetails(int id)
         {
-            var houseHold = await _dbContext.Households
+            var household = await _dbContext.Households
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers)
                 .Where(h => h.Status)
                 .FirstOrDefaultAsync(h => h.Id == id);
 
-            return houseHold;
+            return household;
+        }
+
+        public async Task<Household> GetHouseholdWithDetails(string householdNo)
+        {
+            var household = await _dbContext.Households
+                .AsNoTracking()
+                .Include(h => h.HouseholdMembers)
+                .Where(h => h.Status)
+                .FirstOrDefaultAsync(h => h.HouseholdNo.Equals(householdNo));
+
+            return household;
         }
 
         public async Task<List<Household>> GetSearchedHouseholdsWithDetails(string query)
