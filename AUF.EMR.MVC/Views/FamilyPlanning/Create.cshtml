@@ -1,19 +1,28 @@
-﻿@using AUF.EMR.Application.Utilities;
+﻿.@using AUF.EMR.Application.Utilities;
 @using AUF.EMR.Domain.Models.Enums.FamilyPlanning;
 @model CreateFamilyPlanningVM
 
 @{
+    Layout = "Layouts/_HouseholdLayout";
+    Layout = "Layouts/_FormLayout";
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>FamilyPlanningRecord</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Add Family Planning</h1>
+            <hr class="mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+
+            </div>
             <div class="form-group">
                 <label asp-for="FPRecord.ClientId" class="control-label"></label>
                 <input asp-for="FPRecord.ClientId" class="form-control" />

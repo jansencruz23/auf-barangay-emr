@@ -21,7 +21,6 @@ namespace AUF.EMR.Domain.Models
         public string Age { get; set; }
 
         [DataType(DataType.Date)]
-        [Date]
         public DateTime Birthday { get; set; }
         public string? FirstQtrClassification { get; set; }
         public string? SecondQtrClassification { get; set; }

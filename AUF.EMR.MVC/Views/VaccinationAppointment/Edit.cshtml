@@ -2,95 +2,83 @@
 
 @{
     Layout = "Layouts/_HouseholdLayout";
+    Layout = "Layouts/_FormLayout";
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
 
-<h4>VaccinationAppointment</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Appointment.PatientId" value="@Model.PatientId" />
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             <input type="hidden" asp-for="PatientId" value="@Model.PatientId" />
             <input type="hidden" asp-for="Appointment.Id" />
-            <div class="form-group">
-                <label asp-for="Appointment.VaccinationDate" class="control-label"></label>
-                <input asp-for="Appointment.VaccinationDate" class="form-control" />
-                <span asp-validation-for="Appointment.VaccinationDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Appointment.Weight" class="control-label"></label>
-                <input asp-for="Appointment.Weight" class="form-control" />
-                <span asp-validation-for="Appointment.Weight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Appointment.Height" class="control-label"></label>
-                <input asp-for="Appointment.Height" class="form-control" />
-                <span asp-validation-for="Appointment.Height" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Appointment.Temperature" class="control-label"></label>
-                <input asp-for="Appointment.Temperature" class="form-control" />
-                <span asp-validation-for="Appointment.Temperature" class="text-danger"></span>
-            </div>
-            <button id="dropdownHelperButton" data-dropdown-toggle="dropdownHelper" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                Vaccines <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                </svg>
-            </button>
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Edit Vaccination Appointment</h1>
+            <hr class="mb-4">
+            <div class="grid grid-cols-1 gap-12">
+                <div>
+                    <div class="mb-4">
+                        <label asp-for="Appointment.VaccinationDate" class="text-md font-bold text-gray-800">Vaccination Date</label>
+                        <input asp-for="Appointment.VaccinationDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="Appointment.VaccinationDate" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="Appointment.Weight" class="text-md font-bold text-gray-800">Weight</label>
+                        <input asp-for="Appointment.Weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="Appointment.Weight" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="Appointment.Height" class="text-md font-bold text-gray-800">Height</label>
+                        <input asp-for="Appointment.Height" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="Appointment.Height" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="Appointment.Temperature" class="text-md font-bold text-gray-800">Temperature</label>
+                        <input asp-for="Appointment.Temperature" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="Appointment.Temperature" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
 
-            <!-- Dropdown menu -->
-            <div id="dropdownHelper" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
-                <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHelperButton">
-                    @{
-                        int selectedIndex = 0;
-                    }
-                    @for (var i = 0; i < Model.Vaccines.Count(); i++)
-                    {
-                        <li>
-                            <input asp-for="Vaccines[i].Id" type="hidden" />
-                            <input asp-for="Vaccines[i].Name" type="hidden" />
-                            <input asp-for="Vaccines[i].Description" type="hidden" />
-                            <div class="flex p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <div class="flex items-center h-5">
-                                    @if (Model.SelectedVaccines.Contains(Model.Vaccines[i]))
-                                    {
-                                        <input asp-for="SelectedVaccines[selectedIndex].Id" type="hidden" value="@Model.Vaccines[i].Id" />
-                                        <input asp-for="SelectedVaccines[selectedIndex].Name" type="hidden" value="@Model.Vaccines[i].Name" />
-                                        <input asp-for="SelectedVaccines[selectedIndex].Description" type="hidden" value="@Model.Vaccines[i].Description" />
 
-                                        <input asp-for="Vaccines[i].Selected" id="helper-checkbox-@i" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" checked />
-                                        selectedIndex++;
-                                    }
-                                    else
-                                    {
-                                        <input asp-for="Vaccines[i].Selected" id="helper-checkbox-@i" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
-                                    }
-                                </div>
-                                <div class="ms-2 text-sm">
-                                    <label for="helper-checkbox-@i" class="font-medium text-gray-900 dark:text-gray-300">
-                                        <div>@Model.Vaccines[i].Name</div>
-                                        <p id="helper-checkbox-text-@i" class="text-xs font-normal text-gray-500 dark:text-gray-300">@((Model.Vaccines[i].Description != null) ? Model.Vaccines[i].Description : "")</p>
-                                    </label>
-                                </div>
-                            </div>
-                        </li>
-                    }
-                </ul>
+                    <button id="dropdownHelperButton" data-dropdown-toggle="dropdownHelper" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                        Vaccines <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown menu -->
+                    <div id="dropdownHelper" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHelperButton">
+                            @for (var i = 0; i < Model.Vaccines.Count(); i++)
+                            {
+                                <li>
+                                    <input asp-for="@Model.Vaccines[i].Id" type="hidden" />
+                                    <input asp-for="@Model.Vaccines[i].Name" type="hidden" />
+                                    <input asp-for="@Model.Vaccines[i].Description" type="hidden" />
+                                    <div class="flex p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                        <div class="flex items-center h-5">
+                                            <input asp-for="Vaccines[i].Selected" id="helper-checkbox-@i" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                        </div>
+                                        <div class="ms-2 text-sm">
+                                            <label for="helper-checkbox-@i" class="font-medium text-gray-900 dark:text-gray-300">
+                                                <div>@Model.Vaccines[i].Name</div>
+                                                <p id="helper-checkbox-text-@i" class="text-xs font-normal text-gray-500 dark:text-gray-300">@((Model.Vaccines[i].Description != null) ? Model.Vaccines[i].Description : "")</p>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="flex justify-end">
+                <a asp-action="Index" class="focus:outline-none text-white bg-red-400 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 hover:bg-red-450 !important">Back</a>
+                <button type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Save</button>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
