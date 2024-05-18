@@ -37,7 +37,6 @@ namespace AUF.EMR.Domain.Models
 
         [Required(ErrorMessage = "House No and street field is required.")]
         public string HouseNoAndStreet { get; set; }
-
         public string Barangay { get; set; }
         public string City { get; set; }
         public string Province { get; set; }

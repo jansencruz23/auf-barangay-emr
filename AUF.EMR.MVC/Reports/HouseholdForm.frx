@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/13/2024 20:23:46" ReportInfo.Modified="05/18/2024 18:20:04" ReportInfo.CreatorVersion="2024.2.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/13/2024 20:23:46" ReportInfo.Modified="05/18/2024 22:25:23" ReportInfo.CreatorVersion="2024.2.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="Household" ReferenceName="HouseholdRef" DataType="System.Int32" Enabled="true">
       <Column Name="HouseholdNo" DataType="System.String"/>
@@ -115,7 +115,7 @@
       <LineObject Name="Line18" Left="803.25" Top="330.75" Height="28.35"/>
       <LineObject Name="Line32" Left="56.7" Top="245.7" Width="907.2"/>
     </PageHeaderBand>
-    <DataBand Name="Data2" Top="360.24" Width="1018.33" Height="28.35" DataSource="HouseholdMember">
+    <DataBand Name="Data2" Top="363.1" Width="1018.33" Height="28.35" DataSource="HouseholdMember">
       <TextObject Name="Text65" Left="56.7" Width="207.9" Height="28.35" Text="[HouseholdMember.FullName]" Font="Arial, 8.25pt"/>
       <TextObject Name="Text67" Left="283.5" Width="113.4" Height="28.35" VisibleExpression="IIf([HouseholdMember.RelationshipToHouseholdHead] == 5,[HouseholdMember.RelationshipToHouseholdHead] + &quot;-&quot; + [HouseholdMember.OtherRelation],[HouseholdMember.RelationshipToHouseholdHead])" Text="[IIf([HouseholdMember.RelationshipToHouseholdHead] != 5,[HouseholdMember.RelationshipToHouseholdHead],[HouseholdMember.RelationshipToHouseholdHead] + &quot; - &quot; + [HouseholdMember.OtherRelation])]" Font="Arial, 8.25pt"/>
       <TextObject Name="Text68" Left="396.9" Width="75.6" Height="28.35" Text="[HouseholdMember.Sex]" Font="Arial, 8.25pt"/>
@@ -137,9 +137,9 @@
       <LineObject Name="Line30" Left="869.4" Height="28.35"/>
       <LineObject Name="Line31" Left="803.25" Height="28.35"/>
       <LineObject Name="Line33" Left="56.7" Height="28.35"/>
-      <LineObject Name="Line20" Left="56.7" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line20" Left="56.7" Top="28.35" Width="907.2" Anchor="Bottom"/>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="389.74" Width="1018.33" Height="122.85">
+    <PageFooterBand Name="PageFooter1" Top="395.45" Width="1018.33" Height="122.85">
       <TextObject Name="Text76" Left="56.7" Top="18.9" Width="28.35" Height="94.5" Text="N:&#13;&#10;I:&#13;&#10;&#13;&#10;U:&#13;&#10;S:&#13;&#10;A:&#13;&#10;P:" Font="Arial, 8.25pt, style=Bold"/>
       <TextObject Name="Text77" Left="75.6" Top="18.9" Width="321.3" Height="94.5" Text="Newborn (0-28 days)&#13;&#10;Infant (29 days - 11 mos old)&#13;&#10;&#13;&#10;Under-five (1-4 years old or 12-59 months old)&#13;&#10;School-aged Children (5-9 y.o.)&#13;&#10;Adolescents (10-19 years old)&#13;&#10;Any pregnant woman even if she is &lt;15 or &gt;49 years old" Font="Arial, 8.25pt"/>
       <TextObject Name="Text78" Left="529.2" Top="18.9" Width="47.25" Height="94.5" Text="AP:&#13;&#10;PP:&#13;&#10;&#13;&#10;WRA:&#13;&#10;SC:&#13;&#10;PWD:&#13;&#10;AB:" Font="Arial, 8.25pt, style=Bold"/>

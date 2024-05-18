@@ -178,7 +178,7 @@
             </thead>
             <tbody>
 
-                @foreach (var member in Model.Household.HouseholdMembers)
+                @foreach (var member in Model.HouseholdMembers)
                 {
                     <tr class="bg-white border-b">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -197,7 +197,7 @@
                             @member.Birthday.ToString("MM-dd-yy")
                         </td>
                         <td class="px-6 py-4">
-                            <a href="#" class="bg-green-100 focus:ring-4 focus:outline-none focus:ring-green-200 hover:bg-green-200 text-green-800 text-sm font-medium me-2 px-2.5 py-1 rounded">Edit</a>
+                            <a asp-action="Edit" asp-controller="HouseholdMember" asp-route-id="@member.Id" asp-route-requestUrl="@Model.RequestUrl" class="bg-green-100 focus:ring-4 focus:outline-none focus:ring-green-200 hover:bg-green-200 text-green-800 text-sm font-medium me-2 px-2.5 py-1 rounded">Edit</a>
                             <a href="#" class="bg-red-100 focus:ring-4 focus:outline-none focus:ring-red-200 hover:bg-red-200 text-red-800 text-sm font-medium me-2 px-2.5 py-1 rounded">Delete</a>
                         </td>
                     </tr>

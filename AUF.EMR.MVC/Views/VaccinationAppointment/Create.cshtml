@@ -85,15 +85,3 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-
-<script>
-    $(document).ready(function() {
-        $('form').submit(function () {
-            var selectedVaccineIds = [];
-            $('input[name="selectedVaccines]:checked').each(function () {
-                selectedVaccineIds.push(parseInt($(this).val()));
-            });
-            $('#SelectedVaccineIndex').val(JSON.stringify(selectedVaccineIds));
-        });
-    });
-</script>

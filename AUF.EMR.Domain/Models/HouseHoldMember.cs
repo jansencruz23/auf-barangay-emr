@@ -14,7 +14,7 @@ namespace AUF.EMR.Domain.Models
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }
-        public string MotherMaidenName { get; set; }
+        public string? MotherMaidenName { get; set; }
         public int RelationshipToHouseholdHead { get; set; }
         public string? OtherRelation { get; set; }
         public char Sex { get; set; }
