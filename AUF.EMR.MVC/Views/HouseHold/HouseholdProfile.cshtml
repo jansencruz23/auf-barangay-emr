@@ -19,13 +19,13 @@
     <div class="flex justify-between my-3">
         <h5 class="text-xl font-bold leading-none text-gray-900">Household Profile</h5>
         <div class="flex justify-end gap-3">
-            <a a asp-action="Generate" asp-route-householdNo="@Model.HouseholdNo" class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-primary-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200">
+            <button type="button" onclick="print(@Model.HouseholdNo)" class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-primary-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200">
                 <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H8Zm-3 7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h1a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5Zm4 11a1 1 0 0 1-1-1v-4h8v4a1 1 0 0 1-1 1H9Z" clip-rule="evenodd" />
                 </svg>
 
                 <span class="hidden md:inline font-medium">&nbsp; Print</span>
-            </a>
+            </button>
             <a asp-action="Edit" asp-route-id="@Model.Household.Id" class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-300">
                 <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd" d="M11.32 6.176H5c-1.105 0-2 .949-2 2.118v10.588C3 20.052 3.895 21 5 21h11c1.105 0 2-.948 2-2.118v-7.75l-3.914 4.144A2.46 2.46 0 0 1 12.81 16l-2.681.568c-1.75.37-3.292-1.263-2.942-3.115l.536-2.839c.097-.512.335-.983.684-1.352l2.914-3.086Z" clip-rule="evenodd" />
@@ -206,3 +206,9 @@
         </table>
     </div>
 </section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("Prints/_PrintDialog");
+    }
+}

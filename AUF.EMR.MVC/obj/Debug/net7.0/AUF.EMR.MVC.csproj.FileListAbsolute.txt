@@ -574,3 +574,27 @@ D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.pdb
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.genruntimeconfig.cache
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\ref\AUF.EMR.MVC.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\FastReport.Compat.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\FastReport.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\FastReport.OpenSource.Export.PdfSimple.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Collections.Immutable.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.IO.Pipelines.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Reflection.Metadata.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Text.Encodings.Web.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Text.Json.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Threading.Channels.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\runtimes\browser\lib\net7.0\System.Text.Encodings.Web.dll

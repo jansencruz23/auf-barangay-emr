@@ -65,5 +65,14 @@ namespace AUF.EMR.Application.Services
         {
             return await _repository.GetHouseholdWithDetails(householdNo);
         }
+
+        public async Task<List<Household>> GetHouseholdForm(string householdNo)
+        {
+            var form = new List<Household>();
+            var household = await _repository.GetHouseholdWithDetails(householdNo);
+            form.Add(household);
+
+            return form;
+        }
     }
 }

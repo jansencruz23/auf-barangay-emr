@@ -16,7 +16,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                     <div class="mb-4">
-                        <label asp-for="PatientRecord.PatientId" class="block mb-2 text-sm font-medium text-gray-700">Patient ID</label>
+                        <label asp-for="PatientRecord.PatientId" class="text-md font-bold text-gray-800">Patient ID</label>
                         <select asp-for="PatientRecord.PatientId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" asp-items="@(new SelectList(Model.PatientList, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
                     </div>
                     <div class="mb-2 mt-8">
@@ -71,12 +71,12 @@
                         <h6 class="text-md font-bold text-gray-800">Others</h6>
                     </div>
                     <div class="mb-4">
-                        <label asp-for="PatientRecord.TypeOfDelivery" class="block mb-2 text-sm font-medium text-gray-700"></label>
+                        <label asp-for="PatientRecord.TypeOfDelivery" class="block mb-2 text-sm font-medium text-gray-700">Type Of Deliver</label>
                         <input asp-for="PatientRecord.TypeOfDelivery" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="PatientRecord.TypeOfDelivery" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
-                        <label asp-for="PatientRecord.Attended" class="block mb-2 text-sm font-medium text-gray-700"></label>
+                        <label asp-for="PatientRecord.Attended" class="block mb-2 text-sm font-medium text-gray-700">Attended</label>
                         <input asp-for="PatientRecord.Attended" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="PatientRecord.Attended" class="block mb-2 text-sm text-red-700"></span>
                     </div>
