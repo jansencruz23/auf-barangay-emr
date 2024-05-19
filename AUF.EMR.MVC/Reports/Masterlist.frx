@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/19/2024 17:30:53" ReportInfo.Modified="05/19/2024 23:21:21" ReportInfo.CreatorVersion="2024.2.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/19/2024 17:30:53" ReportInfo.Modified="05/20/2024 00:46:47" ReportInfo.CreatorVersion="2024.2.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="MasterlistNewborns" ReferenceName="MasterlistNewborns" DataType="System.Int32" Enabled="true">
       <Column Name="FullName" DataType="System.String" PropName="Column"/>
@@ -61,6 +61,15 @@
       <Column Name="NotNhts" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
       <Column Name="NotInSchool" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
     </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="MasterlistAdults" ReferenceName="MasterlistAdults" DataType="System.Int32" Enabled="true">
+      <Column Name="FormattedFullName" DataType="System.String" PropName="Column"/>
+      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotNhts" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
     <Parameter Name="Barangay" DataType="System.String" AsString=""/>
     <Parameter Name="Midwife" DataType="System.String" AsString=""/>
     <Parameter Name="HouseholdNo" DataType="System.String" AsString=""/>
@@ -106,13 +115,13 @@
       <LineObject Name="Line18" Left="869.4" Top="122.85" Height="28.35"/>
       <LineObject Name="Line19" Left="803.25" Top="122.85" Width="141.75"/>
     </PageHeaderBand>
-    <DataBand Name="Data2" Top="152.98" Width="980.53" Height="18.9">
+    <DataBand Name="Data2" Top="155.2" Width="980.53" Height="18.9">
       <TextObject Name="Text21" Left="37.8" Width="264.6" Height="18.9" Text="Part 1. List of Newborns (0-28 days old)" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
       <LineObject Name="Line4" Left="37.8" Width="907.2"/>
       <LineObject Name="Line20" Left="37.8" Height="18.9"/>
       <LineObject Name="Line22" Left="945" Height="18.9"/>
     </DataBand>
-    <DataBand Name="Data1" Top="173.66" Width="980.53" Height="28.35" DataSource="MasterlistNewborns">
+    <DataBand Name="Data1" Top="178.1" Width="980.53" Height="28.35" DataSource="MasterlistNewborns">
       <TextObject Name="Text22" Left="113.4" Width="122.85" Height="28.35" Text="[MasterlistNewborns.FullName]" Font="Arial, 7pt"/>
       <TextObject Name="Text24" Left="236.25" Width="122.85" Height="28.35" Text="[MasterlistNewborns.NameOfMother]" Font="Arial, 7pt"/>
       <TextObject Name="Text25" Left="37.8" Width="75.6" Height="28.35" Text="[HouseholdNo]" Font="Arial, 7pt"/>
@@ -141,13 +150,13 @@
       <LineObject Name="Line41" Left="803.25" Height="28.35"/>
       <LineObject Name="Line42" Left="869.4" Height="28.35"/>
     </DataBand>
-    <DataBand Name="Data3" Top="203.78" Width="980.53" Height="18.9">
+    <DataBand Name="Data3" Top="210.45" Width="980.53" Height="18.9">
       <TextObject Name="Text30" Left="37.8" Width="264.6" Height="18.9" Text="Part 2. List of Infants (29 days- 11 moths old)" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
       <LineObject Name="Line26" Left="37.8" Height="18.9"/>
       <LineObject Name="Line27" Left="37.8" Top="18.9" Width="907.2"/>
       <LineObject Name="Line28" Left="945" Top="18.9" Height="-18.9"/>
     </DataBand>
-    <DataBand Name="Data4" Top="224.46" Width="980.53" Height="28.35" DataSource="MasterlistInfants">
+    <DataBand Name="Data4" Top="233.35" Width="980.53" Height="28.35" DataSource="MasterlistInfants">
       <TextObject Name="Text31" Left="37.8" Width="75.6" Height="28.35" Text="[HouseholdNo]" Font="Arial, 7pt"/>
       <TextObject Name="Text32" Left="113.4" Width="122.85" Height="28.35" Text="[MasterlistInfants.FullName]" Font="Arial, 7pt"/>
       <TextObject Name="Text33" Left="236.25" Width="122.85" Height="28.35" Text="[MasterlistInfants.NameOfMother]" Font="Arial, 7pt"/>
@@ -175,13 +184,13 @@
       <LineObject Name="Line52" Left="869.4" Height="28.35"/>
       <LineObject Name="Line53" Left="803.25" Height="28.35"/>
     </DataBand>
-    <DataBand Name="Data5" Top="254.59" Width="980.53" Height="18.9">
+    <DataBand Name="Data5" Top="265.7" Width="980.53" Height="18.9">
       <TextObject Name="Text40" Left="37.8" Width="264.6" Height="18.9" Text="Part 3. List of Under-five Children (1-4 years old)" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
       <LineObject Name="Line54" Left="37.8" Height="18.9"/>
       <LineObject Name="Line55" Left="37.8" Top="18.9" Width="907.2"/>
       <LineObject Name="Line56" Left="945" Top="18.9" Height="-18.9"/>
     </DataBand>
-    <DataBand Name="Data6" Top="275.27" Width="980.53" Height="28.35" DataSource="MasterlistUnderFive">
+    <DataBand Name="Data6" Top="288.6" Width="980.53" Height="28.35" DataSource="MasterlistUnderFive">
       <TextObject Name="Text41" Left="37.8" Width="75.6" Height="28.35" Text="[HouseholdNo]" Font="Arial, 7pt"/>
       <TextObject Name="Text42" Left="113.4" Width="122.85" Height="28.35" Text="[MasterlistUnderFive.FullName]" Font="Arial, 7pt"/>
       <TextObject Name="Text43" Left="236.25" Width="122.85" Height="28.35" Text="[MasterlistUnderFive.NameOfMother]" Font="Arial, 7pt"/>
@@ -209,13 +218,13 @@
       <LineObject Name="Line69" Left="236.25" Height="28.35"/>
       <LineObject Name="Line70" Left="113.4" Height="28.35"/>
     </DataBand>
-    <DataBand Name="Data7" Top="305.39" Width="980.53" Height="18.9">
+    <DataBand Name="Data7" Top="320.95" Width="980.53" Height="18.9">
       <TextObject Name="Text47" Left="37.8" Width="264.6" Height="18.9" Text="Part 4. List of School- Aged Children (5-9 years old)" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
       <LineObject Name="Line71" Left="37.8" Height="18.9"/>
       <LineObject Name="Line72" Left="37.8" Top="18.9" Width="907.2"/>
       <LineObject Name="Line73" Left="945" Top="18.9" Height="-18.9"/>
     </DataBand>
-    <DataBand Name="Data8" Top="326.07" Width="980.53" Height="28.35" DataSource="MasterlistSchoolAged">
+    <DataBand Name="Data8" Top="343.85" Width="980.53" Height="28.35" DataSource="MasterlistSchoolAged">
       <TextObject Name="Text48" Left="37.8" Width="75.6" Height="28.35" Text="[HouseholdNo]" Font="Arial, 7pt"/>
       <TextObject Name="Text49" Left="113.4" Width="122.85" Height="28.35" Text="[MasterlistSchoolAged.FullName]" Font="Arial, 7pt"/>
       <TextObject Name="Text50" Left="236.25" Width="122.85" Height="28.35" Text="[MasterlistSchoolAged.NameOfMother]" Font="Arial, 7pt"/>
@@ -243,13 +252,13 @@
       <LineObject Name="Line86" Left="236.25" Height="28.35"/>
       <LineObject Name="Line87" Left="113.4" Height="28.35"/>
     </DataBand>
-    <DataBand Name="Data9" Top="356.2" Width="980.53" Height="18.9">
+    <DataBand Name="Data9" Top="376.2" Width="980.53" Height="18.9">
       <TextObject Name="Text54" Left="37.8" Width="264.6" Height="18.9" Text="Part 5. List of Adolescents (10-19 years old)" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
       <LineObject Name="Line88" Left="37.8" Height="18.9"/>
       <LineObject Name="Line89" Left="37.8" Top="18.9" Width="907.2"/>
       <LineObject Name="Line90" Left="945" Top="18.9" Height="-18.9"/>
     </DataBand>
-    <DataBand Name="Data10" Top="376.88" Width="980.53" Height="28.35" DataSource="MasterlistAdolescents">
+    <DataBand Name="Data10" Top="399.1" Width="980.53" Height="28.35" DataSource="MasterlistAdolescents">
       <TextObject Name="Text55" Left="37.8" Width="75.6" Height="28.35" Text="[HouseholdNo]" Font="Arial, 7pt"/>
       <TextObject Name="Text56" Left="113.4" Width="122.85" Height="28.35" Text="[MasterlistAdolescents.FullName]" Font="Arial, 7pt"/>
       <TextObject Name="Text57" Left="236.25" Width="122.85" Height="28.35" Text="[MasterlistAdolescents.NameOfMother]" Font="Arial, 7pt"/>
@@ -277,6 +286,56 @@
       <LineObject Name="Line103" Left="803.25" Height="28.35"/>
       <LineObject Name="Line104" Left="869.4" Height="28.35"/>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="407.01" Width="980.53" Height="37.8"/>
+    <PageFooterBand Name="PageFooter1" Top="431.45" Width="980.53" Height="37.8"/>
+  </ReportPage>
+  <ReportPage Name="Page2" Landscape="true" PaperWidth="279.4" PaperHeight="215.9" RawPaperSize="1" Watermark.Font="Arial, 60pt" LastPageSource="261" FirstPageSource="261">
+    <PageHeaderBand Name="PageHeader2" Width="980.53" Height="337.15">
+      <TextObject Name="Text61" Left="-9.45" Top="18.9" Width="982.8" Height="28.35" Text="MASTER LIST OF ADULTS 20-59 YEARS OLD" HorzAlign="Center" Font="Arial, 14.25pt, style=Bold"/>
+      <TextObject Name="Text62" Left="37.8" Top="56.7" Width="37.8" Height="18.9" Text="No." HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text63" Left="94.5" Top="56.7" Width="66.15" Height="37.8" Text="Family Serial No." HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text64" Left="189" Top="56.7" Width="189" Height="18.9" Text="NAME" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text65" Left="189" Top="75.6" Width="189" Height="18.9" Text="(FN.MI.LN)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text66" Left="378" Top="56.7" Width="226.8" Height="18.9" Text="ADDRESS" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text67" Left="604.8" Top="56.7" Width="56.7" Height="18.9" Text="SEX" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text68" Left="604.8" Top="75.6" Width="56.7" Height="18.9" Text="(M or F)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text69" Left="661.5" Top="56.7" Width="56.7" Height="18.9" Text="AGE" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text70" Left="718.2" Top="56.7" Width="113.4" Height="18.9" Text="DATE OF BIRTH" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text71" Left="718.2" Top="75.6" Width="113.4" Height="18.9" Text="(MM,DD,YYYY)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text72" Left="831.6" Top="56.7" Width="113.4" Height="18.9" Text="SE Status" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text73" Left="831.6" Top="75.6" Width="113.4" Height="18.9" Text="1: NHTS&#13;&#10;2: Non-NHTS" Font="Arial, 7pt"/>
+      <LineObject Name="Line105" Left="37.8" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line106" Left="37.8" Top="103.95" Width="907.2"/>
+      <LineObject Name="Line107" Left="945" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line108" Left="37.8" Top="56.7" Width="907.2"/>
+      <LineObject Name="Line109" Left="75.6" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line110" Left="189" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line111" Left="378" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line112" Left="604.8" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line113" Left="661.5" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line114" Left="718.2" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line115" Left="831.6" Top="56.7" Height="47.25"/>
+    </PageHeaderBand>
+    <DataBand Name="Data11" Top="341.15" Width="980.53" Height="28.35" DataSource="MasterlistAdults">
+      <TextObject Name="Text74" Left="37.8" Width="37.8" Height="28.35" Text="[Row#]" Font="Arial, 8pt"/>
+      <TextObject Name="Text75" Left="94.5" Width="94.5" Height="28.35" Text="[HouseholdNo]" Font="Arial, 8pt"/>
+      <TextObject Name="Text76" Left="189" Width="189" Height="28.35" Text="[MasterlistAdults.FormattedFullName]" Font="Arial, 8pt"/>
+      <TextObject Name="Text77" Left="378" Width="226.8" Height="28.35" Text="[Address]" Font="Arial, 8pt"/>
+      <TextObject Name="Text78" Left="604.8" Width="56.7" Height="28.35" Text="[MasterlistAdults.Sex]" Font="Arial, 8pt"/>
+      <TextObject Name="Text79" Left="661.5" Width="56.7" Height="28.35" Text="[MasterlistAdults.Age]" Font="Arial, 8pt"/>
+      <TextObject Name="Text80" Left="718.2" Width="113.4" Height="28.35" Text="[MasterlistAdults.Birthday]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text83" Left="831.6" Width="113.4" Height="28.35" Text="[IIf([MasterlistAdults.IsNHTS],1, 2)]" Font="Arial, 8pt"/>
+      <LineObject Name="Line116" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line117" Left="37.8" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line118" Left="945" Height="28.35"/>
+      <LineObject Name="Line119" Left="75.6" Height="28.35"/>
+      <LineObject Name="Line120" Left="189" Height="28.35"/>
+      <LineObject Name="Line121" Left="378" Height="28.35"/>
+      <LineObject Name="Line122" Left="604.8" Height="28.35"/>
+      <LineObject Name="Line123" Left="661.5" Height="28.35"/>
+      <LineObject Name="Line124" Left="718.2" Height="28.35"/>
+      <LineObject Name="Line125" Left="831.6" Height="28.35"/>
+      <LineObject Name="Line126" Left="510.3"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter2" Top="373.5" Width="980.53" Height="18.9"/>
   </ReportPage>
 </Report>

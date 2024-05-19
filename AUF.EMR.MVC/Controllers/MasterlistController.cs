@@ -332,30 +332,6 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
-        public async Task<ActionResult> PrintAdults(string householdNo, string requestUrl)
-        {
-            var model = new PrintAdultsMasterlistVM
-            {
-                Adults = await _masterlistService.GetMasterlistAdult(householdNo),
-                RequestUrl = requestUrl,
-                Barangay = await _brgyService.GetBarangay()
-            };
-
-            return View(model);
-        }
-
-        public async Task<ActionResult> PrintSeniors(string householdNo, string requestUrl)
-        {
-            var model = new PrintAdultsMasterlistVM
-            {
-                Adults = await _masterlistService.GetMasterlistSeniorCitizen(householdNo),
-                RequestUrl = requestUrl,
-                Barangay = await _brgyService.GetBarangay()
-            };
-
-            return View(model);
-        }
-
         public async Task<string> PrintChildren(string householdNo)
         {
             if (string.IsNullOrWhiteSpace(householdNo))
@@ -370,6 +346,7 @@ namespace AUF.EMR.MVC.Controllers
                 var underFive = await _masterlistService.GetMasterlistUnderFive(householdNo);
                 var schoolAged = await _masterlistService.GetMasterlistSchoolAge(householdNo);
                 var adolescents = await _masterlistService.GetMasterlistAdolescent(householdNo);
+                var adults = await _masterlistService.GetMasterlistAdult(householdNo);
                 var brgyName = (await _brgyService.GetBarangay()).BarangayName;
                 var midwife = (await _userManager.GetUserAsync(User)).FullName;
                 var address = (await _householdService.GetHouseholdWithDetails(householdNo)).FullAddress;
@@ -385,6 +362,7 @@ namespace AUF.EMR.MVC.Controllers
                 report.RegisterData(underFive, "MasterlistUnderFive");
                 report.RegisterData(schoolAged, "MasterlistSchoolAged");
                 report.RegisterData(adolescents, "MasterlistAdolescents");
+                report.RegisterData(adults, "MasterlistAdults");
 
                 report.SetParameterValue("Barangay", brgyName);
                 report.SetParameterValue("Midwife", midwife);
