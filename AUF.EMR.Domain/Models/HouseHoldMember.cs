@@ -32,7 +32,9 @@ namespace AUF.EMR.Domain.Models
         public string? NameOfMother { get; set; }
         public string? NameOfFather { get; set; }
         public bool? IsNhts { get; set; }
+        public bool? NotNhts { get => !IsNhts; }
         public bool? IsInSchool { get; set; }
+        public bool? NotInSchool { get => !IsInSchool; }
 
         public string FormattedFullName { get => $"{FirstName} {GetMiddleInitial()}. {LastName}"; }
         public string FullName { get => $"{LastName}, {FirstName}, {MotherMaidenName}"; }

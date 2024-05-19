@@ -1,8 +1,8 @@
 ﻿<script>
-    function print(householdNo) {
+    function print(action, controller, householdNo) {
 
         $.ajax({
-            url: "@Url.Action("Print", "Household", new { householdNo = Model.HouseholdNo })",
+            url: `/${controller}/${action}?householdNo=${householdNo}`,
             type: "GET",
             success: function (data) {
                 // Create a Blob from the Base64 string
@@ -20,7 +20,6 @@
                 });
             }
         });
-
     }
 
     // Function to convert a Base64 string to a Blob

@@ -6,11 +6,17 @@ using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
 using AUF.EMR.MVC.Models.PrintVM;
 using AutoMapper;
+using FastReport.Export.PdfSimple;
+using FastReport.Utils;
+using FastReport;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using static System.Collections.Specialized.BitVector32;
+using System.Security.Claims;
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -22,18 +28,21 @@ namespace AUF.EMR.MVC.Controllers
         private readonly IBarangayService _brgyService;
         private readonly IHouseholdMemberService _householdMemberService;
         private readonly IHouseholdService _householdService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public MasterlistController(IMasterlistService masterlistService,
             UserManager<ApplicationUser> userManager,
             IBarangayService brgyService,
             IHouseholdMemberService householdMemberService,
-            IHouseholdService householdService)
+            IHouseholdService householdService,
+            IWebHostEnvironment webHostEnvironment)
         {
             _masterlistService = masterlistService;
             _userManager = userManager;
             _brgyService = brgyService;
             _householdMemberService = householdMemberService;
             _householdService = householdService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: MasterlistController/EditChildrenInfo
@@ -323,24 +332,6 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
-        public async Task<ActionResult> PrintChildren(string householdNo, string requestUrl)
-        {
-            var user = await _userManager.GetUserAsync(User);
-            var model = new PrintChildrenMasterlistVM
-            {
-                Newborns = await _masterlistService.GetMasterlistNewborn(householdNo),
-                Infants = await _masterlistService.GetMasterlistInfant(householdNo),
-                UnderFive = await _masterlistService.GetMasterlistUnderFive(householdNo),
-                SchoolAged = await _masterlistService.GetMasterlistSchoolAge(householdNo),
-                Adolescents = await _masterlistService.GetMasterlistAdolescent(householdNo),
-                RequestUrl = requestUrl,
-                Midwife = user.FullName,
-                Barangay = await _brgyService.GetBarangay()
-            };
-
-            return View(model);
-        }
-
         public async Task<ActionResult> PrintAdults(string householdNo, string requestUrl)
         {
             var model = new PrintAdultsMasterlistVM
@@ -363,6 +354,67 @@ namespace AUF.EMR.MVC.Controllers
             };
 
             return View(model);
+        }
+
+        public async Task<string> PrintChildren(string householdNo)
+        {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return "Household no. is empty";
+            }
+
+            try
+            {
+                var newborns = await _masterlistService.GetMasterlistNewborn(householdNo);
+                var infants = await _masterlistService.GetMasterlistInfant(householdNo);
+                var underFive = await _masterlistService.GetMasterlistUnderFive(householdNo);
+                var schoolAged = await _masterlistService.GetMasterlistSchoolAge(householdNo);
+                var adolescents = await _masterlistService.GetMasterlistAdolescent(householdNo);
+                var brgyName = (await _brgyService.GetBarangay()).BarangayName;
+                var midwife = (await _userManager.GetUserAsync(User)).FullName;
+                var address = (await _householdService.GetHouseholdWithDetails(householdNo)).FullAddress;
+
+                Config.WebMode = true;
+                var report = new Report();
+                var contentRootPath = _webHostEnvironment.ContentRootPath;
+                var path = Path.Combine(contentRootPath, "Reports", "Masterlist.frx");
+
+                report.Load(path);
+                report.RegisterData(newborns, "MasterlistNewborns");
+                report.RegisterData(infants, "MasterlistInfants");
+                report.RegisterData(underFive, "MasterlistUnderFive");
+                report.RegisterData(schoolAged, "MasterlistSchoolAged");
+                report.RegisterData(adolescents, "MasterlistAdolescents");
+
+                report.SetParameterValue("Barangay", brgyName);
+                report.SetParameterValue("Midwife", midwife);
+                report.SetParameterValue("HouseholdNo", householdNo);
+                report.SetParameterValue("Address", address);
+
+                if (report.Report.Prepare())
+                {
+                    var pdfExport = new PDFSimpleExport();
+                    pdfExport.ShowProgress = true;
+                    pdfExport.Subject = "Subject Report";
+                    pdfExport.Title = "Report Title";
+                    var memoryStream = new MemoryStream();
+                    report.Report.Export(pdfExport, memoryStream);
+                    report.Dispose();
+                    pdfExport.Dispose();
+                    memoryStream.Position = 0;
+
+                    return Convert.ToBase64String(memoryStream.ToArray());
+                    //return File(memoryStream, "application/pdf", "household.pdf");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

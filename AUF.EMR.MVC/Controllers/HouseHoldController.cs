@@ -247,9 +247,9 @@ namespace AUF.EMR.MVC.Controllers
 
         public async Task<string> Print(string householdNo)
         {
-            if (string.IsNullOrWhiteSpace("s"))
+            if (string.IsNullOrWhiteSpace(householdNo))
             {
-                return null;
+                return "Household no. is empty";
             }
 
             try
@@ -258,7 +258,7 @@ namespace AUF.EMR.MVC.Controllers
 
                 if (household == null)
                 {
-                    return null;
+                    return "Household does not exist";
                 }
 
                 Config.WebMode = true;
@@ -293,7 +293,7 @@ namespace AUF.EMR.MVC.Controllers
             }
             catch(Exception ex)
             {
-                return null;
+                return ex.Message;
             }
         }
     }

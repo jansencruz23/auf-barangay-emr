@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/19/2024 17:30:53" ReportInfo.Modified="05/19/2024 23:21:21" ReportInfo.CreatorVersion="2024.2.0.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="MasterlistNewborns" ReferenceName="MasterlistNewborns" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="NameOfMother" DataType="System.String" PropName="Column"/>
+      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="IsInSchool" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotNhts" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotInSchool" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="MasterlistInfants" ReferenceName="MasterlistInfants" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="NameOfMother" DataType="System.String" PropName="Column"/>
+      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="IsInSchool" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotNhts" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotInSchool" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="MasterlistUnderFive" ReferenceName="MasterlistUnderFive" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="NameOfMother" DataType="System.String" PropName="Column"/>
+      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="IsInSchool" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotNhts" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotInSchool" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="MasterlistSchoolAged" ReferenceName="MasterlistSchoolAged" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="NameOfMother" DataType="System.String" PropName="Column"/>
+      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="IsInSchool" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotNhts" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotInSchool" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="MasterlistAdolescents" ReferenceName="MasterlistAdolescents" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="NameOfMother" DataType="System.String" PropName="Column"/>
+      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="IsInSchool" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotNhts" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotInSchool" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <Parameter Name="Barangay" DataType="System.String" AsString=""/>
+    <Parameter Name="Midwife" DataType="System.String" AsString=""/>
+    <Parameter Name="HouseholdNo" DataType="System.String" AsString=""/>
+    <Parameter Name="Address" DataType="System.String" AsString=""/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="279.4" PaperHeight="215.9" RawPaperSize="1" Watermark.Font="Arial, 60pt" LastPageSource="261" FirstPageSource="261">
+    <PageHeaderBand Name="PageHeader1" Width="980.53" Height="151.2">
+      <TextObject Name="Text1" Top="37.8" Width="982.8" Height="28.35" Text="Master List of Newborns, Infants, Under-five Children, School-Aged Children and Adolescents" HorzAlign="Center" Font="Arial, 11.25pt, style=Bold"/>
+      <TextObject Name="Text2" Left="151.2" Top="75.6" Width="245.7" Height="18.9" Text="[Barangay]" Underlines="true" Font="Arial, 8pt"/>
+      <TextObject Name="Text3" Left="37.8" Top="75.6" Width="122.85" Height="18.9" Text="Name of Barangay:" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text4" Left="567" Top="75.6" Width="122.85" Height="18.9" Text="Name of Midwife:" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text5" Left="670.95" Top="75.6" Width="226.8" Height="18.9" Text="[Midwife]" Underlines="true" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text6" Left="47.25" Top="113.4" Width="56.7" Height="37.8" Text="HH. NO/ Family Serial No." HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text7" Left="113.4" Top="113.4" Width="122.85" Height="37.8" Text="Name of Child" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text8" Left="236.25" Top="113.4" Width="122.85" Height="37.8" Text="Name of Mother" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text9" Left="359.1" Top="113.4" Width="132.3" Height="37.8" Text="Address" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text10" Left="491.4" Top="113.4" Width="94.5" Height="9.45" Text="Sex" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text11" Left="491.4" Top="122.85" Width="47.25" Height="28.35" Text="Male" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text12" Left="538.65" Top="122.85" Width="47.25" Height="28.35" Text="Female" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text13" Left="585.9" Top="113.4" Width="47.25" Height="37.8" Text="Age" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text14" Left="633.15" Top="113.4" Width="75.6" Height="37.8" Text="Birthday" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text15" Left="708.75" Top="113.4" Width="94.5" Height="9.45" Text="SE Status" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text16" Left="708.75" Top="122.85" Width="47.25" Height="28.35" Text="NHTS" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text17" Left="756" Top="122.85" Width="47.25" Height="28.35" Text="Non-NHTS" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text18" Left="803.25" Top="113.4" Width="141.75" Height="9.45" Text="Education Status&#13;&#10;" HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text19" Left="803.25" Top="122.85" Width="66.15" Height="28.35" Text="In School" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text20" Left="869.4" Top="122.85" Width="75.6" Height="28.35" Text="Out of School Youth" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <LineObject Name="Line1" Left="37.8" Top="113.4" Height="37.8"/>
+      <LineObject Name="Line2" Left="37.8" Top="113.4" Width="907.2"/>
+      <LineObject Name="Line3" Left="945" Top="113.4" Height="37.8"/>
+      <LineObject Name="Line5" Left="113.4" Top="113.4" Height="37.8"/>
+      <LineObject Name="Line6" Left="236.25" Top="113.4" Height="37.8"/>
+      <LineObject Name="Line7" Left="359.1" Top="113.4" Height="37.8"/>
+      <LineObject Name="Line8" Left="491.4" Top="113.4" Height="37.8"/>
+      <LineObject Name="Line10" Left="538.65" Top="122.85" Height="28.35"/>
+      <LineObject Name="Line11" Left="633.15" Top="113.4" Height="37.8"/>
+      <LineObject Name="Line12" Left="585.9" Top="113.4" Height="37.8"/>
+      <LineObject Name="Line13" Left="491.4" Top="122.85" Width="94.5"/>
+      <LineObject Name="Line14" Left="708.75" Top="113.4" Height="37.8"/>
+      <LineObject Name="Line15" Left="708.75" Top="122.85" Width="94.5"/>
+      <LineObject Name="Line16" Left="803.25" Top="113.4" Height="37.8"/>
+      <LineObject Name="Line17" Left="756" Top="122.85" Height="28.35"/>
+      <LineObject Name="Line18" Left="869.4" Top="122.85" Height="28.35"/>
+      <LineObject Name="Line19" Left="803.25" Top="122.85" Width="141.75"/>
+    </PageHeaderBand>
+    <DataBand Name="Data2" Top="152.98" Width="980.53" Height="18.9">
+      <TextObject Name="Text21" Left="37.8" Width="264.6" Height="18.9" Text="Part 1. List of Newborns (0-28 days old)" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <LineObject Name="Line4" Left="37.8" Width="907.2"/>
+      <LineObject Name="Line20" Left="37.8" Height="18.9"/>
+      <LineObject Name="Line22" Left="945" Height="18.9"/>
+    </DataBand>
+    <DataBand Name="Data1" Top="173.66" Width="980.53" Height="28.35" DataSource="MasterlistNewborns">
+      <TextObject Name="Text22" Left="113.4" Width="122.85" Height="28.35" Text="[MasterlistNewborns.FullName]" Font="Arial, 7pt"/>
+      <TextObject Name="Text24" Left="236.25" Width="122.85" Height="28.35" Text="[MasterlistNewborns.NameOfMother]" Font="Arial, 7pt"/>
+      <TextObject Name="Text25" Left="37.8" Width="75.6" Height="28.35" Text="[HouseholdNo]" Font="Arial, 7pt"/>
+      <TextObject Name="Text26" Left="359.1" Width="132.3" Height="28.35" Text="[Address]" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox1" Left="500.85" Width="18.9" Height="18.9" Expression="IIf([MasterlistNewborns.Sex] == 'M',true, false)"/>
+      <CheckBoxObject Name="CheckBox2" Left="548.1" Width="18.9" Height="18.9" Expression="IIf([MasterlistNewborns.Sex] == 'F', true, false)"/>
+      <TextObject Name="Text27" Left="585.9" Width="47.25" Height="28.35" Text="[MasterlistNewborns.Age]" Font="Arial, 7pt"/>
+      <TextObject Name="Text29" Left="633.15" Width="75.6" Height="28.35" Text="[MasterlistNewborns.Birthday]" Format="Date" Format.Format="d" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox3" Left="727.65" Width="18.9" Height="18.9" DataColumn="MasterlistNewborns.IsNHTS" Expression="IIf([MasterlistNewborns.IsNHTS],true,false)"/>
+      <CheckBoxObject Name="CheckBox5" Left="822.15" Width="18.9" Height="18.9" DataColumn="MasterlistNewborns.IsInSchool"/>
+      <CheckBoxObject Name="CheckBox7" Left="765.45" Width="18.9" Height="18.9" DataColumn="MasterlistNewborns.NotNhts"/>
+      <CheckBoxObject Name="CheckBox8" Left="897.75" Width="18.9" Height="18.9" DataColumn="MasterlistNewborns.NotInSchool"/>
+      <LineObject Name="Line21" Left="37.8" Width="907.2"/>
+      <LineObject Name="Line23" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line24" Left="37.8" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line25" Left="945" Height="28.35"/>
+      <LineObject Name="Line32" Left="113.4" Height="28.35"/>
+      <LineObject Name="Line33" Left="236.25" Height="28.35"/>
+      <LineObject Name="Line34" Left="359.1" Height="28.35"/>
+      <LineObject Name="Line35" Left="491.4" Height="28.35"/>
+      <LineObject Name="Line36" Left="538.65" Height="28.35"/>
+      <LineObject Name="Line37" Left="585.9" Height="28.35"/>
+      <LineObject Name="Line38" Left="633.15" Height="28.35"/>
+      <LineObject Name="Line39" Left="708.75" Height="28.35"/>
+      <LineObject Name="Line40" Left="756" Height="28.35"/>
+      <LineObject Name="Line41" Left="803.25" Height="28.35"/>
+      <LineObject Name="Line42" Left="869.4" Height="28.35"/>
+    </DataBand>
+    <DataBand Name="Data3" Top="203.78" Width="980.53" Height="18.9">
+      <TextObject Name="Text30" Left="37.8" Width="264.6" Height="18.9" Text="Part 2. List of Infants (29 days- 11 moths old)" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <LineObject Name="Line26" Left="37.8" Height="18.9"/>
+      <LineObject Name="Line27" Left="37.8" Top="18.9" Width="907.2"/>
+      <LineObject Name="Line28" Left="945" Top="18.9" Height="-18.9"/>
+    </DataBand>
+    <DataBand Name="Data4" Top="224.46" Width="980.53" Height="28.35" DataSource="MasterlistInfants">
+      <TextObject Name="Text31" Left="37.8" Width="75.6" Height="28.35" Text="[HouseholdNo]" Font="Arial, 7pt"/>
+      <TextObject Name="Text32" Left="113.4" Width="122.85" Height="28.35" Text="[MasterlistInfants.FullName]" Font="Arial, 7pt"/>
+      <TextObject Name="Text33" Left="236.25" Width="122.85" Height="28.35" Text="[MasterlistInfants.NameOfMother]" Font="Arial, 7pt"/>
+      <TextObject Name="Text34" Left="359.1" Width="132.3" Height="28.35" Text="[Address]" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox9" Left="500.85" Width="18.9" Height="18.9" Expression="IIf([MasterlistInfants.Sex] == 'M',true,false)"/>
+      <CheckBoxObject Name="CheckBox10" Left="548.1" Width="18.9" Height="18.9" Expression="IIf([MasterlistInfants.Sex] == 'F',true,false)"/>
+      <TextObject Name="Text38" Left="585.9" Width="47.25" Height="18.9" Text="[MasterlistInfants.Age]" Font="Arial, 7pt"/>
+      <TextObject Name="Text39" Left="633.15" Width="75.6" Height="18.9" Text="[MasterlistInfants.Birthday]" Format="Date" Format.Format="d" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox11" Left="727.65" Width="18.9" Height="18.9" DataColumn="MasterlistInfants.IsNHTS"/>
+      <CheckBoxObject Name="CheckBox12" Left="765.45" Width="18.9" Height="18.9" DataColumn="MasterlistInfants.NotNhts"/>
+      <CheckBoxObject Name="CheckBox13" Left="822.15" Width="18.9" Height="18.9" DataColumn="MasterlistInfants.IsInSchool"/>
+      <CheckBoxObject Name="CheckBox14" Left="897.75" Width="18.9" Height="18.9" DataColumn="MasterlistInfants.NotInSchool"/>
+      <LineObject Name="Line29" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line30" Left="37.8" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line31" Left="945" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line43" Left="113.4" Height="28.35"/>
+      <LineObject Name="Line44" Left="236.25" Height="28.35"/>
+      <LineObject Name="Line45" Left="359.1" Height="28.35"/>
+      <LineObject Name="Line46" Left="491.4" Height="28.35"/>
+      <LineObject Name="Line47" Left="538.65" Height="28.35"/>
+      <LineObject Name="Line48" Left="585.9" Height="28.35"/>
+      <LineObject Name="Line49" Left="633.15" Height="28.35"/>
+      <LineObject Name="Line50" Left="708.75" Height="28.35"/>
+      <LineObject Name="Line51" Left="756" Height="28.35"/>
+      <LineObject Name="Line52" Left="869.4" Height="28.35"/>
+      <LineObject Name="Line53" Left="803.25" Height="28.35"/>
+    </DataBand>
+    <DataBand Name="Data5" Top="254.59" Width="980.53" Height="18.9">
+      <TextObject Name="Text40" Left="37.8" Width="264.6" Height="18.9" Text="Part 3. List of Under-five Children (1-4 years old)" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <LineObject Name="Line54" Left="37.8" Height="18.9"/>
+      <LineObject Name="Line55" Left="37.8" Top="18.9" Width="907.2"/>
+      <LineObject Name="Line56" Left="945" Top="18.9" Height="-18.9"/>
+    </DataBand>
+    <DataBand Name="Data6" Top="275.27" Width="980.53" Height="28.35" DataSource="MasterlistUnderFive">
+      <TextObject Name="Text41" Left="37.8" Width="75.6" Height="28.35" Text="[HouseholdNo]" Font="Arial, 7pt"/>
+      <TextObject Name="Text42" Left="113.4" Width="122.85" Height="28.35" Text="[MasterlistUnderFive.FullName]" Font="Arial, 7pt"/>
+      <TextObject Name="Text43" Left="236.25" Width="122.85" Height="28.35" Text="[MasterlistUnderFive.NameOfMother]" Font="Arial, 7pt"/>
+      <TextObject Name="Text44" Left="359.1" Width="132.3" Height="28.35" Text="[Address]" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox15" Left="500.85" Width="18.9" Height="18.9" Expression="IIf([MasterlistUnderFive.Sex] == 'M',true,false)"/>
+      <CheckBoxObject Name="CheckBox16" Left="548.1" Width="18.9" Height="18.9" Expression="IIf([MasterlistUnderFive.Sex] == 'F',true,false)"/>
+      <TextObject Name="Text45" Left="585.9" Width="47.25" Height="18.9" Text="[MasterlistUnderFive.Age]" Font="Arial, 7pt"/>
+      <TextObject Name="Text46" Left="633.15" Width="75.6" Height="18.9" Text="[MasterlistUnderFive.Birthday]" Format="Date" Format.Format="d" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox17" Left="727.65" Width="18.9" Height="18.9" DataColumn="MasterlistUnderFive.IsNHTS"/>
+      <CheckBoxObject Name="CheckBox18" Left="765.45" Width="18.9" Height="18.9" DataColumn="MasterlistUnderFive.NotNhts"/>
+      <CheckBoxObject Name="CheckBox19" Left="822.15" Width="18.9" Height="18.9" DataColumn="MasterlistUnderFive.IsInSchool"/>
+      <CheckBoxObject Name="CheckBox20" Left="897.75" Width="18.9" Height="18.9" DataColumn="MasterlistUnderFive.NotInSchool"/>
+      <LineObject Name="Line57" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line58" Left="37.8" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line59" Left="945" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line60" Left="869.4" Height="28.35"/>
+      <LineObject Name="Line61" Left="803.25" Height="28.35"/>
+      <LineObject Name="Line62" Left="756" Height="28.35"/>
+      <LineObject Name="Line63" Left="708.75" Height="28.35"/>
+      <LineObject Name="Line64" Left="633.15" Height="28.35"/>
+      <LineObject Name="Line65" Left="585.9" Height="28.35"/>
+      <LineObject Name="Line66" Left="538.65" Height="28.35"/>
+      <LineObject Name="Line67" Left="491.4" Height="28.35"/>
+      <LineObject Name="Line68" Left="359.1" Height="28.35"/>
+      <LineObject Name="Line69" Left="236.25" Height="28.35"/>
+      <LineObject Name="Line70" Left="113.4" Height="28.35"/>
+    </DataBand>
+    <DataBand Name="Data7" Top="305.39" Width="980.53" Height="18.9">
+      <TextObject Name="Text47" Left="37.8" Width="264.6" Height="18.9" Text="Part 4. List of School- Aged Children (5-9 years old)" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <LineObject Name="Line71" Left="37.8" Height="18.9"/>
+      <LineObject Name="Line72" Left="37.8" Top="18.9" Width="907.2"/>
+      <LineObject Name="Line73" Left="945" Top="18.9" Height="-18.9"/>
+    </DataBand>
+    <DataBand Name="Data8" Top="326.07" Width="980.53" Height="28.35" DataSource="MasterlistSchoolAged">
+      <TextObject Name="Text48" Left="37.8" Width="75.6" Height="28.35" Text="[HouseholdNo]" Font="Arial, 7pt"/>
+      <TextObject Name="Text49" Left="113.4" Width="122.85" Height="28.35" Text="[MasterlistSchoolAged.FullName]" Font="Arial, 7pt"/>
+      <TextObject Name="Text50" Left="236.25" Width="122.85" Height="28.35" Text="[MasterlistSchoolAged.NameOfMother]" Font="Arial, 7pt"/>
+      <TextObject Name="Text51" Left="359.1" Width="132.3" Height="28.35" Text="[Address]" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox21" Left="500.85" Width="18.9" Height="18.9" Expression="IIf([MasterlistSchoolAged.Sex] == 'M',true,false)"/>
+      <CheckBoxObject Name="CheckBox22" Left="548.1" Width="18.9" Height="18.9" Expression="IIf([MasterlistSchoolAged.Sex] == 'F',true,false)"/>
+      <TextObject Name="Text52" Left="585.9" Width="47.25" Height="18.9" Text="[MasterlistSchoolAged.Age]" Font="Arial, 7pt"/>
+      <TextObject Name="Text53" Left="633.15" Width="75.6" Height="18.9" Text="[MasterlistSchoolAged.Birthday]" Format="Date" Format.Format="d" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox23" Left="727.65" Width="18.9" Height="18.9" DataColumn="MasterlistSchoolAged.IsNHTS"/>
+      <CheckBoxObject Name="CheckBox24" Left="765.45" Width="18.9" Height="18.9" DataColumn="MasterlistSchoolAged.NotNhts"/>
+      <CheckBoxObject Name="CheckBox25" Left="822.15" Width="18.9" Height="18.9" DataColumn="MasterlistSchoolAged.IsInSchool"/>
+      <CheckBoxObject Name="CheckBox26" Left="897.75" Width="18.9" Height="18.9" DataColumn="MasterlistSchoolAged.NotInSchool"/>
+      <LineObject Name="Line74" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line75" Left="37.8" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line76" Left="945" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line77" Left="869.4" Height="28.35"/>
+      <LineObject Name="Line78" Left="803.25" Height="28.35"/>
+      <LineObject Name="Line79" Left="756" Height="28.35"/>
+      <LineObject Name="Line80" Left="708.75" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line81" Left="633.15" Height="28.35"/>
+      <LineObject Name="Line82" Left="585.9" Height="28.35"/>
+      <LineObject Name="Line83" Left="538.65" Height="28.35"/>
+      <LineObject Name="Line84" Left="359.1" Height="28.35"/>
+      <LineObject Name="Line85" Left="491.4" Height="28.35"/>
+      <LineObject Name="Line86" Left="236.25" Height="28.35"/>
+      <LineObject Name="Line87" Left="113.4" Height="28.35"/>
+    </DataBand>
+    <DataBand Name="Data9" Top="356.2" Width="980.53" Height="18.9">
+      <TextObject Name="Text54" Left="37.8" Width="264.6" Height="18.9" Text="Part 5. List of Adolescents (10-19 years old)" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <LineObject Name="Line88" Left="37.8" Height="18.9"/>
+      <LineObject Name="Line89" Left="37.8" Top="18.9" Width="907.2"/>
+      <LineObject Name="Line90" Left="945" Top="18.9" Height="-18.9"/>
+    </DataBand>
+    <DataBand Name="Data10" Top="376.88" Width="980.53" Height="28.35" DataSource="MasterlistAdolescents">
+      <TextObject Name="Text55" Left="37.8" Width="75.6" Height="28.35" Text="[HouseholdNo]" Font="Arial, 7pt"/>
+      <TextObject Name="Text56" Left="113.4" Width="122.85" Height="28.35" Text="[MasterlistAdolescents.FullName]" Font="Arial, 7pt"/>
+      <TextObject Name="Text57" Left="236.25" Width="122.85" Height="28.35" Text="[MasterlistAdolescents.NameOfMother]" Font="Arial, 7pt"/>
+      <TextObject Name="Text58" Left="359.1" Width="132.3" Height="28.35" Text="[Address]" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox27" Left="500.85" Width="18.9" Height="18.9" Expression="IIf([MasterlistAdolescents.Sex] == 'M',true,false)"/>
+      <CheckBoxObject Name="CheckBox28" Left="548.1" Width="18.9" Height="18.9" Expression="IIf([MasterlistAdolescents.Sex] == 'F',true,false)"/>
+      <TextObject Name="Text59" Left="585.9" Width="47.25" Height="18.9" Text="[MasterlistAdolescents.Age]" Font="Arial, 7pt"/>
+      <TextObject Name="Text60" Left="633.15" Width="75.6" Height="18.9" Text="[MasterlistAdolescents.Birthday]" Format="Date" Format.Format="d" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox29" Left="727.65" Width="18.9" Height="18.9" DataColumn="MasterlistAdolescents.IsNHTS"/>
+      <CheckBoxObject Name="CheckBox30" Left="765.45" Width="18.9" Height="18.9" DataColumn="MasterlistAdolescents.NotNhts"/>
+      <CheckBoxObject Name="CheckBox31" Left="822.15" Width="18.9" Height="18.9" DataColumn="MasterlistAdolescents.IsInSchool"/>
+      <CheckBoxObject Name="CheckBox32" Left="897.75" Width="18.9" Height="18.9" DataColumn="MasterlistAdolescents.NotInSchool"/>
+      <LineObject Name="Line91" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line92" Left="37.8" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line93" Left="945" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line94" Left="113.4" Height="28.35"/>
+      <LineObject Name="Line95" Left="236.25" Height="28.35"/>
+      <LineObject Name="Line96" Left="359.1" Height="28.35"/>
+      <LineObject Name="Line97" Left="491.4" Height="28.35"/>
+      <LineObject Name="Line98" Left="538.65" Height="28.35"/>
+      <LineObject Name="Line99" Left="585.9" Height="28.35"/>
+      <LineObject Name="Line100" Left="633.15" Height="28.35"/>
+      <LineObject Name="Line101" Left="708.75" Height="28.35"/>
+      <LineObject Name="Line102" Left="756" Height="28.35"/>
+      <LineObject Name="Line103" Left="803.25" Height="28.35"/>
+      <LineObject Name="Line104" Left="869.4" Height="28.35"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="407.01" Width="980.53" Height="37.8"/>
+  </ReportPage>
+</Report>
