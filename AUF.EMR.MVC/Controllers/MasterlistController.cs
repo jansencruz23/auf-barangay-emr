@@ -347,6 +347,8 @@ namespace AUF.EMR.MVC.Controllers
                 var schoolAged = await _masterlistService.GetMasterlistSchoolAge(householdNo);
                 var adolescents = await _masterlistService.GetMasterlistAdolescent(householdNo);
                 var adults = await _masterlistService.GetMasterlistAdult(householdNo);
+                var seniors = await _masterlistService.GetMasterlistSeniorCitizen(householdNo);
+
                 var brgyName = (await _brgyService.GetBarangay()).BarangayName;
                 var midwife = (await _userManager.GetUserAsync(User)).FullName;
                 var address = (await _householdService.GetHouseholdWithDetails(householdNo)).FullAddress;
@@ -363,6 +365,7 @@ namespace AUF.EMR.MVC.Controllers
                 report.RegisterData(schoolAged, "MasterlistSchoolAged");
                 report.RegisterData(adolescents, "MasterlistAdolescents");
                 report.RegisterData(adults, "MasterlistAdults");
+                report.RegisterData(seniors, "MasterlistSeniors");
 
                 report.SetParameterValue("Barangay", brgyName);
                 report.SetParameterValue("Midwife", midwife);
