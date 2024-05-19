@@ -5,7 +5,7 @@
 }
 
 <h1>List of Newborns</h1>
-<button type="button" onclick="print('PrintChildren', 'Masterlist', @Model.HouseholdNo)">Print Masterlist Children</button>
+<button type="button" onclick="print('Print', 'Masterlist', @Model.HouseholdNo)">Print Masterlist</button>
 <br />
 @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 

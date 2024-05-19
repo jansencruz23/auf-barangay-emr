@@ -1,11 +1,9 @@
 ﻿@model EditHouseholdMemberVM
 
 @{
-    Layout = "Layouts/_HouseholdLayout";
     Layout = "Layouts/_FormLayout";
     ViewData["Title"] = "EditAdultInfo";
 }
-
 
 <div class="container mx-auto px-4 py-8">
     <div class="bg-white shadow-md rounded-lg p-8 mb-8">
@@ -14,6 +12,16 @@
             <input type="hidden" asp-for="RequestUrl" value="@Model.RequestUrl" />
             <input type="hidden" asp-for="HouseholdMember.Id" value="@Model.HouseholdMember.Id" />
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
+            <input type="hidden" asp-for="HouseholdMember.IsInSchool" value="@Model.HouseholdMember.IsInSchool" />
+            <input type="hidden" asp-for="HouseholdMember.Remarks" value="@Model.HouseholdMember.Remarks" />
+            <input type="hidden" asp-for="HouseholdMember.NameOfFather" value="@Model.HouseholdMember.NameOfFather" />
+            <input type="hidden" asp-for="HouseholdMember.NameOfMother" value="@Model.HouseholdMember.NameOfMother" />
+            <input type="hidden" asp-for="HouseholdMember.OtherRelation" value="@Model.HouseholdMember.OtherRelation" />
+            <input type="hidden" asp-for="HouseholdMember.FirstQtrClassification" value="@Model.HouseholdMember.FirstQtrClassification" />
+            <input type="hidden" asp-for="HouseholdMember.SecondQtrClassification" value="@Model.HouseholdMember.SecondQtrClassification" />
+            <input type="hidden" asp-for="HouseholdMember.ThirdQtrClassification" value="@Model.HouseholdMember.ThirdQtrClassification" />
+            <input type="hidden" asp-for="HouseholdMember.FourthQtrClassification" value="@Model.HouseholdMember.FourthQtrClassification" />
+            <input type="hidden" asp-for="HouseholdMember.RelationshipToHouseholdHead" value="@Model.HouseholdMember.RelationshipToHouseholdHead" />
             <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Edit Adult Information</h1>
             <hr class="mb-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">

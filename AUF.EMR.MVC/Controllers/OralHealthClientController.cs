@@ -3,8 +3,13 @@ using AUF.EMR.Application.Services;
 using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
 using AUF.EMR.MVC.Models.PrintVM;
+using FastReport.Export.PdfSimple;
+using FastReport.Utils;
+using FastReport;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
@@ -16,16 +21,19 @@ namespace AUF.EMR.MVC.Controllers
         private readonly IBarangayService _brgyService;
         private readonly IHouseholdMemberService _householdMemberService;
         private readonly IHouseholdService _householdService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public OralHealthClientController(IOralHealthService oralHealthService,
             IBarangayService brgyService,
             IHouseholdMemberService householdMemberService,
-            IHouseholdService householdService)
+            IHouseholdService householdService,
+            IWebHostEnvironment webHostEnvironment)
         {
             _oralHealthService = oralHealthService;
             _brgyService = brgyService;
             _householdMemberService = householdMemberService;
             _householdService = householdService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: MasterlistController/EditOralHealthInfo
@@ -71,8 +79,6 @@ namespace AUF.EMR.MVC.Controllers
             try
             {
                 var householdMember = model.HouseholdMember;
-                var householdId = await _householdService.GetHouseholdId(model.HouseholdNo);
-                householdMember.HouseholdId = householdId;
                 var completed = await _householdMemberService.Update(householdMember);
 
                 return Redirect(model.RequestUrl);
@@ -188,21 +194,60 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
-        public async Task<ActionResult> Print(string householdNo, string requestUrl)
+        public async Task<string> Print(string householdNo)
         {
-            var model = new PrintOralListVM
+            if (string.IsNullOrWhiteSpace(householdNo))
             {
-                Infants = await _oralHealthService.GetOralClientInfant(householdNo),
-                OneToFour = await _oralHealthService.GetOralClient1to4(householdNo),
-                FiveToNine = await _oralHealthService.GetOralClient5to9(householdNo),
-                TenToFourteen = await _oralHealthService.GetOralClient10to14(householdNo),
-                PregnantFifteenToNineteen = await _oralHealthService.GetOralClientPregnant15to19(householdNo),
-                PregnantTwentyToFourtyNine = await _oralHealthService.GetOralClientPregnant20to49(householdNo),
-                RequestUrl = requestUrl,
-                Barangay = await _brgyService.GetBarangay()
-            };
+                return "Household no. is empty";
+            }
 
-            return View(model);
+            try
+            {
+                var infants = await _oralHealthService.GetOralClientInfant(householdNo);
+                var oneToFour = await _oralHealthService.GetOralClient1to4(householdNo);
+                var fiveToNine = await _oralHealthService.GetOralClient5to9(householdNo);
+                var tenToFourteen = await _oralHealthService.GetOralClient10to14(householdNo);
+                var fifteenToNineteen = await _oralHealthService.GetOralClient15to19(householdNo);
+                var pregFifteenToNineteen = await _oralHealthService.GetOralClientPregnant15to19(householdNo);
+                var pregTwentyToFourtyNine = await _oralHealthService.GetOralClientPregnant20to49(householdNo);
+
+                var address = (await _householdService.GetHouseholdWithDetails(householdNo)).FullAddress;
+
+                Config.WebMode = true;
+                var report = new Report();
+                var contentRootPath = _webHostEnvironment.ContentRootPath;
+                var path = Path.Combine(contentRootPath, "Reports", "Masterlist.frx");
+
+                report.Load(path);
+                report.RegisterData(infants, "OralInfants");
+
+                report.SetParameterValue("HouseholdNo", householdNo);
+                report.SetParameterValue("Address", address);
+
+                if (report.Report.Prepare())
+                {
+                    var pdfExport = new PDFSimpleExport();
+                    pdfExport.ShowProgress = true;
+                    pdfExport.Subject = "Subject Report";
+                    pdfExport.Title = "Report Title";
+                    var memoryStream = new MemoryStream();
+                    report.Report.Export(pdfExport, memoryStream);
+                    report.Dispose();
+                    pdfExport.Dispose();
+                    memoryStream.Position = 0;
+
+                    return Convert.ToBase64String(memoryStream.ToArray());
+                    //return File(memoryStream, "application/pdf", "household.pdf");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }
