@@ -71,7 +71,7 @@
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Sex)</td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Age)</td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Birthday)</td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">@item.IsNhts ? "Yes" : "No"</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.IsNhts)</td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 <a asp-action="EditOralHealthInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-yellow-300 hover:text-yellow-400 mr-2">
                                     <i class="fas fa-edit"></i>
