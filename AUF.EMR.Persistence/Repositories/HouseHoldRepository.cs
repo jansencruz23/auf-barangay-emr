@@ -92,7 +92,7 @@ namespace AUF.EMR.Persistence.Repositories
         {
             var houseHolds = await _dbContext.Households
                 .AsNoTracking()
-                .Include(h => h.HouseholdMembers)
+                .Include(h => h.HouseholdMembers.Where(m => m.Status))
                 .Where(h => h.Status)
                 .ToListAsync();
 
@@ -112,7 +112,7 @@ namespace AUF.EMR.Persistence.Repositories
         {
             var household = await _dbContext.Households
                 .AsNoTracking()
-                .Include(h => h.HouseholdMembers)
+                .Include(h => h.HouseholdMembers.Where(m => m.Status))
                 .Where(h => h.Status)
                 .FirstOrDefaultAsync(h => h.Id == id);
 
@@ -123,7 +123,7 @@ namespace AUF.EMR.Persistence.Repositories
         {
             var household = await _dbContext.Households
                 .AsNoTracking()
-                .Include(h => h.HouseholdMembers)
+                .Include(h => h.HouseholdMembers.Where(m => m.Status))
                 .Where(h => h.Status)
                 .FirstOrDefaultAsync(h => h.HouseholdNo.Equals(householdNo));
 
@@ -134,7 +134,7 @@ namespace AUF.EMR.Persistence.Repositories
         {
             var houseHolds = await _dbContext.Households
                 .AsNoTracking()
-                .Include(h => h.HouseholdMembers)
+                .Include(h => h.HouseholdMembers.Where(m => m.Status))
                 .Where(h => h.Status)
                 .Where(h => h.LastName.Contains(query) ||
                     h.FirstName.Contains(query) ||
@@ -151,7 +151,7 @@ namespace AUF.EMR.Persistence.Repositories
         {
             var household = await _dbContext.Households
                 .AsNoTracking()
-                .Include(h => h.HouseholdMembers)
+                .Include(h => h.HouseholdMembers.Where(m => m.Status))
                 .FirstOrDefaultAsync(h => h.HouseholdNo.Equals(householdNo) && h.Status);
 
             return household;

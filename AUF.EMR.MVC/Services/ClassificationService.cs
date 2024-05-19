@@ -100,5 +100,37 @@ namespace AUF.EMR.MVC.Services
         {
             return _classifications;
         }
+
+        private List<Classification> GetDefaultClassification()
+        {
+            var newClassification = new List<Classification>();
+            foreach (var classification in _classifications)
+            {
+                newClassification.Add(classification);
+            }
+
+            return newClassification;
+        }
+
+        public List<Classification> MapSelected(string classifications)
+        {
+            if (string.IsNullOrWhiteSpace(classifications))
+            {
+                return GetDefaultClassification();
+            }
+
+            var newClassifications = GetDefaultClassification();
+            var keys = classifications.Split(",");
+            foreach (var key in keys)
+            {
+                var classification = newClassifications.Find(c => c.Key.Equals(key));
+                if (classification != null)
+                {
+                    classification.Selected = true;
+                }
+            }
+
+            return newClassifications;
+        }
     }
 }

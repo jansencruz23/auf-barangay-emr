@@ -102,9 +102,7 @@ namespace AUF.EMR.MVC.Controllers
                 var fourthQtrClassification = _houseHoldMemberService.GetClassifications(model.FourthQtrClassifications);
 
                 var householdMember = model.HouseholdMember;
-                var householdId = await _houseHoldService.GetHouseholdId(model.HouseholdNo);
 
-                householdMember.HouseholdId = householdId;
                 householdMember.Age = $"{householdMember.Age} {model.AgeSuffix}";
                 householdMember.FirstQtrClassification = firstQtrClassification;
                 householdMember.SecondQtrClassification = secondQtrClassification;
@@ -126,15 +124,41 @@ namespace AUF.EMR.MVC.Controllers
         // GET: HouseHoldMemberController/Edit/5
         public async Task<ActionResult> Edit(int id, string requestUrl)
         {
-            var member = await _houseHoldMemberService.GetHouseholdMemberWithDetails(id);
-            var model = new EditHouseholdMemberVM
+            if (id == 0)
             {
-                HouseholdMember = member,
-                RequestUrl = requestUrl,
-                HouseholdNo = member.Household.HouseholdNo
-            };
+                return NotFound();
+            }
 
-            return View(model);
+            try
+            {
+                var member = await _houseHoldMemberService.GetHouseholdMemberWithDetails(id);
+
+                if (member == null)
+                {
+                    return NotFound();
+                }
+
+                var classificationService = new ClassificationService();
+                var classifications = classificationService.GetClassifications();
+
+                var model = new EditHouseholdMemberVM
+                {
+                    HouseholdMember = member,
+                    RequestUrl = requestUrl,
+                    HouseholdNo = member.Household.HouseholdNo,
+                    Classifications = classifications,
+                    FirstQtrClassifications = new ClassificationService().MapSelected(member.FirstQtrClassification),
+                    SecondQtrClassifications = new ClassificationService().MapSelected(member.SecondQtrClassification),
+                    ThirdQtrClassifications = new ClassificationService().MapSelected(member.ThirdQtrClassification),
+                    FourthQtrClassifications = new ClassificationService().MapSelected(member.FourthQtrClassification),
+                };
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
         }
 
         // POST: HouseHoldMemberController/Edit/5
@@ -142,11 +166,31 @@ namespace AUF.EMR.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(int id, EditHouseholdMemberVM model)
         {
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
             try
             {
+                var firstQtrClassification = _houseHoldMemberService.GetClassifications(model.FirstQtrClassifications);
+                var secondQtrClassification = _houseHoldMemberService.GetClassifications(model.SecondQtrClassifications);
+                var thirdQtrClassification = _houseHoldMemberService.GetClassifications(model.ThirdQtrClassifications);
+                var fourthQtrClassification = _houseHoldMemberService.GetClassifications(model.FourthQtrClassifications);
+
                 var householdMember = model.HouseholdMember;
-                var householdId = await _houseHoldService.GetHouseholdId(householdMember.Household.HouseholdNo);
-                householdMember.HouseholdId = householdId;
+                householdMember.Age = $"{householdMember.Age} {model.AgeSuffix}";
+
+                householdMember.FirstQtrClassification = firstQtrClassification;
+                householdMember.SecondQtrClassification = secondQtrClassification;
+                householdMember.ThirdQtrClassification = thirdQtrClassification;
+                householdMember.FourthQtrClassification = fourthQtrClassification;
+
                 var completed = await _houseHoldMemberService.Update(householdMember);
 
                 if (!string.IsNullOrEmpty(model.RequestUrl)
@@ -155,7 +199,7 @@ namespace AUF.EMR.MVC.Controllers
                     return Redirect(model.RequestUrl);
                 }
 
-                return RedirectToAction(nameof(Edit), nameof(Household), new { id = householdId });
+                return RedirectToAction(nameof(Edit), nameof(Household), new { id = model.HouseholdMember.HouseholdId });
             }
             catch (Exception ex)
             {
@@ -168,7 +212,7 @@ namespace AUF.EMR.MVC.Controllers
         // POST: HouseHoldMemberController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Delete(int id, string householdId)
+        public async Task<ActionResult> Delete(int id, string householdNo)
         {
             try
             {
@@ -179,7 +223,7 @@ namespace AUF.EMR.MVC.Controllers
                 }
 
                 await _houseHoldMemberService.DeleteHouseholdMember(id);
-                return RedirectToAction(nameof(Edit), nameof(Household), new { id = householdId });
+                return RedirectToAction("HouseholdProfile", nameof(Household), new { householdNo = householdNo});
             }
             catch (Exception ex)
             {
