@@ -6,6 +6,7 @@ using AUF.EMR.Persistence.Seeders;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using Tailwind;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -65,6 +66,7 @@ using (var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+    _ = app.RunTailwind("tailwind", "../Client/");
 }
 else
 {

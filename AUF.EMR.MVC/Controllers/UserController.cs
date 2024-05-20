@@ -16,13 +16,10 @@ namespace AUF.EMR.MVC.Controllers
     public class UserController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IBarangayService _brgyService;
 
-        public UserController(UserManager<ApplicationUser> userManager,
-            IBarangayService brgyService)
+        public UserController(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
-            _brgyService = brgyService;
         }
 
         // GET: UserController
@@ -31,7 +28,6 @@ namespace AUF.EMR.MVC.Controllers
             var model = new UserVM
             {
                 Users = await _userManager.GetUsersInRoleAsync("User"),
-                Barangay = await _brgyService.GetBarangay(),
             };
             return View(model);
         }
@@ -42,7 +38,6 @@ namespace AUF.EMR.MVC.Controllers
             var model = new DetailUserVM
             {
                 User = await _userManager.FindByIdAsync(id),
-                Barangay = await _brgyService.GetBarangay(),
             };
             return View(model);
         }
@@ -66,7 +61,6 @@ namespace AUF.EMR.MVC.Controllers
             var model = new EditUserVM
             {
                 User = await _userManager.FindByIdAsync(id),
-                Barangay = await _brgyService.GetBarangay(),
             };
             return View(model);
         }
@@ -137,7 +131,6 @@ namespace AUF.EMR.MVC.Controllers
             var model = new ResetPasswordVM
             {
                 Id = id,
-                Barangay = await _brgyService.GetBarangay(),
                 FullName = user.FullName
             };
             return View(model);
@@ -155,7 +148,6 @@ namespace AUF.EMR.MVC.Controllers
 
             if (!ModelState.IsValid)
             {
-                model.Barangay = await _brgyService.GetBarangay();
                 return View(model);
             }
 

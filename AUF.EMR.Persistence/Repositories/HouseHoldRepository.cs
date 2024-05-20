@@ -74,6 +74,15 @@ namespace AUF.EMR.Persistence.Repositories
                 .Where(h => h.Status)
                 .ToListAsync();
 
+            foreach (var household in houseHolds)
+            {
+                household.HouseholdMembers = household.HouseholdMembers
+                    .OrderBy(m => m.RelationshipToHouseholdHead == 1 ? 0 : m.RelationshipToHouseholdHead)
+                        .ThenBy(m => m.RelationshipToHouseholdHead == 2 ? 1 : m.RelationshipToHouseholdHead)
+                        .ThenBy(m => m.RelationshipToHouseholdHead == 3 || m.RelationshipToHouseholdHead == 4 ? m.Birthday : DateTime.MaxValue)
+                    .ToList();
+            }
+
             return houseHolds;
         }
 
@@ -93,9 +102,8 @@ namespace AUF.EMR.Persistence.Repositories
             var houseHolds = await _dbContext.Households
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers)
-                .Where(h =>
-                    h.Status &&
-                    h.LastName.Contains(query) ||
+                .Where(h => h.Status)
+                .Where(h => h.LastName.Contains(query) ||
                     h.FirstName.Contains(query) ||
                     h.HouseholdNo.Contains(query) ||
                     h.HouseholdMembers.Any(m =>
@@ -106,13 +114,12 @@ namespace AUF.EMR.Persistence.Repositories
             return houseHolds;
         }
 
-        public async Task<List<Household>> GetSearchedHouseholdWithDetails(string query)
+        public async Task<Household> GetSearchedHouseholdWithDetails(string householdNo)
         {
             var household = await _dbContext.Households
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers)
-                .Where(h => h.HouseholdNo.Equals(query) && h.Status)
-                .ToListAsync();
+                .FirstOrDefaultAsync(h => h.HouseholdNo.Equals(householdNo) && h.Status);
 
             return household;
         }

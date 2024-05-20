@@ -1,88 +1,208 @@
 ﻿@model HouseholdProfileVM
 
 @{
+    Layout = "Layouts/_FormLayout";
     ViewData["Title"] = "Index";
-    ViewData["Barangay"] = Model.Barangay.BarangayName;
+    ViewData["HouseholdNo"] = Model.HouseholdNo;
 }
 
-<h1>F1 - Household Profile</h1>
-<p>
-    <a asp-action="Household" asp-controller="Dashboard" asp-route-householdNo="@Model.HouseholdNo">See Household Dashboard</a>
-</p>
-@Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
+@{
+    var formatted1Qtr = Model.Household.FirstQtrVisit.HasValue ? Model.Household.FirstQtrVisit.Value.ToString("MM-dd-yy") : "N/A";
+    var formatted2Qtr = Model.Household.SecondQtrVisit.HasValue ? Model.Household.SecondQtrVisit.Value.ToString("MM-dd-yy") : "N/A";
+    var formatted3Qtr = Model.Household.ThirdQtrVisit.HasValue ? Model.Household.ThirdQtrVisit.Value.ToString("MM-dd-yy") : "N/A";
+    var formatted4Qtr = Model.Household.FourthQtrVisit.HasValue ? Model.Household.FourthQtrVisit.Value.ToString("MM-dd-yy") : "N/A";
+}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Household.HouseholdNo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Household.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Household.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Household.MotherMaidenName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Household.HouseNoAndStreet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Household.Barangay)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Household.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Household.Province)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Household.ContactNo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Households)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HouseholdNo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MotherMaidenName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HouseNoAndStreet)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Barangay)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.City)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Province)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ContactNo)
-                </td>
-                <td>
-                    <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">View</a>
-                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <form asp-action="Delete" asp-route-id="@item.Id">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<section class="sm:px-16 py-12">
+    <h5 class="text-3xl font-bold leading-none text-gray-900">Household Form</h5>
+
+    <div class="flex justify-between my-3">
+        <h5 class="text-xl font-bold leading-none text-gray-900">Household Profile</h5>
+        <div class="flex justify-end gap-3">
+            <a asp-action="Details" asp-route-id="@Model.Household.Id" class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-primary-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200">
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H8Zm-3 7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h1a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5Zm4 11a1 1 0 0 1-1-1v-4h8v4a1 1 0 0 1-1 1H9Z" clip-rule="evenodd" />
+                </svg>
+
+                <span class="hidden md:inline font-medium">&nbsp; Print</span>
+            </a>
+            <a asp-action="Edit" asp-route-id="@Model.Household.Id" class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-300">
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M11.32 6.176H5c-1.105 0-2 .949-2 2.118v10.588C3 20.052 3.895 21 5 21h11c1.105 0 2-.948 2-2.118v-7.75l-3.914 4.144A2.46 2.46 0 0 1 12.81 16l-2.681.568c-1.75.37-3.292-1.263-2.942-3.115l.536-2.839c.097-.512.335-.983.684-1.352l2.914-3.086Z" clip-rule="evenodd" />
+                    <path fill-rule="evenodd" d="M19.846 4.318a2.148 2.148 0 0 0-.437-.692 2.014 2.014 0 0 0-.654-.463 1.92 1.92 0 0 0-1.544 0 2.014 2.014 0 0 0-.654.463l-.546.578 2.852 3.02.546-.579a2.14 2.14 0 0 0 .437-.692 2.244 2.244 0 0 0 0-1.635ZM17.45 8.721 14.597 5.7 9.82 10.76a.54.54 0 0 0-.137.27l-.536 2.84c-.07.37.239.696.588.622l2.682-.567a.492.492 0 0 0 .255-.145l4.778-5.06Z" clip-rule="evenodd" />
+                </svg>
+                <span class="hidden md:inline font-medium">&nbsp; Update</span>
+            </a>
+            <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-danger-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-red-100" type="button">
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z" clip-rule="evenodd" />
+                </svg>
+                <span class="hidden md:inline font-medium">&nbsp; Delete</span>
+            </button>
+
+            <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div class="relative p-4 w-full max-w-md max-h-full">
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="popup-modal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                        <form asp-action="Delete" asp-route-id="@Model.Household.Id">
+                            <div class="p-4 md:p-5 text-center">
+                                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                                <h3 class="mb-5 text-lg font-normal text-gray-500">Are you sure you want to delete this household profile?</h3>
+                                <button data-modal-hide="popup-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">No, cancel</button>
+                                <button data-modal-hide="popup-modal" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                                    Yes, I'm sure
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full p-8 bg-white overflow-x-auto border border-gray-200 rounded-lg shadow-md pb-16 overflow-x-auto">
+        <!-- First row -->
+        <div class="flex justify-end mb-4">
+            <span class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Household No.: @Model.HouseholdNo</span>
+        </div>
+        <!-- Second row -->
+        <div class="grid grid-cols-4 grid-flow-col gap-4 divide-x text-center">
+            <div>
+                <h6 class="text-gray-700 text-sm font-bold mb-2">First Quarter Visit</h6>
+                <p class="text-gray-800 text-sm font-medium ">@formatted1Qtr</p>
+                <p class="text-gray-800 text-xs font-bold">mm - dd - yy</p>
+            </div>
+            <div>
+                <h6 class="text-gray-700 text-sm font-bold mb-2">Second Quarter Visit</h6>
+                <p class="text-gray-800 text-sm font-medium text-center">@formatted2Qtr</p>
+                <p class="text-gray-800 text-xs font-bold">mm - dd - yy</p>
+            </div>
+            <div>
+                <h6 class="text-gray-700 text-sm font-bold mb-2">Third Quarter Visit</h6>
+                <p class="text-gray-800 text-sm font-medium">@formatted3Qtr</p>
+                <p class="text-gray-800 text-xs font-bold">mm - dd - yy</p>
+            </div>
+            <div>
+                <h6 class="text-gray-700 text-sm font-bold mb-2">Fourth Quarter Visit</h6>
+                <p class="text-gray-800 text-sm font-medium">@formatted4Qtr</p>
+                <p class="text-gray-800 text-xs font-bold">mm - dd - yy</p>
+            </div>
+        </div>
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+        <!-- Third row -->
+        <div class="grid grid-cols-4 grid-flow-col gap-4 text-center">
+            <div>
+                <h6 class="text-gray-700 text-sm font-bold mb-2">Name of Respondent:</h6>
+            </div>
+            <div>
+                <h6 class="text-gray-700 text-sm font-bold mb-2">Last Name:</h6>
+                <p class="text-gray-800 text-sm font-medium text-center">@Model.Household.LastName</p>
+            </div>
+            <div>
+                <h6 class="text-gray-700 text-sm font-bold mb-2">First Name:</h6>
+                <p class="text-gray-800 text-sm font-medium text-center">@Model.Household.FirstName</p>
+            </div>
+            <div>
+                <h6 class="text-gray-700 text-sm font-bold mb-2">Mother's Maiden Name Name:</h6>
+                <p class="text-gray-800 text-sm font-medium text-center">@((Model.Household.MotherMaidenName != null) ? Model.Household.MotherMaidenName : "N/A")</p>
+            </div>
+        </div>
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+        <!-- Fourth row -->
+        <div class="grid grid-cols-4 grid-flow-col gap-4 text-center divide-x">
+            <div>
+                <h6 class="text-gray-700 text-sm font-bold mb-2">NHTS Household:</h6>
+                <p class="text-gray-800 text-sm font-medium text-center">@((Model.Household.IsNHTS) ? "NHTS" : "Non NHTS")</p>
+            </div>
+            <div>
+                <h6 class="text-gray-700 text-sm font-bold mb-2">IP Member:</h6>
+                <p class="text-gray-800 text-sm font-medium text-center">@((Model.Household.IsIP) ? "IP" : "Non-IP")</p>
+            </div>
+            <div>
+                <h6 class="text-gray-700 text-sm font-bold mb-2">HH Head Philhealth Member?</h6>
+                <p class="text-gray-800 text-sm font-medium text-center">
+                    @(Model.Household.IsHeadPhilhealthMember ?
+                        Html.Raw($"Yes, Philhealth ID No. <span class='underline'>{Model.Household.PhilhealthNo}</span>") :
+                        "No")
+                </p>
+            </div>
+            <div>
+                <h6 class="text-gray-700 text-sm font-bold mb-2">Category:</h6>
+                <p class="text-gray-800 text-sm font-medium text-center">@((Model.Household.Category != null) ? @Model.Household.Category : "N/A")</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-between my-4 pt-5">
+        <h5 class="text-xl font-bold leading-none text-gray-900">Household Members</h5>
+        <a asp-action="Create" asp-controller="HouseHoldMember"
+           asp-route-householdNo="@Model.Household.HouseholdNo" class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-primary-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200">
+            <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H7Zm8-1a1 1 0 0 1 1-1h1v-1a1 1 0 1 1 2 0v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 0 1-1-1Z" clip-rule="evenodd" />
+            </svg>
+
+            <span class="hidden md:inline font-medium">&nbsp; Add Member</span>
+        </a>
+    </div>
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+            <thead class="text-md text-gray-700 bg-gray-50">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Name of Household member
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Relationship to HH Head
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Sex
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Age
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Birthday
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var member in Model.Household.HouseholdMembers)
+                {
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            @member.FullName
+                        </th>
+                        <td class="px-6 py-4">
+                            @member.GetRelationshipString
+                        </td>
+                        <td class="px-6 py-4">
+                            @member.Sex
+                        </td>
+                        <td class="px-6 py-4">
+                            @member.Age
+                        </td>
+                        <td class="px-6 py-4">
+                            @member.Birthday.ToString("MM-dd-yy")
+                        </td>
+                        <td class="px-6 py-4">
+                            <a href="#" class="bg-green-100 focus:ring-4 focus:outline-none focus:ring-green-200 hover:bg-green-200 text-green-800 text-sm font-medium me-2 px-2.5 py-1 rounded">Edit</a>
+                            <a href="#" class="bg-red-100 focus:ring-4 focus:outline-none focus:ring-red-200 hover:bg-red-200 text-red-800 text-sm font-medium me-2 px-2.5 py-1 rounded">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

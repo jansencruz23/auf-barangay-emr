@@ -23,10 +23,21 @@ namespace AUF.EMR.Domain.Models
 
         [DataType(DataType.Date)]
         public DateTime? FourthQtrVisit { get; set; }
+
+        [Required(ErrorMessage = "Last name field is required.")]
+        [MaxLength(50, ErrorMessage = "Maximum character for last name is 50.")]
         public string LastName { get; set; }
+
+        [Required(ErrorMessage = "First name field is required.")]
+        [MaxLength(50, ErrorMessage = "Maximum character for first name is 50.")]
         public string FirstName { get; set; }
+
+        [MaxLength(50, ErrorMessage = "Maximum character for mother's maiden name is 50.")]
         public string? MotherMaidenName { get; set; }
+
+        [Required(ErrorMessage = "House No and street field is required.")]
         public string HouseNoAndStreet { get; set; }
+
         public string Barangay { get; set; }
         public string City { get; set; }
         public string Province { get; set; }

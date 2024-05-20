@@ -23,28 +23,27 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IHouseholdService _houseHoldService;
         private readonly IHouseholdMemberService _houseHoldMemberService;
-        private readonly IBarangayService _brgyService;
 
         public HouseholdController(IHouseholdService houseHoldService,
-            IHouseholdMemberService houseHoldMemberService,
-            IBarangayService brgyService)
+            IHouseholdMemberService houseHoldMemberService)
         {
             _houseHoldService = houseHoldService;
             _houseHoldMemberService = houseHoldMemberService;
-            _brgyService = brgyService;
         }
 
         // GET: HouseHolds
         public async Task<IActionResult> HouseholdProfile(string householdNo)
         {
             var searched = await _houseHoldService.GetSearchedhouseHoldWithDetails(householdNo);
-            var barangay = await _brgyService.GetBarangay();
+            if (searched == null)
+            {
+                return NotFound();
+            }
 
             var model = new HouseholdProfileVM
             {
                 HouseholdNo = householdNo,
-                Households = searched,
-                Barangay = barangay
+                Household = searched
             };
 
             return View(model);
@@ -52,8 +51,7 @@ namespace AUF.EMR.MVC.Controllers
 
         public async Task<IActionResult> Index(string query)
         {
-            var barangay = await _brgyService.GetBarangay();
-            var model = new HouseholdVM { Barangay = barangay };
+            var model = new HouseholdVM();
 
             if (string.IsNullOrEmpty(query))
             {
@@ -77,8 +75,7 @@ namespace AUF.EMR.MVC.Controllers
             var model = new CreateHouseholdProfileVM
             {
                 Household = houseHold,
-                HouseholdMembers = houseHoldMembers,
-                Barangay = await _brgyService.GetBarangay()
+                HouseholdMembers = houseHoldMembers
             };
 
             return View(model);
@@ -87,10 +84,7 @@ namespace AUF.EMR.MVC.Controllers
         // GET: HouseHolds/Create
         public async Task<IActionResult> Create()
         {
-            var model = new CreateHouseholdVM
-            {
-                Barangay = await _brgyService.GetBarangay()
-            };
+            var model = new CreateHouseholdVM();
 
             return View(model);
         }
@@ -102,7 +96,6 @@ namespace AUF.EMR.MVC.Controllers
         {
             if (!ModelState.IsValid)
             {
-                model.Barangay = await _brgyService.GetBarangay();
                 return View(model);
             }
 
@@ -112,7 +105,7 @@ namespace AUF.EMR.MVC.Controllers
                 if (isExisting)
                 {
                     ModelState.AddModelError("", "Household No. is already existing.");
-                    model.Barangay = await _brgyService.GetBarangay();
+                    model.ErrorMessage = "Household No. is already existing.";
                     return View(model);
                 }
 
@@ -122,6 +115,7 @@ namespace AUF.EMR.MVC.Controllers
             }
             catch (Exception ex)
             {
+                model.ErrorMessage = ex.Message;
                 ModelState.AddModelError("", ex.Message);
             }
 
@@ -136,8 +130,7 @@ namespace AUF.EMR.MVC.Controllers
             var model = new CreateHouseholdProfileVM
             {
                 Household = houseHold,
-                HouseholdMembers = houseHoldMembers,
-                Barangay = await _brgyService.GetBarangay()
+                HouseholdMembers = houseHoldMembers
             };
            
             return View(model);

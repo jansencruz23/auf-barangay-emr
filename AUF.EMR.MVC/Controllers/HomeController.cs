@@ -8,19 +8,15 @@ namespace AUF.EMR.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IBarangayService _brgyService;
 
-        public HomeController(ILogger<HomeController> logger,
-            IBarangayService brgyService)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _brgyService = brgyService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var barangay = await _brgyService.GetBarangay();
-            return View(barangay);
+            return View();
         }
 
         public IActionResult Privacy()

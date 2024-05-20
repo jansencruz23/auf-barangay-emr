@@ -5,7 +5,6 @@ namespace AUF.EMR.MVC.Models
 {
     public class HouseholdProfileVM : BaseVM
     {
-        public List<Household> Households { get; set; }
         public Household Household { get; set; }
         public string HouseholdNo { get; set; }
     }

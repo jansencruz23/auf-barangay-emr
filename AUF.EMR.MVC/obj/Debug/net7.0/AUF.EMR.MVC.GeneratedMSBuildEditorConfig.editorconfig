@@ -324,8 +324,40 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5VHJhY2tpbmdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Components/_HouseholdCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcX0hvdXNlaG9sZENhcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_FormLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX0Zvcm1MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_HouseholdLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX0hvdXNlaG9sZExheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_NewLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX05ld0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Navigations/_FormNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9Gb3JtTmF2LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Navigations/_FormSideBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9Gb3JtU2lkZUJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Navigations/_HouseholdNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9Ib3VzZWhvbGROYXYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Popups/_AlertError.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBvcHVwc1xfQWxlcnRFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/_FormNav.cshtml]

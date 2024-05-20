@@ -46,9 +46,9 @@ namespace AUF.EMR.Application.Services
             return await _repository.GetSearchedHouseholdsWithDetails(query);
         }
 
-        public async Task<List<Household>> GetSearchedhouseHoldWithDetails(string query)
+        public async Task<Household> GetSearchedhouseHoldWithDetails(string householdNo)
         {
-            return await _repository.GetSearchedHouseholdWithDetails(query);
+            return await _repository.GetSearchedHouseholdWithDetails(householdNo);
         }
 
         public async Task<bool> IsHouseholdNoExisting(string householdNo)
