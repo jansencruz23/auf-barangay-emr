@@ -1,10 +1,10 @@
 ﻿@model HouseholdMemberListVM
 
 @{
-    Layout = "Layouts/_HouseholdLayout";
-    Layout = "Layouts/_FormLayout";
+    Layout = "Layouts/_MasterlistLayout";
     ViewData["Title"] = "Masterlist of Adults";
 }
+
 
 <h1>List of Adults</h1>
 <a asp-action="PrintAdults" asp-route-requestUrl="@Model.RequestUrl" asp-route-householdNo="@Model.HouseholdNo">Print Masterlist</a>
@@ -12,64 +12,53 @@
 
 @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                HH. NO/ Family Serial No.
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Address
-            </th>
-            <th>
-                Sex
-            </th>
-            <th>
-                Age
-            </th>
-            <th>
-                Date of Birth
-            </th>
-            <th>
-                NHTS
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.HouseholdMembers)
-        {
+
+    <table class="table">
+        <thead class="bg-gray-100">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Household.HouseholdNo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FormattedFullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Household.FullAddress);
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Sex)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Age)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Birthday)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsNhts)
-                </td>
-                <td>
-                    <a asp-action="EditAdultInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl">Edit</a> |
-                    <a asp-action="Details" asp-controller="HouseholdMember" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+                <th>
+                    HH. NO/ Family Serial No.
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    Sex
+                </th>
+                <th>
+                    Age
+                </th>
+                <th>
+                    Date of Birth
+                </th>
+                <th>
+                    NHTS
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.HouseholdMembers)
+            {
+                <tr>
+                <td class="border-b border-gray-100 px-4 py-2 text-left"> @Html.DisplayFor(modelItem => item.Household.HouseholdNo)</td>
+                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.FormattedFullName)</td>
+                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Household.FullAddress);</td>
+                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Sex)</td>
+                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Age)</td>
+                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Birthday)</td>
+                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.IsNhts)</td>
+                    <td>
+                        <a asp-action="EditAdultInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl">Edit</a> |
+                        <a asp-action="Details" asp-controller="HouseholdMember" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

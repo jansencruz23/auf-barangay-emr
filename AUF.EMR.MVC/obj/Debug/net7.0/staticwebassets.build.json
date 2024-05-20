@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ck3lIMSc5yVSkETdCHJaAEnr/06H5lyLWqZ9MXC64h0=",
+  "Hash": "CoDbD20dItOgtgEazbizUNzaSnj1EF8VvAovNo0Xm3U=",
   "Source": "AUF.EMR.MVC",
   "BasePath": "_content/AUF.EMR.MVC",
   "Mode": "Default",
@@ -1154,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
+    },
+    {
+      "Identity": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\css\\style-masterlist.css",
+      "SourceId": "AUF.EMR.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\",
+      "BasePath": "_content/AUF.EMR.MVC",
+      "RelativePath": "css/style-masterlist.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style-masterlist.css"
     },
     {
       "Identity": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\favicon.ico",

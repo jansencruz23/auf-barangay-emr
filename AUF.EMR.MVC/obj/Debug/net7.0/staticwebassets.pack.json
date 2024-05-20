@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\css\\style-masterlist.css",
+      "PackagePath": "staticwebassets\\css\\style-masterlist.css"
+    },
+    {
       "Id": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
