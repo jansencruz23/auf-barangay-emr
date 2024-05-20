@@ -1,59 +1,72 @@
 ﻿@model EditUserVM
 
 @{
-
+   Layout = "Layouts/_BarangaySideLayout";
 }
 
 <h1>@ViewData["Title"]</h1>
 
-<div class="row">
-    <div class="col-md-4">
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form id="registerForm" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Edit Employee</h1>
+            <hr class="mb-4">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <input type="hidden" asp-for="User.Id" />
-            <div class="form-floating mb-3">
-                <input asp-for="User.FirstName" class="form-control" autocomplete="firstname" aria-required="true" placeholder="First Name" />
-                <label asp-for="User.FirstName">First Name</label>
-                <span asp-validation-for="User.FirstName" class="text-danger"></span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <div class="mb-4">
+                        <label asp-for="User.FirstName" class="block mb-2 text-sm font-medium text-gray-700">First Name</label>
+                        <input asp-for="User.FirstName" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" autocomplete="firstname" aria-required="true" placeholder="First Name" />
+                        <span asp-validation-for="User.FirstName" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="User.MiddleName" class="block mb-2 text-sm font-medium text-gray-700">Middle Name</label>
+                        <input asp-for="User.MiddleName" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" autocomplete="middlename" aria-required="true" placeholder="Middle Name" />
+                        <span asp-validation-for="User.MiddleName" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="User.LastName" class="block mb-2 text-sm font-medium text-gray-700">Last Name</label>
+                        <input asp-for="User.LastName" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" autocomplete="lastname" aria-required="true" placeholder="Last Name" />
+                        <span asp-validation-for="User.LastName" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="User.Picture" class="block mb-2 text-sm font-medium text-gray-700">Picture</label>
+                        <input asp-for="User.Picture" type="file" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 md:w-4/5 p-2.5" accept="image/*" />
+                        <span asp-validation-for="User.Picture" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="User.Birthday" class="block mb-2 text-sm font-medium text-gray-700">Date of Birth</label>
+                        <input asp-for="User.Birthday" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" autocomplete="birthday" aria-required="true" placeholder="Date of Birth" />
+                        <span asp-validation-for="User.Birthday" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="User.ContactNo" class="block mb-2 text-sm font-medium text-gray-700">Contact No.</label>
+                        <input asp-for="User.ContactNo" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" autocomplete="contactno" aria-required="true" placeholder="Contact No" />
+                        <span asp-validation-for="User.ContactNo" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    
+
+                </div>
+                <!-- Right Column -->
+                <div>
+                    <div class="mb-4">
+                        <label asp-for="User.Address" class="block mb-2 text-sm font-medium text-gray-700">Address</label>
+                        <input asp-for="User.Address" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" autocomplete="address" aria-required="true" placeholder="Address" />
+                        <span asp-validation-for="User.Address" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="User.Position" class="block mb-2 text-sm font-medium text-gray-700">Position</label>
+                        <input asp-for="User.Position" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" autocomplete="position" aria-required="true" placeholder="Position" />
+                        <span asp-validation-for="User.Position" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <a asp-action="ResetPassword" asp-route-id="@Model.User.Id" class="text-sm text-blue-500">Reset Password?</a>
+                </div>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="User.MiddleName" class="form-control" autocomplete="middlename" aria-required="true" placeholder="Middle Name" />
-                <label asp-for="User.MiddleName">Middle Name</label>
-                <span asp-validation-for="User.MiddleName" class="text-danger"></span>
+            <div class="flex justify-end">
+                <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back</a>
+                <button id="registerSubmit" type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Update Employee</button>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="User.LastName" class="form-control" autocomplete="lastname" aria-required="true" placeholder="Last Name" />
-                <label asp-for="User.LastName">Last Name</label>
-                <span asp-validation-for="User.LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.Picture" class="control-label"></label>
-                <input asp-for="User.Picture" type="file" class="form-control" accept="image/*" />
-                <span asp-validation-for="User.Picture" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="User.Birthday" class="form-control" autocomplete="birthday" aria-required="true" placeholder="Date of Birth" />
-                <label asp-for="User.Birthday">Date of Birth</label>
-                <span asp-validation-for="User.Birthday" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="User.ContactNo" class="form-control" autocomplete="contactno" aria-required="true" placeholder="Contact No" />
-                <label asp-for="User.ContactNo">Contact No</label>
-                <span asp-validation-for="User.ContactNo" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="User.Address" class="form-control" autocomplete="address" aria-required="true" placeholder="Address" />
-                <label asp-for="User.Address">Address</label>
-                <span asp-validation-for="User.Address" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="User.Position" class="form-control" autocomplete="position" aria-required="true" placeholder="Position" />
-                <label asp-for="User.Position">Position</label>
-                <span asp-validation-for="User.Position" class="text-danger"></span>
-            </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Update Employee</button>
         </form>
-        <a asp-action="ResetPassword" asp-route-id="@Model.User.Id">Reset Password</a>
+        
     </div>

@@ -41,8 +41,9 @@ namespace AUF.EMR.Persistence.Repositories
         {
             var count = await _dbContext.HouseholdMembers
                 .AsNoTracking()
+                .Include(m => m.Household)
                 .Where(m => m.Status &&
-                    m.HouseholdNo.Equals(householdNo))
+                    m.Household.HouseholdNo.Equals(householdNo))
                 .CountAsync();
 
             return count;
@@ -64,8 +65,9 @@ namespace AUF.EMR.Persistence.Repositories
         {
             var count = await _dbContext.HouseholdMembers
                 .AsNoTracking()
+                .Include(m => m.Household)
                 .Where(m => m.Status &&
-                    m.HouseholdNo.Equals(householdNo) &&
+                    m.Household.HouseholdNo.Equals(householdNo) &&
                     m.Birthday >= startDate &&
                     m.Birthday <= endDate)
                 .CountAsync();

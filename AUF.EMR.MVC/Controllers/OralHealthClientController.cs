@@ -1,5 +1,6 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Application.Services;
+using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
 using AUF.EMR.MVC.Models.PrintVM;
 using Microsoft.AspNetCore.Authorization;
@@ -13,12 +14,74 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IOralHealthService _oralHealthService;
         private readonly IBarangayService _brgyService;
+        private readonly IHouseholdMemberService _householdMemberService;
+        private readonly IHouseholdService _householdService;
 
         public OralHealthClientController(IOralHealthService oralHealthService,
-            IBarangayService brgyService)
+            IBarangayService brgyService,
+            IHouseholdMemberService householdMemberService,
+            IHouseholdService householdService)
         {
             _oralHealthService = oralHealthService;
             _brgyService = brgyService;
+            _householdMemberService = householdMemberService;
+            _householdService = householdService;
+        }
+
+        // GET: MasterlistController/EditOralHealthInfo
+        public async Task<ActionResult> EditOralHealthInfo(int? id, string requestUrl, string householdNo)
+        {
+            if (id == null || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var member = await _householdMemberService.GetHouseholdMemberWithDetails(id.Value);
+
+            if (member == null)
+            {
+                return NotFound();
+            }
+
+            var model = new EditHouseholdMemberVM
+            {
+                HouseholdMember = member,
+                RequestUrl = requestUrl,
+                HouseholdNo = householdNo
+            };
+
+            return View(model);
+        }
+
+        // POST: MasterlistController/EditOralHealthInfo
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditOralHealthInfo(int? id, EditHouseholdMemberVM model)
+        {
+            if (model == null || id == null)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            try
+            {
+                var householdMember = model.HouseholdMember;
+                var householdId = await _householdService.GetHouseholdId(model.HouseholdNo);
+                householdMember.HouseholdId = householdId;
+                var completed = await _householdMemberService.Update(householdMember);
+
+                return Redirect(model.RequestUrl);
+            }
+            catch (Exception ex)
+            {
+                model.ErrorMessage = ex.Message;
+                return View(model);
+            }
         }
 
         // GET: OralHealthClientController/Infant

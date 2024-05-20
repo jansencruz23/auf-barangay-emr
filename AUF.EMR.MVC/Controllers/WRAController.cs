@@ -49,7 +49,7 @@ namespace AUF.EMR.MVC.Controllers
         // GET: WRAController/Create
         public async Task<ActionResult> Create(string householdNo)
         {
-            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMember(householdNo);
+            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMembers(householdNo);
             var model = new CreateWRAVM
             {
                 WomenInHousehold = womenInHousehold,
@@ -62,31 +62,32 @@ namespace AUF.EMR.MVC.Controllers
         // POST: WRAController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(CreateWRAVM wraVM)
+        public async Task<ActionResult> Create(CreateWRAVM model)
         {
             try
             {
-                var completed = await _wraService.Add(wraVM.WRA);
-                return RedirectToAction(nameof(Index), new { householdNo = wraVM.WRA.HouseholdNo });
+                var completed = await _wraService.Add(model.WRA);
+                return RedirectToAction(nameof(Index), new { householdNo = model.HouseholdNo });
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(wraVM);
+            return View(model);
         }
 
         // GET: WRAController/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
             var wra = await _wraService.GetWRAWithDetails(id);
-            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMember(wra.HouseholdNo);
+            var womenInHousehold = await _householdMemberService.GetWRAHouseholdMembers(wra.HouseholdMember.Household.HouseholdNo);
 
             var model = new EditWRAVM
             {
                 WomenInHousehold = womenInHousehold,
-                WRA = wra
+                WRA = wra,
+                HouseholdNo = wra.HouseholdMember.Household.HouseholdNo
             };
 
             return View(model);
@@ -95,19 +96,19 @@ namespace AUF.EMR.MVC.Controllers
         // POST: WRAController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, EditWRAVM wraVM)
+        public async Task<ActionResult> Edit(int id, EditWRAVM model)
         {
             try
             {
-                var completed = await _wraService.Update(wraVM.WRA);
-                return RedirectToAction(nameof(Index), new { houseHoldNo = completed.HouseholdNo });
+                var completed = await _wraService.Update(model.WRA);
+                return RedirectToAction(nameof(Index), new { houseHoldNo = model.HouseholdNo });
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(wraVM);
+            return View(model);
         }
 
         // POST: WRAController/Delete/5

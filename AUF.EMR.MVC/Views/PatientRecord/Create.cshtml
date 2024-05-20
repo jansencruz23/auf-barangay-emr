@@ -1,0 +1,98 @@
+﻿@model CreatePatientRecordVM
+
+@{
+    Layout = "Layouts/_HouseholdLayout";
+    Layout = "Layouts/_FormLayout";
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
+            <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Add Patient Record</h1>
+            <hr class="mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <div class="mb-4">
+                        <label asp-for="PatientRecord.PatientId" class="text-md font-bold text-gray-800">Patient ID</label>
+                        <select asp-for="PatientRecord.PatientId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" asp-items="@(new SelectList(Model.PatientList, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
+                    </div>
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Personal Information</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PatientRecord.BirthPlace" class="block mb-2 text-sm font-medium text-gray-700">Place of Birth</label>
+                        <input asp-for="PatientRecord.BirthPlace" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PatientRecord.BirthPlace" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PatientRecord.MotherName" class="block mb-2 text-sm font-medium text-gray-700">Mother's Name</label>
+                        <input asp-for="PatientRecord.MotherName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PatientRecord.MotherName" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PatientRecord.MotherAge" class="block mb-2 text-sm font-medium text-gray-700">Mother's Age</label>
+                        <input asp-for="PatientRecord.MotherAge" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PatientRecord.MotherAge" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PatientRecord.MotherBirthday" class="block mb-2 text-sm font-medium text-gray-700">Mother's Birthdate</label>
+                        <input asp-for="PatientRecord.MotherBirthday" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PatientRecord.MotherBirthday" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PatientRecord.FatherName" class="block mb-2 text-sm font-medium text-gray-700">Father's Name</label>
+                        <input asp-for="PatientRecord.FatherName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PatientRecord.FatherName" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PatientRecord.FatherAge" class="block mb-2 text-sm font-medium text-gray-700">Father's Age</label>
+                        <input asp-for="PatientRecord.FatherAge" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PatientRecord.FatherAge" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PatientRecord.FatherBirthday" class="block mb-2 text-sm font-medium text-gray-700">Father's Birthdate</label>
+                        <input asp-for="PatientRecord.FatherBirthday" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PatientRecord.FatherBirthday" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Contact Information</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PatientRecord.ContactNumber" class="block mb-2 text-sm font-medium text-gray-700">Contact No.</label>
+                        <input asp-for="PatientRecord.ContactNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PatientRecord.ContactNumber" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Others</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PatientRecord.TypeOfDelivery" class="block mb-2 text-sm font-medium text-gray-700">Type Of Deliver</label>
+                        <input asp-for="PatientRecord.TypeOfDelivery" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PatientRecord.TypeOfDelivery" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PatientRecord.Attended" class="block mb-2 text-sm font-medium text-gray-700">Attended</label>
+                        <input asp-for="PatientRecord.Attended" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PatientRecord.Attended" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <a asp-action="Index" class="focus:outline-none text-white bg-red-400 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 hover:bg-red-450 !important">Back</a>
+                <button type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

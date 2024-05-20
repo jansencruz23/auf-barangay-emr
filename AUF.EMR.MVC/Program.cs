@@ -60,6 +60,12 @@ using (var scope = app.Services.CreateScope())
     {
         await barangaySeeder.SeedAsync();
     }
+
+    var vaccineSeeder = scope.ServiceProvider.GetRequiredService<VaccineSeeder>();
+    if (vaccineSeeder != null)
+    {
+        await vaccineSeeder.SeedAsync();
+    }
 }
 
 // Configure the HTTP request pipeline.

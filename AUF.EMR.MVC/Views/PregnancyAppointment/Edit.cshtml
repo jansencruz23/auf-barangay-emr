@@ -1,0 +1,96 @@
+﻿@model EditPregnancyAppointmentVM
+
+@{
+    Layout = "Layouts/_HouseholdLayout";
+    Layout = "Layouts/_FormLayout";
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PregnancyAppointment.Id" value="@Model.PregnancyAppointment.Id" />
+            <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
+            <input type="hidden" asp-for="RequestUrl" value="@Model.RequestUrl" />
+            <input type="hidden" asp-for="PregnancyAppointment.PregnancyRecordId" value="@Model.PregnancyAppointment.PregnancyRecordId" />
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Edit Pregnancy Appointment</h1>
+            <hr class="mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.Date" class="block mb-2 text-sm font-medium text-gray-700">Date</label>
+                        <input asp-for="PregnancyAppointment.Date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.Date" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.Weight" class="block mb-2 text-sm font-medium text-gray-700">Weight</label>
+                        <input asp-for="PregnancyAppointment.Weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.Weight" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.BloodPressure" class="block mb-2 text-sm font-medium text-gray-700">Blood Pressure</label>
+                        <input asp-for="PregnancyAppointment.BloodPressure" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.BloodPressure" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.Temperature" class="block mb-2 text-sm font-medium text-gray-700">Temperature</label>
+                        <input asp-for="PregnancyAppointment.Temperature" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.Temperature" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.AOG" class="block mb-2 text-sm font-medium text-gray-700">AOG</label>
+                        <input asp-for="PregnancyAppointment.AOG" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.AOG" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.FH" class="block mb-2 text-sm font-medium text-gray-700">FH</label>
+                        <input asp-for="PregnancyAppointment.FH" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.FH" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.FHT" class="block mb-2 text-sm font-medium text-gray-700">FHT</label>
+                        <input asp-for="PregnancyAppointment.FHT" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.FHT" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.TT1" class="block mb-2 text-sm font-medium text-gray-700">TT1</label>
+                        <input asp-for="PregnancyAppointment.TT1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.TT1" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.TT2" class="block mb-2 text-sm font-medium text-gray-700">TT2</label>
+                        <input asp-for="PregnancyAppointment.TT2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.TT2" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.TT3" class="block mb-2 text-sm font-medium text-gray-700">TT3</label>
+                        <input asp-for="PregnancyAppointment.TT3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.TT3" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.TT4" class="block mb-2 text-sm font-medium text-gray-700">TT4</label>
+                        <input asp-for="PregnancyAppointment.TT4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.TT4" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.TT5" class="block mb-2 text-sm font-medium text-gray-700">TT5</label>
+                        <input asp-for="PregnancyAppointment.TT5" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.TT5" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PregnancyAppointment.Remarks" class="block mb-2 text-sm font-medium text-gray-700">Remarks</label>
+                        <input asp-for="PregnancyAppointment.Remarks" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PregnancyAppointment.Remarks" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <a asp-action="Index" class="focus:outline-none text-white bg-red-400 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 hover:bg-red-450 !important">Back</a>
+                <button type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add</button>
+            </div>
+        </form>
+    </div>
+</div>

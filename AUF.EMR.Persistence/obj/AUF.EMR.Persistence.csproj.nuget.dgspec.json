@@ -10,11 +10,11 @@
         "projectUniqueName": "D:\\auf-barangay-emr\\AUF.EMR.Application\\AUF.EMR.Application.csproj",
         "projectName": "AUF.EMR.Application",
         "projectPath": "D:\\auf-barangay-emr\\AUF.EMR.Application\\AUF.EMR.Application.csproj",
-        "packagesPath": "C:\\Users\\seanm\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\alfon\\.nuget\\packages\\",
         "outputPath": "D:\\auf-barangay-emr\\AUF.EMR.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\seanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alfon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -48,7 +48,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.16, )"
+              "version": "[7.0.12, )"
             }
           },
           "imports": [
@@ -77,11 +77,11 @@
         "projectUniqueName": "D:\\auf-barangay-emr\\AUF.EMR.Domain\\AUF.EMR.Domain.csproj",
         "projectName": "AUF.EMR.Domain",
         "projectPath": "D:\\auf-barangay-emr\\AUF.EMR.Domain\\AUF.EMR.Domain.csproj",
-        "packagesPath": "C:\\Users\\seanm\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\alfon\\.nuget\\packages\\",
         "outputPath": "D:\\auf-barangay-emr\\AUF.EMR.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\seanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alfon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -109,7 +109,7 @@
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.16, )"
+              "version": "[7.0.12, )"
             }
           },
           "imports": [
@@ -138,11 +138,11 @@
         "projectUniqueName": "D:\\auf-barangay-emr\\AUF.EMR.Persistence\\AUF.EMR.Persistence.csproj",
         "projectName": "AUF.EMR.Persistence",
         "projectPath": "D:\\auf-barangay-emr\\AUF.EMR.Persistence\\AUF.EMR.Persistence.csproj",
-        "packagesPath": "C:\\Users\\seanm\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\alfon\\.nuget\\packages\\",
         "outputPath": "D:\\auf-barangay-emr\\AUF.EMR.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\seanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alfon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -178,11 +178,11 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.16, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.16, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",

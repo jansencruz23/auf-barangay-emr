@@ -33,6 +33,11 @@ namespace AUF.EMR.Application.Services.Common
             return await _repository.Add(entity);
         }
 
+        public async Task AddRange(List<T> entities)
+        {
+            await _repository.AddRange(entities);
+        }
+
         public async Task Delete(T entity)
         {
             await _repository.Delete(entity);

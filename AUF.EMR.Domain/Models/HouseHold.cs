@@ -37,7 +37,6 @@ namespace AUF.EMR.Domain.Models
 
         [Required(ErrorMessage = "House No and street field is required.")]
         public string HouseNoAndStreet { get; set; }
-
         public string Barangay { get; set; }
         public string City { get; set; }
         public string Province { get; set; }
@@ -50,14 +49,14 @@ namespace AUF.EMR.Domain.Models
         public List<HouseholdMember> HouseholdMembers { get; set; } = new();
 
         public string FullAddress { get => $"{HouseNoAndStreet} {Barangay}, {City}, {Province}"; }
-        public string FullName { get => $"{FirstName} {GetMiddleInitial()}. {LastName}"; }
+        public string FullName { get => $"{FirstName} {GetMiddleInitial()} {LastName}"; }
 
         private string GetMiddleInitial()
         {
             if (string.IsNullOrEmpty(MotherMaidenName) || MotherMaidenName.Length < 2)
                 return string.Empty;
 
-            return MotherMaidenName.Split(' ').Last()[0].ToString();
+            return MotherMaidenName.Split(' ').Last()[0].ToString() + ".";
         }
     }
 }

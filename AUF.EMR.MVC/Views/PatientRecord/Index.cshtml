@@ -1,0 +1,96 @@
+﻿@model PatientRecordVM
+
+@{
+    Layout = "Layouts/_HouseholdLayout";
+    Layout = "Layouts/_FormLayout";
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo" >Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Patient
+            </th>
+            <th>
+                BirthPlace
+            </th>
+            <th>
+               MotherName
+            </th>
+            <th>
+               MotherAge
+            </th>
+            <th>
+               MotherBirthday
+            </th>
+            <th>
+               FatherName
+            </th>
+            <th>
+               FatherAge
+            </th>
+            <th>
+               FatherBirthday
+            </th>
+            <th>
+               ContactNumber
+            </th>
+            <th>
+               TypeOfDelivery
+            </th>
+            <th>
+               Attended
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PatientRecords) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthPlace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotherAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotherBirthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FatherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FatherAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FatherBirthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfDelivery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attended)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">View</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

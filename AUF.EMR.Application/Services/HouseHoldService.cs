@@ -21,6 +21,11 @@ namespace AUF.EMR.Application.Services
             _repository = repository;
         }
 
+        public async Task<string> GetHouseholdNo(int id)
+        {
+            return await _repository.GetHouseholdNo(id);
+        }
+
         public async Task DeleteHousehold(int id)
         {
             await _repository.DeleteHousehold(id);
@@ -54,6 +59,20 @@ namespace AUF.EMR.Application.Services
         public async Task<bool> IsHouseholdNoExisting(string householdNo)
         {
             return await _repository.IsHouseholdNoExisting(householdNo);
+        }
+
+        public async Task<Household> GetHouseholdWithDetails(string householdNo)
+        {
+            return await _repository.GetHouseholdWithDetails(householdNo);
+        }
+
+        public async Task<List<Household>> GetHouseholdForm(string householdNo)
+        {
+            var form = new List<Household>();
+            var household = await _repository.GetHouseholdWithDetails(householdNo);
+            form.Add(household);
+
+            return form;
         }
     }
 }

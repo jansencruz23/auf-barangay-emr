@@ -2,66 +2,89 @@
 
 @{
     ViewData["Title"] = "Index";
-
+    Layout = "Layouts/_BarangaySideLayout";
 }
 
-<h1>List of Employees</h1>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Age
-            </th>
-            <th>
-                Birthday
-            </th>
-            <th>
-                Position
-            </th>
-            <th>
-                Contact No
-            </th>
-            <th>
-                Address
-            </th>
-            <th>
-                Actions
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Users) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Age)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Birthday)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Position)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ContactNo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Profile" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
         }
-    </tbody>
-</table>
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-2xl font-bold mb-8">List of Employees</h1>
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex-1 mr-4 relative">
+                <input type="text" class="w-full bg-white shadow-md rounded-lg p-3 pr-10 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-200 border-none"
+                       placeholder="Search...">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                         stroke="currentColor">
+                        <path d="M21 21l-5.2-5.2m.8-.8a8 8 0 1 1-10.6-10.6 8 8 0 0 1 10.6 10.6z"></path>
+                    </svg>
+                </div>
+            </div>
+            <a asp-action="Create" class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out"
+               aria-label="Add Employee">
+                <svg class="h-5 w-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                Add Employee
+            </a>
+        </div>
+
+        <div class="bg-white shadow-md rounded-lg p-8">
+
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="px-4 py-2 text-left">Name</th>
+                        <th class="px-4 py-2 text-left">Age</th>
+                        <th class="px-4 py-2 text-left">Birthday</th>
+                        <th class="px-4 py-2 text-left">Position</th>
+                        <th class="px-4 py-2 text-left">Contact No.</th>
+                        <th class="px-4 py-2 text-left">Address</th>
+                        <th class="px-4 py-2 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Users)
+                    {
+                        <tr>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.FullName)</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Age)</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Birthday)</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Position)</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.ContactNo)</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Address)</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="text-yellow-300 hover:text-yellow-400 mr-2">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a asp-action="Profile" asp-route-id="@item.Id" class="text-green-400 hover:text-green-500 mr-2">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="text-red-300 hover:text-red-400">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

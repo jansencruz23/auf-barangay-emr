@@ -1,3 +1,27 @@
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.deps.json
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.pdb
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.csproj.AssemblyReference.cache
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.AssemblyInfoInputs.cache
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.AssemblyInfo.cs
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.csproj.CoreCompileInputs.cache
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\obj\Debug\net7.0\refint\AUF.EMR.Domain.dll
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.pdb
+C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\obj\Debug\net7.0\ref\AUF.EMR.Domain.dll
+D:\Ivan\EMR\Main\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.deps.json
+D:\Ivan\EMR\Main\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.dll
+D:\Ivan\EMR\Main\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.pdb
+D:\Ivan\EMR\Main\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.csproj.AssemblyReference.cache
+D:\Ivan\EMR\Main\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Ivan\EMR\Main\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.AssemblyInfoInputs.cache
+D:\Ivan\EMR\Main\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.AssemblyInfo.cs
+D:\Ivan\EMR\Main\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.csproj.CoreCompileInputs.cache
+D:\Ivan\EMR\Main\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.dll
+D:\Ivan\EMR\Main\AUF.EMR.Domain\obj\Debug\net7.0\refint\AUF.EMR.Domain.dll
+D:\Ivan\EMR\Main\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.pdb
+D:\Ivan\EMR\Main\AUF.EMR.Domain\obj\Debug\net7.0\ref\AUF.EMR.Domain.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.deps.json
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.pdb

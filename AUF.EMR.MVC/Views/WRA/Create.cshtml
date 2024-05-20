@@ -1,99 +1,103 @@
 ﻿@model CreateWRAVM
 
 @{
+    Layout = "Layouts/_HouseholdLayout";
+    Layout = "Layouts/_FormLayout";
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>WomanOfReproductiveAge</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="WRA.HouseholdMemberId" class="control-label"></label>
-                <select asp-for="WRA.HouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.WomenInHousehold, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
-            </div>
-            <div class="form-group">
-                <input type="hidden" asp-for="WRA.HouseholdNo" value="@Model.HouseholdNo" />
-            </div>
-            <div class="form-group">
-                <label asp-for="WRA.CivilStatus" class="control-label"></label>
-                <input asp-for="WRA.CivilStatus" class="form-control" />
-                <span asp-validation-for="WRA.CivilStatus" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="WRA.IsPlanningChildren" /> @Html.DisplayNameFor(model => model.WRA.IsPlanningChildren)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="WRA.IsPlanChildrenNow" class="control-label"></label>
-                <input asp-for="WRA.IsPlanChildrenNow" class="form-control" />
-                <span asp-validation-for="WRA.IsPlanChildrenNow" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WRA.IsPlanChildrenSpacing" class="control-label"></label>
-                <input asp-for="WRA.IsPlanChildrenSpacing" class="form-control" />
-                <span asp-validation-for="WRA.IsPlanChildrenSpacing" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WRA.IsPlanChildrenLimiting" class="control-label"></label>
-                <input asp-for="WRA.IsPlanChildrenLimiting" class="form-control" />
-                <span asp-validation-for="WRA.IsPlanChildrenLimiting" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="WRA.IsFecund" /> @Html.DisplayNameFor(model => model.WRA.IsFecund)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="WRA.IsFPMethod" /> @Html.DisplayNameFor(model => model.WRA.IsFPMethod)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="WRA.IsFPModern" class="control-label"></label>
-                <input asp-for="WRA.IsFPModern" class="form-control" />
-                <span asp-validation-for="WRA.IsFPModern" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WRA.ShiftToModern" class="control-label"></label>
-                <input asp-for="WRA.ShiftToModern" class="form-control" />
-                <span asp-validation-for="WRA.ShiftToModern" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="WRA.IsMFPUnmet" /> @Html.DisplayNameFor(model => model.WRA.IsMFPUnmet)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="WRA.AcceptModernFpMethod" /> @Html.DisplayNameFor(model => model.WRA.AcceptModernFpMethod)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="WRA.ModernFPMethod" class="control-label"></label>
-                <input asp-for="WRA.ModernFPMethod" class="form-control" />
-                <span asp-validation-for="WRA.ModernFPMethod" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WRA.FPAcceptedDate" class="control-label"></label>
-                <input asp-for="WRA.FPAcceptedDate" class="form-control" />
-                <span asp-validation-for="WRA.FPAcceptedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Add WRA</h1>
+            <hr class="mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <div class="mb-4">
+                        <label asp-for="WRA.HouseholdMemberId" class="block mb-2 text-sm font-medium text-gray-700">Household Member ID</label>
+                        <select asp-for="WRA.HouseholdMemberId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" asp-items="@(new SelectList(Model.WomenInHousehold, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
+                    </div>
+                    <div class="mb-4">
+                        <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="WRA.CivilStatus" class="block mb-2 text-sm font-medium text-gray-700">Civil Status</label>
+                        <input asp-for="WRA.CivilStatus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="WRA.CivilStatus" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="flex items-center me-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="form-checkbox h-5 w-5 text-blue-600" asp-for="WRA.IsPlanningChildren" /> @Html.DisplayNameFor(model => model.WRA.IsPlanningChildren)
+                        </label>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="WRA.IsPlanChildrenNow" class="block mb-2 text-sm font-medium text-gray-700">Now</label>
+                        <input asp-for="WRA.IsPlanChildrenNow" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="WRA.IsPlanChildrenNow" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="WRA.IsPlanChildrenSpacing" class="block mb-2 text-sm font-medium text-gray-700">Spacing</label>
+                        <input asp-for="WRA.IsPlanChildrenSpacing" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="WRA.IsPlanChildrenSpacing" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="WRA.IsPlanChildrenLimiting" class="block mb-2 text-sm font-medium text-gray-700">Limiting</label>
+                        <input asp-for="WRA.IsPlanChildrenLimiting" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="WRA.IsPlanChildrenLimiting" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="flex items-center me-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="form-checkbox h-5 w-5 text-blue-600" asp-for="WRA.IsFecund" /> @Html.DisplayNameFor(model => model.WRA.IsFecund)
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center me-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="form-checkbox h-5 w-5 text-blue-600" asp-for="WRA.IsFPMethod" /> @Html.DisplayNameFor(model => model.WRA.IsFPMethod)
+                        </label>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="WRA.IsFPModern" class="block mb-2 text-sm font-medium text-gray-700">Modern</label>
+                        <input asp-for="WRA.IsFPModern" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="WRA.IsFPModern" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="WRA.ShiftToModern" class="block mb-2 text-sm font-medium text-gray-700">Shift to Modern</label>
+                        <input asp-for="WRA.ShiftToModern" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="WRA.ShiftToModern" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="flex items-center me-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="form-checkbox h-5 w-5 text-blue-600" asp-for="WRA.IsMFPUnmet" /> @Html.DisplayNameFor(model => model.WRA.IsMFPUnmet)
+                        </label>
+                    </div>
+                    <div class="flex items-center me-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="form-checkbox h-5 w-5 text-blue-600" asp-for="WRA.AcceptModernFpMethod" /> @Html.DisplayNameFor(model => model.WRA.AcceptModernFpMethod)
+                        </label>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="WRA.ModernFPMethod" class="block mb-2 text-sm font-medium text-gray-700">Modern FP Method</label>
+                        <input asp-for="WRA.ModernFPMethod" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="WRA.ModernFPMethod" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="WRA.FPAcceptedDate" class="block mb-2 text-sm font-medium text-gray-700">FP Accepted Date</label>
+                        <input asp-for="WRA.FPAcceptedDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="WRA.FPAcceptedDate" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                </div>
+             </div>
+            <div class="flex justify-end">
+                <a asp-action="Index" asp-route-householdNo="@Model.HouseholdNo" class="focus:outline-none text-white bg-red-400 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 hover:bg-red-450 !important">Back</a>
+                <button type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add</button>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index" asp-route-householdNo="@Model.HouseholdNo">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

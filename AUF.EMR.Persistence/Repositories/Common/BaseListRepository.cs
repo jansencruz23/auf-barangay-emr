@@ -25,7 +25,7 @@ namespace AUF.EMR.Persistence.Repositories.Common
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Household.Status &&
-                    m.HouseholdNo.Equals(householdNo) && 
+                    m.Household.HouseholdNo.Equals(householdNo) && 
                     m.Status)
                 .ToListAsync();
 
@@ -43,7 +43,7 @@ namespace AUF.EMR.Persistence.Repositories.Common
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Household.Status &&
-                    m.HouseholdNo.Equals(householdNo) && 
+                    m.Household.HouseholdNo.Equals(householdNo) && 
                     m.Status &&
                     m.Birthday >= startDate && 
                     m.Birthday <= DateTime.Today)
@@ -58,7 +58,7 @@ namespace AUF.EMR.Persistence.Repositories.Common
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Household.Status &&
-                    m.HouseholdNo.Equals(householdNo) && 
+                    m.Household.HouseholdNo.Equals(householdNo) && 
                     m.Status &&
                     m.Birthday >= startDate && 
                     m.Birthday <= endDate)

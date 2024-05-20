@@ -8,6 +8,15 @@
 
 @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 
+<div>
+    <p>@Model.PregnancyTrackingHH.Barangay</p>
+    <p>@Model.PregnancyTrackingHH.BirthingCenter</p>
+    <p>@Model.PregnancyTrackingHH.Province</p>
+    <p>@Model.PregnancyTrackingHH.BHWName</p>
+    <a asp-action="Edit" asp-controller="PregnancyTrackingHH" asp-route-householdNo="@Model.HouseholdNo" 
+        asp-route-id="@Model.PregnancyTrackingHH.Id">Edit</a>
+</div>
+
 <p>
     <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo">Create New</a>
 </p>

@@ -3,6 +3,7 @@ using AUF.EMR.Application.Contracts.Persistence;
 using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Application.Services.Common;
 using AUF.EMR.Domain.Models;
+using AUF.EMR.MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,14 @@ namespace AUF.EMR.Application.Services
             await _repository.DeleteHouseholdMember(id);
         }
 
+        public string GetClassifications(List<Classification> classifications)
+        {
+            var keyList = new StringBuilder();
+            return keyList.AppendJoin(",", classifications
+                .Where(c => c.Selected)
+                .Select(c => c.Key)).ToString();
+        }
+
         public async Task<List<HouseholdMember>> GetHouseholdMembersWithDetails(string houseHoldNo)
         {
             return await _repository.GetHouseholdMembersWithDetails(houseHoldNo);
@@ -36,9 +45,9 @@ namespace AUF.EMR.Application.Services
             return await _repository.GetHouseholdMemberWithDetails(id);
         }
 
-        public async Task<List<HouseholdMember>> GetWRAHouseholdMember(string householdNo)
+        public async Task<List<HouseholdMember>> GetWRAHouseholdMembers(string householdNo)
         {
-            return await _repository.GetWRAHouseholdMember(householdNo);
+            return await _repository.GetWRAHouseholdMembers(householdNo);
         }
     }
 }

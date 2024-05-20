@@ -5,7 +5,7 @@ namespace AUF.EMR.MVC.Models.IndexVM
 {
     public class PregnancyTrackingListVM : BaseVM
     {
+        public PregnancyTrackingHH PregnancyTrackingHH { get; set; }
         public List<PregnancyTracking> PregnancyTrackingList { get; set; }
-        public string HouseholdNo { get; set; }
     }
 }

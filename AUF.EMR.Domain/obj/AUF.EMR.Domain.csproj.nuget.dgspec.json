@@ -10,11 +10,11 @@
         "projectUniqueName": "D:\\auf-barangay-emr\\AUF.EMR.Domain\\AUF.EMR.Domain.csproj",
         "projectName": "AUF.EMR.Domain",
         "projectPath": "D:\\auf-barangay-emr\\AUF.EMR.Domain\\AUF.EMR.Domain.csproj",
-        "packagesPath": "C:\\Users\\seanm\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\alfon\\.nuget\\packages\\",
         "outputPath": "D:\\auf-barangay-emr\\AUF.EMR.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\seanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alfon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,7 +42,7 @@
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.16, )"
+              "version": "[7.0.12, )"
             }
           },
           "imports": [

@@ -1,5 +1,6 @@
 ﻿using AUF.EMR.Application.Contracts.Services.Common;
 using AUF.EMR.Domain.Models;
+using AUF.EMR.MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace AUF.EMR.Application.Contracts.Services
     {
         Task<List<HouseholdMember>> GetHouseholdMembersWithDetails(string houseHoldNo);
         Task<HouseholdMember> GetHouseholdMemberWithDetails(int id);
-        Task<List<HouseholdMember>> GetWRAHouseholdMember(string householdNo);
+        Task<List<HouseholdMember>> GetWRAHouseholdMembers(string householdNo);
         Task DeleteHouseholdMember(int id);
+        string GetClassifications(List<Classification> classifications);
     }
 }
