@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2zWbsEKJC7+F73Ad/AanWBE7qDcOMSyfjgL/IsX1H6k=",
+  "Hash": "GDM52yfeeo+LmEL4FWioO8I7z/sqAgLpZakVzbeTyBQ=",
   "Source": "AUF.EMR.MVC",
   "BasePath": "_content/AUF.EMR.MVC",
   "Mode": "Default",
@@ -1154,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
+    },
+    {
+      "Identity": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\css\\style-masterlist.css",
+      "SourceId": "AUF.EMR.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\",
+      "BasePath": "_content/AUF.EMR.MVC",
+      "RelativePath": "css/style-masterlist.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style-masterlist.css"
     },
     {
       "Identity": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\favicon.ico",
