@@ -93,6 +93,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: OralHealthClientController/Infant
         public async Task<ActionResult> Infant(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _oralHealthService.GetOralClientInfant(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -106,6 +118,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: OralHealthClientController/OneToFour
         public async Task<ActionResult> OneToFour(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _oralHealthService.GetOralClient1to4(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -119,6 +143,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: OralHealthClientController/FiveToNine
         public async Task<ActionResult> FiveToNine(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _oralHealthService.GetOralClient5to9(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -132,6 +168,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: OralHealthClientController/TenToFourteen
         public async Task<ActionResult> TenToFourteen(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _oralHealthService.GetOralClient10to14(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -145,6 +193,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: OralHealthClientController/FifteenToNineteen
         public async Task<ActionResult> FifteenToNineteen(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _oralHealthService.GetOralClient15to19(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -158,6 +218,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: OralHealthClientController/TwentyToFourtynine
         public async Task<ActionResult> TwentyToFourtynine(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _oralHealthService.GetOralClient20to49(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -171,6 +243,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: OralHealthClientController/PregnantFifteenToNineteen
         public async Task<ActionResult> PregnantFifteenToNineteen(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _oralHealthService.GetOralClientPregnant15to19(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -184,6 +268,18 @@ namespace AUF.EMR.MVC.Controllers
         // GET: OralHealthClientController/PregnantTwentyToFourtynine
         public async Task<ActionResult> PregnantTwentyToFourtynine(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var existing = await _householdService.IsHouseholdNoExisting(householdNo);
+
+            if (!existing)
+            {
+                return NotFound();
+            }
+
             var members = await _oralHealthService.GetOralClientPregnant20to49(householdNo);
             var model = new HouseholdMemberListVM
             {
@@ -207,7 +303,6 @@ namespace AUF.EMR.MVC.Controllers
                 var oneToFour = await _oralHealthService.GetOralClient1to4(householdNo);
                 var fiveToNine = await _oralHealthService.GetOralClient5to9(householdNo);
                 var tenToFourteen = await _oralHealthService.GetOralClient10to14(householdNo);
-                var fifteenToNineteen = await _oralHealthService.GetOralClient15to19(householdNo);
                 var pregFifteenToNineteen = await _oralHealthService.GetOralClientPregnant15to19(householdNo);
                 var pregTwentyToFourtyNine = await _oralHealthService.GetOralClientPregnant20to49(householdNo);
 
@@ -216,10 +311,15 @@ namespace AUF.EMR.MVC.Controllers
                 Config.WebMode = true;
                 var report = new Report();
                 var contentRootPath = _webHostEnvironment.ContentRootPath;
-                var path = Path.Combine(contentRootPath, "Reports", "Masterlist.frx");
+                var path = Path.Combine(contentRootPath, "Reports", "OralHealth.frx");
 
                 report.Load(path);
                 report.RegisterData(infants, "OralInfants");
+                report.RegisterData(oneToFour, "OralOneToFour");
+                report.RegisterData(fiveToNine, "OralFiveToNine");
+                report.RegisterData(tenToFourteen, "OralTenToFourteen");
+                report.RegisterData(pregFifteenToNineteen, "OralPregFifteenToNineteen");
+                report.RegisterData(pregTwentyToFourtyNine, "OralPregTwentyToFourtyNine");
 
                 report.SetParameterValue("HouseholdNo", householdNo);
                 report.SetParameterValue("Address", address);
