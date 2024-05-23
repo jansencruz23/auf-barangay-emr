@@ -4,8 +4,13 @@ using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
+using FastReport.Export.PdfSimple;
+using FastReport.Utils;
+using FastReport;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
@@ -16,14 +21,17 @@ namespace AUF.EMR.MVC.Controllers
         private readonly IPregnancyTrackingService _pregnancyService;
         private readonly IHouseholdMemberService _householdMemberService;
         private readonly IPregnancyTrackingHHService _pregTrackHHService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public PregnancyTrackingController(IPregnancyTrackingService pregnancyService,
             IHouseholdMemberService householdMemberService,
-            IPregnancyTrackingHHService pregTrackHHService)
+            IPregnancyTrackingHHService pregTrackHHService,
+            IWebHostEnvironment webHostEnvironment)
         {
             _pregnancyService = pregnancyService;
             _householdMemberService = householdMemberService;
             _pregTrackHHService = pregTrackHHService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: PregnancyTrackingController
@@ -134,6 +142,55 @@ namespace AUF.EMR.MVC.Controllers
             }
 
             return BadRequest();
+        }
+
+        public async Task<string> Print(string householdNo)
+        {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return "Household no. is empty";
+            }
+
+            try
+            {
+                var pregTrack = await _pregnancyService.GetPregnancyTrackingListWithDetails(householdNo);
+                var pregTrackHH = await _pregTrackHHService.GetPregnancyTrackingsHHWithDetails(householdNo);
+                var householdMembers = await _pregnancyService.GetPregnantTrackingMembers(householdNo);
+
+                Config.WebMode = true;
+                var report = new Report();
+                var contentRootPath = _webHostEnvironment.ContentRootPath;
+                var path = Path.Combine(contentRootPath, "Reports", "PregnancyTracking.frx");
+
+                report.Load(path);
+                report.RegisterData(pregTrack, "PregnancyTracking");
+                report.RegisterData(pregTrackHH, "PregnancyTrackingHH");
+                report.RegisterData(householdMembers, "HouseholdMember");
+
+                if (report.Report.Prepare())
+                {
+                    var pdfExport = new PDFSimpleExport();
+                    pdfExport.ShowProgress = true;
+                    pdfExport.Subject = "Subject Report";
+                    pdfExport.Title = "Report Title";
+                    var memoryStream = new MemoryStream();
+                    report.Report.Export(pdfExport, memoryStream);
+                    report.Dispose();
+                    pdfExport.Dispose();
+                    memoryStream.Position = 0;
+
+                    return Convert.ToBase64String(memoryStream.ToArray());
+                    //return File(memoryStream, "application/pdf", "household.pdf");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

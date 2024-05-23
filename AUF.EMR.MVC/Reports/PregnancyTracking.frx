@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/23/2024 21:42:29" ReportInfo.Modified="05/23/2024 23:53:08" ReportInfo.CreatorVersion="2024.2.0.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="PregnancyTracking" ReferenceName="PregnancyTracking" DataType="System.Int32" Enabled="true">
+      <Column Name="HouseholdMemberId" DataType="System.Int32" PropName="Column"/>
+      <Column Name="Age" DataType="System.Int32" PropName="Column"/>
+      <Column Name="Gravidity" DataType="System.Int32" PropName="Column"/>
+      <Column Name="Parity" DataType="System.Int32" PropName="Column"/>
+      <Column Name="ExpectedDateOfDelivery" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="FirstAntenatalCheckUp" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="SecondAntenatalCheckUp" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="ThirdAntenatalCheckUp" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="MoreCheckUp" DataType="System.DateTime" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="HouseholdMember" ReferenceName="HouseholdMember" DataType="System.Int32" Enabled="true">
+      <Column Name="FormattedFullName2" DataType="System.String" PropName="Column"/>
+      <Column Name="FirstName" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Id" DataType="System.Int32" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="PregnancyTrackingHH" ReferenceName="PregnancyTrackingHH" DataType="System.Int32" Enabled="true">
+      <Column Name="Year" DataType="System.Int32" PropName="Column"/>
+      <Column Name="Region" DataType="System.String" PropName="Column"/>
+      <Column Name="Province" DataType="System.String" PropName="Column"/>
+      <Column Name="Municipality" DataType="System.String" PropName="Column"/>
+      <Column Name="Barangay" DataType="System.String" PropName="Column"/>
+      <Column Name="BirthingCenter" DataType="System.String" PropName="Column"/>
+      <Column Name="BirthingCenterAddress" DataType="System.String" PropName="Column"/>
+      <Column Name="ReferralCenter" DataType="System.String" PropName="Column"/>
+      <Column Name="ReferralCenterAddress" DataType="System.String" PropName="Column"/>
+      <Column Name="BHWName" DataType="System.String" PropName="Column"/>
+      <Column Name="MidwifeName" DataType="System.String" PropName="Column"/>
+      <Column Name="BarangayHealthStation" DataType="System.String" PropName="Column"/>
+      <Column Name="RuralHealthUnit" DataType="System.String" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <Relation Name="HouseholdMember_PregnancyTracking" ParentDataSource="HouseholdMember" ChildDataSource="PregnancyTracking" ParentColumns="Id" ChildColumns="HouseholdMemberId" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="355.6" PaperHeight="215.9" RawPaperSize="5" Watermark.Font="Arial, 60pt" LastPageSource="261" FirstPageSource="261">
+    <PageHeaderBand Name="PageHeader1" Width="1268.57" Height="311.85">
+      <TextObject Name="Text10" Top="28.35" Width="1266.3" Height="18.9" Text="National Safe Motherhood Program" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text11" Top="47.25" Width="1266.3" Height="18.9" Text="PREGNANCY TRACKING" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text12" Left="113.4" Top="113.4" Width="189" Height="18.9" Text="[PregnancyTrackingHH.Region]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text13" Left="113.4" Top="94.5" Width="189" Height="18.9" Text="[PregnancyTrackingHH.Year]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text14" Left="37.8" Top="94.5" Width="37.8" Height="18.9" Text="Year:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text15" Left="37.8" Top="113.4" Width="56.7" Height="18.9" Text="Region:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text16" Left="37.8" Top="132.3" Width="66.15" Height="18.9" Text="Province:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text17" Left="37.8" Top="151.2" Width="85.05" Height="18.9" Text="Municipality:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text18" Left="37.8" Top="170.1" Width="66.15" Height="18.9" Text="Barangay:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text19" Left="113.4" Top="132.3" Width="189" Height="18.9" Text="[PregnancyTrackingHH.Province]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text20" Left="113.4" Top="151.2" Width="189" Height="18.9" Text="[PregnancyTrackingHH.Municipality]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text21" Left="113.4" Top="170.1" Width="189" Height="18.9" Text="[PregnancyTrackingHH.Barangay]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text22" Left="340.2" Top="94.5" Width="94.5" Height="18.9" Text="Birthing Center:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text23" Left="340.2" Top="113.4" Width="94.5" Height="18.9" Text="Address:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text24" Left="340.2" Top="132.3" Width="94.5" Height="18.9" Text="Referral Center:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text25" Left="340.2" Top="151.2" Width="94.5" Height="18.9" Text="Address:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text26" Left="434.7" Top="94.5" Width="245.7" Height="18.9" Text="[PregnancyTrackingHH.BirthingCenter]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text27" Left="434.7" Top="113.4" Width="245.7" Height="18.9" Text="[PregnancyTrackingHH.BirthingCenterAddress]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text28" Left="434.7" Top="132.3" Width="245.7" Height="18.9" Text="[PregnancyTrackingHH.ReferralCenter]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text29" Left="434.7" Top="151.2" Width="245.7" Height="18.9" Text="[PregnancyTrackingHH.ReferralCenterAddress]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text30" Left="37.8" Top="207.9" Width="37.8" Height="37.8" Text="No." HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text31" Left="75.6" Top="207.9" Width="151.2" Height="18.9" Text="Name" HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text32" Left="75.6" Top="226.8" Width="151.2" Height="18.9" Text="(LN, FN, MI)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text33" Left="226.8" Top="207.9" Width="37.8" Height="37.8" Text="Age" HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text34" Left="264.6" Top="207.9" Width="56.7" Height="37.8" Text="Gravidity" HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text35" Left="321.3" Top="207.9" Width="47.25" Height="37.8" Text="Parity&#13;&#10;" HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text36" Left="368.55" Top="207.9" Width="85.05" Height="37.8" Text="Expected Date of &#13;&#10;Delivery" HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text37" Left="453.6" Top="207.9" Width="245.7" Height="37.8" Text="Antenatal Care Check-Ups&#13;&#10;(date)" HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text38" Left="453.6" Top="245.7" Width="66.15" Height="56.7" Text="1st tri = up&#13;&#10;to 12 weeks&#13;&#10;and 6 days&#13;&#10;AOG" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text39" Left="519.75" Top="245.7" Width="66.15" Height="56.7" Text="2nd tri =&#13;&#10;13-27 weeks and 6 days&#13;&#10;AOG" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text40" Left="585.9" Top="245.7" Width="113.4" Height="56.7" Text="3rd tri = 28&#13;&#10;weeks AOG&#13;&#10;and more" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text41" Left="699.3" Top="207.9" Width="179.55" Height="18.9" Text="Pregnancy Outcome" HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text42" Left="699.3" Top="226.8" Width="179.55" Height="18.9" Text="(Place a check)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text43" Left="699.3" Top="245.7" Width="37.8" Height="56.7" Text="Live&#13;&#10;Birth" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text44" Left="737.1" Top="245.7" Width="47.25" Height="56.7" Text="Preterm&#13;&#10;Birth" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text45" Left="784.35" Top="245.7" Width="47.25" Height="56.7" Text="Stillbirth" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text46" Left="831.6" Top="245.7" Width="47.25" Height="56.7" Text="Abortion" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text47" Left="878.85" Top="207.9" Width="151.2" Height="18.9" Text="Mother and Child&#13;&#10;Postnatal Check-ups" HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text48" Left="878.85" Top="226.8" Width="151.2" Height="18.9" Text="(Date)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text49" Left="878.85" Top="245.7" Width="75.6" Height="56.7" Text="Day of&#13;&#10;Discharge&#13;&#10;24 hrs after&#13;&#10;birth" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text50" Left="954.45" Top="245.7" Width="75.6" Height="56.7" Text="Within&#13;&#10;7 days after&#13;&#10;birth" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text51" Left="1030.05" Top="207.9" Width="198.45" Height="18.9" Text="Civil Registration" HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text52" Left="1030.05" Top="226.8" Width="198.45" Height="18.9" Text="(Date)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text53" Left="1030.05" Top="245.7" Width="47.25" Height="56.7" Text="Livebirth" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text54" Left="1077.3" Top="245.7" Width="47.25" Height="56.7" Text="Maternal&#13;&#10;Death" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text55" Left="1124.55" Top="245.7" Width="47.25" Height="56.7" Text="Stillbirth" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text56" Left="1171.8" Top="245.7" Width="56.7" Height="56.7" Text="Early&#13;&#10;Newborn&#13;&#10;Death&#13;&#10;(0-7 days)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text1" Left="37.8" Width="94.5" Height="18.9" Text="Row#" Font="Arial, 10pt"/>
+      <TextObject Name="Text2" Left="264.6" Width="94.5" Height="18.9" Text="Gravidity" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Left="368.55" Width="94.5" Height="18.9" Text="ExpectedDateOfDelivery" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="519.75" Width="94.5" Height="18.9" Text="SecondAntenatalCheckUp" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="642.6" Width="94.5" Height="18.9" Text="MoreCheckUp" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="315.85" Width="1268.57" Height="85.05" DataSource="PregnancyTracking">
+      <TextObject Name="Text57" Left="37.8" Width="37.8" Height="18.9" Text="[Row#]" Font="Arial, 7pt"/>
+      <TextObject Name="Text9" Left="226.8" Width="37.8" Height="18.9" Text="[PregnancyTracking.Age]" Font="Arial, 7pt"/>
+      <TextObject Name="Text59" Left="264.6" Width="56.7" Height="18.9" Text="[PregnancyTracking.Gravidity]" Font="Arial, 7pt"/>
+      <TextObject Name="Text60" Left="321.3" Width="47.25" Height="18.9" Text="[PregnancyTracking.Parity]" Font="Arial, 7pt"/>
+      <TextObject Name="Text61" Left="368.55" Width="85.05" Height="18.9" Text="[PregnancyTracking.ExpectedDateOfDelivery]" Format="Date" Format.Format="d" Font="Arial, 7pt"/>
+      <TextObject Name="Text62" Left="453.6" Width="66.15" Height="18.9" Text="[PregnancyTracking.FirstAntenatalCheckUp]" Format="Date" Format.Format="d" Font="Arial, 7pt"/>
+      <TextObject Name="Text63" Left="519.75" Width="66.15" Height="18.9" Text="[PregnancyTracking.SecondAntenatalCheckUp]" Format="Date" Format.Format="d" Font="Arial, 7pt"/>
+      <TextObject Name="Text64" Left="75.6" Width="151.2" Height="18.9" Text="[PregnancyTracking.HouseholdMember.FormattedFullName2]" Font="Arial, 7pt"/>
+      <TextObject Name="Text65" Left="585.9" Width="56.7" Height="18.9" Text="[PregnancyTracking.ThirdAntenatalCheckUp]" Format="Date" Format.Format="d" Font="Arial, 7pt"/>
+      <TextObject Name="Text66" Left="642.6" Width="56.7" Height="18.9" Text="[PregnancyTracking.MoreCheckUp]" Format="Date" Format.Format="d" Font="Arial, 7pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="404.9" Width="1268.57" Height="18.9"/>
+  </ReportPage>
+</Report>

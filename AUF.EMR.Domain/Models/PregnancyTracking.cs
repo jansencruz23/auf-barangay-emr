@@ -24,6 +24,8 @@ namespace AUF.EMR.Domain.Models
         public DateTime? SecondAntenatalCheckUp { get; set; }
         [DataType(DataType.Date)]
         public DateTime? ThirdAntenatalCheckUp { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime? MoreCheckUp { get; set; }
         public PregnancyOutcome? PregnancyOutcome { get; set; }
         [DataType(DataType.Date)]
         public DateTime? PostnatalCheckUp24hrs { get; set; }
@@ -37,5 +39,10 @@ namespace AUF.EMR.Domain.Models
         public DateTime? StillBirth { get; set; }
         [DataType(DataType.Date)]
         public DateTime? EarlyNewbornDeath { get; set; }
+
+        public bool? PregnancyOutcomeLiveBirth { get => PregnancyOutcome.Value == Enums.PregnancyOutcome.LiveBirth; }
+        public bool? PregnancyOutcomePreterm { get => PregnancyOutcome.Value == Enums.PregnancyOutcome.PretermBirth; }
+        public bool? PregnancyOutcomeStillbirth { get => PregnancyOutcome.Value == Enums.PregnancyOutcome.StillBirth; }
+        public bool? PregnancyOutcomeAbortion { get => PregnancyOutcome.Value == Enums.PregnancyOutcome.Abortion; }
     }
 }

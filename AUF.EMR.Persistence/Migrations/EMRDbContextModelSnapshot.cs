@@ -1070,6 +1070,9 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<Guid?>("ModifiedById")
                         .HasColumnType("char(36)");
 
+                    b.Property<DateTime?>("MoreCheckUp")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<int>("Parity")
                         .HasColumnType("int");
 

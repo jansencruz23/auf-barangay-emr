@@ -27,5 +27,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/flowbite/dist/flowbite.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    @{await Html.RenderPartialAsync("Prints/_PrintDialog");}
 </body>
 </html>
