@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/23/2024 21:42:29" ReportInfo.Modified="05/23/2024 23:53:08" ReportInfo.CreatorVersion="2024.2.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/23/2024 21:42:29" ReportInfo.Modified="05/24/2024 00:06:19" ReportInfo.CreatorVersion="2024.2.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="PregnancyTracking" ReferenceName="PregnancyTracking" DataType="System.Int32" Enabled="true">
       <Column Name="HouseholdMemberId" DataType="System.Int32" PropName="Column"/>
@@ -11,6 +11,7 @@
       <Column Name="SecondAntenatalCheckUp" DataType="System.DateTime" PropName="Column"/>
       <Column Name="ThirdAntenatalCheckUp" DataType="System.DateTime" PropName="Column"/>
       <Column Name="MoreCheckUp" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="PregnancyOutcomeLiveBirth" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
     </BusinessObjectDataSource>
     <BusinessObjectDataSource Name="HouseholdMember" ReferenceName="HouseholdMember" DataType="System.Int32" Enabled="true">
       <Column Name="FormattedFullName2" DataType="System.String" PropName="Column"/>
@@ -100,6 +101,7 @@
       <TextObject Name="Text64" Left="75.6" Width="151.2" Height="18.9" Text="[PregnancyTracking.HouseholdMember.FormattedFullName2]" Font="Arial, 7pt"/>
       <TextObject Name="Text65" Left="585.9" Width="56.7" Height="18.9" Text="[PregnancyTracking.ThirdAntenatalCheckUp]" Format="Date" Format.Format="d" Font="Arial, 7pt"/>
       <TextObject Name="Text66" Left="642.6" Width="56.7" Height="18.9" Text="[PregnancyTracking.MoreCheckUp]" Format="Date" Format.Format="d" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox1" Left="708.75" Width="18.9" Height="18.9" DataColumn="PregnancyTracking.PregnancyOutcomeLiveBirth"/>
     </DataBand>
     <PageFooterBand Name="PageFooter1" Top="404.9" Width="1268.57" Height="18.9"/>
   </ReportPage>

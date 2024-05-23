@@ -40,9 +40,9 @@ namespace AUF.EMR.Domain.Models
         [DataType(DataType.Date)]
         public DateTime? EarlyNewbornDeath { get; set; }
 
-        public bool? PregnancyOutcomeLiveBirth { get => PregnancyOutcome.Value == Enums.PregnancyOutcome.LiveBirth; }
-        public bool? PregnancyOutcomePreterm { get => PregnancyOutcome.Value == Enums.PregnancyOutcome.PretermBirth; }
-        public bool? PregnancyOutcomeStillbirth { get => PregnancyOutcome.Value == Enums.PregnancyOutcome.StillBirth; }
-        public bool? PregnancyOutcomeAbortion { get => PregnancyOutcome.Value == Enums.PregnancyOutcome.Abortion; }
+        public bool? PregnancyOutcomeLiveBirth { get => PregnancyOutcome.HasValue ? PregnancyOutcome.Value == Enums.PregnancyOutcome.LiveBirth : false; }
+        public bool? PregnancyOutcomePreterm { get => PregnancyOutcome.HasValue ? PregnancyOutcome.Value == Enums.PregnancyOutcome.PretermBirth : false; }
+        public bool? PregnancyOutcomeStillbirth { get => PregnancyOutcome.HasValue ? PregnancyOutcome.Value == Enums.PregnancyOutcome.StillBirth : false; }
+        public bool? PregnancyOutcomeAbortion { get => PregnancyOutcome.HasValue ? PregnancyOutcome.Value == Enums.PregnancyOutcome.Abortion : false; }
     }
 }
