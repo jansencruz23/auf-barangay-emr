@@ -51,11 +51,16 @@ namespace AUF.EMR.MVC.Controllers
                 return NotFound();
             }
 
+            int.TryParse(member.Age.Split(" ")[0], out int age);
+            var ageSuffix = member.Age.Split(" ")[1];
+
             var model = new EditHouseholdMemberVM
             {
                 HouseholdMember = member,
                 RequestUrl = requestUrl,
-                HouseholdNo = householdNo
+                HouseholdNo = householdNo,
+                AgePrefix = age,
+                AgeSuffix = ageSuffix
             };
 
             return View(model);
@@ -79,6 +84,7 @@ namespace AUF.EMR.MVC.Controllers
             try
             {
                 var householdMember = model.HouseholdMember;
+                householdMember.Age = $"{model.AgePrefix} {model.AgeSuffix}";
                 var completed = await _householdMemberService.Update(householdMember);
 
                 return Redirect(model.RequestUrl);

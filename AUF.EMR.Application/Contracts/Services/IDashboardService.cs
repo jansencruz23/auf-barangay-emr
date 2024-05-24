@@ -25,5 +25,17 @@ namespace AUF.EMR.Application.Contracts.Services
         Task<int> GetAdultsCount(string householdNo);
         Task<int> GetSeniorCount();
         Task<int> GetSeniorCount(string householdNo);
+        Task<int> GetPregnantCount();
+        Task<int> GetPregnantCount(string householdNo);
+        Task<int> GetWRAFormCount();
+        Task<int> GetWRAFormCount(string householdNo);
+        Task<int> GetPregnancyTrackingFormCount();
+        Task<int> GetPregnancyTrackingFormCount(string householdNo);
+        Task<int> GetFamilyPlanningFormCount();
+        Task<int> GetFamilyPlanningFormCount(string householdNo);
+        Task<int> GetPatientRecordCount();
+        Task<int> GetPatientRecordCount(string householdNo);
+        Task<int> GetPregnancyRecordCount();
+        Task<int> GetPregnancyRecordCount(string householdNo);
     }
 }
