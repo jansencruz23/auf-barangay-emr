@@ -14,6 +14,7 @@
             <input type="hidden" asp-for="HouseholdMember.NameOfFather" value="@Model.HouseholdMember.NameOfFather" />
             <input type="hidden" asp-for="HouseholdMember.NameOfMother" value="@Model.HouseholdMember.NameOfMother" />
             <input type="hidden" asp-for="HouseholdMember.IsNhts" value="@Model.HouseholdMember.IsNhts" />
+            <input type="hidden" asp-for="HouseholdMember.Age" value="@Model.HouseholdMember.Age" />
             <input type="hidden" asp-for="HouseholdMember.IsInSchool" value="@Model.HouseholdMember.IsInSchool" />
             <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Edit Household Member</h1>
             <hr class="mb-4">
@@ -61,7 +62,7 @@
                     <div class="mb-4 w-4/5">
                         <label asp-for="HouseholdMember.Age" class="block mb-2 text-sm font-medium text-gray-700">Age</label>
                         <div class="flex items-center space-x-2">
-                            <input asp-for="HouseholdMember.Age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 flex-1" />
+                            <input asp-for="AgePrefix" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 flex-1" />
                             <select asp-for="AgeSuffix" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-24">
                                 <option value="yrs" selected>yrs</option>
                                 <option value="days">days</option>

@@ -140,12 +140,16 @@ namespace AUF.EMR.MVC.Controllers
 
                 var classificationService = new ClassificationService();
                 var classifications = classificationService.GetClassifications();
+                var age = member.Age.Split(" ")[0];
+                var ageSuffix = member.Age.Split(" ")[1];
 
                 var model = new EditHouseholdMemberVM
                 {
                     HouseholdMember = member,
                     RequestUrl = requestUrl,
                     HouseholdNo = member.Household.HouseholdNo,
+                    AgePrefix = age,
+                    AgeSuffix = ageSuffix,
                     Classifications = classifications,
                     FirstQtrClassifications = new ClassificationService().MapSelected(member.FirstQtrClassification),
                     SecondQtrClassifications = new ClassificationService().MapSelected(member.SecondQtrClassification),
@@ -184,7 +188,7 @@ namespace AUF.EMR.MVC.Controllers
                 var fourthQtrClassification = _houseHoldMemberService.GetClassifications(model.FourthQtrClassifications);
 
                 var householdMember = model.HouseholdMember;
-                householdMember.Age = $"{householdMember.Age} {model.AgeSuffix}";
+                householdMember.Age = $"{model.AgePrefix} {model.AgeSuffix}";
 
                 householdMember.FirstQtrClassification = firstQtrClassification;
                 householdMember.SecondQtrClassification = secondQtrClassification;

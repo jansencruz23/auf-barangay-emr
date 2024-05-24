@@ -183,7 +183,7 @@ namespace AUF.EMR.MVC.Controllers
             var model = new CreateHouseholdProfileVM
             {
                 Household = household,
-                HouseholdMembers = householdMembers
+                HouseholdMembers = householdMembers,
             };
            
             return View(model);
