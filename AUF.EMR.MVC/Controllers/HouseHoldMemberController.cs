@@ -140,7 +140,7 @@ namespace AUF.EMR.MVC.Controllers
 
                 var classificationService = new ClassificationService();
                 var classifications = classificationService.GetClassifications();
-                var age = member.Age.Split(" ")[0];
+                int.TryParse(member.Age.Split(" ")[0], out int age);
                 var ageSuffix = member.Age.Split(" ")[1];
 
                 var model = new EditHouseholdMemberVM

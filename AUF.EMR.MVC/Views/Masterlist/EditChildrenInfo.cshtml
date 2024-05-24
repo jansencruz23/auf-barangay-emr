@@ -11,6 +11,8 @@
             <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
             <input type="hidden" asp-for="RequestUrl" value="@Model.RequestUrl" />
             <input type="hidden" asp-for="HouseholdMember.Id" value="@Model.HouseholdMember.Id" />
+            <input type="hidden" asp-for="HouseholdMember.Age" value="@Model.HouseholdMember.Age" />
+            <input type="hidden" asp-for="HouseholdMember.HouseholdId" value="@Model.HouseholdMember.HouseholdId" />
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             <input type="hidden" asp-for="HouseholdMember.OtherRelation" value="@Model.HouseholdMember.OtherRelation" />
             <input type="hidden" asp-for="HouseholdMember.FirstQtrClassification" value="@Model.HouseholdMember.FirstQtrClassification" />
@@ -24,7 +26,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                     <div class="mb-2 mt-8">
-                        <h6 class="text-md font-bold text-gray-800">Children Personal Information</h6>
+                        <h6 class="text-md font-bold text-gray-800">Child Personal Information</h6>
                     </div>
                     <div class="mb-4">
                         <label asp-for="HouseholdMember.FirstName" class="block mb-2 text-sm font-medium text-gray-700">First Name</label>
@@ -43,18 +45,45 @@
                     </div>
                     <div class="mb-4">
                         <label asp-for="HouseholdMember.Sex" class="block mb-2 text-sm font-medium text-gray-700">Sex</label>
-                        <input asp-for="HouseholdMember.Sex" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <ul class="items-center w-full md:w-4/5  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="HouseholdMember.Sex" id="rbMale" type="radio" value="M" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="rbMale" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male</label>
+                                </div>
+                            </li>
+                            <li class="w-full dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="HouseholdMember.Sex" id="rbFemale" type="radio" value="F" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="rbFemale" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female</label>
+                                </div>
+                            </li>
+                        </ul>
                         <span asp-validation-for="HouseholdMember.Sex" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-4 w-4/5">
                         <label asp-for="HouseholdMember.Age" class="block mb-2 text-sm font-medium text-gray-700">Age</label>
-                        <input asp-for="HouseholdMember.Age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <div class="flex items-center space-x-2">
+                            <input asp-for="AgePrefix" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 flex-1" />
+                            <select asp-for="AgeSuffix" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-24">
+                                <option value="yrs" selected>yrs</option>
+                                <option value="days">days</option>
+                                <option value="mos">mos</option>
+                            </select>
+                        </div>
                         <span asp-validation-for="HouseholdMember.Age" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
-                        <label asp-for="HouseholdMember.Birthday" class="block mb-2 text-sm font-medium text-gray-700">Date of Birth</label>
-                        <input asp-for="HouseholdMember.Birthday" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="HouseholdMember.Birthday" class="block mb-2 text-sm text-red-700"></span>
+                        <label asp-for="HouseholdMember.Birthday" class="block mb-2 text-sm font-medium text-gray-700">Birthday</label>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="HouseholdMember.Birthday" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="HouseholdMember.Birthday" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label asp-for="HouseholdMember.NameOfMother" class="block mb-2 text-sm font-medium text-gray-700">Name of Mother</label>
@@ -110,3 +139,9 @@
         </form>
     </div>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
