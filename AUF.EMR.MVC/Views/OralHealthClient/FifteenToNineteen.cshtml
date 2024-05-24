@@ -48,45 +48,46 @@
         <div class="bg-white shadow-md rounded-lg p-8">
             @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 
-            <table class="table-auto w-full">
-                <thead>
-                    <tr class="bg-gray-200">
-                        <th class="px-4 py-2 text-left">Family Serial No.</th>
-                        <th class="px-4 py-2 text-left">Name</th>
-                        <th class="px-4 py-2 text-left">Address</th>
-                        <th class="px-4 py-2 text-left">Sex</th>
-                        <th class="px-4 py-2 text-left">Age</th>
-                        <th class="px-4 py-2 text-left">Date of Birth</th>
-                        <th class="px-4 py-2 text-left">SE Status</th>
-                        <th class="px-4 py-2 text-left">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.HouseholdMembers)
-                    {
-                        <tr>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Household.HouseholdNo)</td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.FormattedFullName)</td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Household.FullAddress)</td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Sex)</td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Age)</td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Birthday)</td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.IsNhts)</td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
-                                <a asp-action="EditOralHealthInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-yellow-300 hover:text-yellow-400 mr-2">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a asp-action="Details" asp-controller="HouseholdMember" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl" class="text-green-400 hover:text-green-500 mr-2">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="text-red-300 hover:text-red-400">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
-                            </td>
+                <table class="table-auto w-full">
+                    <thead>
+                        <tr class="bg-gray-200">
+                            <th class="px-4 py-2 text-left">Family Serial No.</th>
+                            <th class="px-4 py-2 text-left">Name</th>
+                            <th class="px-4 py-2 text-left">Address</th>
+                            <th class="px-4 py-2 text-left">Sex</th>
+                            <th class="px-4 py-2 text-left">Age</th>
+                            <th class="px-4 py-2 text-left">Date of Birth</th>
+                            <th class="px-4 py-2 text-left">SE Status</th>
+                            <th class="px-4 py-2 text-left">Actions</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.HouseholdMembers)
+                        {
+                            <tr>
+                                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Household.HouseholdNo)</td>
+                                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.FormattedFullName)</td>
+                                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Household.FullAddress)</td>
+                                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Sex)</td>
+                                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Age)</td>
+                                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Birthday)</td>
+                                <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.IsNhts)</td>
+                                <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                    <a asp-action="EditOralHealthInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-yellow-300 hover:text-yellow-400 mr-2">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a asp-action="Details" asp-controller="HouseholdMember" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl" class="text-green-400 hover:text-green-500 mr-2">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="text-red-300 hover:text-red-400">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
