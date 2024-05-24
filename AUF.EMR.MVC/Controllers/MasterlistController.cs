@@ -332,7 +332,7 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
-        public async Task<string> PrintChildren(string householdNo)
+        public async Task<string> Print(string householdNo)
         {
             if (string.IsNullOrWhiteSpace(householdNo))
             {
