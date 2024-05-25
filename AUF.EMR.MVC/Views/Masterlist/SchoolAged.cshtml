@@ -42,7 +42,7 @@
         <div class="overflow-x-auto">
             <table class="table-auto w-full">
                 <thead class="bg-gray-200">
-                    <tr class="text-sm hover-table-content transition duration-300 ease-in-out">
+                    <tr class="bg-gray-200 text-sm">
                         <th class="px-4 py-2 text-left">HH. NO/ Family Serial No.</th>
                         <th class="px-4 py-2 text-left">Name of Child</th>
                         <th class="px-4 py-2 text-left">Name of Mother</th>
@@ -60,7 +60,7 @@
                 <tbody>
                     @foreach (var item in Model.HouseholdMembers)
                     {
-                        <tr class="text-sm">
+                        <tr class="text-sm hover-table-content transition duration-300 ease-in-out">
                             <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Household.HouseholdNo)
                             </td>
