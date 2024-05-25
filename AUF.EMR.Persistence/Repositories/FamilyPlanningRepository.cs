@@ -55,8 +55,9 @@ namespace AUF.EMR.Persistence.Repositories
                 .Include(f => f.PhysicalExamination)
                 .Include(f => f.RisksForSTI)
                 .Include(f => f.RisksForVAW)
-                .Where(f => f.Status
-                    && f.ClientHouseholdMember.Household.HouseholdNo.Equals(householdNo))
+                .Where(f => f.Status && 
+                    f.ClientHouseholdMember.Status &&
+                    f.ClientHouseholdMember.Household.HouseholdNo.Equals(householdNo))
                 .ToListAsync();
 
             return records;

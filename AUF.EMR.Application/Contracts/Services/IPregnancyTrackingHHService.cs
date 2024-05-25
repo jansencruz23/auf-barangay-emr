@@ -12,5 +12,6 @@ namespace AUF.EMR.Application.Contracts.Services
     {
         public Task<PregnancyTrackingHH> GetPregnancyTrackingHHWithDetails(int id);
         public Task<PregnancyTrackingHH> GetPregnancyTrackingHHWithDetails(string householdNo);
+        public Task<List<PregnancyTrackingHH>> GetPregnancyTrackingsHHWithDetails(string householdNo);
     }
 }

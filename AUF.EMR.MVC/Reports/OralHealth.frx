@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/20/2024 01:28:43" ReportInfo.Modified="05/22/2024 07:53:34" ReportInfo.CreatorVersion="2024.2.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/20/2024 01:28:43" ReportInfo.Modified="05/22/2024 08:01:01" ReportInfo.CreatorVersion="2024.2.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="OralInfants" ReferenceName="OralInfants" DataType="System.Int32" Enabled="true">
       <Column Name="FullName" DataType="System.String" PropName="Column"/>
@@ -181,7 +181,6 @@
   </ReportPage>
   <ReportPage Name="Page2" Landscape="true" PaperWidth="279.4" PaperHeight="215.9" RawPaperSize="1" Watermark.Font="Arial, 60pt" LastPageSource="261" FirstPageSource="261">
     <PageHeaderBand Name="PageHeader1" Width="980.53" Height="103.95">
-      <TextObject Name="Text124" Top="18.9" Width="982.8" Height="28.35" Text="MASTER LIST OF ORAL HEALTH CARE CLIENTS" HorzAlign="Center" Font="Arial, 14.25pt, style=Bold"/>
       <TextObject Name="Text125" Left="37.8" Top="56.7" Width="37.8" Height="18.9" Text="No." HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
       <TextObject Name="Text126" Left="94.5" Top="56.7" Width="66.15" Height="37.8" Text="Family Serial No." HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
       <TextObject Name="Text127" Left="189" Top="56.7" Width="189" Height="18.9" Text="NAME" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>

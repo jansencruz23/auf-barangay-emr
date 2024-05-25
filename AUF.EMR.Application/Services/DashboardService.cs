@@ -50,6 +50,16 @@ namespace AUF.EMR.Application.Services
             return await _repository.GetMemberByAgeCount(householdNo, startDate, endDate);
         }
 
+        public async Task<int> GetFamilyPlanningFormCount()
+        {
+            return await _repository.GetFamilyPlanningFormCount();
+        }
+
+        public async Task<int> GetFamilyPlanningFormCount(string householdNo)
+        {
+            return await _repository.GetFamilyPlanningFormCount(householdNo);
+        }
+
         public async Task<int> GetHouseholdCount()
         {
             return await _repository.GetHouseholdCount();
@@ -95,6 +105,46 @@ namespace AUF.EMR.Application.Services
             var endDate = DateTime.Today;
 
             return await _repository.GetMemberByAgeCount(householdNo, startDate, endDate);
+        }
+
+        public async Task<int> GetPatientRecordCount()
+        {
+            return await _repository.GetPatientRecordCount();
+        }
+
+        public async Task<int> GetPatientRecordCount(string householdNo)
+        {
+            return await _repository.GetPatientRecordCount(householdNo);
+        }
+
+        public async Task<int> GetPregnancyRecordCount()
+        {
+            return await _repository.GetPregnancyRecordCount();
+        }
+
+        public async Task<int> GetPregnancyRecordCount(string householdNo)
+        {
+            return await _repository.GetPregnancyRecordCount(householdNo);
+        }
+
+        public async Task<int> GetPregnancyTrackingFormCount()
+        {
+            return await _repository.GetPregnancyTrackingFormCount();
+        }
+
+        public async Task<int> GetPregnancyTrackingFormCount(string householdNo)
+        {
+            return await _repository.GetPregnancyTrackingFormCount(householdNo);
+        }
+
+        public async Task<int> GetPregnantCount()
+        {
+            return await _repository.GetPregnantCount();
+        }
+
+        public async Task<int> GetPregnantCount(string householdNo)
+        {
+            return await _repository.GetPregnantCount(householdNo);
         }
 
         public async Task<int> GetSchoolAgedCount()
@@ -143,6 +193,16 @@ namespace AUF.EMR.Application.Services
             var endDate = DateTime.Today.AddYears(MasterlistAgeRange.UnderFiveEnd);
 
             return await _repository.GetMemberByAgeCount(householdNo, startDate, endDate);
+        }
+
+        public async Task<int> GetWRAFormCount()
+        {
+            return await _repository.GetWRAFormCount();
+        }
+
+        public async Task<int> GetWRAFormCount(string householdNo)
+        {
+            return await _repository.GetWRAFormCount(householdNo);
         }
     }
 }

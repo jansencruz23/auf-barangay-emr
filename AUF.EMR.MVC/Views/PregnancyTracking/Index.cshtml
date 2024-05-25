@@ -5,7 +5,7 @@
 }
 
 <h1>National Safe Motherhood Program - Pregnancy Tracking</h1>
-
+<button type="button" onclick="print('Print', 'PregnancyTracking', @Model.HouseholdNo)">Print Pregnancy Tracking</button>
 @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 
 <div>
@@ -130,3 +130,9 @@
 }
     </tbody>
 </table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("Prints/_PrintDialog");
+    }
+}

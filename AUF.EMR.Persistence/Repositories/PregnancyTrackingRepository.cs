@@ -26,7 +26,10 @@ namespace AUF.EMR.Persistence.Repositories
                 .AsNoTracking()
                 .Include(p => p.HouseholdMember)
                     .ThenInclude(m => m.Household)
-                .Where(p => p.Status & p.HouseholdMember.Household.HouseholdNo.Equals(householdNo))
+                .Where(p => p.Status && 
+                    p.HouseholdMember.Household.HouseholdNo.Equals(householdNo) &&
+                    p.HouseholdMember.Household.Status &&
+                    p.HouseholdMember.Status)
                 .ToListAsync();
 
             return pregnancyLists;
@@ -38,7 +41,9 @@ namespace AUF.EMR.Persistence.Repositories
                 .AsNoTracking()
                 .Include(p => p.HouseholdMember)
                     .ThenInclude(m => m.Household)
-                .Where(p => p.Status)
+                .Where(p => p.Status &&
+                    p.HouseholdMember.Status &&
+                    p.HouseholdMember.Household.Status)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             return pregnantWoman;
@@ -50,13 +55,32 @@ namespace AUF.EMR.Persistence.Repositories
                 .AsNoTracking()
                 .Include(p => p.HouseholdMember)
                     .ThenInclude(m => m.Household)
-                .Where(p => p.Status && p.HouseholdMember.Household.HouseholdNo.Equals(householdNo))
+                .Where(p => p.Status && 
+                    p.HouseholdMember.Household.HouseholdNo.Equals(householdNo) &&
+                    p.HouseholdMember.Household.Status &&
+                    p.HouseholdMember.Status)
                 .Where(p => p.PregnancyOutcome == null)
                 .Where(p => p.HouseholdMember.Birthday >= startDate && p.HouseholdMember.Birthday <= endDate)
                 .Select(p => p.HouseholdMember)
                 .ToListAsync();
 
             return pregnantMembers;
+        }
+
+        public async Task<List<HouseholdMember>> GetPregnantTrackingMembers(string householdNo)
+        {
+            var members = await _dbContext.PregnancyTrackings
+                .AsNoTracking()
+                .Include(p => p.HouseholdMember)
+                    .ThenInclude(m => m.Household)
+                .Where(p => p.Status &&
+                    p.HouseholdMember.Household.HouseholdNo.Equals(householdNo) &&
+                    p.HouseholdMember.Status &&
+                    p.HouseholdMember.Household.Status)
+                .Select(p => p.HouseholdMember)
+                .ToListAsync();
+
+            return members;
         }
     }
 }

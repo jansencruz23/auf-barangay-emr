@@ -6,6 +6,7 @@ namespace AUF.EMR.MVC.Models.EditVM
     public class EditHouseholdMemberVM : BaseVM
     {
         public HouseholdMember HouseholdMember { get; set; }
+        public int AgePrefix { get; set; }
         public string? AgeSuffix { get; set; }
         public List<Classification>? Classifications { get; set; }
         public List<Classification>? FirstQtrClassifications { get; set; }

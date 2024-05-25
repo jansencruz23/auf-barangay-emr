@@ -37,6 +37,7 @@ namespace AUF.EMR.Domain.Models
         public bool? NotInSchool { get => !IsInSchool; }
 
         public string FormattedFullName { get => $"{FirstName} {GetMiddleInitial()}. {LastName}"; }
+        public string FormattedFullName2 { get => $"{LastName}, {FirstName}, {GetMiddleInitial()}"; }
         public string FullName { get => $"{LastName}, {FirstName}, {MotherMaidenName}"; }
 
         private string GetMiddleInitial()
