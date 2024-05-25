@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/25/2024 13:37:53" ReportInfo.Modified="05/25/2024 13:55:12" ReportInfo.CreatorVersion="2024.2.0.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="WRA" ReferenceName="WRA" DataType="System.Int32" Enabled="true">
+      <Column Name="HouseholdMemberId" DataType="System.Int32" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="HouseholdMembers" ReferenceName="HouseholdMembers" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Id" DataType="System.Int32" PropName="Column"/>
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <Relation Name="HouseholdMembers_WRA" ParentDataSource="HouseholdMembers" ChildDataSource="WRA" ParentColumns="Id" ChildColumns="HouseholdMemberId" Enabled="true"/>
+    <Parameter Name="Quarter" DataType="System.Int32" AsString=""/>
+    <Parameter Name="Year" DataType="System.Int32" AsString=""/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="355.6" PaperHeight="215.9" RawPaperSize="5" Watermark.Font="Arial, 60pt" LastPageSource="261" FirstPageSource="261">
+    <PageHeaderBand Name="PageHeader1" Width="1268.57" Height="94.5">
+      <TextObject Name="Text10" Top="28.35" Width="1266.3" Height="18.9" Text="Master List of Women of Reproductive Age and Adolescent Women for Family Planning Services" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text11" Top="47.25" Width="1200.15" Height="18.9" Text="For the Quarter / Year:" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text12" Left="661.5" Top="47.25" Width="94.5" Height="18.9" Text="[Quarter]" Underlines="true" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text13" Left="708.75" Top="47.25" Width="37.8" Height="18.9" Text="[Year]" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text14" Left="699.3" Top="47.25" Width="28.35" Height="18.9" Text="/" Font="Arial, 8.25pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="96.79" Width="1268.57" Height="75.6"/>
+    <PageFooterBand Name="PageFooter1" Top="174.67" Width="1268.57" Height="18.9"/>
+  </ReportPage>
+</Report>

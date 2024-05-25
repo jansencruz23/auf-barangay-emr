@@ -7,10 +7,15 @@ using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
 using AUF.EMR.MVC.Models.PrintVM;
+using FastReport.Export.PdfSimple;
+using FastReport.Utils;
+using FastReport;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -20,17 +25,23 @@ namespace AUF.EMR.MVC.Controllers
         private readonly IWRAService _wraService;
         private readonly IHouseholdMemberService _householdMemberService;
         private readonly IHouseholdService _householdService;
+        private readonly IBarangayService _brgyService;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public WRAController(IWRAService wraService,
             IHouseholdMemberService householdMemberService,
             IHouseholdService householdService,
-            UserManager<ApplicationUser> userManager)
+            IBarangayService brgyService,
+            UserManager<ApplicationUser> userManager,
+            IWebHostEnvironment webHostEnvironment)
         {
             _wraService = wraService;
             _householdMemberService = householdMemberService;
             _householdService = householdService;
+            _brgyService = brgyService;
             _userManager = userManager;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: WRAController
@@ -135,18 +146,65 @@ namespace AUF.EMR.MVC.Controllers
             return BadRequest();
         }
 
-        public async Task<ActionResult> Print(string householdNo)
+        public async Task<string> Print(string householdNo)
         {
-            var user = await _userManager.GetUserAsync(User);
-            var model = new PrintWRAVM
+            if (string.IsNullOrWhiteSpace(householdNo))
             {
-                Midwife = user.FullName,
-                WRAs = await _wraService.GetWRAListWithDetails(householdNo),
-                DatePrepared = DateTime.Now,
-                Quarter = GetCurrentQuarter()
-            };
+                return "Household no. is empty";
+            }
 
-            return View(model);
+            try
+            {
+                var wras = await _wraService.GetWRAListWithDetails(householdNo);
+                var householdMembers = await _householdMemberService.GetWRAHouseholdMembers(householdNo);
+                var brgyName = (await _brgyService.GetBarangay()).BarangayName;
+                var address = (await _householdService.GetHouseholdWithDetails(householdNo)).FullAddress;
+                var midwife = (await _userManager.GetUserAsync(User)).FullName;
+                var date = DateTime.Today.ToString("MM/dd/YYYY");
+                var year = DateTime.Today.Year;
+                var quarter = GetCurrentQuarter();
+
+                Config.WebMode = true;
+                var report = new Report();
+                var contentRootPath = _webHostEnvironment.ContentRootPath;
+                var path = Path.Combine(contentRootPath, "Reports", "WRAForm.frx");
+
+                report.Load(path);
+                report.RegisterData(wras, "WRA");
+                report.RegisterData(householdMembers, "HouseholdMembers");
+
+                report.SetParameterValue("Barangay", brgyName);
+                report.SetParameterValue("Address", brgyName);
+                report.SetParameterValue("Midwife", midwife);
+                report.SetParameterValue("Date", date);
+                report.SetParameterValue("Year", year);
+                report.SetParameterValue("Quarter", quarter);
+                report.SetParameterValue("Address", address);
+
+                if (report.Report.Prepare())
+                {
+                    var pdfExport = new PDFSimpleExport();
+                    pdfExport.ShowProgress = true;
+                    pdfExport.Subject = "Subject Report";
+                    pdfExport.Title = "Report Title";
+                    var memoryStream = new MemoryStream();
+                    report.Report.Export(pdfExport, memoryStream);
+                    report.Dispose();
+                    pdfExport.Dispose();
+                    memoryStream.Position = 0;
+
+                    return Convert.ToBase64String(memoryStream.ToArray());
+                    //return File(memoryStream, "application/pdf", "household.pdf");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         private int GetCurrentQuarter()
