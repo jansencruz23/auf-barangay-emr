@@ -1,0 +1,60 @@
+﻿@model DetailHouseholdMemberVM
+
+@{
+    ViewData["Title"] = "ChildDetails";
+}
+
+<h1>Adult Details</h1>
+
+<div>
+    <h4>HouseholdMember</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            HH.NO/ Family Serial No.
+        </dt>
+        <dd class="col-sm-10">
+            @Model.HouseholdNo
+        </dd>
+        <dt class="col-sm-2">
+            Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.HouseholdMember.FullName
+        </dd>
+        <dt class="col-sm-2">
+            Address
+        </dt>
+        <dd class="col-sm-10">
+            @Model.HouseholdMember.Household.FullAddress
+        </dd>
+        <dt class="col-sm-2">
+            Sex
+        </dt>
+        <dd class="col-sm-10">
+            @Model.HouseholdMember.Sex
+        </dd>
+        <dt class="col-sm-2">
+            Age
+        </dt>
+        <dd class="col-sm-10">
+            @Model.HouseholdMember.Age
+        </dd>
+        <dt class="col-sm-2">
+            Date of Birth
+        </dt>
+        <dd class="col-sm-10">
+            @Model.HouseholdMember.Birthday
+        </dd>
+        <dt class="col-sm-2">
+            NHTS
+        </dt>
+        <dd class="col-sm-10">
+            @((Model.HouseholdMember.IsNhts) ? "NHTS" : "Non-NHTS")
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="EditChildrenInfo" asp-route-id="@Model.HouseholdMember.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl">Edit</a> |
+    <a href="@Model.RequestUrl">Back to List</a>
+</div>

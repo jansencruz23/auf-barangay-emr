@@ -264,6 +264,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxBZHVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/AdultDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxBZHVsdERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/ChildDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxDaGlsZERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/EditAdultInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxFZGl0QWR1bHRJbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

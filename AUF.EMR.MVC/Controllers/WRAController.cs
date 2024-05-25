@@ -75,6 +75,16 @@ namespace AUF.EMR.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(CreateWRAVM model)
         {
+            if (model == null)
+            {
+                return View();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
             try
             {
                 var completed = await _wraService.Add(model.WRA);
