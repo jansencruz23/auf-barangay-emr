@@ -1,60 +1,57 @@
 ﻿@model DetailHouseholdMemberVM
 
 @{
-    ViewData["Title"] = "Oral Health Client Details";
+    Layout = "Layouts/_HouseholdLayout";
+    Layout = "Layouts/_FormLayout";
 }
 
-<h1>Oral Health Client Details</h1>
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
+        <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Oral Health Client Details</h1>
+        <hr class="mb-4">
 
-<div>
-    <h4>HouseholdMember</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            HH.NO/ Family Serial No.
-        </dt>
-        <dd class="col-sm-10">
-            @Model.HouseholdNo
-        </dd>
-        <dt class="col-sm-2">
-            Name
-        </dt>
-        <dd class="col-sm-10">
-            @Model.HouseholdMember.FullName
-        </dd>
-        <dt class="col-sm-2">
-            Address
-        </dt>
-        <dd class="col-sm-10">
-            @Model.HouseholdMember.Household.FullAddress
-        </dd>
-        <dt class="col-sm-2">
-            Sex
-        </dt>
-        <dd class="col-sm-10">
-            @Model.HouseholdMember.Sex
-        </dd>
-        <dt class="col-sm-2">
-            Age
-        </dt>
-        <dd class="col-sm-10">
-            @Model.HouseholdMember.Age
-        </dd>
-        <dt class="col-sm-2">
-            Date of Birth
-        </dt>
-        <dd class="col-sm-10">
-            @Model.HouseholdMember.Birthday
-        </dd>
-        <dt class="col-sm-2">
-            NHTS
-        </dt>
-        <dd class="col-sm-10">
-            @((Model.HouseholdMember.IsNhts) ? "NHTS" : "Non-NHTS")
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="EditOralHealthInfo" asp-route-id="@Model.HouseholdMember.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl">Edit</a> |
-    <a href="@Model.RequestUrl">Back to List</a>
+        <dl class="space-y-4">
+            <div class="flex items-center">
+                <dt class="text-gray-600 font-semibold w-80">HH.NO/ Family Serial No.</dt>
+                <dd class="text-gray-900">@Model.HouseholdNo</dd>
+            </div>
+            <div class="flex items-center">
+                <dt class="text-gray-600 font-semibold w-80">First Name</dt>
+                <dd class="text-gray-900">@Model.HouseholdMember.FirstName</dd>
+            </div>
+            <div class="flex items-center">
+                <dt class="text-gray-600 font-semibold w-80">Middle Name</dt>
+                <dd class="text-gray-900">@Model.HouseholdMember.MotherMaidenName</dd>
+            </div>
+            <div class="flex items-center">
+                <dt class="text-gray-600 font-semibold w-80">Last Name</dt>
+                <dd class="text-gray-900">@Model.HouseholdMember.LastName</dd>
+            </div>
+            <div class="flex items-center">
+                <dt class="text-gray-600 font-semibold w-80">Address</dt>
+                <dd class="text-gray-900">@Model.HouseholdMember.Household.FullAddress</dd>
+            </div>
+            <div class="flex items-center">
+                <dt class="text-gray-600 font-semibold w-80">Sex</dt>
+                <dd class="text-gray-900">@Model.HouseholdMember.Sex</dd>
+            </div>
+            <div class="flex items-center">
+                <dt class="text-gray-600 font-semibold w-80">Age</dt>
+                <dd class="text-gray-900">@Model.HouseholdMember.Age</dd>
+            </div>
+            <div class="flex items-center">
+                <dt class="text-gray-600 font-semibold w-80">Date of Birth</dt>
+                <dd class="text-gray-900">@Model.HouseholdMember.Birthday</dd>
+            </div>
+            <div class="flex items-center">
+                <dt class="text-gray-600 font-semibold w-80">NHTS</dt>
+                <dd class="text-gray-900">@((Model.HouseholdMember.IsNhts) ? "NHTS" : "Non-NHTS")</dd>
+            </div>
+        </dl>
+
+        <div class="flex justify-start mt-8 space-x-4">
+            <a asp-action="EditOralHealthInfo" asp-route-id="@Model.HouseholdMember.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5">Edit</a>
+            <a href="@Model.RequestUrl" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5">Back to List</a>
+        </div>
+    </div>
 </div>
