@@ -1,8 +1,8 @@
 ﻿@model UserVM
 
 @{
-    ViewData["Title"] = "Index";
     Layout = "Layouts/_BarangaySideLayout";
+    ViewData["Title"] = "Index";
 }
 
     <!--Search Bar-->
@@ -30,8 +30,8 @@
             </a>
         </div>
 
+        <!--Table-->
         <div class="bg-white shadow-md rounded-lg p-8">
-
             <table class="table-auto w-full">
                 <thead>
                     <tr class="bg-gray-200">
@@ -44,16 +44,18 @@
                         <th class="px-4 py-2 text-left">Actions</th>
                     </tr>
                 </thead>
+            <!--Table Contents-->
                 <tbody>
                     @foreach (var item in Model.Users)
                     {
-                        <tr>
+                    <tr class="text-sm hover-household transition duration-300 ease-in-out">
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.FullName)</td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Age)</td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Birthday)</td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Position)</td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.ContactNo)</td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Address)</td>
+                                                        <!--Action Button-->
                             <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 <a asp-action="Edit" asp-route-id="@item.Id" class="text-yellow-300 hover:text-yellow-400 mr-2">
                                     <i class="fas fa-edit"></i>
@@ -71,4 +73,3 @@
             </table>
         </div>
     </div>
-
