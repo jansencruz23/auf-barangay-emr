@@ -27,5 +27,14 @@ namespace AUF.EMR.Domain.Models
 
         [DataType(DataType.Date)]
         public DateTime? FPAcceptedDate { get; set; }
+
+        // PRINTING FIELDS
+        public bool NotPlanningChildren { get => !IsPlanningChildren; }
+        public bool NotFecund { get => !IsFecund; }
+        public bool? IsFPTraditional { get => !IsFPModern; }
+        public bool NotFPMethod { get => !IsFPMethod; }
+        public bool? NotShiftToModern { get => !ShiftToModern; }
+        public bool NotMFPUnmet { get => !IsMFPUnmet; }
+        public bool NotAcceptModernFpMethod { get => !AcceptModernFpMethod; }
     }
 }

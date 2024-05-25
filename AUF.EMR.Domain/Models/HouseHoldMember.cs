@@ -40,6 +40,10 @@ namespace AUF.EMR.Domain.Models
         public string FormattedFullName2 { get => $"{LastName}, {FirstName}, {GetMiddleInitial()}"; }
         public string FullName { get => $"{LastName}, {FirstName}{GetMotherMaidenName()}"; }
 
+        public bool TenToFourteen { get => int.Parse(Age.Split(" ")[0]) >= 10 && int.Parse(Age.Split(" ")[0]) <= 14;  }
+        public bool FifteenToNineteen { get => int.Parse(Age.Split(" ")[0]) >= 15 && int.Parse(Age.Split(" ")[0]) <= 19; }
+        public bool TwentyToFourtyNine { get => int.Parse(Age.Split(" ")[0]) >= 20 && int.Parse(Age.Split(" ")[0]) <= 49; }
+
         private string GetMiddleInitial()
         {
             if (string.IsNullOrEmpty(MotherMaidenName) || MotherMaidenName.Length < 2)
