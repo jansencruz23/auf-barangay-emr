@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using AUF.EMR.MVC.Models.DetailVM;
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -34,6 +35,33 @@ namespace AUF.EMR.MVC.Controllers
             _householdMemberService = householdMemberService;
             _householdService = householdService;
             _webHostEnvironment = webHostEnvironment;
+        }
+
+        // GET: OralHealthClient/Details
+        public async Task<ActionResult> Details(int? id, string requestUrl, string householdNo)
+        {
+            if (id == null || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var member = await _householdMemberService.GetHouseholdMemberWithDetails(id.Value);
+
+            if (member == null)
+            {
+                return NotFound();
+            }
+
+            int.TryParse(member.Age.Split(" ")[0], out int age);
+
+            var model = new DetailHouseholdMemberVM
+            {
+                HouseholdMember = member,
+                RequestUrl = requestUrl,
+                HouseholdNo = householdNo,
+            };
+
+            return View(model);
         }
 
         // GET: MasterlistController/EditOralHealthInfo
