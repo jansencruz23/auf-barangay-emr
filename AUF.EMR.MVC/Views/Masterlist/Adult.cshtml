@@ -10,8 +10,17 @@
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold mb-8">Masterlist of Adults</h1>
 
+    <!--Print Button-->
+@*     <div class="flex justify-between items-center mb-8"> *@
+        <div class="flex-1 mr-4 relative">
+        <button type="button" onclick="print('Print', 'OralHealthClient', @Model.HouseholdNo)"
+                class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out">
+            Print Adults
+        </button>
+        </div>
+@*     </div> *@
     <!--Search Button-->
-    <div class="flex justify-between items-center mb-8">
+@*     <div class="flex justify-between items-center mb-8"> *@
         <div class="flex-1 mr-4 relative">
             <input type="text" class="w-full bg-white shadow-md rounded-lg p-3 pr-10 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-200 border-none"
                    placeholder="Search...">
@@ -22,13 +31,7 @@
                 </svg>
             </div>
         </div>
-
-        <!--Print Button-->
-        <button type="button" onclick="print('Print', 'OralHealthClient', @Model.HouseholdNo)"
-                class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out">
-            Print Adults
-        </button>
-    </div>
+@*     </div> *@
 
     <div class="bg-white shadow-md rounded-lg p-8">
         @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
