@@ -48,7 +48,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.16, )"
             }
           },
           "imports": [
@@ -182,7 +182,7 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.16, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
