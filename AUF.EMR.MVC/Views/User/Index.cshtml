@@ -5,24 +5,7 @@
     Layout = "Layouts/_BarangaySideLayout";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
-</head>
-
-<body class="bg-gray-100">
-
+    <!--Search Bar-->
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-2xl font-bold mb-8">List of Employees</h1>
         <div class="flex justify-between items-center mb-8">
@@ -36,6 +19,8 @@
                     </svg>
                 </div>
             </div>
+
+            <!--Add Employee Button-->
             <a asp-action="Create" class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out"
                aria-label="Add Employee">
                 <svg class="h-5 w-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -86,5 +71,4 @@
             </table>
         </div>
     </div>
-</body>
-</html>
+
