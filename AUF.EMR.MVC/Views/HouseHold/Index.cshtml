@@ -37,7 +37,8 @@
             <div>
                 @foreach (var item in Model.Households)
                 {
-                    @await Html.PartialAsync("Components/_HouseholdCard", item);
+                    @await Html.PartialAsync("Components/_HouseholdCard", item)
+                    ;
                 }
             </div>
         </div>
