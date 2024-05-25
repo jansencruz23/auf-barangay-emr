@@ -7,6 +7,7 @@ using AUF.EMR.MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,6 +34,15 @@ namespace AUF.EMR.Application.Services
             return keyList.AppendJoin(",", classifications
                 .Where(c => c.Selected)
                 .Select(c => c.Key)).ToString();
+        }
+
+        public async Task<List<HouseholdMember>> GetHouseholdMemberForm(int id)
+        {
+            var form = new List<HouseholdMember>
+            {
+                await _repository.GetHouseholdMemberWithDetails(id)
+            };
+            return form;
         }
 
         public async Task<List<HouseholdMember>> GetHouseholdMembersWithDetails(string houseHoldNo)

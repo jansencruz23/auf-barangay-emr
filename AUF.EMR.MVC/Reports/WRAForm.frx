@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/25/2024 13:37:53" ReportInfo.Modified="05/25/2024 20:42:09" ReportInfo.CreatorVersion="2024.2.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/25/2024 13:37:53" ReportInfo.Modified="05/25/2024 21:04:58" ReportInfo.CreatorVersion="2024.2.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="WRA" ReferenceName="WRA" DataType="System.Int32" Enabled="true">
       <Column Name="HouseholdMemberId" DataType="System.Int32" PropName="Column"/>
@@ -137,7 +137,7 @@
       <LineObject Name="Line44" Left="992.25" Top="198.45" Height="113.4"/>
       <LineObject Name="Line71" Left="1260.35" Top="198.47"/>
     </PageHeaderBand>
-    <DataBand Name="Data1" Top="313.63" Width="1268.57" Height="28.35" DataSource="WRA">
+    <DataBand Name="Data1" Top="315.05" Width="1268.57" Height="28.35" DataSource="WRA">
       <TextObject Name="Text68" Left="37.8" Width="28.35" Height="18.9" Text="[Row#]" Font="Arial, 6.5pt"/>
       <TextObject Name="Text69" Left="66.15" Width="122.85" Height="18.9" Text="[WRA.HouseholdMembers.FullName]" Font="Arial, 6.5pt"/>
       <TextObject Name="Text70" Left="189" Width="122.85" Height="18.9" Text="[Address]" Font="Arial, 6.5pt"/>
@@ -188,7 +188,7 @@
       <LineObject Name="Line61" Left="189" Top="28.35" Height="-28.35"/>
       <LineObject Name="Line72" Left="37.8" Top="28.35" Width="1190.7"/>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="343.76" Width="1268.57" Height="66.15">
+    <PageFooterBand Name="PageFooter1" Top="346.6" Width="1268.57" Height="66.15">
       <TextObject Name="Text76" Left="66.15" Top="18.9" Width="623.7" Height="18.9" Text="Recommended only for those who do not have their master list to identify WRA with unmet need for Modern Family Planning." Font="Arial, 8pt"/>
     </PageFooterBand>
   </ReportPage>

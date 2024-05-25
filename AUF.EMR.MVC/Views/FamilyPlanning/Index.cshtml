@@ -5,7 +5,6 @@
 }
 
 <h1>Index</h1>
-
 <p>
     <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo">Create New</a>
 </p>
@@ -181,7 +180,8 @@
                 @Html.DisplayFor(modelItem => item.ModifiedById)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">Edit</a> |
+                <button type="button" onclick="print('Print', 'FamilyPlanning', @Model.HouseholdNo, @item.Id, @item.ClientHouseholdMemberId)">Print</button>
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
@@ -189,3 +189,9 @@
 }
     </tbody>
 </table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("Prints/_PrintDialogWithId");
+    }
+}

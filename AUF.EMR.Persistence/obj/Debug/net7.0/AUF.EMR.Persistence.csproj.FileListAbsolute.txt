@@ -15,23 +15,6 @@ C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Pe
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Persistence\obj\Debug\net7.0\refint\AUF.EMR.Persistence.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.pdb
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Persistence\obj\Debug\net7.0\ref\AUF.EMR.Persistence.dll
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Persistence.deps.json
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Persistence.dll
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Persistence.pdb
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Application.dll
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Domain.dll
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Application.pdb
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Domain.pdb
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.csproj.AssemblyReference.cache
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.GeneratedMSBuildEditorConfig.editorconfig
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.AssemblyInfoInputs.cache
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.AssemblyInfo.cs
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.csproj.CoreCompileInputs.cache
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.csproj.CopyComplete
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.dll
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\refint\AUF.EMR.Persistence.dll
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.pdb
-D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\ref\AUF.EMR.Persistence.dll
 D:\auf-barangay-emr\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Persistence.deps.json
 D:\auf-barangay-emr\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Persistence.dll
 D:\auf-barangay-emr\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Persistence.pdb
@@ -66,3 +49,20 @@ D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Pers
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Persistence\obj\Debug\net7.0\refint\AUF.EMR.Persistence.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.pdb
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Persistence\obj\Debug\net7.0\ref\AUF.EMR.Persistence.dll
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Persistence.deps.json
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Persistence.dll
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Persistence.pdb
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Application.dll
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Domain.dll
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Application.pdb
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\bin\Debug\net7.0\AUF.EMR.Domain.pdb
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.csproj.AssemblyReference.cache
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.AssemblyInfoInputs.cache
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.AssemblyInfo.cs
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.csproj.CoreCompileInputs.cache
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.csproj.CopyComplete
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.dll
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\refint\AUF.EMR.Persistence.dll
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\AUF.EMR.Persistence.pdb
+D:\Ivan\EMR\Main\AUF.EMR.Persistence\obj\Debug\net7.0\ref\AUF.EMR.Persistence.dll

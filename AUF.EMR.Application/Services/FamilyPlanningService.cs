@@ -35,5 +35,19 @@ namespace AUF.EMR.Application.Services
         {
             return await _repository.AddFamilyPlanning(fpRecord);
         }
+
+        public async Task UpdateFamilyPlanning(FamilyPlanningRecord fpRecord)
+        {
+            await _repository.UpdateFamilyPlanning(fpRecord);
+        }
+
+        public async Task<List<FamilyPlanningRecord>> GetFamilyPlanningForm(int id)
+        {
+            var form = new List<FamilyPlanningRecord>
+            {
+                await _repository.GetFPRecordWithDetails(id)
+            };
+            return form;
+        }
     }
 }
