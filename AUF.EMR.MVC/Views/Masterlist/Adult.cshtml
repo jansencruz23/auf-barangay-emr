@@ -18,8 +18,9 @@
         </button>
     </div>
 
-    <!--Search Button-->
-        <div class="flex-1 relative mb-8">
+    <!--Search Bar-->
+    <div class="flex justify-between items-center mb-8">
+        <div class="flex-1 mr-4 relative">
             <input type="text" class="w-full bg-white shadow-md rounded-lg p-3 pr-10 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-200 border-none"
                    placeholder="Search...">
             <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -29,6 +30,12 @@
                 </svg>
             </div>
         </div>
+        <!--Search Button-->
+        <button type="button" onclick="print('Print', 'OralHealthClient', @Model.HouseholdNo)"
+                class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out">
+            Search
+        </button>
+    </div>
 
     <div class="bg-white shadow-md rounded-lg p-8">
         @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
@@ -49,7 +56,7 @@
                     </tr>
                 </thead>
                 <!--Table Contents-->
-                <tbody>
+                <tbody class="hover-table-content">
                     @foreach (var item in Model.HouseholdMembers)
                     {
                         <tr class="text-sm">

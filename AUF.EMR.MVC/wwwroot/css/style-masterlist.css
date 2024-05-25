@@ -71,3 +71,12 @@
     vertical-align: baseline;
 }
 
+/*.hover-table-content:hover {
+    background-color: #f4f7fa;
+    cursor: pointer;
+    
+    @media(){
+        transition duration-300 ease-in-out
+    }
+}
+*/
