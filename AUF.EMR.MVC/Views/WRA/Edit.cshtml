@@ -10,12 +10,12 @@
     <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Add WRA</h1>
+            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Edit WRA</h1>
             <hr class="mb-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                     <div class="mb-4">
-                        <label asp-for="WRA.HouseholdMemberId" class="block mb-2 text-sm font-medium text-gray-700">Household Member ID</label>
+                        <label asp-for="WRA.HouseholdMemberId" class="block mb-2 text-sm font-medium text-gray-700">WRA Household Member</label>
                         <select asp-for="WRA.HouseholdMemberId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" asp-items="@(new SelectList(Model.WomenInHousehold, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
                     </div>
                     <div class="mb-4">
@@ -23,70 +23,183 @@
                     </div>
                     <div class="mb-4">
                         <label asp-for="WRA.CivilStatus" class="block mb-2 text-sm font-medium text-gray-700">Civil Status</label>
-                        <input asp-for="WRA.CivilStatus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <select asp-for="WRA.CivilStatus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                            <option value="" selected>Select civil status</option>
+                            <option value="1">Currently married</option>
+                            <option value="2">Not married but in a relationship as Married Living in</option>
+                            <option value="3">Not married and not in a relationship with a man</option>
+                        </select>
                         <span asp-validation-for="WRA.CivilStatus" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                    <div class="flex items-center me-4">
-                        <label class="block mb-2 text-sm font-medium text-gray-700">
-                            <input class="form-checkbox h-5 w-5 text-blue-600" asp-for="WRA.IsPlanningChildren" /> @Html.DisplayNameFor(model => model.WRA.IsPlanningChildren)
-                        </label>
-                    </div>
                     <div class="mb-4">
-                        <label asp-for="WRA.IsPlanChildrenNow" class="block mb-2 text-sm font-medium text-gray-700">Now</label>
-                        <input asp-for="WRA.IsPlanChildrenNow" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="WRA.IsPlanChildrenNow" class="block mb-2 text-sm text-red-700"></span>
+                        <label asp-for="WRA.IsPlanningChildren" class="block mb-2 text-sm font-medium text-gray-700">Do you plan to have more children?</label>
+                        <ul class="items-center w-full md:w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsPlanningChildren" id="planning" type="radio" value="true" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="planning" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+                                </div>
+                            </li>
+                            <li class="w-full dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsPlanningChildren" id="notPlanning" type="radio" value="false" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="notPlanning" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+                                </div>
+                            </li>
+                        </ul>
+                        <span asp-validation-for="WRA.IsPlanningChildren" class="block mb-2 text-sm text-red-700"></span>
                     </div>
+
                     <div class="mb-4">
-                        <label asp-for="WRA.IsPlanChildrenSpacing" class="block mb-2 text-sm font-medium text-gray-700">Spacing</label>
-                        <input asp-for="WRA.IsPlanChildrenSpacing" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="WRA.IsPlanChildrenSpacing" class="block mb-2 text-sm text-red-700"></span>
+                        <label asp-for="WRA.IsPlanningChildren" class="block mb-2 text-sm font-medium text-gray-700">If yes, when?</label>
+                        <ul id="planningChildren" class="items-center w-full md:w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsPlanChildrenNow" id="planningNow" type="radio" value="true" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" disabled>
+                                    <label for="planningNow" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Now</label>
+                                </div>
+                            </li>
+                            <li class="w-full dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsPlanChildrenSpacing" id="planningSpacing" type="radio" value="true" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" disabled>
+                                    <label for="planningSpacing" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Spacing</label>
+                                </div>
+                            </li>
+                        </ul>
+                        <span asp-validation-for="WRA.IsPlanningChildren" class="block mb-2 text-sm text-red-700"></span>
                     </div>
+
                     <div class="mb-4">
-                        <label asp-for="WRA.IsPlanChildrenLimiting" class="block mb-2 text-sm font-medium text-gray-700">Limiting</label>
-                        <input asp-for="WRA.IsPlanChildrenLimiting" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="WRA.IsPlanChildrenLimiting" class="block mb-2 text-sm text-red-700"></span>
-                    </div>
-                    <div class="flex items-center me-4">
-                        <label class="block mb-2 text-sm font-medium text-gray-700">
-                            <input class="form-checkbox h-5 w-5 text-blue-600" asp-for="WRA.IsFecund" /> @Html.DisplayNameFor(model => model.WRA.IsFecund)
-                        </label>
+                        <label asp-for="WRA.IsFecund" class="block mb-2 text-sm font-medium text-gray-700">Fucundity</label>
+                        <ul class="items-center w-full md:w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsFecund" id="fecund" type="radio" value="true" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="fecund" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fecund</label>
+                                </div>
+                            </li>
+                            <li class="w-full dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsFecund" id="infecund" type="radio" value="false" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="infecund" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Infecund</label>
+                                </div>
+                            </li>
+                        </ul>
+                        <span asp-validation-for="WRA.IsFecund" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                 </div>
                 <div>
-                    <div class="flex items-center me-4">
-                        <label class="block mb-2 text-sm font-medium text-gray-700">
-                            <input class="form-checkbox h-5 w-5 text-blue-600" asp-for="WRA.IsFPMethod" /> @Html.DisplayNameFor(model => model.WRA.IsFPMethod)
-                        </label>
-                    </div>
                     <div class="mb-4">
-                        <label asp-for="WRA.IsFPModern" class="block mb-2 text-sm font-medium text-gray-700">Modern</label>
-                        <input asp-for="WRA.IsFPModern" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <label asp-for="WRA.IsFPMethod" class="block mb-2 text-sm font-medium text-gray-700">Are you using family planning if you plan to have more children?</label>
+                        <ul class="items-center w-full md:w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsFPMethod" id="fpMethod" type="radio" value="true" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="fpMethod" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+                                </div>
+                            </li>
+                            <li class="w-full dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsFPMethod" id="notFpMethod" type="radio" value="false" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="notFpMethod" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+                                </div>
+                            </li>
+                        </ul>
+                        <span asp-validation-for="WRA.IsFPMethod" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="WRA.IsFPModern" class="block mb-2 text-sm font-medium text-gray-700">Family Planning Type</label>
+                        <ul class="items-center w-full md:w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsFPModern" id="fpModern" type="radio" value="true" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="fpModern" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Modern</label>
+                                </div>
+                            </li>
+                            <li class="w-full dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsFPModern" id="fpTraditional" type="radio" value="false" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="fpTraditional" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Traditional</label>
+                                </div>
+                            </li>
+                        </ul>
                         <span asp-validation-for="WRA.IsFPModern" class="block mb-2 text-sm text-red-700"></span>
                     </div>
+
                     <div class="mb-4">
-                        <label asp-for="WRA.ShiftToModern" class="block mb-2 text-sm font-medium text-gray-700">Shift to Modern</label>
-                        <input asp-for="WRA.ShiftToModern" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <label asp-for="WRA.ShiftToModern" class="block mb-2 text-sm font-medium text-gray-700">Shift to Modern FP Method</label>
+                        <ul class="items-center w-full md:w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.ShiftToModern" id="shiftModern" type="radio" value="true" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="shiftModern" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+                                </div>
+                            </li>
+                            <li class="w-full dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.ShiftToModern" id="notShiftModern" type="radio" value="false" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="notShiftModern" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+                                </div>
+                            </li>
+                        </ul>
                         <span asp-validation-for="WRA.ShiftToModern" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                    <div class="flex items-center me-4">
-                        <label class="block mb-2 text-sm font-medium text-gray-700">
-                            <input class="form-checkbox h-5 w-5 text-blue-600" asp-for="WRA.IsMFPUnmet" /> @Html.DisplayNameFor(model => model.WRA.IsMFPUnmet)
-                        </label>
+
+                    <div class="mb-4">
+                        <label asp-for="WRA.IsMFPUnmet" class="block mb-2 text-sm font-medium text-gray-700">Has MFP Unmet need?</label>
+                        <ul class="items-center w-full md:w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsMFPUnmet" id="fpUnmet" type="radio" value="true" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="fpUnmet" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+                                </div>
+                            </li>
+                            <li class="w-full dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsMFPUnmet" id="NotFpUnmet" type="radio" value="false" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="NotFpUnmet" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+                                </div>
+                            </li>
+                        </ul>
+                        <span asp-validation-for="WRA.IsMFPUnmet" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                    <div class="flex items-center me-4">
-                        <label class="block mb-2 text-sm font-medium text-gray-700">
-                            <input class="form-checkbox h-5 w-5 text-blue-600" asp-for="WRA.AcceptModernFpMethod" /> @Html.DisplayNameFor(model => model.WRA.AcceptModernFpMethod)
-                        </label>
+
+                    <div class="mb-4">
+                        <label asp-for="WRA.AcceptModernFpMethod" class="block mb-2 text-sm font-medium text-gray-700">Accept Modern FP Method?</label>
+                        <ul class="items-center w-full md:w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.AcceptModernFpMethod" id="acceptModernFp" type="radio" value="true" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="acceptModernFp" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+                                </div>
+                            </li>
+                            <li class="w-full dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.AcceptModernFpMethod" id="notAcceptModernFp" type="radio" value="false" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="notAcceptModernFp" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+                                </div>
+                            </li>
+                        </ul>
+                        <span asp-validation-for="WRA.AcceptModernFpMethod" class="block mb-2 text-sm text-red-700"></span>
                     </div>
+
                     <div class="mb-4">
                         <label asp-for="WRA.ModernFPMethod" class="block mb-2 text-sm font-medium text-gray-700">Modern FP Method</label>
-                        <input asp-for="WRA.ModernFPMethod" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <input asp-for="WRA.ModernFPMethod" id="modernFpMethod" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="WRA.ModernFPMethod" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
                         <label asp-for="WRA.FPAcceptedDate" class="block mb-2 text-sm font-medium text-gray-700">FP Accepted Date</label>
-                        <input asp-for="WRA.FPAcceptedDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="WRA.FPAcceptedDate" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker id="acceptedDate" asp-for="WRA.FPAcceptedDate" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="WRA.FPAcceptedDate" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,6 +213,68 @@
     </div>
 </div>
 
+
+<script>
+    document.getElementById('acceptModernFp').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('modernFpMethod').disabled = false;
+            document.getElementById('acceptedDate').disabled = false;
+        }
+    });
+
+    document.getElementById('notAcceptModernFp').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('modernFpMethod').disabled = true;
+            document.getElementById('acceptedDate').disabled = true;
+            document.getElementById('modernFpMethod').value = '';
+            document.getElementById('acceptedDate').value = '';
+        }
+    });
+
+    document.getElementById('fpMethod').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('fpModern').disabled = false;
+            document.getElementById('fpTraditional').disabled = false;
+        }
+    });
+
+    document.getElementById('notFpMethod').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('fpModern').disabled = true;
+            document.getElementById('fpTraditional').disabled = true;
+            document.getElementById('fpModern').checked = false;
+            document.getElementById('fpTraditional').checked = false;
+        }
+    });
+
+    document.getElementById('planning').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('planningNow').disabled = false;
+            document.getElementById('planningSpacing').disabled = false;
+        }
+    });
+
+    document.getElementById('notPlanning').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('planningNow').disabled = true;
+            document.getElementById('planningSpacing').disabled = true;
+            document.getElementById('planningNow').checked = false;
+            document.getElementById('planningSpacing').checked = false;
+        }
+    });
+
+    document.getElementById('planningNow').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('planningSpacing').checked = false;
+        }
+    });
+
+    document.getElementById('planningSpacing').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('planningNow').checked = false;
+        }
+    });
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

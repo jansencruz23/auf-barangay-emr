@@ -1,7 +1,6 @@
 ﻿@model CreateWRAVM
 
 @{
-    Layout = "Layouts/_HouseholdLayout";
     Layout = "Layouts/_FormLayout";
     ViewData["Title"] = "Create";
 }
@@ -128,29 +127,78 @@
                     </div>
 
                     <div class="mb-4">
-                        <label asp-for="WRA.ShiftToModern" class="block mb-2 text-sm font-medium text-gray-700">Shift to Modern</label>
-                        <input asp-for="WRA.ShiftToModern" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <label asp-for="WRA.ShiftToModern" class="block mb-2 text-sm font-medium text-gray-700">Shift to Modern FP Method</label>
+                        <ul class="items-center w-full md:w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.ShiftToModern" id="shiftModern" type="radio" value="true" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="shiftModern" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+                                </div>
+                            </li>
+                            <li class="w-full dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.ShiftToModern" id="notShiftModern" type="radio" value="false" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="notShiftModern" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+                                </div>
+                            </li>
+                        </ul>
                         <span asp-validation-for="WRA.ShiftToModern" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                    <div class="flex items-center me-4">
-                        <label class="block mb-2 text-sm font-medium text-gray-700">
-                            <input class="form-checkbox h-5 w-5 text-blue-600" asp-for="WRA.IsMFPUnmet" /> @Html.DisplayNameFor(model => model.WRA.IsMFPUnmet)
-                        </label>
+
+                    <div class="mb-4">
+                        <label asp-for="WRA.IsMFPUnmet" class="block mb-2 text-sm font-medium text-gray-700">Has MFP Unmet need?</label>
+                        <ul class="items-center w-full md:w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsMFPUnmet" id="fpUnmet" type="radio" value="true" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="fpUnmet" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+                                </div>
+                            </li>
+                            <li class="w-full dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.IsMFPUnmet" id="NotFpUnmet" type="radio" value="false" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="NotFpUnmet" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+                                </div>
+                            </li>
+                        </ul>
+                        <span asp-validation-for="WRA.IsMFPUnmet" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                    <div class="flex items-center me-4">
-                        <label class="block mb-2 text-sm font-medium text-gray-700">
-                            <input class="form-checkbox h-5 w-5 text-blue-600" asp-for="WRA.AcceptModernFpMethod" /> @Html.DisplayNameFor(model => model.WRA.AcceptModernFpMethod)
-                        </label>
+
+                    <div class="mb-4">
+                        <label asp-for="WRA.AcceptModernFpMethod" class="block mb-2 text-sm font-medium text-gray-700">Accept Modern FP Method?</label>
+                        <ul class="items-center w-full md:w-4/5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.AcceptModernFpMethod" id="acceptModernFp" type="radio" value="true" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="acceptModernFp" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+                                </div>
+                            </li>
+                            <li class="w-full dark:border-gray-600">
+                                <div class="flex items-center ps-3">
+                                    <input asp-for="WRA.AcceptModernFpMethod" id="notAcceptModernFp" type="radio" value="false" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <label for="notAcceptModernFp" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+                                </div>
+                            </li>
+                        </ul>
+                        <span asp-validation-for="WRA.AcceptModernFpMethod" class="block mb-2 text-sm text-red-700"></span>
                     </div>
+
                     <div class="mb-4">
                         <label asp-for="WRA.ModernFPMethod" class="block mb-2 text-sm font-medium text-gray-700">Modern FP Method</label>
-                        <input asp-for="WRA.ModernFPMethod" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <input asp-for="WRA.ModernFPMethod" disabled id="modernFpMethod" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="WRA.ModernFPMethod" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
                         <label asp-for="WRA.FPAcceptedDate" class="block mb-2 text-sm font-medium text-gray-700">FP Accepted Date</label>
-                        <input asp-for="WRA.FPAcceptedDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="WRA.FPAcceptedDate" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker id="acceptedDate" disabled asp-for="WRA.FPAcceptedDate" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="WRA.FPAcceptedDate" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -163,6 +211,22 @@
 </div>
 
 <script>
+    document.getElementById('acceptModernFp').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('modernFpMethod').disabled = false;
+            document.getElementById('acceptedDate').disabled = false;
+        }
+    });
+
+    document.getElementById('notAcceptModernFp').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('modernFpMethod').disabled = true;
+            document.getElementById('acceptedDate').disabled = true;
+            document.getElementById('modernFpMethod').value = '';
+            document.getElementById('acceptedDate').value = '';
+        }
+    });
+
     document.getElementById('fpMethod').addEventListener('change', function () {
         if (this.checked) {
             document.getElementById('fpModern').disabled = false;
