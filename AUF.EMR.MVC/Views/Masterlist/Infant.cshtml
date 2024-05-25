@@ -7,7 +7,15 @@
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold mb-8">Masterlist of Infants</h1>
 
-    <!--Search Button-->
+    <!--Print Button-->
+    <div class="flex justify-end mb-6">
+        <button type="button" onclick="print('Print', 'OralHealthClient', @Model.HouseholdNo)"
+                class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out">
+            Print Infants
+        </button>
+    </div>
+
+    <!--Search Bar-->
     <div class="flex justify-between items-center mb-8">
         <div class="flex-1 mr-4 relative">
             <input type="text" class="w-full bg-white shadow-md rounded-lg p-3 pr-10 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-200 border-none"
@@ -19,13 +27,13 @@
                 </svg>
             </div>
         </div>
-
-        <!--Print Button-->
+        <!--Search Button-->
         <button type="button" onclick="print('Print', 'OralHealthClient', @Model.HouseholdNo)"
                 class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out">
-            Print Infants
+            Search
         </button>
     </div>
+
 
     <div class="bg-white shadow-md rounded-lg p-8">
         @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
@@ -52,7 +60,7 @@
                 <tbody>
                     @foreach (var item in Model.HouseholdMembers)
                     {
-                        <tr class="text-sm">
+                        <tr class="text-sm hover-table-content transition duration-300 ease-in-out">
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Household.HouseholdNo)</td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.FormattedFullName)</td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.NameOfMother)</td>
@@ -68,7 +76,7 @@
                                 <a asp-action="EditChildrenInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-yellow-300 hover:text-yellow-400 mr-2">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a asp-action="Details" asp-controller="HouseholdMember" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl" class="text-green-400 hover:text-green-500 mr-2">
+                                <a asp-action="ChildDetails" asp-controller="Masterlist" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl" class="text-green-400 hover:text-green-500 mr-2">
                                     <i class="fas fa-eye"></i>
                                 </a>
                                 <a asp-action="Delete" asp-route-id="@item.Id" class="text-red-300 hover:text-red-400">

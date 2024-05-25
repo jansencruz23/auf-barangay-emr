@@ -8,7 +8,7 @@
 
 @if (Model.ErrorMessage != null)
 {
-    @await Html.PartialAsync("Popups/AlertError", Model.ErrorMessage);
+    @await Html.PartialAsync("Popups/_LoginError", Model.ErrorMessage);
 }
 
 <section class="flex items-center justify-center h-screen">

@@ -11,7 +11,7 @@ namespace AUF.EMR.Domain.Models
     public class WomanOfReproductiveAge : BaseDomainEntity
     {
         public int HouseholdMemberId { get; set; }
-        public HouseholdMember HouseholdMember { get; set; }
+        public HouseholdMember? HouseholdMember { get; set; }
         public int CivilStatus { get; set; }
         public bool IsPlanningChildren { get; set; }
         public bool? IsPlanChildrenNow { get; set; }

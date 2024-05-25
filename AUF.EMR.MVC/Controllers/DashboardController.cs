@@ -47,6 +47,11 @@ namespace AUF.EMR.MVC.Controllers
         // GET: DashboardController/Household/5
         public async Task<ActionResult> Household(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
             var householdExisting = await _householdService.IsHouseholdNoExisting(householdNo);
             if (!householdExisting)
             {

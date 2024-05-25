@@ -36,16 +36,26 @@ namespace AUF.EMR.Domain.Models
         public bool? IsInSchool { get; set; }
         public bool? NotInSchool { get => !IsInSchool; }
 
-        public string FormattedFullName { get => $"{FirstName} {GetMiddleInitial()}. {LastName}"; }
+        public string FormattedFullName { get => $"{FirstName} {GetMiddleInitial()} {LastName}"; }
         public string FormattedFullName2 { get => $"{LastName}, {FirstName}, {GetMiddleInitial()}"; }
-        public string FullName { get => $"{LastName}, {FirstName}, {MotherMaidenName}"; }
+        public string FullName { get => $"{LastName}, {FirstName}{GetMotherMaidenName()}"; }
 
         private string GetMiddleInitial()
         {
             if (string.IsNullOrEmpty(MotherMaidenName) || MotherMaidenName.Length < 2)
                 return string.Empty;
 
-            return MotherMaidenName.Split(' ').Last()[0].ToString();
+            return MotherMaidenName.Split(' ').Last()[0].ToString() + ".";
+        }
+
+        private string GetMotherMaidenName()
+        {
+            if (string.IsNullOrWhiteSpace(MotherMaidenName))
+            {
+                return "";
+            }
+
+            return $", {MotherMaidenName}";
         }
 
         public string GetRelationshipString

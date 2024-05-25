@@ -264,6 +264,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxBZHVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/AdultDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxBZHVsdERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/ChildDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxDaGlsZERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/EditAdultInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxFZGl0QWR1bHRJbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -290,6 +298,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/UnderFive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxVbmRlckZpdmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/OralHealthClient/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JhbEhlYWx0aENsaWVudFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/OralHealthClient/EditOralHealthInfo.cshtml]
@@ -468,6 +480,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBvcHVwc1xfQWxlcnRFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Popups/_LoginError.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBvcHVwc1xfTG9naW5FcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Prints/_PrintDialog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByaW50c1xfUHJpbnREaWFsb2cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -526,10 +542,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/WRA/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV1JBXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/WRA/Print.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV1JBXFByaW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/_ViewImports.cshtml]

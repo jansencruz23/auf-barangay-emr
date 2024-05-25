@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using static System.Collections.Specialized.BitVector32;
 using System.Security.Claims;
+using AUF.EMR.MVC.Models.DetailVM;
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -43,6 +44,60 @@ namespace AUF.EMR.MVC.Controllers
             _householdMemberService = householdMemberService;
             _householdService = householdService;
             _webHostEnvironment = webHostEnvironment;
+        }
+
+        // GET: MasterlistController/ChildDetails
+        public async Task<ActionResult> ChildDetails(int? id, string requestUrl, string householdNo)
+        {
+            if (id == null || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var member = await _householdMemberService.GetHouseholdMemberWithDetails(id.Value);
+
+            if (member == null)
+            {
+                return NotFound();
+            }
+
+            int.TryParse(member.Age.Split(" ")[0], out int age);
+
+            var model = new DetailHouseholdMemberVM
+            {
+                HouseholdMember = member,
+                RequestUrl = requestUrl,
+                HouseholdNo = householdNo,
+            };
+
+            return View(model);
+        }
+
+        // GET: MasterlistController/ChildDetails
+        public async Task<ActionResult> AdultDetails(int? id, string requestUrl, string householdNo)
+        {
+            if (id == null || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var member = await _householdMemberService.GetHouseholdMemberWithDetails(id.Value);
+
+            if (member == null)
+            {
+                return NotFound();
+            }
+
+            int.TryParse(member.Age.Split(" ")[0], out int age);
+
+            var model = new DetailHouseholdMemberVM
+            {
+                HouseholdMember = member,
+                RequestUrl = requestUrl,
+                HouseholdNo = householdNo,
+            };
+
+            return View(model);
         }
 
         // GET: MasterlistController/EditChildrenInfo
