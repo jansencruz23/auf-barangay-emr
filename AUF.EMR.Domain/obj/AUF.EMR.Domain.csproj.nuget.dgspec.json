@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\auf-barangay-emr\\AUF.EMR.Domain\\AUF.EMR.Domain.csproj": {}
+    "D:\\Ivan\\EMR\\Main\\AUF.EMR.Domain\\AUF.EMR.Domain.csproj": {}
   },
   "projects": {
-    "D:\\auf-barangay-emr\\AUF.EMR.Domain\\AUF.EMR.Domain.csproj": {
+    "D:\\Ivan\\EMR\\Main\\AUF.EMR.Domain\\AUF.EMR.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\auf-barangay-emr\\AUF.EMR.Domain\\AUF.EMR.Domain.csproj",
+        "projectUniqueName": "D:\\Ivan\\EMR\\Main\\AUF.EMR.Domain\\AUF.EMR.Domain.csproj",
         "projectName": "AUF.EMR.Domain",
-        "projectPath": "D:\\auf-barangay-emr\\AUF.EMR.Domain\\AUF.EMR.Domain.csproj",
-        "packagesPath": "C:\\Users\\alfon\\.nuget\\packages\\",
-        "outputPath": "D:\\auf-barangay-emr\\AUF.EMR.Domain\\obj\\",
+        "projectPath": "D:\\Ivan\\EMR\\Main\\AUF.EMR.Domain\\AUF.EMR.Domain.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "D:\\Ivan\\EMR\\Main\\AUF.EMR.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\alfon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

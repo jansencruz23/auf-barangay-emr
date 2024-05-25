@@ -5,8 +5,22 @@
     ViewData["Title"] = "Masterlist of Oral Health Care Clients - Infant";
 }
 
+<style>
+    .custom-hover-bg-color:hover {
+        background-color: #f1eff4
+    }
+</style>
+
+
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold mb-8">Masterlist of Oral Health Care Clients - Infant</h1>
+
+    <div class="flex justify-end mb-6">
+        <button type="button" onclick="print('Print', 'OralHealthClient', @Model.HouseholdNo)"
+                class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out">
+            Print Adolescents
+        </button>
+    </div>
 
     <div class="flex justify-between items-center mb-8">
         <div class="flex-1 mr-4 relative">
@@ -22,51 +36,55 @@
 
         <button type="button" onclick="print('Print', 'OralHealthClient', @Model.HouseholdNo)"
                 class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out">
-            Print Oral Health
+            Search
         </button>
     </div>
 
     <div class="bg-white shadow-md rounded-lg p-8">
         @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 
-        <table class="table-auto w-full">
-            <thead>
-                <tr class="bg-gray-200 text-sm">
-                    <th class="px-4 py-2 text-left">Family Serial No.</th>
-                    <th class="px-4 py-2 text-left">Name</th>
-                    <th class="px-4 py-2 text-left">Address</th>
-                    <th class="px-4 py-2 text-left">Sex</th>
-                    <th class="px-4 py-2 text-left">Age</th>
-                    <th class="px-4 py-2 text-left">Date of Birth</th>
-                    <th class="px-4 py-2 text-left">SE Status</th>
-                    <th class="px-4 py-2 text-left">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.HouseholdMembers)
-                {
-                    <tr class="text-sm">
-                        <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Household.HouseholdNo)</td>
-                        <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.FormattedFullName)</td>
-                        <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Household.FullAddress)</td>
-                        <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Sex)</td>
-                        <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Age)</td>
-                        <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Birthday)</td>
-                        <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.IsNhts)</td>
-                        <td class="border-b border-gray-100 px-4 py-2 text-left">
-                            <a asp-action="EditOralHealthInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-yellow-300 hover:text-yellow-400 mr-2">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a asp-action="Details" asp-controller="HouseholdMember" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl" class="text-green-400 hover:text-green-500 mr-2">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="text-red-300 hover:text-red-400">
-                                <i class="fas fa-trash-alt"></i>
-                            </a>
-                        </td>
+        <div class="overflow-x-auto">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="bg-gray-200 text-sm">
+                        <th class="px-4 py-2 text-left">Family Serial No.</th>
+                        <th class="px-4 py-2 text-left">Name</th>
+                        <th class="px-4 py-2 text-left">Address</th>
+                        <th class="px-4 py-2 text-left">Sex</th>
+                        <th class="px-4 py-2 text-left">Age</th>
+                        <th class="px-4 py-2 text-left">Date of Birth</th>
+                        <th class="px-4 py-2 text-left">SE Status</th>
+                        <th class="px-4 py-2 text-left">Actions</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.HouseholdMembers)
+                    {
+                        <tr class="text-sm custom-hover-bg-color">
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Household.HouseholdNo)</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.FormattedFullName)</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Household.FullAddress)</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Sex)</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Age)</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Birthday)</td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                <input type="checkbox" disabled @(item.IsNhts ? "checked" : "") />
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                <a asp-action="EditOralHealthInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-yellow-300 hover:text-yellow-400 mr-2">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a asp-action="Details" asp-controller="HouseholdMember" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl" class="text-green-400 hover:text-green-500 mr-2">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="text-red-300 hover:text-red-400">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
