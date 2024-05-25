@@ -70,3 +70,7 @@
 .align-baseline {
     vertical-align: baseline;
 }
+
+.bg-slate-100 {
+    background-color: #f1f5f9;
+}
