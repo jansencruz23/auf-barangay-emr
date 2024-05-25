@@ -264,6 +264,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxBZHVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Ivan/EMR/Main/AUF.EMR.MVC/Views/Masterlist/AdultDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxBZHVsdERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ivan/EMR/Main/AUF.EMR.MVC/Views/Masterlist/ChildDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxDaGlsZERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Ivan/EMR/Main/AUF.EMR.MVC/Views/Masterlist/EditAdultInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxFZGl0QWR1bHRJbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -290,6 +298,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Ivan/EMR/Main/AUF.EMR.MVC/Views/Masterlist/UnderFive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxVbmRlckZpdmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ivan/EMR/Main/AUF.EMR.MVC/Views/OralHealthClient/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JhbEhlYWx0aENsaWVudFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Ivan/EMR/Main/AUF.EMR.MVC/Views/OralHealthClient/EditOralHealthInfo.cshtml]

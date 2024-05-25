@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/25/2024 13:37:53" ReportInfo.Modified="05/25/2024 13:55:12" ReportInfo.CreatorVersion="2024.2.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/25/2024 13:37:53" ReportInfo.Modified="05/25/2024 15:14:03" ReportInfo.CreatorVersion="2024.2.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="WRA" ReferenceName="WRA" DataType="System.Int32" Enabled="true">
       <Column Name="HouseholdMemberId" DataType="System.Int32" PropName="Column"/>
@@ -12,16 +12,80 @@
     <Relation Name="HouseholdMembers_WRA" ParentDataSource="HouseholdMembers" ChildDataSource="WRA" ParentColumns="Id" ChildColumns="HouseholdMemberId" Enabled="true"/>
     <Parameter Name="Quarter" DataType="System.Int32" AsString=""/>
     <Parameter Name="Year" DataType="System.Int32" AsString=""/>
+    <Parameter Name="Barangay" DataType="System.String" AsString=""/>
+    <Parameter Name="Midwife" DataType="System.String" AsString=""/>
+    <Parameter Name="Date" DataType="System.String" AsString=""/>
+    <Parameter Name="Address" DataType="System.String" AsString=""/>
   </Dictionary>
   <ReportPage Name="Page1" Landscape="true" PaperWidth="355.6" PaperHeight="215.9" RawPaperSize="5" Watermark.Font="Arial, 60pt" LastPageSource="261" FirstPageSource="261">
-    <PageHeaderBand Name="PageHeader1" Width="1268.57" Height="94.5">
+    <PageHeaderBand Name="PageHeader1" Width="1268.57" Height="321.3">
       <TextObject Name="Text10" Top="28.35" Width="1266.3" Height="18.9" Text="Master List of Women of Reproductive Age and Adolescent Women for Family Planning Services" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
       <TextObject Name="Text11" Top="47.25" Width="1200.15" Height="18.9" Text="For the Quarter / Year:" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
-      <TextObject Name="Text12" Left="661.5" Top="47.25" Width="94.5" Height="18.9" Text="[Quarter]" Underlines="true" Font="Arial, 8.25pt"/>
-      <TextObject Name="Text13" Left="708.75" Top="47.25" Width="37.8" Height="18.9" Text="[Year]" Font="Arial, 8.25pt"/>
-      <TextObject Name="Text14" Left="699.3" Top="47.25" Width="28.35" Height="18.9" Text="/" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text12" Left="661.5" Top="44.71" Width="28.35" Height="18.9" Text="[Quarter]" HorzAlign="Right" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text13" Left="698.58" Top="44.73" Width="37.8" Height="18.9" Text="[Year]" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text14" Left="689.49" Top="45.09" Width="28.35" Height="18.9" Text="/" Font="Arial, 8.25pt"/>
+      <LineObject Name="Line1" Left="660.42" Top="58.5" Width="75.6"/>
+      <TextObject Name="Text15" Left="37.8" Top="94.5" Width="37.8" Height="18.9" Text="Brgy: " Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text16" Left="66.15" Top="94.5" Width="122.85" Height="18.9" Text="[Barangay]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text17" Left="500.85" Top="94.5" Width="113.4" Height="18.9" Text="Name of BHS Midwife:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text18" Left="604.8" Top="94.5" Width="160.65" Height="18.9" Text="[Midwife]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text19" Left="1020.6" Top="94.5" Width="75.6" Height="18.9" Text="Date Prepared:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text20" Left="1096.2" Top="94.5" Width="132.3" Height="18.9" Text="[Date]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text21" Left="37.8" Top="132.3" Width="28.35" Height="18.9" Text="No." HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text22" Left="66.15" Top="132.3" Width="122.85" Height="18.9" Text="Full Name of WRA" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text23" Left="189" Top="132.3" Width="122.85" Height="18.9" Text="Address" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text24" Left="311.85" Top="132.3" Width="113.4" Height="18.9" Text="Age in Years" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text25" Left="311.85" Top="198.45" Width="37.8" Height="18.9" Text="10-14" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text26" Left="349.65" Top="198.45" Width="37.8" Height="18.9" Text="15-19" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text27" Left="387.45" Top="198.45" Width="37.8" Height="18.9" Text="20-49" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text28" Left="425.25" Top="132.3" Width="47.25" Height="18.9" Text="Birthday" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text29" Left="38.66" Top="199.48" Width="28.35" Height="18.9" Text="(1)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text30" Left="66.15" Top="198.45" Width="122.85" Height="18.9" Text="(2)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text31" Left="189" Top="198.45" Width="122.85" Height="18.9" Text="(3)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text32" Left="311.85" Top="170.1" Width="113.4" Height="18.9" Text="(4)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text33" Left="425.25" Top="198.45" Width="47.25" Height="18.9" Text="(5)" HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text34" Left="472.5" Top="132.3" Width="56.7" Height="18.9" Text="SE Status" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text35" Left="472.5" Top="198.45" Width="56.7" Height="37.8" Text="1. NHTS&#13;&#10;2. Non-&#13;&#10;NHTS" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text36" Left="529.2" Top="132.3" Width="75.6" Height="18.9" Text="Civil Status" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text37" Left="529.2" Top="170.1" Width="75.6" Height="18.9" Text="(7)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text38" Left="529.2" Top="198.45" Width="75.6" Height="113.4" Text="1. Currently&#13;&#10;Married&#13;&#10;2. Not married&#13;&#10;but in a&#13;&#10;relationship as&#13;&#10;Married Living -&#13;&#10;in&#13;&#10;3. Not married&#13;&#10;and not in a&#13;&#10;relationship with&#13;&#10;a man" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text39" Left="604.8" Top="132.3" Width="113.4" Height="18.9" Text="Do you plan to have&#13;&#10;more children?" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text40" Left="604.8" Top="170.1" Width="113.4" Height="18.9" Text="(8)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text41" Left="604.8" Top="198.45" Width="75.6" Height="37.8" Text="If yes, when?" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text42" Left="680.4" Top="198.45" Width="37.8" Height="37.8" Text="No" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text43" Left="604.8" Top="236.25" Width="28.35" Height="37.8" Text="Now&#13;&#10;(8a)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text44" Left="633.15" Top="236.25" Width="47.25" Height="37.8" Text="Spacing&#13;&#10;(8b)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text45" Left="680.4" Top="236.25" Width="37.8" Height="37.8" Text="Limiting&#13;&#10;(8c)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text46" Left="718.2" Top="132.3" Width="94.5" Height="18.9" Text="Fucundity" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text47" Left="718.2" Top="170.1" Width="94.5" Height="18.9" Text="(9)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text48" Left="718.2" Top="198.45" Width="47.25" Height="37.8" Text="Fecund&#13;&#10;(9a)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text49" Left="765.45" Top="198.45" Width="47.25" Height="37.8" Text="Infecund&#13;&#10;(9b)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text50" Left="822.15" Top="132.3" Width="132.3" Height="28.35" Text="If col. 8b or 8c is ✓, are you&#13;&#10;currently using FP method?" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text51" Left="812.7" Top="170.1" Width="141.75" Height="18.9" Text="(10)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text52" Left="812.7" Top="198.45" Width="47.25" Height="37.8" Text="If Yes,&#13;&#10;what&#13;&#10;type?" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text53" Left="812.7" Top="236.25" Width="47.25" Height="37.8" Text="Modern&#13;&#10;&#13;&#10;(10a)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text54" Left="859.95" Top="236.25" Width="37.8" Height="37.8" Text="Traditi&#13;&#10;onal&#13;&#10;(10a)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text55" Left="907.2" Top="198.45" Width="47.25" Height="94.5" Text="Not&#13;&#10;Using&#13;&#10;any FP&#13;&#10;method&#13;&#10;(Place a&#13;&#10;✓)&#13;&#10;(10c)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text56" Left="954.45" Top="132.3" Width="75.6" Height="66.15" Text="If col. 8b or 8c&#13;&#10;is ✓, and using&#13;&#10;col. 10b or 10c,&#13;&#10;would you like&#13;&#10;to shift to&#13;&#10;Modern" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text57" Left="954.45" Top="198.45" Width="28.35" Height="37.8" Text="Yes&#13;&#10;(11a)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text58" Left="982.8" Top="198.45" Width="47.25" Height="37.8" Text="No&#13;&#10;(11b)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text59" Left="1030.05" Top="132.3" Width="56.7" Height="66.15" Text="Does this&#13;&#10;WRA has&#13;&#10;MFP Unmet&#13;&#10;need?" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text60" Left="1030.05" Top="179.55" Width="56.7" Height="18.9" Text="(12)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text61" Left="1030.05" Top="198.45" Width="56.7" Height="37.8" Text="Place a&#13;&#10;✓ if Yes&#13;&#10;X if No" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text62" Left="1086.75" Top="132.3" Width="141.75" Height="66.15" Text="Based on TCL on FP, did WRA&#13;&#10;accept any modern FP method" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text63" Left="1086.75" Top="170.1" Width="141.75" Height="18.9" Text="(13)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text64" Left="1086.75" Top="198.45" Width="47.25" Height="37.8" Text="No&#13;&#10;(13a)&#13;&#10;Put a ✓" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text65" Left="1134" Top="198.45" Width="94.5" Height="37.8" Text="Yes&#13;&#10;(13b)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text66" Left="1134" Top="236.25" Width="37.8" Height="37.8" Text="Specify&#13;&#10;modern&#13;&#10;FP&#13;&#10;Method" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text67" Left="1171.8" Top="236.25" Width="56.7" Height="37.8" Text="Date when&#13;&#10;FP method&#13;&#10;acccepted" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text1" Left="207.9" Width="94.5" Height="18.9" Text="Row#" Font="Arial, 10pt"/>
+      <TextObject Name="Text2" Left="66.15" Width="94.5" Height="18.9" Text="FullName" Font="Arial, 10pt"/>
     </PageHeaderBand>
-    <DataBand Name="Data1" Top="96.79" Width="1268.57" Height="75.6"/>
-    <PageFooterBand Name="PageFooter1" Top="174.67" Width="1268.57" Height="18.9"/>
+    <DataBand Name="Data1" Top="325.3" Width="1268.57" Height="75.6" DataSource="WRA">
+      <TextObject Name="Text68" Left="37.8" Width="28.35" Height="18.9" Text="[Row#]" Font="Arial, 10pt"/>
+      <TextObject Name="Text69" Left="66.15" Width="122.85" Height="18.9" Text="[WRA.HouseholdMembers.FullName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text70" Left="189" Width="122.85" Height="18.9" Text="[Address]" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="404.9" Width="1268.57" Height="18.9"/>
   </ReportPage>
 </Report>
