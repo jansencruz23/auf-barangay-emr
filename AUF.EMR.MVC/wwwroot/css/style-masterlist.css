@@ -66,17 +66,15 @@
     cursor: pointer;
 }
 
-/* FLOWBITE TAILWIND EXTENSIONS KASI DI COMPLETE ATA NASA LIB T.T */
 .align-baseline {
     vertical-align: baseline;
 }
 
-/*.hover-table-content:hover {
+.hover-table-content:hover {
     background-color: #f4f7fa;
     cursor: pointer;
     
-    @media(){
-        transition duration-300 ease-in-out
-    }
+    
+/*      the tailwind I want to add here  transition duration-300 ease-in-out*/
+    
 }
-*/

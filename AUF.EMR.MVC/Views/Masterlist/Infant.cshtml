@@ -60,7 +60,7 @@
                 <tbody>
                     @foreach (var item in Model.HouseholdMembers)
                     {
-                        <tr class="text-sm">
+                        <tr class="text-sm hover-table-content transition duration-300 ease-in-out">
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Household.HouseholdNo)</td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.FormattedFullName)</td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.NameOfMother)</td>

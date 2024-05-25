@@ -16,23 +16,16 @@
         </button>
     </div>
 
-    <!--Search Bar-->
-    <div class="flex justify-between items-center mb-8">
-        <div class="flex-1 mr-4 relative">
-            <input type="text" class="w-full bg-white shadow-md rounded-lg p-3 pr-10 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-200 border-none"
-                   placeholder="Search...">
-            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <svg class="h-5 w-5 text-gray-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path d="M21 21l-5.2-5.2m.8-.8a8 8 0 1 1-10.6-10.6 8 8 0 0 1 10.6 10.6z"></path>
-                </svg>
-            </div>
+    <!--Search Button-->
+    <div class="flex-1 relative mb-8">
+        <input type="text" class="w-full bg-white shadow-md rounded-lg p-3 pr-10 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-200 border-none"
+               placeholder="Search...">
+        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path d="M21 21l-5.2-5.2m.8-.8a8 8 0 1 1-10.6-10.6 8 8 0 0 1 10.6 10.6z"></path>
+            </svg>
         </div>
-        <!--Search Button-->
-        <button type="button" onclick="print('Print', 'OralHealthClient', @Model.HouseholdNo)"
-                class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out">
-            Search
-        </button>
     </div>
 
     <div class="bg-white shadow-md rounded-lg p-8">
@@ -60,7 +53,7 @@
                 <tbody>
                     @foreach (var item in Model.HouseholdMembers)
                     {
-                        <tr class="text-sm">
+                        <tr class="text-sm hover-table-content transition duration-300 ease-in-out">
                             <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Household.HouseholdNo)
                             </td>
