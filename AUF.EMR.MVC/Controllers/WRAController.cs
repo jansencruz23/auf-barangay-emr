@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using AUF.EMR.MVC.Models.DetailVM;
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -44,9 +45,33 @@ namespace AUF.EMR.MVC.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+
+        // GET: WRAController
+        public async Task<ActionResult> Details(int id, string householdNo)
+        {
+            if (string.IsNullOrWhiteSpace(householdNo) || id == 0)
+            {
+                return NotFound();
+            }
+
+            var wra = await _wraService.GetWRAWithDetails(id);
+            var model = new DetailWRAVM
+            {
+                HouseholdNo = householdNo,
+                WRA = wra
+            };
+
+            return View(model);
+        }
+
         // GET: WRAController
         public async Task<ActionResult> Index(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
             var wraList = await _wraService.GetWRAListWithDetails(householdNo);
             var model = new WRAListVM
             {

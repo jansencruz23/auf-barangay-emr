@@ -1,0 +1,117 @@
+﻿@model DetailWRAVM
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>WomanOfReproductiveAge</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Woman of Reproductive Age
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.WRA.HouseholdMember.FullName
+        </dd>
+        <dt class = "col-sm-2">
+            Address
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.WRA.HouseholdMember.Household.FullAddress
+        </dd>
+        <dt class = "col-sm-2">
+            Age
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.WRA.HouseholdMember.Age
+        </dd>
+        <dt class = "col-sm-2">
+            Birthday
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.WRA.HouseholdMember.Birthday
+        </dd>
+        <dt class = "col-sm-2">
+            SE Status
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.WRA.HouseholdMember.IsNhts) ? "NHTS" : "Non-NHTS")
+        </dd>
+        <dt class = "col-sm-2">
+            Civil Status
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.WRA.CivilStatus == 1) ? "1. Currently Married" : "")
+            @((Model.WRA.CivilStatus == 2) ? "2. Not married but in a relationship as married living in" : "")
+            @((Model.WRA.CivilStatus == 3) ? "3. Not married and not in a relationship with a man" : "")
+        </dd>
+        <dt class = "col-sm-2">
+            Planning to have more children?
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.WRA.IsPlanningChildren) ? "Yes" : "No")
+        </dd>
+        <dt class = "col-sm-2">
+            If yes, when?
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.WRA.IsPlanChildrenNow ?? false) ? "Now" : "")
+            @((Model.WRA.IsPlanChildrenSpacing ?? false) ? "Spacing" : "")
+        </dd>
+        <dt class = "col-sm-2">
+            Fucundity
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.WRA.IsFecund) ? "Fecund" : "Infecund")
+        </dd>
+        <dt class = "col-sm-2">
+            Currently using FP method?
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.WRA.IsFPMethod) ? "Yes" : "No")
+        </dd>
+        <dt class = "col-sm-2">
+            If yes, what type?
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.WRA.IsFPModern ?? false) ? "Modern" : ((Model.WRA.IsFPModern.HasValue) ? "Traditional" : ""))
+        </dd>
+        <dt class = "col-sm-2">
+            Would you like to shift to Modern?
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.WRA.ShiftToModern ?? false) ? "Yes" : ((Model.WRA.ShiftToModern.HasValue) ? "No" : ""))
+        </dd>
+        <dt class = "col-sm-2">
+            Has unmet need?
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.WRA.IsMFPUnmet) ? "Yes" : "No")
+        </dd>
+        <dt class = "col-sm-2">
+            Accepted any modern FP method?
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.WRA.AcceptModernFpMethod) ? "Yes" : "No")
+        </dd>
+        <dt class = "col-sm-2">
+            Modern FP Method
+        </dt>
+        <dd class = "col-sm-10">
+            @(Model.WRA.ModernFPMethod ?? "")
+        </dd>
+        <dt class = "col-sm-2">
+            FP method accepted date
+        </dt>
+        <dd class = "col-sm-10">
+            @(Model.WRA.FPAcceptedDate.ToString() ?? "")
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.WRA.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
