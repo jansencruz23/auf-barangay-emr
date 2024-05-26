@@ -24,7 +24,7 @@ namespace AUF.EMR.Persistence
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<EMRDbContext>(options =>
-                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+                xamoptions.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IHouseholdRepository, HouseholdRepository>();
