@@ -7,6 +7,6 @@ namespace AUF.EMR.MVC.Models.CreateVM
     {
         public VaccinationAppointment Appointment { get; set; }
         public List<Vaccine> Vaccines { get; set; }
-        public int PatientId { get; set; }
+        public int RecordId { get; set; }
     }
 }

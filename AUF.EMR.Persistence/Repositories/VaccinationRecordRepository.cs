@@ -29,11 +29,70 @@ namespace AUF.EMR.Persistence.Repositories
             await Delete(record);
         }
 
+        public async Task<List<VaccinationAppointment>> GetVaccinationAppointmentsForm(int appointmentId)
+        {
+            var records = await _dbContext.VaccinationRecords
+                .AsNoTracking()
+                .Include(v => v.Vaccine)
+                .Include(v => v.VaccinationAppointment)
+                    .ThenInclude(a => a.PatientRecord)
+                .Where(v => v.VaccinationAppointment.PatientRecordId == appointmentId 
+                    && v.VaccinationAppointment.Status)
+                .Select(v => v.VaccinationAppointment)
+                .ToListAsync();
+
+            return records;
+        }
+
+        public async Task<List<VaccinationRecord>> GetVaccinationRecordsForm(int appointmentId)
+        {
+            var records = await _dbContext.VaccinationRecords
+                .AsNoTracking()
+                .Include(v => v.Vaccine)
+                .Include(v => v.VaccinationAppointment)
+                    .ThenInclude(a => a.PatientRecord)
+                .Where(v => v.VaccinationAppointment.PatientRecordId == appointmentId)
+                .ToListAsync();
+
+            return records;
+        }
+
         public async Task<List<VaccinationRecord>> GetVaccinationRecordsWithDetails(int id)
         {
             var records = await _dbContext.VaccinationRecords
                 .AsNoTracking()
+                .Include(v => v.Vaccine)
+                .Include(v => v.VaccinationAppointment)
                 .Where(r => r.VaccinationAppointmentId == id)
+                .ToListAsync();
+
+            return records;
+        }
+
+        public async Task<List<VaccinationRecord>> GetVaccineRecordsForm(int appointmentId)
+        {
+            var records = await _dbContext.VaccinationRecords
+                .AsNoTracking()
+                .Include(v => v.Vaccine)
+                .Include(v => v.VaccinationAppointment)
+                    .ThenInclude(a => a.PatientRecord)
+                .Where(v => v.VaccinationAppointment.PatientRecordId == appointmentId
+                    && v.VaccinationAppointment.Status)
+                .ToListAsync();
+
+            return records;
+        }
+
+        public async Task<List<Vaccine>> GetVaccinesForm(int appointmentId)
+        {
+            var records = await _dbContext.VaccinationRecords
+                .AsNoTracking()
+                .Include(v => v.Vaccine)
+                .Include(v => v.VaccinationAppointment)
+                    .ThenInclude(a => a.PatientRecord)
+                .Where(v => v.VaccinationAppointment.PatientRecordId == appointmentId
+                    && v.VaccinationAppointment.Status)
+                .Select(v => v.Vaccine)
                 .ToListAsync();
 
             return records;

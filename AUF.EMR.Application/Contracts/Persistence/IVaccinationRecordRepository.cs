@@ -12,5 +12,8 @@ namespace AUF.EMR.Application.Contracts.Persistence
     {
         Task<List<VaccinationRecord>> GetVaccinationRecordsWithDetails(int id);
         Task DeleteVaccinationRecord(int vaccinationAppointmendId, int vaccineId);
+        Task<List<VaccinationAppointment>> GetVaccinationAppointmentsForm(int appointmentId);
+        Task<List<Vaccine>> GetVaccinesForm(int appointmentId);
+        Task<List<VaccinationRecord>> GetVaccineRecordsForm(int appointmentId);
     }
 }

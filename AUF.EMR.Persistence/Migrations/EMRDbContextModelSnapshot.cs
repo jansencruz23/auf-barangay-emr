@@ -906,6 +906,10 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Weight")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("Id");
 
                     b.HasIndex("PatientId");
@@ -1206,8 +1210,9 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<double>("Height")
-                        .HasColumnType("double");
+                    b.Property<string>("Height")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("LastModified")
                         .HasColumnType("datetime(6)");
@@ -1215,7 +1220,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<Guid?>("ModifiedById")
                         .HasColumnType("char(36)");
 
-                    b.Property<int>("PatientId")
+                    b.Property<int>("PatientRecordId")
                         .HasColumnType("int");
 
                     b.Property<bool>("Status")
@@ -1227,12 +1232,13 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<DateTime>("VaccinationDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<double>("Weight")
-                        .HasColumnType("double");
+                    b.Property<string>("Weight")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PatientId");
+                    b.HasIndex("PatientRecordId");
 
                     b.ToTable("VaccinationAppointments");
                 });
@@ -1592,13 +1598,13 @@ namespace AUF.EMR.Persistence.Migrations
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.VaccinationAppointment", b =>
                 {
-                    b.HasOne("AUF.EMR.Domain.Models.PatientRecord", "Patient")
+                    b.HasOne("AUF.EMR.Domain.Models.PatientRecord", "PatientRecord")
                         .WithMany("VaccinationAppointments")
-                        .HasForeignKey("PatientId")
+                        .HasForeignKey("PatientRecordId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Patient");
+                    b.Navigation("PatientRecord");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.VaccinationRecord", b =>

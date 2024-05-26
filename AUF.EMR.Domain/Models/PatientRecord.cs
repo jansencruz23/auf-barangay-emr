@@ -25,6 +25,7 @@ namespace AUF.EMR.Domain.Models
         [DataType(DataType.Date)]
         public DateTime FatherBirthday { get; set; }
         public string ContactNumber { get; set; }
+        public string Weight { get; set; }
         public string TypeOfDelivery { get; set; }
         public string Attended { get; set; }
 

@@ -41,14 +41,14 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: VaccinationAppointmentController/Create
-        public async Task<ActionResult> Create(int patientId, string householdNo)
+        public async Task<ActionResult> Create(int recordId, string householdNo)
         {
             if (string.IsNullOrWhiteSpace(householdNo))
             {
                 return NotFound();
             }
 
-            var existing = await _patientRecordService.Exists(patientId);
+            var existing = await _patientRecordService.Exists(recordId);
             if (!existing)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace AUF.EMR.MVC.Controllers
             var vaccines = await _vaccineService.GetAll();
             var model = new CreateVaccinationAppointmentVM
             {
-                PatientId = patientId,
+                RecordId = recordId,
                 Vaccines = vaccines.ToList(),
                 HouseholdNo = householdNo
             };
@@ -97,7 +97,7 @@ namespace AUF.EMR.MVC.Controllers
                 model.Appointment.VaccinationRecords = vaccinationRecords;
                 await _appointmentService.Add(model.Appointment);
 
-                return RedirectToAction(nameof(Details), nameof(PatientRecord), new { householdNo = model.HouseholdNo, id = model.PatientId });
+                return RedirectToAction(nameof(Details), nameof(PatientRecord), new { householdNo = model.HouseholdNo, id = model.RecordId });
             }
             catch (Exception ex)
             {
@@ -122,6 +122,7 @@ namespace AUF.EMR.MVC.Controllers
                 return NotFound();
             }
 
+            var vaccines = await _vaccineService.GetAll();
             var selectedVaccines = new List<Vaccine>();
 
             foreach (var vaccine in vaccineRecords)
@@ -129,14 +130,21 @@ namespace AUF.EMR.MVC.Controllers
                 selectedVaccines.Add(await _vaccineService.Get(vaccine.VaccineId));
             }
 
-            var vaccines = await _vaccineService.GetAll();
+            foreach (var vaccine in vaccines)
+            {
+                if (selectedVaccines.Contains(vaccine))
+                {
+                    vaccine.Selected = true;
+                }
+            }
+            
             var model = new EditVaccinationAppointmentVM
             {
                 HouseholdNo = householdNo,
                 Appointment = appointment,
                 Vaccines = vaccines.ToList(),
                 SelectedVaccines = selectedVaccines,
-                PatientId = appointment.PatientId
+                PatientId = appointment.PatientRecordId
             };
 
             return View(model);
@@ -186,7 +194,7 @@ namespace AUF.EMR.MVC.Controllers
                 var appointment = await _appointmentService.GetVaccinationAppointmentWithDetails(id);
                 await _appointmentService.Delete(appointment);
 
-                return RedirectToAction(nameof(Details), nameof(PatientRecord), new { householdNo = householdNo, id = appointment.PatientId }); ;
+                return RedirectToAction(nameof(Details), nameof(PatientRecord), new { householdNo = householdNo, id = appointment.PatientRecordId }); ;
             }
             catch (Exception ex)
             {

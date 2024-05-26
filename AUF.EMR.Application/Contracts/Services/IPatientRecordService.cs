@@ -12,5 +12,6 @@ namespace AUF.EMR.Application.Contracts.Services
     {
         Task<List<PatientRecord>> GetPatientRecordsWithDetails(string householdNo);
         Task<PatientRecord> GetPatientRecordWithDetails(int id);
+        Task<List<PatientRecord>> GetPatientRecordForm(int id);
     }
 }

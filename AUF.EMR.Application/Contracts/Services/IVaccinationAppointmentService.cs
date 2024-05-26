@@ -12,5 +12,6 @@ namespace AUF.EMR.Application.Contracts.Services
     {
         Task<List<VaccinationAppointment>> GetVaccinationAppointmentsWithDetails(int patientId);
         Task<VaccinationAppointment> GetVaccinationAppointmentWithDetails(int id);
+        Task<List<VaccinationRecord>> GetVaccinationRecordsForm(int id);
     }
 }
