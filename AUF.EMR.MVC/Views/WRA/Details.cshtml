@@ -32,7 +32,7 @@
             Birthday
         </dt>
         <dd class = "col-sm-10">
-            @Model.WRA.HouseholdMember.Birthday
+            @Model.WRA.HouseholdMember.Birthday.ToString("MMM/dd/yyyy")
         </dd>
         <dt class = "col-sm-2">
             SE Status
@@ -107,7 +107,7 @@
             FP method accepted date
         </dt>
         <dd class = "col-sm-10">
-            @(Model.WRA.FPAcceptedDate.ToString() ?? "")
+            @((Model.WRA.FPAcceptedDate.HasValue) ? (Model.WRA.FPAcceptedDate.Value.ToString("MMM/dd/yyyy")) : "")
         </dd>
     </dl>
 </div>
