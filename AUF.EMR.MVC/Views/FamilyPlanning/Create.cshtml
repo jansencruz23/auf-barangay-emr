@@ -10,622 +10,647 @@
 <div class="container mx-auto px-4 py-8">
     <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
             <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Add Family Planning</h1>
             <hr class="mb-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.ClientId" class="block mb-2 text-sm font-medium text-gray-700">ID</label>
+                        <input asp-for="FPRecord.ClientId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.ClientId" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.PhilhealthNo" class="block mb-2 text-sm font-medium text-gray-700">Philhealth No.</label>
+                        <input asp-for="FPRecord.PhilhealthNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.PhilhealthNo" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.ClientHouseholdMemberId" class="block mb-2 text-sm font-medium text-gray-700">Household Member ID</label>
+                        <select asp-for="FPRecord.ClientHouseholdMemberId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" asp-items="@(new SelectList(Model.WomenHouseholdMember, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
+                        <input type="hidden" asp-for="WomenHouseholdMember" value="@Model.WomenHouseholdMember" />
+                    </div>
+                    <br /> <hr class="w-full md:w-4/5" /> 
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Personal Information</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.ClientAge" class="block mb-2 text-sm font-medium text-gray-700">Age</label>
+                        <input asp-for="FPRecord.ClientAge" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.ClientAge" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.ClientOccupation" class="block mb-2 text-sm font-medium text-gray-700">Occupation</label>
+                        <input asp-for="FPRecord.ClientOccupation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.ClientOccupation" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.ContactNo" class="block mb-2 text-sm font-medium text-gray-700">Contact No.</label>
+                        <input asp-for="FPRecord.ContactNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.ContactNo" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.CivilStatus" class="block mb-2 text-sm font-medium text-gray-700">Civil Status</label>
+                        <input asp-for="FPRecord.CivilStatus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.CivilStatus" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.Religion" class="block mb-2 text-sm font-medium text-gray-700">Religion</label>
+                        <input asp-for="FPRecord.Religion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.Religion" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <br /> <hr class="w-full md:w-4/5" />
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Spouse's Information</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.SpouseLastName" class="block mb-2 text-sm font-medium text-gray-700">Spouse's Last Name</label>
+                        <input asp-for="FPRecord.SpouseLastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.SpouseLastName" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.SpouseFirstName" class="block mb-2 text-sm font-medium text-gray-700">Spouse's First Name</label>
+                        <input asp-for="FPRecord.SpouseFirstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.SpouseFirstName" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.SpouseMiddleInitial" class="block mb-2 text-sm font-medium text-gray-700">Spouse's Middle Initial</label>
+                        <input asp-for="FPRecord.SpouseMiddleInitial" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.SpouseMiddleInitial" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.SpouseBirthday" class="block mb-2 text-sm font-medium text-gray-700">Spouse's Birthdate</label>
+                        <input asp-for="FPRecord.SpouseBirthday" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.SpouseBirthday" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.SpouseOccupation" class="block mb-2 text-sm font-medium text-gray-700">Spouse's Occupation</label>
+                        <input asp-for="FPRecord.SpouseOccupation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.SpouseOccupation" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <br /> <hr class="w-full md:w-4/5" /> 
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Children Planning</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.LivingChildrenNo" class="block mb-2 text-sm font-medium text-gray-700">No. of Living Children</label>
+                        <input asp-for="FPRecord.LivingChildrenNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.LivingChildrenNo" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.IsPlanningChildren" class="block mb-2 text-sm font-medium text-gray-700">Is Planning To Have Children</label>
+                        <input asp-for="FPRecord.IsPlanningChildren" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.IsPlanningChildren" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <br /> <hr class="w-full md:w-4/5" /> <br />
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.AverageMonthlyIncome" class="block mb-2 text-sm font-medium text-gray-700">Average Monthly Income</label>
+                        <input asp-for="FPRecord.AverageMonthlyIncome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.AverageMonthlyIncome" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.FPMethod" class="block mb-2 text-sm font-medium text-gray-700">FP Method</label>
+                        <input asp-for="FPRecord.FPMethod" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.FPMethod" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                   
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Acknowledgement and Consent</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.ClientSignatureAcknowledgement" class="block mb-2 text-sm font-medium text-gray-700">Signature Acknowledgement</label>
+                        <input asp-for="FPRecord.ClientSignatureAcknowledgement" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.ClientSignatureAcknowledgement" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.DateAcknowledgement" class="block mb-2 text-sm font-medium text-gray-700">Date of Acknowledgement</label>
+                        <input asp-for="FPRecord.DateAcknowledgement" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.DateAcknowledgement" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.ClientSignatureConsent" class="block mb-2 text-sm font-medium text-gray-700">Signature Consent</label>
+                        <input asp-for="FPRecord.ClientSignatureConsent" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.ClientSignatureConsent" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.DateConsent" class="block mb-2 text-sm font-medium text-gray-700">Date of Consent</label>
+                        <input asp-for="FPRecord.DateConsent" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.DateConsent" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <br /> <hr class="w-full md:w-4/5" /> 
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Type</h6>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsCurrentUser" /> @Html.DisplayNameFor(model => model.ClientType.IsCurrentUser)
+                        </label>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ClientType.CurrentUserType" class="block mb-2 text-sm font-medium text-gray-700">Current User Type</label>
+                        <select asp-for="ClientType.CurrentUserType" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
+                            <option selected="selected" value="">Please select</option>
+                            @foreach (var value in Enum.GetValues(typeof(CurrentUserType)))
+                            {
+                                <option value="@value">@EnumExtension.GetEnumTitleCase((CurrentUserType)value)</option>
+                            }
+                        </select>
+                        <span asp-validation-for="ClientType.CurrentUserType" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ClientType.ReasonForFP" class="block mb-2 text-sm font-medium text-gray-700">Reason for FP</label>
+                        <select asp-for="ClientType.ReasonForFP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
+                            <option selected="selected" value="">Please select</option>
+                            @foreach (var value in Enum.GetValues(typeof(ReasonForFP)))
+                            {
+                                <option value="@value">@EnumExtension.GetEnumTitleCase((ReasonForFP)value)</option>
+                            }
+                        </select>
+                        <span asp-validation-for="ClientType.ReasonForFP" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ClientType.ReasonOthers" class="block mb-2 text-sm font-medium text-gray-700">Other Reasons</label>
+                        <input asp-for="ClientType.ReasonOthers" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="ClientType.ReasonOthers" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4 ">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Is Reason Medical?</label>
+                        <div class="form-check form-check-inline">
+                            <input class="rounded-full" type="radio" asp-for="ClientType.IsReasonMedical" value="true" />
+                            <label class="block mb-2 text-sm font-medium text-gray-700">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="rounded-full" type="radio" asp-for="ClientType.IsReasonMedical" value="false" />
+                            <label class="block mb-2 text-sm font-medium text-gray-700">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsReasonSideEffects" /> @Html.DisplayNameFor(model => model.ClientType.IsReasonSideEffects)
+                        </label>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ClientType.ReasonMethodText" class="block mb-2 text-sm font-medium text-gray-700">Method Reason/s</label>
+                        <input asp-for="ClientType.ReasonMethodText" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="ClientType.ReasonMethodText" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsMethodImplant" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodImplant)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsMethodInjectable" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodInjectable)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsMethodLAM" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodLAM)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsMethodIUD" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodIUD)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsMethodCOC" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodCOC)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsMethodSDM" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodSDM)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsMethodBTL" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodBTL)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsMethodPOP" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodPOP)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsMethodBBT" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodBBT)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsMethodNSV" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodNSV)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsMethodCondom" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodCondom)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsMethodBOM" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodBOM)
+                        </label>
+                    </div>
+                    <br /> <hr class="w-full md:w-4/5" /> 
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Medical History</h6>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="MedicalHistory.HasSevereHeadache" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasSevereHeadache)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="MedicalHistory.HasHeartAttack" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasHeartAttack)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="MedicalHistory.HasHematoma" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasHematoma)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="MedicalHistory.HasBreastCancer" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasBreastCancer)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="MedicalHistory.HasChestPain" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasChestPain)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="MedicalHistory.HasCough" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasCough)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="MedicalHistory.HasJaundice" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasJaundice)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="MedicalHistory.HasVaginalBleeding" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasVaginalBleeding)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="MedicalHistory.HasAbnormalDischarge" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasAbnormalDischarge)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="MedicalHistory.HasTakenRifampicin" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasTakenRifampicin)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="MedicalHistory.IsSmoker" /> @Html.DisplayNameFor(model => model.MedicalHistory.IsSmoker)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="MedicalHistory.HasDisability" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasDisability)
+                        </label>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="MedicalHistory.Disability" class="block mb-2 text-sm font-medium text-gray-700">Disability</label>
+                        <input asp-for="MedicalHistory.Disability" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="MedicalHistory.Disability" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
 
                 </div>
                 <div>
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Obstetrical History</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ObstetricalHistory.NumGravidityPregnancies" class="block mb-2 text-sm font-medium text-gray-700">No. of Gravidity Pregnancies</label>
+                        <input asp-for="ObstetricalHistory.NumGravidityPregnancies" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="ObstetricalHistory.NumGravidityPregnancies" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ObstetricalHistory.NumParityPregnancies" class="block mb-2 text-sm font-medium text-gray-700">No. of Parity Pregnancies</label>
+                        <input asp-for="ObstetricalHistory.NumParityPregnancies" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="ObstetricalHistory.NumParityPregnancies" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ObstetricalHistory.NumFullTerm" class="block mb-2 text-sm font-medium text-gray-700">No. of Full Term</label>
+                        <input asp-for="ObstetricalHistory.NumFullTerm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="ObstetricalHistory.NumFullTerm" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ObstetricalHistory.NumAbortion" class="block mb-2 text-sm font-medium text-gray-700">No. of Abortion</label>
+                        <input asp-for="ObstetricalHistory.NumAbortion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="ObstetricalHistory.NumAbortion" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ObstetricalHistory.NumPremature" class="block mb-2 text-sm font-medium text-gray-700">No. of Premature</label>
+                        <input asp-for="ObstetricalHistory.NumPremature" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="ObstetricalHistory.NumPremature" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ObstetricalHistory.NumLivingChildren" class="block mb-2 text-sm font-medium text-gray-700">No. of Living Children</label>
+                        <input asp-for="ObstetricalHistory.NumLivingChildren" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="ObstetricalHistory.NumLivingChildren" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ObstetricalHistory.LastDelivery" class="block mb-2 text-sm font-medium text-gray-700">Last Delivery</label>
+                        <input asp-for="ObstetricalHistory.LastDelivery" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="ObstetricalHistory.LastDelivery" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ObstetricalHistory.IsLastDeliveryVaginal" class="block mb-2 text-sm font-medium text-gray-700">Is Last Delivery Vaginal?</label>
+                        <input asp-for="ObstetricalHistory.IsLastDeliveryVaginal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="ObstetricalHistory.IsLastDeliveryVaginal" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ObstetricalHistory.LastMenstrualPeriod" class="block mb-2 text-sm font-medium text-gray-700">Last Menstrual Period</label>
+                        <input asp-for="ObstetricalHistory.LastMenstrualPeriod" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="ObstetricalHistory.LastMenstrualPeriod" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ObstetricalHistory.PreviousMenstrualPeriod" class="block mb-2 text-sm font-medium text-gray-700">Previous Menstrual Period</label>
+                        <input asp-for="ObstetricalHistory.PreviousMenstrualPeriod" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="ObstetricalHistory.PreviousMenstrualPeriod" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="ObstetricalHistory.MenstrualFlow" class="block mb-2 text-sm font-medium text-gray-700">Menstrual Flow</label>
+                        <select asp-for="ObstetricalHistory.MenstrualFlow" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
+                            <option selected="selected" value="">Please select</option>
+                            @foreach (var value in Enum.GetValues(typeof(MenstrualFlow)))
+                            {
+                                <option value="@value">@EnumExtension.GetEnumTitleCase((MenstrualFlow)value)</option>
+                            }
+                        </select>
+                        <span asp-validation-for="ObstetricalHistory.MenstrualFlow" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ObstetricalHistory.HasDysmenorrhea" /> @Html.DisplayNameFor(model => model.ObstetricalHistory.HasDysmenorrhea)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ObstetricalHistory.HasHydatidiformMole" /> @Html.DisplayNameFor(model => model.ObstetricalHistory.HasHydatidiformMole)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="ObstetricalHistory.HadEctopicPregnancy" /> @Html.DisplayNameFor(model => model.ObstetricalHistory.HadEctopicPregnancy)
+                        </label>
+                    </div>
+                    <br /> <hr class="w-full md:w-4/5" /> 
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Risks for STI</h6>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="RisksForSTI.AbnormalDischarge" /> @Html.DisplayNameFor(model => model.RisksForSTI.AbnormalDischarge)
+                        </label>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="RisksForSTI.Genitals" class="block mb-2 text-sm font-medium text-gray-700">Genitals</label>
+                        <select asp-for="RisksForSTI.Genitals" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
+                            <option selected="selected" value="">Please select</option>
+                            @foreach (var value in Enum.GetValues(typeof(Genitals)))
+                            {
+                                <option value="@value">@EnumExtension.GetEnumTitleCase((Genitals)value)</option>
+                            }
+                        </select>
+                        <span asp-validation-for="RisksForSTI.Genitals" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="RisksForSTI.HasSoresInGenitalArea" /> @Html.DisplayNameFor(model => model.RisksForSTI.HasSoresInGenitalArea)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="RisksForSTI.HasPainInGenitalArea" /> @Html.DisplayNameFor(model => model.RisksForSTI.HasPainInGenitalArea)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="RisksForSTI.HadTreatmentForSTI" /> @Html.DisplayNameFor(model => model.RisksForSTI.HadTreatmentForSTI)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="RisksForSTI.HasHIV" /> @Html.DisplayNameFor(model => model.RisksForSTI.HasHIV)
+                        </label>
+                    </div>
 
+                    <br /> <hr class="w-full md:w-4/5" /> 
+
+                    <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Risks for VAW</h6>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="RisksForVAW.HadVAW" /> @Html.DisplayNameFor(model => model.RisksForVAW.HadVAW)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="RisksForVAW.HadUnpleasantRelationship" /> @Html.DisplayNameFor(model => model.RisksForVAW.HadUnpleasantRelationship)
+                        </label>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">
+                            <input class="border border-gray-400 rounded-sm" asp-for="RisksForVAW.PartnerNotApproveFP" /> @Html.DisplayNameFor(model => model.RisksForVAW.PartnerNotApproveFP)
+                        </label>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="RisksForVAW.ReferredTo" class="block mb-2 text-sm font-medium text-gray-700">Referred To</label>
+                        <select asp-for="RisksForVAW.ReferredTo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
+                            <option selected="selected" value="">Please select</option>
+                            @foreach (var value in Enum.GetValues(typeof(VAWReferredTo)))
+                            {
+                                <option value="@value">@value</option>
+                            }
+                        </select>
+                        <span asp-validation-for="RisksForVAW.ReferredTo" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="RisksForVAW.ReferredToOthers" class="block mb-2 text-sm font-medium text-gray-700">Referred To (Others)</label>
+                        <input asp-for="RisksForVAW.ReferredToOthers" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="RisksForVAW.ReferredToOthers" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+
+                    <br /> <hr class="w-full md:w-4/5" />
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Physical Examination</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.Weight" class="block mb-2 text-sm font-medium text-gray-700">Weight</label>
+                        <input asp-for="PhysicalExamination.Weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.Weight" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.Height" class="block mb-2 text-sm font-medium text-gray-700">Height</label>
+                        <input asp-for="PhysicalExamination.Height" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.Height" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.BloodPressure" class="block mb-2 text-sm font-medium text-gray-700">Blood Pressure</label>
+                        <input asp-for="PhysicalExamination.BloodPressure" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.BloodPressure" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.PulseRate" class="block mb-2 text-sm font-medium text-gray-700">Pulse Rate</label>
+                        <input asp-for="PhysicalExamination.PulseRate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.PulseRate" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.Skin" class="block mb-2 text-sm font-medium text-gray-700">Skin</label>
+                        <select asp-for="PhysicalExamination.Skin" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
+                            <option selected="selected" value="">Please select</option>
+                            @foreach (var value in Enum.GetValues(typeof(Skin)))
+                            {
+                                <option value="@value">@EnumExtension.GetEnumLowCase((Skin)value)</option>
+                            }
+                        </select>
+                        <span asp-validation-for="PhysicalExamination.Skin" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.Conjunctiva" class="block mb-2 text-sm font-medium text-gray-700">Conjunctiva</label>
+                        <select asp-for="PhysicalExamination.Conjunctiva" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
+                            <option selected="selected" value="">Please select</option>
+                            @foreach (var value in Enum.GetValues(typeof(Conjunctiva)))
+                            {
+                                <option value="@value">@EnumExtension.GetEnumLowCase((Conjunctiva)value)</option>
+                            }
+                        </select>
+                        <span asp-validation-for="PhysicalExamination.Conjunctiva" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.Neck" class="block mb-2 text-sm font-medium text-gray-700">Neck</label>
+                        <select asp-for="PhysicalExamination.Neck" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
+                            <option selected="selected" value="">Please select</option>
+                            @foreach (var value in Enum.GetValues(typeof(Neck)))
+                            {
+                                <option value="@value">@EnumExtension.GetEnumLowCase((Neck)value)</option>
+                            }
+                        </select>
+                        <span asp-validation-for="PhysicalExamination.Neck" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.Breast" class="block mb-2 text-sm font-medium text-gray-700">Breast</label>
+                        <select asp-for="PhysicalExamination.Breast" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
+                            <option selected="selected" value="">Please select</option>
+                            @foreach (var value in Enum.GetValues(typeof(Breast)))
+                            {
+                                <option value="@value">@EnumExtension.GetEnumLowCase((Breast)value)</option>
+                            }
+                        </select>
+                        <span asp-validation-for="PhysicalExamination.Breast" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.Abdomen" class="block mb-2 text-sm font-medium text-gray-700">Abdomen</label>
+                        <select asp-for="PhysicalExamination.Abdomen" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
+                            <option selected="selected" value="">Please select</option>
+                            @foreach (var value in Enum.GetValues(typeof(Abdomen)))
+                            {
+                                <option value="@value">@EnumExtension.GetEnumLowCase((Abdomen)value)</option>
+                            }
+                        </select>
+                        <span asp-validation-for="PhysicalExamination.Abdomen" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.Extremities" class="block mb-2 text-sm font-medium text-gray-700">Extremities</label>
+                        <select asp-for="PhysicalExamination.Extremities" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
+                            <option selected="selected" value="">Please select</option>
+                            @foreach (var value in Enum.GetValues(typeof(Extremities)))
+                            {
+                                <option value="@value">@EnumExtension.GetEnumLowCase((Extremities)value)</option>
+                            }
+                        </select>
+                        <span asp-validation-for="PhysicalExamination.Extremities" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.PelvicNormal" class="block mb-2 text-sm font-medium text-gray-700">Pelvic Normal</label>
+                        <input asp-for="PhysicalExamination.PelvicNormal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.PelvicNormal" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.PelvicMass" class="block mb-2 text-sm font-medium text-gray-700">Pelvic Mass</label>
+                        <input asp-for="PhysicalExamination.PelvicMass" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.PelvicMass" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.PelvicAbnormalDischarge" class="block mb-2 text-sm font-medium text-gray-700">Pelvic Abnormal Discharge</label>
+                        <input asp-for="PhysicalExamination.PelvicAbnormalDischarge" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.PelvicAbnormalDischarge" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.PelvicCervicalAbnormalities" class="block mb-2 text-sm font-medium text-gray-700">Pelvic Cervical Abnormalities</label>
+                        <input asp-for="PhysicalExamination.PelvicCervicalAbnormalities" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.PelvicCervicalAbnormalities" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.PCAWarts" class="block mb-2 text-sm font-medium text-gray-700">PCA Warts</label>
+                        <input asp-for="PhysicalExamination.PCAWarts" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.PCAWarts" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.PCAPolyp" class="block mb-2 text-sm font-medium text-gray-700">PCA Polyp</label>
+                        <input asp-for="PhysicalExamination.PCAPolyp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.PCAPolyp" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.PCAInflammation" class="block mb-2 text-sm font-medium text-gray-700">PCA Inflammation</label>
+                        <input asp-for="PhysicalExamination.PCAInflammation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.PCAInflammation" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.PCABloodyDischarge" class="block mb-2 text-sm font-medium text-gray-700">PCA Bloody Discharge</label>
+                        <input asp-for="PhysicalExamination.PCABloodyDischarge" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.PCABloodyDischarge" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.PelvicCervicalConsistency" class="block mb-2 text-sm font-medium text-gray-700">Pelvic Cervical Consistency</label>
+                        <input asp-for="PhysicalExamination.PelvicCervicalConsistency" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.PelvicCervicalConsistency" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.CervicalConsistency" class="block mb-2 text-sm font-medium text-gray-700">Cervical Consistency</label>
+                        <input asp-for="PhysicalExamination.CervicalConsistency" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.CervicalConsistency" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.CervicalTenderness" class="block mb-2 text-sm font-medium text-gray-700">Cervical Tenderness</label>
+                        <input asp-for="PhysicalExamination.CervicalTenderness" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.CervicalTenderness" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.AdnexalMass" class="block mb-2 text-sm font-medium text-gray-700">Adnexal Mass</label>
+                        <input asp-for="PhysicalExamination.AdnexalMass" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.AdnexalMass" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.UterinePosition" class="block mb-2 text-sm font-medium text-gray-700">Uterine Position</label>
+                        <input asp-for="PhysicalExamination.UterinePosition" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.UterinePosition" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.UterinePositions" class="block mb-2 text-sm font-medium text-gray-700">Uterine Positions</label>
+                        <input asp-for="PhysicalExamination.UterinePositions" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.UterinePositions" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PhysicalExamination.UterineDepth" class="block mb-2 text-sm font-medium text-gray-700">Uterine Depth</label>
+                        <input asp-for="PhysicalExamination.UterineDepth" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="PhysicalExamination.UterineDepth" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
                 </div>
 
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.ClientId" class="control-label"></label>
-                <input asp-for="FPRecord.ClientId" class="form-control" />
-                <span asp-validation-for="FPRecord.ClientId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.PhilhealthNo" class="control-label"></label>
-                <input asp-for="FPRecord.PhilhealthNo" class="form-control" />
-                <span asp-validation-for="FPRecord.PhilhealthNo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.ClientHouseholdMemberId" class="control-label"></label>
-                <select asp-for="FPRecord.ClientHouseholdMemberId" class="form-control" asp-items="@(new SelectList(Model.WomenHouseholdMember, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
-                <input type="hidden" asp-for="WomenHouseholdMember" value="@Model.WomenHouseholdMember" />
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.ClientAge" class="control-label"></label>
-                <input asp-for="FPRecord.ClientAge" class="form-control" />
-                <span asp-validation-for="FPRecord.ClientAge" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.ClientOccupation" class="control-label"></label>
-                <input asp-for="FPRecord.ClientOccupation" class="form-control" />
-                <span asp-validation-for="FPRecord.ClientOccupation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.ContactNo" class="control-label"></label>
-                <input asp-for="FPRecord.ContactNo" class="form-control" />
-                <span asp-validation-for="FPRecord.ContactNo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.CivilStatus" class="control-label"></label>
-                <input asp-for="FPRecord.CivilStatus" class="form-control" />
-                <span asp-validation-for="FPRecord.CivilStatus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.Religion" class="control-label"></label>
-                <input asp-for="FPRecord.Religion" class="form-control" />
-                <span asp-validation-for="FPRecord.Religion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.SpouseLastName" class="control-label"></label>
-                <input asp-for="FPRecord.SpouseLastName" class="form-control" />
-                <span asp-validation-for="FPRecord.SpouseLastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.SpouseFirstName" class="control-label"></label>
-                <input asp-for="FPRecord.SpouseFirstName" class="form-control" />
-                <span asp-validation-for="FPRecord.SpouseFirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.SpouseMiddleInitial" class="control-label"></label>
-                <input asp-for="FPRecord.SpouseMiddleInitial" class="form-control" />
-                <span asp-validation-for="FPRecord.SpouseMiddleInitial" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.SpouseBirthday" class="control-label"></label>
-                <input asp-for="FPRecord.SpouseBirthday" class="form-control" />
-                <span asp-validation-for="FPRecord.SpouseBirthday" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.SpouseOccupation" class="control-label"></label>
-                <input asp-for="FPRecord.SpouseOccupation" class="form-control" />
-                <span asp-validation-for="FPRecord.SpouseOccupation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.LivingChildrenNo" class="control-label"></label>
-                <input asp-for="FPRecord.LivingChildrenNo" class="form-control" />
-                <span asp-validation-for="FPRecord.LivingChildrenNo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.IsPlanningChildren" class="control-label"></label>
-                <input asp-for="FPRecord.IsPlanningChildren" class="form-control" />
-                <span asp-validation-for="FPRecord.IsPlanningChildren" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.AverageMonthlyIncome" class="control-label"></label>
-                <input asp-for="FPRecord.AverageMonthlyIncome" class="form-control" />
-                <span asp-validation-for="FPRecord.AverageMonthlyIncome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.FPMethod" class="control-label"></label>
-                <input asp-for="FPRecord.FPMethod" class="form-control" />
-                <span asp-validation-for="FPRecord.FPMethod" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.ClientSignatureAcknowledgement" class="control-label"></label>
-                <input asp-for="FPRecord.ClientSignatureAcknowledgement" class="form-control" />
-                <span asp-validation-for="FPRecord.ClientSignatureAcknowledgement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.DateAcknowledgement" class="control-label"></label>
-                <input asp-for="FPRecord.DateAcknowledgement" class="form-control" />
-                <span asp-validation-for="FPRecord.DateAcknowledgement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.ClientSignatureConsent" class="control-label"></label>
-                <input asp-for="FPRecord.ClientSignatureConsent" class="form-control" />
-                <span asp-validation-for="FPRecord.ClientSignatureConsent" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FPRecord.DateConsent" class="control-label"></label>
-                <input asp-for="FPRecord.DateConsent" class="form-control" />
-                <span asp-validation-for="FPRecord.DateConsent" class="text-danger"></span>
-            </div>
-
-            <hr />
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsCurrentUser" /> @Html.DisplayNameFor(model => model.ClientType.IsCurrentUser)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientType.CurrentUserType" class="control-label"></label>
-                <select asp-for="ClientType.CurrentUserType" class="form-control">
-                    <option selected="selected" value="">Please select</option>
-                    @foreach (var value in Enum.GetValues(typeof(CurrentUserType)))
-                    {
-                        <option value="@value">@EnumExtension.GetEnumTitleCase((CurrentUserType)value)</option>
-                    }
-                </select>
-                <span asp-validation-for="ClientType.CurrentUserType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientType.ReasonForFP" class="control-label"></label>
-                <select asp-for="ClientType.ReasonForFP" class="form-control">
-                    <option selected="selected" value="">Please select</option>
-                    @foreach (var value in Enum.GetValues(typeof(ReasonForFP)))
-                    {
-                        <option value="@value">@EnumExtension.GetEnumTitleCase((ReasonForFP)value)</option>
-                    }
-                </select>
-                <span asp-validation-for="ClientType.ReasonForFP" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientType.ReasonOthers" class="control-label"></label>
-                <input asp-for="ClientType.ReasonOthers" class="form-control" />
-                <span asp-validation-for="ClientType.ReasonOthers" class="text-danger"></span>
-            </div>
-            <div class="form-group ">
-                <label class="control-label">IsReasonMedical</label>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" asp-for="ClientType.IsReasonMedical" value="true" />
-                    <label class="form-check-label">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" asp-for="ClientType.IsReasonMedical" value="false" />
-                    <label class="form-check-label">No</label>
-                </div>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsReasonSideEffects" /> @Html.DisplayNameFor(model => model.ClientType.IsReasonSideEffects)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientType.ReasonMethodText" class="control-label"></label>
-                <input asp-for="ClientType.ReasonMethodText" class="form-control" />
-                <span asp-validation-for="ClientType.ReasonMethodText" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsMethodImplant" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodImplant)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsMethodInjectable" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodInjectable)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsMethodLAM" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodLAM)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsMethodIUD" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodIUD)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsMethodCOC" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodCOC)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsMethodSDM" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodSDM)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsMethodBTL" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodBTL)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsMethodPOP" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodPOP)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsMethodBBT" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodBBT)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsMethodNSV" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodNSV)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsMethodCondom" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodCondom)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ClientType.IsMethodBOM" /> @Html.DisplayNameFor(model => model.ClientType.IsMethodBOM)
-                </label>
-            </div>
-
-            <hr />
-
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicalHistory.HasSevereHeadache" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasSevereHeadache)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicalHistory.HasHeartAttack" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasHeartAttack)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicalHistory.HasHematoma" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasHematoma)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicalHistory.HasBreastCancer" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasBreastCancer)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicalHistory.HasChestPain" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasChestPain)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicalHistory.HasCough" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasCough)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicalHistory.HasJaundice" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasJaundice)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicalHistory.HasVaginalBleeding" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasVaginalBleeding)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicalHistory.HasAbnormalDischarge" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasAbnormalDischarge)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicalHistory.HasTakenRifampicin" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasTakenRifampicin)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicalHistory.IsSmoker" /> @Html.DisplayNameFor(model => model.MedicalHistory.IsSmoker)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicalHistory.HasDisability" /> @Html.DisplayNameFor(model => model.MedicalHistory.HasDisability)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="MedicalHistory.Disability" class="control-label"></label>
-                <input asp-for="MedicalHistory.Disability" class="form-control" />
-                <span asp-validation-for="MedicalHistory.Disability" class="text-danger"></span>
-            </div>
-
-            <hr />
-
-            <div class="form-group">
-                <label asp-for="ObstetricalHistory.NumGravidityPregnancies" class="control-label"></label>
-                <input asp-for="ObstetricalHistory.NumGravidityPregnancies" class="form-control" />
-                <span asp-validation-for="ObstetricalHistory.NumGravidityPregnancies" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ObstetricalHistory.NumParityPregnancies" class="control-label"></label>
-                <input asp-for="ObstetricalHistory.NumParityPregnancies" class="form-control" />
-                <span asp-validation-for="ObstetricalHistory.NumParityPregnancies" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ObstetricalHistory.NumFullTerm" class="control-label"></label>
-                <input asp-for="ObstetricalHistory.NumFullTerm" class="form-control" />
-                <span asp-validation-for="ObstetricalHistory.NumFullTerm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ObstetricalHistory.NumAbortion" class="control-label"></label>
-                <input asp-for="ObstetricalHistory.NumAbortion" class="form-control" />
-                <span asp-validation-for="ObstetricalHistory.NumAbortion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ObstetricalHistory.NumPremature" class="control-label"></label>
-                <input asp-for="ObstetricalHistory.NumPremature" class="form-control" />
-                <span asp-validation-for="ObstetricalHistory.NumPremature" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ObstetricalHistory.NumLivingChildren" class="control-label"></label>
-                <input asp-for="ObstetricalHistory.NumLivingChildren" class="form-control" />
-                <span asp-validation-for="ObstetricalHistory.NumLivingChildren" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ObstetricalHistory.LastDelivery" class="control-label"></label>
-                <input asp-for="ObstetricalHistory.LastDelivery" class="form-control" />
-                <span asp-validation-for="ObstetricalHistory.LastDelivery" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ObstetricalHistory.IsLastDeliveryVaginal" class="control-label"></label>
-                <input asp-for="ObstetricalHistory.IsLastDeliveryVaginal" class="form-control" />
-                <span asp-validation-for="ObstetricalHistory.IsLastDeliveryVaginal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ObstetricalHistory.LastMenstrualPeriod" class="control-label"></label>
-                <input asp-for="ObstetricalHistory.LastMenstrualPeriod" class="form-control" />
-                <span asp-validation-for="ObstetricalHistory.LastMenstrualPeriod" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ObstetricalHistory.PreviousMenstrualPeriod" class="control-label"></label>
-                <input asp-for="ObstetricalHistory.PreviousMenstrualPeriod" class="form-control" />
-                <span asp-validation-for="ObstetricalHistory.PreviousMenstrualPeriod" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ObstetricalHistory.MenstrualFlow" class="control-label"></label>
-                <select asp-for="ObstetricalHistory.MenstrualFlow" class="form-control">
-                    <option selected="selected" value="">Please select</option>
-                    @foreach (var value in Enum.GetValues(typeof(MenstrualFlow)))
-                    {
-                        <option value="@value">@EnumExtension.GetEnumTitleCase((MenstrualFlow)value)</option>
-                    }
-                </select>
-                <span asp-validation-for="ObstetricalHistory.MenstrualFlow" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ObstetricalHistory.HasDysmenorrhea" /> @Html.DisplayNameFor(model => model.ObstetricalHistory.HasDysmenorrhea)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ObstetricalHistory.HasHydatidiformMole" /> @Html.DisplayNameFor(model => model.ObstetricalHistory.HasHydatidiformMole)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ObstetricalHistory.HadEctopicPregnancy" /> @Html.DisplayNameFor(model => model.ObstetricalHistory.HadEctopicPregnancy)
-                </label>
-            </div>
-
-            <hr />
-
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RisksForSTI.AbnormalDischarge" /> @Html.DisplayNameFor(model => model.RisksForSTI.AbnormalDischarge)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="RisksForSTI.Genitals" class="control-label"></label>
-                <select asp-for="RisksForSTI.Genitals" class="form-control">
-                    <option selected="selected" value="">Please select</option>
-                    @foreach (var value in Enum.GetValues(typeof(Genitals)))
-                    {
-                        <option value="@value">@EnumExtension.GetEnumTitleCase((Genitals)value)</option>
-                    }
-                </select>
-                <span asp-validation-for="RisksForSTI.Genitals" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RisksForSTI.HasSoresInGenitalArea" /> @Html.DisplayNameFor(model => model.RisksForSTI.HasSoresInGenitalArea)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RisksForSTI.HasPainInGenitalArea" /> @Html.DisplayNameFor(model => model.RisksForSTI.HasPainInGenitalArea)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RisksForSTI.HadTreatmentForSTI" /> @Html.DisplayNameFor(model => model.RisksForSTI.HadTreatmentForSTI)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RisksForSTI.HasHIV" /> @Html.DisplayNameFor(model => model.RisksForSTI.HasHIV)
-                </label>
-            </div>
-
-            <hr />
-
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RisksForVAW.HadVAW" /> @Html.DisplayNameFor(model => model.RisksForVAW.HadVAW)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RisksForVAW.HadUnpleasantRelationship" /> @Html.DisplayNameFor(model => model.RisksForVAW.HadUnpleasantRelationship)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RisksForVAW.PartnerNotApproveFP" /> @Html.DisplayNameFor(model => model.RisksForVAW.PartnerNotApproveFP)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="RisksForVAW.ReferredTo" class="control-label"></label>
-                <select asp-for="RisksForVAW.ReferredTo" class="form-control">
-                    <option selected="selected" value="">Please select</option>
-                    @foreach (var value in Enum.GetValues(typeof(VAWReferredTo)))
-                    {
-                        <option value="@value">@value</option>
-                    }
-                </select>
-                <span asp-validation-for="RisksForVAW.ReferredTo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RisksForVAW.ReferredToOthers" class="control-label"></label>
-                <input asp-for="RisksForVAW.ReferredToOthers" class="form-control" />
-                <span asp-validation-for="RisksForVAW.ReferredToOthers" class="text-danger"></span>
-            </div>
-
-            <hr />
-
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.Weight" class="control-label"></label>
-                <input asp-for="PhysicalExamination.Weight" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.Weight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.Height" class="control-label"></label>
-                <input asp-for="PhysicalExamination.Height" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.Height" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.BloodPressure" class="control-label"></label>
-                <input asp-for="PhysicalExamination.BloodPressure" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.BloodPressure" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.PulseRate" class="control-label"></label>
-                <input asp-for="PhysicalExamination.PulseRate" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.PulseRate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.Skin" class="control-label"></label>
-                <select asp-for="PhysicalExamination.Skin" class="form-control">
-                    <option selected="selected" value="">Please select</option>
-                    @foreach (var value in Enum.GetValues(typeof(Skin)))
-                    {
-                        <option value="@value">@EnumExtension.GetEnumLowCase((Skin)value)</option>
-                    }
-                </select>
-                <span asp-validation-for="PhysicalExamination.Skin" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.Conjunctiva" class="control-label"></label>
-                <select asp-for="PhysicalExamination.Conjunctiva" class="form-control">
-                    <option selected="selected" value="">Please select</option>
-                    @foreach (var value in Enum.GetValues(typeof(Conjunctiva)))
-                    {
-                        <option value="@value">@EnumExtension.GetEnumLowCase((Conjunctiva)value)</option>
-                    }
-                </select>
-                <span asp-validation-for="PhysicalExamination.Conjunctiva" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.Neck" class="control-label"></label>
-                <select asp-for="PhysicalExamination.Neck" class="form-control">
-                    <option selected="selected" value="">Please select</option>
-                    @foreach (var value in Enum.GetValues(typeof(Neck)))
-                    {
-                        <option value="@value">@EnumExtension.GetEnumLowCase((Neck)value)</option>
-                    }
-                </select>
-                <span asp-validation-for="PhysicalExamination.Neck" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.Breast" class="control-label"></label>
-                <select asp-for="PhysicalExamination.Breast" class="form-control">
-                    <option selected="selected" value="">Please select</option>
-                    @foreach (var value in Enum.GetValues(typeof(Breast)))
-                    {
-                        <option value="@value">@EnumExtension.GetEnumLowCase((Breast)value)</option>
-                    }
-                </select>
-                <span asp-validation-for="PhysicalExamination.Breast" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.Abdomen" class="control-label"></label>
-                <select asp-for="PhysicalExamination.Abdomen" class="form-control">
-                    <option selected="selected" value="">Please select</option>
-                    @foreach (var value in Enum.GetValues(typeof(Abdomen)))
-                    {
-                        <option value="@value">@EnumExtension.GetEnumLowCase((Abdomen)value)</option>
-                    }
-                </select>
-                <span asp-validation-for="PhysicalExamination.Abdomen" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.Extremities" class="control-label"></label>
-                <select asp-for="PhysicalExamination.Extremities" class="form-control">
-                    <option selected="selected" value="">Please select</option>
-                    @foreach (var value in Enum.GetValues(typeof(Extremities)))
-                    {
-                        <option value="@value">@EnumExtension.GetEnumLowCase((Extremities)value)</option>
-                    }
-                </select>
-                <span asp-validation-for="PhysicalExamination.Extremities" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.PelvicNormal" class="control-label"></label>
-                <input asp-for="PhysicalExamination.PelvicNormal" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.PelvicNormal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.PelvicMass" class="control-label"></label>
-                <input asp-for="PhysicalExamination.PelvicMass" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.PelvicMass" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.PelvicAbnormalDischarge" class="control-label"></label>
-                <input asp-for="PhysicalExamination.PelvicAbnormalDischarge" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.PelvicAbnormalDischarge" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.PelvicCervicalAbnormalities" class="control-label"></label>
-                <input asp-for="PhysicalExamination.PelvicCervicalAbnormalities" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.PelvicCervicalAbnormalities" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.PCAWarts" class="control-label"></label>
-                <input asp-for="PhysicalExamination.PCAWarts" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.PCAWarts" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.PCAPolyp" class="control-label"></label>
-                <input asp-for="PhysicalExamination.PCAPolyp" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.PCAPolyp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.PCAInflammation" class="control-label"></label>
-                <input asp-for="PhysicalExamination.PCAInflammation" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.PCAInflammation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.PCABloodyDischarge" class="control-label"></label>
-                <input asp-for="PhysicalExamination.PCABloodyDischarge" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.PCABloodyDischarge" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.PelvicCervicalConsistency" class="control-label"></label>
-                <input asp-for="PhysicalExamination.PelvicCervicalConsistency" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.PelvicCervicalConsistency" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.CervicalConsistency" class="control-label"></label>
-                <input asp-for="PhysicalExamination.CervicalConsistency" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.CervicalConsistency" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.CervicalTenderness" class="control-label"></label>
-                <input asp-for="PhysicalExamination.CervicalTenderness" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.CervicalTenderness" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.AdnexalMass" class="control-label"></label>
-                <input asp-for="PhysicalExamination.AdnexalMass" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.AdnexalMass" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.UterinePosition" class="control-label"></label>
-                <input asp-for="PhysicalExamination.UterinePosition" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.UterinePosition" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.UterinePositions" class="control-label"></label>
-                <input asp-for="PhysicalExamination.UterinePositions" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.UterinePositions" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhysicalExamination.UterineDepth" class="control-label"></label>
-                <input asp-for="PhysicalExamination.UterineDepth" class="form-control" />
-                <span asp-validation-for="PhysicalExamination.UterineDepth" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PhysicalExamination.UterineDepthSize" class="control-label"></label>
@@ -633,15 +658,12 @@
                 <span asp-validation-for="PhysicalExamination.UterineDepthSize" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="flex justify-end">
+                <a asp-action="Index" class="focus:outline-none text-white bg-red-400 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 hover:bg-red-450 !important">Back</a>
+                <button type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add</button>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
