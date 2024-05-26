@@ -21,7 +21,15 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\css\\style.css",
+=======
+      "Id": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\css\\style-masterlist.css",
+      "PackagePath": "staticwebassets\\css\\style-masterlist.css"
+    },
+    {
+      "Id": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\css\\style.css",
+>>>>>>> 45b165e3e66629631a5155993c599ddaf5214c5e
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {

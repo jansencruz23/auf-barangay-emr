@@ -4,7 +4,6 @@
     <BusinessObjectDataSource Name="MasterlistNewborns" ReferenceName="MasterlistNewborns" DataType="System.Int32" Enabled="true">
       <Column Name="FullName" DataType="System.String" PropName="Column"/>
       <Column Name="NameOfMother" DataType="System.String" PropName="Column"/>
-      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
       <Column Name="Sex" DataType="System.String" PropName="Column"/>
       <Column Name="Age" DataType="System.String" PropName="Column"/>
       <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
@@ -16,7 +15,6 @@
     <BusinessObjectDataSource Name="MasterlistInfants" ReferenceName="MasterlistInfants" DataType="System.Int32" Enabled="true">
       <Column Name="FullName" DataType="System.String" PropName="Column"/>
       <Column Name="NameOfMother" DataType="System.String" PropName="Column"/>
-      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
       <Column Name="Sex" DataType="System.String" PropName="Column"/>
       <Column Name="Age" DataType="System.String" PropName="Column"/>
       <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
@@ -28,7 +26,6 @@
     <BusinessObjectDataSource Name="MasterlistUnderFive" ReferenceName="MasterlistUnderFive" DataType="System.Int32" Enabled="true">
       <Column Name="FullName" DataType="System.String" PropName="Column"/>
       <Column Name="NameOfMother" DataType="System.String" PropName="Column"/>
-      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
       <Column Name="Sex" DataType="System.String" PropName="Column"/>
       <Column Name="Age" DataType="System.String" PropName="Column"/>
       <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
@@ -40,7 +37,6 @@
     <BusinessObjectDataSource Name="MasterlistSchoolAged" ReferenceName="MasterlistSchoolAged" DataType="System.Int32" Enabled="true">
       <Column Name="FullName" DataType="System.String" PropName="Column"/>
       <Column Name="NameOfMother" DataType="System.String" PropName="Column"/>
-      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
       <Column Name="Sex" DataType="System.String" PropName="Column"/>
       <Column Name="Age" DataType="System.String" PropName="Column"/>
       <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
@@ -52,7 +48,6 @@
     <BusinessObjectDataSource Name="MasterlistAdolescents" ReferenceName="MasterlistAdolescents" DataType="System.Int32" Enabled="true">
       <Column Name="FullName" DataType="System.String" PropName="Column"/>
       <Column Name="NameOfMother" DataType="System.String" PropName="Column"/>
-      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
       <Column Name="Sex" DataType="System.String" PropName="Column"/>
       <Column Name="Age" DataType="System.String" PropName="Column"/>
       <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
@@ -63,21 +58,17 @@
     </BusinessObjectDataSource>
     <BusinessObjectDataSource Name="MasterlistAdults" ReferenceName="MasterlistAdults" DataType="System.Int32" Enabled="true">
       <Column Name="FormattedFullName" DataType="System.String" PropName="Column"/>
-      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
       <Column Name="Sex" DataType="System.String" PropName="Column"/>
       <Column Name="Age" DataType="System.String" PropName="Column"/>
       <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
       <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
-      <Column Name="NotNhts" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
     </BusinessObjectDataSource>
     <BusinessObjectDataSource Name="MasterlistSeniors" ReferenceName="MasterlistSeniors" DataType="System.Int32" Enabled="true">
       <Column Name="FormattedFullName" DataType="System.String" PropName="Column"/>
-      <Column Name="Household.Address" Enabled="false" DataType="System.String" PropName="Column"/>
       <Column Name="Sex" DataType="System.String" PropName="Column"/>
       <Column Name="Age" DataType="System.String" PropName="Column"/>
       <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
       <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
-      <Column Name="NotNhts" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
     </BusinessObjectDataSource>
     <Parameter Name="Barangay" DataType="System.String" AsString=""/>
     <Parameter Name="Midwife" DataType="System.String" AsString=""/>

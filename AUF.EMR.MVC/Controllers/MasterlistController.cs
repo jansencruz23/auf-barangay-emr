@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using static System.Collections.Specialized.BitVector32;
 using System.Security.Claims;
+using AUF.EMR.MVC.Models.DetailVM;
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -45,6 +46,60 @@ namespace AUF.EMR.MVC.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        // GET: MasterlistController/ChildDetails
+        public async Task<ActionResult> ChildDetails(int? id, string requestUrl, string householdNo)
+        {
+            if (id == null || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var member = await _householdMemberService.GetHouseholdMemberWithDetails(id.Value);
+
+            if (member == null)
+            {
+                return NotFound();
+            }
+
+            int.TryParse(member.Age.Split(" ")[0], out int age);
+
+            var model = new DetailHouseholdMemberVM
+            {
+                HouseholdMember = member,
+                RequestUrl = requestUrl,
+                HouseholdNo = householdNo,
+            };
+
+            return View(model);
+        }
+
+        // GET: MasterlistController/ChildDetails
+        public async Task<ActionResult> AdultDetails(int? id, string requestUrl, string householdNo)
+        {
+            if (id == null || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            var member = await _householdMemberService.GetHouseholdMemberWithDetails(id.Value);
+
+            if (member == null)
+            {
+                return NotFound();
+            }
+
+            int.TryParse(member.Age.Split(" ")[0], out int age);
+
+            var model = new DetailHouseholdMemberVM
+            {
+                HouseholdMember = member,
+                RequestUrl = requestUrl,
+                HouseholdNo = householdNo,
+            };
+
+            return View(model);
+        }
+
         // GET: MasterlistController/EditChildrenInfo
         public async Task<ActionResult> EditChildrenInfo(int? id, string requestUrl, string householdNo)
         {
@@ -60,11 +115,16 @@ namespace AUF.EMR.MVC.Controllers
                 return NotFound();
             }
 
+            int.TryParse(member.Age.Split(" ")[0], out int age);
+            var ageSuffix = member.Age.Split(" ")[1];
+
             var model = new EditHouseholdMemberVM
             {
                 HouseholdMember = member,
                 RequestUrl = requestUrl,
-                HouseholdNo = householdNo
+                HouseholdNo = householdNo,
+                AgePrefix = age,
+                AgeSuffix = ageSuffix
             };
 
             return View(model);
@@ -88,8 +148,7 @@ namespace AUF.EMR.MVC.Controllers
             try
             {
                 var householdMember = model.HouseholdMember;
-                var householdId = await _householdService.GetHouseholdId(model.HouseholdNo);
-                householdMember.HouseholdId = householdId;
+                householdMember.Age = $"{model.AgePrefix} {model.AgeSuffix}";
                 var completed = await _householdMemberService.Update(householdMember);
 
                 return Redirect(model.RequestUrl);
@@ -116,11 +175,16 @@ namespace AUF.EMR.MVC.Controllers
                 return NotFound();
             }
 
+            int.TryParse(member.Age.Split(" ")[0], out int age);
+            var ageSuffix = member.Age.Split(" ")[1];
+
             var model = new EditHouseholdMemberVM
             {
                 HouseholdMember = member,
                 RequestUrl = requestUrl,
-                HouseholdNo = householdNo
+                HouseholdNo = householdNo,
+                AgePrefix = age,
+                AgeSuffix = ageSuffix
             };
 
             return View(model);
@@ -144,8 +208,7 @@ namespace AUF.EMR.MVC.Controllers
             try
             {
                 var householdMember = model.HouseholdMember;
-                var householdId = await _householdService.GetHouseholdId(model.HouseholdNo);
-                householdMember.HouseholdId = householdId;
+                householdMember.Age = $"{model.AgePrefix} {model.AgeSuffix}";
                 var completed = await _householdMemberService.Update(householdMember);
 
                 return Redirect(model.RequestUrl);
@@ -332,7 +395,7 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
-        public async Task<string> PrintChildren(string householdNo)
+        public async Task<string> Print(string householdNo)
         {
             if (string.IsNullOrWhiteSpace(householdNo))
             {

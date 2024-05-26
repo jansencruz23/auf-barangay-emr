@@ -14,7 +14,7 @@ namespace AUF.EMR.Domain.Models
         public string ClientId { get; set; }
         public string? PhilhealthNo { get; set; }
         public bool IsNHTS { get; set; }
-        public HouseholdMember ClientHouseholdMember { get; set; }
+        public HouseholdMember? ClientHouseholdMember { get; set; }
         public int ClientHouseholdMemberId { get; set; }
         public int ClientAge { get; set; }
         public string ClientOccupation { get; set; }
@@ -32,17 +32,17 @@ namespace AUF.EMR.Domain.Models
         public bool? IsPlanningChildren { get; set; }
         public double? AverageMonthlyIncome { get; set; }
         public int ClientTypeId { get; set; }
-        public ClientType ClientType { get; set; }
+        public ClientType? ClientType { get; set; }
         public int MedicalHistoryId { get; set; }
-        public MedicalHistory MedicalHistory { get; set; }
+        public MedicalHistory? MedicalHistory { get; set; }
         public int ObstetricalHistoryId { get; set; }
-        public ObstetricalHistory ObstetricalHistory { get; set; }
+        public ObstetricalHistory? ObstetricalHistory { get; set; }
         public int RisksForSTIId { get; set; }
-        public RisksForSTI RisksForSTI { get; set; }
+        public RisksForSTI? RisksForSTI { get; set; }
         public int RisksForVAWId { get; set; }
-        public RisksForVAW RisksForVAW { get; set; }
+        public RisksForVAW? RisksForVAW { get; set; }
         public int PhysicalExaminationId { get; set; }
-        public PhysicalExamination PhysicalExamination { get; set; }
+        public PhysicalExamination? PhysicalExamination { get; set; }
         public string FPMethod { get; set; }
         public string? ClientSignatureAcknowledgement { get; set; }
         [DataType(DataType.Date)]
@@ -50,6 +50,9 @@ namespace AUF.EMR.Domain.Models
         public string? ClientSignatureConsent { get; set; }
         [DataType(DataType.Date)]
         public DateTime DateConsent { get; set; }
+
+        // PRINTING
+        public bool? NotPlanningChildren { get => !IsPlanningChildren; }
 
     }
 }

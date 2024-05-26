@@ -55,8 +55,9 @@ namespace AUF.EMR.Persistence.Repositories
                 .Include(f => f.PhysicalExamination)
                 .Include(f => f.RisksForSTI)
                 .Include(f => f.RisksForVAW)
-                .Where(f => f.Status
-                    && f.ClientHouseholdMember.Household.HouseholdNo.Equals(householdNo))
+                .Where(f => f.Status && 
+                    f.ClientHouseholdMember.Status &&
+                    f.ClientHouseholdMember.Household.HouseholdNo.Equals(householdNo))
                 .ToListAsync();
 
             return records;
@@ -77,6 +78,101 @@ namespace AUF.EMR.Persistence.Repositories
                 .FirstOrDefaultAsync(f => f.Status && f.Id == id);
 
             return record;
+        }
+
+        public async Task UpdateFamilyPlanning(FamilyPlanningRecord fpRecord)
+        {
+            // Load the existing FamilyPlanningRecord from the database
+            var existingRecord = await _dbContext.FamilyPlanningRecords
+                .Include(f => f.ClientType)
+                .Include(f => f.MedicalHistory)
+                .Include(f => f.ObstetricalHistory)
+                .Include(f => f.RisksForSTI)
+                .Include(f => f.RisksForVAW)
+                .Include(f => f.PhysicalExamination)
+                .FirstOrDefaultAsync(f => f.Id == fpRecord.Id);
+
+            if (existingRecord == null)
+            {
+                throw new Exception($"FamilyPlanningRecord with Id {fpRecord.Id} does not exist.");
+            }
+
+            // Update the properties of the existing record with the new values
+            _dbContext.Entry(existingRecord).CurrentValues.SetValues(fpRecord);
+
+            if (fpRecord.ClientType != null)
+            {
+                if (existingRecord.ClientType == null)
+                {
+                    existingRecord.ClientType = fpRecord.ClientType;
+                }
+                else
+                {
+                    _dbContext.Entry(existingRecord.ClientType).CurrentValues.SetValues(fpRecord.ClientType);
+                }
+            }
+
+            if (fpRecord.MedicalHistory != null)
+            {
+                if (existingRecord.MedicalHistory == null)
+                {
+                    existingRecord.MedicalHistory = fpRecord.MedicalHistory;
+                }
+                else
+                {
+                    _dbContext.Entry(existingRecord.MedicalHistory).CurrentValues.SetValues(fpRecord.MedicalHistory);
+                }
+            }
+
+            if (fpRecord.ObstetricalHistory != null)
+            {
+                if (existingRecord.ObstetricalHistory == null)
+                {
+                    existingRecord.ObstetricalHistory = fpRecord.ObstetricalHistory;
+                }
+                else
+                {
+                    _dbContext.Entry(existingRecord.ObstetricalHistory).CurrentValues.SetValues(fpRecord.ObstetricalHistory);
+                }
+            }
+
+            if (fpRecord.RisksForSTI != null)
+            {
+                if (existingRecord.RisksForSTI == null)
+                {
+                    existingRecord.RisksForSTI = fpRecord.RisksForSTI;
+                }
+                else
+                {
+                    _dbContext.Entry(existingRecord.RisksForSTI).CurrentValues.SetValues(fpRecord.RisksForSTI);
+                }
+            }
+
+            if (fpRecord.RisksForVAW != null)
+            {
+                if (existingRecord.RisksForVAW == null)
+                {
+                    existingRecord.RisksForVAW = fpRecord.RisksForVAW;
+                }
+                else
+                {
+                    _dbContext.Entry(existingRecord.RisksForVAW).CurrentValues.SetValues(fpRecord.RisksForVAW);
+                }
+            }
+
+            if (fpRecord.PhysicalExamination != null)
+            {
+                if (existingRecord.PhysicalExamination == null)
+                {
+                    existingRecord.PhysicalExamination = fpRecord.PhysicalExamination;
+                }
+                else
+                {
+                    _dbContext.Entry(existingRecord.PhysicalExamination).CurrentValues.SetValues(fpRecord.PhysicalExamination);
+                }
+            }
+
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

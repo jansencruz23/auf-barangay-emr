@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/25/2024 13:37:53" ReportInfo.Modified="05/25/2024 21:04:58" ReportInfo.CreatorVersion="2024.2.0.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="WRA" ReferenceName="WRA" DataType="System.Int32" Enabled="true">
+      <Column Name="HouseholdMemberId" DataType="System.Int32" PropName="Column"/>
+      <Column Name="CivilStatus" DataType="System.Int32" PropName="Column"/>
+      <Column Name="IsPlanChildrenNow" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="IsPlanChildrenSpacing" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotPlanningChildren" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="IsFecund" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotFecund" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotFpMethod" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="IsFPModern" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="IsFpTraditional" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="ShiftToModern" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotShiftToModern" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="IsMFPUnmet" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotMFPUnmet" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="NotAcceptModernFpMethod" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="ModernFPMethod" DataType="System.String" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="FPAcceptedDate" DataType="System.DateTime" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="HouseholdMembers" ReferenceName="HouseholdMembers" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Id" DataType="System.Int32" PropName="Column"/>
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="TenToFourteen" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="FifteenToNineteen" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="TwentyToFourtyNine" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNhts" DataType="System.Boolean" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <Relation Name="HouseholdMembers_WRA" ParentDataSource="HouseholdMembers" ChildDataSource="WRA" ParentColumns="Id" ChildColumns="HouseholdMemberId" Enabled="true"/>
+    <Parameter Name="Quarter" DataType="System.Int32" AsString=""/>
+    <Parameter Name="Year" DataType="System.Int32" AsString=""/>
+    <Parameter Name="Barangay" DataType="System.String" AsString=""/>
+    <Parameter Name="Midwife" DataType="System.String" AsString=""/>
+    <Parameter Name="Date" DataType="System.String" AsString=""/>
+    <Parameter Name="Address" DataType="System.String" AsString=""/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="355.6" PaperHeight="215.9" RawPaperSize="5" Watermark.Font="Arial, 60pt" LastPageSource="261" FirstPageSource="261">
+    <PageHeaderBand Name="PageHeader1" Width="1268.57" Height="311.85">
+      <TextObject Name="Text10" Top="28.35" Width="1266.3" Height="18.9" Text="Master List of Women of Reproductive Age and Adolescent Women for Family Planning Services" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text11" Top="47.25" Width="1200.15" Height="18.9" Text="For the Quarter / Year:" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text12" Left="652.05" Top="44.71" Width="28.35" Height="18.9" Text="[Quarter]" HorzAlign="Right" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text13" Left="689.13" Top="44.73" Width="37.8" Height="18.9" Text="[Year]" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text14" Left="680.04" Top="45.09" Width="28.35" Height="18.9" Text="/" Font="Arial, 8.25pt"/>
+      <LineObject Name="Line1" Left="660.42" Top="58.5" Width="75.6"/>
+      <TextObject Name="Text15" Left="37.8" Top="94.5" Width="37.8" Height="18.9" Text="Brgy: " Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text16" Left="66.15" Top="94.5" Width="122.85" Height="18.9" Text="[Barangay]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text17" Left="500.85" Top="94.5" Width="113.4" Height="18.9" Text="Name of BHS Midwife:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text18" Left="604.8" Top="94.5" Width="160.65" Height="18.9" Text="[Midwife]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text19" Left="1020.6" Top="94.5" Width="75.6" Height="18.9" Text="Date Prepared:" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text20" Left="1096.2" Top="94.5" Width="132.3" Height="18.9" Text="[Date]" Underlines="true" Font="Arial, 7pt"/>
+      <TextObject Name="Text21" Left="37.8" Top="132.3" Width="28.35" Height="18.9" Text="No." HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text22" Left="66.15" Top="132.3" Width="122.85" Height="18.9" Text="Full Name of WRA" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text23" Left="189" Top="132.3" Width="122.85" Height="18.9" Text="Address" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text24" Left="311.85" Top="132.3" Width="113.4" Height="18.9" Text="Age in Years" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text25" Left="311.85" Top="198.45" Width="37.8" Height="18.9" Text="10-14" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text26" Left="349.65" Top="198.45" Width="37.8" Height="18.9" Text="15-19" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text27" Left="387.45" Top="198.45" Width="37.8" Height="18.9" Text="20-49" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text28" Left="425.25" Top="132.3" Width="47.25" Height="18.9" Text="Birthday" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text29" Left="38.66" Top="199.48" Width="28.35" Height="18.9" Text="(1)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text30" Left="66.15" Top="198.45" Width="122.85" Height="18.9" Text="(2)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text31" Left="189" Top="198.45" Width="122.85" Height="18.9" Text="(3)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text32" Left="311.85" Top="170.1" Width="113.4" Height="18.9" Text="(4)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text33" Left="425.25" Top="198.45" Width="47.25" Height="18.9" Text="(5)" HorzAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text34" Left="472.5" Top="132.3" Width="56.7" Height="18.9" Text="SE Status" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text35" Left="472.5" Top="198.45" Width="56.7" Height="37.8" Text="1. NHTS&#13;&#10;2. Non-&#13;&#10;NHTS" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text36" Left="529.2" Top="132.3" Width="75.6" Height="18.9" Text="Civil Status" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text37" Left="529.2" Top="170.1" Width="75.6" Height="18.9" Text="(7)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text38" Left="529.2" Top="198.45" Width="75.6" Height="113.4" Text="1. Currently&#13;&#10;Married&#13;&#10;2. Not married&#13;&#10;but in a&#13;&#10;relationship as&#13;&#10;Married Living -&#13;&#10;in&#13;&#10;3. Not married&#13;&#10;and not in a&#13;&#10;relationship with&#13;&#10;a man" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text39" Left="604.8" Top="132.3" Width="113.4" Height="18.9" Text="Do you plan to have&#13;&#10;more children?" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text40" Left="604.8" Top="170.1" Width="113.4" Height="18.9" Text="(8)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text41" Left="604.8" Top="198.45" Width="75.6" Height="37.8" Text="If yes, when?" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text42" Left="680.4" Top="198.45" Width="37.8" Height="37.8" Text="No" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text43" Left="604.8" Top="236.25" Width="28.35" Height="37.8" Text="Now&#13;&#10;(8a)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text44" Left="633.15" Top="236.25" Width="47.25" Height="37.8" Text="Spacing&#13;&#10;(8b)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text45" Left="680.4" Top="236.25" Width="37.8" Height="37.8" Text="Limiting&#13;&#10;(8c)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text46" Left="718.2" Top="132.3" Width="94.5" Height="18.9" Text="Fucundity" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text47" Left="718.2" Top="170.1" Width="94.5" Height="18.9" Text="(9)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text48" Left="718.2" Top="198.45" Width="47.25" Height="37.8" Text="Fecund&#13;&#10;(9a)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text49" Left="765.45" Top="198.45" Width="47.25" Height="37.8" Text="Infecund&#13;&#10;(9b)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text50" Left="822.15" Top="132.3" Width="132.3" Height="28.35" Text="If col. 8b or 8c is ✓, are you&#13;&#10;currently using FP method?" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text51" Left="812.7" Top="170.1" Width="141.75" Height="18.9" Text="(10)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text52" Left="812.7" Top="198.45" Width="47.25" Height="37.8" Text="If Yes,&#13;&#10;what&#13;&#10;type?" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text53" Left="812.7" Top="236.25" Width="47.25" Height="37.8" Text="Modern&#13;&#10;&#13;&#10;(10a)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text54" Left="859.95" Top="236.25" Width="37.8" Height="37.8" Text="Traditi&#13;&#10;onal&#13;&#10;(10b)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text55" Left="907.2" Top="198.45" Width="47.25" Height="94.5" Text="Not&#13;&#10;Using&#13;&#10;any FP&#13;&#10;method&#13;&#10;(Place a&#13;&#10;✓)&#13;&#10;(10c)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text56" Left="954.45" Top="132.3" Width="75.6" Height="66.15" Text="If col. 8b or 8c&#13;&#10;is ✓, and using&#13;&#10;col. 10b or 10c,&#13;&#10;would you like&#13;&#10;to shift to&#13;&#10;Modern" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text57" Left="954.45" Top="198.45" Width="37.8" Height="37.8" Text="Yes&#13;&#10;(11a)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text58" Left="992.25" Top="198.45" Width="37.8" Height="37.8" Text="No&#13;&#10;(11b)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text59" Left="1030.05" Top="132.3" Width="56.7" Height="66.15" Text="Does this&#13;&#10;WRA has&#13;&#10;MFP Unmet&#13;&#10;need?" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text60" Left="1030.05" Top="179.55" Width="56.7" Height="18.9" Text="(12)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text61" Left="1030.05" Top="198.45" Width="56.7" Height="37.8" Text="Place a&#13;&#10;✓ if Yes&#13;&#10;X if No" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text62" Left="1086.75" Top="132.3" Width="141.75" Height="66.15" Text="Based on TCL on FP, did WRA&#13;&#10;accept any modern FP method" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text63" Left="1086.75" Top="170.1" Width="141.75" Height="18.9" Text="(13)" HorzAlign="Center" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text64" Left="1086.75" Top="198.45" Width="47.25" Height="37.8" Text="No&#13;&#10;(13a)&#13;&#10;Put a ✓" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text65" Left="1134" Top="198.45" Width="94.5" Height="37.8" Text="Yes&#13;&#10;(13b)" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text66" Left="1134" Top="236.25" Width="47.25" Height="37.8" Text="Specify&#13;&#10;modern&#13;&#10;FP&#13;&#10;Method" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text67" Left="1181.25" Top="236.25" Width="47.25" Height="37.8" Text="Date when&#13;&#10;FP method&#13;&#10;acccepted" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <LineObject Name="Line2" Left="37.8" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line3" Left="37.8" Top="311.85" Width="1190.7"/>
+      <LineObject Name="Line4" Left="1228.5" Top="311.85" Height="-179.55"/>
+      <LineObject Name="Line5" Left="1228.5" Top="132.3" Width="-1190.7"/>
+      <LineObject Name="Line6" Left="66.15" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line7" Left="189" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line8" Left="311.85" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line9" Left="425.25" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line10" Left="529.2" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line11" Left="311.85" Top="198.45" Width="113.4"/>
+      <LineObject Name="Line12" Left="349.65" Top="198.45" Height="113.4"/>
+      <LineObject Name="Line13" Left="387.45" Top="198.45" Height="113.4"/>
+      <LineObject Name="Line14" Left="472.5" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line15" Left="472.5" Top="198.45" Width="56.7"/>
+      <LineObject Name="Line16" Left="604.8" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line17" Left="529.2" Top="198.45" Width="75.6"/>
+      <LineObject Name="Line18" Left="718.2" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line19" Left="604.8" Top="198.45" Width="113.4"/>
+      <LineObject Name="Line20" Left="680.4" Top="198.45" Height="113.4"/>
+      <LineObject Name="Line21" Left="604.8" Top="236.25" Width="113.4"/>
+      <LineObject Name="Line22" Left="633.15" Top="236.25" Height="75.6"/>
+      <LineObject Name="Line23" Left="718.2" Top="198.45" Width="94.5"/>
+      <LineObject Name="Line24" Left="812.7" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line25" Left="765.45" Top="198.45" Height="113.4"/>
+      <LineObject Name="Line26" Left="954.45" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line27" Left="812.7" Top="198.45" Width="415.8"/>
+      <LineObject Name="Line28" Left="859.95" Top="198.45" Height="113.4"/>
+      <LineObject Name="Line29" Left="907.2" Top="198.45" Height="113.4"/>
+      <LineObject Name="Line30" Left="907.2" Top="236.25" Width="-94.5"/>
+      <LineObject Name="Line31" Left="954.45" Top="236.25" Width="75.6"/>
+      <LineObject Name="Line32" Left="1030.05" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line33" Left="1086.75" Top="132.3" Height="179.55"/>
+      <LineObject Name="Line34" Left="1134" Top="198.45" Height="113.4"/>
+      <LineObject Name="Line35" Left="1134" Top="236.25" Width="94.5"/>
+      <LineObject Name="Line36" Left="1181.25" Top="236.25" Height="75.6"/>
+      <LineObject Name="Line44" Left="992.25" Top="198.45" Height="113.4"/>
+      <LineObject Name="Line71" Left="1260.35" Top="198.47"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="315.05" Width="1268.57" Height="28.35" DataSource="WRA">
+      <TextObject Name="Text68" Left="37.8" Width="28.35" Height="18.9" Text="[Row#]" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text69" Left="66.15" Width="122.85" Height="18.9" Text="[WRA.HouseholdMembers.FullName]" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text70" Left="189" Width="122.85" Height="18.9" Text="[Address]" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox1" Left="321.3" Width="18.9" Height="18.9" DataColumn="WRA.HouseholdMembers.TenToFourteen"/>
+      <CheckBoxObject Name="CheckBox2" Left="359.1" Width="18.9" Height="18.9" DataColumn="WRA.HouseholdMembers.FifteenToNineteen"/>
+      <CheckBoxObject Name="CheckBox3" Left="396.9" Width="18.9" Height="18.9" DataColumn="WRA.HouseholdMembers.TwentyToFourtyNine"/>
+      <TextObject Name="Text71" Left="425.25" Width="47.25" Height="18.9" Text="[HouseholdMembers.Birthday]" Format="Date" Format.Format="d" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text72" Left="472.5" Width="56.7" Height="18.9" Text="[IIf([HouseholdMembers.IsNhts],&quot;1&quot;,&quot;2&quot;)]" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text73" Left="529.2" Width="75.6" Height="18.9" Text="[WRA.CivilStatus]" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox4" Left="610.25" Width="18.9" Height="18.9" DataColumn="WRA.IsPlanChildrenNow"/>
+      <CheckBoxObject Name="CheckBox5" Left="648.05" Width="18.9" Height="18.9" DataColumn="WRA.IsPlanChildrenSpacing"/>
+      <CheckBoxObject Name="CheckBox6" Left="689.85" Width="18.9" Height="18.9" DataColumn="WRA.NotPlanningChildren"/>
+      <CheckBoxObject Name="CheckBox7" Left="727.65" Width="18.9" Height="18.9" DataColumn="WRA.IsFecund"/>
+      <CheckBoxObject Name="CheckBox8" Left="777.98" Top="-0.47" Width="18.9" Height="18.9" DataColumn="WRA.NotFecund"/>
+      <CheckBoxObject Name="CheckBox9" Left="826.15" Width="18.9" Height="18.9" DataColumn="WRA.IsFPModern"/>
+      <CheckBoxObject Name="CheckBox10" Left="920.1" Top="0.5" Width="18.9" Height="18.9" DataColumn="WRA.NotFpMethod"/>
+      <CheckBoxObject Name="CheckBox11" Left="869.4" Width="18.9" Height="18.9" DataColumn="WRA.IsFpTraditional"/>
+      <CheckBoxObject Name="CheckBox12" Left="959.4" Top="0.5" Width="18.9" Height="18.9" DataColumn="WRA.ShiftToModern"/>
+      <CheckBoxObject Name="CheckBox13" Left="998.2" Width="18.9" Height="18.9" DataColumn="WRA.NotShiftToModern"/>
+      <CheckBoxObject Name="CheckBox14" Left="1048.95" Width="18.9" Height="18.9" DataColumn="WRA.IsMFPUnmet"/>
+      <CheckBoxObject Name="CheckBox15" Left="1048.95" Width="18.9" Height="18.9" CheckedSymbol="Cross" DataColumn="WRA.NotMFPUnmet"/>
+      <CheckBoxObject Name="CheckBox16" Left="1101.65" Width="18.9" Height="18.9" DataColumn="WRA.NotAcceptModernFpMethod"/>
+      <TextObject Name="Text74" Left="1134" Width="47.25" Height="18.9" Text="[WRA.ModernFPMethod]" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text75" Left="1181.25" Width="47.25" Height="18.9" Text="[WRA.FPAcceptedDate]" Format="Date" Format.Format="d" Font="Arial, 6.5pt"/>
+      <LineObject Name="Line37" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line47" Left="907.2" Height="28.35"/>
+      <LineObject Name="Line49" Left="812.7" Height="28.35"/>
+      <LineObject Name="Line50" Left="765.45" Height="28.35"/>
+      <LineObject Name="Line51" Left="718.2" Height="28.35"/>
+      <LineObject Name="Line52" Left="680.4" Height="28.35"/>
+      <LineObject Name="Line53" Left="633.15" Height="28.35"/>
+      <LineObject Name="Line54" Left="604.8" Height="28.35"/>
+      <LineObject Name="Line55" Left="529.2" Height="28.35"/>
+      <LineObject Name="Line56" Left="472.5" Height="28.35"/>
+      <LineObject Name="Line58" Left="387.45" Height="28.35"/>
+      <LineObject Name="Line59" Left="349.65" Height="28.35"/>
+      <LineObject Name="Line62" Left="66.15" Height="28.35"/>
+      <LineObject Name="Line63" Left="859.95" Height="28.35"/>
+      <LineObject Name="Line64" Left="954.45" Height="28.35"/>
+      <LineObject Name="Line65" Left="992.25" Height="28.35"/>
+      <LineObject Name="Line66" Left="1030.05" Height="28.35"/>
+      <LineObject Name="Line67" Left="1086.75" Height="28.35"/>
+      <LineObject Name="Line68" Left="1134" Height="28.35"/>
+      <LineObject Name="Line69" Left="1181.25" Height="28.35"/>
+      <LineObject Name="Line70" Left="1228.5" Height="28.35"/>
+      <LineObject Name="Line57" Left="425.25" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line60" Left="311.85" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line61" Left="189" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line72" Left="37.8" Top="28.35" Width="1190.7"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="346.6" Width="1268.57" Height="66.15">
+      <TextObject Name="Text76" Left="66.15" Top="18.9" Width="623.7" Height="18.9" Text="Recommended only for those who do not have their master list to identify WRA with unmet need for Modern Family Planning." Font="Arial, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

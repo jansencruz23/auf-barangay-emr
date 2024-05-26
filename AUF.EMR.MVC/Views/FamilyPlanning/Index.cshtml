@@ -2,190 +2,218 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "Layouts/_FamilyPlanningIndex";
 }
 
-<h1>Index</h1>
+<div class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-4">
+        <h1 class="text-2xl font-bold mb-8">Family Planning Records</h1>
 
-<p>
-    <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                ClientId
-            </th>
-            <th>
-                PhilhealthNo
-            </th>
-            <th>
-                IsNHTS
-            </th>
-            <th>
-                ClientHouseholdMember
-            </th>
-            <th>
-                ClientAge
-            </th>
-            <th>
-                ClientOccupation
-            </th>
-            <th>
-                ContactNo
-            </th>
-            <th>
-                CivilStatus
-            </th>
-            <th>
-                Religion
-            </th>
-            <th>
-                SpouseLastName
-            </th>
-            <th>
-                SpouseFirstName
-            </th>
-            <th>
-                SpouseMiddleInitial
-            </th>
-            <th>
-                SpouseBirthday
-            </th>
-            <th>
-                SpouseAge
-            </th>
-            <th>
-                SpouseOccupation
-            </th>
-            <th>
-                LivingChildrenNo
-            </th>
-            <th>
-                IsPlanningChildren
-            </th>
-            <th>
-                AverageMonthlyIncome
-            </th>
-            <th>
-                FPMethod
-            </th>
-            <th>
-                ClientSignatureAcknowledgement
-            </th>
-            <th>
-                DateAcknowledgement
-            </th>
-            <th>
-                ClientSignatureConsent
-            </th>
-            <th>
-                DateConsent
-            </th>
-            <th>
-                Status
-            </th>
-            <th>
-                DateCreated
-            </th>
-            <th>
-                LastModified
-            </th>
-            <th>
-                ModifiedById
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.FPRecords) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhilhealthNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsNHTS)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientHouseholdMember.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientAge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientOccupation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CivilStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Religion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpouseLastName)
-            </td>            
-            <td>
-                @Html.DisplayFor(modelItem => item.SpouseLastName)
-            </td>          
-            <td>
-                @Html.DisplayFor(modelItem => item.SpouseMiddleInitial)
-            </td>       
-            <td>
-                @Html.DisplayFor(modelItem => item.SpouseBirthday)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpouseAge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpouseOccupation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LivingChildrenNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsPlanningChildren)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AverageMonthlyIncome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FPMethod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientSignatureAcknowledgement)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateAcknowledgement)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientSignatureConsent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateConsent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreated)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastModified)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedById)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        <div class="flex justify-end space-x-2 mb-6">
+            <a asp-action="Generate" asp-route-householdNo="@Model.HouseholdNo" class="flex-shrink-0 inline-block bg-blue-500 hover:bg-blue-300 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm w-24">
+                <svg class="w-5 h-5 text-white inline-block mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H8Zm-3 7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h1a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5Zm4 11a1 1 0 0 1-1-1v-4h8v4a1 1 0 0 1-1 1H9Z" clip-rule="evenodd" />
+                </svg>
+                <span class="hidden md:inline font-medium">Print</span>
+            </a>
+
+            <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo" class="text-white bg-primary-50 font-medium rounded-lg transition duration-300 ease-in-out text-sm px-4 py-2 hover:bg-green-300 flex-shrink-0 inline-block  text-white font-medium" aria-label="Add WRA">
+                <svg class="h-5 w-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                Add Family Planning
+            </a>
+        </div>
+    </div>
+
+    <div class="bg-white shadow-md rounded-lg p-8">
+        <div style="overflow:auto;">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="px-2 py-2 text-left">
+                            ClientId
+                        </th>
+                        @*  <th>
+                        PhilhealthNo
+                        </th> *@
+                        <th class="px-1 py-2 text-left">
+                            IsNHTS
+                        </th>
+                        <th class="py-2 text-left">
+                            ClientHouseholdMember
+                        </th>
+                        <th class="px-1 py-2 text-left">
+                            Age
+                        </th>
+                        <th class="px-1 py-2 text-left">
+                            Occupation
+                        </th>
+                        <th class="py-2 text-left">
+                            Contact
+                        </th>
+                        @* <th class="px-2 py-2 text-left">
+                        CivilStatus
+                        </th>
+                        <th>
+                        Religion
+                        </th>
+                        <th>
+                        SpouseLastName
+                        </th>
+                        <th>
+                        SpouseFirstName
+                        </th>
+                        <th>
+                        SpouseMiddleInitial
+                        </th>
+                        <th>
+                        SpouseBirthday
+                        </th>
+                        <th>
+                        SpouseAge
+                        </th>
+                        <th>
+                        SpouseOccupation
+                        </th>
+                        <th class="py-2 text-left">
+                        LivingChildren
+                        </th> *@
+                        <th class="py-2 text-left">
+                            IsPlanningChildren
+                        </th>
+                        @** <th>
+                        AverageMonthlyIncome
+                        </th>
+                        <th>
+                        FPMethod
+                        </th>
+                        <th>
+                        ClientSignatureAcknowledgement
+                        </th>
+                        <th>
+                        DateAcknowledgement
+                        </th>
+                        <th>
+                        ClientSignatureConsent
+                        </th>
+                        <th>
+                        DateConsent
+                        </th>
+                        <th>
+                        Status
+                        </th>
+                        <th>
+                        DateCreated
+                        </th>
+                        <th>
+                        LastModified
+                        </th>
+                        <th>
+                        ModifiedById
+                        </th> *@
+                        <th class="py-2 text-left">
+
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model.FPRecords)
+                    {
+                        <tr>
+                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.ClientId)
+                            </td>
+                            @*  <td>
+                        @Html.DisplayFor(modelItem => item.PhilhealthNo)
+                        </td> *@
+                            <td class="border-b border-gray-100 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.IsNHTS)
+                            </td>
+                            <td class="border-b border-gray-100 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.ClientHouseholdMember.Age)
+                            </td>
+                            <td class="border-b border-gray-100 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.ClientAge)
+                            </td>
+                            <td class="border-b border-gray-100 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.ClientOccupation)
+                            </td>
+                            <td class="border-b border-gray-100 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.ContactNo)
+                            </td>
+                            @* <td class="border-b border-gray-100 py-2 text-left">
+                        @Html.DisplayFor(modelItem => item.CivilStatus)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.Religion)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.SpouseLastName)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.SpouseLastName)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.SpouseMiddleInitial)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.SpouseBirthday)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.SpouseAge)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.SpouseOccupation)
+                        </td>
+                        <td class="border-b border-gray-100 py-2 text-left">
+                        @Html.DisplayFor(modelItem => item.LivingChildrenNo)
+                        </td> *@
+                            <td class="border-b border-gray-100 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.IsPlanningChildren)
+                            </td>
+                            @*      <td>
+                        @Html.DisplayFor(modelItem => item.AverageMonthlyIncome)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.FPMethod)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.ClientSignatureAcknowledgement)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.DateAcknowledgement)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.ClientSignatureConsent)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.DateConsent)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.DateCreated)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.LastModified)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.ModifiedById)
+                        </td> *@
+                            <td class="border-b border-gray-100 py-2 text-left inline-flex items-center text-center">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="text-yellow-300 hover:text-yellow-400 mr-2"><i class="fas fa-edit"></i></a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-red-300 hover:text-red-400">
+                                    <button type="submit" class="text-red-500 hover:text-red-600 py-1 rounded-md"><i class="fas fa-trash-alt"></i></button>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@model DetailHouseholdMemberVM
+
+@{
+    Layout = "Layouts/_MasterlistLayout";
+    ViewData["Title"] = "ChildDetails";
+}
+<div class="container mx-auto py-8">
+
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
+
+        <h1 class="text-xl font-bold text-gray-800 mb-4">Child Details</h1>
+
+        <div class="text-gray-800">
+            <h4>Household Member</h4>
+            <hr class="mb-4" />
+
+            <dl class="grid grid-cols-1 gap-y-4 gap-x-8">
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">HH.NO/ Family Serial No.:</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdNo)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Name:</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.FullName)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Address:</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Household.FullAddress)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Sex:</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Sex)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Age:</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Age)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Date of Birth:</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Birthday)</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">NHTS:</dt>
+                    <dd class="text-gray-900">@((Model.HouseholdMember.IsNhts) ? "NHTS" : "Non-NHTS")</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">In School:</dt>
+                    <dd class="text-gray-900">@((Model.HouseholdMember.IsInSchool.HasValue) ? ((Model.HouseholdMember.IsInSchool.Value) ? "In school" : "Out of school youth") : "")</dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="flex justify-end mt-8">
+            <a href="@Url.Action("EditChildrenInfo", new { id = Model.HouseholdMember.Id, householdNo = Model.HouseholdNo, requestUrl = Model.RequestUrl })" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 w-20 flex items-center justify-center">Edit</a>
+            <a href="@Model.RequestUrl" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back to List</a>
+        </div>
+
+    </div>
+</div>

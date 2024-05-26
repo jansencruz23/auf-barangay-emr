@@ -1,91 +1,118 @@
 ﻿@model HouseholdMemberListVM
 
 @{
+    Layout = "Layouts/_MasterlistLayout";
     ViewData["Title"] = "Masterlist of School-aged Children";
 }
 
-<h1>List of School-aged Children</h1>
-<a asp-action="PrintChildren" asp-route-requestUrl="@Model.RequestUrl" asp-route-householdNo="@Model.HouseholdNo">Print Masterlist</a>
-<br />
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-8">Masterlist of School-Aged Children</h1>
 
-@Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
+    <!--Print Button-->
+    <div class="flex justify-end mb-6">
+        <button type="button" onclick="print('Print', 'OralHealthClient', @Model.HouseholdNo)"
+                class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out">
+            Print School-Aged Children
+        </button>
+    </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                HH. NO/ Family Serial No.
-            </th>
-            <th>
-                Name of Child
-            </th>
-            <th>
-                Name of Mother
-            </th>
-            <th>
-                Name of Father
-            </th>
-            <th>
-                Address
-            </th>
-            <th>
-                Sex
-            </th>
-            <th>
-                Age
-            </th>
-            <th>
-                Birthday
-            </th>
-            <th>
-                NHTS
-            </th>
-            <th>
-                In School
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.HouseholdMembers)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Household.HouseholdNo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FormattedFullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NameOfMother)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NameOfFather)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Household.FullAddress)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Sex)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Age)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Birthday)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsNhts)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsInSchool)
-                </td>
-                <td>
-                    <a asp-action="EditChildrenInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl">Edit</a> |
-                    <a asp-action="Details" asp-controller="HouseholdMember" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+    <!--Search Bar-->
+    <div class="flex justify-between items-center mb-8">
+        <div class="flex-1 mr-4 relative">
+            <input type="text" class="w-full bg-white shadow-md rounded-lg p-3 pr-10 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-200 border-none"
+                   placeholder="Search...">
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path d="M21 21l-5.2-5.2m.8-.8a8 8 0 1 1-10.6-10.6 8 8 0 0 1 10.6 10.6z"></path>
+                </svg>
+            </div>
+        </div>
+        <!--Search Button-->
+        <button type="button" onclick="print('Print', 'OralHealthClient', @Model.HouseholdNo)"
+                class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out">
+            Search
+        </button>
+    </div>
+
+    <div class="bg-white shadow-md rounded-lg p-8">
+        @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
+
+        <!--Table-->
+        <div class="overflow-x-auto">
+            <table class="table-auto w-full">
+                <thead class="bg-gray-200">
+                    <tr class="bg-gray-200 text-sm">
+                        <th class="px-4 py-2 text-left">HH. NO/ Family Serial No.</th>
+                        <th class="px-4 py-2 text-left">Name of Child</th>
+                        <th class="px-4 py-2 text-left">Name of Mother</th>
+                        <th class="px-4 py-2 text-left">Name of Father</th>
+                        <th class="px-4 py-2 text-left">Address</th>
+                        <th class="px-4 py-2 text-left">Sex</th>
+                        <th class="px-4 py-2 text-left">Age</th>
+                        <th class="px-4 py-2 text-left">Birthday</th>
+                        <th class="px-4 py-2 text-left">NHTS</th>
+                        <th class="px-4 py-2 text-left">In School</th>
+                        <th class="px-4 py-2 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <!--Table Contents-->
+                <tbody>
+                    @foreach (var item in Model.HouseholdMembers)
+                    {
+                        <tr class="text-sm hover-table-content transition duration-300 ease-in-out">
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.Household.HouseholdNo)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.FormattedFullName)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.NameOfMother)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.NameOfFather)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.Household.FullAddress)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.Sex)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.Age)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.Birthday)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.IsNhts)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IsInSchool)
+                            </td>
+                            <!--Action Button-->
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                                <a asp-action="EditChildrenInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-yellow-300 hover:text-yellow-400 mr-2">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a asp-action="ChildDetails" asp-controller="Masterlist" asp-route-id="@item.Id" asp-route-requestUrl="@Model.RequestUrl" asp-route-householdNo="@Model.HouseholdNo" class="text-green-400 hover:text-green-500 mr-2">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="text-red-300 hover:text-red-400">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("Prints/_PrintDialog");
         }
-    </tbody>
-</table>
+    }

@@ -33,6 +33,12 @@ namespace AUF.EMR.MVC.Controllers
                 AdolescentsCount = await _dashboardService.GetAdolescentCount(),
                 AdultCount = await _dashboardService.GetAdultsCount(),
                 SeniorCount = await _dashboardService.GetSeniorCount(),
+                PregnantCount = await _dashboardService.GetPregnantCount(),
+                WRAFormCount = await _dashboardService.GetWRAFormCount(),
+                PregTrackCount = await _dashboardService.GetPregnancyTrackingFormCount(),
+                FamilyPlanningFormsCount = await _dashboardService.GetFamilyPlanningFormCount(),
+                PatientRecordCount = await _dashboardService.GetPatientRecordCount(),
+                PregnancyRecordCount = await _dashboardService.GetPregnancyRecordCount(),
             };
 
             return View(model);
@@ -41,6 +47,11 @@ namespace AUF.EMR.MVC.Controllers
         // GET: DashboardController/Household/5
         public async Task<ActionResult> Household(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
             var householdExisting = await _householdService.IsHouseholdNoExisting(householdNo);
             if (!householdExisting)
             {
@@ -57,6 +68,12 @@ namespace AUF.EMR.MVC.Controllers
                 AdolescentsCount = await _dashboardService.GetAdolescentCount(householdNo),
                 AdultCount = await _dashboardService.GetAdultsCount(householdNo),
                 SeniorCount = await _dashboardService.GetSeniorCount(householdNo),
+                PregnantCount = await _dashboardService.GetPregnantCount(householdNo),
+                WRAFormCount = await _dashboardService.GetWRAFormCount(householdNo),
+                PregTrackCount = await _dashboardService.GetPregnancyTrackingFormCount(householdNo),
+                FamilyPlanningFormsCount = await _dashboardService.GetFamilyPlanningFormCount(householdNo),
+                PatientRecordCount = await _dashboardService.GetPatientRecordCount(householdNo),
+                PregnancyRecordCount = await _dashboardService.GetPregnancyRecordCount(householdNo),
             };
 
             return View(model);

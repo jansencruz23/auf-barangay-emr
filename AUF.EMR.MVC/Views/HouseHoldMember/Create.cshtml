@@ -67,9 +67,16 @@
                     </div>
 
                     <div class="mb-4">
-                        <label asp-for="HouseholdMember.Birthday" class="block mb-2 text-sm font-medium text-gray-700">Date of Birth</label>
-                        <input asp-for="HouseholdMember.Birthday" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="HouseholdMember.Birthday" class="block mb-2 text-sm text-red-700"></span>
+                        <label asp-for="HouseholdMember.Birthday" class="block mb-2 text-sm font-medium text-gray-700">Birthday</label>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="HouseholdMember.Birthday" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="HouseholdMember.Birthday" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                     <div class="mb-2 mt-8">
                         <h6 class="text-md font-bold text-gray-800">Relationship</h6>
@@ -307,7 +314,7 @@
                             <label class="ms-2 text-sm font-medium text-gray-900">Out of School Youth</label>
                         </div>
                         <div class="flex items-center me-4">
-                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsInSchool" value="null" />
+                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsInSchool" value="" />
                             <label class="ms-2 text-sm font-medium text-gray-900">Not in School</label>
                         </div>
                     </div>

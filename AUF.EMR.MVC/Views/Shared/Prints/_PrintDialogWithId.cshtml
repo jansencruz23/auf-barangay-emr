@@ -1,0 +1,49 @@
+﻿<script>
+    function print(action, controller, householdNo, id, householdMemberId) {
+
+        $.ajax({
+            url: `/${controller}/${action}/${id}?householdNo=${householdNo}&householdMemberId=${householdMemberId}`,
+            type: "GET",
+            success: function (data) {
+                // Create a Blob from the Base64 string
+                var blob = b64toBlob(data, 'application/pdf');
+                // Create an object URL from the Blob
+                var objectUrl = URL.createObjectURL(blob);
+                // Create an iframe with the object URL as the src
+                var iframe = $('<iframe style="display: none;"></iframe>');
+                iframe.attr('src', objectUrl);
+                $('body').append(iframe);
+                // Wait for the iframe to load and then print its content
+                iframe.on('load', function () {
+                    iframe[0].contentWindow.focus();
+                    iframe[0].contentWindow.print();
+                });
+            }
+        });
+    }
+
+    // Function to convert a Base64 string to a Blob
+    function b64toBlob(b64Data, contentType, sliceSize) {
+
+        contentType = contentType || '';
+        sliceSize = sliceSize || 512;
+
+        var byteCharacters = atob(b64Data);
+        var byteArrays = [];
+
+        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+            var byteNumbers = new Array(slice.length);
+            for (var i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
+
+            var byteArray = new Uint8Array(byteNumbers);
+            byteArrays.push(byteArray);
+        }
+
+        var blob = new Blob(byteArrays, { type: contentType });
+        return blob;
+    }
+</script>

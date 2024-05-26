@@ -16,5 +16,6 @@ namespace AUF.EMR.Application.Contracts.Services
         Task<List<HouseholdMember>> GetWRAHouseholdMembers(string householdNo);
         Task DeleteHouseholdMember(int id);
         string GetClassifications(List<Classification> classifications);
+        Task<List<HouseholdMember>> GetHouseholdMemberForm(int id);
     }
 }

@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/20/2024 01:28:43" ReportInfo.Modified="05/22/2024 08:01:01" ReportInfo.CreatorVersion="2024.2.0.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="OralInfants" ReferenceName="OralInfants" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="OralOneToFour" ReferenceName="OralOneToFour" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="OralFiveToNine" ReferenceName="OralFiveToNine" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="OralTenToFourteen" ReferenceName="OralTenToFourteen" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="OralPregFifteenToNineteen" ReferenceName="OralPregFifteenToNineteen" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="OralPregTwentyToFourtyNine" ReferenceName="OralPregTwentyToFourtyNine" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <Parameter Name="HouseholdNo" DataType="System.String" AsString=""/>
+    <Parameter Name="Address" DataType="System.String" AsString=""/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="279.4" PaperHeight="215.9" RawPaperSize="1" Watermark.Font="Arial, 60pt" LastPageSource="261" FirstPageSource="261">
+    <PageHeaderBand Name="PageHeader2" Width="980.53" Height="103.95">
+      <TextObject Name="Text111" Top="18.9" Width="982.8" Height="28.35" Text="MASTER LIST OF ORAL HEALTH CARE CLIENTS" HorzAlign="Center" Font="Arial, 14.25pt, style=Bold"/>
+      <TextObject Name="Text112" Left="37.8" Top="56.7" Width="37.8" Height="18.9" Text="No." HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text113" Left="94.5" Top="56.7" Width="66.15" Height="37.8" Text="Family Serial No." HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text114" Left="189" Top="56.7" Width="189" Height="18.9" Text="NAME" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text115" Left="189" Top="75.6" Width="189" Height="18.9" Text="(FN.MI.LN)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text116" Left="378" Top="56.7" Width="226.8" Height="18.9" Text="ADDRESS" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text117" Left="604.8" Top="56.7" Width="56.7" Height="18.9" Text="SEX" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text118" Left="604.8" Top="75.6" Width="56.7" Height="18.9" Text="(M or F)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text119" Left="661.5" Top="56.7" Width="56.7" Height="18.9" Text="AGE" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text120" Left="718.2" Top="56.7" Width="113.4" Height="18.9" Text="DATE OF BIRTH" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text121" Left="718.2" Top="75.6" Width="113.4" Height="18.9" Text="(MM,DD,YYYY)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text122" Left="831.6" Top="56.7" Width="113.4" Height="18.9" Text="SE Status" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text123" Left="831.6" Top="75.6" Width="113.4" Height="18.9" Text="1: NHTS&#13;&#10;2: Non-NHTS" Font="Arial, 7pt"/>
+      <LineObject Name="Line174" Left="37.8" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line175" Left="945" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line176" Left="37.8" Top="56.7" Width="907.2"/>
+      <LineObject Name="Line177" Left="75.6" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line178" Left="189" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line179" Left="378" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line180" Left="604.8" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line181" Left="661.5" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line182" Left="718.2" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line183" Left="831.6" Top="56.7" Height="47.25"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="107.95" Width="980.53" Height="18.9">
+      <TextObject Name="Text74" Left="37.8" Width="154.9" Height="18.9" Text="0-11 months old infants" Font="Arial, 8.25pt, style=Bold"/>
+      <LineObject Name="Line116" Left="37.8" Height="18.9"/>
+      <LineObject Name="Line117" Left="37.8" Top="18.9" Width="907.2"/>
+      <LineObject Name="Line118" Left="945" Top="18.9" Height="-18.9"/>
+      <LineObject Name="Line130" Left="37.8" Width="907.2"/>
+    </DataBand>
+    <DataBand Name="Data3" Top="130.85" Width="980.53" Height="28.35" DataSource="OralInfants">
+      <LineObject Name="Line120" Left="37.8" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line121" Left="945" Top="28.35" Height="-28.35"/>
+      <TextObject Name="Text79" Left="604.8" Width="56.7" Height="28.35" Text="[OralInfants.Sex]" Font="Arial, 8pt"/>
+      <TextObject Name="Text75" Left="37.8" Width="37.8" Height="28.35" Text="[Row#]" Font="Arial, 8pt"/>
+      <TextObject Name="Text76" Left="75.6" Width="113.4" Height="28.35" Text="[HouseholdNo]" Font="Arial, 8pt"/>
+      <TextObject Name="Text77" Left="189" Width="189" Height="28.35" Text="[OralInfants.FullName]" Font="Arial, 8pt"/>
+      <TextObject Name="Text78" Left="378" Width="226.8" Height="28.35" Text="[Address]" Font="Arial, 8pt"/>
+      <TextObject Name="Text80" Left="661.5" Width="56.7" Height="28.35" Text="[OralInfants.Age]" Font="Arial, 8pt"/>
+      <TextObject Name="Text81" Left="718.2" Width="113.4" Height="28.35" Text="[OralInfants.Birthday]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text82" Left="831.6" Width="113.4" Height="28.35" Text="[IIf([OralInfants.IsNHTS],1, 2)]" Font="Arial, 8pt"/>
+      <LineObject Name="Line119" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line122" Left="75.6" Height="28.35"/>
+      <LineObject Name="Line124" Left="189" Height="28.35"/>
+      <LineObject Name="Line125" Left="378" Height="28.35"/>
+      <LineObject Name="Line126" Left="604.8" Height="28.35"/>
+      <LineObject Name="Line127" Left="661.5" Height="28.35"/>
+      <LineObject Name="Line128" Left="718.2" Height="28.35"/>
+      <LineObject Name="Line129" Left="831.6" Height="28.35"/>
+    </DataBand>
+    <DataBand Name="Data2" Top="163.2" Width="980.53" Height="18.9">
+      <TextObject Name="Text83" Left="37.8" Width="343.9" Height="18.9" Text="1-4 years old (12-59 months old) children" Font="Arial, 8.25pt, style=Bold"/>
+      <LineObject Name="Line131" Left="37.8" Height="18.9"/>
+      <LineObject Name="Line132" Left="37.8" Top="18.9" Width="907.2"/>
+      <LineObject Name="Line133" Left="945" Top="18.9" Height="-18.9"/>
+      <LineObject Name="Line134" Left="37.8" Width="907.2"/>
+    </DataBand>
+    <DataBand Name="Data4" Top="186.1" Width="980.53" Height="28.35" DataSource="OralOneToFour">
+      <TextObject Name="Text84" Left="37.8" Width="37.8" Height="28.35" Text="[Row#]" Font="Arial, 8pt"/>
+      <TextObject Name="Text85" Left="75.6" Width="113.4" Height="28.35" Text="[HouseholdNo]" Font="Arial, 8pt"/>
+      <TextObject Name="Text86" Left="189" Width="189" Height="28.35" Text="[OralOneToFour.FullName]" Font="Arial, 8pt"/>
+      <TextObject Name="Text87" Left="378" Width="226.8" Height="28.35" Text="[Address]" Font="Arial, 8pt"/>
+      <TextObject Name="Text88" Left="604.8" Width="56.7" Height="28.35" Text="[OralOneToFour.Sex]" Font="Arial, 8pt"/>
+      <TextObject Name="Text89" Left="661.5" Width="56.7" Height="28.35" Text="[OralOneToFour.Age]" Font="Arial, 8pt"/>
+      <TextObject Name="Text90" Left="718.2" Width="113.4" Height="28.35" Text="[OralOneToFour.Birthday]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text91" Left="831.6" Width="113.4" Height="28.35" Text="[IIf([OralOneToFour.IsNHTS],1, 2)]" Font="Arial, 8pt"/>
+      <LineObject Name="Line135" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line136" Left="37.8" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line137" Left="945" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line138" Left="831.6" Height="28.35"/>
+      <LineObject Name="Line139" Left="718.2" Height="28.35"/>
+      <LineObject Name="Line140" Left="661.5" Height="28.35"/>
+      <LineObject Name="Line141" Left="604.8" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line142" Left="378" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line143" Left="189" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line144" Left="75.6" Top="28.35" Height="-28.35"/>
+    </DataBand>
+    <DataBand Name="Data5" Top="218.45" Width="980.53" Height="18.9">
+      <TextObject Name="Text92" Left="37.8" Width="343.9" Height="18.9" Text="5-9 years old children" Font="Arial, 8.25pt, style=Bold"/>
+      <LineObject Name="Line145" Left="37.8" Height="18.9"/>
+      <LineObject Name="Line146" Left="37.8" Top="18.9" Width="907.2"/>
+      <LineObject Name="Line147" Left="945" Top="18.9" Height="-18.9"/>
+    </DataBand>
+    <DataBand Name="Data6" Top="241.35" Width="980.53" Height="28.35" DataSource="OralFiveToNine">
+      <TextObject Name="Text93" Left="37.8" Width="37.8" Height="28.35" Text="[Row#]" Font="Arial, 8pt"/>
+      <TextObject Name="Text94" Left="75.6" Width="113.4" Height="28.35" Text="[HouseholdNo]" Font="Arial, 8pt"/>
+      <TextObject Name="Text95" Left="378" Width="226.8" Height="28.35" Text="[Address]" Font="Arial, 8pt"/>
+      <TextObject Name="Text96" Left="189" Width="189" Height="28.35" Text="[OralFiveToNine.FullName]" Font="Arial, 8pt"/>
+      <TextObject Name="Text97" Left="604.8" Width="56.7" Height="28.35" Text="[OralFiveToNine.Sex]" Font="Arial, 8pt"/>
+      <TextObject Name="Text98" Left="661.5" Width="56.7" Height="28.35" Text="[OralFiveToNine.Age]" Font="Arial, 8pt"/>
+      <TextObject Name="Text99" Left="718.2" Width="113.4" Height="28.35" Text="[OralFiveToNine.Birthday]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text100" Left="831.6" Width="113.4" Height="28.35" Text="[IIf([OralFiveToNine.IsNHTS],1, 2)]" Font="Arial, 8pt"/>
+      <LineObject Name="Line148" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line149" Left="37.8" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line150" Left="945" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line151" Left="831.6" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line152" Left="718.2" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line153" Left="661.5" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line154" Left="604.8" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line155" Left="378" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line156" Left="189" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line157" Left="75.6" Top="28.35" Height="-28.35"/>
+    </DataBand>
+    <DataBand Name="Data7" Top="273.7" Width="980.53" Height="18.9">
+      <TextObject Name="Text101" Left="37.8" Width="343.9" Height="18.9" Text="10-14 years old adolescents" Font="Arial, 8.25pt, style=Bold"/>
+      <LineObject Name="Line158" Left="37.8" Height="18.9"/>
+      <LineObject Name="Line159" Left="37.8" Top="18.9" Width="907.2"/>
+      <LineObject Name="Line160" Left="945" Top="18.9" Height="-18.9"/>
+    </DataBand>
+    <DataBand Name="Data8" Top="296.6" Width="980.53" Height="28.35" DataSource="OralTenToFourteen">
+      <TextObject Name="Text102" Left="37.8" Width="37.8" Height="28.35" Text="[Row#]" Font="Arial, 8pt"/>
+      <TextObject Name="Text103" Left="75.6" Width="113.4" Height="28.35" Text="[HouseholdNo]" Font="Arial, 8pt"/>
+      <TextObject Name="Text104" Left="378" Width="226.8" Height="28.35" Text="[Address]" Font="Arial, 8pt"/>
+      <TextObject Name="Text105" Left="189" Width="189" Height="28.35" Text="[OralTenToFourteen.FullName]" Font="Arial, 8pt"/>
+      <TextObject Name="Text106" Left="604.8" Width="56.7" Height="28.35" Text="[OralTenToFourteen.Sex]" Font="Arial, 8pt"/>
+      <TextObject Name="Text107" Left="661.5" Width="56.7" Height="28.35" Text="[OralTenToFourteen.Age]" Font="Arial, 8pt"/>
+      <TextObject Name="Text108" Left="718.2" Width="113.4" Height="28.35" Text="[OralTenToFourteen.Birthday]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text109" Left="831.6" Width="113.4" Height="28.35" Text="[IIf([OralTenToFourteen.IsNHTS],1, 2)]" Font="Arial, 8pt"/>
+      <LineObject Name="Line161" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line162" Left="37.8" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line163" Left="945" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line164" Left="831.6" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line165" Left="718.2" Height="28.35"/>
+      <LineObject Name="Line166" Left="661.5" Height="28.35"/>
+      <LineObject Name="Line167" Left="604.8" Height="28.35"/>
+      <LineObject Name="Line168" Left="378" Height="28.35"/>
+      <LineObject Name="Line169" Left="189" Height="28.35"/>
+      <LineObject Name="Line170" Left="75.6" Height="28.35"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page2" Landscape="true" PaperWidth="279.4" PaperHeight="215.9" RawPaperSize="1" Watermark.Font="Arial, 60pt" LastPageSource="261" FirstPageSource="261">
+    <PageHeaderBand Name="PageHeader1" Width="980.53" Height="103.95">
+      <TextObject Name="Text125" Left="37.8" Top="56.7" Width="37.8" Height="18.9" Text="No." HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text126" Left="94.5" Top="56.7" Width="66.15" Height="37.8" Text="Family Serial No." HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text127" Left="189" Top="56.7" Width="189" Height="18.9" Text="NAME" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text129" Left="378" Top="56.7" Width="226.8" Height="18.9" Text="ADDRESS" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text130" Left="604.8" Top="56.7" Width="56.7" Height="18.9" Text="SEX" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text132" Left="661.5" Top="56.7" Width="56.7" Height="18.9" Text="AGE" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text133" Left="718.2" Top="56.7" Width="113.4" Height="18.9" Text="DATE OF BIRTH" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text135" Left="831.6" Top="56.7" Width="113.4" Height="18.9" Text="SE Status" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <LineObject Name="Line184" Left="37.8" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line185" Left="945" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line186" Left="37.8" Top="56.7" Width="907.2"/>
+      <LineObject Name="Line187" Left="75.6" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line188" Left="189" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line189" Left="378" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line190" Left="604.8" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line191" Left="661.5" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line192" Left="718.2" Top="56.7" Height="47.25"/>
+      <LineObject Name="Line193" Left="831.6" Top="56.7" Height="47.25"/>
+      <TextObject Name="Text128" Left="189" Top="75.6" Width="189" Height="18.9" Text="(FN.MI.LN)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text131" Left="604.8" Top="75.6" Width="56.7" Height="18.9" Text="(M or F)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text134" Left="718.2" Top="75.6" Width="113.4" Height="18.9" Text="(MM,DD,YYYY)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text136" Left="831.6" Top="75.6" Width="113.4" Height="18.9" Text="1: NHTS&#13;&#10;2: Non-NHTS" Font="Arial, 7pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data11" Top="107.95" Width="980.53" Height="18.9">
+      <TextObject Name="Text137" Left="37.8" Width="343.9" Height="18.9" Text="10-14 years old adolescents" Font="Arial, 8.25pt, style=Bold"/>
+      <LineObject Name="Line194" Left="37.8" Height="18.9"/>
+      <LineObject Name="Line195" Left="37.8" Top="18.9" Width="907.2"/>
+      <LineObject Name="Line196" Left="945" Top="18.9" Height="-18.9"/>
+      <LineObject Name="Line197" Left="37.8" Width="907.2"/>
+    </DataBand>
+    <DataBand Name="Data12" Top="130.85" Width="980.53" Height="28.35" DataSource="OralTenToFourteen">
+      <TextObject Name="Text138" Left="37.8" Width="37.8" Height="28.35" Text="[Row#]" Font="Arial, 8pt"/>
+      <TextObject Name="Text139" Left="75.6" Width="113.4" Height="28.35" Text="[HouseholdNo]" Font="Arial, 8pt"/>
+      <TextObject Name="Text140" Left="378" Width="226.8" Height="28.35" Text="[Address]" Font="Arial, 8pt"/>
+      <TextObject Name="Text141" Left="189" Width="189" Height="28.35" Text="[OralTenToFourteen.FullName]" Font="Arial, 8pt"/>
+      <TextObject Name="Text142" Left="604.8" Width="56.7" Height="28.35" Text="[OralTenToFourteen.Sex]" Font="Arial, 8pt"/>
+      <TextObject Name="Text143" Left="661.5" Width="56.7" Height="28.35" Text="[OralTenToFourteen.Age]" Font="Arial, 8pt"/>
+      <TextObject Name="Text144" Left="718.2" Width="113.4" Height="28.35" Text="[OralTenToFourteen.Birthday]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text145" Left="831.6" Width="113.4" Height="28.35" Text="[IIf([OralTenToFourteen.IsNHTS],1, 2)]" Font="Arial, 8pt"/>
+      <LineObject Name="Line198" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line199" Left="945" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line200" Left="831.6" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line201" Left="718.2" Height="28.35"/>
+      <LineObject Name="Line202" Left="661.5" Height="28.35"/>
+      <LineObject Name="Line203" Left="604.8" Height="28.35"/>
+      <LineObject Name="Line204" Left="378" Height="28.35"/>
+      <LineObject Name="Line205" Left="189" Height="28.35"/>
+      <LineObject Name="Line206" Left="75.6" Height="28.35"/>
+      <LineObject Name="Line207" Left="37.8" Top="28.35" Width="907.2"/>
+    </DataBand>
+    <DataBand Name="Data13" Top="163.2" Width="980.53" Height="18.9">
+      <TextObject Name="Text110" Left="37.8" Width="343.9" Height="18.9" Text="Pregnant women 15-19 years old" Font="Arial, 8.25pt, style=Bold"/>
+      <LineObject Name="Line171" Left="37.8" Height="18.9"/>
+      <LineObject Name="Line172" Left="37.8" Top="18.9" Width="907.2"/>
+      <LineObject Name="Line173" Left="945" Top="18.9" Height="-18.9"/>
+    </DataBand>
+    <DataBand Name="Data14" Top="186.1" Width="980.53" Height="28.35" DataSource="OralPregFifteenToNineteen">
+      <TextObject Name="Text146" Left="37.8" Width="37.8" Height="28.35" Text="[Row#]" Font="Arial, 8pt"/>
+      <TextObject Name="Text147" Left="75.6" Width="113.4" Height="28.35" Text="[HouseholdNo]" Font="Arial, 8pt"/>
+      <TextObject Name="Text148" Left="378" Width="226.8" Height="28.35" Text="[Address]" Font="Arial, 8pt"/>
+      <TextObject Name="Text149" Left="189" Width="189" Height="28.35" Text="[OralPregFifteenToNineteen.FullName]" Font="Arial, 8pt"/>
+      <TextObject Name="Text150" Left="604.8" Width="56.7" Height="28.35" Text="[OralPregFifteenToNineteen.Sex]" Font="Arial, 8pt"/>
+      <TextObject Name="Text151" Left="661.5" Width="56.7" Height="28.35" Text="[OralPregFifteenToNineteen.Age]" Font="Arial, 8pt"/>
+      <TextObject Name="Text152" Left="718.2" Width="113.4" Height="28.35" Text="[OralPregFifteenToNineteen.Birthday]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text153" Left="831.6" Width="113.4" Height="28.35" Text="[IIf([OralPregFifteenToNineteen.IsNHTS],1, 2)]" Font="Arial, 8pt"/>
+      <LineObject Name="Line208" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line209" Left="37.8" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line210" Left="945" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line211" Left="831.6" Height="28.35"/>
+      <LineObject Name="Line212" Left="718.2" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line213" Left="661.5" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line214" Left="604.8" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line215" Left="378" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line216" Left="189" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line217" Left="75.6" Top="28.35" Height="-28.35"/>
+    </DataBand>
+    <DataBand Name="Data9" Top="218.45" Width="980.53" Height="18.9">
+      <TextObject Name="Text154" Left="37.8" Width="343.9" Height="18.9" Text="Pregnant women 20-49 years old" Font="Arial, 8.25pt, style=Bold"/>
+      <LineObject Name="Line218" Left="37.8" Height="18.9"/>
+      <LineObject Name="Line219" Left="37.8" Top="18.9" Width="907.2"/>
+      <LineObject Name="Line220" Left="945" Top="18.9" Height="-18.9"/>
+    </DataBand>
+    <DataBand Name="Data10" Top="241.35" Width="980.53" Height="28.8" DataSource="OralPregTwentyToFourtyNine">
+      <TextObject Name="Text155" Left="37.8" Width="37.8" Height="28.35" Text="[Row#]" Font="Arial, 8pt"/>
+      <TextObject Name="Text156" Left="76.4" Top="0.45" Width="113.4" Height="28.35" Text="[HouseholdNo]" Font="Arial, 8pt"/>
+      <TextObject Name="Text157" Left="378" Width="226.8" Height="28.35" Text="[Address]" Font="Arial, 8pt"/>
+      <TextObject Name="Text158" Left="189" Width="189" Height="28.35" Text="[OralPregTwentyToFourtyNine.FullName]" Font="Arial, 8pt"/>
+      <TextObject Name="Text159" Left="604.8" Width="56.7" Height="28.35" Text="[OralPregTwentyToFourtyNine.Sex]" Font="Arial, 8pt"/>
+      <TextObject Name="Text160" Left="661.5" Width="56.7" Height="28.35" Text="[OralPregTwentyToFourtyNine.Age]" Font="Arial, 8pt"/>
+      <TextObject Name="Text161" Left="718.2" Width="113.4" Height="28.35" Text="[OralPregTwentyToFourtyNine.Birthday]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text162" Left="831.6" Width="113.4" Height="28.35" Text="[IIf([OralPregTwentyToFourtyNine.IsNHTS],1, 2)]" Font="Arial, 8pt"/>
+      <LineObject Name="Line221" Left="37.8" Height="28.35"/>
+      <LineObject Name="Line222" Left="37.8" Top="28.35" Width="907.2"/>
+      <LineObject Name="Line223" Left="945" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line224" Left="831.6" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line225" Left="718.2" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line226" Left="661.5" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line227" Left="604.8" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line228" Left="378" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line229" Left="189" Top="28.35" Height="-28.35"/>
+      <LineObject Name="Line230" Left="75.6" Top="28.35" Height="-28.35"/>
+    </DataBand>
+  </ReportPage>
+</Report>

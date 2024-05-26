@@ -4,9 +4,15 @@ using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
+using FastReport.Export.PdfSimple;
+using FastReport.Utils;
+using FastReport;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using AUF.EMR.MVC.Models.DetailVM;
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -16,35 +22,69 @@ namespace AUF.EMR.MVC.Controllers
         private readonly IPregnancyTrackingService _pregnancyService;
         private readonly IHouseholdMemberService _householdMemberService;
         private readonly IPregnancyTrackingHHService _pregTrackHHService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public PregnancyTrackingController(IPregnancyTrackingService pregnancyService,
             IHouseholdMemberService householdMemberService,
-            IPregnancyTrackingHHService pregTrackHHService)
+            IPregnancyTrackingHHService pregTrackHHService,
+            IWebHostEnvironment webHostEnvironment)
         {
             _pregnancyService = pregnancyService;
             _householdMemberService = householdMemberService;
             _pregTrackHHService = pregTrackHHService;
+            _webHostEnvironment = webHostEnvironment;
+        }
+
+        // GET: PregnancyTrackingController/Details
+        public async Task<ActionResult> Details(int id, string householdNo)
+        {
+            if (id == 0 || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                var pregTrackHH = await _pregTrackHHService.GetPregnancyTrackingHHWithDetails(householdNo);
+                var pregnancy = await _pregnancyService.GetPregnancyTrackingWithDetails(id);
+                var model = new DetailPregnancyTrackVM
+                {
+                    HouseholdNo = householdNo,
+                    PregnancyTracking = pregnancy,
+                };
+
+                return View(model);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: PregnancyTrackingController
         public async Task<ActionResult> Index(string householdNo)
         {
-            var pregTrackHH = await _pregTrackHHService.GetPregnancyTrackingHHWithDetails(householdNo);
-            var pregnancyList = await _pregnancyService.GetPregnancyTrackingListWithDetails(householdNo);
-            var model = new PregnancyTrackingListVM
+            if (string.IsNullOrWhiteSpace(householdNo))
             {
-                HouseholdNo = householdNo,
-                PregnancyTrackingList = pregnancyList,
-                PregnancyTrackingHH = pregTrackHH
-            };
+                return NotFound();
+            }
+            try
+            {
+                var pregTrackHH = await _pregTrackHHService.GetPregnancyTrackingHHWithDetails(householdNo);
+                var pregnancyList = await _pregnancyService.GetPregnancyTrackingListWithDetails(householdNo);
+                var model = new PregnancyTrackingListVM
+                {
+                    HouseholdNo = householdNo,
+                    PregnancyTrackingList = pregnancyList,
+                    PregnancyTrackingHH = pregTrackHH
+                };
 
-            return View(model);
-        }
-
-        // GET: PregnancyTrackingController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: PregnancyTrackingController/Create
@@ -134,6 +174,55 @@ namespace AUF.EMR.MVC.Controllers
             }
 
             return BadRequest();
+        }
+
+        public async Task<string> Print(string householdNo)
+        {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return "Household no. is empty";
+            }
+
+            try
+            {
+                var pregTrack = await _pregnancyService.GetPregnancyTrackingListWithDetails(householdNo);
+                var pregTrackHH = await _pregTrackHHService.GetPregnancyTrackingsHHWithDetails(householdNo);
+                var householdMembers = await _pregnancyService.GetPregnantTrackingMembers(householdNo);
+
+                Config.WebMode = true;
+                var report = new Report();
+                var contentRootPath = _webHostEnvironment.ContentRootPath;
+                var path = Path.Combine(contentRootPath, "Reports", "PregnancyTracking.frx");
+
+                report.Load(path);
+                report.RegisterData(pregTrack, "PregnancyTracking");
+                report.RegisterData(pregTrackHH, "PregnancyTrackingHH");
+                report.RegisterData(householdMembers, "HouseholdMember");
+
+                if (report.Report.Prepare())
+                {
+                    var pdfExport = new PDFSimpleExport();
+                    pdfExport.ShowProgress = true;
+                    pdfExport.Subject = "Subject Report";
+                    pdfExport.Title = "Report Title";
+                    var memoryStream = new MemoryStream();
+                    report.Report.Export(pdfExport, memoryStream);
+                    report.Dispose();
+                    pdfExport.Dispose();
+                    memoryStream.Position = 0;
+
+                    return Convert.ToBase64String(memoryStream.ToArray());
+                    //return File(memoryStream, "application/pdf", "household.pdf");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

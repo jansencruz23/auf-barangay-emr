@@ -11,7 +11,7 @@ namespace AUF.EMR.Domain.Models
     public class WomanOfReproductiveAge : BaseDomainEntity
     {
         public int HouseholdMemberId { get; set; }
-        public HouseholdMember HouseholdMember { get; set; }
+        public HouseholdMember? HouseholdMember { get; set; }
         public int CivilStatus { get; set; }
         public bool IsPlanningChildren { get; set; }
         public bool? IsPlanChildrenNow { get; set; }
@@ -27,5 +27,14 @@ namespace AUF.EMR.Domain.Models
 
         [DataType(DataType.Date)]
         public DateTime? FPAcceptedDate { get; set; }
+
+        // PRINTING FIELDS
+        public bool NotPlanningChildren { get => !IsPlanningChildren; }
+        public bool NotFecund { get => !IsFecund; }
+        public bool? IsFPTraditional { get => !IsFPModern; }
+        public bool NotFPMethod { get => !IsFPMethod; }
+        public bool? NotShiftToModern { get => !ShiftToModern; }
+        public bool NotMFPUnmet { get => !IsMFPUnmet; }
+        public bool NotAcceptModernFpMethod { get => !AcceptModernFpMethod; }
     }
 }
