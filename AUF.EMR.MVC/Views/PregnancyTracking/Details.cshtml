@@ -1,0 +1,118 @@
+﻿@model DetailPregnancyTrackVM
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PregnancyTracking</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyTracking.HouseholdMember.FullName
+        </dd>
+        <dt class = "col-sm-2">
+            Age
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyTracking.HouseholdMember.Age
+        </dd>
+        <dt class = "col-sm-2">
+            Gravidity
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyTracking.Gravidity
+        </dd>
+        <dt class = "col-sm-2">
+            Parity
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyTracking.Parity
+        </dd>
+        <dt class = "col-sm-2">
+            Expected Date of Delivery
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyTracking.ExpectedDateOfDelivery.ToString("mmm/dd/yyyy")
+        </dd>
+        <h5>Antenatal Care Check-Ups</h5>
+        <dt class = "col-sm-2">
+            1st tri
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.PregnancyTracking.FirstAntenatalCheckUp.HasValue) ? (@Model.PregnancyTracking.FirstAntenatalCheckUp.Value.ToString("MMM/dd/yyyy")) : "")
+        </dd>
+        <dt class = "col-sm-2">
+            2nd tri
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.PregnancyTracking.SecondAntenatalCheckUp.HasValue) ? (@Model.PregnancyTracking.SecondAntenatalCheckUp.Value.ToString("MMM/dd/yyyy")) : "")
+        </dd>
+        <dt class = "col-sm-2">
+            3rd tri
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.PregnancyTracking.ThirdAntenatalCheckUp.HasValue) ? (@Model.PregnancyTracking.ThirdAntenatalCheckUp.Value.ToString("MMM/dd/yyyy")) : "")
+        </dd>
+        <dt class = "col-sm-2">
+            Other
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.PregnancyTracking.MoreCheckUp.HasValue) ? (@Model.PregnancyTracking.MoreCheckUp.Value.ToString("MMM/dd/yyyy")) : "")
+        </dd>
+        <h5>Pregnancy Outcome</h5>
+        <dt class = "col-sm-2">
+            Pregnancy Outcome
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyTracking.PregnancyOutcome
+        </dd>
+        <h5>Mother and Child Postnatal Check-ups</h5>
+        <dt class = "col-sm-2">
+            Day of Discharge 24 hrs after birth
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.PregnancyTracking.PostnatalCheckUp24hrs.HasValue) ? (@Model.PregnancyTracking.PostnatalCheckUp24hrs.Value.ToString("MMM/dd/yyyy")) : "")
+        </dd>
+        <dt class = "col-sm-2">
+            Within 7 days after birth
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.PregnancyTracking.PostnatalCheckUp7days.HasValue) ? (@Model.PregnancyTracking.PostnatalCheckUp7days.Value.ToString("MMM/dd/yyyy")) : "")
+        </dd>
+        <h5>Civil Registration</h5>
+        <dt class = "col-sm-2">
+            Livebirth
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.PregnancyTracking.LiveBirth.HasValue) ? (@Model.PregnancyTracking.LiveBirth.Value.ToString("MMM/dd/yyyy")) : "")
+        </dd>
+        <dt class = "col-sm-2">
+            Maternal death
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.PregnancyTracking.MaternalDeath.HasValue) ? (@Model.PregnancyTracking.MaternalDeath.Value.ToString("MMM/dd/yyyy")) : "")
+        </dd>
+        <dt class = "col-sm-2">
+            Stillbirth
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.PregnancyTracking.StillBirth.HasValue) ? (@Model.PregnancyTracking.StillBirth.Value.ToString("MMM/dd/yyyy")) : "")
+        </dd>
+        <dt class = "col-sm-2">
+            Early newborn death
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.PregnancyTracking.EarlyNewbornDeath.HasValue) ? (@Model.PregnancyTracking.EarlyNewbornDeath.Value.ToString("MMM/dd/yyyy")) : "")
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PregnancyTracking.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

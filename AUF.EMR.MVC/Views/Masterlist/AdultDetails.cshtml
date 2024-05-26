@@ -16,34 +16,34 @@
             <h4>Household Member</h4>
             <hr class="mb-4"/>
 
-            <dl class="grid grid-cols-1">
-                <div class="flex flex-wrap">
-                    <dt class="w-1/3 md:w-1/4 text-gray-800 font-semibold">HH.NO/ Family Serial No.:</dt>
-                    <dd class="w-2/3 md:w-3/4 text-gray-900">@Html.DisplayFor(model => model.HouseholdNo)</dd>
+            <dl class="grid grid-cols-1 gap-y-4 gap-x-8">
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">HH.NO/ Family Serial No.:</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdNo)</dd>
                 </div>
-                <div class="flex flex-wrap">
-                    <dt class="w-1/3 md:w-1/4 text-gray-800 font-semibold">Name:</dt>
-                    <dd class="w-2/3 md:w-3/4 text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.FullName)</dd>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Name:</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.FullName)</dd>
                 </div>
-                <div class="flex flex-wrap">
-                    <dt class="w-1/3 md:w-1/4 text-gray-800 font-semibold">Address:</dt>
-                    <dd class="w-2/3 md:w-3/4 text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Household.FullAddress)</dd>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Address:</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Household.FullAddress)</dd>
                 </div>
-                <div class="flex flex-wrap">
-                    <dt class="w-1/3 md:w-1/4 text-gray-800 font-semibold">Sex:</dt>
-                    <dd class="w-2/3 md:w-3/4 text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Sex)</dd>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Sex:</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Sex)</dd>
                 </div>
-                <div class="flex flex-wrap">
-                    <dt class="w-1/3 md:w-1/4 text-gray-800 font-semibold">Age:</dt>
-                    <dd class="w-2/3 md:w-3/4 text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Age)</dd>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Age:</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Age)</dd>
                 </div>
-                <div class="flex flex-wrap">
-                    <dt class="w-1/3 md:w-1/4 text-gray-800 font-semibold">Date of Birth:</dt>
-                    <dd class="w-2/3 md:w-3/4 text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Birthday)</dd>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Date of Birth:</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Birthday)</dd>
                 </div>
-                <div class="flex flex-wrap">
-                    <dt class="w-1/3 md:w-1/4 text-gray-800 font-semibold">NHTS:</dt>
-                    <dd class="w-2/3 md:w-3/4 text-gray-900">@((Model.HouseholdMember.IsNhts) ? "NHTS" : "Non-NHTS")</dd>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">NHTS:</dt>
+                    <dd class="text-gray-900">@((Model.HouseholdMember.IsNhts) ? "NHTS" : "Non-NHTS")</dd>
                 </div>
             </dl>
         </div>

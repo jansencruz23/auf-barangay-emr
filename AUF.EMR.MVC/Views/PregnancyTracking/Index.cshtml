@@ -2,134 +2,227 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "LAyouts/_PregnancyTrackingListIndex";
 }
 
-<h1>National Safe Motherhood Program - Pregnancy Tracking</h1>
-<button type="button" onclick="print('Print', 'PregnancyTracking', @Model.HouseholdNo)">Print Pregnancy Tracking</button>
-@Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-8 mb-6">
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-bold mb-8">National Safe Motherhood Program - Pregnancy Tracking</h1>
 
-<div>
-    <p>@Model.PregnancyTrackingHH.Barangay</p>
-    <p>@Model.PregnancyTrackingHH.BirthingCenter</p>
-    <p>@Model.PregnancyTrackingHH.Province</p>
-    <p>@Model.PregnancyTrackingHH.BHWName</p>
-    <a asp-action="Edit" asp-controller="PregnancyTrackingHH" asp-route-householdNo="@Model.HouseholdNo" 
-        asp-route-id="@Model.PregnancyTrackingHH.Id">Edit</a>
+            <div class="flex justify-end space-x-2 mb-6">
+                <button type="button" onclick="print('Print', 'PregnancyTracking', @Model.HouseholdNo)" class="flex-shrink-0 inline-block bg-blue-500 hover:bg-blue-300 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm w-24">
+                    <svg class="w-5 h-5 text-white inline-block mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H8Zm-3 7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h1a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5Zm4 11a1 1 0 0 1-1-1v-4h8v4a1 1 0 0 1-1 1H9Z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="hidden md:inline font-medium">Print</span>
+                </button>
+
+                <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo" class="text-white bg-primary-50 font-medium rounded-lg transition duration-300 ease-in-out text-sm px-4 py-2 hover:bg-green-300 flex-shrink-0 inline-block  text-white font-medium" aria-label="Add WRA">
+                    <svg class="h-5 w-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                    Add Pregnancy Tracking
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="text-2xl font-bold mb-2">Information</h4>
+            <hr class="mb-2" />
+            <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Barangay</dt>
+                    <dd class="text-gray-900">@Model.PregnancyTrackingHH.Barangay</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Region</dt>
+                    <dd class="text-gray-900">@Model.PregnancyTrackingHH.Region</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Municipality</dt>
+                    <dd class="text-gray-900"><p>@Model.PregnancyTrackingHH.Municipality</p></dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Province</dt>
+                    <dd class="text-gray-900"><p>@Model.PregnancyTrackingHH.Province</p></dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Birthing Center</dt>
+                    <dd class="text-gray-900"><p>@Model.PregnancyTrackingHH.BirthingCenter</p></dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">BC Address</dt>
+                    <dd class="text-gray-900"><p>@Model.PregnancyTrackingHH.BirthingCenterAddress</p></dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Referral Center</dt>
+                    <dd class="text-gray-900"><p>@Model.PregnancyTrackingHH.ReferralCenter</p></dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">RC Address</dt>
+                    <dd class="text-gray-900"><p>@Model.PregnancyTrackingHH.ReferralCenterAddress</p></dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Health Station</dt>
+                    <dd class="text-gray-900"><p>@Model.PregnancyTrackingHH.BarangayHealthStation</p></dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Rural Health Unit</dt>
+                    <dd class="text-gray-900"><p>@Model.PregnancyTrackingHH.RuralHealthUnit</p></dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Health Worker</dt>
+                    <dd class="text-gray-900">@Model.PregnancyTrackingHH.BHWName</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Midwife Name</dt>
+                    <dd class="text-gray-900"><p>@Model.PregnancyTrackingHH.MidwifeName</p></dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Year</dt>
+                    <dd class="text-gray-900"><p>@Model.PregnancyTrackingHH.Year</p></dd>
+                </div>
+
+
+
+            </dl>
+            <hr class="mb-3" />
+        </div>
+    </div>
+
+    <div class="bg-white shadow-md rounded-lg p-8">
+        <div style="overflow:auto;">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="px-4 py-2 text-left">
+                            HouseholdMember
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            Age
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            Gravidity
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            Parity
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            ExpectedDateOfDelivery
+                        </th>
+                        @*  <th>
+                        FirstAntenatalCheckUp
+                        </th>
+                        <th>
+                        SecondAntenatalCheckUp
+                        </th>
+                        <th>
+                        ThirdAntenatalCheckUp
+                        </th>
+                        <th>
+                        PregnancyOutcome
+                        </th>
+                        <th>
+                        PostnatalCheckUp24hrs
+                        </th>
+                        <th>
+                        PostnatalCheckUp7days
+                        </th> *@
+                        <th class="px-4 py-2 text-left">
+                            LiveBirth
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            MaternalDeath
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            StillBirth
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            EarlyNewbornDeath
+                        </th>
+                        <th class="px-4 py-2 text-left">
+
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model.PregnancyTrackingList)
+                    {
+                        <tr>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.HouseholdMember.FormattedFullName)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.Age)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.Gravidity)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.Parity)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.ExpectedDateOfDelivery)
+                            </td>
+                            @*  <td>
+                        @Html.DisplayFor(modelItem => item.FirstAntenatalCheckUp)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.SecondAntenatalCheckUp)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.ThirdAntenatalCheckUp)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.PregnancyOutcome)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.PostnatalCheckUp24hrs)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.PostnatalCheckUp7days)
+                        </td> *@
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.LiveBirth)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.MaternalDeath)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.StillBirth)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.EarlyNewbornDeath)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 inline-flex items-center text-center">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="text-yellow-300 hover:text-yellow-400 mr-2"><i class="fas fa-edit"></i></a>
+                                <a asp-action="Details" asp-route-householdNo="@Model.HouseholdNo" asp-route-id="@item.Id" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-red-300 hover:text-red-400">
+                                    <button type="submit" class="text-red-500 hover:text-red-600 py-1 rounded-md"><i class="fas fa-trash-alt"></i></button>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
-<p>
-    <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                HouseholdMember
-            </th>
-            <th>
-                Age
-            </th>
-            <th>
-                Gravidity
-            </th>
-            <th>
-                Parity
-            </th>
-            <th>
-                ExpectedDateOfDelivery
-            </th>
-            <th>
-                FirstAntenatalCheckUp
-            </th>
-            <th>
-                SecondAntenatalCheckUp
-            </th>
-            <th>
-                ThirdAntenatalCheckUp
-            </th>
-            <th>
-                PregnancyOutcome
-            </th>
-            <th>
-                PostnatalCheckUp24hrs
-            </th>
-            <th>
-                PostnatalCheckUp7days
-            </th>
-            <th>
-                LiveBirth
-            </th>
-            <th>
-                MaternalDeath
-            </th>
-            <th>
-                StillBirth
-            </th>
-            <th>
-                EarlyNewbornDeath
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.PregnancyTrackingList) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.HouseholdMember.FormattedFullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gravidity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Parity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpectedDateOfDelivery)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstAntenatalCheckUp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SecondAntenatalCheckUp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ThirdAntenatalCheckUp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PregnancyOutcome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PostnatalCheckUp24hrs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PostnatalCheckUp7days)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LiveBirth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaternalDeath)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StillBirth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EarlyNewbornDeath)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <form asp-action="Delete" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
 
 @section Scripts {
     @{

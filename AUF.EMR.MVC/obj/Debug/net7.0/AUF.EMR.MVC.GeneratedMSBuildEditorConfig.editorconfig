@@ -204,6 +204,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFtaWx5UGxhbm5pbmdcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/FamilyPlanning/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFtaWx5UGxhbm5pbmdcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/auf-barangay-emr/AUF.EMR.MVC/Views/FamilyPlanning/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFtaWx5UGxhbm5pbmdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -388,6 +392,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5VHJhY2tpbmdcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyTracking/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5VHJhY2tpbmdcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyTracking/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5VHJhY2tpbmdcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -412,6 +420,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX0JhcmFuZ2F5U2lkZUxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_DetailsLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX0RldGFpbHNMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_FamilyPlanningIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX0ZhbWlseVBsYW5uaW5nSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_FormLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX0Zvcm1MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -430,6 +446,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_OralHealthLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX09yYWxIZWFsdGhMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_PatientRecordsIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX1BhdGllbnRSZWNvcmRzSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_PregnancyRecordsIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX1ByZWduYW5jeVJlY29yZHNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_PregnancyTrackingListIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX1ByZWduYW5jeVRyYWNraW5nTGlzdEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_WRAindex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX1dSQWluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Navigations/_BarangayNav.cshtml]
@@ -462,6 +494,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Prints/_PrintDialog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByaW50c1xfUHJpbnREaWFsb2cuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Prints/_PrintDialogWithId.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByaW50c1xfUHJpbnREaWFsb2dXaXRoSWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/_FormNav.cshtml]
@@ -510,6 +546,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/auf-barangay-emr/AUF.EMR.MVC/Views/WRA/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV1JBXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/auf-barangay-emr/AUF.EMR.MVC/Views/WRA/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV1JBXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/auf-barangay-emr/AUF.EMR.MVC/Views/WRA/Edit.cshtml]

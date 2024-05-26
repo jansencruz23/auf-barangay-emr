@@ -2,184 +2,196 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "Layouts/_DetailsLayout";
 }
 
-<h1>Details</h1>
+<div class="container mx-auto px-4 py-8">
 
-<p>
-    <a asp-action="Edit" 
-       asp-route-householdNo="@Model.HouseholdNo" asp-route-Id="@Model.PregnancyRecord.Id">
-        Update
-    </a>
-</p>
-<p>
-    <a asp-action="Create" asp-controller="PregnancyAppointment"
-       asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PregnancyRecord.Id">
-        Create New Appointment
-    </a>
-</p>
+    <div class="bg-white shadow-md rounded-lg p-8 mb-6">
+        <div class="flex justify-between items-center mb-3">
+            <h1 class="text-2xl font-bold mb-3">Details</h1>
+            <div class="space-x-2 mb-3 flex justify-end">
+                <a asp-action="Edit" asp-route-householdNo="@Model.HouseholdNo" asp-route-Id="@Model.PregnancyRecord.Id" class="flex-shrink-0 inline-block bg-blue-500 hover:bg-blue-300 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm w-28">
+                    <span class="hidden md:inline font-medium">Update</span>
+                </a>
 
-<div>
-    <h4>PregnancyRecord</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PregnancyRecord.Patient)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PregnancyRecord.Patient.FormattedFullName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PregnancyRecord.Age)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PregnancyRecord.Age)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PregnancyRecord.Husband)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PregnancyRecord.Husband)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PregnancyRecord.Gravida)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PregnancyRecord.Gravida)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PregnancyRecord.Para)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PregnancyRecord.Para)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PregnancyRecord.LMP)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PregnancyRecord.LMP)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PregnancyRecord.CellphoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PregnancyRecord.CellphoneNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PregnancyRecord.EDC)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PregnancyRecord.EDC)
-        </dd>
-    </dl>
+                <a asp-action="Create" asp-controller="PregnancyAppointment" asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PregnancyRecord.Id" class="text-white bg-primary-50 font-medium rounded-lg transition duration-300 ease-in-out text-sm px-4 py-2 hover:bg-green-300 flex-shrink-0 inline-block  text-white font-medium" aria-label="New Appointment">
+                    <svg class="h-5 w-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                    New Appointment
+                </a>
+            </div>
 
-    <hr />
+        </div>
 
-    <h5>Pregnancy Appointments</h5>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Date
-                </th>
-                <th>
-                    Weight
-                </th>
-                <th>
-                    BloodPressure
-                </th>
-                <th>
-                    Temperature
-                </th>
-                <th>
-                    AOG
-                </th>
-                <th>
-                    FH
-                </th>
-                <th>
-                    FHT
-                </th>
-                <th>
-                    TT1
-                </th>
-                <th>
-                    TT2
-                </th>
-                <th>
-                    TT3
-                </th>
-                <th>
-                    TT4
-                </th>
-                <th>
-                    TT5
-                </th>
-                <th>
-                    Remarks
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.PregnancyRecord.PregnancyAppointments)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Date)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Weight)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BloodPressure)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Temperature)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AOG)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FH)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FHT)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TT1)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TT2)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TT3)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TT4)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TT5)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Remarks)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-controller="PregnancyAppointment" 
-                            asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">Edit</a> |
-                        <form asp-action="Delete" method="post" asp-controller="PregnancyAppointment"
-                          asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PregnancyRecord.Id">
-                            <button type="submit">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
 
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.PregnancyRecord.Id" asp-route-householdNo="@Model.HouseholdNo">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+        <div>
+            <h4 class="text-2xl font-bold mb-2">Pregnancy Record</h4>
+            <hr class="mb-2" />
+            <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Full Name</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PregnancyRecord.Patient.FormattedFullName)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Age</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PregnancyRecord.Age)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Husband</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PregnancyRecord.Husband)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Contact Number</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PregnancyRecord.CellphoneNumber)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Gravida</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PregnancyRecord.Gravida)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Para</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PregnancyRecord.Para)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">LMP</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PregnancyRecord.LMP)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">EDC</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PregnancyRecord.EDC)</dd>
+                </div>
+            </dl>
+
+            <hr class="mb-3" />
+        </div>
+    </div>
+
+    <div class="bg-white shadow-md rounded-lg p-8">
+        <h5 class="text-2xl font-bold mb-2">Pregnancy Appointments</h5>
+
+        <div style="overflow:auto;">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="px-4 py-2 text-left">
+                            Date
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            Weight
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            BloodPressure
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            Temperature
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            AOG
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            FH
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            FHT
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            TT1
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            TT2
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            TT3
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            TT4
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            TT5
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            Remarks
+                        </th>
+                        <th class="width: 100%; white-space: pre; px-2 py-2">
+
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model.PregnancyRecord.PregnancyAppointments)
+                    {
+                        <tr>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.Weight)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.BloodPressure)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.Temperature)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.AOG)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.FH)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.FHT)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.TT1)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.TT2)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.TT3)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.TT4)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.TT5)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.Remarks)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 inline-flex items-center text-center">
+                                <a asp-action="Edit" asp-controller="PregnancyAppointment" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-yellow-300 hover:text-yellow-400 mr-2">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <form asp-action="Delete" method="post" asp-controller="PregnancyAppointment" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PregnancyRecord.Id" class="text-red-300 hover:text-red-400">
+                                    <button type="submit" class="text-red-500 hover:text-red-600 py-1 rounded-md">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <div class="flex justify-end mt-8">
+            <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back to List</a>
+            <a asp-action="Edit" asp-route-id="@Model?.PregnancyRecord.Id" asp-route-householdNo="@Model.HouseholdNo" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 w-20 flex items-center justify-center">Edit</a>
+        </div>
+    </div>
 </div>

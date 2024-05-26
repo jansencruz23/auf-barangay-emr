@@ -2,133 +2,230 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "Layouts/_WRAindex";
 }
 
-<h1>List of Women of Reproductive Age and Adolescent Women for Family Planning Services</h1>
-<button type="button" onclick="print('Print', 'WRA', @Model.HouseholdNo)">Print WRA</button>
-<br />
+<div class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-3">
+        <h1 class="text-2xl font-bold mb-8">List of Women of Reproductive Age and Adolescent Women for Family Planning Services</h1>
 
-@Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
+        <div class="flex justify-end space-x-2 mb-6">
+            <button type="button" onclick="print('Print', 'WRA', @Model.HouseholdNo)" class="flex-shrink-0 inline-block bg-blue-500 hover:bg-blue-300 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm w-24">
+                <svg class="w-5 h-5 text-white inline-block mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H8Zm-3 7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h1a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5Zm4 11a1 1 0 0 1-1-1v-4h8v4a1 1 0 0 1-1 1H9Z" clip-rule="evenodd" />
+                </svg>
+                <span class="hidden md:inline font-medium">Print</span>
+            </button>
 
-<p>
-    <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                HouseholdMember
-            </th>
-            <th>
-                HouseholdNo
-            </th>
-            <th>
-                CivilStatus
-            </th>
-            <th>
-                IsPlanningChildren
-            </th>
-            <th>
-                IsPlanChildrenNow
-            </th>
-            <th>
-                IsPlanChildrenSpacing
-            </th>
-            <th>
-                IsPlanChildrenLimiting
-            </th>
-            <th>
-                IsFecund
-            </th>
-            <th>
-                IsFPMethod
-            </th>
-            <th>
-                IsFPModern
-            </th>
-            <th>
-                ShiftToModern
-            </th>
-            <th>
-                IsMFPUnmet
-            </th>
-            <th>
-                AcceptModernFpMethod
-            </th>
-            <th>
-                ModernFPMethod
-            </th>
-            <th>
-                FPAcceptedDate
-            </th>
-            <th>
-                WRA.Status
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.WRAs) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.HouseholdMember.FormattedFullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HouseholdMember.Household.HouseholdNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CivilStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsPlanningChildren)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsPlanChildrenNow)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsPlanChildrenSpacing)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsPlanChildrenLimiting)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsFecund)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsFPMethod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsFPModern)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShiftToModern)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsMFPUnmet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AcceptModernFpMethod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModernFPMethod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FPAcceptedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <form asp-action="Delete" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo" class="text-white bg-primary-50 font-medium rounded-lg transition duration-300 ease-in-out text-sm px-4 py-2 hover:bg-green-300 flex-shrink-0 inline-block  text-white font-medium" aria-label="Add WRA">
+                <svg class="h-5 w-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                Add WRA
+            </a>
+        </div>
+    </div>
+
+    <div class="flex justify-between items-center mb-8">
+        <div class="flex-1 mr-4 relative">
+            <input type="text" class="w-full bg-white shadow-md rounded-lg p-3 pr-10 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-200 border-none"
+                   placeholder="Search...">
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path d="M21 21l-5.2-5.2m.8-.8a8 8 0 1 1-10.6-10.6 8 8 0 0 1 10.6 10.6z"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg-white shadow-md rounded-lg p-8">
+
+        <div style="overflow:auto;">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="bg-gray-200">
+
+                        <th class="px-2 py-2 text-left">
+                            HouseholdMember
+                        </th>
+
+                        <th class="px-2 py-2 text-left">
+                            HouseholdNo
+                        </th>
+
+                        <th class="px-2 py-2 text-left">
+                            CivilStatus
+                        </th>
+
+                        <th class="px-2 py-2 text-left">
+                            IsPlanningChildren
+                        </th>
+
+                        <th class="px-2 py-2 text-left">
+                            IsPlanChildrenNow
+                        </th>
+
+                        @*                  <th>
+                        IsPlanChildrenSpacing
+                        </th>
+
+                        <th>
+                        IsPlanChildrenLimiting
+                        </th> *@
+
+                        <th class="px-2 py-2 text-left">
+                            IsFecund
+                        </th>
+
+                        <th class="px-2 py-2 text-left">
+                            IsFPMethod
+                        </th>
+
+                        <th class="px-2 py-2 text-left">
+                            IsFPModern
+                        </th>
+
+                        @*                  <th>
+                        ShiftToModern
+                        </th>
+
+                        <th>
+                        IsMFPUnmet
+                        </th>
+
+                        <th>
+                        AcceptModernFpMethod
+                        </th>
+
+                        <th>
+                        ModernFPMethod
+                        </th>
+
+                        <th>
+                        FPAcceptedDate
+                        </th> *@
+
+                        <th class="px-2 py-2 text-left">
+                            WRA.Status
+                        </th>
+
+                        <th class="px-2 py-2 text-left" style="width: 100%;">
+
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model.WRAs)
+                    {
+                        <tr>
+                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.HouseholdMember.FormattedFullName)
+                            </td>
+
+                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.HouseholdMember.Household.HouseholdNo)
+                            </td>
+
+                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.CivilStatus)
+                            </td>
+
+                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.IsPlanningChildren)
+                            </td>
+
+                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.IsPlanChildrenNow)
+                            </td>
+
+                            @*                  <td>
+                        @Html.DisplayFor(modelItem => item.IsPlanChildrenSpacing)
+                        </td>
+
+                        <td>
+                        @Html.DisplayFor(modelItem => item.IsPlanChildrenLimiting)
+                        </td> *@
+
+                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.IsFecund)
+                            </td>
+
+                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.IsFPMethod)
+                            </td>
+
+                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.IsFPModern)
+                            </td>
+
+                            @*                  <td>
+                        @Html.DisplayFor(modelItem => item.ShiftToModern)
+                        </td>
+
+                        <td>
+                        @Html.DisplayFor(modelItem => item.IsMFPUnmet)
+                        </td>
+
+                        <td>
+                        @Html.DisplayFor(modelItem => item.AcceptModernFpMethod)
+                        </td>
+
+                        <td>
+                        @Html.DisplayFor(modelItem => item.ModernFPMethod)
+                        </td>
+
+                        <td>
+                        @Html.DisplayFor(modelItem => item.FPAcceptedDate)
+                        </td> *@
+
+                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+
+                            <td class="border-b border-gray-100 px-2 py-2 text-left inline-flex items-center text-center">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="text-yellow-300 hover:text-yellow-400 mr-2"><i class="fas fa-edit"></i></a>
+                                <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-red-300 hover:text-red-400">
+                                    <button type="submit" class="text-red-500 hover:text-red-600 py-1 rounded-md"><i class="fas fa-trash-alt"></i></button>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+    @* ORIGINAL BUTTONS BACKUP SNIPPET <div class="flex justify-end space-x-2 mb-6">
+    <a asp-action="Generate" asp-route-householdNo="@Model.HouseholdNo" class="px-2 py-1 text-sm font-medium text-center inline-flex items-center text-white bg-primary-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200">
+    <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+    <path fill-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H8Zm-3 7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h1a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5Zm4 11a1 1 0 0 1-1-1v-4h8v4a1 1 0 0 1-1 1H9Z" clip-rule="evenodd" />
+    </svg>
+    <span class="hidden md:inline font-medium">  Print</span>
+    </a>
+
+    <p>
+    <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo" class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm" aria-label="Add WRA">
+    <svg class="h-4 w-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+    </svg>
+    Add WRA
+    </a>
+    </p>
+    </div>*@
+
+    @* IN TABLE BUTTONS BACKUP SNIPPET                 <td>
+    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+    <form asp-action="Delete" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+    </td>*@
 
 @section Scripts {
     @{

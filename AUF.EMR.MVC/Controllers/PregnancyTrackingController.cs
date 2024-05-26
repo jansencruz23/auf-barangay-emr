@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using AUF.EMR.MVC.Models.DetailVM;
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -34,25 +35,56 @@ namespace AUF.EMR.MVC.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        // GET: PregnancyTrackingController/Details
+        public async Task<ActionResult> Details(int id, string householdNo)
+        {
+            if (id == 0 || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                var pregTrackHH = await _pregTrackHHService.GetPregnancyTrackingHHWithDetails(householdNo);
+                var pregnancy = await _pregnancyService.GetPregnancyTrackingWithDetails(id);
+                var model = new DetailPregnancyTrackVM
+                {
+                    HouseholdNo = householdNo,
+                    PregnancyTracking = pregnancy,
+                };
+
+                return View(model);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         // GET: PregnancyTrackingController
         public async Task<ActionResult> Index(string householdNo)
         {
-            var pregTrackHH = await _pregTrackHHService.GetPregnancyTrackingHHWithDetails(householdNo);
-            var pregnancyList = await _pregnancyService.GetPregnancyTrackingListWithDetails(householdNo);
-            var model = new PregnancyTrackingListVM
+            if (string.IsNullOrWhiteSpace(householdNo))
             {
-                HouseholdNo = householdNo,
-                PregnancyTrackingList = pregnancyList,
-                PregnancyTrackingHH = pregTrackHH
-            };
+                return NotFound();
+            }
+            try
+            {
+                var pregTrackHH = await _pregTrackHHService.GetPregnancyTrackingHHWithDetails(householdNo);
+                var pregnancyList = await _pregnancyService.GetPregnancyTrackingListWithDetails(householdNo);
+                var model = new PregnancyTrackingListVM
+                {
+                    HouseholdNo = householdNo,
+                    PregnancyTrackingList = pregnancyList,
+                    PregnancyTrackingHH = pregTrackHH
+                };
 
-            return View(model);
-        }
-
-        // GET: PregnancyTrackingController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: PregnancyTrackingController/Create
