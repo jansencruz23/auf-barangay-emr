@@ -19,5 +19,8 @@ namespace AUF.EMR.Application.Contracts.Services
         Task<List<ClientType>> GetClientTypeForm(int id);
         Task<List<MedicalHistory>> GetMedicalHistoryForm(int id);
         Task<List<ObstetricalHistory>> GetObstetricalHistoryForm(int id);
+        Task<List<RisksForSTI>> GetRisksForSTIForm(int id);
+        Task<List<RisksForVAW>> GetRisksForVAWForm(int id);
+        Task<List<PhysicalExamination>> GetPhysicalExaminationForm(int id);
     }
 }

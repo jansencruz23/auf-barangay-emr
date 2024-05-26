@@ -224,6 +224,9 @@ namespace AUF.EMR.MVC.Controllers
                 var clientType = await _fpService.GetClientTypeForm(id);
                 var medicalHistory = await _fpService.GetMedicalHistoryForm(id);
                 var obstetricalHistory = await _fpService.GetObstetricalHistoryForm(id);
+                var risksForSti = await _fpService.GetRisksForSTIForm(id);
+                var risksForVaw = await _fpService.GetRisksForVAWForm(id);
+                var physicalExampination = await _fpService.GetPhysicalExaminationForm(id);
                 var householdMember = await _householdMemberService.GetHouseholdMemberForm(householdMemberId);
                 var household = await _householdService.GetHouseholdWithDetails(householdNo);
                 var streetNo = household.HouseNoAndStreet;
@@ -241,6 +244,9 @@ namespace AUF.EMR.MVC.Controllers
                 report.RegisterData(clientType, "ClientType");
                 report.RegisterData(medicalHistory, "MedicalHistory");
                 report.RegisterData(obstetricalHistory, "ObstetricalHistory");
+                report.RegisterData(risksForSti, "RisksForSTI");
+                report.RegisterData(risksForVaw, "RisksForVAW");
+                report.RegisterData(physicalExampination, "PhysicalExamination");
                 report.RegisterData(householdMember, "HouseholdMember");
 
                 report.SetParameterValue("StreetNo", streetNo);

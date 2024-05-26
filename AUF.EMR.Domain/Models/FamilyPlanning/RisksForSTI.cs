@@ -16,5 +16,14 @@ namespace AUF.EMR.Domain.Models.FamilyPlanning
         public bool HasPainInGenitalArea { get; set; } 
         public bool HadTreatmentForSTI { get; set; }
         public bool HasHIV { get; set; } 
+
+        // PRINT
+        public bool? IsVagina { get => Genitals.HasValue && Genitals.Value == Enums.FamilyPlanning.Genitals.Vagina; }
+        public bool? IsPenis { get => Genitals.HasValue && Genitals.Value == Enums.FamilyPlanning.Genitals.Penis; }
+        public bool NoAbnormalDischarge { get => !AbnormalDischarge; }
+        public bool NoSoresInGenitalArea { get => !HasSoresInGenitalArea; }
+        public bool NoPainInGenitalArea { get => !HasPainInGenitalArea; }
+        public bool NoTreatmentForSTI { get => !HadTreatmentForSTI; }
+        public bool NoHIV { get => !HasHIV; }
     }
 }

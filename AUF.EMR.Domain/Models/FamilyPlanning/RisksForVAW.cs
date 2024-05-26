@@ -15,5 +15,14 @@ namespace AUF.EMR.Domain.Models.FamilyPlanning
         public bool PartnerNotApproveFP { get; set; }
         public VAWReferredTo ReferredTo { get; set; }
         public string? ReferredToOthers { get; set; }
+
+        // PRINT
+        public bool NoVAW { get => !HadVAW; }
+        public bool NoUnpleasantRelationship { get => !HadUnpleasantRelationship; }
+        public bool NotPartnerNotApproveFP { get => !PartnerNotApproveFP; }
+        public bool VAWReferredToDSWD { get => ReferredTo == VAWReferredTo.DSWD; }
+        public bool VAWReferredToWCPU { get => ReferredTo == VAWReferredTo.WCPU; }
+        public bool VAWReferredToNGOs { get => ReferredTo == VAWReferredTo.NGOs; }
+        public bool VAWReferredToOthers { get => ReferredTo == VAWReferredTo.Others; }
     }
 }

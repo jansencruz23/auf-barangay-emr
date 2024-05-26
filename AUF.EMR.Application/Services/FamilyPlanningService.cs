@@ -77,5 +77,32 @@ namespace AUF.EMR.Application.Services
             };
             return form;
         }
+
+        public async Task<List<RisksForSTI>> GetRisksForSTIForm(int id)
+        {
+            var form = new List<RisksForSTI>()
+            {
+                (await GetFPRecordWithDetails(id)).RisksForSTI
+            };
+            return form;
+        }
+
+        public async Task<List<RisksForVAW>> GetRisksForVAWForm(int id)
+        {
+            var form = new List<RisksForVAW>()
+            {
+                (await GetFPRecordWithDetails(id)).RisksForVAW
+            };
+            return form;
+        }
+
+        public async Task<List<PhysicalExamination>> GetPhysicalExaminationForm(int id)
+        {
+            var form = new List<PhysicalExamination>()
+            {
+                (await GetFPRecordWithDetails(id)).PhysicalExamination
+            };
+            return form;
+        }
     }
 }

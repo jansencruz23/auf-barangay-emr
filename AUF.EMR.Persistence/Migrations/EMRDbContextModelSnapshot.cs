@@ -283,7 +283,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<int>("Abdomen")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("AdnexalMass")
+                    b.Property<bool>("AdnexalMass")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("BloodPressure")
@@ -296,7 +296,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<int?>("CervicalConsistency")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("CervicalTenderness")
+                    b.Property<bool>("CervicalTenderness")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("Conjunctiva")
@@ -320,31 +320,31 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<int>("Neck")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("PCABloodyDischarge")
+                    b.Property<bool>("PCABloodyDischarge")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PCAInflammation")
+                    b.Property<bool>("PCAInflammation")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PCAPolyp")
+                    b.Property<bool>("PCAPolyp")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PCAWarts")
+                    b.Property<bool>("PCAWarts")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PelvicAbnormalDischarge")
+                    b.Property<bool>("PelvicAbnormalDischarge")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PelvicCervicalAbnormalities")
+                    b.Property<bool>("PelvicCervicalAbnormalities")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PelvicCervicalConsistency")
+                    b.Property<bool>("PelvicCervicalConsistency")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PelvicMass")
+                    b.Property<bool>("PelvicMass")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PelvicNormal")
+                    b.Property<bool>("PelvicNormal")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("PulseRate")
@@ -356,10 +356,13 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int?>("UterineDepth")
+                    b.Property<bool>("UterineDepth")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int?>("UterineDepthSize")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("UterinePosition")
+                    b.Property<bool>("UterinePosition")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int?>("UterinePositions")
