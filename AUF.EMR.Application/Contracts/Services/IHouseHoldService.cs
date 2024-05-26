@@ -19,5 +19,6 @@ namespace AUF.EMR.Application.Contracts.Services
         Task<int> GetHouseholdId(string householdNo);
         Task<bool> IsHouseholdNoExisting(string householdNo);
         Task DeleteHousehold(int id);
+        Task<List<Household>> GetHouseholdForm(string householdNo);
     }
 }

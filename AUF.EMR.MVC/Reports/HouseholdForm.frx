@@ -1,17 +1,149 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/13/2024 20:23:46" ReportInfo.Modified="05/13/2024 20:49:11" ReportInfo.CreatorVersion="2024.2.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/13/2024 20:23:46" ReportInfo.Modified="05/18/2024 22:25:23" ReportInfo.CreatorVersion="2024.2.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="Household" ReferenceName="HouseholdRef" DataType="System.Int32" Enabled="true">
       <Column Name="HouseholdNo" DataType="System.String"/>
+      <Column Name="FirstQtrVisit" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="SecondQtrVisit" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="ThirdQtrVisit" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="FourthQtrVisit" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="LastName" DataType="System.String" PropName="Column"/>
+      <Column Name="FirstName" DataType="System.String" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="MotherMaidenName" DataType="System.String" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="IsNHTS" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsHeadPhilhealthMember" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="PhilhealthNo" DataType="System.String" PropName="Column"/>
+      <Column Name="Category" DataType="System.String" PropName="Column"/>
+      <Column Name="IsIP" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="HouseholdMember" ReferenceName="HouseholdMemberRef" DataType="System.Int32" Enabled="true">
+      <Column Name="LastName" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="FirstName" Alias="" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="RelationshipToHouseholdHead" DataType="System.Int32" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="OtherRelation" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Age" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="FirstQtrClassification" DataType="System.String" PropName="Column"/>
+      <Column Name="SecondQtrClassification" DataType="System.String" PropName="Column"/>
+      <Column Name="ThirdQtrClassification" DataType="System.String" PropName="Column"/>
+      <Column Name="FourthQtrClassification" DataType="System.String" PropName="Column"/>
+      <Column Name="Remarks" DataType="System.String" PropName="Column"/>
     </BusinessObjectDataSource>
   </Dictionary>
-  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
-    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
-      <TextObject Name="Text2" Left="75.6" Top="18.9" Width="103.95" Height="18.9" Text="Household No:" Font="Arial, 10pt"/>
-      <TextObject Name="Text1" Left="189" Top="18.9" Width="94.5" Height="18.9" Text="[Household.HouseholdNo]" Font="Arial, 10pt"/>
-    </ReportTitleBand>
-    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="28.35"/>
-    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="75.6"/>
-    <PageFooterBand Name="PageFooter1" Top="153.75" Width="718.2" Height="18.9"/>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="279.4" PaperHeight="215.9" RawPaperSize="1" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" Watermark.Font="Arial, 60pt" LastPageSource="261" FirstPageSource="261">
+    <PageHeaderBand Name="PageHeader1" Width="1018.33" Height="359.1">
+      <TextObject Name="Text2" Left="737.1" Top="18.9" Width="113.4" Height="18.9" Text="Household No.:" Font="Arial, 9.75pt, style=Bold"/>
+      <TextObject Name="Text1" Left="841.05" Top="18.9" Width="113.4" Height="18.9" Text="[Household.HouseholdNo]" Font="Arial, 10pt"/>
+      <TextObject Name="Text26" Left="415.8" Top="18.9" Width="207.9" Height="18.9" Text="Form 1. HH Profile" Font="Arial, 15.75pt, style=Bold"/>
+      <ShapeObject Name="Shape1" Left="737.1" Top="9.45" Width="226.8" Height="37.8"/>
+      <ShapeObject Name="Shape2" Left="56.7" Top="56.7" Width="907.2" Height="302.4"/>
+      <TextObject Name="Text4" Left="56.7" Top="56.7" Width="226.8" Height="18.9" Text="1a. First Quarter: Date of Visit" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text6" Left="283.5" Top="56.7" Width="226.8" Height="18.9" Text="1b. Second Quarter: Date of Visit" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text8" Left="510.3" Top="56.7" Width="226.8" Height="18.9" Text="1c. Third Quarter: Date of Visit" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text10" Left="737.1" Top="56.7" Width="226.8" Height="18.9" Text="1d. Fourth Quarter: Date of Visit" Font="Arial, 8.25pt, style=Bold"/>
+      <LineObject Name="Line2" Left="283.5" Top="56.7" Height="56.7"/>
+      <LineObject Name="Line3" Left="510.3" Top="56.7" Height="56.7"/>
+      <LineObject Name="Line4" Left="737.1" Top="56.7" Height="56.7"/>
+      <TextObject Name="Text3" Left="56.7" Top="75.6" Width="226.8" Height="18.9" Text="[Household.FirstQtrVisit]" Format="Date" Format.Format="d" HorzAlign="Center" Font="Arial, 9.75pt"/>
+      <TextObject Name="Text5" Left="283.5" Top="75.6" Width="226.8" Height="18.9" Text="[Household.SecondQtrVisit]" Format="Date" Format.Format="d" HorzAlign="Center" Font="Arial, 9.75pt"/>
+      <TextObject Name="Text7" Left="510.3" Top="75.6" Width="226.8" Height="18.9" Text="[Household.ThirdQtrVisit]" Format="Date" Format.Format="d" HorzAlign="Center" Font="Arial, 9.75pt"/>
+      <TextObject Name="Text9" Left="737.1" Top="75.6" Width="226.8" Height="18.9" Text="[Household.FourthQtrVisit]" Format="Date" Format.Format="d" HorzAlign="Center" Font="Arial, 9.75pt"/>
+      <TextObject Name="Text27" Left="56.7" Top="94.5" Width="226.8" Height="18.9" Text="mm - dd - yy" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text28" Left="283.5" Top="94.5" Width="226.8" Height="18.9" Text="mm - dd - yy" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text29" Left="510.3" Top="94.5" Width="226.8" Height="18.9" Text="mm - dd - yy" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text30" Left="737.1" Top="94.5" Width="226.8" Height="18.9" Text="mm - dd - yy" HorzAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text12" Left="283.5" Top="113.4" Width="226.8" Height="18.9" Text="Last Name:" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text14" Left="510.3" Top="113.4" Width="226.8" Height="18.9" Text="First Name:" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text16" Left="737.1" Top="113.4" Width="226.8" Height="18.9" Text="Mother's Maiden Name:" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text31" Left="56.7" Top="113.4" Width="217.35" Height="18.9" Text="2. Name of Respondent:" Font="Arial, 9pt, style=Bold"/>
+      <LineObject Name="Line1" Left="56.7" Top="113.4" Width="907.2"/>
+      <TextObject Name="Text11" Left="283.5" Top="132.3" Width="226.8" Height="18.9" Text="[Household.LastName]" Font="Arial, 9.75pt"/>
+      <TextObject Name="Text13" Left="510.3" Top="132.3" Width="226.8" Height="18.9" Text="[Household.FirstName]" Font="Arial, 9.75pt"/>
+      <TextObject Name="Text15" Left="737.1" Top="132.3" Width="226.8" Height="18.9" Text="[Household.MotherMaidenName]" Font="Arial, 9.75pt"/>
+      <TextObject Name="Text32" Left="56.7" Top="170.1" Width="151.2" Height="18.9" Text="3. NHTS Household:" Font="Arial, 8.25pt, style=Bold"/>
+      <CheckBoxObject Name="CheckBox1" Left="245.7" Top="170.1" Width="18.9" Height="18.9" Border.Lines="All" DataColumn="Household.IsNHTS"/>
+      <CheckBoxObject Name="CheckBox2" Left="359.1" Top="170.1" Width="18.9" Height="18.9" Border.Lines="All" Checked="false" Expression="IIf([Household.IsNHTS],false,true)"/>
+      <TextObject Name="Text33" Left="274.05" Top="170.1" Width="56.7" Height="18.9" Text="NHTS" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text34" Left="387.45" Top="170.1" Width="85.05" Height="18.9" Text="Non NHTS" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text35" Left="585.9" Top="170.1" Width="236.25" Height="18.9" Text="5. HH Head Philhealth Member?" Font="Arial, 8.25pt, style=Bold"/>
+      <LineObject Name="Line5" Left="56.7" Top="160.65" Width="907.2"/>
+      <CheckBoxObject Name="CheckBox3" Left="642.6" Top="189" Width="18.9" Height="18.9" Border.Lines="All" DataColumn="Household.IsHeadPhilhealthMember"/>
+      <CheckBoxObject Name="CheckBox4" Left="585.9" Top="189" Width="18.9" Height="18.9" Border.Lines="All" Checked="false" Expression="IIf([Household.IsHeadPhilhealthMember],false,true)"/>
+      <TextObject Name="Text36" Left="604.8" Top="189" Width="37.8" Height="18.9" Text="No" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text37" Left="661.5" Top="189" Width="132.3" Height="18.9" Text="Yes, Philhealth ID No." Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text38" Left="784.35" Top="189" Width="141.75" Height="18.9" Text="[Household.PhilhealthNo]" Underlines="true" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text41" Left="56.7" Top="207.9" Width="28.35" Height="18.9" Text="4." Font="Arial, 8.25pt, style=Bold"/>
+      <CheckBoxObject Name="CheckBox5" Left="75.6" Top="207.9" Width="18.9" Height="18.9" Border.Lines="All" Checked="false" DataColumn="Household.IsIP"/>
+      <CheckBoxObject Name="CheckBox6" Left="151.2" Top="207.9" Width="18.9" Height="18.9" Border.Lines="All" Checked="false" Expression="IIf([Household.IsIP],false,true)"/>
+      <TextObject Name="Text42" Left="103.95" Top="207.9" Width="28.35" Height="18.9" Text="IP" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text43" Left="179.55" Top="207.9" Width="56.7" Height="18.9" Text="Non-IP" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text39" Left="699.3" Top="217.35" Width="160.65" Height="18.9" Text="[Household.Category]" Underlines="true" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text40" Left="642.6" Top="217.35" Width="66.15" Height="18.9" Text="Category" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text44" Left="56.7" Top="245.7" Width="226.8" Height="18.9" Text="6. Name of Household member" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text46" Left="283.5" Top="245.7" Width="94.5" Height="37.8" Text="7. Relationship of Member to HH Head" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text49" Left="396.9" Top="245.7" Width="75.6" Height="18.9" Text="8. Sex" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text52" Left="472.5" Top="245.7" Width="56.7" Height="18.9" Text="9. Age" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text53" Left="529.2" Top="245.7" Width="75.6" Height="18.9" Text="10. Birthday" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text55" Left="604.8" Top="245.7" Width="245.7" Height="18.9" Text="11. Classification by Age/Health Risk Group" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text60" Left="869.4" Top="245.7" Width="94.5" Height="103.95" Text="12. Remarks (If HH member is 21 y/o, ask if Philhealth enrolled and specify Philhealth ID No.)" Font="Arial, 8.25pt, style=Bold"/>
+      <LineObject Name="Line10" Left="396.9" Top="245.7" Height="113.4"/>
+      <LineObject Name="Line11" Left="472.5" Top="245.7" Height="113.4"/>
+      <LineObject Name="Line12" Left="529.2" Top="245.7" Height="113.4"/>
+      <LineObject Name="Line13" Left="604.8" Top="245.7" Height="113.4"/>
+      <LineObject Name="Line14" Left="869.4" Top="245.7" Height="113.4"/>
+      <LineObject Name="Line22" Left="283.5" Top="245.7" Height="113.4"/>
+      <TextObject Name="Text45" Left="56.7" Top="264.6" Width="264.6" Height="75.6" Text="(Last name, first name, mother's maiden name)&#13;&#10;Please provide the names of the members of the&#13;&#10;household starting from the household head&#13;&#10;followed by spouse, son/daughter (eldest to&#13;&#10;youngest), and other members of the household." Font="Arial, 6.75pt"/>
+      <TextObject Name="Text50" Left="396.9" Top="264.6" Width="28.35" Height="37.8" Text="M -&#13;&#10;F -" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text51" Left="415.8" Top="264.6" Width="47.25" Height="37.8" Text="Male&#13;&#10;Female" Font="Arial, 6.75pt"/>
+      <TextObject Name="Text54" Left="529.2" Top="264.6" Width="75.6" Height="18.9" Text="mm - dd - yy" HorzAlign="Center" Font="Arial, 6.75pt"/>
+      <TextObject Name="Text56" Left="604.8" Top="264.6" Width="28.35" Height="66.15" Text="N-&#13;&#10;I-&#13;&#10;U-&#13;&#10;S-&#13;&#10;A-&#13;&#10;P-&#13;&#10;" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text57" Left="614.25" Top="264.6" Width="179.55" Height="66.15" Text="Newborn (0-28 days)&#13;&#10;Infant (29 days-11 mos old)&#13;&#10;Under-five (1-4 years old)&#13;&#10;School-aged Children (5-9 y.o.)&#13;&#10;Adolescents (10-19 years old)&#13;&#10;Pregnant" Font="Arial, 6.75pt"/>
+      <TextObject Name="Text58" Left="746.55" Top="264.6" Width="37.8" Height="66.15" Text="AP-&#13;&#10;PP-&#13;&#10;WRA-&#13;&#10;SC-&#13;&#10;AH-&#13;&#10;PWD-" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text59" Left="774.9" Top="264.6" Width="94.5" Height="66.15" Text="Adolescent-Pregnant&#13;&#10;Post Partum&#13;&#10;15 to 49 years old&#13;&#10;Senior Citizen&#13;&#10;Adult 20-59 y/o&#13;&#10;Person with Disabilty" Font="Arial, 6.75pt"/>
+      <TextObject Name="Text47" Left="283.5" Top="283.5" Width="28.35" Height="75.6" Text="1 -&#13;&#10;2 -&#13;&#10;3 -&#13;&#10;4 -&#13;&#10;5 -" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text48" Left="302.4" Top="283.5" Width="85.05" Height="75.6" Text="Head&#13;&#10;Spouse&#13;&#10;Son&#13;&#10;Daughter&#13;&#10;Others&#13;&#10;specify relation" Font="Arial, 6.75pt"/>
+      <TextObject Name="Text61" Left="604.8" Top="330.75" Width="66.15" Height="28.35" Text="First Quarter" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text62" Left="670.95" Top="330.75" Width="66.15" Height="28.35" Text="Second Quarter" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text63" Left="737.1" Top="330.75" Width="66.15" Height="28.35" Text="Third Quarter" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text64" Left="803.25" Top="330.75" Width="66.15" Height="28.35" Text="Fourth Quarter" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <LineObject Name="Line15" Left="604.8" Top="330.75" Width="264.6"/>
+      <LineObject Name="Line16" Left="670.95" Top="330.75" Height="28.35"/>
+      <LineObject Name="Line17" Left="737.1" Top="330.75" Height="28.35"/>
+      <LineObject Name="Line18" Left="803.25" Top="330.75" Height="28.35"/>
+      <LineObject Name="Line32" Left="56.7" Top="245.7" Width="907.2"/>
+    </PageHeaderBand>
+    <DataBand Name="Data2" Top="363.1" Width="1018.33" Height="28.35" DataSource="HouseholdMember">
+      <TextObject Name="Text65" Left="56.7" Width="207.9" Height="28.35" Text="[HouseholdMember.FullName]" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text67" Left="283.5" Width="113.4" Height="28.35" VisibleExpression="IIf([HouseholdMember.RelationshipToHouseholdHead] == 5,[HouseholdMember.RelationshipToHouseholdHead] + &quot;-&quot; + [HouseholdMember.OtherRelation],[HouseholdMember.RelationshipToHouseholdHead])" Text="[IIf([HouseholdMember.RelationshipToHouseholdHead] != 5,[HouseholdMember.RelationshipToHouseholdHead],[HouseholdMember.RelationshipToHouseholdHead] + &quot; - &quot; + [HouseholdMember.OtherRelation])]" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text68" Left="396.9" Width="75.6" Height="28.35" Text="[HouseholdMember.Sex]" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text69" Left="472.5" Width="56.7" Height="28.35" Text="[HouseholdMember.Age]" Font="Arial, 8pt"/>
+      <TextObject Name="Text70" Left="529.2" Width="75.6" Height="28.35" Text="[HouseholdMember.Birthday]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text71" Left="604.8" Width="66.15" Height="28.35" Text="[HouseholdMember.FirstQtrClassification]" Font="Arial, 8pt"/>
+      <TextObject Name="Text72" Left="670.95" Width="66.15" Height="28.35" Text="[HouseholdMember.SecondQtrClassification]" Font="Arial, 8pt"/>
+      <TextObject Name="Text73" Left="737.1" Width="66.15" Height="28.35" Text="[HouseholdMember.ThirdQtrClassification]" Font="Arial, 8pt"/>
+      <TextObject Name="Text74" Left="803.25" Width="66.15" Height="28.35" Text="[HouseholdMember.FourthQtrClassification]" Font="Arial, 8pt"/>
+      <TextObject Name="Text75" Left="869.4" Width="94.5" Height="28.35" Text="[HouseholdMember.Remarks]" Font="Arial, 8pt"/>
+      <LineObject Name="Line21" Left="963.9" Height="28.35"/>
+      <LineObject Name="Line23" Left="283.5" Height="28.35"/>
+      <LineObject Name="Line24" Left="396.9" Height="28.35"/>
+      <LineObject Name="Line25" Left="472.5" Height="28.35"/>
+      <LineObject Name="Line26" Left="529.2" Height="28.35"/>
+      <LineObject Name="Line27" Left="604.8" Height="28.35"/>
+      <LineObject Name="Line28" Left="670.95" Height="28.35"/>
+      <LineObject Name="Line29" Left="737.1" Height="28.35"/>
+      <LineObject Name="Line30" Left="869.4" Height="28.35"/>
+      <LineObject Name="Line31" Left="803.25" Height="28.35"/>
+      <LineObject Name="Line33" Left="56.7" Height="28.35"/>
+      <LineObject Name="Line20" Left="56.7" Top="28.35" Width="907.2" Anchor="Bottom"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="395.45" Width="1018.33" Height="122.85">
+      <TextObject Name="Text76" Left="56.7" Top="18.9" Width="28.35" Height="94.5" Text="N:&#13;&#10;I:&#13;&#10;&#13;&#10;U:&#13;&#10;S:&#13;&#10;A:&#13;&#10;P:" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text77" Left="75.6" Top="18.9" Width="321.3" Height="94.5" Text="Newborn (0-28 days)&#13;&#10;Infant (29 days - 11 mos old)&#13;&#10;&#13;&#10;Under-five (1-4 years old or 12-59 months old)&#13;&#10;School-aged Children (5-9 y.o.)&#13;&#10;Adolescents (10-19 years old)&#13;&#10;Any pregnant woman even if she is &lt;15 or &gt;49 years old" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text78" Left="529.2" Top="18.9" Width="47.25" Height="94.5" Text="AP:&#13;&#10;PP:&#13;&#10;&#13;&#10;WRA:&#13;&#10;SC:&#13;&#10;PWD:&#13;&#10;AB:" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text79" Left="567" Top="18.9" Width="321.3" Height="94.5" Text="Adolesecent and pregnantat the same time&#13;&#10;Postpartum woman (those who have given birth in the last 6 weeks, even if she is &lt;15 or &gt;49 years old)&#13;&#10;Women of the Reproductive Age (women 15-49 years old)&#13;&#10;Senior Citizens (60 years old and above)&#13;&#10;Person with Disability&#13;&#10;Adult 25-59 y/o" Font="Arial, 8.25pt"/>
+    </PageFooterBand>
   </ReportPage>
 </Report>

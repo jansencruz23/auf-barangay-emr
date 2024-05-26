@@ -49,6 +49,8 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<IActionResult> HouseholdProfile(string householdNo)
         {
             var searched = await _houseHoldService.GetSearchedhouseHoldWithDetails(householdNo);
+            var householdMembers = await _houseHoldMemberService.GetHouseholdMembersWithDetails(householdNo);
+
             if (searched == null)
             {
                 return NotFound();
@@ -57,7 +59,9 @@ namespace AUF.EMR.MVC.Controllers
             var model = new HouseholdProfileVM
             {
                 HouseholdNo = householdNo,
-                Household = searched
+                Household = searched,
+                HouseholdMembers = householdMembers,
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
             };
 
             return View(model);
@@ -241,21 +245,33 @@ namespace AUF.EMR.MVC.Controllers
             return BadRequest();
         }
 
-        public async Task<FileResult> Generate(string householdNo)
+        public async Task<string> Print(string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return "Household no. is empty";
+            }
+
             try
             {
+                var household = await _houseHoldService.GetHouseholdForm(householdNo);
+
+                if (household == null)
+                {
+                    return "Household does not exist";
+                }
+
                 Config.WebMode = true;
                 var report = new Report();
                 var contentRootPath = _webHostEnvironment.ContentRootPath;
                 var path = Path.Combine(contentRootPath, "Reports", "HouseholdForm.frx");
-                var household = await _houseHoldService.GetHouseholdWithDetails(householdNo);
-                var list = new List<Household>();
-                list.Add(household);
-                report.Load(path);
-                report.RegisterData(list, "HouseholdRef");
+                var householdMembers = await _houseHoldMemberService.GetHouseholdMembersWithDetails(householdNo);
 
-                if (report.Prepare())
+                report.Load(path);
+                report.RegisterData(household, "HouseholdRef");
+                report.RegisterData(householdMembers, "HouseholdMemberRef");
+               
+                if (report.Report.Prepare())
                 {
                     var pdfExport = new PDFSimpleExport();
                     pdfExport.ShowProgress = true;
@@ -267,7 +283,8 @@ namespace AUF.EMR.MVC.Controllers
                     pdfExport.Dispose();
                     memoryStream.Position = 0;
 
-                    return File(memoryStream, "application/pdf", "household.pdf");
+                    return Convert.ToBase64String(memoryStream.ToArray());
+                    //return File(memoryStream, "application/pdf", "household.pdf");
                 }
                 else
                 {
@@ -276,7 +293,7 @@ namespace AUF.EMR.MVC.Controllers
             }
             catch(Exception ex)
             {
-                return null;
+                return ex.Message;
             }
         }
     }

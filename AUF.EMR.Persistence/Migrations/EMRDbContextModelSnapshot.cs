@@ -16,7 +16,7 @@ namespace AUF.EMR.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.17")
+                .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.Barangay", b =>
@@ -705,7 +705,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<bool?>("IsInSchool")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsNhts")
+                    b.Property<bool>("IsNhts")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime>("LastModified")
@@ -719,7 +719,6 @@ namespace AUF.EMR.Persistence.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<string>("MotherMaidenName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("NameOfFather")

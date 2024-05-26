@@ -14,7 +14,7 @@ namespace AUF.EMR.Domain.Models
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }
-        public string MotherMaidenName { get; set; }
+        public string? MotherMaidenName { get; set; }
         public int RelationshipToHouseholdHead { get; set; }
         public string? OtherRelation { get; set; }
         public char Sex { get; set; }
@@ -31,8 +31,10 @@ namespace AUF.EMR.Domain.Models
         public Household? Household { get; set; }
         public string? NameOfMother { get; set; }
         public string? NameOfFather { get; set; }
-        public bool? IsNhts { get; set; }
+        public bool IsNhts { get; set; }
+        public bool NotNhts { get => !IsNhts; }
         public bool? IsInSchool { get; set; }
+        public bool? NotInSchool { get => !IsInSchool; }
 
         public string FormattedFullName { get => $"{FirstName} {GetMiddleInitial()}. {LastName}"; }
         public string FullName { get => $"{LastName}, {FirstName}, {MotherMaidenName}"; }

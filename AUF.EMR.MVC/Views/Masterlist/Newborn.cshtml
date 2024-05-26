@@ -5,7 +5,7 @@
 }
 
 <h1>List of Newborns</h1>
-<a asp-action="PrintChildren" asp-route-requestUrl="@Model.RequestUrl" asp-route-householdNo="@Model.HouseholdNo">Print Masterlist</a>
+<button type="button" onclick="print('PrintChildren', 'Masterlist', @Model.HouseholdNo)">Print Masterlist Children</button>
 <br />
 @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
 
@@ -88,3 +88,9 @@
         }
     </tbody>
 </table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("Prints/_PrintDialog", new { action = "PrintChildren", controller = "Masterlist" });
+    }
+}
