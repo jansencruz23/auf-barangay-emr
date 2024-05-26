@@ -66,11 +66,15 @@
     cursor: pointer;
 }
 
+.hover-table-content:hover {
+    background-color: #f4f7fa;
+    cursor: pointer;
+}
+
 .align-baseline {
     vertical-align: baseline;
 }
 
-.hover-table-content:hover {
-    background-color: #f4f7fa;
-    cursor: pointer;
+.bg-slate-100 {
+    background-color: #f1f5f9;
 }

@@ -1,95 +1,100 @@
 ﻿@model PatientRecordVM
 
 @{
+    Layout = "Layouts/_HouseholdLayout";
     Layout = "Layouts/_FormLayout";
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-4">
+        <h1 class="text-2xl font-bold mb-8">Patient Records</h1>
 
-<p>
-    <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo" >Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Patient
-            </th>
-            <th>
-                BirthPlace
-            </th>
-            <th>
-               MotherName
-            </th>
-            <th>
-               MotherAge
-            </th>
-            <th>
-               MotherBirthday
-            </th>
-            <th>
-               FatherName
-            </th>
-            <th>
-               FatherAge
-            </th>
-            <th>
-               FatherBirthday
-            </th>
-            <th>
-               ContactNumber
-            </th>
-            <th>
-               TypeOfDelivery
-            </th>
-            <th>
-               Attended
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.PatientRecords) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Patient.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BirthPlace)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MotherName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MotherAge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MotherBirthday)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FatherName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FatherAge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FatherBirthday)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeOfDelivery)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Attended)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo">View</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        <div class="flex justify-end space-x-2 mb-6">
+            <a asp-action="Generate" asp-route-householdNo="@Model.HouseholdNo" class="flex-shrink-0 inline-block bg-blue-500 hover:bg-blue-300 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm w-24">
+                <svg class="w-5 h-5 text-white inline-block mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H8Zm-3 7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h1a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5Zm4 11a1 1 0 0 1-1-1v-4h8v4a1 1 0 0 1-1 1H9Z" clip-rule="evenodd" />
+                </svg>
+                <span class="hidden md:inline font-medium">Print</span>
+            </a>
+
+            <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo" class="text-white bg-primary-50 font-medium rounded-lg transition duration-300 ease-in-out text-sm px-4 py-2 hover:bg-green-300 flex-shrink-0 inline-block  text-white font-medium" aria-label="Add WRA">
+                <svg class="h-5 w-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                Add Patient Record
+            </a>
+        </div>
+    </div>
+
+    <div class="bg-white shadow-md rounded-lg p-8">
+        <div style="overflow:auto;">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="px-4 py-2 text-left">Patient</th>
+                        <th class="px-4 py-2 text-left">BirthPlace</th>
+                        <th class="px-4 py-2 text-left">MotherName</th>
+                        @*<th class="px-4 py-2 text-left">MotherAge</th>*@
+                        <th class="px-4 py-2 text-left">MotherBirthday</th>
+                        <th class="px-4 py-2 text-left">FatherName</th>
+                        @*<th class="px-4 py-2 text-left">FatherAge</th>*@
+                        <th class="px-4 py-2 text-left">FatherBirthday</th>
+                        <th class="px-4 py-2 text-left">ContactNumber</th>
+                        <th class="px-4 py-2 text-left">TypeOfDelivery</th>
+                        <th class="px-4 py-2 text-left">Attended</th>
+                        <th class="px-4 py-2 text-left"></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PatientRecords)
+                    {
+                        <tr @*style="background-color: #ffffff; this.style.color='#000000'" onmouseover="this.style.backgroundColor='#808080'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#000000'"*@>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.Patient.FullName)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.BirthPlace)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.MotherName)
+                            </td>
+                            @*<td style="text-align: center">
+                        @Html.DisplayFor(modelItem => item.MotherAge)
+                        </td>*@
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.MotherBirthday)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.FatherName)
+                            </td>
+                            @*<td style="text-align: center">
+                        @Html.DisplayFor(modelItem => item.FatherAge)
+                        </td>*@
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.FatherBirthday)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.ContactNumber)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.TypeOfDelivery)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => item.Attended)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2  inline-flex items-center text-center">
+                                <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-red-300 hover:text-red-400">
+                                    <button type="submit" class="text-red-500 hover:text-red-600 py-1 rounded-md"><i class="fas fa-trash-alt"></i></button>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -4,13 +4,13 @@
     ViewData["Title"] = "ChildDetails";
 }
 
-<h1>Adult Details</h1>
+<h1 class="text-xl font-bold text-gray-800 mb-4">Adult Details</h1>
 
-<div>
+<div class="text-gray-800">
     <h4>HouseholdMember</h4>
-    <hr />
+    <hr/>
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-2 text-gray-800">
             HH.NO/ Family Serial No.
         </dt>
         <dd class="col-sm-10">
@@ -55,6 +55,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="EditChildrenInfo" asp-route-id="@Model.HouseholdMember.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl">Edit</a> |
+    <a asp-action="EditAdultInfo" asp-route-id="@Model.HouseholdMember.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl">Edit</a> |
     <a href="@Model.RequestUrl">Back to List</a>
 </div>

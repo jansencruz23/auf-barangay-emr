@@ -2,162 +2,168 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "Layouts/_DetailsLayout";
 }
 
-<h1>Details</h1>
+<div class="container mx-auto px-4 py-8">
 
-<p>
-    <a asp-action="Create" asp-controller="VaccinationAppointment" 
-        asp-route-householdNo="@Model.HouseholdNo" asp-route-patientId="@Model.PatientRecord.Id">
-    Create New
-    </a>
-</p>
+    <div class="bg-white shadow-md rounded-lg p-8 mb-6">
+        <div class="flex justify-between items-center mb-3">
+            <h1 class="text-2xl font-bold mb-3">Details</h1>
+            <div class="space-x-2 mb-3 flex justify-end">
+                <a asp-action="Edit" asp-route-householdNo="@Model.HouseholdNo" asp-route-Id="@Model.PatientRecord.Id" class="flex-shrink-0 inline-block bg-blue-500 hover:bg-blue-300 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm w-28">
+                    <span class="hidden md:inline font-medium">Update</span>
+                </a>
 
-<p>
-    <a asp-action="Edit" asp-route-householdNo="@Model.HouseholdNo" 
-    asp-route-Id="@Model.PatientRecord.Id">
-        Update
-    </a>
-</p>
+                <a asp-action="Create" asp-controller="VaccinationAppointment" asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PatientRecord.Id" class="text-white bg-primary-50 font-medium rounded-lg transition duration-300 ease-in-out text-sm px-4 py-2 hover:bg-green-300 flex-shrink-0 inline-block  text-white font-medium" aria-label="New Appointment">
+                    <svg class="h-5 w-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                    New Appointment
+                </a>
+            </div>
+        </div>
 
-<div>
-    <h4>PatientRecord</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            Patient
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatientRecord.Patient.FormattedFullName)
-        </dd>
-        <dt class = "col-sm-2">
-            BirthPlace
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatientRecord.BirthPlace)
-        </dd>
-        <dt class = "col-sm-2">
-            MotherName
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatientRecord.MotherName)
-        </dd>
-        <dt class = "col-sm-2">
-            MotherAge
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatientRecord.MotherAge)
-        </dd>
-        <dt class = "col-sm-2">
-            MotherBirthday
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatientRecord.MotherBirthday)
-        </dd>
-        <dt class = "col-sm-2">
-            FatherName
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatientRecord.FatherName)
-        </dd>
-        <dt class = "col-sm-2">
-            FatherAge
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatientRecord.FatherAge)
-        </dd>
-        <dt class = "col-sm-2">
-            FatherBirthday
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatientRecord.FatherBirthday)
-        </dd>
-        <dt class = "col-sm-2">
-            ContactNumber
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatientRecord.ContactNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            TypeOfDelivery
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatientRecord.TypeOfDelivery)
-        </dd>
-        <dt class = "col-sm-2">
-            Attended
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatientRecord.Attended)
-        </dd> 
-    </dl>
 
-    <hr />
 
-    <h5>Vaccination Appointments</h5>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Patient
-                </th>
-                <th>
-                    VaccinationDate
-                </th>
-                <th>
-                    Weight
-                </th>
-                <th>
-                    Height
-                </th>
-                <th>
-                    Temperature
-                </th>
-                <th>
-                    Vaccines
-                </th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var appointment in Model.PatientRecord.VaccinationAppointments)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => appointment.Patient.Patient.FormattedFullName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => appointment.VaccinationDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => appointment.Weight)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => appointment.Height)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => appointment.Temperature)
-                    </td>
-                    <td>
-                        @foreach (var vaccine in appointment.VaccinationRecords)
-                        {
-                            @vaccine.Vaccine.Name <br />
-                        }
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-controller="VaccinationAppointment" 
-                            asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo">Update</a> |
-                        <form asp-action="Delete" asp-controller="VaccinationAppointment" 
-                            asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo">
-                            <button type="submit">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.PatientRecord.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+        <div>
+            <h4 class="text-2xl font-bold mb-2">Patient Record</h4>
+            <hr class="mb-2" />
+            <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Patient</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.Patient.FormattedFullName)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Birthplace</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.BirthPlace)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Mother's' Name</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.MotherName)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Mother's' Age</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.MotherAge)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Mother's' Birthdate</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.MotherBirthday)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Father's Name</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.FatherName)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Father's Age</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.FatherAge)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Father's Birthdate</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.FatherBirthday)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Contact Number</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.ContactNumber)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Type of Delivery</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.TypeOfDelivery)</dd>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Attended</dt>
+                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.Attended)</dd>
+                </div>
+            </dl>
+        </div>
+        <hr class="mb-3" />
+    </div>
+
+    <div class="bg-white shadow-md rounded-lg p-8">
+        <h5 class="text-2xl font-bold mb-2">Patient Appointments</h5>
+
+        <div style="overflow:auto;">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="px-4 py-2 text-left">
+                            Patient
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            VaccinationDate
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            Weight
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            Height
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            Temperature
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            Vaccines
+                        </th>
+                        <th class="width: 100%; white-space: pre; px-4 py-2">
+
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var appointment in Model.PatientRecord.VaccinationAppointments)
+                    {
+                        <tr>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => appointment.Patient.Patient.FormattedFullName)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => appointment.VaccinationDate)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => appointment.Weight)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => appointment.Height)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @Html.DisplayFor(modelItem => appointment.Temperature)
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2">
+                                @foreach (var vaccine in appointment.VaccinationRecords)
+                                {
+                                    @vaccine.Vaccine.Name <br />
+                                }
+                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 inline-flex items-center text-center">
+                                <a asp-action="Edit" asp-controller="VaccinationAppointment"
+                                   asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-yellow-300 hover:text-yellow-400 mr-2"><i class="fas fa-edit"></i></a>
+                                <form asp-action="Delete" asp-controller="VaccinationAppointment"
+                                      asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-red-300 hover:text-red-400">
+                                    <button type="submit" class="text-red-500 hover:text-red-600 py-1 rounded-md">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="flex justify-end mt-8">
+            <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back to List</a>
+            <a asp-action="Edit" asp-route-id="@Model?.PatientRecord.Id" asp-route-householdNo="@Model.HouseholdNo" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 w-20 flex items-center justify-center">Edit</a>
+        </div>
+    </div>
 </div>
