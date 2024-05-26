@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/26/2024 01:52:56" ReportInfo.Modified="05/26/2024 03:28:19" ReportInfo.CreatorVersion="2024.2.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/26/2024 01:52:56" ReportInfo.Modified="05/26/2024 16:30:02" ReportInfo.CreatorVersion="2024.2.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="FamilyPlanning" ReferenceName="FamilyPlanning" DataType="System.Int32" Enabled="true">
       <Column Name="ClientHouseholdMemberId" DataType="System.Int32" PropName="Column"/>
@@ -20,6 +20,11 @@
       <Column Name="IsPlanningChildren" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
       <Column Name="NotPlanningChildren" DataType="System.Boolean" PropName="Column" Calculated="true" Expression=""/>
       <Column Name="AverageMonthlyIncome" DataType="System.Double" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="ClientTypeId" DataType="System.Int32" PropName="Column"/>
+      <Column Name="IsNhts" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NotNhts" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="MedicalHistoryId" DataType="System.Int32" PropName="Column"/>
+      <Column Name="ObstetricalHistoryId" DataType="System.Int32" PropName="Column"/>
     </BusinessObjectDataSource>
     <BusinessObjectDataSource Name="HouseholdMember" ReferenceName="HouseholdMember" DataType="System.Int32" Enabled="true">
       <Column Name="FullName" DataType="System.String" PropName="Column"/>
@@ -36,14 +41,96 @@
       <Column Name="LastName" DataType="System.String" PropName="Column"/>
       <Column Name="MiddleInitial" DataType="System.String" PropName="Column"/>
     </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="ClientType" ReferenceName="ClientType" DataType="System.Int32" Enabled="true">
+      <Column Name="Id" DataType="System.Int32" PropName="Column"/>
+      <Column Name="IsCurrentUser" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsNewAcceptor" DataType="System.Int32" PropName="Column"/>
+      <Column Name="IsChangingMethod" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsChangingClinic" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsDropoutOrRestart" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NewReasonSpacing" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NewReasonLimiting" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NewReasonOthers" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="CurrentReasonSpacing" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="CurrentReasonLimiting" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="CurrentReasonOthers" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NewReasonOthersText" DataType="System.String" PropName="Column"/>
+      <Column Name="CurrentReasonOthersText" DataType="System.String" PropName="Column"/>
+      <Column Name="IsReasonMedical" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsReasonSideEffects" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="ReasonMethodText" DataType="System.String" PropName="Column"/>
+      <Column Name="IsMethodImplant" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMethodInjectable" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMethodLAM" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMethodIUD" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMethodCOC" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMethodSDM" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMethodBTL" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMethodPOP" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMethodBBT" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMethodNSV" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMethodCondom" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMethodBOM" DataType="System.Boolean" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="MedicalHistory" ReferenceName="MedicalHistory" DataType="System.Int32" PropName="MedicalRecord" Enabled="true">
+      <Column Name="HasSevereHeadache" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HasHeartAttack" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HasHematoma" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HasBreastCancer" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HasChestPain" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HasCough" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HasJaundice" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HasVaginalBleeding" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HasAbnormalDischarge" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HasTakenRifampicin" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsSmoker" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HasDisability" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="Disability" DataType="System.String" PropName="Column"/>
+      <Column Name="NoSevereHeadache" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NoHeartAttack" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NoHematoma" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NoBreastCancer" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NoChestPain" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NoCough" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NoJaundice" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NoVaginalBleeding" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NoAbnormalDischarge" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NoTakenRifampicin" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NoSmoker" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="NoDisability" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="Id" DataType="System.Int32" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="ObstetricalHistory" ReferenceName="ObstetricalHistory" DataType="System.Int32" PropName="MedicalRecord" Enabled="true">
+      <Column Name="Id" DataType="System.Int32" PropName="Column"/>
+      <Column Name="NumGravidityPregnancies" DataType="System.Int32" PropName="Column"/>
+      <Column Name="NumParityPregnancies" DataType="System.Int32" PropName="Column"/>
+      <Column Name="NumFullTerm" DataType="System.Int32" PropName="Column"/>
+      <Column Name="NumAbortion" DataType="System.Int32" PropName="Column"/>
+      <Column Name="NumPremature" DataType="System.Int32" PropName="Column"/>
+      <Column Name="NumLivingChildren" DataType="System.Int32" PropName="Column"/>
+      <Column Name="LastDelivery" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsLastDeliveryVaginal" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsLastDeliveryCS" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="LastMenstrualPeriod" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="PreviousMenstrualPeriod" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="IsMensScanty" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMensModerate" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="IsMensHeavy" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HasDysmenorrhea" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HasHydatidiformMole" DataType="System.Boolean" PropName="Column"/>
+      <Column Name="HadEctopicPregnancy" DataType="System.Boolean" PropName="Column"/>
+    </BusinessObjectDataSource>
     <Relation Name="HouseholdMember_FamilyPlanning" ParentDataSource="HouseholdMember" ChildDataSource="FamilyPlanning" ParentColumns="Id" ChildColumns="ClientHouseholdMemberId" Enabled="true"/>
+    <Relation Name="ClientType_FamilyPlanning" ParentDataSource="ClientType" ChildDataSource="FamilyPlanning" ParentColumns="Id" ChildColumns="ClientTypeId" Enabled="true"/>
+    <Relation Name="MedicalHistory_FamilyPlanning" ParentDataSource="MedicalHistory" ChildDataSource="FamilyPlanning" ParentColumns="Id" ChildColumns="MedicalHistoryId" Enabled="true"/>
+    <Relation Name="ObstetricalHistory_FamilyPlanning" ParentDataSource="ObstetricalHistory" ChildDataSource="FamilyPlanning" ParentColumns="Id" ChildColumns="ObstetricalHistoryId" Enabled="true"/>
     <Parameter Name="StreetNo" DataType="System.String" AsString=""/>
     <Parameter Name="Barangay" DataType="System.String" AsString=""/>
     <Parameter Name="City" DataType="System.String" AsString=""/>
     <Parameter Name="Province" DataType="System.String" AsString=""/>
   </Dictionary>
   <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="355.6" RawPaperSize="5" Watermark.Font="Arial, 60pt">
-    <DataBand Name="Data1" Width="740.5" Height="302.4" DataSource="FamilyPlanning">
+    <DataBand Name="Data1" Width="740.5" Height="973.35" DataSource="FamilyPlanning">
       <TextObject Name="Text1" Left="37.8" Top="18.9" Width="94.5" Height="18.9" Text="SIDE A" Font="Arial, 9.75pt, style=Bold"/>
       <TextObject Name="Text2" Left="604.8" Top="18.9" Width="94.5" Height="18.9" Text="FP FORM 1" HorzAlign="Right" Font="Arial, 9.75pt, style=Bold"/>
       <TextObject Name="Text5" Left="37.8" Top="37.8" Width="349.65" Height="18.9" Text="FAMILY PLANNING CLIENT ASSESSMENT RECORD" Font="Arial, 9.75pt, style=Bold"/>
@@ -61,37 +148,37 @@
       <CheckBoxObject Name="CheckBox2" Left="576.45" Top="71.2" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.HouseholdMember.NotNhts"/>
       <TextObject Name="Text16" Left="548.1" Top="71.2" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 7pt"/>
       <TextObject Name="Text17" Left="585.9" Top="71.2" Width="28.35" Height="18.9" Text="No" Font="Arial, 7pt"/>
-      <TextObject Name="Text18" Left="37.8" Top="94.5" Width="103.95" Height="18.9" Text="NAME OF CLIENT:" Font="Arial, 7pt, style=Bold"/>
-      <TextObject Name="Text19" Left="141.75" Top="94.5" Width="94.5" Height="9.45" Text="[FamilyPlanning.HouseholdMember.LastName]" HorzAlign="Center" Font="Arial, 7pt"/>
-      <TextObject Name="Text20" Left="245.7" Top="94.5" Width="94.5" Height="18.9" Text="[FamilyPlanning.HouseholdMember.FirstName]" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text18" Left="37.8" Top="94.5" Width="103.95" Height="18.9" Text="NAME OF CLIENT:" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text19" Left="122.85" Top="94.5" Width="103.95" Height="9.45" Text="[FamilyPlanning.HouseholdMember.LastName]" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text20" Left="236.25" Top="94.5" Width="103.95" Height="18.9" Text="[FamilyPlanning.HouseholdMember.FirstName]" HorzAlign="Center" Font="Arial, 7pt"/>
       <TextObject Name="Text21" Left="349.65" Top="94.5" Width="94.5" Height="18.9" Text="[FamilyPlanning.HouseholdMember.MiddleInitial]" HorzAlign="Center" Font="Arial, 7pt"/>
-      <LineObject Name="Line1" Left="141.75" Top="103.95" Width="302.4"/>
+      <LineObject Name="Line1" Left="122.85" Top="103.95" Width="321.3"/>
       <TextObject Name="Text25" Left="453.6" Top="94.5" Width="85.05" Height="18.9" Text="[FamilyPlanning.HouseholdMember.Birthday]" Format="Date" Format.Format="d" HorzAlign="Center" Font="Arial, 7pt"/>
       <TextObject Name="Text29" Left="548.1" Top="94.5" Width="47.25" Height="18.9" Text="[FamilyPlanning.ClientAge]" HorzAlign="Center" Font="Arial, 7pt"/>
       <TextObject Name="Text30" Left="604.8" Top="94.5" Width="94.5" Height="18.9" Text="[FamilyPlanning.ClientOccupation]" HorzAlign="Center" Font="Arial, 7pt"/>
       <LineObject Name="Line2" Left="453.6" Top="103.95" Width="85.05"/>
       <LineObject Name="Line3" Left="548.1" Top="103.95" Width="47.25"/>
       <LineObject Name="Line4" Left="604.8" Top="103.95" Width="94.5"/>
-      <TextObject Name="Text32" Left="37.8" Top="132.3" Width="61.02" Height="18.9" Text="ADDRESS:" Font="Arial, 7pt, style=Bold"/>
-      <TextObject Name="Text33" Left="94.5" Top="132.3" Width="75.6" Height="18.9" Text="[StreetNo]" HorzAlign="Center" Font="Arial, 7pt"/>
-      <TextObject Name="Text34" Left="170.1" Top="132.3" Width="66.15" Height="18.9" Text="[Barangay]" HorzAlign="Center" Font="Arial, 7pt"/>
-      <TextObject Name="Text35" Left="236.25" Top="132.3" Width="75.6" Height="18.9" Text="[City]" HorzAlign="Center" Font="Arial, 7pt"/>
-      <TextObject Name="Text36" Left="311.85" Top="132.3" Width="75.6" Height="18.9" Text="[Province]" HorzAlign="Center" Font="Arial, 7pt"/>
-      <TextObject Name="Text37" Left="94.5" Top="141.75" Width="75.6" Height="18.9" Text="No." HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
-      <TextObject Name="Text38" Left="170.1" Top="141.75" Width="66.15" Height="18.9" Text="Barangay" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
-      <TextObject Name="Text39" Left="236.25" Top="141.75" Width="75.6" Height="18.9" Text="Municipality/City" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
-      <TextObject Name="Text40" Left="311.85" Top="141.75" Width="75.6" Height="18.9" Text="Municipality/City" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
-      <TextObject Name="Text41" Left="396.9" Top="132.3" Width="94.5" Height="18.9" Text="[FamilyPlanning.ContactNo]" HorzAlign="Center" Font="Arial, 7pt"/>
-      <TextObject Name="Text42" Left="396.9" Top="141.75" Width="94.5" Height="18.9" Text="Contact Number" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
-      <TextObject Name="Text43" Left="500.85" Top="132.3" Width="75.6" Height="18.9" Text="[FamilyPlanning.CivilStatus]" HorzAlign="Center" Font="Arial, 7pt"/>
-      <TextObject Name="Text44" Left="500.85" Top="141.75" Width="75.6" Height="18.9" Text="Civil Status" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
-      <TextObject Name="Text45" Left="585.9" Top="132.3" Width="103.95" Height="18.9" Text="[FamilyPlanning.Religion]" HorzAlign="Center" Font="Arial, 7pt"/>
-      <TextObject Name="Text46" Left="585.9" Top="141.75" Width="103.95" Height="18.9" Text="Religion" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
-      <LineObject Name="Line5" Left="94.5" Top="141.75" Width="292.95"/>
-      <LineObject Name="Line6" Left="396.9" Top="141.75" Width="94.5"/>
-      <LineObject Name="Line7" Left="500.85" Top="141.75" Width="75.6"/>
-      <LineObject Name="Line8" Left="585.9" Top="141.75" Width="103.95"/>
-      <TextObject Name="Text47" Left="37.8" Top="170.1" Width="98.82" Height="18.9" Text="NAME OF SPOUSE:" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text32" Left="37.8" Top="132.3" Width="61.02" Height="18.9" Text="ADDRESS:" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text33" Left="89.81" Top="132.3" Width="75.6" Height="18.9" Text="[StreetNo]" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text34" Left="165.41" Top="132.3" Width="66.15" Height="18.9" Text="[Barangay]" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text35" Left="231.56" Top="132.3" Width="75.6" Height="18.9" Text="[City]" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text36" Left="307.16" Top="132.3" Width="75.6" Height="18.9" Text="[Province]" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text37" Left="89.81" Top="141.75" Width="75.6" Height="18.9" Text="No." HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text38" Left="165.41" Top="141.75" Width="66.15" Height="18.9" Text="Barangay" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text39" Left="231.56" Top="141.75" Width="75.6" Height="18.9" Text="Municipality/City" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text40" Left="307.16" Top="141.75" Width="75.6" Height="18.9" Text="Municipality/City" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text41" Left="392.21" Top="132.3" Width="94.5" Height="18.9" Text="[FamilyPlanning.ContactNo]" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text42" Left="392.21" Top="141.75" Width="94.5" Height="18.9" Text="Contact Number" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text43" Left="496.16" Top="132.3" Width="75.6" Height="18.9" Text="[FamilyPlanning.CivilStatus]" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text44" Left="496.16" Top="141.75" Width="75.6" Height="18.9" Text="Civil Status" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text45" Left="581.21" Top="132.3" Width="103.95" Height="18.9" Text="[FamilyPlanning.Religion]" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text46" Left="581.21" Top="141.75" Width="103.95" Height="18.9" Text="Religion" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
+      <LineObject Name="Line5" Left="89.81" Top="141.75" Width="292.95"/>
+      <LineObject Name="Line6" Left="392.21" Top="141.75" Width="94.5"/>
+      <LineObject Name="Line7" Left="496.16" Top="141.75" Width="75.6"/>
+      <LineObject Name="Line8" Left="581.21" Top="141.75" Width="103.95"/>
+      <TextObject Name="Text47" Left="37.8" Top="170.1" Width="98.82" Height="18.9" Text="NAME OF SPOUSE:" Font="Arial, 6.5pt, style=Bold"/>
       <TextObject Name="Text48" Left="132.3" Top="170.1" Width="113.4" Height="18.9" Text="[FamilyPlanning.SpouseLastName]" HorzAlign="Center" Font="Arial, 7pt"/>
       <TextObject Name="Text49" Left="245.7" Top="170.1" Width="122.85" Height="18.9" Text="[FamilyPlanning.SpouseFirstName]" HorzAlign="Center" Font="Arial, 7pt"/>
       <TextObject Name="Text50" Left="368.55" Top="170.1" Width="75.6" Height="18.9" Text="[FamilyPlanning.SpouseMiddleInitial]" HorzAlign="Center" Font="Arial, 7pt"/>
@@ -108,24 +195,198 @@
       <LineObject Name="Line10" Left="453.6" Top="179.55" Width="85.05"/>
       <LineObject Name="Line11" Left="548.1" Top="179.55" Width="47.25"/>
       <LineObject Name="Line12" Left="604.8" Top="179.55" Width="94.5"/>
-      <TextObject Name="Text60" Left="141.75" Top="103.95" Width="113.4" Height="18.9" Text="Last Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
-      <TextObject Name="Text61" Left="255.15" Top="103.95" Width="85.05" Height="18.9" Text="Given Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text60" Left="122.85" Top="103.95" Width="103.95" Height="18.9" Text="Last Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text61" Left="236.25" Top="103.95" Width="103.95" Height="18.9" Text="Given Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
       <TextObject Name="Text62" Left="349.65" Top="103.95" Width="94.5" Height="18.9" Text="MI" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
       <TextObject Name="Text63" Left="453.6" Top="103.95" Width="85.05" Height="18.9" Text="Date of Birth" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
       <TextObject Name="Text64" Left="548.1" Top="103.95" Width="47.25" Height="18.9" Text="Age" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
       <TextObject Name="Text65" Left="604.8" Top="103.95" Width="94.5" Height="18.9" Text="Occupation" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.5pt"/>
-      <TextObject Name="Text66" Left="37.8" Top="207.9" Width="136.62" Height="18.9" Text="NO. OF LIVING CHILDREN:" Font="Arial, 7pt, style=Bold"/>
-      <TextObject Name="Text67" Left="170.1" Top="207.9" Width="56.7" Height="18.9" Text="[FamilyPlanning.LivingChildrenNo]" Font="Arial, 7pt"/>
-      <TextObject Name="Text68" Left="236.25" Top="207.9" Width="174.42" Height="18.9" Text="PLAN TO HAVE MORE CHILDREN?" Font="Arial, 7pt, style=Bold"/>
-      <TextObject Name="Text69" Left="491.4" Top="207.9" Width="146.07" Height="18.9" Text="AVERAGE MONTH INCOME:" Font="Arial, 7pt, style=Bold"/>
-      <CheckBoxObject Name="CheckBox3" Left="406.35" Top="207.9" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.IsPlanningChildren"/>
-      <TextObject Name="Text70" Left="415.8" Top="207.9" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 7pt"/>
-      <CheckBoxObject Name="CheckBox4" Left="444.15" Top="207.9" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.NotPlanningChildren"/>
-      <TextObject Name="Text71" Left="453.6" Top="207.9" Width="28.35" Height="18.9" Text="No" Font="Arial, 7pt"/>
-      <TextObject Name="Text72" Left="623.7" Top="207.9" Width="75.6" Height="18.9" Text="[FamilyPlanning.AverageMonthlyIncome]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" WordWrap="false" Font="Arial, 7pt" Trimming="EllipsisCharacter"/>
-      <LineObject Name="Line13" Left="170.1" Top="217.35" Width="56.7"/>
-      <LineObject Name="Line14" Left="623.7" Top="217.35" Width="75.6"/>
+      <TextObject Name="Text66" Left="37.8" Top="207.9" Width="136.62" Height="18.9" Text="NO. OF LIVING CHILDREN:" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text67" Left="160.65" Top="207.9" Width="66.15" Height="18.9" Text="[FamilyPlanning.LivingChildrenNo]" Font="Arial, 7pt"/>
+      <TextObject Name="Text68" Left="226.8" Top="207.9" Width="162.29" Height="18.9" Text="PLAN TO HAVE MORE CHILDREN?" Font="Arial, 6.5pt, style=Bold"/>
+      <TextObject Name="Text69" Left="463.05" Top="207.9" Width="127.17" Height="18.9" Text="AVERAGE MONTH INCOME:" Font="Arial, 6.5pt, style=Bold"/>
+      <CheckBoxObject Name="CheckBox3" Left="387.45" Top="207.9" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.IsPlanningChildren"/>
+      <TextObject Name="Text70" Left="396.9" Top="207.9" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox4" Left="425.25" Top="207.9" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.NotPlanningChildren"/>
+      <TextObject Name="Text71" Left="434.7" Top="207.9" Width="28.35" Height="18.9" Text="No" Font="Arial, 7pt"/>
+      <TextObject Name="Text72" Left="585.9" Top="207.9" Width="113.4" Height="18.9" Text="[FamilyPlanning.AverageMonthlyIncome]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" WordWrap="false" Font="Arial, 7pt" Trimming="EllipsisCharacter"/>
+      <LineObject Name="Line13" Left="160.65" Top="217.35" Width="66.15"/>
+      <LineObject Name="Line14" Left="585.9" Top="217.35" Width="113.4"/>
+      <TextObject Name="Text73" Left="37.8" Top="236.25" Width="79.92" Height="18.9" Text="Type of Client" Font="Arial, 7pt, style=Bold"/>
+      <CheckBoxObject Name="CheckBox5" Left="47.25" Top="255.15" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsNewAcceptor"/>
+      <CheckBoxObject Name="CheckBox6" Left="47.25" Top="274.05" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsCurrentUser"/>
+      <TextObject Name="Text74" Left="56.7" Top="255.15" Width="75.6" Height="9.45" Text="New Acceptor" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text75" Left="56.7" Top="274.05" Width="75.6" Height="9.45" Text="Current User" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox7" Left="56.7" Top="292.95" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsChangingMethod"/>
+      <CheckBoxObject Name="CheckBox8" Left="56.7" Top="311.85" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsChangingClinic"/>
+      <CheckBoxObject Name="CheckBox9" Left="56.7" Top="330.75" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsDropoutOrRestart"/>
+      <TextObject Name="Text76" Left="66.15" Top="292.95" Width="85.05" Height="9.45" Text="Changing Method" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text77" Left="66.15" Top="311.85" Width="75.6" Height="9.45" Text="Changing Clinic" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text78" Left="66.15" Top="330.75" Width="75.6" Height="9.45" Text="Dropout/Restart" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text79" Left="151.2" Top="255.15" Width="75.6" Height="18.9" Text="Reason for FP:" Underlines="true" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text80" Left="151.2" Top="274.05" Width="75.6" Height="18.9" Text="Reason for FP:" Underlines="true" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox10" Left="217.35" Top="255.15" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.NewReasonSpacing"/>
+      <CheckBoxObject Name="CheckBox11" Left="217.35" Top="274.05" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.CurrentReasonSpacing"/>
+      <TextObject Name="Text81" Left="226.8" Top="255.15" Width="37.8" Height="9.45" Text="spacing" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text82" Left="226.8" Top="274.05" Width="37.8" Height="9.45" Text="spacing" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox12" Left="264.6" Top="255.15" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.NewReasonLimiting"/>
+      <TextObject Name="Text83" Left="274.05" Top="255.15" Width="37.8" Height="9.45" Text="limiting" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox13" Left="264.6" Top="274.05" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.CurrentReasonLimiting"/>
+      <TextObject Name="Text84" Left="274.05" Top="274.05" Width="37.8" Height="9.45" Text="limiting" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox14" Left="311.85" Top="255.15" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.NewReasonOthers"/>
+      <TextObject Name="Text85" Left="321.3" Top="255.15" Width="37.8" Height="9.45" Text="others" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox15" Left="311.85" Top="274.05" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.CurrentReasonOthers"/>
+      <TextObject Name="Text86" Left="321.3" Top="274.05" Width="37.8" Height="9.45" Text="others" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text87" Left="349.65" Top="255.15" Width="75.6" Height="18.9" Text="[FamilyPlanning.ClientType.NewReasonOthersText]" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text88" Left="349.65" Top="274.05" Width="75.6" Height="18.9" Text="[FamilyPlanning.ClientType.CurrentReasonOthersText]" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text89" Left="151.2" Top="292.95" Width="47.25" Height="18.9" Text="Reason:" Font="Arial, 6.5pt"/>
+      <LineObject Name="Line15" Left="349.65" Top="264.6" Width="75.6"/>
+      <LineObject Name="Line16" Left="349.65" Top="283.5" Width="75.6"/>
+      <LineObject Name="Line17" Left="154.8" Top="302.4" Width="33.55"/>
+      <CheckBoxObject Name="CheckBox16" Left="191.48" Top="292.95" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsReasonMedical"/>
+      <TextObject Name="Text90" Left="200.93" Top="292.95" Width="85.05" Height="9.45" Text="medical condition" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox17" Left="278.23" Top="292.95" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsReasonSideEffects"/>
+      <TextObject Name="Text91" Left="287.68" Top="292.95" Width="56.7" Height="9.45" Text="side-effects" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text92" Left="340.2" Top="292.95" Width="85.05" Height="18.9" Text="[FamilyPlanning.ClientType.ReasonMethodText]" Font="Arial, 6.5pt"/>
+      <LineObject Name="Line18" Left="340.2" Top="302.4" Width="85.05"/>
+      <TextObject Name="Text93" Left="434.7" Top="255.15" Width="207.9" Height="18.9" Text="Previously used Method (for Current User):" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox18" Left="444.15" Top="274.05" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsMethodImplant"/>
+      <CheckBoxObject Name="CheckBox19" Left="444.15" Top="292.95" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsMethodInjectable"/>
+      <CheckBoxObject Name="CheckBox20" Left="444.15" Top="311.85" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsMethodLAM"/>
+      <CheckBoxObject Name="CheckBox21" Left="500.85" Top="274.05" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsMethodIUD"/>
+      <CheckBoxObject Name="CheckBox22" Left="500.85" Top="292.95" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsMethodCOC"/>
+      <CheckBoxObject Name="CheckBox23" Left="500.85" Top="311.85" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsMethodSDM"/>
+      <CheckBoxObject Name="CheckBox24" Left="557.55" Top="274.05" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsMethodBTL"/>
+      <CheckBoxObject Name="CheckBox25" Left="557.55" Top="292.95" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsMethodPOP"/>
+      <CheckBoxObject Name="CheckBox26" Left="557.55" Top="311.85" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsMethodBBT"/>
+      <CheckBoxObject Name="CheckBox27" Left="614.25" Top="274.05" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsMethodNSV"/>
+      <CheckBoxObject Name="CheckBox28" Left="614.25" Top="292.95" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsMethodCondom"/>
+      <CheckBoxObject Name="CheckBox29" Left="614.25" Top="311.85" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ClientType.IsMethodBOM"/>
+      <TextObject Name="Text94" Left="453.6" Top="274.05" Width="37.8" Height="18.9" Text="Implant" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text95" Left="453.6" Top="292.95" Width="47.25" Height="18.9" Text="Injectable" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text96" Left="453.6" Top="311.85" Width="47.25" Height="18.9" Text="LAM" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text97" Left="510.3" Top="274.05" Width="47.25" Height="18.9" Text="IUD" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text98" Left="510.3" Top="292.95" Width="47.25" Height="18.9" Text="COC" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text99" Left="510.3" Top="311.85" Width="47.25" Height="18.9" Text="SDM" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text100" Left="567" Top="274.05" Width="47.25" Height="18.9" Text="BTL" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text101" Left="567" Top="292.95" Width="47.25" Height="18.9" Text="POP" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text102" Left="567" Top="311.85" Width="47.25" Height="18.9" Text="BBT" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text103" Left="623.7" Top="274.05" Width="47.25" Height="18.9" Text="NSV" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text104" Left="623.7" Top="292.95" Width="47.25" Height="18.9" Text="Condom" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text105" Left="623.7" Top="311.85" Width="75.6" Height="18.9" Text="BOM/CMM/STM" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text106" Left="56.7" Top="359.1" Width="127.17" Height="18.9" Text="I. MEDICAL HISTORY" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text107" Left="66.15" Top="378" Width="264.6" Height="18.9" Text="Does the client have any of the following?" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text108" Left="66.15" Top="396.9" Width="264.6" Height="18.9" Text="■    severe headaches / migraine" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text109" Left="66.15" Top="415.8" Width="264.6" Height="18.9" Text="■    history of stroke / heart attack / hypertension" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text110" Left="66.15" Top="434.7" Width="264.6" Height="18.9" Text="■    non-traumatic hematoma / frequent bruising or gum bleeding" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text111" Left="66.15" Top="453.6" Width="264.6" Height="18.9" Text="■    current or history of breast cancer / breast mass" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text112" Left="66.15" Top="472.5" Width="264.6" Height="18.9" Text="■    severe chest pain" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text113" Left="66.15" Top="491.4" Width="264.6" Height="18.9" Text="■    cough for more than 14 days" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text114" Left="66.15" Top="510.3" Width="264.6" Height="18.9" Text="■    jaundice" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text115" Left="66.15" Top="529.2" Width="264.6" Height="18.9" Text="■    unexplained vaginal bleeding" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text116" Left="66.15" Top="548.1" Width="264.6" Height="18.9" Text="■    abnormal vaginal discharge" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text117" Left="66.15" Top="567" Width="264.6" Height="18.9" Text="■    intake of phenobarbital (anti-seizure) or rifampicin (anti-TB)" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text118" Left="66.15" Top="585.9" Width="264.6" Height="18.9" Text="■    Is the client a SMOKER?" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text119" Left="66.15" Top="604.8" Width="264.6" Height="18.9" Text="■    With Disability?" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text120" Left="103.95" Top="623.7" Width="283.5" Height="18.9" Text="(if YES please specify:" Font="Arial, 6.5pt"/>
+      <LineObject Name="Line19" Left="425.25" Top="359.1" Height="283.5"/>
+      <CheckBoxObject Name="CheckBox30" Left="340.2" Top="396.9" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.HasSevereHeadache"/>
+      <CheckBoxObject Name="CheckBox31" Left="387.45" Top="396.9" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.NoSevereHeadache"/>
+      <TextObject Name="Text121" Left="349.65" Top="396.9" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text122" Left="396.9" Top="396.9" Width="28.35" Height="18.9" Text="No" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox32" Left="340.2" Top="415.8" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.HasHeartAttack"/>
+      <CheckBoxObject Name="CheckBox33" Left="387.45" Top="415.8" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.NoHeartAttack"/>
+      <TextObject Name="Text123" Left="349.65" Top="415.8" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text124" Left="396.9" Top="415.8" Width="28.35" Height="18.9" Text="No" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox34" Left="340.2" Top="434.7" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.HasHematoma"/>
+      <CheckBoxObject Name="CheckBox35" Left="387.45" Top="434.7" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.NoHematoma"/>
+      <TextObject Name="Text125" Left="349.65" Top="434.7" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text126" Left="396.9" Top="434.7" Width="28.35" Height="18.9" Text="No" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox36" Left="340.2" Top="453.6" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.HasBreastCancer"/>
+      <CheckBoxObject Name="CheckBox37" Left="387.45" Top="453.6" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.NoBreastCancer"/>
+      <TextObject Name="Text127" Left="349.65" Top="453.6" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text128" Left="396.9" Top="453.6" Width="28.35" Height="18.9" Text="No" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox38" Left="340.2" Top="472.5" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.HasChestPain"/>
+      <CheckBoxObject Name="CheckBox39" Left="387.45" Top="472.5" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.NoChestPain"/>
+      <TextObject Name="Text129" Left="349.65" Top="472.5" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text130" Left="396.9" Top="472.5" Width="28.35" Height="18.9" Text="No" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox40" Left="340.2" Top="491.4" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.HasCough"/>
+      <CheckBoxObject Name="CheckBox41" Left="387.45" Top="491.4" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.NoCough"/>
+      <TextObject Name="Text131" Left="349.65" Top="491.4" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text132" Left="396.9" Top="491.4" Width="28.35" Height="18.9" Text="No" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox42" Left="340.2" Top="510.3" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.HasJaundice"/>
+      <CheckBoxObject Name="CheckBox43" Left="387.45" Top="510.3" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.NoJaundice"/>
+      <TextObject Name="Text133" Left="349.65" Top="510.3" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text134" Left="396.9" Top="510.3" Width="28.35" Height="18.9" Text="No" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox44" Left="340.2" Top="529.2" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.HasVaginalBleeding"/>
+      <CheckBoxObject Name="CheckBox45" Left="387.45" Top="529.2" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.NoVaginalBleeding"/>
+      <TextObject Name="Text135" Left="349.65" Top="529.2" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text136" Left="396.9" Top="529.2" Width="28.35" Height="18.9" Text="No" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox46" Left="340.2" Top="548.1" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.HasAbnormalDischarge"/>
+      <CheckBoxObject Name="CheckBox47" Left="387.45" Top="548.1" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.NoAbnormalDischarge"/>
+      <TextObject Name="Text137" Left="349.65" Top="548.1" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text138" Left="396.9" Top="548.1" Width="28.35" Height="18.9" Text="No" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox48" Left="340.2" Top="567" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.HasTakenRifampicin"/>
+      <CheckBoxObject Name="CheckBox49" Left="387.45" Top="567" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.NoTakenRifampicin"/>
+      <TextObject Name="Text139" Left="349.65" Top="567" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text140" Left="396.9" Top="567" Width="28.35" Height="18.9" Text="No" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox50" Left="340.2" Top="585.9" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.IsSmoker"/>
+      <CheckBoxObject Name="CheckBox51" Left="387.45" Top="585.9" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.NoSmoker"/>
+      <TextObject Name="Text141" Left="349.65" Top="585.9" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text142" Left="396.9" Top="585.9" Width="28.35" Height="18.9" Text="No" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox52" Left="340.2" Top="604.8" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.HasDisability"/>
+      <CheckBoxObject Name="CheckBox53" Left="387.45" Top="604.8" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.MedicalHistory.NoDisability"/>
+      <TextObject Name="Text143" Left="349.65" Top="604.8" Width="28.35" Height="18.9" Text="Yes" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text144" Left="396.9" Top="604.8" Width="28.35" Height="18.9" Text="No" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text145" Left="198.45" Top="623.7" Width="189" Height="18.9" Text="[FamilyPlanning.MedicalHistory.Disability]" Font="Arial, 6.5pt"/>
+      <LineObject Name="Line20" Left="198.45" Top="633.15" Width="189"/>
+      <TextObject Name="Text146" Left="359.1" Top="623.7" Width="37.8" Height="18.9" Text=")" HorzAlign="Right" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text147" Left="56.7" Top="661.5" Width="164.97" Height="18.9" Text="II. OBSTETRICAL HISTORY" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text148" Left="66.15" Top="680.4" Width="217.35" Height="18.9" Text="     Number of pregnancies: G                     P" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text149" Left="122.85" Top="699.3" Width="56.7" Height="18.9" Text="Full term" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text150" Left="122.85" Top="718.2" Width="56.7" Height="18.9" Text="Abortion" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text151" Left="207.9" Top="699.3" Width="56.7" Height="18.9" Text="Premature" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text152" Left="207.9" Top="718.2" Width="66.15" Height="18.9" Text="Living children" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text153" Left="66.15" Top="737.1" Width="103.95" Height="18.9" Text="     Date of last delivery" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text154" Left="66.15" Top="756" Width="103.95" Height="18.9" Text="     Type of last delivery" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text155" Left="66.15" Top="774.9" Width="122.85" Height="18.9" Text="     Last menstrual period" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text156" Left="66.15" Top="793.8" Width="132.3" Height="18.9" Text="     Previous menstrual period" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text157" Left="66.15" Top="812.7" Width="132.3" Height="18.9" Text="     Menstrual flow :" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox54" Left="113.4" Top="831.6" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ObstetricalHistory.IsMensScanty"/>
+      <TextObject Name="Text158" Left="122.85" Top="831.6" Width="122.85" Height="18.9" Text="scanty (1-2 pads per day)" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox55" Left="113.4" Top="850.5" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ObstetricalHistory.IsMensModerate"/>
+      <TextObject Name="Text159" Left="122.85" Top="850.5" Width="122.85" Height="18.9" Text="moderate (3-5 pads per day)" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox56" Left="113.4" Top="869.4" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ObstetricalHistory.IsMensHeavy"/>
+      <TextObject Name="Text160" Left="122.85" Top="869.4" Width="122.85" Height="18.9" Text="heavy (&gt;5 per pads day)" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox57" Left="85.05" Top="888.3" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ObstetricalHistory.HasDysmenorrhea"/>
+      <TextObject Name="Text161" Left="94.5" Top="888.3" Width="122.85" Height="18.9" Text="Dysmenorrhea" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox58" Left="85.05" Top="907.2" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ObstetricalHistory.HasHydatidiformMole"/>
+      <TextObject Name="Text162" Left="94.5" Top="907.2" Width="189" Height="18.9" Text="Hydatidiform mole (within the last 12 months)" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox59" Left="85.05" Top="926.1" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ObstetricalHistory.HadEctopicPregnancy"/>
+      <TextObject Name="Text163" Left="94.5" Top="926.1" Width="122.85" Height="18.9" Text="History of ectopic pregnancy" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox60" Left="170.1" Top="756" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ObstetricalHistory.IsLastDeliveryVaginal"/>
+      <TextObject Name="Text164" Left="179.55" Top="756" Width="47.25" Height="18.9" Text="Vaginal" Font="Arial, 6.5pt"/>
+      <CheckBoxObject Name="CheckBox61" Left="236.25" Top="756" Width="9.45" Height="9.45" Border.Lines="All" DataColumn="FamilyPlanning.ObstetricalHistory.IsLastDeliveryCS"/>
+      <TextObject Name="Text165" Left="245.7" Top="756" Width="85.05" Height="18.9" Text="Cesarean Section" Font="Arial, 6.5pt"/>
+      <LineObject Name="Line21" Left="179.55" Top="689.85" Width="47.25"/>
+      <LineObject Name="Line22" Left="236.25" Top="689.85" Width="47.25"/>
+      <LineObject Name="Line23" Left="122.85" Top="708.75" Width="-28.35"/>
+      <LineObject Name="Line24" Left="122.85" Top="727.65" Width="-28.35"/>
+      <LineObject Name="Line25" Left="207.9" Top="708.75" Width="-28.35"/>
+      <LineObject Name="Line26" Left="207.9" Top="727.65" Width="-28.35"/>
+      <LineObject Name="Line27" Left="170.1" Top="746.55" Width="103.95"/>
+      <LineObject Name="Line28" Left="170.1" Top="784.35" Width="103.95"/>
+      <LineObject Name="Line29" Left="189" Top="803.25" Width="94.5"/>
+      <TextObject Name="Text167" Left="179.55" Top="680.4" Width="47.25" Height="9.45" Text="[FamilyPlanning.ObstetricalHistory.NumGravidityPregnancies]" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text168" Left="236.25" Top="680.4" Width="47.25" Height="9.45" Text="[FamilyPlanning.ObstetricalHistory.NumParityPregnancies]" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text169" Left="94.5" Top="699.3" Width="28.35" Height="9.45" Text="[FamilyPlanning.ObstetricalHistory.NumAbortion]" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text170" Left="94.5" Top="718.2" Width="28.35" Height="9.45" Text="[FamilyPlanning.ObstetricalHistory.NumAbortion]" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text171" Left="179.55" Top="699.3" Width="28.35" Height="9.45" Text="[FamilyPlanning.ObstetricalHistory.NumPremature]" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text172" Left="179.55" Top="718.2" Width="28.35" Height="9.45" Text="[FamilyPlanning.ObstetricalHistory.NumLivingChildren]" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text173" Left="170.1" Top="737.1" Width="103.95" Height="9.45" Text="[FamilyPlanning.ObstetricalHistory.LastDelivery]" Format="Date" Format.Format="d" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text174" Left="170.1" Top="774.9" Width="103.95" Height="9.45" Text="[FamilyPlanning.ObstetricalHistory.LastMenstrualPeriod]" Format="Date" Format.Format="d" HorzAlign="Center" Font="Arial, 6.5pt"/>
+      <TextObject Name="Text175" Left="189" Top="793.8" Width="94.5" Height="9.45" Text="[FamilyPlanning.ObstetricalHistory.PreviousMenstrualPeriod]" Format="Date" Format.Format="d" HorzAlign="Center" Font="Arial, 6.5pt"/>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="304.18" Width="740.5" Height="18.9"/>
+    <PageFooterBand Name="PageFooter1" Top="975.64" Width="740.5" Height="66.15"/>
   </ReportPage>
 </Report>

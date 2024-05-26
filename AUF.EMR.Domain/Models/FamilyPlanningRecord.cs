@@ -13,7 +13,6 @@ namespace AUF.EMR.Domain.Models
     {
         public string ClientId { get; set; }
         public string? PhilhealthNo { get; set; }
-        public bool IsNHTS { get; set; }
         public HouseholdMember? ClientHouseholdMember { get; set; }
         public int ClientHouseholdMemberId { get; set; }
         public int ClientAge { get; set; }

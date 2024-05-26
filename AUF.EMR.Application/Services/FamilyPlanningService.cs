@@ -3,6 +3,7 @@ using AUF.EMR.Application.Contracts.Persistence.Common;
 using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Application.Services.Common;
 using AUF.EMR.Domain.Models;
+using AUF.EMR.Domain.Models.FamilyPlanning;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,33 @@ namespace AUF.EMR.Application.Services
             var form = new List<FamilyPlanningRecord>
             {
                 await _repository.GetFPRecordWithDetails(id)
+            };
+            return form;
+        }
+
+        public async Task<List<ClientType>> GetClientTypeForm(int id)
+        {
+            var form = new List<ClientType>()
+            {
+                (await GetFPRecordWithDetails(id)).ClientType
+            };
+            return form;
+        }
+
+        public async Task<List<MedicalHistory>> GetMedicalHistoryForm(int id)
+        {
+            var form = new List<MedicalHistory>()
+            {
+                (await GetFPRecordWithDetails(id)).MedicalHistory
+            };
+            return form;
+        }
+
+        public async Task<List<ObstetricalHistory>> GetObstetricalHistoryForm(int id)
+        {
+            var form = new List<ObstetricalHistory>()
+            {
+                (await GetFPRecordWithDetails(id)).ObstetricalHistory
             };
             return form;
         }

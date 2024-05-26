@@ -16,7 +16,7 @@ namespace AUF.EMR.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.12")
+                .HasAnnotation("ProductVersion", "7.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.Barangay", b =>
@@ -82,40 +82,40 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<bool>("IsCurrentUser")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodBBT")
+                    b.Property<bool>("IsMethodBBT")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodBOM")
+                    b.Property<bool>("IsMethodBOM")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodBTL")
+                    b.Property<bool>("IsMethodBTL")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodCOC")
+                    b.Property<bool>("IsMethodCOC")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodCondom")
+                    b.Property<bool>("IsMethodCondom")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodIUD")
+                    b.Property<bool>("IsMethodIUD")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodImplant")
+                    b.Property<bool>("IsMethodImplant")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodInjectable")
+                    b.Property<bool>("IsMethodInjectable")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodLAM")
+                    b.Property<bool>("IsMethodLAM")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodNSV")
+                    b.Property<bool>("IsMethodNSV")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodPOP")
+                    b.Property<bool>("IsMethodPOP")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodSDM")
+                    b.Property<bool>("IsMethodSDM")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<bool?>("IsReasonMedical")
@@ -504,9 +504,6 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<string>("FPMethod")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<bool>("IsNHTS")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool?>("IsPlanningChildren")
                         .HasColumnType("tinyint(1)");

@@ -28,5 +28,11 @@ namespace AUF.EMR.Domain.Models.FamilyPlanning
         public bool HasDysmenorrhea { get; set; } 
         public bool HasHydatidiformMole { get; set; } 
         public bool HadEctopicPregnancy { get; set; } 
+
+        // PRINT
+        public bool? IsLastDeliveryCS { get => IsLastDeliveryVaginal.HasValue && !IsLastDeliveryCS.Value ? true : null; }
+        public bool IsMensScanty { get => MenstrualFlow == MenstrualFlow.Scanty; }
+        public bool IsMensModerate { get => MenstrualFlow == MenstrualFlow.Moderate; }
+        public bool IsMensHeavy { get => MenstrualFlow == MenstrualFlow.Heavy; }
     }
 }

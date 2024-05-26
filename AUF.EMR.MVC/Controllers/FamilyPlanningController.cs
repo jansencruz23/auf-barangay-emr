@@ -221,6 +221,9 @@ namespace AUF.EMR.MVC.Controllers
             try
             {
                 var fpRecord = await _fpService.GetFamilyPlanningForm(id);
+                var clientType = await _fpService.GetClientTypeForm(id);
+                var medicalHistory = await _fpService.GetMedicalHistoryForm(id);
+                var obstetricalHistory = await _fpService.GetObstetricalHistoryForm(id);
                 var householdMember = await _householdMemberService.GetHouseholdMemberForm(householdMemberId);
                 var household = await _householdService.GetHouseholdWithDetails(householdNo);
                 var streetNo = household.HouseNoAndStreet;
@@ -235,6 +238,9 @@ namespace AUF.EMR.MVC.Controllers
 
                 report.Load(path);
                 report.RegisterData(fpRecord, "FamilyPlanning");
+                report.RegisterData(clientType, "ClientType");
+                report.RegisterData(medicalHistory, "MedicalHistory");
+                report.RegisterData(obstetricalHistory, "ObstetricalHistory");
                 report.RegisterData(householdMember, "HouseholdMember");
 
                 report.SetParameterValue("StreetNo", streetNo);
