@@ -49,23 +49,6 @@ D:\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\refint\AUF.EMR.Applicat
 D:\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.pdb
 D:\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.genruntimeconfig.cache
 D:\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\ref\AUF.EMR.Application.dll
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.deps.json
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.runtimeconfig.json
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.dll
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.pdb
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Domain.dll
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Domain.pdb
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.csproj.AssemblyReference.cache
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.AssemblyInfoInputs.cache
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.AssemblyInfo.cs
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.csproj.CoreCompileInputs.cache
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.csproj.CopyComplete
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.dll
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\refint\AUF.EMR.Application.dll
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.pdb
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.genruntimeconfig.cache
-C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\ref\AUF.EMR.Application.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.deps.json
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.runtimeconfig.json
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.dll
@@ -83,3 +66,20 @@ D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Appl
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.pdb
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.genruntimeconfig.cache
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Application\obj\Debug\net7.0\ref\AUF.EMR.Application.dll
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.deps.json
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.runtimeconfig.json
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.dll
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Application.pdb
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Domain.dll
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\bin\Debug\net7.0\AUF.EMR.Domain.pdb
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.csproj.AssemblyReference.cache
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.AssemblyInfoInputs.cache
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.AssemblyInfo.cs
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.csproj.CoreCompileInputs.cache
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.csproj.CopyComplete
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.dll
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\refint\AUF.EMR.Application.dll
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.pdb
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\AUF.EMR.Application.genruntimeconfig.cache
+C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.Application\obj\Debug\net7.0\ref\AUF.EMR.Application.dll

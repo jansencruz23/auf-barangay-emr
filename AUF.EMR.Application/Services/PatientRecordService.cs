@@ -21,6 +21,15 @@ namespace AUF.EMR.Application.Services
             _repository = repository;
         }
 
+        public async Task<List<PatientRecord>> GetPatientRecordForm(int id)
+        {
+            var form = new List<PatientRecord>
+            {
+                await _repository.GetPatientRecordWithDetails(id)
+            };
+            return form;
+        }
+
         public async Task<List<PatientRecord>> GetPatientRecordsWithDetails(string householdNo)
         {
             return await _repository.GetPatientRecordsWithDetails(householdNo);

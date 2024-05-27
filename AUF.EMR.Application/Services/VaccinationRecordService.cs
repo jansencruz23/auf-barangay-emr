@@ -47,9 +47,24 @@ namespace AUF.EMR.Application.Services
             }
         }
 
+        public async Task<List<VaccinationAppointment>> GetVaccinationAppointmentsForm(int appointmentId)
+        {
+            return await _repository.GetVaccinationAppointmentsForm(appointmentId);
+        }
+
         public async Task<List<VaccinationRecord>> GetVaccinationRecordsWithDetails(int id)
         {
             return await _repository.GetVaccinationRecordsWithDetails(id);
+        }
+
+        public async Task<List<VaccinationRecord>> GetVaccineRecordsForm(int appointmentId)
+        {
+            return await _repository.GetVaccineRecordsForm(appointmentId);
+        }
+
+        public async Task<List<Vaccine>> GetVaccinesForm(int appointmentId)
+        {
+            return await _repository.GetVaccinesForm(appointmentId);
         }
     }
 }

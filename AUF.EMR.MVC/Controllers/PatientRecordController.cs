@@ -1,8 +1,13 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.Application.Services;
 using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.DetailVM;
 using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
+using FastReport.Export.PdfSimple;
+using FastReport.Utils;
+using FastReport;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,12 +17,24 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IPatientRecordService _patientRecordService;
         private readonly IHouseholdMemberService _householdMemberService;
+        private readonly IHouseholdService _householdService;
+        private readonly IVaccinationAppointmentService _vaccinationAppointmentService;
+        private readonly IVaccinationRecordService _vaccinationRecordService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public PatientRecordController(IPatientRecordService patientRecordService,
-            IHouseholdMemberService householdMemberService)
+            IHouseholdMemberService householdMemberService,
+            IHouseholdService householdService,
+            IVaccinationAppointmentService vaccinationAppointmentService,
+            IVaccinationRecordService vaccinationRecordService,
+            IWebHostEnvironment webHostEnvironment)
         {
             _patientRecordService = patientRecordService;
             _householdMemberService = householdMemberService;
+            _householdService = householdService;
+            _vaccinationAppointmentService = vaccinationAppointmentService;
+            _vaccinationRecordService = vaccinationRecordService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: PatientRecordController
@@ -176,6 +193,64 @@ namespace AUF.EMR.MVC.Controllers
             catch
             {
                 return View();
+            }
+        }
+
+        public async Task<string> Print(string householdNo, int id, int householdMemberId)
+        {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return "Household no. is empty";
+            }
+
+            try
+            {
+                var patientRecord = await _patientRecordService.GetPatientRecordForm(id);
+                var patientAppointments = (await _patientRecordService.GetPatientRecordWithDetails(id)).VaccinationAppointments;
+                var vaccines = await _vaccinationRecordService.GetVaccinesForm(id);
+                var vaccineRecords = await _vaccinationRecordService.GetVaccineRecordsForm(id);
+
+                var householdMember = await _householdMemberService.GetHouseholdMemberForm(householdMemberId);  
+                var address = (await _householdService.GetHouseholdWithDetails(householdNo)).FullAddress;
+
+                Config.WebMode = true;
+                var report = new Report();
+                var contentRootPath = _webHostEnvironment.ContentRootPath;
+                var path = Path.Combine(contentRootPath, "Reports", "PatientRecordForm.frx");
+
+                report.Load(path);
+                report.RegisterData(patientRecord, "PatientRecord");
+                report.RegisterData(patientAppointments, "PatientAppointments");
+                report.RegisterData(householdMember, "HouseholdMember");
+                report.RegisterData(vaccines, "Vaccine");
+                report.RegisterData(vaccineRecords, "VaccinationRecords");
+
+                report.SetParameterValue("HouseholdNo", householdNo);
+                report.SetParameterValue("Address", address);
+
+                if (report.Report.Prepare())
+                {
+                    var pdfExport = new PDFSimpleExport();
+                    pdfExport.ShowProgress = true;
+                    pdfExport.Subject = "Subject Report";
+                    pdfExport.Title = "Report Title";
+                    var memoryStream = new MemoryStream();
+                    report.Report.Export(pdfExport, memoryStream);
+                    report.Dispose();
+                    pdfExport.Dispose();
+                    memoryStream.Position = 0;
+
+                    return Convert.ToBase64String(memoryStream.ToArray());
+                    //return File(memoryStream, "application/pdf", "household.pdf");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
     }
