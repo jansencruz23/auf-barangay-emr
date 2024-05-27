@@ -32,16 +32,16 @@
                 <thead>
                     <tr class="bg-gray-200">
                         <th class="px-2 py-2 text-left">
-                            ClientId
+                            Client Id
                         </th>
                         @*  <th>
                         PhilhealthNo
                         </th> *@
                         <th class="px-1 py-2 text-left">
-                            IsNHTS
+                            NHTS
                         </th>
                         <th class="py-2 text-left">
-                            ClientHouseholdMember
+                            Household Member
                         </th>
                         <th class="px-1 py-2 text-left">
                             Age
@@ -132,7 +132,7 @@
                                 @Html.DisplayFor(modelItem => item.IsNHTS)
                             </td>
                             <td class="border-b border-gray-100 py-2 text-left">
-                                @Html.DisplayFor(modelItem => item.ClientHouseholdMember.Age)
+                                @Html.DisplayFor(modelItem => item.ClientHouseholdMember.FullName)
                             </td>
                             <td class="border-b border-gray-100 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.ClientAge)

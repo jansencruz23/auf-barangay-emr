@@ -47,24 +47,24 @@
                 <thead>
                     <tr class="bg-gray-200">
 
-                        <th class="px-2 py-2 text-left">
-                            HouseholdMember
+                        <th class="px-4 py-2 text-left">
+                            Household Member
                         </th>
 
-                        <th class="px-2 py-2 text-left">
-                            HouseholdNo
+                        <th class="px-4 py-2 text-left">
+                            Household Number
                         </th>
 
-                        <th class="px-2 py-2 text-left">
+                        @*<th class="px-2 py-2 text-left">
                             CivilStatus
+                        </th>*@
+
+                        <th class="px-4 py-2 text-left">
+                            Planning
                         </th>
 
-                        <th class="px-2 py-2 text-left">
-                            IsPlanningChildren
-                        </th>
-
-                        <th class="px-2 py-2 text-left">
-                            IsPlanChildrenNow
+                        <th class="px-4 py-2 text-left">
+                            Planning Now
                         </th>
 
                         @*                  <th>
@@ -75,16 +75,16 @@
                         IsPlanChildrenLimiting
                         </th> *@
 
-                        <th class="px-2 py-2 text-left">
-                            IsFecund
+                        <th class="px-4 py-2 text-left">
+                            Fecund
                         </th>
 
-                        <th class="px-2 py-2 text-left">
-                            IsFPMethod
+                        <th class="px-4 py-2 text-left">
+                            FP Method
                         </th>
 
-                        <th class="px-2 py-2 text-left">
-                            IsFPModern
+                        <th class="px-4 py-2 text-left">
+                            FP Modern
                         </th>
 
                         @*                  <th>
@@ -105,13 +105,13 @@
 
                         <th>
                         FPAcceptedDate
-                        </th> *@
+                        </th> 
 
                         <th class="px-2 py-2 text-left">
-                            WRA.Status
-                        </th>
+                        WRA
+                        </th>*@
 
-                        <th class="px-2 py-2 text-left" style="width: 100%;">
+                        <th class="px-4 py-2 text-left" style="width: 100%;">
 
                         </th>
                     </tr>
@@ -121,23 +121,23 @@
                     @foreach (var item in Model.WRAs)
                     {
                         <tr>
-                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.HouseholdMember.FormattedFullName)
                             </td>
 
-                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.HouseholdMember.Household.HouseholdNo)
                             </td>
 
-                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                           @* <td class="border-b border-gray-100 px-2 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.CivilStatus)
-                            </td>
+                        </td>*@
 
-                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.IsPlanningChildren)
                             </td>
 
-                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.IsPlanChildrenNow)
                             </td>
 
@@ -149,15 +149,15 @@
                         @Html.DisplayFor(modelItem => item.IsPlanChildrenLimiting)
                         </td> *@
 
-                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.IsFecund)
                             </td>
 
-                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.IsFPMethod)
                             </td>
 
-                            <td class="border-b border-gray-100 px-2 py-2 text-left">
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.IsFPModern)
                             </td>
 
@@ -179,13 +179,13 @@
 
                         <td>
                         @Html.DisplayFor(modelItem => item.FPAcceptedDate)
-                        </td> *@
+                        </td> 
 
                             <td class="border-b border-gray-100 px-2 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Status)
-                            </td>
+                            </td>*@
 
-                            <td class="border-b border-gray-100 px-2 py-2 text-left inline-flex items-center text-center">
+                            <td class="border-b border-gray-100 px-4 py-2 text-left inline-flex items-center text-center">
                                 <a asp-action="Edit" asp-route-id="@item.Id" class="text-yellow-300 hover:text-yellow-400 mr-2"><i class="fas fa-edit"></i></a>
                                 <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>
                                 <a asp-action="Delete" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-red-300 hover:text-red-400">
