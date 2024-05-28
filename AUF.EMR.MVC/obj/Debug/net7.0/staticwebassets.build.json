@@ -1,10 +1,6 @@
 {
   "Version": 1,
-<<<<<<< HEAD
-  "Hash": "yZj+Q9ouYUbmcfjAmUPyJ/b0jInjKXOBXbPn637GssU=",
-=======
-  "Hash": "CoDbD20dItOgtgEazbizUNzaSnj1EF8VvAovNo0Xm3U=",
->>>>>>> 45b165e3e66629631a5155993c599ddaf5214c5e
+  "Hash": "5UNTQaGCrwTR8YbIBu6ZOW7TxmYQprGCTnG302NEQCY=",
   "Source": "AUF.EMR.MVC",
   "BasePath": "_content/AUF.EMR.MVC",
   "Mode": "Default",
@@ -1160,13 +1156,10 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\favicon.ico",
-=======
-      "Identity": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\css\\style-masterlist.css",
+      "Identity": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\css\\style-masterlist.css",
       "SourceId": "AUF.EMR.MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\",
       "BasePath": "_content/AUF.EMR.MVC",
       "RelativePath": "css/style-masterlist.css",
       "AssetKind": "All",
@@ -1180,8 +1173,7 @@
       "OriginalItemSpec": "wwwroot\\css\\style-masterlist.css"
     },
     {
-      "Identity": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\favicon.ico",
->>>>>>> 45b165e3e66629631a5155993c599ddaf5214c5e
+      "Identity": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\favicon.ico",
       "SourceId": "AUF.EMR.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\",
