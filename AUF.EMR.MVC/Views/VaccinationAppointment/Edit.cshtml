@@ -10,7 +10,7 @@
     <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Appointment.PatientId" value="@Model.PatientId" />
+            <input type="hidden" asp-for="Appointment.PatientRecordId" value="@Model.PatientId" />
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             <input type="hidden" asp-for="PatientId" value="@Model.PatientId" />
             <input type="hidden" asp-for="Appointment.Id" />
@@ -45,6 +45,13 @@
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
                         </svg>
                     </button>
+                    
+                    @for (var i = 0; i < Model.SelectedVaccines.Count(); i++)
+                        {
+                            <input asp-for="@Model.SelectedVaccines[i].Id" type="hidden" value="@Model.SelectedVaccines[i].Id" />
+                            <input asp-for="@Model.SelectedVaccines[i].Name" type="hidden" />
+                            <input asp-for="@Model.SelectedVaccines[i].Description" type="hidden" />
+                        }
 
                     <!-- Dropdown menu -->
                     <div id="dropdownHelper" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
@@ -52,7 +59,7 @@
                             @for (var i = 0; i < Model.Vaccines.Count(); i++)
                             {
                                 <li>
-                                    <input asp-for="@Model.Vaccines[i].Id" type="hidden" />
+                                    <input asp-for="@Model.Vaccines[i].Id" type="hidden" value="@Model.Vaccines[i].Id" />
                                     <input asp-for="@Model.Vaccines[i].Name" type="hidden" />
                                     <input asp-for="@Model.Vaccines[i].Description" type="hidden" />
                                     <div class="flex p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">

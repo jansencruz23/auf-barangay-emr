@@ -24,10 +24,10 @@ namespace AUF.EMR.Persistence.Repositories
         {
             var appointments = await _dbContext.VaccinationAppointments
                 .AsNoTracking()
-                .Include(a => a.Patient)
+                .Include(a => a.PatientRecord)
                 .Where(a => a.Status &&
-                    a.Patient.Status &&
-                    a.PatientId == patientId)
+                    a.PatientRecord.Status &&
+                    a.PatientRecordId == patientId)
                 .ToListAsync();
 
             return appointments;
@@ -37,9 +37,9 @@ namespace AUF.EMR.Persistence.Repositories
         {
             var appointment = await _dbContext.VaccinationAppointments
                 .AsNoTracking()
-                .Include(a => a.Patient)
+                .Include(a => a.PatientRecord)
                 .Where(a => a.Status &&
-                    a.Patient.Status)
+                    a.PatientRecord.Status)
                 .FirstOrDefaultAsync(a => a.Id == id);
 
             return appointment;

@@ -22,5 +22,19 @@ namespace AUF.EMR.Domain.Models.FamilyPlanning
         public bool IsSmoker { get; set; }
         public bool HasDisability { get; set; }
         public string? Disability { get; set; }
+
+        // PRINTS
+        public bool NoSevereHeadache { get => !HasSevereHeadache; }
+        public bool NoHeartAttack { get => !HasHeartAttack; }
+        public bool NoHematoma { get => !HasHematoma; }
+        public bool NoBreastCancer { get => !HasBreastCancer; }
+        public bool NoChestPain { get => !HasChestPain; }
+        public bool NoCough { get => !HasCough; }
+        public bool NoJaundice { get => !HasJaundice; }
+        public bool NoVaginalBleeding { get => !HasVaginalBleeding; }
+        public bool NoAbnormalDischarge { get => !HasAbnormalDischarge; }
+        public bool NoTakenRifampicin { get => !HasTakenRifampicin; }
+        public bool NoSmoker { get => !IsSmoker; }
+        public bool NoDisability { get => !HasDisability; }
     }
 }

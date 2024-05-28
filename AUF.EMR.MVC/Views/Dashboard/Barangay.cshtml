@@ -4,19 +4,18 @@
     Layout = "Layouts/_HouseholdLayout";
 }
 
-<<<<<<< HEAD
+
 <main class="mt-8 flex justify-center items-center">
     <div class="mx-4">
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-12">
-                <h2 class="text-lg font-medium">Dashboard</h2>
+                <h2 class="text-lg font-medium">Ninoy Aquino Health Center Demographics</h2>
             </div>
             <div class="col-span-12">
                 <div class="col-span-12 mt-5 flex flex-col lg:flex-row gap-2">
-                    <div class="bg-white shadow-lg p-4 flex-1" id="chartline"></div>
-                    <div class="bg-white shadow-lg p-4 flex-1" id="chartpie"></div>
+                    <div class="bg-white shadow-lg rounded-lg p-4 flex-1" id="chartline"></div>
+                    <div class="bg-white shadow-lg rounded-lg p-4 flex-1" id="chartpie"></div>
                 </div>
-
             </div>
             <div class="col-span-12 grid grid-cols-7 sm:grid-cols-7 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 2xl:grid-cols-7 gap-2">
                 <a class="transform hover:scale-105 transition duration-300 shadow-xl rounded-lg" style="background-color: #6691C1" href="#">
@@ -141,53 +140,60 @@
     var chart = document.querySelector('#chartline')
     var options = {
         series: [{
-            name: 'Household (Last Week)',
-            type: 'area',
-            data: [44, 55, 31, 47, 31, 43, 26, 41, 31, 47, 33]
-        }, {
-            name: 'Household (This Week)',
-            type: 'area',
-            data: [88, 67, 44, 58, 42, 56, 34, 53, 47, 60, 51]
+            name: "Number of Households",
+            data: [10, 41, 35, 51, 49, 62, 69],
+            color: '#ACCB8F'
         }],
         chart: {
             height: 350,
             type: 'line',
+            fontFamily: 'Poppins',
             zoom: {
                 enabled: false
             }
         },
+        dataLabels: {
+            style: {
+                color: '#333333',
+                fontFamily: 'Poppins'
+            },
+            enabled: false
+        },
         stroke: {
-            curve: 'smooth'
+            curve: 'straight',
+            colors: '#ACCB8F'
         },
-        fill: {
-            type: 'solid',
-            opacity: [0.35, 1],
+        title: {
+            style: {
+                fontSize: '20px',
+                fontWeight: 'bold',
+                color: '#333333',
+                fontFamily: 'Poppins'
+            },
+            text: 'Total number of  households for the past week',
+            align: 'left'
         },
-        labels: ['Dec 01', 'Dec 02', 'Dec 03', 'Dec 04', 'Dec 05', 'Dec 06', 'Dec 07', 'Dec 08', 'Dec 09 ', 'Dec 10', 'Dec 11'],
-        markers: {
-            size: 0
+        subtitle: {
+            style: {
+                fontSize: '14px',
+                color: '#333333',
+                fontFamily: 'Poppins'
+            },
+            text: 'Households from May 21 - 27, 2024',
+            align: 'left'
         },
-        yaxis: [{
-            title: {
-                text: 'Series A',
+
+        grid: {
+            row: {
+                colors: ['#f3f3f3', 'transparent'],
+                opacity: 0.5
             },
         },
-        {
-            opposite: true,
-            title: {
-                text: 'Series B',
-            },
-        },
-        ],
-        tooltip: {
-            shared: true,
-            intersect: false,
-            y: {
-                formatter: function (y) {
-                    if (typeof y !== "undefined") {
-                        return y.toFixed(0) + " points";
-                    }
-                    return y;
+        xaxis: {
+            categories: ['May 21', 'May 22', 'May 23', 'May 24', 'May 25', 'May 26' , 'May 27'],
+            labels: {
+                style: {
+                    fontFamily: 'Poppins' // Set font family for x-axis labels
                 }
             }
         }
@@ -195,52 +201,104 @@
     var chart = new ApexCharts(chart, options);
     chart.render();
 </script>
+<div id="chartpie"></div>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
-    var chart = document.querySelector('#chartpie')
+    var chart = document.querySelector('#chartpie');
+    var seriesData = [17, 23, 8, 12, 15, 30, 23];
+    var totalSum = seriesData.reduce((acc, val) => acc + val, 0);
+
     var options = {
-        series: [17, 23, 8, 12, 15, 30, 23],
+        series: seriesData,
         chart: {
-            height: 300,
+            height: 370,
             type: 'pie',
         },
+        labels: ['Newborn', 'Infant', 'Under-five', 'School-aged', 'Adolescents', 'Adult', 'Senior C.'],
+        colors: ['#6691C1', '#AFCAFC', '#D2E0FB', '#E8E3C9', '#D0ECB6', '#BEE39B', '#ACCB8F'],
+        title: {
+            text: 'Total Number of Households',
+            align: 'center',
+            margin: 5,
+            offsetX: 0,
+            offsetY: 10,
+            floating: false,
+            style: {
+                fontSize: '20px',
+                fontWeight: 'bold',
+                color: '#333333',
+                fontFamily: 'Poppins'
+            },
+        },
+        subtitle: {
+            text: 'Total: ' + totalSum, 
+            align: 'center',
+            margin: 10,
+            offsetY: 38,
+            style: {
+                fontSize: '14px',
+                color: '#333333',
+                fontFamily: 'Poppins'
+            }
+        },
         plotOptions: {
-            radialBar: {
+            pie: {
+                style: {
+                    fontFamily: 'Poppins'
+                },
                 dataLabels: {
-                    name: {
-                        fontSize: '22px',
+                    enabled: false,
+                    formatter: function (val, opts) {
+                        return opts.w.globals.labels[opts.seriesIndex] + ": " + val
                     },
-                    value: {
+                    style: {
                         fontSize: '16px',
-                    },
-                    total: {
-                        show: true,
-                        label: 'Total',
-                        formatter: function (w) {
-                            return 249
-                        }
+                        color: '#333333',
+                        fontFamily: 'Poppins'
                     }
                 }
             }
         },
-        labels: ['Newborn', 'Infant', 'Under-five', 'School-aged', 'Adolescents', 'Adult', 'Senior C.'],
+        legend: {
+            show: true,
+            position: 'bottom',
+            horizontalAlign: 'center',
+            verticalAlign: 'middle',
+            floating: false,
+            fontSize: '14px',
+            offsetY: 10,
+            color: '#333333',
+            fontFamily: 'Poppins'
+        },
+        tooltip: {
+            enabled: true,
+            style: {
+                fontFamily: 'Poppins'
+            },
+            y: {
+                formatter: function (val) {
+                    return val
+                },
+            }
+        },
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: {
+                    height: 300
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }]
     };
+
     var chart = new ApexCharts(chart, options);
     chart.render();
+
+
 </script>
-=======
-<p>Household #: @Model.HouseholdCount</p>
-<p>Household Member #: @Model.HouseholdMemberCount</p>
-<p>Newborns #: @Model.NewbornCount</p>
-<p>Infant #: @Model.InfantCount</p>
-<p>Under Five #: @Model.UnderFiveCount</p>
-<p>School Aged #: @Model.SchoolAgedCount</p>
-<p>Adolescent #: @Model.AdolescentsCount</p>
-<p>Adult #: @Model.AdultCount</p>
-<p>Senior Citizen #: @Model.SeniorCount</p>
-<p>Pregnant #: @Model.PregnantCount</p>
-<p>WRA Forms #: @Model.WRAFormCount</p>
-<p>Pregnant Tracking Forms #: @Model.PregTrackCount</p>
-<p>Family Planning Forms #: @Model.FamilyPlanningFormsCount</p>
-<p>Patient Record Forms #: @Model.PatientRecordCount</p>
-<p>Pregnancy Record Forms #: @Model.PregnancyRecordCount</p>
->>>>>>> 45b165e3e66629631a5155993c599ddaf5214c5e
+
+
+

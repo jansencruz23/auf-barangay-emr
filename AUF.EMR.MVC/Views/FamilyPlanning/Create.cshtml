@@ -25,11 +25,6 @@
                         <input asp-for="FPRecord.PhilhealthNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="FPRecord.PhilhealthNo" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                    <div class="mb-4 form-check">
-                        <label class="block mb-2 text-sm font-medium text-gray-700">
-                            <input class="border border-gray-400 rounded-sm" asp-for="FPRecord.IsNHTS" /> @Html.DisplayNameFor(model => model.FPRecord.IsNHTS)
-                        </label>
-                    </div>
                     <div class="mb-4">
                         <label asp-for="FPRecord.ClientHouseholdMemberId" class="block mb-2 text-sm font-medium text-gray-700">Household Member ID</label>
                         <select asp-for="FPRecord.ClientHouseholdMemberId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" asp-items="@(new SelectList(Model.WomenHouseholdMember, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
@@ -656,6 +651,11 @@
                     </div>
                 </div>
 
+            </div>
+            <div class="form-group">
+                <label asp-for="PhysicalExamination.UterineDepthSize" class="control-label"></label>
+                <input asp-for="PhysicalExamination.UterineDepthSize" class="form-control" />
+                <span asp-validation-for="PhysicalExamination.UterineDepthSize" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             <div class="flex justify-end">

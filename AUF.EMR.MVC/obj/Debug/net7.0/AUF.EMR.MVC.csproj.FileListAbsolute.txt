@@ -898,6 +898,18 @@ C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_
 C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.pdb
 C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.genruntimeconfig.cache
 C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.MVC\obj\Debug\net7.0\ref\AUF.EMR.MVC.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.csproj.AssemblyReference.cache
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.GeneratedMSBuildEditorConfig.editorconfig
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.AssemblyInfoInputs.cache
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.AssemblyInfo.cs
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.csproj.CoreCompileInputs.cache
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.MvcApplicationPartsAssemblyInfo.cs
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.MvcApplicationPartsAssemblyInfo.cache
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.RazorAssemblyInfo.cache
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.RazorAssemblyInfo.cs
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\refint\AUF.EMR.MVC.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.pdb
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\wwwroot\img\logo.png
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\appsettings.Development.json
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\appsettings.json
@@ -1173,15 +1185,6 @@ D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\AUF.EMR.Application.pdb
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\AUF.EMR.Persistence.pdb
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\AUF.EMR.Domain.pdb
-D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.csproj.AssemblyReference.cache
-D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.GeneratedMSBuildEditorConfig.editorconfig
-D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.AssemblyInfoInputs.cache
-D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.AssemblyInfo.cs
-D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.csproj.CoreCompileInputs.cache
-D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.MvcApplicationPartsAssemblyInfo.cs
-D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.MvcApplicationPartsAssemblyInfo.cache
-D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.RazorAssemblyInfo.cache
-D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.RazorAssemblyInfo.cs
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\staticwebassets\msbuild.AUF.EMR.MVC.Microsoft.AspNetCore.StaticWebAssets.props
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\staticwebassets\msbuild.build.AUF.EMR.MVC.props
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.AUF.EMR.MVC.props
@@ -1193,9 +1196,6 @@ D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\scopedcss\bundle\AUF.EMR.MVC.styles.css
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\scopedcss\projectbundle\AUF.EMR.MVC.bundle.scp.css
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.csproj.CopyComplete
-D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.dll
-D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\refint\AUF.EMR.MVC.dll
-D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.pdb
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.genruntimeconfig.cache
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\ref\AUF.EMR.MVC.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.MVC\bin\Debug\net7.0\wwwroot\img\logo.png

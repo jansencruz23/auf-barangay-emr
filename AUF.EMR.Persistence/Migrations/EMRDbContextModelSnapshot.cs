@@ -16,7 +16,7 @@ namespace AUF.EMR.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.12")
+                .HasAnnotation("ProductVersion", "7.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.Barangay", b =>
@@ -82,40 +82,40 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<bool>("IsCurrentUser")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodBBT")
+                    b.Property<bool>("IsMethodBBT")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodBOM")
+                    b.Property<bool>("IsMethodBOM")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodBTL")
+                    b.Property<bool>("IsMethodBTL")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodCOC")
+                    b.Property<bool>("IsMethodCOC")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodCondom")
+                    b.Property<bool>("IsMethodCondom")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodIUD")
+                    b.Property<bool>("IsMethodIUD")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodImplant")
+                    b.Property<bool>("IsMethodImplant")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodInjectable")
+                    b.Property<bool>("IsMethodInjectable")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodLAM")
+                    b.Property<bool>("IsMethodLAM")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodNSV")
+                    b.Property<bool>("IsMethodNSV")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodPOP")
+                    b.Property<bool>("IsMethodPOP")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsMethodSDM")
+                    b.Property<bool>("IsMethodSDM")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<bool?>("IsReasonMedical")
@@ -283,7 +283,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<int>("Abdomen")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("AdnexalMass")
+                    b.Property<bool>("AdnexalMass")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("BloodPressure")
@@ -296,7 +296,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<int?>("CervicalConsistency")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("CervicalTenderness")
+                    b.Property<bool>("CervicalTenderness")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("Conjunctiva")
@@ -320,31 +320,31 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<int>("Neck")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("PCABloodyDischarge")
+                    b.Property<bool>("PCABloodyDischarge")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PCAInflammation")
+                    b.Property<bool>("PCAInflammation")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PCAPolyp")
+                    b.Property<bool>("PCAPolyp")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PCAWarts")
+                    b.Property<bool>("PCAWarts")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PelvicAbnormalDischarge")
+                    b.Property<bool>("PelvicAbnormalDischarge")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PelvicCervicalAbnormalities")
+                    b.Property<bool>("PelvicCervicalAbnormalities")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PelvicCervicalConsistency")
+                    b.Property<bool>("PelvicCervicalConsistency")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PelvicMass")
+                    b.Property<bool>("PelvicMass")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("PelvicNormal")
+                    b.Property<bool>("PelvicNormal")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("PulseRate")
@@ -356,10 +356,13 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int?>("UterineDepth")
+                    b.Property<bool>("UterineDepth")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int?>("UterineDepthSize")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("UterinePosition")
+                    b.Property<bool>("UterinePosition")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int?>("UterinePositions")
@@ -504,9 +507,6 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<string>("FPMethod")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<bool>("IsNHTS")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool?>("IsPlanningChildren")
                         .HasColumnType("tinyint(1)");
@@ -906,6 +906,10 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Weight")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("Id");
 
                     b.HasIndex("PatientId");
@@ -1206,8 +1210,9 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<double>("Height")
-                        .HasColumnType("double");
+                    b.Property<string>("Height")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("LastModified")
                         .HasColumnType("datetime(6)");
@@ -1215,7 +1220,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<Guid?>("ModifiedById")
                         .HasColumnType("char(36)");
 
-                    b.Property<int>("PatientId")
+                    b.Property<int>("PatientRecordId")
                         .HasColumnType("int");
 
                     b.Property<bool>("Status")
@@ -1227,12 +1232,13 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<DateTime>("VaccinationDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<double>("Weight")
-                        .HasColumnType("double");
+                    b.Property<string>("Weight")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PatientId");
+                    b.HasIndex("PatientRecordId");
 
                     b.ToTable("VaccinationAppointments");
                 });
@@ -1592,13 +1598,13 @@ namespace AUF.EMR.Persistence.Migrations
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.VaccinationAppointment", b =>
                 {
-                    b.HasOne("AUF.EMR.Domain.Models.PatientRecord", "Patient")
+                    b.HasOne("AUF.EMR.Domain.Models.PatientRecord", "PatientRecord")
                         .WithMany("VaccinationAppointments")
-                        .HasForeignKey("PatientId")
+                        .HasForeignKey("PatientRecordId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Patient");
+                    b.Navigation("PatientRecord");
                 });
 
             modelBuilder.Entity("AUF.EMR.Domain.Models.VaccinationRecord", b =>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/26/2024 21:49:53" ReportInfo.Modified="05/27/2024 02:28:28" ReportInfo.CreatorVersion="2024.2.0.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="PatientRecord" ReferenceName="PatientRecord" DataType="System.Int32" Enabled="true">
+      <Column Name="PatientId" DataType="System.Int32" PropName="Column"/>
+      <Column Name="Birthplace" DataType="System.String" PropName="Column"/>
+      <Column Name="MotherName" DataType="System.String" PropName="Column"/>
+      <Column Name="FatherName" DataType="System.String" PropName="Column"/>
+      <Column Name="MotherAge" DataType="System.Int32" PropName="Column"/>
+      <Column Name="FatherAge" DataType="System.Int32" PropName="Column"/>
+      <Column Name="ContactNumber" DataType="System.String" PropName="Column"/>
+      <Column Name="Weight" DataType="System.Double" PropName="Column"/>
+      <Column Name="TypeOfDelivery" DataType="System.String" PropName="Column"/>
+      <Column Name="Attended" DataType="System.String" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="PatientAppointments" ReferenceName="PatientAppointments" DataType="System.Int32" Enabled="true">
+      <Column Name="VaccinationDate" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="Weight" DataType="System.String" PropName="Column"/>
+      <Column Name="Height" DataType="System.String" PropName="Column"/>
+      <Column Name="Temperature" DataType="System.Double" PropName="Column"/>
+      <Column Name="Column" Enabled="false" DataType="System.Int32"/>
+      <Column Name="Id" DataType="System.Int32" PropName="Column1"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="HouseholdMember" ReferenceName="HouseholdMember" DataType="System.Int32" Enabled="true">
+      <Column Name="Id" DataType="System.Int32" PropName="Column"/>
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="Sex" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="Vaccine" ReferenceName="Vaccine" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String" PropName="Column"/>
+      <Column Name="Id" DataType="System.Int32" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="VaccinationRecords" ReferenceName="VaccinationRecords" DataType="System.Int32" Enabled="true">
+      <Column Name="VaccinationAppointmentId" DataType="System.Int32" PropName="Column"/>
+      <Column Name="VaccineId" DataType="System.Int32" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <Relation Name="HouseholdMember_PatientRecord" ParentDataSource="HouseholdMember" ChildDataSource="PatientRecord" ParentColumns="Id" ChildColumns="PatientId" Enabled="true"/>
+    <Relation Name="Vaccine_VaccinationRecord" ParentDataSource="Vaccine" ChildDataSource="null" ParentColumns="Id" ChildColumns="VaccineId" Enabled="true"/>
+    <Relation Name="PatientAppointments_VaccinationRecords" ParentDataSource="PatientAppointments" ChildDataSource="VaccinationRecords" ParentColumns="Id" ChildColumns="VaccinationAppointmentId" Enabled="true"/>
+    <Relation Name="Vaccine_VaccinationRecords" ParentDataSource="Vaccine" ChildDataSource="VaccinationRecords" ParentColumns="Id" ChildColumns="VaccineId" Enabled="true"/>
+    <Parameter Name="Address" DataType="System.String" AsString=""/>
+    <Parameter Name="HouseholdNo" DataType="System.String" AsString=""/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="1" Watermark.Font="Arial, 60pt">
+    <PageHeaderBand Name="PageHeader1" Width="740.5" Height="283.5">
+      <TextObject Name="Text1" Top="18.9" Width="746.55" Height="18.9" Text="PATIENT RECORD" HorzAlign="Center" Font="Arial Black, 11pt, style=Bold"/>
+      <TextObject Name="Text2" Left="37.8" Top="56.7" Width="56.7" Height="18.9" Text="NAME:" Font="Arial Black, 8pt, style=Bold"/>
+      <TextObject Name="Text3" Left="37.8" Top="85.05" Width="75.6" Height="18.9" Text="BIRTHDAY:" Font="Arial Black, 8pt, style=Bold"/>
+      <TextObject Name="Text4" Left="37.8" Top="113.4" Width="94.5" Height="18.9" Text="BIRTH PLACE:" Font="Arial Black, 8pt, style=Bold"/>
+      <TextObject Name="Text5" Left="37.8" Top="141.75" Width="37.8" Height="18.9" Text="SEX:" Font="Arial Black, 8pt, style=Bold"/>
+      <TextObject Name="Text6" Left="37.8" Top="170.1" Width="75.6" Height="18.9" Text="ADDRESS:" Font="Arial Black, 8pt, style=Bold"/>
+      <TextObject Name="Text7" Left="37.8" Top="198.45" Width="75.6" Height="18.9" Text="MOTHER:" Font="Arial Black, 8pt, style=Bold"/>
+      <TextObject Name="Text8" Left="37.8" Top="226.8" Width="75.6" Height="18.9" Text="FATHER:" Font="Arial Black, 8pt, style=Bold"/>
+      <TextObject Name="Text9" Left="453.6" Top="56.7" Width="75.6" Height="18.9" Text="FAMILY #:" Font="Arial Black, 8pt, style=Bold"/>
+      <TextObject Name="Text10" Left="453.6" Top="85.05" Width="85.05" Height="18.9" Text="CONTACT #:" Font="Arial Black, 8pt, style=Bold"/>
+      <TextObject Name="Text11" Left="453.6" Top="113.4" Width="75.6" Height="18.9" Text="WEIGHT:" Font="Arial Black, 8pt, style=Bold"/>
+      <TextObject Name="Text12" Left="37.8" Top="255.15" Width="160.65" Height="18.9" Text="TYPE OF DELIVERY" Font="Arial Black, 10pt, style=Bold"/>
+      <TextObject Name="Text13" Left="434.7" Top="255.15" Width="94.5" Height="18.9" Text="ATTENDED" Font="Arial Black, 10pt, style=Bold"/>
+      <LineObject Name="Line1" Left="85.35" Top="69.2" Width="179.55"/>
+      <LineObject Name="Line2" Left="113.2" Top="96.4" Width="151.2"/>
+      <LineObject Name="Line3" Left="125.2" Top="126" Width="160.65"/>
+      <LineObject Name="Line4" Left="74" Top="153.35" Width="75.6"/>
+      <LineObject Name="Line5" Left="104.4" Top="183.6" Width="463.05"/>
+      <TextObject Name="Text15" Left="396.9" Top="226.8" Width="47.25" Height="18.9" Text="AGE:" Font="Arial Black, 8pt, style=Bold"/>
+      <TextObject Name="Text14" Left="396.9" Top="198.45" Width="47.25" Height="18.9" Text="AGE:" Font="Arial Black, 8pt, style=Bold"/>
+      <LineObject Name="Line6" Left="100.4" Top="210.8" Width="198.45"/>
+      <LineObject Name="Line7" Left="98" Top="240.4" Width="198.45"/>
+      <LineObject Name="Line8" Left="433.35" Top="210.45" Width="132.8"/>
+      <LineObject Name="Line9" Left="434.8" Top="240.4" Width="132.3"/>
+      <LineObject Name="Line10" Left="521.2" Top="69.2" Width="122.85"/>
+      <LineObject Name="Line11" Left="531.6" Top="97.2" Width="113.4"/>
+      <LineObject Name="Line12" Left="512.4" Top="126" Width="132.3"/>
+      <TextObject Name="Text16" Left="85.05" Top="55.1" Width="217.35" Height="18.9" Text="[PatientRecord.HouseholdMember.FullName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text17" Left="108.6" Top="80.4" Width="189" Height="18.9" Text="[PatientRecord.HouseholdMember.Birthday]" Format="Date" Format.Format="d" Font="Arial, 10pt"/>
+      <TextObject Name="Text18" Left="122.85" Top="109.4" Width="170.1" Height="18.9" Text="[PatientRecord.Birthplace]" Font="Arial, 10pt"/>
+      <TextObject Name="Text19" Left="76.4" Top="139.35" Width="94.5" Height="18.9" Text="[PatientRecord.HouseholdMember.Sex]" Font="Arial, 10pt"/>
+      <TextObject Name="Text20" Left="104.6" Top="166.9" Width="453.6" Height="18.9" Text="[Address]" Font="Arial, 10pt"/>
+      <TextObject Name="Text21" Left="97.4" Top="195.25" Width="236.25" Height="18.9" Text="[PatientRecord.MotherName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text22" Left="96.9" Top="224.4" Width="236.25" Height="18.9" Text="[PatientRecord.FatherName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text23" Left="432.95" Top="194.45" Width="132.3" Height="18.9" Text="[PatientRecord.MotherAge]" Font="Arial, 10pt"/>
+      <TextObject Name="Text24" Left="433.6" Top="223.75" Width="132.3" Height="18.9" Text="[PatientRecord.FatherAge]" Font="Arial, 10pt"/>
+      <TextObject Name="Text25" Left="520.25" Top="53.5" Width="141.75" Height="18.9" Text="[HouseholdNo]" Font="Arial, 10pt"/>
+      <TextObject Name="Text26" Left="529.05" Top="81.2" Width="132.3" Height="18.9" Text="[PatientRecord.ContactNumber]" Font="Arial, 10pt"/>
+      <TextObject Name="Text27" Left="522.15" Top="111.8" Width="113.4" Height="18.9" Text="[PatientRecord.Weight]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" WordWrap="false" Font="Arial, 10pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text28" Left="198.45" Top="255.15" Width="207.9" Height="18.9" Text="[PatientRecord.TypeOfDelivery]" VertAlign="Bottom" Font="Arial, 10pt"/>
+      <TextObject Name="Text29" Left="529.2" Top="255.15" Width="151.2" Height="18.9" Text="[PatientRecord.Attended]" VertAlign="Bottom" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="286.7" Width="740.5" Height="51.63" DataSource="PatientAppointments" KeepTogether="true" KeepDetail="true">
+      <TextObject Name="Text47" Left="122.85" Top="21.75" Width="207.9" Height="18.9" Text="[PatientAppointments.Temperature]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" WordWrap="false" Font="Arial, 8.25pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text49" Left="37.8" Top="2.85" Width="47.25" Height="18.9" Text="Date:" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text50" Left="75.6" Top="2.85" Width="207.9" Height="18.9" Text="[PatientAppointments.VaccinationDate]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text51" Left="37.8" Top="21.75" Width="85.05" Height="18.9" Text="Temperature:" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text52" Left="396.9" Top="2.85" Width="56.7" Height="18.9" Text="Weight:" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text53" Left="396.9" Top="21.75" Width="56.7" Height="18.9" Text="Weight:" Font="Arial, 8.25pt, style=Bold"/>
+      <TextObject Name="Text54" Left="444.15" Top="2.85" Width="170.1" Height="18.9" Text="[PatientAppointments.Weight]" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text55" Left="444.15" Top="21.75" Width="170.1" Height="18.9" Text="[PatientAppointments.Height]" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text56" Left="37.8" Top="40.65" Width="85.05" Height="10.98" Text="Vaccines:" Font="Arial, 8.25pt, style=Bold"/>
+      <LineObject Name="Line13" Left="37.8" Width="642.6" Border.Width="0.25"/>
+      <DataBand Name="Data2" Top="341.53" Width="740.5" Height="18.9" DataSource="VaccinationRecords">
+        <TextObject Name="Text48" Left="103.95" Width="226.8" Height="18.9" Text="[VaccinationRecords.Vaccine.Name]" Font="Arial, 8.25pt"/>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="363.63" Width="740.5" Height="37.8">
+      <TextObject Name="Text57" Top="9.45" Width="740.3" Height="18.9" Text="[PageN]" HorzAlign="Center" Font="Arial, 6pt, style=Italic"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>
