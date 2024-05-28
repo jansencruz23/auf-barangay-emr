@@ -16,32 +16,32 @@
             <h4 class="text-2xl font-bold mb-2">Woman Of Reproductive Age</h4>
             <hr class="mb-2" />
             <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">
-                <div class="flex items-center pb-2">
+                <div class="flex items-center pb-3">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Full Name</dt>
                     <dd class="text-gray-900">@Model.WRA.HouseholdMember.FullName</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
+                <div class="flex items-center pb-3">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">SE Status</dt>
                     <dd class="text-gray-900">@((Model.WRA.HouseholdMember.IsNhts) ? "NHTS" : "Non-NHTS")</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
+                <div class="flex items-center pb-3">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Age</dt>
                     <dd class="text-gray-900">@Model.WRA.HouseholdMember.Age</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
+                <div class="flex items-center pb-3">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Birthdate</dt>
                     <dd class="text-gray-900">@Model.WRA.HouseholdMember.Birthday.ToString("MMM/dd/yyyy")</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
+                <div class="flex items-center pb-3">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Address</dt>
                     <dd class="text-gray-900">@Model.WRA.HouseholdMember.Household.FullAddress</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
+                <div class="flex items-center pb-3">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Civil Status</dt>
                     <dd class="text-gray-900">
                         @((Model.WRA.CivilStatus == 1) ? "1. Currently Married" : "")
@@ -50,12 +50,12 @@
                     </dd>
                 </div>
 
-                <div class="flex items-center pb-2">
-                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Planning to have more children?</dt>
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Future children?</dt>
                     <dd class="text-gray-900">@((Model.WRA.IsPlanningChildren) ? "Yes" : "No")</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
+                <div class="flex items-center pb-3">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">If yes, when?</dt>
                     <dd class="text-gray-900">
                         @((Model.WRA.IsPlanChildrenNow ?? false) ? "Now" : "")
@@ -63,42 +63,42 @@
                     </dd>
                 </div>
 
-                <div class="flex items-center pb-2">
+                <div class="flex items-center pb-3">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Fucundity</dt>
                     <dd class="text-gray-900">@((Model.WRA.IsFecund) ? "Fecund" : "Infecund")</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
-                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">FP method accepted date</dt>
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">FP accepted date</dt>
                     <dd class="text-gray-900">@((Model.WRA.FPAcceptedDate.HasValue) ? (Model.WRA.FPAcceptedDate.Value.ToString("MMM/dd/yyyy")) : "")</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
-                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Currently using FP method?</dt>
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Using FP method?</dt>
                     <dd class="text-gray-900">@((Model.WRA.IsFPMethod) ? "Yes" : "No")</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
+                <div class="flex items-center pb-3">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">If yes, what type?</dt>
                     <dd class="text-gray-900">@((Model.WRA.IsFPModern ?? false) ? "Modern" : ((Model.WRA.IsFPModern.HasValue) ? "Traditional" : ""))</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
-                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Would you like to shift to Modern?</dt>
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Shift to Modern?</dt>
                     <dd class="text-gray-900">@((Model.WRA.ShiftToModern ?? false) ? "Yes" : ((Model.WRA.ShiftToModern.HasValue) ? "No" : ""))</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
+                <div class="flex items-center pb-3">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Has unmet need?</dt>
                     <dd class="text-gray-900">@((Model.WRA.IsMFPUnmet) ? "Yes" : "No")</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
-                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Accepted any modern FP method?</dt>
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Accept modern FP?</dt>
                     <dd class="text-gray-900">@((Model.WRA.AcceptModernFpMethod) ? "Yes" : "No")</dd>
                 </div>
 
-                <div class="flex items-center pb-2">
+                <div class="flex items-center pb-3">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Modern FP Method</dt>
                     <dd class="text-gray-900">@(Model.WRA.ModernFPMethod ?? "")</dd>
                 </div>
