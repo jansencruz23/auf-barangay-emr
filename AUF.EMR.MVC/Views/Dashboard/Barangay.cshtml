@@ -137,7 +137,18 @@
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
-    var chart = document.querySelector('#chartline')
+    var chart = document.querySelector('#chartline');
+    
+    // Generate date labels for the past week
+    var currentDate = new Date();
+    var dateLabels = [];
+    for (var i = 6; i >= 0; i--) {
+        var date = new Date(currentDate);
+        date.setDate(currentDate.getDate() - i);
+        var formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        dateLabels.push(formattedDate);
+    }
+    
     var options = {
         series: [{
             name: "Number of Households",
@@ -170,7 +181,7 @@
                 color: '#333333',
                 fontFamily: 'Poppins'
             },
-            text: 'Total number of  households for the past week',
+            text: 'Total number of households for the past week',
             align: 'left'
         },
         subtitle: {
@@ -179,10 +190,9 @@
                 color: '#333333',
                 fontFamily: 'Poppins'
             },
-            text: 'Households from May 21 - 27, 2024',
+            text: 'Patients from ' + dateLabels[0] + ' - ' + dateLabels[6],
             align: 'left'
         },
-
         grid: {
             row: {
                 colors: ['#f3f3f3', 'transparent'],
@@ -190,22 +200,24 @@
             },
         },
         xaxis: {
-            categories: ['May 21', 'May 22', 'May 23', 'May 24', 'May 25', 'May 26' , 'May 27'],
+            categories: dateLabels,
             labels: {
                 style: {
-                    fontFamily: 'Poppins' // Set font family for x-axis labels
+                    fontFamily: 'Poppins' 
                 }
             }
         }
     };
-    var chart = new ApexCharts(chart, options);
-    chart.render();
+    
+    var chartInstance = new ApexCharts(chart, options);
+    chartInstance.render();
 </script>
+
 <div id="chartpie"></div>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
     var chart = document.querySelector('#chartpie');
-    var seriesData = [17, 23, 8, 12, 15, 30, 23];
+    var seriesData = [@Model.NewbornCount, @Model.InfantCount, @Model.UnderFiveCount, @Model.SchoolAgedCount, @Model.AdolescentsCount, @Model.AdultCount, @Model.SeniorCount];
     var totalSum = seriesData.reduce((acc, val) => acc + val, 0);
 
     var options = {
