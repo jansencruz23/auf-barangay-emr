@@ -148,6 +148,7 @@
                             <td class="border-b border-gray-100 px-4 py-2 inline-flex items-center text-center">
                                 <a asp-action="Edit" asp-controller="VaccinationAppointment"
                                    asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-yellow-300 hover:text-yellow-400 mr-2"><i class="fas fa-edit"></i></a>
+                                <a asp-action="Details" asp-controller="VaccinationAppointment" asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>
                                 <form asp-action="Delete" asp-controller="VaccinationAppointment"
                                       asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-red-300 hover:text-red-400">
                                     <button type="submit" class="text-red-500 hover:text-red-600 py-1 rounded-md">
@@ -163,7 +164,6 @@
 
         <div class="flex justify-end mt-8">
             <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back to List</a>
-            <a asp-action="Edit" asp-route-id="@Model?.PatientRecord.Id" asp-route-householdNo="@Model.HouseholdNo" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 w-20 flex items-center justify-center">Edit</a>
         </div>
     </div>
 </div>
