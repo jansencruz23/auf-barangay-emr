@@ -9,6 +9,7 @@ namespace AUF.EMR.Application.Contracts.Services
     public interface IDashboardService
     {
         Task<int> GetHouseholdCount();
+        Task<int> GetHouseholdCount(int days);
         Task<int> GetHouseholdMemberCount();
         Task<int> GetHouseholdMemberCount(string householdNo);
         Task<int> GetNewbornCount();

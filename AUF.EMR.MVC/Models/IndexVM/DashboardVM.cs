@@ -19,5 +19,12 @@ namespace AUF.EMR.MVC.Models.IndexVM
         public int FamilyPlanningFormsCount { get; set; }
         public int PatientRecordCount { get; set; }
         public int PregnancyRecordCount { get; set; }
+        public int? HHCount1 { get; set; }
+        public int? HHCount2 { get; set; }
+        public int? HHCount3 { get; set; }
+        public int? HHCount4 { get; set; }
+        public int? HHCount5 { get; set; }
+        public int? HHCount6 { get; set; }
+        public int? HHCount7 { get; set; }
     }
 }

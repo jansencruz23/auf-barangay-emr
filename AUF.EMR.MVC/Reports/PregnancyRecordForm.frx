@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/29/2024 22:47:36" ReportInfo.Modified="05/29/2024 23:00:30" ReportInfo.CreatorVersion="2024.2.0.0">
+	<Dictionary>
+		<BusinessObjectDataSource Name="PregnancyRecord" ReferenceName="PregnancyRecord" DataType="System.Int32" Enabled="true">
+		</BusinessObjectDataSource>
+	</Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="279.4" PaperHeight="215.9" RawPaperSize="1" Watermark.Font="Arial, 60pt">
+    <PageHeaderBand Name="PageHeader1" Width="980.53" Height="103.95">
+      <TextObject Name="Text1" Left="406.35" Top="47.25" Width="94.5" Height="18.9" Text="ddd" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="107.95" Width="980.53" Height="75.6"/>
+    <PageFooterBand Name="PageFooter1" Top="187.55" Width="980.53" Height="18.9"/>
+  </ReportPage>
+</Report>

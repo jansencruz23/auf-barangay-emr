@@ -9,6 +9,7 @@ namespace AUF.EMR.Application.Contracts.Persistence
     public interface IDashboardRepository
     {
         Task<int> GetHouseholdCount();
+        Task<int> GetHouseholdCount(int days);
         Task<int> GetHouseholdMemberCount();
         Task<int> GetMemberByAgeCount(DateTime startDate, DateTime endDate); 
         Task<int> GetMemberByAgeCount(string householdNo, DateTime startDate, DateTime endDate);
@@ -25,6 +26,5 @@ namespace AUF.EMR.Application.Contracts.Persistence
         Task<int> GetPatientRecordCount(string householdNo);
         Task<int> GetPregnancyRecordCount();
         Task<int> GetPregnancyRecordCount(string householdNo);
-
     }
 }

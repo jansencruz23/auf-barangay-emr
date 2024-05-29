@@ -4,7 +4,6 @@
     Layout = "Layouts/_HouseholdLayout";
 }
 
-
 <main class="mt-8 flex justify-center items-center">
     <div class="mx-4">
         <div class="grid grid-cols-12 gap-6">
@@ -134,6 +133,15 @@
         </div>
     </div>
 </main>
+
+<p>Household today: @Model.HouseholdCount</p>
+<p>Household -1 day: @Model.HHCount1</p>
+<p>Household -2 day: @Model.HHCount2</p>
+<p>Household -3 day: @Model.HHCount3</p>
+<p>Household -4 day: @Model.HHCount4</p>
+<p>Household -5 day: @Model.HHCount5</p>
+<p>Household -6 day: @Model.HHCount6</p>
+<p>Household -7 day: @Model.HHCount7</p>
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>

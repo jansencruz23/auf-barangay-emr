@@ -65,6 +65,11 @@ namespace AUF.EMR.Application.Services
             return await _repository.GetHouseholdCount();
         }
 
+        public async Task<int> GetHouseholdCount(int days)
+        {
+            return await _repository.GetHouseholdCount(days);
+        }
+
         public async Task<int> GetHouseholdMemberCount()
         {
             return await _repository.GetHouseholdMemberCount();
