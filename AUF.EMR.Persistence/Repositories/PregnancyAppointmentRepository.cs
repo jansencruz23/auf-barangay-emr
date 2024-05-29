@@ -25,6 +25,7 @@ namespace AUF.EMR.Persistence.Repositories
             var appointments = await _dbContext.PregnancyAppointments
                 .AsNoTracking()
                 .Include(a => a.PregnancyRecord)
+                    .ThenInclude(p => p.Patient)
                 .Where(p => p.Status &&
                     p.PregnancyRecord.Status &&
                     p.PregnancyRecord.Id == patientId)
@@ -38,6 +39,7 @@ namespace AUF.EMR.Persistence.Repositories
             var appointment = await _dbContext.PregnancyAppointments
                 .AsNoTracking()
                 .Include(a => a.PregnancyRecord)
+                    .ThenInclude(p => p.Patient)
                 .Where(p => p.Status &&
                     p.PregnancyRecord.Status)
                 .FirstOrDefaultAsync(p => p.Id == id);
