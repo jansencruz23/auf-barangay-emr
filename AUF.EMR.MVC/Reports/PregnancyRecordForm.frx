@@ -1,14 +1,122 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/29/2024 22:47:36" ReportInfo.Modified="05/29/2024 23:00:30" ReportInfo.CreatorVersion="2024.2.0.0">
-	<Dictionary>
-		<BusinessObjectDataSource Name="PregnancyRecord" ReferenceName="PregnancyRecord" DataType="System.Int32" Enabled="true">
-		</BusinessObjectDataSource>
-	</Dictionary>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/29/2024 22:47:36" ReportInfo.Modified="05/30/2024 00:51:21" ReportInfo.CreatorVersion="2024.2.0.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="PregnancyRecord" ReferenceName="PregnancyRecord" DataType="System.Int32" Enabled="true">
+      <Column Name="Id" DataType="System.Int32" PropName="Column"/>
+      <Column Name="Age" DataType="System.Int32" PropName="Column"/>
+      <Column Name="Husband" DataType="System.String" PropName="Column"/>
+      <Column Name="Gravida" DataType="System.Int32" PropName="Column"/>
+      <Column Name="Para" DataType="System.Int32" PropName="Column"/>
+      <Column Name="LMP" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="CellphoneNumber" DataType="System.String" PropName="Column"/>
+      <Column Name="EDC" DataType="System.DateTime" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="HouseholdMember" ReferenceName="HouseholdMember" DataType="System.Int32" Enabled="true">
+      <Column Name="FullName" DataType="System.String" PropName="Column"/>
+      <Column Name="Birthday" DataType="System.DateTime" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="PregnancyAppointment" ReferenceName="PregnancyAppointment" DataType="System.Int32" Enabled="true">
+      <Column Name="Date" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="Weight" DataType="System.Double" PropName="Column"/>
+      <Column Name="BloodPressure" DataType="System.String" PropName="Column"/>
+      <Column Name="Temperature" DataType="System.Double" PropName="Column"/>
+      <Column Name="AOG" DataType="System.String" PropName="Column"/>
+      <Column Name="FH" DataType="System.String" PropName="Column"/>
+      <Column Name="FHT" DataType="System.String" PropName="Column"/>
+      <Column Name="TT1" DataType="System.String" PropName="Column"/>
+      <Column Name="TT2" DataType="System.String" PropName="Column"/>
+      <Column Name="TT3" DataType="System.String" PropName="Column"/>
+      <Column Name="TT4" DataType="System.String" PropName="Column"/>
+      <Column Name="TT5" DataType="System.String" PropName="Column"/>
+      <Column Name="Remarks" DataType="System.String" PropName="Column"/>
+    </BusinessObjectDataSource>
+    <Parameter Name="Address" DataType="System.String" AsString=""/>
+    <Parameter Name="HouseholdNo" DataType="System.String" AsString=""/>
+  </Dictionary>
   <ReportPage Name="Page1" Landscape="true" PaperWidth="279.4" PaperHeight="215.9" RawPaperSize="1" Watermark.Font="Arial, 60pt">
-    <PageHeaderBand Name="PageHeader1" Width="980.53" Height="103.95">
-      <TextObject Name="Text1" Left="406.35" Top="47.25" Width="94.5" Height="18.9" Text="ddd" Font="Arial, 10pt"/>
+    <PageHeaderBand Name="PageHeader1" Width="980.53" Height="132.3">
+      <TextObject Name="Text1" Left="37.8" Top="28.35" Width="47.25" Height="18.9" Text="Name:" Font="Arial, 8pt"/>
+      <TextObject Name="Text2" Left="37.8" Top="47.25" Width="37.8" Height="18.9" Text="Age:" Font="Arial, 8pt"/>
+      <TextObject Name="Text3" Left="37.8" Top="66.15" Width="66.15" Height="18.9" Text="Birthday:" Font="Arial, 8pt"/>
+      <TextObject Name="Text4" Left="37.8" Top="85.05" Width="66.15" Height="18.9" Text="Husband:" Font="Arial, 8pt"/>
+      <TextObject Name="Text5" Left="311.85" Top="28.35" Width="66.15" Height="18.9" Text="Gravida:" Font="Arial, 8pt"/>
+      <TextObject Name="Text6" Left="311.85" Top="47.25" Width="47.25" Height="18.9" Text="Para:" Font="Arial, 8pt"/>
+      <TextObject Name="Text7" Left="311.85" Top="66.15" Width="66.15" Height="18.9" Text="Address:" Font="Arial, 8pt"/>
+      <TextObject Name="Text8" Left="311.85" Top="85.05" Width="47.25" Height="18.9" Text="LMP:" Font="Arial, 8pt"/>
+      <TextObject Name="Text9" Left="670.95" Top="28.35" Width="56.7" Height="18.9" Text="Family #:" Font="Arial, 8pt"/>
+      <TextObject Name="Text10" Left="670.95" Top="47.25" Width="47.25" Height="18.9" Text="Cell #:" Font="Arial, 8pt"/>
+      <TextObject Name="Text11" Left="670.95" Top="85.05" Width="37.8" Height="18.9" Text="EDC:" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Left="66.15" Top="47.25" Width="94.5" Height="18.9" Text="[PregnancyRecord.Age]" Font="Arial, 8pt"/>
+      <TextObject Name="Text13" Left="91" Top="85.05" Width="179.55" Height="18.9" Text="[PregnancyRecord.Husband]" Font="Arial, 8pt"/>
+      <TextObject Name="Text14" Left="359.1" Top="28.35" Width="94.5" Height="18.9" Text="[PregnancyRecord.Gravida]" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Left="340.2" Top="47.25" Width="94.5" Height="18.9" Text="[PregnancyRecord.Para]" Font="Arial, 8pt"/>
+      <TextObject Name="Text16" Left="340.2" Top="85.05" Width="94.5" Height="18.9" Text="[PregnancyRecord.LMP]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="708.75" Top="47.25" Width="160.65" Height="18.9" Text="[PregnancyRecord.CellphoneNumber]" Font="Arial, 8pt"/>
+      <TextObject Name="Text18" Left="699.3" Top="85.05" Width="94.5" Height="18.9" Text="[PregnancyRecord.EDC]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text19" Left="718.2" Top="28.35" Width="94.5" Height="18.9" Text="[HouseholdNo]" Font="Arial, 8pt"/>
+      <TextObject Name="Text20" Left="359.1" Top="66.15" Width="274.05" Height="18.9" Text="[Address]" Font="Arial, 8pt"/>
+      <TextObject Name="Text21" Left="85.05" Top="66.15" Width="151.2" Height="18.9" Text="[HouseholdMember.Birthday]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text22" Left="75.6" Top="28.35" Width="198.45" Height="18.9" Text="[HouseholdMember.FullName]" Font="Arial, 8pt"/>
+      <TextObject Name="Text24" Left="37.8" Top="113.4" Width="75.6" Height="18.9" Text="Date" Font="Arial, 8pt"/>
+      <TextObject Name="Text25" Left="113.4" Top="113.4" Width="56.7" Height="18.9" Text="Wt." Font="Arial, 8pt"/>
+      <TextObject Name="Text26" Left="170.1" Top="113.4" Width="66.15" Height="18.9" Text="BP" Font="Arial, 8pt"/>
+      <TextObject Name="Text27" Left="236.25" Top="113.4" Width="66.15" Height="18.9" Text="Temp" Font="Arial, 8pt"/>
+      <TextObject Name="Text28" Left="302.4" Top="113.4" Width="66.15" Height="18.9" Text="AOG" Font="Arial, 8pt"/>
+      <TextObject Name="Text29" Left="368.55" Top="113.4" Width="66.15" Height="18.9" Text="FH" Font="Arial, 8pt"/>
+      <TextObject Name="Text30" Left="434.7" Top="113.4" Width="66.15" Height="18.9" Text="FHT" Font="Arial, 8pt"/>
+      <TextObject Name="Text31" Left="500.85" Top="113.4" Width="56.7" Height="18.9" Text="TT1" Font="Arial, 8pt"/>
+      <TextObject Name="Text32" Left="557.55" Top="113.4" Width="56.7" Height="18.9" Text="TT2" Font="Arial, 8pt"/>
+      <TextObject Name="Text33" Left="614.25" Top="113.4" Width="56.7" Height="18.9" Text="TT3" Font="Arial, 8pt"/>
+      <TextObject Name="Text34" Left="670.95" Top="113.4" Width="56.7" Height="18.9" Text="TT4" Font="Arial, 8pt"/>
+      <TextObject Name="Text35" Left="727.65" Top="113.4" Width="56.7" Height="18.9" Text="TT5" Font="Arial, 8pt"/>
+      <TextObject Name="Text36" Left="784.35" Top="113.4" Width="160.65" Height="18.9" Text="REMARKS" HorzAlign="Right" Font="Arial, 8pt"/>
+      <LineObject Name="Line1" Left="37.8" Top="113.4" Width="907.2"/>
+      <LineObject Name="Line2" Left="945" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line3" Left="37.8" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line4" Left="37.8" Top="132.3" Width="907.2"/>
+      <LineObject Name="Line8" Left="113.4" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line9" Left="170.1" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line10" Left="236.25" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line11" Left="302.4" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line12" Left="368.55" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line13" Left="434.7" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line14" Left="500.85" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line15" Left="557.55" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line16" Left="614.25" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line17" Left="670.95" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line18" Left="727.65" Top="113.4" Height="18.9"/>
+      <LineObject Name="Line19" Left="784.35" Top="113.4" Height="18.9"/>
     </PageHeaderBand>
-    <DataBand Name="Data1" Top="107.95" Width="980.53" Height="75.6"/>
-    <PageFooterBand Name="PageFooter1" Top="187.55" Width="980.53" Height="18.9"/>
+    <DataBand Name="Data1" Top="136.3" Width="980.53" Height="85.05" DataSource="PregnancyAppointment">
+      <TextObject Name="Text23" Left="37.8" Width="75.6" Height="85.05" Text="[PregnancyAppointment.Date]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text37" Left="113.4" Width="56.7" Height="85.05" Text="[PregnancyAppointment.Weight]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" WordWrap="false" Font="Arial, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text39" Left="170.1" Width="66.15" Height="85.05" Text="[PregnancyAppointment.BloodPressure]" Font="Arial, 8pt"/>
+      <TextObject Name="Text40" Left="236.25" Width="66.15" Height="85.05" Text="[PregnancyAppointment.Temperature]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" WordWrap="false" Font="Arial, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text42" Left="302.4" Width="66.15" Height="85.05" Text="[PregnancyAppointment.AOG]" Font="Arial, 8pt"/>
+      <TextObject Name="Text43" Left="368.55" Width="66.15" Height="85.05" Text="[PregnancyAppointment.FH]" Font="Arial, 8pt"/>
+      <TextObject Name="Text45" Left="434.7" Width="66.15" Height="85.05" Text="[PregnancyAppointment.FHT]" Font="Arial, 8pt"/>
+      <TextObject Name="Text46" Left="500.85" Width="56.7" Height="85.05" Text="[PregnancyAppointment.TT1]" Font="Arial, 8pt"/>
+      <TextObject Name="Text48" Left="557.55" Width="56.7" Height="85.05" Text="[PregnancyAppointment.TT2]" Font="Arial, 8pt"/>
+      <TextObject Name="Text49" Left="614.25" Width="56.7" Height="85.05" Text="[PregnancyAppointment.TT3]" Font="Arial, 8pt"/>
+      <TextObject Name="Text51" Left="670.95" Width="56.7" Height="85.05" Text="[PregnancyAppointment.TT4]" Font="Arial, 8pt"/>
+      <TextObject Name="Text52" Left="727.65" Width="56.7" Height="85.05" Text="[PregnancyAppointment.TT5]" Font="Arial, 8pt"/>
+      <TextObject Name="Text54" Left="784.35" Width="160.65" Height="85.05" Text="[PregnancyAppointment.Remarks]" Font="Arial, 8pt"/>
+      <LineObject Name="Line5" Left="37.8" Height="85.05"/>
+      <LineObject Name="Line6" Left="37.8" Top="85.05" Width="907.2"/>
+      <LineObject Name="Line7" Left="945" Height="85.05"/>
+      <LineObject Name="Line20" Left="113.4" Height="85.05"/>
+      <LineObject Name="Line21" Left="170.1" Height="85.05"/>
+      <LineObject Name="Line22" Left="236.25" Top="85.05" Height="-85.05"/>
+      <LineObject Name="Line23" Left="302.4" Top="85.05" Height="-85.05"/>
+      <LineObject Name="Line24" Left="368.55" Top="85.05" Height="-85.05"/>
+      <LineObject Name="Line25" Left="434.7" Top="85.05" Height="-85.05"/>
+      <LineObject Name="Line26" Left="500.85" Top="85.05" Height="-85.05"/>
+      <LineObject Name="Line27" Left="557.55" Top="85.05" Height="-85.05"/>
+      <LineObject Name="Line28" Left="614.25" Top="85.05" Height="-85.05"/>
+      <LineObject Name="Line29" Left="670.95" Top="85.05" Height="-85.05"/>
+      <LineObject Name="Line30" Left="727.65" Top="85.05" Height="-85.05"/>
+      <LineObject Name="Line31" Left="784.35" Top="85.05" Height="-85.05"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="225.35" Width="980.53" Height="37.8"/>
   </ReportPage>
 </Report>

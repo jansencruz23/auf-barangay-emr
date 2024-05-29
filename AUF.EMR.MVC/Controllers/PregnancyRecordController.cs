@@ -19,16 +19,19 @@ namespace AUF.EMR.MVC.Controllers
         private readonly IPregnancyRecordService _pregRecordService;
         private readonly IHouseholdMemberService _householdMemberService;
         private readonly IHouseholdService _householdService;
+        private readonly IPregnancyAppointmentService _pregAppointmentService;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         public PregnancyRecordController(IPregnancyRecordService pregRecordService,
             IHouseholdMemberService householdMemberService,
             IHouseholdService householdService,
+            IPregnancyAppointmentService pregAppointmentService,
             IWebHostEnvironment webHostEnvironment)
         {
             _pregRecordService = pregRecordService;
             _householdMemberService = householdMemberService;
             _householdService = householdService;
+            _pregAppointmentService = pregAppointmentService;
             _webHostEnvironment = webHostEnvironment;
         }
 
@@ -219,7 +222,7 @@ namespace AUF.EMR.MVC.Controllers
             try
             {
                 var pregRecord = await _pregRecordService.GetPregnancyRecordForm(id);
-                var pregAppointments = (await _pregRecordService.GetPregnancyRecordWithDetails(id)).PregnancyAppointments;
+                var pregAppointments = await _pregAppointmentService.GetPregnancyAppointmentsWithDetails(id);
 
                 var householdMember = await _householdMemberService.GetHouseholdMemberForm(householdMemberId);
                 var address = (await _householdService.GetHouseholdWithDetails(householdNo)).FullAddress;
@@ -231,6 +234,7 @@ namespace AUF.EMR.MVC.Controllers
 
                 report.Load(path);
                 report.RegisterData(pregRecord, "PregnancyRecord");
+                report.RegisterData(pregAppointments, "PregnancyAppointment");
                 report.RegisterData(householdMember, "HouseholdMember");
 
                 report.SetParameterValue("HouseholdNo", householdNo);
