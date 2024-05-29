@@ -2,116 +2,116 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "Layouts/_DetailsLayout";
 }
 
-<h1>Details</h1>
+<div class="container mx-auto px-4 py-8">
 
-<div>
-    <h4>WomanOfReproductiveAge</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            Woman of Reproductive Age
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.WRA.HouseholdMember.FullName
-        </dd>
-        <dt class = "col-sm-2">
-            Address
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.WRA.HouseholdMember.Household.FullAddress
-        </dd>
-        <dt class = "col-sm-2">
-            Age
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.WRA.HouseholdMember.Age
-        </dd>
-        <dt class = "col-sm-2">
-            Birthday
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.WRA.HouseholdMember.Birthday.ToString("MMM/dd/yyyy")
-        </dd>
-        <dt class = "col-sm-2">
-            SE Status
-        </dt>
-        <dd class = "col-sm-10">
-            @((Model.WRA.HouseholdMember.IsNhts) ? "NHTS" : "Non-NHTS")
-        </dd>
-        <dt class = "col-sm-2">
-            Civil Status
-        </dt>
-        <dd class = "col-sm-10">
-            @((Model.WRA.CivilStatus == 1) ? "1. Currently Married" : "")
-            @((Model.WRA.CivilStatus == 2) ? "2. Not married but in a relationship as married living in" : "")
-            @((Model.WRA.CivilStatus == 3) ? "3. Not married and not in a relationship with a man" : "")
-        </dd>
-        <dt class = "col-sm-2">
-            Planning to have more children?
-        </dt>
-        <dd class = "col-sm-10">
-            @((Model.WRA.IsPlanningChildren) ? "Yes" : "No")
-        </dd>
-        <dt class = "col-sm-2">
-            If yes, when?
-        </dt>
-        <dd class = "col-sm-10">
-            @((Model.WRA.IsPlanChildrenNow ?? false) ? "Now" : "")
-            @((Model.WRA.IsPlanChildrenSpacing ?? false) ? "Spacing" : "")
-        </dd>
-        <dt class = "col-sm-2">
-            Fucundity
-        </dt>
-        <dd class = "col-sm-10">
-            @((Model.WRA.IsFecund) ? "Fecund" : "Infecund")
-        </dd>
-        <dt class = "col-sm-2">
-            Currently using FP method?
-        </dt>
-        <dd class = "col-sm-10">
-            @((Model.WRA.IsFPMethod) ? "Yes" : "No")
-        </dd>
-        <dt class = "col-sm-2">
-            If yes, what type?
-        </dt>
-        <dd class = "col-sm-10">
-            @((Model.WRA.IsFPModern ?? false) ? "Modern" : ((Model.WRA.IsFPModern.HasValue) ? "Traditional" : ""))
-        </dd>
-        <dt class = "col-sm-2">
-            Would you like to shift to Modern?
-        </dt>
-        <dd class = "col-sm-10">
-            @((Model.WRA.ShiftToModern ?? false) ? "Yes" : ((Model.WRA.ShiftToModern.HasValue) ? "No" : ""))
-        </dd>
-        <dt class = "col-sm-2">
-            Has unmet need?
-        </dt>
-        <dd class = "col-sm-10">
-            @((Model.WRA.IsMFPUnmet) ? "Yes" : "No")
-        </dd>
-        <dt class = "col-sm-2">
-            Accepted any modern FP method?
-        </dt>
-        <dd class = "col-sm-10">
-            @((Model.WRA.AcceptModernFpMethod) ? "Yes" : "No")
-        </dd>
-        <dt class = "col-sm-2">
-            Modern FP Method
-        </dt>
-        <dd class = "col-sm-10">
-            @(Model.WRA.ModernFPMethod ?? "")
-        </dd>
-        <dt class = "col-sm-2">
-            FP method accepted date
-        </dt>
-        <dd class = "col-sm-10">
-            @((Model.WRA.FPAcceptedDate.HasValue) ? (Model.WRA.FPAcceptedDate.Value.ToString("MMM/dd/yyyy")) : "")
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.WRA.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="bg-white shadow-md rounded-lg p-8 mb-6">
+        <div class="flex justify-between items-center mb-3">
+            <h1 class="text-2xl font-bold mb-3">Details</h1>
+        </div>
+
+        <div>
+            <h4 class="text-2xl font-bold mb-2">Woman Of Reproductive Age</h4>
+            <hr class="mb-2" />
+            <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Full Name</dt>
+                    <dd class="text-gray-900">@Model.WRA.HouseholdMember.FullName</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">SE Status</dt>
+                    <dd class="text-gray-900">@((Model.WRA.HouseholdMember.IsNhts) ? "NHTS" : "Non-NHTS")</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Age</dt>
+                    <dd class="text-gray-900">@Model.WRA.HouseholdMember.Age</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Birthdate</dt>
+                    <dd class="text-gray-900">@Model.WRA.HouseholdMember.Birthday.ToString("MMM/dd/yyyy")</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Address</dt>
+                    <dd class="text-gray-900">@Model.WRA.HouseholdMember.Household.FullAddress</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Civil Status</dt>
+                    <dd class="text-gray-900">
+                        @((Model.WRA.CivilStatus == 1) ? "1. Currently Married" : "")
+                        @((Model.WRA.CivilStatus == 2) ? "2. Not married but in a relationship as married living in" : "")
+                        @((Model.WRA.CivilStatus == 3) ? "3. Not married and not in a relationship with a man" : "")
+                    </dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Future children?</dt>
+                    <dd class="text-gray-900">@((Model.WRA.IsPlanningChildren) ? "Yes" : "No")</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">If yes, when?</dt>
+                    <dd class="text-gray-900">
+                        @((Model.WRA.IsPlanChildrenNow ?? false) ? "Now" : "")
+                        @((Model.WRA.IsPlanChildrenSpacing ?? false) ? "Spacing" : "")
+                    </dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Fucundity</dt>
+                    <dd class="text-gray-900">@((Model.WRA.IsFecund) ? "Fecund" : "Infecund")</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">FP accepted date</dt>
+                    <dd class="text-gray-900">@((Model.WRA.FPAcceptedDate.HasValue) ? (Model.WRA.FPAcceptedDate.Value.ToString("MMM/dd/yyyy")) : "")</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Using FP method?</dt>
+                    <dd class="text-gray-900">@((Model.WRA.IsFPMethod) ? "Yes" : "No")</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">If yes, what type?</dt>
+                    <dd class="text-gray-900">@((Model.WRA.IsFPModern ?? false) ? "Modern" : ((Model.WRA.IsFPModern.HasValue) ? "Traditional" : ""))</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Shift to Modern?</dt>
+                    <dd class="text-gray-900">@((Model.WRA.ShiftToModern ?? false) ? "Yes" : ((Model.WRA.ShiftToModern.HasValue) ? "No" : ""))</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Has unmet need?</dt>
+                    <dd class="text-gray-900">@((Model.WRA.IsMFPUnmet) ? "Yes" : "No")</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Accept modern FP?</dt>
+                    <dd class="text-gray-900">@((Model.WRA.AcceptModernFpMethod) ? "Yes" : "No")</dd>
+                </div>
+
+                <div class="flex items-center pb-3">
+                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Modern FP Method</dt>
+                    <dd class="text-gray-900">@(Model.WRA.ModernFPMethod ?? "")</dd>
+                </div>
+               
+            </dl>
+
+            <hr class="mb-3" />
+        </div>
+    </div>
+    
+    <div class="flex justify-end mt-8">
+        <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back to List</a>
+        <a asp-action="Edit" asp-route-id="@Model.WRA.Id" asp-route-householdNo="@Model.HouseholdNo" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 w-20 flex items-center justify-center">Edit</a>
+    </div>
+
 </div>

@@ -25,10 +25,21 @@ namespace AUF.EMR.Persistence.Repositories
             var appointments = await _dbContext.VaccinationAppointments
                 .AsNoTracking()
                 .Include(a => a.PatientRecord)
+                    .ThenInclude(p => p.Patient)
+                .Include(a => a.VaccinationRecords)
                 .Where(a => a.Status &&
                     a.PatientRecord.Status &&
                     a.PatientRecordId == patientId)
                 .ToListAsync();
+
+            foreach (var appointment in appointments)
+            {
+                await _dbContext.Entry(appointment)
+                    .Collection(a => a.VaccinationRecords)
+                    .Query()
+                    .Include(vr => vr.Vaccine)
+                    .LoadAsync();
+            }
 
             return appointments;
         }
@@ -36,11 +47,21 @@ namespace AUF.EMR.Persistence.Repositories
         public async Task<VaccinationAppointment> GetVaccinationAppointmentWithDetails(int id)
         {
             var appointment = await _dbContext.VaccinationAppointments
-                .AsNoTracking()
                 .Include(a => a.PatientRecord)
+                    .ThenInclude(p => p.Patient)
+                .Include(a => a.VaccinationRecords)
                 .Where(a => a.Status &&
                     a.PatientRecord.Status)
                 .FirstOrDefaultAsync(a => a.Id == id);
+
+            if (appointment != null)
+            {
+                await _dbContext.Entry(appointment)
+                    .Collection(a => a.VaccinationRecords)
+                    .Query()
+                    .Include(vr => vr.Vaccine)
+                    .LoadAsync();
+            }
 
             return appointment;
         }
