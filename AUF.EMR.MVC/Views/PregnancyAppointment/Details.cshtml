@@ -1,0 +1,102 @@
+﻿@model DetailPregnancyAppointmentVM
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PregnancyAppointment</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Patient
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.PregnancyRecord.Patient.FullName
+        </dd>
+        <dt class = "col-sm-2">
+            Date
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.Date
+        </dd>
+        <dt class = "col-sm-2">
+            Weight
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.Weight
+        </dd>
+        <dt class = "col-sm-2">
+            Blood Pressure
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.BloodPressure
+        </dd>
+        <dt class = "col-sm-2">
+            Temperature
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.Temperature
+        </dd>
+        <dt class = "col-sm-2">
+            AOG
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.AOG
+        </dd>
+        <dt class = "col-sm-2">
+            FH
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.FH
+        </dd>
+        <dt class = "col-sm-2">
+            FHT
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.FHT
+        </dd>
+        <dt class = "col-sm-2">
+            TT1
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.TT1
+        </dd>
+        <dt class = "col-sm-2">
+            TT2
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.TT2
+        </dd>
+        <dt class = "col-sm-2">
+            TT3
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.TT3
+        </dd>
+        <dt class = "col-sm-2">
+            TT4
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.TT4
+        </dd>
+        <dt class = "col-sm-2">
+            TT5
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.TT5
+        </dd>
+        <dt class = "col-sm-2">
+            Remarks
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.PregnancyAppointment.Remarks
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.PregnancyAppointment.Id" asp-route-householdNo="@Model.HouseholdNo">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

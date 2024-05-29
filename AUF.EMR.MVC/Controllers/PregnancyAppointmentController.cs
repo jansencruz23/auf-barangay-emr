@@ -1,5 +1,6 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.MVC.Models.CreateVM;
+using AUF.EMR.MVC.Models.DetailVM;
 using AUF.EMR.MVC.Models.EditVM;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,36 @@ namespace AUF.EMR.MVC.Controllers
         {
             _pregAppointmentService = pregAppointmentService;
             _pregRecordService = pregRecordService;
+        }
+
+        // GET: PregnancyAppointmentController/Details/5
+        public async Task<ActionResult> Details(int id, string householdNo)
+        {
+            if (string.IsNullOrWhiteSpace(householdNo) || id == 0)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                var appointment = await _pregAppointmentService.GetPregnancyAppointmentWithDetails(id);
+                if (appointment == null)
+                {
+                    return NotFound();
+                }
+
+                var model = new DetailPregnancyAppointmentVM
+                {
+                    PregnancyAppointment = appointment,
+                    HouseholdNo = householdNo
+                };
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: PregnancyAppointmentController/Create
