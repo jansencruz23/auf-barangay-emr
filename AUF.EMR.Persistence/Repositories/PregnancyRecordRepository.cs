@@ -20,6 +20,22 @@ namespace AUF.EMR.Persistence.Repositories
             _dbContext = dbContext;
         }
 
+        public async Task<List<PregnancyRecord>> GetPregnancyRecordForm(int id)
+        {
+            var record = await _dbContext.PregnancyRecords
+                .AsNoTracking()
+                .Include(r => r.Patient)
+                    .ThenInclude(p => p.Household)
+                .Include(r => r.PregnancyAppointments.Where(a => a.Status))
+                .Where(r => r.Status &&
+                    r.Patient.Status &&
+                    r.Patient.Household.Status &&
+                    r.Id == id)
+                .ToListAsync();
+
+            return record;
+        }
+
         public async Task<List<PregnancyRecord>> GetPregnancyRecordsWithDetails(string householdNo)
         {
             var records = await _dbContext.PregnancyRecords

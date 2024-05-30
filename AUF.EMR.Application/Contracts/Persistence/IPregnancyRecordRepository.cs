@@ -12,5 +12,6 @@ namespace AUF.EMR.Application.Contracts.Persistence
     {
         Task<List<PregnancyRecord>> GetPregnancyRecordsWithDetails(string householdNo);
         Task<PregnancyRecord> GetPregnancyRecordWithDetails(int id);
+        Task<List<PregnancyRecord>> GetPregnancyRecordForm(int id);
     }
 }

@@ -20,15 +20,17 @@ namespace AUF.EMR.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<List<PregnancyAppointment>> GetPregnancyAppointmentsWithDetails(int patientId)
+        public async Task<List<PregnancyAppointment>> GetPregnancyAppointmentsWithDetails(int recordId)
         {
             var appointments = await _dbContext.PregnancyAppointments
                 .AsNoTracking()
                 .Include(a => a.PregnancyRecord)
                     .ThenInclude(p => p.Patient)
+                        .ThenInclude(p => p.Household)
                 .Where(p => p.Status &&
                     p.PregnancyRecord.Status &&
-                    p.PregnancyRecord.Id == patientId)
+                    p.PregnancyRecord.Id == recordId &&
+                    p.PregnancyRecord.Patient.Household.Status)
                 .ToListAsync();
 
             return appointments;
@@ -40,8 +42,10 @@ namespace AUF.EMR.Persistence.Repositories
                 .AsNoTracking()
                 .Include(a => a.PregnancyRecord)
                     .ThenInclude(p => p.Patient)
+                        .ThenInclude(p => p.Household)
                 .Where(p => p.Status &&
-                    p.PregnancyRecord.Status)
+                    p.PregnancyRecord.Status &&
+                    p.PregnancyRecord.Patient.Household.Status)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             return appointment;

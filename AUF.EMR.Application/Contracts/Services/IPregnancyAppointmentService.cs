@@ -10,7 +10,7 @@ namespace AUF.EMR.Application.Contracts.Services
 {
     public interface IPregnancyAppointmentService : IGenericService<PregnancyAppointment>
     {
-        Task<List<PregnancyAppointment>> GetPregnancyAppointmentsWithDetails(int patientId);
+        Task<List<PregnancyAppointment>> GetPregnancyAppointmentsWithDetails(int recordId);
         Task<PregnancyAppointment> GetPregnancyAppointmentWithDetails(int id);
     }
 }

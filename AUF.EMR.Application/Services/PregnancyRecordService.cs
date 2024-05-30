@@ -30,5 +30,10 @@ namespace AUF.EMR.Application.Services
         {
             return await _repository.GetPregnancyRecordWithDetails(id);
         }
+
+        public async Task<List<PregnancyRecord>> GetPregnancyRecordForm(int id)
+        {
+            return await _repository.GetPregnancyRecordForm(id);
+        }
     }
 }
