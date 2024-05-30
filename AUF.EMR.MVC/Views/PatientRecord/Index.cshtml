@@ -78,8 +78,8 @@
                             <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Attended)
                             </td>
-                            <!--Action Button-->
 
+                            <!--Action Button-->
                             <td class="border-b border-gray-100 px-4 py-2 inline-flex items-center text-center">
                                 <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>
                                 <button type="button" onclick="print('Print', 'PatientRecord', @Model.HouseholdNo, @item.Id, @item.PatientId)" class="text-blue-400 hover:text-blue-600 mr-2"><i class="fa-solid fa-print"></i></button>

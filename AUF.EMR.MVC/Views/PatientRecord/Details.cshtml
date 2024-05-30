@@ -11,7 +11,15 @@
         <div class="flex justify-between items-center mb-3">
             <h1 class="text-2xl font-bold mb-3">Details</h1>
             <div class="space-x-2 mb-3 flex justify-end">
-                <a asp-action="Edit" asp-route-householdNo="@Model.HouseholdNo" asp-route-Id="@Model.PatientRecord.Id" class="flex-shrink-0 inline-block bg-blue-500 hover:bg-blue-300 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm w-28">
+
+                <div class="flex-shrink-0 inline-block bg-blue-500 hover:bg-blue-300 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm w-28">
+                <button type="button" onclick="print('Print', 'PatientRecord', '@Model.PatientRecord.Id', '@Model.PatientRecord.PatientId')">
+                        Print Patient Records
+                </button>
+            </div>
+
+
+                <a asp-action="Edit" asp-route-householdNo="@Model.HouseholdNo" asp-route-Id="@Model.PatientRecord.Id" class="flex-shrink-0 inline-block  bg-yellow-300 hover:bg-yellow-100 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm w-28">
                     <span class="hidden md:inline font-medium">Update</span>
                 </a>
 
@@ -146,9 +154,15 @@
                                 }
                             </td>
                             <td class="border-b border-gray-100 px-4 py-2 inline-flex items-center text-center">
+                                <a asp-action="Details" asp-controller="VaccinationAppointment" asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-green-400 hover:text-green-500 mr-2">
+                                    <i class="fas fa-eye"></i>
+                                </a>
                                 
                                 <a asp-action="Edit" asp-controller="VaccinationAppointment"
-                                   asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-yellow-300 hover:text-yellow-400 mr-2"><i class="fas fa-edit"></i></a>
+                                   asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-yellow-300 hover:text-yellow-400 mr-2">
+                                   <i class="fas fa-edit"></i>
+                               </a>
+
                                 <form asp-action="Delete" asp-controller="VaccinationAppointment"
                                       asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-red-300 hover:text-red-400">
                                     <button type="submit" class="text-red-500 hover:text-red-600 py-1 rounded-md">
@@ -164,7 +178,6 @@
 
         <div class="flex justify-end mt-8">
             <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back to List</a>
-            <a asp-action="Edit" asp-route-id="@Model?.PatientRecord.Id" asp-route-householdNo="@Model.HouseholdNo" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 w-20 flex items-center justify-center">Edit</a>
         </div>
     </div>
 </div>

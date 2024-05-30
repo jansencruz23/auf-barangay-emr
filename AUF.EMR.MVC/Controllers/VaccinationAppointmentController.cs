@@ -2,6 +2,7 @@
 using AUF.EMR.Application.Services;
 using AUF.EMR.Domain.Models;
 using AUF.EMR.MVC.Models.CreateVM;
+using AUF.EMR.MVC.Models.DetailVM;
 using AUF.EMR.MVC.Models.EditVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -35,9 +36,33 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: VaccinationAppointmentController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id, string householdNo)
         {
-            return View();
+            if (string.IsNullOrWhiteSpace(householdNo) || id == 0)
+            {
+                return NotFound();
+            }
+            
+            try
+            {
+                var appointment = await _appointmentService.GetVaccinationAppointmentWithDetails(id);
+                if (appointment == null)
+                {
+                    return NotFound();
+                }
+
+                var model = new DetailVaccinationAppointmentVM
+                {
+                    VaccinationAppointment = appointment,
+                    HouseholdNo = householdNo
+                };
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: VaccinationAppointmentController/Create
