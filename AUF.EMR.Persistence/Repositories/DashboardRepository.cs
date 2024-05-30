@@ -57,6 +57,17 @@ namespace AUF.EMR.Persistence.Repositories
             return count;
         }
 
+        public async Task<int> GetHouseholdCount(int days)
+        {
+            var dateThreshold = DateTime.UtcNow.Date.AddDays(-days);
+            var count = await _dbContext.Households
+                .AsNoTracking()
+                .Where(h => h.Status && h.DateCreated <= dateThreshold)
+                .CountAsync();
+
+            return count;
+        }
+
         public async Task<int> GetHouseholdMemberCount()
         {
             var count = await _dbContext.HouseholdMembers

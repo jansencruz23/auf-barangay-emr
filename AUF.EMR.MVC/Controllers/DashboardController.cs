@@ -22,26 +22,40 @@ namespace AUF.EMR.MVC.Controllers
         // GET: DashboardController/Barangay
         public async Task<ActionResult> Barangay()
         {
-            var model = new DashboardVM
+            try
             {
-                HouseholdCount = await _dashboardService.GetHouseholdCount(),
-                HouseholdMemberCount = await _dashboardService.GetHouseholdMemberCount(),
-                NewbornCount = await _dashboardService.GetNewbornCount(),
-                InfantCount = await _dashboardService.GetInfantCount(),
-                UnderFiveCount = await _dashboardService.GetUnderFiveCount(),
-                SchoolAgedCount = await _dashboardService.GetSchoolAgedCount(),
-                AdolescentsCount = await _dashboardService.GetAdolescentCount(),
-                AdultCount = await _dashboardService.GetAdultsCount(),
-                SeniorCount = await _dashboardService.GetSeniorCount(),
-                PregnantCount = await _dashboardService.GetPregnantCount(),
-                WRAFormCount = await _dashboardService.GetWRAFormCount(),
-                PregTrackCount = await _dashboardService.GetPregnancyTrackingFormCount(),
-                FamilyPlanningFormsCount = await _dashboardService.GetFamilyPlanningFormCount(),
-                PatientRecordCount = await _dashboardService.GetPatientRecordCount(),
-                PregnancyRecordCount = await _dashboardService.GetPregnancyRecordCount(),
-            };
+                var model = new DashboardVM
+                {
+                    HouseholdCount = await _dashboardService.GetHouseholdCount(),
+                    HouseholdMemberCount = await _dashboardService.GetHouseholdMemberCount(),
+                    NewbornCount = await _dashboardService.GetNewbornCount(),
+                    InfantCount = await _dashboardService.GetInfantCount(),
+                    UnderFiveCount = await _dashboardService.GetUnderFiveCount(),
+                    SchoolAgedCount = await _dashboardService.GetSchoolAgedCount(),
+                    AdolescentsCount = await _dashboardService.GetAdolescentCount(),
+                    AdultCount = await _dashboardService.GetAdultsCount(),
+                    SeniorCount = await _dashboardService.GetSeniorCount(),
+                    PregnantCount = await _dashboardService.GetPregnantCount(),
+                    WRAFormCount = await _dashboardService.GetWRAFormCount(),
+                    PregTrackCount = await _dashboardService.GetPregnancyTrackingFormCount(),
+                    FamilyPlanningFormsCount = await _dashboardService.GetFamilyPlanningFormCount(),
+                    PatientRecordCount = await _dashboardService.GetPatientRecordCount(),
+                    PregnancyRecordCount = await _dashboardService.GetPregnancyRecordCount(),
+                    HHCount1 = await _dashboardService.GetHouseholdCount(1),
+                    HHCount2 = await _dashboardService.GetHouseholdCount(2),
+                    HHCount3 = await _dashboardService.GetHouseholdCount(3),
+                    HHCount4 = await _dashboardService.GetHouseholdCount(4),
+                    HHCount5 = await _dashboardService.GetHouseholdCount(5),
+                    HHCount6 = await _dashboardService.GetHouseholdCount(6),
+                    HHCount7 = await _dashboardService.GetHouseholdCount(7),
+                };
 
-            return View(model);
+                return View(model);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: DashboardController/Household/5

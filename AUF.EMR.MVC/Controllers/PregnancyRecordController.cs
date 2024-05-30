@@ -4,6 +4,10 @@ using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.DetailVM;
 using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
+using FastReport.Export.PdfSimple;
+using FastReport.Utils;
+using FastReport;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
@@ -14,12 +18,21 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IPregnancyRecordService _pregRecordService;
         private readonly IHouseholdMemberService _householdMemberService;
+        private readonly IHouseholdService _householdService;
+        private readonly IPregnancyAppointmentService _pregAppointmentService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public PregnancyRecordController(IPregnancyRecordService pregRecordService,
-            IHouseholdMemberService householdMemberService)
+            IHouseholdMemberService householdMemberService,
+            IHouseholdService householdService,
+            IPregnancyAppointmentService pregAppointmentService,
+            IWebHostEnvironment webHostEnvironment)
         {
             _pregRecordService = pregRecordService;
             _householdMemberService = householdMemberService;
+            _householdService = householdService;
+            _pregAppointmentService = pregAppointmentService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: PregnancyRecordController
@@ -196,6 +209,60 @@ namespace AUF.EMR.MVC.Controllers
             catch (Exception ex)
             {
                 return View();
+            }
+        }
+
+        public async Task<string> Print(string householdNo, int id, int householdMemberId)
+        {
+            if (string.IsNullOrWhiteSpace(householdNo) || id == 0 || householdMemberId == 0)
+            {
+                return "An error occured.";
+            }
+
+            try
+            {
+                var pregRecord = await _pregRecordService.GetPregnancyRecordForm(id);
+                var pregAppointments = await _pregAppointmentService.GetPregnancyAppointmentsWithDetails(id);
+
+                var householdMember = await _householdMemberService.GetHouseholdMemberForm(householdMemberId);
+                var address = (await _householdService.GetHouseholdWithDetails(householdNo)).FullAddress;
+
+                Config.WebMode = true;
+                var report = new Report();
+                var contentRootPath = _webHostEnvironment.ContentRootPath;
+                var path = Path.Combine(contentRootPath, "Reports", "PregnancyRecordForm.frx");
+
+                report.Load(path);
+                report.RegisterData(pregRecord, "PregnancyRecord");
+                report.RegisterData(pregAppointments, "PregnancyAppointment");
+                report.RegisterData(householdMember, "HouseholdMember");
+
+                report.SetParameterValue("HouseholdNo", householdNo);
+                report.SetParameterValue("Address", address);
+
+                if (report.Report.Prepare())
+                {
+                    var pdfExport = new PDFSimpleExport();
+                    pdfExport.ShowProgress = true;
+                    pdfExport.Subject = "Subject Report";
+                    pdfExport.Title = "Report Title";
+                    var memoryStream = new MemoryStream();
+                    report.Report.Export(pdfExport, memoryStream);
+                    report.Dispose();
+                    pdfExport.Dispose();
+                    memoryStream.Position = 0;
+
+                    return Convert.ToBase64String(memoryStream.ToArray());
+                    //return File(memoryStream, "application/pdf", "household.pdf");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
     }
