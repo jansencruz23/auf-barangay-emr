@@ -10,19 +10,23 @@
     <div class="bg-white shadow-md rounded-lg p-8 mb-6">
         <div class="flex justify-between items-center mb-3">
             <h1 class="text-2xl font-bold mb-3">Details</h1>
-            <div class="space-x-2 mb-3 flex justify-end">
 
+            <div class="space-x-2 mb-3 flex justify-end">
+                <!--Print Button-->
                 <div class="flex-shrink-0 inline-block bg-blue-500 hover:bg-blue-300 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm w-28">
                 <button type="button" onclick="print('Print', 'PatientRecord', '@Model.PatientRecord.Id', '@Model.PatientRecord.PatientId')">
-                        Print Patient Records
+                        <svg class="w-5 h-5 text-white inline-block mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H8Zm-3 7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h1a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5Zm4 11a1 1 0 0 1-1-1v-4h8v4a1 1 0 0 1-1 1H9Z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="hidden md:inline font-medium">Print</span>
                 </button>
             </div>
 
-
+            <!--Edit Buttom-->
                 <a asp-action="Edit" asp-route-householdNo="@Model.HouseholdNo" asp-route-Id="@Model.PatientRecord.Id" class="flex-shrink-0 inline-block  bg-yellow-300 hover:bg-yellow-100 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm w-28">
                     <span class="hidden md:inline font-medium">Update</span>
                 </a>
-
+                <!--Create Button-->
                 <a asp-action="Create" asp-controller="VaccinationAppointment" asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PatientRecord.Id" class="text-white bg-primary-50 font-medium rounded-lg transition duration-300 ease-in-out text-sm px-4 py-2 hover:bg-green-300 flex-shrink-0 inline-block  text-white font-medium" aria-label="New Appointment">
                     <svg class="h-5 w-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
@@ -153,6 +157,7 @@
                                     @vaccine.Vaccine.Name <br />
                                 }
                             </td>
+                            <!--Action Buttons-->
                             <td class="border-b border-gray-100 px-4 py-2 inline-flex items-center text-center">
                                 <a asp-action="Details" asp-controller="VaccinationAppointment" asp-route-id="@appointment.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-green-400 hover:text-green-500 mr-2">
                                     <i class="fas fa-eye"></i>
