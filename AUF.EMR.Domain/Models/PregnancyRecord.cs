@@ -10,7 +10,7 @@ namespace AUF.EMR.Domain.Models
 {
     public class PregnancyRecord : BaseDomainEntity
     {
-        public HouseholdMember? Patient { get; set; }
+        public HouseholdMember? Patient { get; set; } 
         public int PatientId { get; set; }
         public int Age { get; set; }
         public string Husband { get; set; }
