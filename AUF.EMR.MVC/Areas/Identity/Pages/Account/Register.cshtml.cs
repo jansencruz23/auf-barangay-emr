@@ -115,6 +115,8 @@ namespace AUF.EMR.MVC.Areas.Identity.Pages.Account
             [Display(Name = "Position")]
             public string Position { get; set; }
 
+            public IFormFile PictureFile { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -157,6 +159,15 @@ namespace AUF.EMR.MVC.Areas.Identity.Pages.Account
                 user.Address = Input.Address;
                 user.Position = Input.Position;
                 user.Birthday = Input.Birthday;
+
+                if (Input.PictureFile != null && Input.PictureFile.Length > 0)
+                {
+                    using var memoryStream = new MemoryStream();
+                    await Input.PictureFile.CopyToAsync(memoryStream);
+                    byte[] logoBytes = memoryStream.ToArray();
+
+                    user.Picture = logoBytes;
+                }
 
                 await _userStore.SetUserNameAsync(user, Input.Username, CancellationToken.None);
                 //await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

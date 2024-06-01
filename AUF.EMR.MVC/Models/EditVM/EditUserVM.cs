@@ -6,5 +6,6 @@ namespace AUF.EMR.MVC.Models.EditVM
     public class EditUserVM : BaseVM
     {
         public ApplicationUser User { get; set; }
+        public IFormFile? PictureFile { get; set; }
     }
 }
