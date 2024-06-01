@@ -2,6 +2,7 @@
 using AUF.EMR.Domain.Models;
 using AUF.EMR.Domain.Models.FamilyPlanning;
 using AUF.EMR.MVC.Models.CreateVM;
+using AUF.EMR.MVC.Models.DetailVM;
 using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
 using FastReport;
@@ -52,9 +53,32 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: FamilyPlanningController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id, string householdNo)
         {
-            return View();
+            if (id == 0 || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return RedirectToAction("PageNotFound", "Error");
+            }
+            try
+            {
+                var record = await _fpService.GetFPRecordWithDetails(id);
+                if (record == null)
+                {
+                    return RedirectToAction("PageNotFound", "Error");
+                }
+
+                var model = new DetailFamilyPlanningVM
+                {
+                    FamilyPlanning = record,
+                    HouseholdNo = householdNo
+                };
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: FamilyPlanningController/Create

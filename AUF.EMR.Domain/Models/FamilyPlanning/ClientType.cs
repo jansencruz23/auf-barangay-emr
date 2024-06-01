@@ -14,8 +14,8 @@ namespace AUF.EMR.Domain.Models.FamilyPlanning
         public CurrentUserType? CurrentUserType { get; set; }
         public ReasonForFP? ReasonForFP { get; set; }
         public string? ReasonOthers { get; set; }
-        public bool? IsReasonMedical { get; set; }
-        public bool? IsReasonSideEffects { get; set; }
+        public bool IsReasonMedical { get; set; }
+        public bool IsReasonSideEffects { get; set; }
         public string? ReasonMethodText { get; set; }
         public bool IsMethodImplant { get; set; } 
         public bool IsMethodInjectable { get; set; } 

@@ -42,12 +42,12 @@ namespace AUF.EMR.MVC.Controllers
                     PatientRecordCount = await _dashboardService.GetPatientRecordCount(),
                     PregnancyRecordCount = await _dashboardService.GetPregnancyRecordCount(),
                     HHCount1 = await _dashboardService.GetHouseholdCount(1),
-                    HHCount2 = await _dashboardService.GetHouseholdCount(2),
-                    HHCount3 = await _dashboardService.GetHouseholdCount(3),
-                    HHCount4 = await _dashboardService.GetHouseholdCount(4),
-                    HHCount5 = await _dashboardService.GetHouseholdCount(5),
-                    HHCount6 = await _dashboardService.GetHouseholdCount(6),
-                    HHCount7 = await _dashboardService.GetHouseholdCount(7),
+                    HHCount2 = await _dashboardService.GetHouseholdCount(2,2),
+                    HHCount3 = await _dashboardService.GetHouseholdCount(3,3),
+                    HHCount4 = await _dashboardService.GetHouseholdCount(4,4),
+                    HHCount5 = await _dashboardService.GetHouseholdCount(5,5),
+                    HHCount6 = await _dashboardService.GetHouseholdCount(6,6),
+                    HHCount7 = await _dashboardService.GetHouseholdCount(7,7),
                 };
 
                 return View(model);

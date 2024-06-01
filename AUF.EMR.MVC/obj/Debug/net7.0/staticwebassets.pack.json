@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\illustration.svg",
+      "PackagePath": "staticwebassets\\img\\illustration.svg"
+    },
+    {
       "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
     },
