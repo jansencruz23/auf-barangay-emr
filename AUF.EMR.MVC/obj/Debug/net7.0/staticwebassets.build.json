@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CoDbD20dItOgtgEazbizUNzaSnj1EF8VvAovNo0Xm3U=",
+  "Hash": "RRlMUK8+HGNekq6E4zAppFroRbnXzgM8foQLXZV4tUc=",
   "Source": "AUF.EMR.MVC",
   "BasePath": "_content/AUF.EMR.MVC",
   "Mode": "Default",
@@ -1188,6 +1188,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\img\\admin.png",
+      "SourceId": "AUF.EMR.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\",
+      "BasePath": "_content/AUF.EMR.MVC",
+      "RelativePath": "img/admin.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\admin.png"
+    },
+    {
+      "Identity": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\img\\illustration.svg",
+      "SourceId": "AUF.EMR.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\",
+      "BasePath": "_content/AUF.EMR.MVC",
+      "RelativePath": "img/illustration.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\illustration.svg"
     },
     {
       "Identity": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\img\\logo.png",

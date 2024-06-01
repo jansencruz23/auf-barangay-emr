@@ -57,7 +57,7 @@
                 <tbody>
                     @foreach (var item in Model.PregnancyRecords)
                     {
-                        <tr>
+                        <tr class="text-sm hover-household transition duration-300 ease-in-out">
                             <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Patient.FormattedFullName)
                             </td>

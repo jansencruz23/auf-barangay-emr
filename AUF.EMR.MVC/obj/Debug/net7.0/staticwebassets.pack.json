@@ -33,6 +33,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\img\\admin.png",
+      "PackagePath": "staticwebassets\\img\\admin.png"
+    },
+    {
+      "Id": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\img\\illustration.svg",
+      "PackagePath": "staticwebassets\\img\\illustration.svg"
+    },
+    {
       "Id": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
     },

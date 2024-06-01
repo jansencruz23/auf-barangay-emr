@@ -1,0 +1,249 @@
+﻿@model DetailFamilyPlanningVM
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>FamilyPlanningRecord</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Client Id
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.ClientId
+        </dd>
+        <dt class = "col-sm-2">
+            Philhealth No
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.PhilhealthNo
+        </dd>
+        <dt class = "col-sm-2">
+            Client Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.ClientHouseholdMember.FullName
+        </dd>
+        <dt class="col-sm-2">
+            Date of Birth
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FamilyPlanning.ClientHouseholdMember.Birthday
+        </dd>
+        <dt class = "col-sm-2">
+            Age
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.ClientAge
+        </dd>
+        <dt class = "col-sm-2">
+            Occupation
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.ClientOccupation
+        </dd>
+        <dt class="col-sm-2">
+            Address
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FamilyPlanning.ClientHouseholdMember.Household.FullAddress
+        </dd>
+        <dt class = "col-sm-2">
+            Contact No
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.ContactNo
+        </dd>
+        <dt class = "col-sm-2">
+            Civil Status
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.CivilStatus
+        </dd>
+        <dt class = "col-sm-2">
+            Religion
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.Religion
+        </dd>
+        <dt class = "col-sm-2">
+            Spouse Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.SpouseLastName @Model.FamilyPlanning.SpouseFirstName @Model.FamilyPlanning.SpouseMiddleInitial
+        </dd>
+        <dt class = "col-sm-2">
+           Date of Birth
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.SpouseBirthday
+        </dd>
+        <dt class = "col-sm-2">
+            Age
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.SpouseAge
+        </dd>
+        <dt class = "col-sm-2">
+            Occupation
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.SpouseOccupation
+        </dd>
+        <dt class = "col-sm-2">
+            No. of living children
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.LivingChildrenNo
+        </dd>
+        <dt class = "col-sm-2">
+            Plan to have more children
+        </dt>
+        <dd class = "col-sm-10"> 
+            @((Model.FamilyPlanning.IsPlanningChildren) ? "Yes" : "No")
+        </dd>
+        <dt class = "col-sm-2">
+            Average Monthly Income
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.FamilyPlanning.AverageMonthlyIncome
+        </dd>
+        <h5>Client Type</h5>
+        <dt class = "col-sm-2">
+            Client Type
+        </dt>
+        <dd class = "col-sm-10">
+            @((Model.FamilyPlanning.ClientType.IsCurrentUser) ? "Current User" : "New Acceptor")
+        </dd>
+        <dt class="col-sm-2">
+            Current User Type
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FamilyPlanning.ClientType.CurrentUserType
+        </dd>
+        <dt class="col-sm-2">
+            Reason for FP
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FamilyPlanning.ClientType.ReasonForFP
+        </dd>
+        <dt class="col-sm-2">
+            Other reason for FP
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FamilyPlanning.ClientType.ReasonOthers
+        </dd>
+@*        <dt class="col-sm-2">
+            Changing Method Reason
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FamilyPlanning.ClientType.C
+        </dd>*@
+
+
+
+
+
+
+
+
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClientType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClientType.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MedicalHistory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MedicalHistory.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ObstetricalHistory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ObstetricalHistory.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RisksForSTI)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RisksForSTI.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RisksForVAW)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RisksForVAW.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PhysicalExamination)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PhysicalExamination.BloodPressure)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FPMethod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FPMethod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClientSignatureAcknowledgement)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClientSignatureAcknowledgement)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateAcknowledgement)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateAcknowledgement)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClientSignatureConsent)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClientSignatureConsent)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateConsent)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateConsent)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastModified)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastModified)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ModifiedById)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ModifiedById)
+        </dd>*@
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.FamilyPlanning.Id" asp-route-householdNo="@Model.HouseholdNo" >Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
