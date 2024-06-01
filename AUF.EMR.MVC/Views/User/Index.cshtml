@@ -63,7 +63,9 @@
                                 <a asp-action="Profile" asp-route-id="@item.Id" class="text-green-400 hover:text-green-500 mr-2">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="text-blue-300 hover:text-blue-400 mr-2"><i class="fas fa-trash-alt"></i></a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="text-red-300 hover:text-red-400">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
                             </td>
                         </tr>
                     }
