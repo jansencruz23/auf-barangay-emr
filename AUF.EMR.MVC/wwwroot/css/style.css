@@ -101,3 +101,13 @@
 .bg-slate-100 {
     background-color: #f1f5f9;
 }
+
+.text-red-300 {
+    --tw-text-opacity: 1;
+    color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
+.hover\:text-red-400:hover {
+    --tw-text-opacity: 1;
+    color: rgba(220, 38, 38, var(--tw-text-opacity));
+}
