@@ -11,6 +11,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol.Core.Types;
 
 namespace AUF.EMR.MVC.Controllers
 {
@@ -139,9 +140,10 @@ namespace AUF.EMR.MVC.Controllers
                 }
 
                 var classificationService = new ClassificationService();
-                var classifications = classificationService.GetClassifications();
-                int.TryParse(member.Age.Split(" ")[0], out int age);
-                var ageSuffix = member.Age.Split(" ")[1];
+                var classifications = classificationService.GetClassifications();               
+                var ageParts = member.Age.Split(" ");
+                var ageSuffix = ageParts.Length < 2 ? "yrs" : ageParts[1];
+                int.TryParse(ageParts[0], out int age);
 
                 var model = new EditHouseholdMemberVM
                 {

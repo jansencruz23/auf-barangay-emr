@@ -1,7 +1,7 @@
 ﻿@model CreatePregnancyRecordVM
 
 @{
-    Layout = "Layouts/_HouseholdLayout";
+    ViewData["HouseholdNo"] = Model.HouseholdNo;
     Layout = "Layouts/_FormLayout";
     ViewData["Title"] = "Create";
 }

@@ -3,6 +3,7 @@
 @{
     Layout = "Layouts/_FormLayout";
     ViewData["Title"] = "Masterlist of Oral Health Care Clients - Pregnant 20 to 49 years old";
+    ViewData["HouseholdNo"] = Model.HouseholdNo;
 }
 
 <style>
@@ -46,8 +47,6 @@
     </div>
 
     <div class="bg-white shadow-md rounded-lg p-8">
-        @Html.PartialAsync("_FormNav", Model.HouseholdNo).Result
-
         <div class="overflow-x-auto">
             <table class="table-auto w-full">
                 <thead>
