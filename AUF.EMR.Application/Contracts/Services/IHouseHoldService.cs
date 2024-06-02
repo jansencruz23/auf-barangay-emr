@@ -1,4 +1,5 @@
-﻿using AUF.EMR.Application.Contracts.Services.Common;
+﻿using AUF.EMR.Application.Common;
+using AUF.EMR.Application.Contracts.Services.Common;
 using AUF.EMR.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,8 @@ namespace AUF.EMR.Application.Contracts.Services
     public interface IHouseholdService : IGenericService<Household>
     {
         Task<string> GetHouseholdNo(int id);
-        Task<List<Household>> GetHouseholdsWithDetails();
-        Task<List<Household>> GetSearchedhouseHoldsWithDetails(string query);
+        Task<PaginatedList<Household>> GetHouseholdsWithDetails(int page);
+        Task<PaginatedList<Household>> GetSearchedhouseHoldsWithDetails(string query, int page);
         Task<Household> GetSearchedhouseHoldWithDetails(string query);
         Task<Household> GetHouseholdWithDetails(int id);
         Task<Household> GetHouseholdWithDetails(string householdNo);

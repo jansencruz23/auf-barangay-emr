@@ -8,4 +8,8 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AUF.EMR.Domain
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\
+=======
+build_property.ProjectDir = D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Domain\
+>>>>>>> c27338271cf9a61dee7c8b7b9570c40dd846d6dc

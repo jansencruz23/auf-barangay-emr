@@ -1,4 +1,5 @@
-﻿using AUF.EMR.Application.Contracts.Persistence;
+﻿using AUF.EMR.Application.Common;
+using AUF.EMR.Application.Contracts.Persistence;
 using AUF.EMR.Domain.Models;
 using AUF.EMR.Persistence.Repositories.Common;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +42,38 @@ namespace AUF.EMR.Persistence.Repositories
             var pregHHForm = await _dbContext.PregnancyTrackingHHs
                 .FirstOrDefaultAsync(p => p.HouseholdId == id);
 
+            var fpForms = await _dbContext.FamilyPlanningRecords
+                .Include(f => f.ClientHouseholdMember)
+                    .ThenInclude(c => c.Household)
+                .Where(p => p.ClientHouseholdMember.Household.HouseholdNo.Equals(household.HouseholdNo))
+                .ToListAsync();
+
+            var patientForms = await _dbContext.PatientRecords
+                .Include(p => p.Patient)
+                    .ThenInclude(a => a.Household)
+                .Where(p => p.Patient.Household.HouseholdNo.Equals(household.HouseholdNo))
+                .ToListAsync();
+
+            var vaccineAppointments = await _dbContext.VaccinationAppointments
+                .Include(v => v.PatientRecord)
+                    .ThenInclude(p => p.Patient)
+                        .ThenInclude(s => s.Household)
+                .Where(p => p.PatientRecord.Patient.Household.HouseholdNo.Equals(household.HouseholdNo))
+                .ToListAsync();
+
+            var pregRecordForms = await _dbContext.PregnancyRecords
+                .Include(p => p.Patient)
+                    .ThenInclude(a => a.Household)
+                .Where(p => p.Patient.Household.HouseholdNo.Equals(household.HouseholdNo))
+                .ToListAsync();
+
+            var pregAppointments = await _dbContext.PregnancyAppointments
+                .Include(p => p.PregnancyRecord)
+                    .ThenInclude(r => r.Patient)
+                        .ThenInclude(p => p.Household)
+                .Where(p => p.PregnancyRecord.Patient.Household.HouseholdNo.Equals(household.HouseholdNo))
+                .ToListAsync();
+
             if (household != null)
             {
                 foreach (var member in household.HouseholdMembers)
@@ -56,6 +89,31 @@ namespace AUF.EMR.Persistence.Repositories
                 foreach (var preg in pregForms)
                 {
                     preg.Status = false;
+                }
+
+                foreach (var fp in fpForms)
+                {
+                    fp.Status = false;
+                }
+
+                foreach (var form in patientForms)
+                {
+                    form.Status = false;
+                }
+
+                foreach (var form in vaccineAppointments)
+                {
+                    form.Status = false;
+                }
+
+                foreach (var form in pregRecordForms)
+                {
+                    form.Status = false;
+                }
+
+                foreach (var form in pregAppointments)
+                {
+                    form.Status = false;
                 }
 
                 if (pregHHForm != null)
@@ -88,15 +146,17 @@ namespace AUF.EMR.Persistence.Repositories
             return household.HouseholdNo;
         }
 
-        public async Task<List<Household>> GetHouseholdsWithDetails()
+        public async Task<PaginatedList<Household>> GetHouseholdsWithDetails(int page)
         {
-            var houseHolds = await _dbContext.Households
+            var households = _dbContext.Households
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers.Where(m => m.Status))
                 .Where(h => h.Status)
-                .ToListAsync();
+                .OrderByDescending(p => p.LastModified);
 
-            foreach (var household in houseHolds)
+            var pagedHouseholds = await PaginatedList<Household>.CreateAsync(households, page);
+
+            foreach (var household in households)
             {
                 household.HouseholdMembers = household.HouseholdMembers
                     .OrderBy(m => m.RelationshipToHouseholdHead == 1 ? 0 : m.RelationshipToHouseholdHead)
@@ -105,7 +165,7 @@ namespace AUF.EMR.Persistence.Repositories
                     .ToList();
             }
 
-            return houseHolds;
+            return pagedHouseholds;
         }
 
         public async Task<Household> GetHouseholdWithDetails(int id)
@@ -130,9 +190,9 @@ namespace AUF.EMR.Persistence.Repositories
             return household;
         }
 
-        public async Task<List<Household>> GetSearchedHouseholdsWithDetails(string query)
+        public async Task<PaginatedList<Household>> GetSearchedHouseholdsWithDetails(string query, int page)
         {
-            var houseHolds = await _dbContext.Households
+            var households = _dbContext.Households
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers.Where(m => m.Status))
                 .Where(h => h.Status)
@@ -141,10 +201,11 @@ namespace AUF.EMR.Persistence.Repositories
                     h.HouseholdNo.Contains(query) ||
                     h.HouseholdMembers.Any(m =>
                         m.LastName.Contains(query) ||
-                        m.FirstName.Contains(query) && m.Status))
-                .ToListAsync();
+                        m.FirstName.Contains(query) && m.Status));
 
-            return houseHolds;
+            var pagedHouseholds = await PaginatedList<Household>.CreateAsync(households, page);
+
+            return pagedHouseholds;
         }
 
         public async Task<Household> GetSearchedHouseholdWithDetails(string householdNo)

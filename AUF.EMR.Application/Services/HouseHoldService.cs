@@ -1,8 +1,10 @@
-﻿using AUF.EMR.Application.Contracts.Persistence;
+﻿using AUF.EMR.Application.Common;
+using AUF.EMR.Application.Contracts.Persistence;
 using AUF.EMR.Application.Contracts.Persistence.Common;
 using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Application.Services.Common;
 using AUF.EMR.Domain.Models;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,9 +38,9 @@ namespace AUF.EMR.Application.Services
             return await _repository.GetHouseholdId(householdNo);
         }
 
-        public async Task<List<Household>> GetHouseholdsWithDetails()
+        public async Task<PaginatedList<Household>> GetHouseholdsWithDetails(int page)
         {
-            return await _repository.GetHouseholdsWithDetails();
+            return await _repository.GetHouseholdsWithDetails(page);
         }
 
         public async Task<Household> GetHouseholdWithDetails(int id)
@@ -46,9 +48,9 @@ namespace AUF.EMR.Application.Services
             return await _repository.GetHouseholdWithDetails(id);
         }
 
-        public async Task<List<Household>> GetSearchedhouseHoldsWithDetails(string query)
+        public async Task<PaginatedList<Household>> GetSearchedhouseHoldsWithDetails(string query, int page)
         {
-            return await _repository.GetSearchedHouseholdsWithDetails(query);
+            return await _repository.GetSearchedHouseholdsWithDetails(query, page);
         }
 
         public async Task<Household> GetSearchedhouseHoldWithDetails(string householdNo)
