@@ -67,20 +67,21 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Index(string query)
+        public async Task<IActionResult> Index(string query, int page = 1)
         {
             var model = new HouseholdVM();
 
             if (string.IsNullOrEmpty(query))
             {
-                var households = await _houseHoldService.GetHouseholdsWithDetails();
+                var households = await _houseHoldService.GetHouseholdsWithDetails(page);
                 model.Households = households;
 
                 return View(model);
             }
 
-            var searched = await _houseHoldService.GetSearchedhouseHoldsWithDetails(query);
+            var searched = await _houseHoldService.GetSearchedhouseHoldsWithDetails(query, page);
             model.Households = searched;
+            model.Query = query;
 
             return View(model);
         }

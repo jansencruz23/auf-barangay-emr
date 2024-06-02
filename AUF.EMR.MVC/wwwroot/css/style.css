@@ -88,6 +88,11 @@
     }
 }
 
+.nav-link.active {
+    color: white;
+    background-color: #ACCB8F; /* Adjust background color as needed */
+}
+
 /* FLOWBITE TAILWIND EXTENSIONS KASI DI COMPLETE ATA NASA LIB T.T */
 .align-baseline {
     vertical-align: baseline;

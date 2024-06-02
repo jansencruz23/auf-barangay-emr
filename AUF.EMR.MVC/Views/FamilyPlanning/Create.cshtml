@@ -25,16 +25,16 @@
                         <input asp-for="FPRecord.PhilhealthNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="FPRecord.PhilhealthNo" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                    <div class="mb-4">
-                        <label asp-for="FPRecord.ClientHouseholdMemberId" class="block mb-2 text-sm font-medium text-gray-700">Household Member ID</label>
-                        <select asp-for="FPRecord.ClientHouseholdMemberId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" asp-items="@(new SelectList(Model.WomenHouseholdMember, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
-                        <input type="hidden" asp-for="WomenHouseholdMember" value="@Model.WomenHouseholdMember" />
-                    </div>
                     <br /> <hr class="w-full md:w-4/5" />
                     <div class="mb-2 mt-8">
                         <h6 class="text-md font-bold text-gray-800">
                             Personal Information
                         </h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.ClientHouseholdMemberId" class="block mb-2 text-sm font-medium text-gray-700">Client</label>
+                        <select asp-for="FPRecord.ClientHouseholdMemberId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" asp-items="@(new SelectList(Model.WomenHouseholdMember, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
+                        <input type="hidden" asp-for="WomenHouseholdMember" value="@Model.WomenHouseholdMember" />
                     </div>
                     <div class="mb-4">
                         <label asp-for="FPRecord.ClientAge" class="block mb-2 text-sm font-medium text-gray-700">Age</label>
@@ -412,7 +412,7 @@
                 </div>
                 <div>
                     <div class="mb-2">
-                        <h6 class="text-md font-bold text-gray-800">Risks for Sexually Transmitted Infections</h6>
+                        <h6 class="text-md font-bold text-gray-800">III. Risks for Sexually Transmitted Infections</h6>
                     </div>
                     <p class="block mb-2 text-sm text-gray-700 font-bold">Does the client or the client's partner have any of the following?</p>
                     <div class="mb-4 form-check">
@@ -456,7 +456,7 @@
 
                     <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
                     <div class="mb-2 mt-8">
-                        <h6 class="text-md font-bold text-gray-800 pb-2">Risks for Violence Against Women (VAW)</h6>
+                        <h6 class="text-md font-bold text-gray-800 pb-2">IV. Risks for Violence Against Women (VAW)</h6>
                     </div>
                     <div class="mb-4 form-check">
                         <label class="block mb-2 text-sm font-medium text-gray-700">
@@ -491,7 +491,7 @@
 
                     <br /> <hr class="w-full md:w-4/5" />
                     <div class="mb-2 mt-8">
-                        <h6 class="text-md font-bold text-gray-800">Physical Examination</h6>
+                        <h6 class="text-md font-bold text-gray-800">V. Physical Examination</h6>
                     </div>
                     <div class="mb-4">
                         <label asp-for="PhysicalExamination.Weight" class="block mb-2 text-sm font-medium text-gray-700">Weight (kg)</label>
