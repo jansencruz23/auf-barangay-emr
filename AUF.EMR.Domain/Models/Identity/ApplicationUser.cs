@@ -44,5 +44,7 @@ namespace AUF.EMR.Domain.Models.Identity
 
             return age;
         }
+
+        public string LogoBase64String => Picture != null ? Convert.ToBase64String(Picture) : string.Empty;
     }
 }

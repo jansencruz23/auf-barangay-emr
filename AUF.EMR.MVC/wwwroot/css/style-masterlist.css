@@ -78,3 +78,12 @@
 .bg-slate-100 {
     background-color: #f1f5f9;
 }
+
+.text-red-300 {
+    color: #F87171;
+}
+
+.hover\:text-red-400:hover {
+    color: #EF4444;
+}
+

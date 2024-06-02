@@ -28,7 +28,7 @@ namespace AUF.EMR.Domain.Models
         public int SpouseAge { get; set; }
         public string SpouseOccupation { get; set; }
         public int? LivingChildrenNo { get; set; }
-        public bool? IsPlanningChildren { get; set; }
+        public bool IsPlanningChildren { get; set; }
         public double? AverageMonthlyIncome { get; set; }
         public int ClientTypeId { get; set; }
         public ClientType? ClientType { get; set; }

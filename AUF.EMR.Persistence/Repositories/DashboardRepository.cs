@@ -68,6 +68,33 @@ namespace AUF.EMR.Persistence.Repositories
             return count;
         }
 
+        public async Task<int> GetHouseholdCount(int days, int daysDeleted)
+        {
+            var dateThreshold = DateTime.UtcNow.Date.AddDays(-days);
+            var count = await _dbContext.Households
+                .AsNoTracking()
+                .Where(h => h.Status && 
+                    h.DateCreated <= dateThreshold ||
+                    (!h.Status && h.LastModified <= dateThreshold))
+                .CountAsync();
+
+            var recentlyDeletedCount = await GetRecentlyDeletedCount(days);
+            var totalCount = count + recentlyDeletedCount;
+
+            return totalCount;
+        }
+
+        private async Task<int> GetRecentlyDeletedCount(int days)
+        {
+            var dateThreshold = DateTime.UtcNow.Date.AddDays(-days);
+            var count = await _dbContext.Households
+                .AsNoTracking()
+                .Where(h => !h.Status && h.LastModified >= dateThreshold)
+                .CountAsync();
+
+            return count;
+        }
+
         public async Task<int> GetHouseholdMemberCount()
         {
             var count = await _dbContext.HouseholdMembers

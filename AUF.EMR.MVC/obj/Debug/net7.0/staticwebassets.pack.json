@@ -33,8 +33,24 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\img\\admin.png",
+      "PackagePath": "staticwebassets\\img\\admin.png"
+    },
+    {
+      "Id": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\img\\caution.png",
+      "PackagePath": "staticwebassets\\img\\caution.png"
+    },
+    {
+      "Id": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\img\\illustration.svg",
+      "PackagePath": "staticwebassets\\img\\illustration.svg"
+    },
+    {
       "Id": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\img\\warning.png",
+      "PackagePath": "staticwebassets\\img\\warning.png"
     },
     {
       "Id": "C:\\Users\\jamai\\Documents\\AUF EMR\\AUF.EMR.MVC\\wwwroot\\js\\site.js",

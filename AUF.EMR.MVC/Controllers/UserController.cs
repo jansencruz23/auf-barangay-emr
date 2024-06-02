@@ -91,11 +91,19 @@ namespace AUF.EMR.MVC.Controllers
                 user.FirstName = model.User.FirstName;
                 user.LastName = model.User.LastName;
                 user.MiddleName = model.User.MiddleName;
-                user.Picture = model.User.Picture;
                 user.Position = model.User.Position;
                 user.Birthday = model.User.Birthday;
                 user.ContactNo = model.User.ContactNo;
                 user.Address = model.User.Address;
+
+                if (model.PictureFile != null && model.PictureFile.Length > 0)
+                {
+                    using var memoryStream = new MemoryStream();
+                    await model.PictureFile.CopyToAsync(memoryStream);
+                    byte[] logoBytes = memoryStream.ToArray();
+
+                    user.Picture = logoBytes;
+                }
 
                 var result = await _userManager.UpdateAsync(user);
 
@@ -182,22 +190,73 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
-        // GET: UserController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> AdminChangePassword(string id)
         {
-            return View();
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return View();
+            }
+
+            var model = new ChangePasswordVM
+            {
+
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AdminChangePassword(ChangePasswordVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            var changePasswordResult = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+            if (!changePasswordResult.Succeeded)
+            {
+                foreach (var error in changePasswordResult.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                    model.ErrorMessage = error.Description;
+                }
+                
+                return View(model);
+            }
+
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: UserController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(string id)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                return NotFound();
+            }
             try
             {
+                var user = await _userManager.FindByIdAsync(id);
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
+                await _userManager.DeleteAsync(user);
+
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }

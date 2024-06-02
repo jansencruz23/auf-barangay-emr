@@ -99,53 +99,41 @@
                         <span asp-validation-for="FPRecord.LivingChildrenNo" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
-                        <label asp-for="FPRecord.IsPlanningChildren" class="block mb-2 text-sm font-medium text-gray-700">Is Planning To Have Children</label>
-                        <input asp-for="FPRecord.IsPlanningChildren" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Plan to have more children?</label>
+                        <div class="flex">
+                            <div class="flex items-center me-4">
+                                <input asp-for="FPRecord.IsPlanningChildren" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <label asp-for="FPRecord.IsPlanningChildren" class="ms-2 text-sm font-medium text-gray-900">Yes</label>
+                            </div>
+                            <div class="flex items-center me-4">
+                                <input asp-for="FPRecord.IsPlanningChildren" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <label asp-for="FPRecord.IsPlanningChildren" class="ms-2 text-sm font-medium text-gray-900">No</label>
+                            </div>
+                        </div>
                         <span asp-validation-for="FPRecord.IsPlanningChildren" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                    <br /> <hr class="w-full md:w-4/5" /> <br />
                     <div class="mb-4">
                         <label asp-for="FPRecord.AverageMonthlyIncome" class="block mb-2 text-sm font-medium text-gray-700">Average Monthly Income</label>
                         <input asp-for="FPRecord.AverageMonthlyIncome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="FPRecord.AverageMonthlyIncome" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                    <div class="mb-4">
-                        <label asp-for="FPRecord.FPMethod" class="block mb-2 text-sm font-medium text-gray-700">FP Method</label>
-                        <input asp-for="FPRecord.FPMethod" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="FPRecord.FPMethod" class="block mb-2 text-sm text-red-700"></span>
-                    </div>
-                   
-                    <div class="mb-2 mt-8">
-                        <h6 class="text-md font-bold text-gray-800">Acknowledgement and Consent</h6>
-                    </div>
-                    <div class="mb-4">
-                        <label asp-for="FPRecord.ClientSignatureAcknowledgement" class="block mb-2 text-sm font-medium text-gray-700">Signature Acknowledgement</label>
-                        <input asp-for="FPRecord.ClientSignatureAcknowledgement" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="FPRecord.ClientSignatureAcknowledgement" class="block mb-2 text-sm text-red-700"></span>
-                    </div>
-                    <div class="mb-4">
-                        <label asp-for="FPRecord.DateAcknowledgement" class="block mb-2 text-sm font-medium text-gray-700">Date of Acknowledgement</label>
-                        <input asp-for="FPRecord.DateAcknowledgement" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="FPRecord.DateAcknowledgement" class="block mb-2 text-sm text-red-700"></span>
-                    </div>
-                    <div class="mb-4">
-                        <label asp-for="FPRecord.ClientSignatureConsent" class="block mb-2 text-sm font-medium text-gray-700">Signature Consent</label>
-                        <input asp-for="FPRecord.ClientSignatureConsent" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="FPRecord.ClientSignatureConsent" class="block mb-2 text-sm text-red-700"></span>
-                    </div>
-                    <div class="mb-4">
-                        <label asp-for="FPRecord.DateConsent" class="block mb-2 text-sm font-medium text-gray-700">Date of Consent</label>
-                        <input asp-for="FPRecord.DateConsent" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="FPRecord.DateConsent" class="block mb-2 text-sm text-red-700"></span>
-                    </div>
                     <br /> <hr class="w-full md:w-4/5" /> 
                     <div class="mb-2 mt-8">
                         <h6 class="text-md font-bold text-gray-800">Type</h6>
                     </div>
-                    <div class="mb-4 form-check">
-                        <label class="block mb-2 text-sm font-medium text-gray-700">
-                            <input class="border border-gray-400 rounded-sm" asp-for="ClientType.IsCurrentUser" /> @Html.DisplayNameFor(model => model.ClientType.IsCurrentUser)
-                        </label>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Plan to have more children?</label>
+                        <div class="flex">
+                            <div class="flex items-center me-4">
+                                <input asp-for="FPRecord.ClientType.IsCurrentUser" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <label asp-for="FPRecord.IsPlanningChildren" class="ms-2 text-sm font-medium text-gray-900">Current User</label>
+                            </div>
+                            <div class="flex items-center me-4">
+                                <input asp-for="FPRecord.ClientType.IsCurrentUser" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <label asp-for="FPRecord.ClientType.IsCurrentUser" class="ms-2 text-sm font-medium text-gray-900">New Acceptor</label>
+                            </div>
+                        </div>
+                        <span asp-validation-for="FPRecord.ClientType.IsCurrentUser" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
                         <label asp-for="ClientType.CurrentUserType" class="block mb-2 text-sm font-medium text-gray-700">Current User Type</label>
@@ -324,9 +312,6 @@
                         <input asp-for="MedicalHistory.Disability" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="MedicalHistory.Disability" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-
-                </div>
-                <div>
                     <div class="mb-2 mt-8">
                         <h6 class="text-md font-bold text-gray-800">Obstetrical History</h6>
                     </div>
@@ -360,6 +345,8 @@
                         <input asp-for="ObstetricalHistory.NumLivingChildren" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="ObstetricalHistory.NumLivingChildren" class="block mb-2 text-sm text-red-700"></span>
                     </div>
+                </div>
+                <div>
                     <div class="mb-4">
                         <label asp-for="ObstetricalHistory.LastDelivery" class="block mb-2 text-sm font-medium text-gray-700">Last Delivery</label>
                         <input asp-for="ObstetricalHistory.LastDelivery" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
@@ -650,13 +637,43 @@
                         <input asp-for="PhysicalExamination.UterineDepth" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="PhysicalExamination.UterineDepth" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                </div>
-
-            </div>
-            <div class="form-group">
+                                <div class="form-group">
                 <label asp-for="PhysicalExamination.UterineDepthSize" class="control-label"></label>
                 <input asp-for="PhysicalExamination.UterineDepthSize" class="form-control" />
                 <span asp-validation-for="PhysicalExamination.UterineDepthSize" class="text-danger"></span>
+            </div>
+                    <br /> <hr class="w-full md:w-4/5" /> <br />
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Acknowledgement and Consent</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.FPMethod" class="block mb-2 text-sm font-medium text-gray-700">FP Method</label>
+                        <input asp-for="FPRecord.FPMethod" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.FPMethod" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.ClientSignatureAcknowledgement" class="block mb-2 text-sm font-medium text-gray-700">Signature Acknowledgement</label>
+                        <input asp-for="FPRecord.ClientSignatureAcknowledgement" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.ClientSignatureAcknowledgement" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.DateAcknowledgement" class="block mb-2 text-sm font-medium text-gray-700">Date of Acknowledgement</label>
+                        <input asp-for="FPRecord.DateAcknowledgement" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.DateAcknowledgement" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.ClientSignatureConsent" class="block mb-2 text-sm font-medium text-gray-700">Signature Consent</label>
+                        <input asp-for="FPRecord.ClientSignatureConsent" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.ClientSignatureConsent" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.DateConsent" class="block mb-2 text-sm font-medium text-gray-700">Date of Consent</label>
+                        <input asp-for="FPRecord.DateConsent" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.DateConsent" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                </div>
+
             </div>
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             <div class="flex justify-end">

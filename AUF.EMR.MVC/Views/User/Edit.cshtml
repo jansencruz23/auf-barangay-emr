@@ -8,7 +8,7 @@
 
 <div class="container mx-auto px-4 py-8">
     <div class="bg-white shadow-md rounded-lg p-8 mb-8">
-        <form id="registerForm" method="post">
+        <form id="registerForm" method="post" enctype="multipart/form-data">
             <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Edit Employee</h1>
             <hr class="mb-4">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
@@ -31,9 +31,9 @@
                         <span asp-validation-for="User.LastName" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
-                        <label asp-for="User.Picture" class="block mb-2 text-sm font-medium text-gray-700">Picture</label>
-                        <input asp-for="User.Picture" type="file" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 md:w-4/5 p-2.5" accept="image/*" />
-                        <span asp-validation-for="User.Picture" class="block mb-2 text-sm text-red-700"></span>
+                        <label asp-for="PictureFile" class="block mb-2 text-sm font-medium text-gray-700">Picture</label>
+                        <input asp-for="PictureFile" accept="image/*" type="file" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 md:w-4/5 p-2.5" accept="image/*" />
+                        <span asp-validation-for="PictureFile" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
                         <label asp-for="User.Birthday" class="block mb-2 text-sm font-medium text-gray-700">Date of Birth</label>
@@ -64,10 +64,16 @@
                 </div>
             </div>
             <div class="flex justify-end">
-                <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back</a>
+                <a asp-action="Index" asp-controller="User" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back</a>
                 <button id="registerSubmit" type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Update Employee</button>
             </div>
         </form>
         
     </div>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

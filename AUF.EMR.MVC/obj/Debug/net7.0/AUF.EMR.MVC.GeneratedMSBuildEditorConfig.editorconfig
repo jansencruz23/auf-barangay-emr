@@ -200,12 +200,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEhvdXNlaG9sZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/jamai/Documents/AUF EMR/AUF.EMR.MVC/Views/Error/Invalid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcSW52YWxpZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jamai/Documents/AUF EMR/AUF.EMR.MVC/Views/Error/PageNotFound.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcUGFnZU5vdEZvdW5kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jamai/Documents/AUF EMR/AUF.EMR.MVC/Views/FamilyPlanning/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFtaWx5UGxhbm5pbmdcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jamai/Documents/AUF EMR/AUF.EMR.MVC/Views/FamilyPlanning/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFtaWx5UGxhbm5pbmdcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jamai/Documents/AUF EMR/AUF.EMR.MVC/Views/FamilyPlanning/Edit.cshtml]
@@ -472,6 +480,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX1dSQWluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/jamai/Documents/AUF EMR/AUF.EMR.MVC/Views/Shared/Navigations/_AdminNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9BZG1pbk5hdi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jamai/Documents/AUF EMR/AUF.EMR.MVC/Views/Shared/Navigations/_BarangayNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9CYXJhbmdheU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -526,6 +538,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/jamai/Documents/AUF EMR/AUF.EMR.MVC/Views/Summary/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VtbWFyeVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jamai/Documents/AUF EMR/AUF.EMR.MVC/Views/User/AdminChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZG1pbkNoYW5nZVBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jamai/Documents/AUF EMR/AUF.EMR.MVC/Views/User/Edit.cshtml]

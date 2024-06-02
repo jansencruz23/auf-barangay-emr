@@ -10,6 +10,7 @@ namespace AUF.EMR.Application.Contracts.Services
     {
         Task<int> GetHouseholdCount();
         Task<int> GetHouseholdCount(int days);
+        Task<int> GetHouseholdCount(int days, int daysDeleted);
         Task<int> GetHouseholdMemberCount();
         Task<int> GetHouseholdMemberCount(string householdNo);
         Task<int> GetNewbornCount();
