@@ -1,15 +1,3 @@
-D:\auf-barangay-emr\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.deps.json
-D:\auf-barangay-emr\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.dll
-D:\auf-barangay-emr\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.pdb
-D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.csproj.AssemblyReference.cache
-D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.GeneratedMSBuildEditorConfig.editorconfig
-D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.AssemblyInfoInputs.cache
-D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.AssemblyInfo.cs
-D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.csproj.CoreCompileInputs.cache
-D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.dll
-D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\refint\AUF.EMR.Domain.dll
-D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.pdb
-D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\ref\AUF.EMR.Domain.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.deps.json
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.dll
 C:\Users\jamai\Documents\AUF EMR\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.pdb
@@ -34,3 +22,15 @@ D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Doma
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Domain\obj\Debug\net7.0\refint\AUF.EMR.Domain.dll
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.pdb
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.Domain\obj\Debug\net7.0\ref\AUF.EMR.Domain.dll
+D:\auf-barangay-emr\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.deps.json
+D:\auf-barangay-emr\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.dll
+D:\auf-barangay-emr\AUF.EMR.Domain\bin\Debug\net7.0\AUF.EMR.Domain.pdb
+D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.csproj.AssemblyReference.cache
+D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.AssemblyInfoInputs.cache
+D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.AssemblyInfo.cs
+D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.csproj.CoreCompileInputs.cache
+D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.dll
+D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\refint\AUF.EMR.Domain.dll
+D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\AUF.EMR.Domain.pdb
+D:\auf-barangay-emr\AUF.EMR.Domain\obj\Debug\net7.0\ref\AUF.EMR.Domain.dll
