@@ -13,7 +13,7 @@ namespace AUF.EMR.Domain.Models.FamilyPlanning
         public bool HadVAW { get; set; }
         public bool HadUnpleasantRelationship { get; set; }
         public bool PartnerNotApproveFP { get; set; }
-        public VAWReferredTo ReferredTo { get; set; }
+        public VAWReferredTo? ReferredTo { get; set; }
         public string? ReferredToOthers { get; set; }
 
         // PRINT

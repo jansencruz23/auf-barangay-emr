@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RRlMUK8+HGNekq6E4zAppFroRbnXzgM8foQLXZV4tUc=",
+  "Hash": "Ho8hezgTCjc4hV+IMPa+QChtLGh062o1dR4IUk+Hg3M=",
   "Source": "AUF.EMR.MVC",
   "BasePath": "_content/AUF.EMR.MVC",
   "Mode": "Default",
@@ -1207,6 +1207,23 @@
       "OriginalItemSpec": "wwwroot\\img\\admin.png"
     },
     {
+      "Identity": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\img\\caution.png",
+      "SourceId": "AUF.EMR.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\",
+      "BasePath": "_content/AUF.EMR.MVC",
+      "RelativePath": "img/caution.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\caution.png"
+    },
+    {
       "Identity": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\img\\illustration.svg",
       "SourceId": "AUF.EMR.MVC",
       "SourceType": "Discovered",
@@ -1239,6 +1256,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logo.png"
+    },
+    {
+      "Identity": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\img\\warning.png",
+      "SourceId": "AUF.EMR.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\",
+      "BasePath": "_content/AUF.EMR.MVC",
+      "RelativePath": "img/warning.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\warning.png"
     },
     {
       "Identity": "D:\\auf-barangay-emr\\AUF.EMR.MVC\\wwwroot\\js\\site.js",

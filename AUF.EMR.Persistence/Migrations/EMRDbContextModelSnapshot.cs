@@ -118,10 +118,10 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<bool>("IsMethodSDM")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsReasonMedical")
+                    b.Property<bool>("IsReasonMedical")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool?>("IsReasonSideEffects")
+                    b.Property<bool>("IsReasonSideEffects")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime>("LastModified")
@@ -508,7 +508,7 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<bool?>("IsPlanningChildren")
+                    b.Property<bool>("IsPlanningChildren")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime>("LastModified")

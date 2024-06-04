@@ -214,24 +214,29 @@ namespace AUF.EMR.MVC.Controllers
             }
         }
 
-        // GET: FamilyPlanningController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: FamilyPlanningController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, string householdNo)
         {
+            if (id == 0 || string.IsNullOrWhiteSpace(householdNo))
+            {
+                return RedirectToAction("PageNotFound", "Error");
+            }
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                var record = await _fpService.GetFPRecordWithDetails(id);
+                if (record == null)
+                {
+                    return RedirectToAction("PageNotFound", "Error");
+                }
+                await _fpService.Delete(record);
+                return RedirectToAction(nameof(Index), new { householdNo = householdNo });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return BadRequest(ex.Message);
             }
         }
 

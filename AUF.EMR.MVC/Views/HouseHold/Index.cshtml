@@ -16,7 +16,7 @@
         </div>
 
         <p>
-            <a asp-action="Barangay" asp-controller="Dashboard">See Barangay Dashboard</a>
+            <a asp-action="Barangay" asp-controller="Dashboard" class="text-green-500">See Barangay Dashboard</a>
         </p>
 
         <form asp-action="Index">
@@ -25,7 +25,7 @@
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#878787"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.192"></g><g id="SVGRepo_iconCarrier"> <g id="Navigation / House_01"> <path id="Vector" d="M20 17.0002V11.4522C20 10.9179 19.9995 10.6506 19.9346 10.4019C19.877 10.1816 19.7825 9.97307 19.6546 9.78464C19.5102 9.57201 19.3096 9.39569 18.9074 9.04383L14.1074 4.84383C13.3608 4.19054 12.9875 3.86406 12.5674 3.73982C12.1972 3.63035 11.8026 3.63035 11.4324 3.73982C11.0126 3.86397 10.6398 4.19014 9.89436 4.84244L5.09277 9.04383C4.69064 9.39569 4.49004 9.57201 4.3457 9.78464C4.21779 9.97307 4.12255 10.1816 4.06497 10.4019C4 10.6506 4 10.9179 4 11.4522V17.0002C4 17.932 4 18.3978 4.15224 18.7654C4.35523 19.2554 4.74432 19.6452 5.23438 19.8482C5.60192 20.0005 6.06786 20.0005 6.99974 20.0005C7.93163 20.0005 8.39808 20.0005 8.76562 19.8482C9.25568 19.6452 9.64467 19.2555 9.84766 18.7654C9.9999 18.3979 10 17.932 10 17.0001V16.0001C10 14.8955 10.8954 14.0001 12 14.0001C13.1046 14.0001 14 14.8955 14 16.0001V17.0001C14 17.932 14 18.3979 14.1522 18.7654C14.3552 19.2555 14.7443 19.6452 15.2344 19.8482C15.6019 20.0005 16.0679 20.0005 16.9997 20.0005C17.9316 20.0005 18.3981 20.0005 18.7656 19.8482C19.2557 19.6452 19.6447 19.2554 19.8477 18.7654C19.9999 18.3978 20 17.932 20 17.0002Z" stroke="#878787" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
                     </div>
-                    <input name="query" class="bg-gray-50 border px-5 py-2.5 ps-10 border-gray-300 text-gray-900 text-sm rounded-lg w-full" type="text" placeholder="Search household no. or household member" />
+                    <input name="query" value="@Model.Query" class="bg-gray-50 border px-5 py-2.5 ps-10 border-gray-300 text-gray-900 text-sm rounded-lg w-full" type="text" placeholder="Search household no. or household member" />
                 </div>
                 <button class="bg-primary-50 text-white rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200 text-sm font-medium px-5 py-2.5 text-center min-w-max" id="search-text">
                     <i class="fas fa-search"></i> &nbsp; Search
@@ -38,13 +38,49 @@
                 @foreach (var item in Model.Households)
                 {
                     @await Html.PartialAsync("Components/_HouseholdCard", item)
-                    ;
                 }
             </div>
         </div>
+        <div class="flex justify-center">
+
+            <nav aria-label="Page navigation example" class="mt-4">
+                <ul class="inline-flex -space-x-px text-base h-10">
+                    @if (Model.Households.PageIndex > 1)
+                    {
+                        <li>
+                            <a asp-action="Index" asp-route-page="1" asp-route-query="@Model.Query" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">First</a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-route-page="@(Model.Households.PageIndex - 1)" asp-route-query="@Model.Query" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                        </li>
+                    }
+
+                    @{
+                        var startPage = Model.Households.PageIndex - 2 > 0 ? Model.Households.PageIndex - 2 : 1;
+                        var endPage = Model.Households.PageIndex + 2 <= Model.Households.TotalPages ? Model.Households.PageIndex + 2 : Model.Households.TotalPages;
+                    }
+
+                    @for (var i = startPage; i <= endPage; i++)
+                    {
+                        <li>
+                            <a asp-action="Index" asp-route-page="@i" asp-route-query="@Model.Query" class="flex items-center justify-center px-3 h-8 leading-tight @(i == Model.Households.PageIndex ? "text-blue-600 border border-gray-300 bg-blue-50" : "text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700") dark:border-gray-700 @(i == Model.Households.PageIndex ? "dark:bg-gray-700 dark:text-white" : "dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white")">@i</a>
+                        </li>
+                    }
+
+                    @if (Model.Households.PageIndex < Model.Households.TotalPages)
+                    {
+                        <li>
+                            <a asp-action="Index" asp-route-page="@(Model.Households.PageIndex + 1)" asp-route-query="@Model.Query" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-route-page="@Model.Households.TotalPages" asp-route-query="@Model.Query" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Last</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
     </div>
 </section>
-
 
 @section scripts {
     <script>

@@ -66,6 +66,33 @@
     cursor: pointer;
 }
 
+.with-separator {
+    position: relative;
+}
+
+    .with-separator::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 1px;
+        background-color: #d1d5db; /* Gray-300 */
+        transform: translateX(-50%);
+        z-index: -1; /* Behind the content */
+    }
+
+@media (max-width: 768px) {
+    .with-separator::after {
+        display: none;
+    }
+}
+
+.nav-link.active {
+    color: white;
+    background-color: #ACCB8F; /* Adjust background color as needed */
+}
+
 /* FLOWBITE TAILWIND EXTENSIONS KASI DI COMPLETE ATA NASA LIB T.T */
 .align-baseline {
     vertical-align: baseline;
