@@ -11,7 +11,6 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-AUF.EMR.MVC-eadaee79-6e73-4616-a3aa-df73bd4cbd79")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("AUF.EMR.MVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
