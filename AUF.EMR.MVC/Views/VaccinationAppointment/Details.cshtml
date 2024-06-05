@@ -2,56 +2,85 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "Layouts/_DetailsLayout";
+    ViewData["HouseholdNo"] = Model.HouseholdNo;
 }
 
-<h1>Details</h1>
+<div class="container mx-auto py-8">
+    
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
 
-<div>
-    <h4>VaccinationAppointment</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            Patient
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.VaccinationAppointment.PatientRecord.Patient.FullName
-        </dd>
-        <dt class = "col-sm-2">
-            Vaccination Date
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.VaccinationAppointment.VaccinationDate.ToString("MMM dd, yyyy")
-        </dd>
-        <dt class = "col-sm-2">
-            Weight
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.VaccinationAppointment.Weight
-        </dd>
-        <dt class = "col-sm-2">
-            Height
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.VaccinationAppointment.Height
-        </dd>
-        <dt class = "col-sm-2">
-            Temperature
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.VaccinationAppointment.Temperature
-        </dd>
-        <dt class = "col-sm-2">
-            Vaccines
-        </dt>
-        <dd class = "col-sm-10">
-            @foreach (var vaccine in Model.VaccinationAppointment.VaccinationRecords)
-            {
-                @vaccine.Vaccine.Name <br />
-            }
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.VaccinationAppointment.Id" asp-route-householdNo="@Model.HouseholdNo">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+        <h1 class="text-xl font-bold text-gray-800 mb-4">Vaccination Appointment Details</h1>
+
+        <div class="text-gray-800">
+            <h4>VaccinationAppointment</h4>
+            <hr class="mb-4" />
+
+            <dl class="grid grid-cols-1 gap-y-4 gap-x-8">
+
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">
+                    Patient
+                </dt>
+                    <dd class="text-gray-900">
+                    @Html.DisplayFor(model => model.VaccinationAppointment.PatientRecord.Patient.FullName)
+                </dd>
+                </div>
+
+                <div class="flex items-center">
+                <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">
+                    Vaccination Date
+                </dt>
+                <dd class="text-gray-900">
+                    @Model.VaccinationAppointment.VaccinationDate.ToString("MMM dd, yyyy")
+                </dd>
+                </div>
+
+                <div class="flex items-center">
+                <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">
+                    Weight
+                </dt>
+                <dd class="text-gray-900">
+                    @Html.DisplayFor(model => model.VaccinationAppointment.Weight)
+                </dd>
+                </div>
+
+                <div class="flex items-center">
+                <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">
+                    Height
+                </dt>
+                <dd class="text-gray-900">
+                    @Html.DisplayFor(model => model.VaccinationAppointment.Height)
+                </dd>
+                </div>
+
+                <div class="flex items-center">
+                <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">
+                    Temperature
+                </dt>
+                <dd class="text-gray-900">
+                    @Html.DisplayFor(model => model.VaccinationAppointment.Temperature)
+                </dd>
+                </div>
+
+                <hr class="mb-4" />
+
+                <div class="flex items-justify">
+                <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">
+                    Vaccines
+                </dt>
+                <dd class="text-gray-900">
+                    @foreach (var vaccine in Model.VaccinationAppointment.VaccinationRecords)
+                    {
+                        @vaccine.Vaccine.Name <br />
+                    }
+                </dd>
+                </div>
+            </dl>
+        </div>
+        <div class="flex justify-end mt-8">
+            <a asp-action="Edit" asp-route-id="@Model?.VaccinationAppointment.Id" asp-route-householdNo="Model.HouseholdNo" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 w-20 flex items-center justify-center">Edit</a>
+            <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back to List</a>
+        </div>
+   </div>
 </div>

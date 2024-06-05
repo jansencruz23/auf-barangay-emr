@@ -8,5 +8,10 @@ namespace AUF.EMR.MVC.Controllers
         {
             return View();
         }
+
+        public IActionResult Invalid()
+        {
+            return View();
+        }
     }
 }
