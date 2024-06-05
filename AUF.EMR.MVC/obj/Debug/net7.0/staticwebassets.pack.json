@@ -33,6 +33,70 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\family-dress-dark.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\family-dress-dark.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\family-dress.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\family-dress.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\female-couple-dark.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\female-couple-dark.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\female-couple.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\female-couple.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\member-list-dark.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\member-list-dark.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\member-list.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\member-list.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\memo-circle-check-dark.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\memo-circle-check-dark.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\memo-circle-check.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\memo-circle-check.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\people-roof-dark.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\people-roof-dark.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\people-roof.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\people-roof.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\person-pregnant-dark.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\person-pregnant-dark.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\person-pregnant.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\person-pregnant.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\syringe-dark.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\syringe-dark.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\syringe.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\syringe.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\tooth-dark.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\tooth-dark.png"
+    },
+    {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\Nav\\tooth.png",
+      "PackagePath": "staticwebassets\\img\\Nav\\tooth.png"
+    },
+    {
       "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\img\\admin.png",
       "PackagePath": "staticwebassets\\img\\admin.png"
     },

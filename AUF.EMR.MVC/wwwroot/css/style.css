@@ -89,8 +89,13 @@
 }
 
 .nav-link.active {
-    color: white;
-    background-color: #ACCB8F; /* Adjust background color as needed */
+    color: white !important;
+    background-color: #ACCB8F !important; /* Adjust background color as needed */
+}
+
+.button-active {
+    --tw-bg-opacity: 1;
+    background-color: rgb(107 114 128 / var(--tw-bg-opacity));
 }
 
 /* FLOWBITE TAILWIND EXTENSIONS KASI DI COMPLETE ATA NASA LIB T.T */

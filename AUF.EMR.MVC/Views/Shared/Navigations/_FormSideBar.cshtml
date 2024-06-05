@@ -8,6 +8,15 @@
     var brgy = await brgyService.GetBarangay();
     var brgyName = brgy.BarangayName;
     var brgyLogo = brgy.LogoBase64String;
+
+    var controller = this.ViewContext.RouteData.Values["controller"].ToString();
+    var action = this.ViewContext.RouteData.Values["action"].ToString();
+
+    var masterlists = new List<string> { "Infant", "Newborn", "UnderFive", "SchoolAged", "Adolescent", "Adult", "SeniorCitizen" };
+    var inMasterlist = masterlists.Contains(action ?? "", StringComparer.OrdinalIgnoreCase);
+
+    var oralHealth = new List<string> { "Infant", "OneToFour", "FiveToNine", "TenToFourteen", "PregnantFifteenToNineteen", "PregnantTwentyToFourtyNine" };
+    var inOralHealth = oralHealth.Contains(action ?? "", StringComparer.OrdinalIgnoreCase);
 }
 
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-72 h-screen pt-4 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0" aria-label="Sidebar">
@@ -21,143 +30,200 @@
             </li>
             <li>
                 <a asp-action="Index" asp-controller="Household" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                        <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                        <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+                    <svg class="w-6 h-6 text-gray-800 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z" clip-rule="evenodd" />
                     </svg>
+
                     <span class="ms-3">Home</span>
                 </a>
             </li>
             <li>
-                <a asp-action="Household" asp-controller="Dashboard" asp-route-householdNo="@Model" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                        <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                        <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+                <a asp-action="Household" asp-controller="Dashboard" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("Dashboard") && action.Equals("Household") ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg class="w-6 h-6 nav-link @(controller.Equals("Dashboard") && action.Equals("Household") ? "active" : "text-gray-800 transition duration-75 group-hover:text-gray-900")" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M13.5 2c-.178 0-.356.013-.492.022l-.074.005a1 1 0 0 0-.934.998V11a1 1 0 0 0 1 1h7.975a1 1 0 0 0 .998-.934l.005-.074A7.04 7.04 0 0 0 22 10.5 8.5 8.5 0 0 0 13.5 2Z" />
+                        <path d="M11 6.025a1 1 0 0 0-1.065-.998 8.5 8.5 0 1 0 9.038 9.039A1 1 0 0 0 17.975 13H11V6.025Z" />
                     </svg>
+
                     <span class="ms-3">Household Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                        <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                        <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+                <a href="#" class="nav-link @(controller.Equals("Summary") && action.Equals("Index") ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg class="w-6 h-6 nav-link @(controller.Equals("Summary") && action.Equals("Index") ? "active" : "text-gray-800 transition duration-75 group-hover:text-gray-900")" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M9 7V2.221a2 2 0 0 0-.5.365L4.586 6.5a2 2 0 0 0-.365.5H9Zm2 0V2h7a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Zm-1 9a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0v-2Zm2-5a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1Zm4 4a1 1 0 1 0-2 0v3a1 1 0 1 0 2 0v-3Z" clip-rule="evenodd" />
                     </svg>
+
                     <span class="ms-3">Summary (in progress)</span>
                 </a>
             </li>
             </ul>
         <ul class="pt-4 mt-4 space-y-2 border-t border-gray-200 font-medium text-sm">
             <li>
-                <a asp-action="HouseholdProfile" asp-controller="Household" asp-route-householdNo="@Model" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                        <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                    </svg>
+                <a asp-action="HouseholdProfile" asp-controller="Household" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("Household") && action.Equals("HouseholdProfile") ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    @{
+                        if (controller.Equals("Household") && action.Equals("HouseholdProfile"))
+                        {
+                            <img src = "~/img/Nav/people-roof.png" class="w-5 h-5"/>
+                        }
+                        else
+                        {
+                            <img src="~/img/Nav/people-roof-dark.png" class="w-5 h-5" />
+                        }
+                    }
                     <span class="flex-1 ms-3 whitespace-nowrap">F1 - Household</span>
                 </a>
             </li>
             <li>
-                <button type="button" class="flex items-center w-full p-2 text-sm text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
-                        <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z" />
-                    </svg>
+                <button type="button" class="nav-link @(controller.Equals("Masterlist") && inMasterlist ? "active" : "") flex items-center w-full p-2 text-sm text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+                    @{
+                        if (controller.Equals("Masterlist") && inMasterlist)
+                        {
+                            <img src="~/img/Nav/member-list.png" class="w-5 h-5" />
+                        }
+                        else
+                        {
+                            <img src="~/img/Nav/member-list-dark.png" class="w-5 h-5" />
+                        }
+                    }
                     <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Masterlists</span>
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
                     </svg>
                 </button>
-                <ul id="dropdown-example" class="hidden py-2 space-y-2">
+                <ul id="dropdown-example" class="@(controller.Equals("Masterlist") && inMasterlist ? "" : "hidden") py-2 space-y-2">
                     <li>
-                        <a asp-action="Newborn" asp-controller="Masterlist" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of Newborns</a>
+                        <a asp-action="Newborn" asp-controller="Masterlist" asp-route-householdNo="@Model" class="@(controller.Equals("Masterlist") && action.Equals("Newborn") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Masterlist of Newborns</a>
                     </li>
                     <li>
-                        <a asp-action="Infant" asp-controller="Masterlist" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of Infants</a>
+                        <a asp-action="Infant" asp-controller="Masterlist" asp-route-householdNo="@Model" class="@(controller.Equals("Masterlist") && action.Equals("Infant") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of Infants</a>
                     </li>
                     <li>
-                        <a asp-action="UnderFive" asp-controller="Masterlist" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of Under-Five </a>
+                        <a asp-action="UnderFive" asp-controller="Masterlist" asp-route-householdNo="@Model" class="@(controller.Equals("Masterlist") && action.Equals("UnderFive") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of Under-Five </a>
                     </li>
                     <li>
-                        <a asp-action="SchoolAged" asp-controller="Masterlist" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of School-Aged </a>
+                        <a asp-action="SchoolAged" asp-controller="Masterlist" asp-route-householdNo="@Model" class="@(controller.Equals("Masterlist") && action.Equals("SchoolAged") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of School-Aged </a>
                     </li>
                     <li>
-                        <a asp-action="Adolescent" asp-controller="Masterlist" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of Adolescents </a>
+                        <a asp-action="Adolescent" asp-controller="Masterlist" asp-route-householdNo="@Model" class="@(controller.Equals("Masterlist") && action.Equals("Adolescent") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of Adolescents </a>
                     </li>
                     <li>
-                        <a asp-action="Adult" asp-controller="Masterlist" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of Adults </a>
+                        <a asp-action="Adult" asp-controller="Masterlist" asp-route-householdNo="@Model" class="@(controller.Equals("Masterlist") && action.Equals("Adult") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of Adults </a>
                     </li>
                     <li>
-                        <a asp-action="SeniorCitizen" asp-controller="Masterlist" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of SeniorCitizens </a>
+                        <a asp-action="SeniorCitizen" asp-controller="Masterlist" asp-route-householdNo="@Model" class="@(controller.Equals("Masterlist") && action.Equals("SeniorCitizen") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Masterlist of SeniorCitizens </a>
                     </li>
                 </ul>
             </li>
             <li>
-                <button type="button" class="flex items-center w-full p-2 text-sm text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-example2" data-collapse-toggle="dropdown-example2">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
-                        <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z" />
-                    </svg>
+                <button type="button" class="nav-link @(controller.Equals("OralHealthClient") && inOralHealth ? "active" : "") flex items-center w-full p-2 text-sm text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-example2" data-collapse-toggle="dropdown-example2">
+                    @{
+                        if (controller.Equals("OralHealthClient") && inOralHealth)
+                        {
+                            <img src="~/img/Nav/tooth.png" class="w-5 h-5" />
+                        }
+                        else
+                        {
+                            <img src="~/img/Nav/tooth-dark.png" class="w-5 h-5" />
+                        }
+                    }
                     <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Oral Health Care Clients</span>
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
                     </svg>
                 </button>
-                <ul id="dropdown-example2" class="hidden py-2 space-y-2">
+                <ul id="dropdown-example2" class="@(controller.Equals("OralHealthClient") && inOralHealth? "" : "hidden") py-2 space-y-2">
                     <li>
-                        <a asp-action="Infant" asp-controller="OralHealthClient" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">0-11 mos Infants</a>
+                        <a asp-action="Infant" asp-controller="OralHealthClient" asp-route-householdNo="@Model" class="@(controller.Equals("OralHealthClient") && action.Equals("Infant") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">0-11 mos Infants</a>
                     </li>
                     <li>
-                        <a asp-action="OneToFour" asp-controller="OralHealthClient" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">1-4 Children</a>
+                        <a asp-action="OneToFour" asp-controller="OralHealthClient" asp-route-householdNo="@Model" class="@(controller.Equals("OralHealthClient") && action.Equals("OneToFour") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">1-4 Children</a>
                     </li>
                     <li>
-                        <a asp-action="FiveToNine" asp-controller="OralHealthClient" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">5-9 Children </a>
+                        <a asp-action="FiveToNine" asp-controller="OralHealthClient" asp-route-householdNo="@Model" class="@(controller.Equals("OralHealthClient") && action.Equals("FiveToNine") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">5-9 Children </a>
                     </li>
                     <li>
-                        <a asp-action="TenToFourteen" asp-controller="OralHealthClient" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">10-14 Adolescents </a>
+                        <a asp-action="TenToFourteen" asp-controller="OralHealthClient" asp-route-householdNo="@Model" class="@(controller.Equals("OralHealthClient") && action.Equals("TenToFourteen") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">10-14 Adolescents </a>
                     </li>
                     <li>
-                        <a asp-action="PregnantFifteenToNineteen" asp-controller="OralHealthClient" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">15-19 Pregnant Women </a>
+                        <a asp-action="PregnantFifteenToNineteen" asp-controller="OralHealthClient" asp-route-householdNo="@Model" class="@(controller.Equals("OralHealthClient") && action.Equals("PregnantFifteenToNineteen") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">15-19 Pregnant Women </a>
                     </li>
                     <li>
-                        <a asp-action="PregnantTwentyToFourtyNine" asp-controller="OralHealthClient" asp-route-householdNo="@Model" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">20-49 Pregnant Women </a>
+                        <a asp-action="PregnantTwentyToFourtyNine" asp-controller="OralHealthClient" asp-route-householdNo="@Model" class="@(controller.Equals("OralHealthClient") && action.Equals("PregnantTwentyToFourtynine") ? "bg-gray-100" : "") flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">20-49 Pregnant Women </a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a asp-action="Index" asp-controller="WRA" asp-route-householdNo="@Model" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                        <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                    </svg>
+                <a asp-action="Index" asp-controller="WRA" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("WRA") && action.Equals("Index") ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    @{
+                        if (controller.Equals("WRA") && action.Equals("Index"))
+                        {
+                            <img src="~/img/Nav/female-couple.png" class="w-5 h-5" />
+                        }
+                        else
+                        {
+                            <img src="~/img/Nav/female-couple-dark.png" class="w-5 h-5" />
+                        }
+                    }
                     <span class="flex-1 ms-3 whitespace-nowrap">Women of Reproductive Age</span>
                 </a>
             </li>
             <li>
-                <a asp-action="Index" asp-controller="PregnancyTracking" asp-route-householdNo="@Model" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                        <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                    </svg>
+                <a asp-action="Index" asp-controller="PregnancyTracking" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("PregnancyTracking") && action.Equals("Index") ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    @{
+                        if (controller.Equals("PregnancyTracking") && action.Equals("Index"))
+                        {
+                            <img src="~/img/Nav/person-pregnant.png" class="w-5 h-5" />
+                        }
+                        else
+                        {
+                            <img src="~/img/Nav/person-pregnant-dark.png" class="w-5 h-5" />
+                        }
+                    }
                     <span class="flex-1 ms-3 whitespace-nowrap">National Safe Motherhood</span>
                 </a>
             </li>
             <li>
-                <a asp-action="Index" asp-controller="FamilyPlanning" asp-route-householdNo="@Model" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                        <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                    </svg>
+                <a asp-action="Index" asp-controller="FamilyPlanning" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("FamilyPlanning") && action.Equals("Index") ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    @{
+                        if (controller.Equals("FamilyPlanning") && action.Equals("Index"))
+                        {
+                            <img src="~/img/Nav/family-dress.png" class="w-5 h-5" />
+                        }
+                        else
+                        {
+                            <img src="~/img/Nav/family-dress-dark.png" class="w-5 h-5" />
+                        }
+                    }
                     <span class="flex-1 ms-3 whitespace-nowrap">Family Planning Records</span>
                 </a>
             </li>
             <li>
-                <a asp-action="Index" asp-controller="PatientRecord" asp-route-householdNo="@Model" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                        <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                    </svg>
+                <a asp-action="Index" asp-controller="PatientRecord" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("PatientRecord") && action.Equals("Index") ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    @{
+                        if (controller.Equals("PatientRecord") && action.Equals("Index"))
+                        {
+                            <img src="~/img/Nav/syringe.png" class="w-5 h-5" />
+                        }
+                        else
+                        {
+                            <img src="~/img/Nav/syringe-dark.png" class="w-5 h-5" />
+                        }
+                    }
                     <span class="flex-1 ms-3 whitespace-nowrap">Patient Records</span>
                 </a>
             </li>
             <li>
-                <a asp-action="Index" asp-controller="PregnancyRecord" asp-route-householdNo="@Model" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                        <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                    </svg>
+                <a asp-action="Index" asp-controller="PregnancyRecord" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("PregnancyRecord") && action.Equals("Index") ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    @{
+                        if (controller.Equals("PregnancyRecord") && action.Equals("Index"))
+                        {
+                            <img src="~/img/Nav/memo-circle-check.png" class="w-5 h-5" />
+                        }
+                        else
+                        {
+                            <img src="~/img/Nav/memo-circle-check-dark.png" class="w-5 h-5" />
+                        }
+                    }
                     <span class="flex-1 ms-3 whitespace-nowrap">Pregnancy Records</span>
                 </a>
             </li>
