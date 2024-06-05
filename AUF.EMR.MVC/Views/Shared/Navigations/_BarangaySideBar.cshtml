@@ -9,8 +9,8 @@
     var brgyName = brgy.BarangayName;
     var brgyLogo = brgy.LogoBase64String;
 
-    var controller = this.ViewContext.RouteData.Values["controller"].ToString();
-    var action = this.ViewContext.RouteData.Values["action"].ToString();
+    var controller = (this.ViewContext.RouteData.Values["controller"] ?? "").ToString();
+    var action = (this.ViewContext.RouteData.Values["action"] ?? "").ToString();
 }
 
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-72 h-screen pt-4 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0" aria-label="Sidebar">

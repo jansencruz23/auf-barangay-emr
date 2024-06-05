@@ -300,6 +300,7 @@
                             <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsNhts" value="false" />
                             <label class="ms-2 text-sm font-medium text-gray-900">Non NHTS</label>
                         </div>
+                        <span asp-validation-for="HouseholdMember.IsNhts" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-2 mt-8">
                         <h6 class="text-md font-bold text-gray-800">School Status</h6>

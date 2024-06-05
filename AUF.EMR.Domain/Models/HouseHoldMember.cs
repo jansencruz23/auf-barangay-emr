@@ -12,9 +12,18 @@ namespace AUF.EMR.Domain.Models
 {
     public class HouseholdMember : BaseDomainEntity
     {
+        [StringLength(50)]
+        [Required(ErrorMessage = "The Last Name field is required.")]
         public string LastName { get; set; }
+
+        [StringLength(50)]
+        [Required(ErrorMessage = "The First Name field is required.")]
         public string FirstName { get; set; }
+
+        [StringLength(50)]
         public string? MotherMaidenName { get; set; }
+
+        [Required(ErrorMessage = "The Relationship to Household Head field is required.")]
         public int RelationshipToHouseholdHead { get; set; }
         public string? OtherRelation { get; set; }
         public char Sex { get; set; }
@@ -31,6 +40,8 @@ namespace AUF.EMR.Domain.Models
         public Household? Household { get; set; }
         public string? NameOfMother { get; set; }
         public string? NameOfFather { get; set; }
+
+        [Required(ErrorMessage = "The NHTS field is required.")]
         public bool IsNhts { get; set; }
         public bool NotNhts { get => !IsNhts; }
         public bool? IsInSchool { get; set; }

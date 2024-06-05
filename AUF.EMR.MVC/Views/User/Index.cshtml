@@ -124,7 +124,7 @@
         deleteButtons.forEach(function (button) {
             button.addEventListener('click', function () {
                 var memberId = button.getAttribute('data-member-id');
-                var actionUrl = `/User/Delete/${memberId}?householdNo=${@Model.HouseholdNo}`;
+                var actionUrl = `/User/Delete/${memberId}`;
                 deleteForm.setAttribute('action', actionUrl);
             });
         });

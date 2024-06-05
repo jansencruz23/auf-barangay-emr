@@ -227,9 +227,9 @@ namespace AUF.EMR.MVC.Controllers
                 {
                     return NotFound();
                 }
-
+                 
                 await _houseHoldMemberService.DeleteHouseholdMember(id);
-                return RedirectToAction("HouseholdProfile", nameof(Household), new { householdNo = householdNo});
+                return RedirectToAction("HouseholdProfile", "Household", new { householdNo = householdNo });
             }
             catch (Exception ex)
             {
