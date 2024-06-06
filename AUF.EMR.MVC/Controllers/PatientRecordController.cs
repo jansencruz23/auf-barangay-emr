@@ -10,9 +10,11 @@ using FastReport;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize(Policy = "User")]
     public class PatientRecordController : Controller
     {
         private readonly IPatientRecordService _patientRecordService;

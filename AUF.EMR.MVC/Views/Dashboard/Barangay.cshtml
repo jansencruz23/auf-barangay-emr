@@ -12,7 +12,7 @@
             </div>
             <div class="col-span-12">
                 <div class="col-span-12 mt-5 flex flex-col lg:flex-row gap-2">
-                    <div class="bg-white shadow-lg rounded-lg p-4 flex-1" id="chartline"></div>
+                    <div class="bg-white shadow-lg rounded-lg p-4 flex-1" id="chartbar"></div>
                     <div class="bg-white shadow-lg rounded-lg p-4 flex-1" id="chartpie"></div>
                 </div>
             </div>
@@ -139,80 +139,82 @@
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
-    var chart = document.querySelector('#chartline');
-    
-    var currentDate = new Date();
-    var dateLabels = [];
-    for (var i = 6; i >= 0; i--) {
-        var date = new Date(currentDate);
-        date.setDate(currentDate.getDate() - i);
-        var formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-        dateLabels.push(formattedDate);
-    }
-    
     var options = {
         series: [{
-            name: "Number of Households",
-            data: [@Model.HHCount6, @Model.HHCount5, @Model.HHCount4, @Model.HHCount3, @Model.HHCount2, @Model.HHCount1, @Model.HouseholdCount],
-            color: '#ACCB8F'
+            data: [@Model.FamilyPlanningFormsCount, @Model.PatientRecordCount, @Model.PregnancyRecordCount, @Model.PregTrackCount, @Model.WRAFormCount]
         }],
         chart: {
+            type: 'bar',
             height: 350,
-            type: 'line',
             fontFamily: 'Poppins',
-            zoom: {
-                enabled: false
+            toolbar: {
+                show: false
+            },
+            animations: {
+                enabled: true,
+                easing: 'easeinout',
+                speed: 800,
+                animateGradually: {
+                    enabled: true,
+                    delay: 150
+                },
+                dynamicAnimation: {
+                    enabled: true,
+                    speed: 350
+                }
+            },
+        },
+        plotOptions: {
+            bar: {
+                borderRadius: 4,
+                borderRadiusApplication: 'end',
+                horizontal: true,
             }
         },
         dataLabels: {
-            style: {
-                color: '#333333',
-                fontFamily: 'Poppins'
-            },
             enabled: false
         },
-        stroke: {
-            curve: 'straight',
-            colors: '#ACCB8F'
-        },
-        title: {
-            style: {
-                fontSize: '20px',
-                fontWeight: 'bold',
-                color: '#333333',
-                fontFamily: 'Poppins'
-            },
-            text: 'Total number of households for the past week',
-            align: 'left'
-        },
-        subtitle: {
-            style: {
-                fontSize: '14px',
-                color: '#333333',
-                fontFamily: 'Poppins'
-            },
-            text: 'Patients from ' + dateLabels[0] + ' - ' + dateLabels[6],
-            align: 'left'
-        },
-        grid: {
-            row: {
-                colors: ['#f3f3f3', 'transparent'],
-                opacity: 0.5
-            },
-        },
         xaxis: {
-            categories: dateLabels,
+            categories: ['Family Planning', 'Patient Record', 'Pregnancy Record', 'Pregnancy Track', "Women of Reproductive Age"],
             labels: {
                 style: {
-                    fontFamily: 'Poppins' 
+                    fontFamily: 'Poppins'
                 }
             }
+        },
+        title: {
+            text: 'Total Number of Forms',
+            margin: 20,
+            offsetY: -10,
+            floating: true,
+            style: {
+                fontSize: '16px',
+                fontFamily: 'Poppins',
+                fontWeight: 'bold',
+                color: '#333333'
+            }
+        },
+        tooltip: {
+            enabled: true,
+            shared: false,
+            onDatasetHover: {
+                highlightDataSeries: false,
+            },
+        },
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chartbar"), options);
+    chart.render();
+
+    chart.tooltip.options.tooltip.theme = {
+        title: {
+            text: 'Total:'
         }
     };
-    
-    var chartInstance = new ApexCharts(chart, options);
-    chartInstance.render();
 </script>
+
+
+
 
 <div id="chartpie"></div>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>

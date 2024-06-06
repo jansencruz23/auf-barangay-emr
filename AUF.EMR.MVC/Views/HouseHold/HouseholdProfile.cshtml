@@ -67,79 +67,81 @@
         </div>
     </div>
 
-    <div class="w-full p-8 bg-white overflow-x-auto border border-gray-200 rounded-lg shadow-md pb-16 overflow-x-auto">
+    <div class="w-full px-8 pb-0 pt-8 bg-white overflow-x-auto border border-gray-200 rounded-lg shadow-md pb-8 overflow-x-auto">
         <!-- First row -->
         <div class="flex justify-end mb-4">
             <span class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Household No.: @Model.HouseholdNo</span>
         </div>
+        <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
         <!-- Second row -->
-        <div class="grid grid-cols-4 grid-flow-col gap-4 divide-x text-center">
-            <div>
-                <h6 class="text-gray-700 text-sm font-bold mb-2">First Quarter Visit</h6>
-                <p class="text-gray-800 text-sm font-medium ">@formatted1Qtr</p>
-                <p class="text-gray-800 text-xs font-bold">mm - dd - yy</p>
+        <div class="grid grid-cols-4 grid-flow-col divide-x text-left border-r">
+            <div class="border-l">
+                <h6 class="text-gray-700 text-sm font-bold ml-4 mt-4">1a. First Quarter Visit</h6>
+                <p class="text-gray-800 text-sm font-medium text-center">@formatted1Qtr</p>
+                <p class="text-gray-800 text-xs font-bold text-center mb-4">mm - dd - yy</p>
             </div>
             <div>
-                <h6 class="text-gray-700 text-sm font-bold mb-2">Second Quarter Visit</h6>
+                <h6 class="text-gray-700 text-sm font-bold ml-4 mt-4">1b. Second Quarter Visit</h6>
                 <p class="text-gray-800 text-sm font-medium text-center">@formatted2Qtr</p>
-                <p class="text-gray-800 text-xs font-bold">mm - dd - yy</p>
+                <p class="text-gray-800 text-xs font-bold text-center mb-4">mm - dd - yy</p>
             </div>
             <div>
-                <h6 class="text-gray-700 text-sm font-bold mb-2">Third Quarter Visit</h6>
-                <p class="text-gray-800 text-sm font-medium">@formatted3Qtr</p>
-                <p class="text-gray-800 text-xs font-bold">mm - dd - yy</p>
+                <h6 class="text-gray-700 text-sm font-bold ml-4 mt-4">1c. Third Quarter Visit</h6>
+                <p class="text-gray-800 text-sm font-medium text-center">@formatted3Qtr</p>
+                <p class="text-gray-800 text-xs font-bold text-center mb-4">mm - dd - yy</p>
             </div>
-            <div>
-                <h6 class="text-gray-700 text-sm font-bold mb-2">Fourth Quarter Visit</h6>
-                <p class="text-gray-800 text-sm font-medium">@formatted4Qtr</p>
-                <p class="text-gray-800 text-xs font-bold">mm - dd - yy</p>
+            <div class="border-r">
+                <h6 class="text-gray-700 text-sm font-bold ml-4 mt-4">1d. Fourth Quarter Visit</h6>
+                <p class="text-gray-800 text-sm font-medium text-center">@formatted4Qtr</p>
+                <p class="text-gray-800 text-xs font-bold text-center mb-4">mm - dd - yy</p>
             </div>
         </div>
-        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+        <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
         <!-- Third row -->
-        <div class="grid grid-cols-4 grid-flow-col gap-4 text-center">
+        <div class="grid grid-cols-4 grid-flow-col gap-4 text-left border-x">
             <div>
-                <h6 class="text-gray-700 text-sm font-bold mb-2">Name of Respondent:</h6>
+                <h6 class="text-gray-700 text-sm font-bold mb-2 ml-4 my-4">2. Name of Respondent:</h6>
             </div>
             <div>
-                <h6 class="text-gray-700 text-sm font-bold mb-2">Last Name:</h6>
-                <p class="text-gray-800 text-sm font-medium text-center">@Model.Household.LastName</p>
+                <h6 class="text-gray-700 text-sm font-bold mb-2 ml-4 mt-4">Last Name:</h6>
+                <p class="text-gray-800 text-sm font-medium text-center mb-4">@Model.Household.LastName</p>
             </div>
             <div>
-                <h6 class="text-gray-700 text-sm font-bold mb-2">First Name:</h6>
-                <p class="text-gray-800 text-sm font-medium text-center">@Model.Household.FirstName</p>
+                <h6 class="text-gray-700 text-sm font-bold mb-2 ml-4 mt-4">First Name:</h6>
+                <p class="text-gray-800 text-sm font-medium text-center mb-4">@Model.Household.FirstName</p>
             </div>
             <div>
-                <h6 class="text-gray-700 text-sm font-bold mb-2">Mother's Maiden Name Name:</h6>
-                <p class="text-gray-800 text-sm font-medium text-center">@((Model.Household.MotherMaidenName != null) ? Model.Household.MotherMaidenName : "N/A")</p>
+                <h6 class="text-gray-700 text-sm font-bold mb-2 ml-4 mt-4">Mother's Maiden Name:</h6>
+                <p class="text-gray-800 text-sm font-medium text-center mb-4">@((Model.Household.MotherMaidenName != null) ? Model.Household.MotherMaidenName : "N/A")</p>
             </div>
         </div>
-        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+        <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
         <!-- Fourth row -->
-        <div class="grid grid-cols-4 grid-flow-col gap-4 text-center divide-x">
+        <div class="grid grid-cols-4 grid-flow-col gap-4 text-left divide-x border-x pb-0">
             <div>
-                <h6 class="text-gray-700 text-sm font-bold mb-2">NHTS Household:</h6>
-                <p class="text-gray-800 text-sm font-medium text-center">@((Model.Household.IsNHTS) ? "NHTS" : "Non NHTS")</p>
+                <h6 class="text-gray-700 text-sm font-bold ml-4 mt-4">3. NHTS Household:</h6>
+                <p class="text-gray-800 text-sm font-medium text-center mb-4">@((Model.Household.IsNHTS) ? "NHTS" : "Non NHTS")</p>
             </div>
             <div>
-                <h6 class="text-gray-700 text-sm font-bold mb-2">IP Member:</h6>
-                <p class="text-gray-800 text-sm font-medium text-center">@((Model.Household.IsIP) ? "IP" : "Non-IP")</p>
+                <h6 class="text-gray-700 text-sm font-bold ml-4 mt-4">4. IP Member:</h6>
+                <p class="text-gray-800 text-sm font-medium text-center mb-4">@((Model.Household.IsIP) ? "IP" : "Non-IP")</p>
             </div>
             <div>
-                <h6 class="text-gray-700 text-sm font-bold mb-2">HH Head Philhealth Member?</h6>
-                <p class="text-gray-800 text-sm font-medium text-center">
+                <h6 class="text-gray-700 text-sm font-bold ml-4 mt-4">5. HH Head Philhealth Member?</h6>
+                <p class="text-gray-800 text-sm font-medium text-center mb-4">
                     @(Model.Household.IsHeadPhilhealthMember ?
                         Html.Raw($"Yes, Philhealth ID No. <span class='underline'>{Model.Household.PhilhealthNo}</span>") :
                         "No")
                 </p>
             </div>
             <div>
-                <h6 class="text-gray-700 text-sm font-bold mb-2">Category:</h6>
-                <p class="text-gray-800 text-sm font-medium text-center">@((Model.Household.Category != null) ? @Model.Household.Category : "N/A")</p>
+                <h6 class="text-gray-700 text-sm font-bold ml-4 mt-4">Category:</h6>
+                <p class="text-gray-800 text-sm font-medium text-center mb-4">@((Model.Household.Category != null) ? @Model.Household.Category : "N/A")</p>
             </div>
         </div>
+        <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700 pb-0">
     </div>
-
+    <!--Household Members-->
     <div class="flex justify-between my-4 pt-5">
         <h5 class="text-xl font-bold leading-none text-gray-900">Household Members</h5>
         <a asp-action="Create" asp-controller="HouseHoldMember"
