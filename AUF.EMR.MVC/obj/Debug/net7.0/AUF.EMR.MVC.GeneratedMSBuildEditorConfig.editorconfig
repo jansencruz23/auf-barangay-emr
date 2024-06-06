@@ -17,581 +17,581 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AUF.EMR.MVC
 build_property.RootNamespace = AUF.EMR.MVC
-build_property.ProjectDir = D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\
+build_property.ProjectDir = C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.MVC\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC
+build_property.MSBuildProjectDirectory = C:\Users\arceg\Desktop\College Life\2nd Year\BSCS - Y2S2\CCS06\auf_ninoy_aquino_emr\auf-barangay-emr\AUF.EMR.MVC
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWxDaGFuZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Lockout.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Lockout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGgyZmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGhSZWNvdmVyeUNvZGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Logout.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGVsZXRlUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGlzYWJsZTJmYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRG93bmxvYWRQZXJzb25hbERhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/Email.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW5hYmxlQXV0aGVudGljYXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRXh0ZXJuYWxMb2dpbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcR2VuZXJhdGVSZWNvdmVyeUNvZGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUmVzZXRBdXRoZW50aWNhdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2hvd1JlY292ZXJ5Q29kZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/Error.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Barangay/Edit.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Barangay/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFyYW5nYXlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Barangay/Index.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Barangay/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFyYW5nYXlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Dashboard/Barangay.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Dashboard/Barangay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEJhcmFuZ2F5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Dashboard/Household.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Dashboard/Household.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEhvdXNlaG9sZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Error/Invalid.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Error/Invalid.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcSW52YWxpZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Error/PageNotFound.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Error/PageNotFound.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcUGFnZU5vdEZvdW5kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/FamilyPlanning/Create.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/FamilyPlanning/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFtaWx5UGxhbm5pbmdcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/FamilyPlanning/Details.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/FamilyPlanning/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFtaWx5UGxhbm5pbmdcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/FamilyPlanning/Edit.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/FamilyPlanning/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFtaWx5UGxhbm5pbmdcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/FamilyPlanning/Index.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/FamilyPlanning/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFtaWx5UGxhbm5pbmdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Home/Index.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Home/Privacy.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/HouseholdMember/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkTWVtYmVyXENyZWF0ZS5jc2h0bWw=
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/HouseHoldMember/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2VIb2xkTWVtYmVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/HouseholdMember/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkTWVtYmVyXERldGFpbHMuY3NodG1s
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/HouseHoldMember/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2VIb2xkTWVtYmVyXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/HouseholdMember/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkTWVtYmVyXEVkaXQuY3NodG1s
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/HouseHoldMember/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2VIb2xkTWVtYmVyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/HouseholdMember/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkTWVtYmVyXEluZGV4LmNzaHRtbA==
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/HouseHoldMember/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2VIb2xkTWVtYmVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Household/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkXENyZWF0ZS5jc2h0bWw=
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/HouseHold/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2VIb2xkXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Household/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkXERldGFpbHMuY3NodG1s
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/HouseHold/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2VIb2xkXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Household/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkXEVkaXQuY3NodG1s
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/HouseHold/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2VIb2xkXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Household/HouseholdProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkXEhvdXNlaG9sZFByb2ZpbGUuY3NodG1s
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/HouseHold/HouseholdProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2VIb2xkXEhvdXNlaG9sZFByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Household/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2Vob2xkXEluZGV4LmNzaHRtbA==
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/HouseHold/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2VIb2xkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/Adolescent.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/Adolescent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxBZG9sZXNjZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/Adult.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/Adult.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxBZHVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/AdultDetails.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/AdultDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxBZHVsdERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/ChildDetails.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/ChildDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxDaGlsZERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/EditAdultInfo.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/EditAdultInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxFZGl0QWR1bHRJbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/EditChildrenInfo.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/EditChildrenInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxFZGl0Q2hpbGRyZW5JbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/Infant.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/Infant.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxJbmZhbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/Newborn.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/Newborn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxOZXdib3JuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/SchoolAged.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/SchoolAged.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxTY2hvb2xBZ2VkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/SeniorCitizen.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/SeniorCitizen.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxTZW5pb3JDaXRpemVuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Masterlist/UnderFive.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Masterlist/UnderFive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVybGlzdFxVbmRlckZpdmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/OralHealthClient/Details.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/OralHealthClient/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JhbEhlYWx0aENsaWVudFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/OralHealthClient/EditOralHealthInfo.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/OralHealthClient/EditOralHealthInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JhbEhlYWx0aENsaWVudFxFZGl0T3JhbEhlYWx0aEluZm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/OralHealthClient/FifteenToNineteen.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/OralHealthClient/FifteenToNineteen.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JhbEhlYWx0aENsaWVudFxGaWZ0ZWVuVG9OaW5ldGVlbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/OralHealthClient/FiveToNine.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/OralHealthClient/FiveToNine.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JhbEhlYWx0aENsaWVudFxGaXZlVG9OaW5lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/OralHealthClient/Infant.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/OralHealthClient/Infant.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JhbEhlYWx0aENsaWVudFxJbmZhbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/OralHealthClient/OneToFour.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/OralHealthClient/OneToFour.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JhbEhlYWx0aENsaWVudFxPbmVUb0ZvdXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/OralHealthClient/PregnantFifteenToNineteen.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/OralHealthClient/PregnantFifteenToNineteen.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JhbEhlYWx0aENsaWVudFxQcmVnbmFudEZpZnRlZW5Ub05pbmV0ZWVuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/OralHealthClient/PregnantTwentyToFourtynine.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/OralHealthClient/PregnantTwentyToFourtynine.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JhbEhlYWx0aENsaWVudFxQcmVnbmFudFR3ZW50eVRvRm91cnR5bmluZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/OralHealthClient/TenToFourteen.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/OralHealthClient/TenToFourteen.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JhbEhlYWx0aENsaWVudFxUZW5Ub0ZvdXJ0ZWVuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/OralHealthClient/TwentyToFourtynine.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/OralHealthClient/TwentyToFourtynine.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JhbEhlYWx0aENsaWVudFxUd2VudHlUb0ZvdXJ0eW5pbmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PatientRecord/Create.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PatientRecord/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFJlY29yZFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PatientRecord/Details.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PatientRecord/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFJlY29yZFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PatientRecord/Edit.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PatientRecord/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFJlY29yZFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PatientRecord/Index.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PatientRecord/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFJlY29yZFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PregnancyAppointment/Create.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyAppointment/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5QXBwb2ludG1lbnRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PregnancyAppointment/Details.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyAppointment/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5QXBwb2ludG1lbnRcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PregnancyAppointment/Edit.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyAppointment/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5QXBwb2ludG1lbnRcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PregnancyRecord/Create.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyRecord/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5UmVjb3JkXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PregnancyRecord/Details.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyRecord/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5UmVjb3JkXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PregnancyRecord/Edit.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyRecord/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5UmVjb3JkXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PregnancyRecord/Index.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyRecord/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5UmVjb3JkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PregnancyTrackingHH/Edit.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyTrackingHH/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5VHJhY2tpbmdISFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PregnancyTracking/Create.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyTracking/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5VHJhY2tpbmdcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PregnancyTracking/Details.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyTracking/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5VHJhY2tpbmdcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PregnancyTracking/Edit.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyTracking/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5VHJhY2tpbmdcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/PregnancyTracking/Index.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/PregnancyTracking/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZ25hbmN5VHJhY2tpbmdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Components/_HouseholdCard.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Components/_HouseholdCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcX0hvdXNlaG9sZENhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Error.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_BarangayLayout.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_BarangayLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX0JhcmFuZ2F5TGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_BarangaySideLayout.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_BarangaySideLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX0JhcmFuZ2F5U2lkZUxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_DetailsLayout.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_DetailsLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX0RldGFpbHNMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_FamilyPlanningIndex.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_FamilyPlanningIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX0ZhbWlseVBsYW5uaW5nSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_FormLayout.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_FormLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX0Zvcm1MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_HouseholdLayout.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_HouseholdLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX0hvdXNlaG9sZExheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_MasterlistLayout.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_MasterlistLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX01hc3Rlcmxpc3RMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_NewLayout.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_NewLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX05ld0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_OralHealthLayout.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_OralHealthLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX09yYWxIZWFsdGhMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_PatientRecordsIndex.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_PatientRecordsIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX1BhdGllbnRSZWNvcmRzSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_PregnancyRecordsIndex.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_PregnancyRecordsIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX1ByZWduYW5jeVJlY29yZHNJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_PregnancyTrackingListIndex.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_PregnancyTrackingListIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX1ByZWduYW5jeVRyYWNraW5nTGlzdEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Layouts/_WRAindex.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_WRAindex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX1dSQWluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Navigations/_AdminNav.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Navigations/_AdminNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9BZG1pbk5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Navigations/_BarangayNav.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Navigations/_BarangayNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9CYXJhbmdheU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Navigations/_BarangaySideBar.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Navigations/_BarangaySideBar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9CYXJhbmdheVNpZGVCYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Navigations/_FormNav.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Navigations/_FormNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9Gb3JtTmF2LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Navigations/_FormSideBar.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Navigations/_FormSideBar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9Gb3JtU2lkZUJhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Navigations/_HouseholdNav.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Navigations/_HouseholdNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9Ib3VzZWhvbGROYXYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Popups/_AlertError.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Popups/_AlertError.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBvcHVwc1xfQWxlcnRFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Popups/_LoginError.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Popups/_LoginError.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBvcHVwc1xfTG9naW5FcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Prints/_PrintDialog.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Prints/_PrintDialog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByaW50c1xfUHJpbnREaWFsb2cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/Prints/_PrintDialogWithId.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Prints/_PrintDialogWithId.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByaW50c1xfUHJpbnREaWFsb2dXaXRoSWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/_FormNav.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/_FormNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb3JtTmF2LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/_Navbar.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/_Navbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Summary/Index.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Summary/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VtbWFyeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/User/AdminChangePassword.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/User/AdminChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZG1pbkNoYW5nZVBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/User/Edit.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/User/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/User/Index.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/User/Profile.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/User/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/User/ResetPassword.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/User/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/VaccinationAppointment/Create.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/VaccinationAppointment/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luYXRpb25BcHBvaW50bWVudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/VaccinationAppointment/Details.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/VaccinationAppointment/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luYXRpb25BcHBvaW50bWVudFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/VaccinationAppointment/Edit.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/VaccinationAppointment/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luYXRpb25BcHBvaW50bWVudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/WRA/Create.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/WRA/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV1JBXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/WRA/Details.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/WRA/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV1JBXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/WRA/Edit.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/WRA/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV1JBXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/WRA/Index.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/WRA/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV1JBXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/_ViewImports.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/_ViewStart.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Jansen/Self Study/2024 - 02 - FEBRUARY/ASP.NET CORE/AUF.EMR/AUF.EMR.MVC/Views/Shared/_Layout.cshtml]
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-sikug37s1m
