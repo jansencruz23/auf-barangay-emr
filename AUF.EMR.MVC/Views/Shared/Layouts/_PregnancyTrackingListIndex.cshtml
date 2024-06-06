@@ -32,5 +32,20 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/flowbite/dist/flowbite.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var deleteButtons = document.querySelectorAll('.delete-btn');
+            var deleteForm = document.getElementById('deleteForm');
+
+            deleteButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var memberId = button.getAttribute('data-member-id');
+                    var actionUrl = `/PregnancyTracking/Delete/${memberId}?householdNo=${@Model.HouseholdNo}`;
+                    deleteForm.setAttribute('action', actionUrl);
+                });
+            });
+        });
+    </script>
 </body>
 </html>

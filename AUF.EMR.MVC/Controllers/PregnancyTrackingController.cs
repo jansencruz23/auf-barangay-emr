@@ -22,16 +22,19 @@ namespace AUF.EMR.MVC.Controllers
         private readonly IPregnancyTrackingService _pregnancyService;
         private readonly IHouseholdMemberService _householdMemberService;
         private readonly IPregnancyTrackingHHService _pregTrackHHService;
+        private readonly IHouseholdService _householdService;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         public PregnancyTrackingController(IPregnancyTrackingService pregnancyService,
             IHouseholdMemberService householdMemberService,
             IPregnancyTrackingHHService pregTrackHHService,
+            IHouseholdService householdService,
             IWebHostEnvironment webHostEnvironment)
         {
             _pregnancyService = pregnancyService;
             _householdMemberService = householdMemberService;
             _pregTrackHHService = pregTrackHHService;
+            _householdService = householdService;
             _webHostEnvironment = webHostEnvironment;
         }
 
@@ -55,7 +58,7 @@ namespace AUF.EMR.MVC.Controllers
 
                 return View(model);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -70,6 +73,11 @@ namespace AUF.EMR.MVC.Controllers
             }
             try
             {
+                if (!(await _householdService.IsHouseholdNoExisting(householdNo)))
+                {
+                    var requestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString;
+                    return RedirectToAction("PageNotFound", "Error", requestUrl);
+                }
                 var pregTrackHH = await _pregTrackHHService.GetPregnancyTrackingHHWithDetails(householdNo);
                 var pregnancyList = await _pregnancyService.GetPregnancyTrackingListWithDetails(householdNo);
                 var model = new PregnancyTrackingListVM
@@ -83,7 +91,7 @@ namespace AUF.EMR.MVC.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return RedirectToAction("Invalid", "Error");
             }
         }
 

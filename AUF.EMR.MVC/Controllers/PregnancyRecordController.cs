@@ -11,9 +11,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize(Policy = "User")]
     public class PregnancyRecordController : Controller
     {
         private readonly IPregnancyRecordService _pregRecordService;
