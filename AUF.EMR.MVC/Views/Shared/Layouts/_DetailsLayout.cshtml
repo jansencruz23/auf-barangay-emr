@@ -9,7 +9,7 @@
             font-family: 'Poppins', sans-serif;
         }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="~/lib/flowbite/dist/tailwind.min.css" rel="stylesheet" />
     <link href="~/css/output.css" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/flowbite/dist/flowbite.css" />
     <link href="~/css/style.css" rel="stylesheet">
@@ -21,7 +21,7 @@
     </header>
     <div class="">
         <main role="main" class="">
-            @await Html.PartialAsync("Navigations/_FormSideBar", ViewData["Barangay"]);
+            @await Html.PartialAsync("Navigations/_FormSideBar", ViewData["HouseholdNo"]);
             <div class="p-4 sm:ml-72">
                 @RenderBody()
             </div>

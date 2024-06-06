@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "e587qBtsqkWvBCv28KAeFkE8DPuWJhPLsXhVXg54YXY=",
+  "Hash": "1kDXj/x/y4rLOveO+hiS4WCSrjBBim6iD8GOxXf01iE=",
   "Source": "AUF.EMR.MVC",
   "BasePath": "_content/AUF.EMR.MVC",
   "Mode": "Default",
@@ -3738,6 +3738,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\flowbite\\dist\\flowbite.turbo.min.js.map"
+    },
+    {
+      "Identity": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flowbite\\dist\\tailwind.min.css",
+      "SourceId": "AUF.EMR.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\",
+      "BasePath": "_content/AUF.EMR.MVC",
+      "RelativePath": "lib/flowbite/dist/tailwind.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\flowbite\\dist\\tailwind.min.css"
     },
     {
       "Identity": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flowbite\\lib\\cjs\\components\\accordion\\index.d.ts",

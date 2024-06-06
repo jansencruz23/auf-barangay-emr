@@ -47,7 +47,7 @@ namespace AUF.EMR.MVC.Controllers
 
 
         // GET: WRAController
-        public async Task<ActionResult> Details(int id, string householdNo)
+        public async Task<ActionResult> Details(int id, string householdNo, string requestUrl)
         {
             if (string.IsNullOrWhiteSpace(householdNo) || id == 0)
             {
@@ -58,7 +58,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new DetailWRAVM
             {
                 HouseholdNo = householdNo,
-                WRA = wra
+                WRA = wra,
+                RequestUrl = requestUrl
             };
 
             return View(model);
@@ -76,7 +77,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new WRAListVM
             {
                 HouseholdNo = householdNo,
-                WRAs = wraList
+                WRAs = wraList,
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
             };
 
             return View(model);

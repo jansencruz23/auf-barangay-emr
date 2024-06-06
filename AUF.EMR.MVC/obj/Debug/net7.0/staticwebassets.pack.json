@@ -641,6 +641,10 @@
       "PackagePath": "staticwebassets\\lib\\flowbite\\dist\\flowbite.turbo.min.js.map"
     },
     {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flowbite\\dist\\tailwind.min.css",
+      "PackagePath": "staticwebassets\\lib\\flowbite\\dist\\tailwind.min.css"
+    },
+    {
       "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\flowbite\\lib\\cjs\\components\\accordion\\index.d.ts",
       "PackagePath": "staticwebassets\\lib\\flowbite\\lib\\cjs\\components\\accordion\\index.d.ts"
     },

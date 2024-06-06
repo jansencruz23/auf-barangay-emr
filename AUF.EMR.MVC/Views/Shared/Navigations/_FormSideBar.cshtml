@@ -12,10 +12,10 @@
     var controller = this.ViewContext.RouteData.Values["controller"].ToString();
     var action = this.ViewContext.RouteData.Values["action"].ToString();
 
-    var masterlists = new List<string> { "Infant", "Newborn", "UnderFive", "SchoolAged", "Adolescent", "Adult", "SeniorCitizen" };
+    var masterlists = new List<string> { "Infant", "Newborn", "UnderFive", "SchoolAged", "Adolescent", "Adult", "SeniorCitizen", "Create", "Details", "EditChildrenInfo", "EditAdultInfo", "ChildDetails", "AdultDetails" };
     var inMasterlist = masterlists.Contains(action ?? "", StringComparer.OrdinalIgnoreCase);
 
-    var oralHealth = new List<string> { "Infant", "OneToFour", "FiveToNine", "TenToFourteen", "PregnantFifteenToNineteen", "PregnantTwentyToFourtyNine" };
+    var oralHealth = new List<string> { "Infant", "OneToFour", "FiveToNine", "TenToFourteen", "PregnantFifteenToNineteen", "PregnantTwentyToFourtyNine", "Details", "EditOralHealthInfo" };
     var inOralHealth = oralHealth.Contains(action ?? "", StringComparer.OrdinalIgnoreCase);
 }
 

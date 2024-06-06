@@ -1,7 +1,7 @@
 ﻿@model HouseholdMemberListVM
 
 @{
-    Layout = "Layouts/_FormLayout";
+    Layout = "Layouts/_OralHealthLayout";
     ViewData["Title"] = "Masterlist of Oral Health Care Clients - 20 to 49 years old";
     ViewData["HouseholdNo"] = Model.HouseholdNo;
 }
@@ -73,7 +73,7 @@
                             <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 <input type="checkbox" disabled @(item.IsNhts ? "checked" : "") />
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="border-b border-gray-100 px-4 py-2 text-left text-lg">
                                 <a asp-action="EditOralHealthInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-yellow-300 hover:text-yellow-400 mr-2">
                                     <i class="fas fa-edit"></i>
                                 </a>
