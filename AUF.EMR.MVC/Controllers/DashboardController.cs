@@ -74,6 +74,7 @@ namespace AUF.EMR.MVC.Controllers
 
             var model = new DashboardVM
             {
+                HouseholdNo = householdNo,
                 HouseholdMemberCount = await _dashboardService.GetHouseholdMemberCount(householdNo),
                 NewbornCount = await _dashboardService.GetNewbornCount(householdNo),
                 InfantCount = await _dashboardService.GetInfantCount(householdNo),

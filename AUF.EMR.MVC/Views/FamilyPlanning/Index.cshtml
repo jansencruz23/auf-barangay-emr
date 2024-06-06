@@ -24,85 +24,25 @@
         <div style="overflow:auto;">
             <table class="table-auto w-full">
                 <thead>
-                    <tr class="bg-gray-200">
+                    <tr class="bg-gray-200 text-sm">
                         <th class="px-2 py-2 text-left">
                             Client ID
                         </th>
-                        @*  <th>
-                        PhilhealthNo
-                        </th> *@
                         <th class="py-2 text-left">
-                            Household Member
+                            Client
                         </th>
                         <th class="px-1 py-2 text-left">
                             Age
                         </th>
                         <th class="px-1 py-2 text-left">
-                            Occupation
+                            Spouse
                         </th>
                         <th class="py-2 text-left">
-                            Contact
-                        </th>
-                        @* <th class="px-2 py-2 text-left">
-                        CivilStatus
-                        </th>
-                        <th>
-                        Religion
-                        </th>
-                        <th>
-                        SpouseLastName
-                        </th>
-                        <th>
-                        SpouseFirstName
-                        </th>
-                        <th>
-                        SpouseMiddleInitial
-                        </th>
-                        <th>
-                        SpouseBirthday
-                        </th>
-                        <th>
-                        SpouseAge
-                        </th>
-                        <th>
-                        SpouseOccupation
+                            Age
                         </th>
                         <th class="py-2 text-left">
-                        LivingChildren
-                        </th> *@
-                        <th class="py-2 text-left">
-                            Plan to have Children
+                            Contact No.
                         </th>
-                        @** <th>
-                        AverageMonthlyIncome
-                        </th>
-                        <th>
-                        FPMethod
-                        </th>
-                        <th>
-                        ClientSignatureAcknowledgement
-                        </th>
-                        <th>
-                        DateAcknowledgement
-                        </th>
-                        <th>
-                        ClientSignatureConsent
-                        </th>
-                        <th>
-                        DateConsent
-                        </th>
-                        <th>
-                        Status
-                        </th>
-                        <th>
-                        DateCreated
-                        </th>
-                        <th>
-                        LastModified
-                        </th>
-                        <th>
-                        ModifiedById
-                        </th> *@
                         <th class="py-2 text-left">
 
                         </th>
@@ -112,13 +52,10 @@
                 <tbody>
                     @foreach (var item in Model.FPRecords)
                     {
-                        <tr>
+                        <tr class="text-sm">
                             <td class="border-b border-gray-100 px-2 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.ClientId)
                             </td>
-                            @*  <td>
-                        @Html.DisplayFor(modelItem => item.PhilhealthNo)
-                        </td> *@
                             <td class="border-b border-gray-100 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.ClientHouseholdMember.FullName)
                             </td>
@@ -126,79 +63,21 @@
                                 @Html.DisplayFor(modelItem => item.ClientAge)
                             </td>
                             <td class="border-b border-gray-100 py-2 text-left">
-                                @Html.DisplayFor(modelItem => item.ClientOccupation)
+                                @item.SpouseLastName, @item.SpouseFirstName
+                            </td>
+                            <td class="border-b border-gray-100 py-2 text-left">
+                                @item.SpouseAge
                             </td>
                             <td class="border-b border-gray-100 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.ContactNo)
                             </td>
-                            @* <td class="border-b border-gray-100 py-2 text-left">
-                        @Html.DisplayFor(modelItem => item.CivilStatus)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.Religion)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.SpouseLastName)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.SpouseLastName)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.SpouseMiddleInitial)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.SpouseBirthday)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.SpouseAge)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.SpouseOccupation)
-                        </td>
-                        <td class="border-b border-gray-100 py-2 text-left">
-                        @Html.DisplayFor(modelItem => item.LivingChildrenNo)
-                        </td> *@
-                            <td class="border-b border-gray-100 py-2 text-left">
-                                @Html.DisplayFor(modelItem => item.IsPlanningChildren)
-                            </td>
-                            @*      <td>
-                        @Html.DisplayFor(modelItem => item.AverageMonthlyIncome)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.FPMethod)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.ClientSignatureAcknowledgement)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.DateAcknowledgement)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.ClientSignatureConsent)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.DateConsent)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.DateCreated)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.LastModified)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => item.ModifiedById)
-                        </td> *@
-                            <td class="border-b border-gray-100 py-2 text-left inline-flex items-center text-center">
+                            <td class="border-b border-gray-100 py-2 text-left inline-flex items-center text-center text-lg">
                                 <a asp-action="Edit" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-yellow-300 hover:text-yellow-400 mr-2"><i class="fas fa-edit"></i></a>
                                 <button type="button" onclick="print('Print', 'FamilyPlanning', @Model.HouseholdNo, @item.Id, @item.ClientHouseholdMemberId)">
                                     <svg class="w-5 h-5 text-blue-500 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M16.444 18H19a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h2.556M17 11V5a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v6h10ZM7 15h10v4a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-4Z" />
                                     </svg>
                                 </button>
-                                <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>
                                 <button data-modal-target="popup-modal-2" data-modal-toggle="popup-modal-2" data-member-id="@item.Id" class="delete-btn text-red-400 hover:text-red-500 mr-2"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>

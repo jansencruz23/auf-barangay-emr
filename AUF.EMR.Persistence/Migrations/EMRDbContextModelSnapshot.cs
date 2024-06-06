@@ -441,7 +441,7 @@ namespace AUF.EMR.Persistence.Migrations
                     b.Property<bool>("PartnerNotApproveFP")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int>("ReferredTo")
+                    b.Property<int?>("ReferredTo")
                         .HasColumnType("int");
 
                     b.Property<string>("ReferredToOthers")
@@ -691,7 +691,8 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("FirstQtrClassification")
                         .HasColumnType("longtext");
@@ -713,13 +714,15 @@ namespace AUF.EMR.Persistence.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<Guid?>("ModifiedById")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("MotherMaidenName")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("NameOfFather")
                         .HasColumnType("longtext");

@@ -70,6 +70,7 @@ namespace AUF.EMR.MVC.Controllers
         public async Task<IActionResult> Index(string query, int page = 1)
         {
             var model = new HouseholdVM();
+            model.RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString;
 
             if (string.IsNullOrEmpty(query))
             {
@@ -166,11 +167,11 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHolds/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, string requestUrl)
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("PageNotFound", "");
             }
 
             var household = await _houseHoldService.GetHouseholdWithDetails(id.Value);
@@ -185,6 +186,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 Household = household,
                 HouseholdMembers = householdMembers,
+                RequestUrl = requestUrl
             };
            
             return View(model);

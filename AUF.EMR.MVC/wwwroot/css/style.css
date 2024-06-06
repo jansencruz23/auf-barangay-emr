@@ -89,9 +89,48 @@
 }
 
 .nav-link.active {
-    color: white;
-    background-color: #ACCB8F; /* Adjust background color as needed */
+    color: white !important;
+    background-color: #ACCB8F !important; /* Adjust background color as needed */
 }
+
+.button-active {
+    --tw-bg-opacity: 1;
+    background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+
+.home-slide-to-top {
+    right: 50px;
+    width: 50px;
+    bottom: 50px;
+    height: 50px;
+    display: flex;
+    z-index: 100;
+    position: fixed;
+    transition: 0.3s;
+    border-radius: var(--dl-radius-radius-round);
+    flex-direction: column;
+    background-color: var(--dl-color-template-blue-card);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.home-slide-to-top.active {
+    visibility: visible;
+    opacity: 0.9;
+    border-radius: 25px;
+}
+
+.home-slide-to-top:hover {
+    background-color: #EFF0F2;
+}
+
+.home-icon32 {
+    border-radius: 50px;
+}
+
+    .home-icon32:hover {
+        fill: var(--dl-color-template-blue-primary);
+    }
 
 /* FLOWBITE TAILWIND EXTENSIONS KASI DI COMPLETE ATA NASA LIB T.T */
 .align-baseline {

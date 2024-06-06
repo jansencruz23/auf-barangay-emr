@@ -34,6 +34,18 @@ namespace AUF.EMR.Persistence.Repositories
                 .Where(p => p.HouseholdMemberId == id)
                 .ToListAsync();
 
+            var familyPlanning = await _dbContext.FamilyPlanningRecords
+                .Where(p => p.ClientHouseholdMemberId == id)
+                .ToListAsync();
+
+            var patientRecord = await _dbContext.PatientRecords
+                .Where(p => p.PatientId == id)
+                .ToListAsync();
+
+            var pregRecord = await _dbContext.PregnancyRecords
+                .Where(p => p.PatientId == id)
+                .ToListAsync();
+
             if (member != null)
             {
                 foreach (var wra in wraForms)
@@ -44,6 +56,21 @@ namespace AUF.EMR.Persistence.Repositories
                 foreach (var preg in pregForms)
                 {
                     preg.Status = false;
+                }
+
+                foreach (var form in familyPlanning)
+                {
+                    form.Status = false;
+                }
+
+                foreach (var form in patientRecord)
+                {
+                    form.Status = false;
+                }
+
+                foreach (var form in pregRecord)
+                {
+                    form.Status = false;
                 }
 
                 member.Status = false;

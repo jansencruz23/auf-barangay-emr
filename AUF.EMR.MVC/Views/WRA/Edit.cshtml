@@ -14,6 +14,7 @@
             <hr class="mb-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
+                    <h6 class="text-md font-bold text-gray-800 mb-2 mt-8">WRA Personal Info</h6>
                     <div class="mb-4">
                         <label asp-for="WRA.HouseholdMemberId" class="block mb-2 text-sm font-medium text-gray-700">WRA Household Member</label>
                         <select asp-for="WRA.HouseholdMemberId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" asp-items="@(new SelectList(Model.WomenInHousehold, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
@@ -31,7 +32,8 @@
                         </select>
                         <span asp-validation-for="WRA.CivilStatus" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                    <div class="mb-2 mt-8">
+                    <h6 class="text-md font-bold text-gray-800 mb-2 mt-8">Family Planning</h6>
+                    <div class="mb-2">
                         <p class="block mb-2 text-sm font-medium text-gray-700">Do you plan to have more children?</p>
                     </div>
                     <div class="mb-4">
@@ -42,7 +44,7 @@
                             </div>
                             <div class="flex items-center me-4">
                                 <input asp-for="WRA.IsPlanningChildren" id="notPlanning" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
-                                <label asp-for="WRA.IsPlanningChildren" class="ms-2 text-sm font-medium text-gray-900">No</label>
+                                <label asp-for="WRA.IsPlanningChildren" class="ms-2 text-sm font-medium text-gray-900">No, Limiting</label>
                             </div>
                         </div>
                         <span asp-validation-for="WRA.IsPlanningChildren" class="block mb-2 text-sm text-red-700"></span>

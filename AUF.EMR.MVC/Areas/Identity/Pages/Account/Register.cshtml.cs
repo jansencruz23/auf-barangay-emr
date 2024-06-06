@@ -140,7 +140,7 @@ namespace AUF.EMR.MVC.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
-            ReturnUrl = returnUrl;
+            ReturnUrl = HttpContext.Request.Path + HttpContext.Request.QueryString;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 

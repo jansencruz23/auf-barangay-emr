@@ -11,7 +11,7 @@
 <div class="container mx-auto px-4 py-8">
     <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form asp-action="Edit">
-            <input type="hidden" asp-for="FPRecord.Id" value="@Model.FPRecord.Id" />
+            <input type="hidden" asp-for="FPRecord.Id" value="@Model.FPRecord.Id" class="home-hero" />
             <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
             <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Add Family Planning</h1>
             <hr class="mb-4">
@@ -86,6 +86,11 @@
                         <label asp-for="FPRecord.SpouseBirthday" class="block mb-2 text-sm font-medium text-gray-700">Spouse's Birthdate</label>
                         <input asp-for="FPRecord.SpouseBirthday" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="FPRecord.SpouseBirthday" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="FPRecord.SpouseAge" class="block mb-2 text-sm font-medium text-gray-700">Spouse's Age</label>
+                        <input asp-for="FPRecord.SpouseAge" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="FPRecord.SpouseAge" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
                         <label asp-for="FPRecord.SpouseOccupation" class="block mb-2 text-sm font-medium text-gray-700">Spouse's Occupation</label>
@@ -712,11 +717,36 @@
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             <div class="flex justify-end">
                 <a asp-action="Index" class="focus:outline-none text-white bg-red-400 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 hover:bg-red-450 !important">Back</a>
-                <button type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add</button>
+                <button type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Save</button>
             </div>
         </form>
     </div>
 </div>
+
+    <a href="#">
+        <div class="home-slide-to-top">
+        <svg viewBox="0 0 1024 1024" class="home-icon32">
+            <path
+            d="M512 135.339l-273.664 273.664c-33.323 33.323-33.323 87.339 0 120.661s87.339 33.323 120.661 0l67.669-67.669v308.992c0 47.104 38.187 85.333 85.333 85.333 47.104 0 85.333-38.229 85.333-85.333v-308.992l67.669 67.669c16.683 16.683 38.485 25.003 60.331 25.003s43.648-8.32 60.331-25.003c33.323-33.323 33.323-87.339 0-120.661l-273.664-273.664z"
+            ></path>
+        </svg>
+        </div>
+    </a>
+    <div>
+        <script>
+        window.addEventListener("scroll", function () {
+            var heroSection = document.querySelector(".home-hero");
+            var slideToTop = document.querySelector(".home-slide-to-top");
+            var heroSectionHeight = heroSection.offsetHeight;
+
+            if (window.pageYOffset > heroSectionHeight) {
+            slideToTop.classList.add("active");
+            } else {
+            slideToTop.classList.remove("active");
+            }
+        });
+        </script>
+    </div>
 
 @section Scripts {
     @{

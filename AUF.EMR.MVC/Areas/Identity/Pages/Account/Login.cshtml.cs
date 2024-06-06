@@ -130,7 +130,7 @@ namespace AUF.EMR.MVC.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Household");
                     }
                     
                     //return LocalRedirect(returnUrl);

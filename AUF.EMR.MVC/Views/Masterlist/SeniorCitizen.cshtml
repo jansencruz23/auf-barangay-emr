@@ -7,14 +7,18 @@
 }
 
 <div class="container mx-auto px-4 py-8">
-    <h1 class="text-2xl font-bold mb-8">Masterlist of Senior Citizens</h1>
+    <div class="flex justify-between">
+        <h1 class="text-2xl font-bold mb-8">Masterlist of Senior Citizens</h1>
 
-    <!--Print Button-->
-    <div class="flex justify-end mb-6">
-        <button type="button" onclick="print('Print', 'Masterlist', @Model.HouseholdNo)"
-                class="flex-shrink-0 inline-block bg-primary-50 hover:bg-primary-300 text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out">
-            Print Senior Citizens
-        </button>
+        <!--Print Button-->
+        <div class="flex justify-end mb-6">
+            <button type="button" onclick="print('Print', 'Masterlist', @Model.HouseholdNo)" class="px-3 py-3 text-sm font-medium text-center inline-flex items-center text-white bg-primary-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200">
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H8Zm-3 7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h1a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5Zm4 11a1 1 0 0 1-1-1v-4h8v4a1 1 0 0 1-1 1H9Z" clip-rule="evenodd" />
+                </svg>
+                <span class="hidden md:inline font-medium">&nbsp; Print Masterlist</span>
+            </button>
+        </div>
     </div>
 
     <!--Search Bar-->
@@ -46,9 +50,8 @@
             <table class="table-auto w-full">
                 <thead class="bg-gray-200">
                     <tr class="bg-gray-200 text-sm">
-                        <th class="px-4 py-2 text-left">HH. NO/ Family Serial No.</th>
+                        <th class="px-4 py-2 text-left">HH. No.</th>
                         <th class="px-4 py-2 text-left">Name</th>
-                        <th class="px-4 py-2 text-left">Address</th>
                         <th class="px-4 py-2 text-left">Sex</th>
                         <th class="px-4 py-2 text-left">Age</th>
                         <th class="px-4 py-2 text-left">Date of Birth</th>
@@ -68,9 +71,6 @@
                                 @Html.DisplayFor(modelItem => item.FormattedFullName)
                             </td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">
-                                @Html.DisplayFor(modelItem => item.Household.FullAddress)
-                            </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Sex)
                             </td>
                             <td class="border-b border-gray-100 px-4 py-2 text-left">
@@ -79,20 +79,17 @@
                             <td class="border-b border-gray-100 px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Birthday)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
-                                @Html.DisplayFor(modelItem => item.IsNhts)
-                            </td>
+                            <td class="border-b border-gray-100 px-4 py-2 text-left">@((item.IsNhts) ? "NHTS" : "Non NHTS")</td>
+                            
                             <!--Action Button-->
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="border-b border-gray-100 px-4 py-2 text-left text-lg">
                                 <a asp-action="EditAdultInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-yellow-300 hover:text-yellow-400 mr-2">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 <a asp-action="AdultDetails" asp-controller="Masterlist" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-green-400 hover:text-green-500 mr-2">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="text-red-300 hover:text-red-400">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
+                                <button data-modal-target="popup-modal-2" data-modal-toggle="popup-modal-2" data-member-id="@item.Id" class="delete-btn text-red-300 hover:text-red-400"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>
                     }
