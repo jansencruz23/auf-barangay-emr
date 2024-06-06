@@ -54,7 +54,7 @@ namespace AUF.EMR.MVC.Controllers
             }
             catch(Exception ex)
             {
-                return BadRequest(ex.Message);
+                return RedirectToAction("Invalid", "Error", new { message = ex.Message });
             }
         }
 
@@ -63,13 +63,13 @@ namespace AUF.EMR.MVC.Controllers
         {
             if (string.IsNullOrWhiteSpace(householdNo))
             {
-                return NotFound();
+                return RedirectToAction("PageNotFound", "Error");
             }
 
             var householdExisting = await _householdService.IsHouseholdNoExisting(householdNo);
             if (!householdExisting)
             {
-                return NotFound();
+                return RedirectToAction("PageNotFound", "Error");
             }
 
             var model = new DashboardVM
