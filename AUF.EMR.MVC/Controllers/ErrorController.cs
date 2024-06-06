@@ -9,9 +9,9 @@ namespace AUF.EMR.MVC.Controllers
             return View(requestUrl);
         }
 
-        public IActionResult Invalid()
+        public IActionResult Invalid(string message)
         {
-            return View();
+            return View(message);
         }
     }
 }

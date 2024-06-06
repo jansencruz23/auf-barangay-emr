@@ -40,7 +40,7 @@ namespace AUF.EMR.MVC.Controllers
             var records = await _fpService.GetFPRecordsWithDetails(householdNo);
             if (records == null)
             {
-                return NotFound();
+                return RedirectToAction("PageNotFound", "Error");
             }
 
             var model = new FamilyPlanningVM
@@ -86,7 +86,7 @@ namespace AUF.EMR.MVC.Controllers
         {
             if (string.IsNullOrWhiteSpace(householdNo))
             {
-                return NotFound();
+                return RedirectToAction("PageNotFound", "Error");
             }
 
             try
@@ -101,7 +101,7 @@ namespace AUF.EMR.MVC.Controllers
             }
             catch (Exception ex)
             {
-                return View();
+                return RedirectToAction("Invalid", "Error", new { message = ex.Message });
             }
         }
 
@@ -112,7 +112,7 @@ namespace AUF.EMR.MVC.Controllers
         {
             if (model == null)
             {
-                return NotFound();
+                return RedirectToAction("PageNotFound", "Error");
             }
 
             try
@@ -146,7 +146,7 @@ namespace AUF.EMR.MVC.Controllers
         {
             if (id == 0 || string.IsNullOrWhiteSpace(householdNo))
             {
-                return NotFound();
+                return RedirectToAction("PageNotFound", "Error");
             }
 
             try
@@ -169,7 +169,7 @@ namespace AUF.EMR.MVC.Controllers
             }
             catch (Exception ex)
             {
-                return View();
+                return RedirectToAction("Invalid", "Error", new { message = ex.Message });
             }
         }
 
@@ -180,12 +180,12 @@ namespace AUF.EMR.MVC.Controllers
         {
             if (model == null)
             {
-                return NotFound();
+                return RedirectToAction("PageNotFound", "Error");
             }
 
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(model);
             }
 
             try
