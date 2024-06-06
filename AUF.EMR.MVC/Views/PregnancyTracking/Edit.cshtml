@@ -40,28 +40,63 @@
                     </div>
                     <div class="mb-4">
                         <label asp-for="PregnancyTracking.ExpectedDateOfDelivery" class="block mb-2 text-sm font-medium text-gray-700">Expected Date of Delivery</label>
-                        <input asp-for="PregnancyTracking.ExpectedDateOfDelivery" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="PregnancyTracking.ExpectedDateOfDelivery" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="PregnancyTracking.ExpectedDateOfDelivery" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="PregnancyTracking.ExpectedDateOfDelivery" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label asp-for="PregnancyTracking.FirstAntenatalCheckUp" class="block mb-2 text-sm font-medium text-gray-700">First Antenatal Checkup</label>
-                        <input asp-for="PregnancyTracking.FirstAntenatalCheckUp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="PregnancyTracking.FirstAntenatalCheckUp" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="PregnancyTracking.FirstAntenatalCheckUp" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="PregnancyTracking.FirstAntenatalCheckUp" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label asp-for="PregnancyTracking.SecondAntenatalCheckUp" class="block mb-2 text-sm font-medium text-gray-700">Second Antenatal Checkup</label>
-                        <input asp-for="PregnancyTracking.SecondAntenatalCheckUp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="PregnancyTracking.SecondAntenatalCheckUp" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="PregnancyTracking.SecondAntenatalCheckUp" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="PregnancyTracking.SecondAntenatalCheckUp" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label asp-for="PregnancyTracking.ThirdAntenatalCheckUp" class="block mb-2 text-sm font-medium text-gray-700">Third Antenatal Checkup</label>
-                        <input asp-for="PregnancyTracking.ThirdAntenatalCheckUp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="PregnancyTracking.ThirdAntenatalCheckUp" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="PregnancyTracking.ThirdAntenatalCheckUp" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="PregnancyTracking.ThirdAntenatalCheckUp" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label asp-for="PregnancyTracking.MoreCheckUp" class="block mb-2 text-sm font-medium text-gray-700">Other Checkup</label>
-                        <input asp-for="PregnancyTracking.MoreCheckUp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="PregnancyTracking.MoreCheckUp" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="PregnancyTracking.MoreCheckUp" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="PregnancyTracking.MoreCheckUp" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -78,33 +113,75 @@
                     </div>
                     <div class="mb-4">
                         <label asp-for="PregnancyTracking.PostnatalCheckUp24hrs" class="block mb-2 text-sm font-medium text-gray-700">Postnatal Checkup 24 Hours</label>
-                        <input asp-for="PregnancyTracking.PostnatalCheckUp24hrs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="PregnancyTracking.PostnatalCheckUp24hrs" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="PregnancyTracking.PostnatalCheckUp24hrs" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="PregnancyTracking.PostnatalCheckUp24hrs" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label asp-for="PregnancyTracking.PostnatalCheckUp7days" class="block mb-2 text-sm font-medium text-gray-700">Postnatal Checkup 7 Days</label>
-                        <input asp-for="PregnancyTracking.PostnatalCheckUp7days" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="PregnancyTracking.PostnatalCheckUp7days" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="PregnancyTracking.PostnatalCheckUp7days" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="PregnancyTracking.PostnatalCheckUp7days" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label asp-for="PregnancyTracking.LiveBirth" class="block mb-2 text-sm font-medium text-gray-700">Live Birth</label>
-                        <input asp-for="PregnancyTracking.LiveBirth" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="PregnancyTracking.LiveBirth" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="PregnancyTracking.LiveBirth" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="PregnancyTracking.LiveBirth" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label asp-for="PregnancyTracking.MaternalDeath" class="block mb-2 text-sm font-medium text-gray-700">Maternal Death</label>
-                        <input asp-for="PregnancyTracking.MaternalDeath" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="PregnancyTracking.MaternalDeath" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="PregnancyTracking.MaternalDeath" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="PregnancyTracking.MaternalDeath" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label asp-for="PregnancyTracking.StillBirth" class="block mb-2 text-sm font-medium text-gray-700">Still Birth</label>
-                        <input asp-for="PregnancyTracking.StillBirth" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="PregnancyTracking.StillBirth" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="PregnancyTracking.StillBirth" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="PregnancyTracking.StillBirth" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label asp-for="PregnancyTracking.EarlyNewbornDeath" class="block mb-2 text-sm font-medium text-gray-700">Early Newborn Death</label>
-                        <input asp-for="PregnancyTracking.EarlyNewbornDeath" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="PregnancyTracking.EarlyNewbornDeath" class="block mb-2 text-sm text-red-700"></span>
+                        <div class="relative w-full md:w-4/5 mb-4">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker asp-for="PregnancyTracking.EarlyNewbornDeath" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <span asp-validation-for="PregnancyTracking.EarlyNewbornDeath" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
                 </div>
             </div>

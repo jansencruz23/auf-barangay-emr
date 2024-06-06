@@ -21,11 +21,8 @@
     var oralHealth = new List<string> { "Infant", "OneToFour", "FiveToNine", "TenToFourteen", "PregnantFifteenToNineteen", "PregnantTwentyToFourtyNine", "Details", "EditOralHealthInfo" };
     var inOralHealth = oralHealth.Contains(action ?? "", StringComparer.OrdinalIgnoreCase);
 
-    var wra = new List<string> { "Create", "Index", "Edit", "Details" };
-    var inWra = wra.Contains(action ?? "", StringComparer.OrdinalIgnoreCase);
-
-    var pregTrack = new List<string> { "Index", "Create", "Edit", "Details" };
-    var inPregTrack = pregTrack.Contains(action ?? "", StringComparer.OrdinalIgnoreCase);
+    var crud = new List<string> { "Create", "Index", "Edit", "Details" };
+    var inCrud = crud.Contains(action ?? "", StringComparer.OrdinalIgnoreCase);
 }
 
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-72 h-screen pt-4 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0" aria-label="Sidebar">
@@ -162,9 +159,9 @@
                 </ul>
             </li>
             <li>
-                <a asp-action="Index" asp-controller="WRA" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("WRA") && inWra ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a asp-action="Index" asp-controller="WRA" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("WRA") && inCrud ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     @{
-                        if (controller.Equals("WRA") && inWra)
+                        if (controller.Equals("WRA") && inCrud)
                         {
                             <img src="~/img/Nav/female-couple.png" class="w-5 h-5" />
                         }
@@ -177,9 +174,9 @@
                 </a>
             </li>
             <li>
-                <a asp-action="Index" asp-controller="PregnancyTracking" asp-route-householdNo="@Model" class="nav-link @((controller.Equals("PregnancyTracking") || controller.Equals("PregnancyTrackingHH")) && inPregTrack ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a asp-action="Index" asp-controller="PregnancyTracking" asp-route-householdNo="@Model" class="nav-link @((controller.Equals("PregnancyTracking") || controller.Equals("PregnancyTrackingHH")) && inCrud ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     @{
-                        if ((controller.Equals("PregnancyTracking") || controller.Equals("PregnancyTrackingHH")) && inPregTrack)
+                        if ((controller.Equals("PregnancyTracking") || controller.Equals("PregnancyTrackingHH")) && inCrud)
                         {
                             <img src="~/img/Nav/person-pregnant.png" class="w-5 h-5" />
                         }
@@ -192,9 +189,9 @@
                 </a>
             </li>
             <li>
-                <a asp-action="Index" asp-controller="FamilyPlanning" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("FamilyPlanning") && action.Equals("Index") ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a asp-action="Index" asp-controller="FamilyPlanning" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("FamilyPlanning") && inCrud ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     @{
-                        if (controller.Equals("FamilyPlanning") && action.Equals("Index"))
+                        if (controller.Equals("FamilyPlanning") && inCrud)
                         {
                             <img src="~/img/Nav/family-dress.png" class="w-5 h-5" />
                         }
