@@ -16,7 +16,7 @@
             </div>
             <div class="col-span-12">
                 <div class="col-span-12 mt-2 flex flex-col lg:flex-row gap-2">
-                    <div class="bg-white shadow-lg rounded-lg p-4 flex-1" id="chartcolumn"></div>
+                    <div class="bg-white shadow-lg rounded-lg p-4 flex-1" id="chartbar"></div>
                     <div class="bg-white shadow-lg rounded-lg p-4 flex-1" id="chartpie"></div>
                 </div>
             </div>
@@ -148,7 +148,7 @@
         chart: {
             type: 'bar',
             height: 350,
-            fontFamily: 'Poppins', // Set font family to Poppins
+            fontFamily: 'Poppins',
             toolbar: {
                 show: false
             },
@@ -180,12 +180,12 @@
             categories: ['Family Planning', 'Patient Record', 'Pregnancy Record', 'Pregnancy Track', "Women of Reproductive Age"],
             labels: {
                 style: {
-                    fontFamily: 'Poppins' 
+                    fontFamily: 'Poppins'
                 }
             }
         },
         title: {
-            text: 'Total Number of Forms', 
+            text: 'Total Number of Forms',
             margin: 20,
             offsetY: -10,
             floating: true,
@@ -196,10 +196,23 @@
                 color: '#333333'
             }
         },
+        tooltip: {
+            enabled: true,
+            shared: false,
+            onDatasetHover: {
+                highlightDataSeries: false,
+            },
+        },
     };
 
-    var chart = new ApexCharts(document.querySelector("#chartcolumn"), options);
+    var chart = new ApexCharts(document.querySelector("#chartbar"), options);
     chart.render();
+
+    chart.tooltip.options.tooltip.theme = {
+        title: {
+            text: 'Total:'
+        }
+    };
 </script>
 
 
