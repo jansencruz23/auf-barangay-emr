@@ -30,14 +30,25 @@ namespace AUF.EMR.MVC.Controllers
         [Authorize(Policy = "Admin")]
         public async Task<ActionResult> Edit(int id)
         {
-            var barangay = await _barangayService.GetBarangay();
-            var model = new EditBarangayVM
+            if (id == 0)
             {
-                Barangay = barangay,
-                LogoFile = null
-            };
+                return RedirectToAction("PageNotFound", "Error");
+            }
+            try
+            {
+                var barangay = await _barangayService.GetBarangay();
+                var model = new EditBarangayVM
+                {
+                    Barangay = barangay,
+                    LogoFile = null
+                };
 
-            return View(model);
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Invalid", "Error", new { message = ex.Message });
+            }
         }
 
         // POST: BarangayController/Edit/5

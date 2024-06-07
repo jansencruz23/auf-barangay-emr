@@ -4,14 +4,14 @@ namespace AUF.EMR.MVC.Controllers
 {
     public class ErrorController : Controller
     {
-        public IActionResult PageNotFound()
+        public IActionResult PageNotFound(string requestUrl = "")
         {
-            return View();
+            return View(requestUrl);
         }
 
-        public IActionResult Invalid()
+        public IActionResult Invalid(string message)
         {
-            return View();
+            return View(message);
         }
     }
 }

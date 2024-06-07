@@ -3,6 +3,14 @@
 @{
     Layout = "Layouts/_BarangaySideLayout";
     ViewData["Title"] = "Register";
+    var errors = string.Join("; ", ModelState.Values
+                                        .SelectMany(x => x.Errors)
+                                        .Select(x => x.ErrorMessage));
+}
+
+@if (!string.IsNullOrWhiteSpace(errors))
+{
+    @await Html.PartialAsync("Popups/_LoginError", errors)
 }
 
 <div class="container mx-auto px-4 py-8">
@@ -10,7 +18,6 @@
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
             <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Add an Employee</h1>
             <hr class="mb-4">
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Left Column -->
                 <div>

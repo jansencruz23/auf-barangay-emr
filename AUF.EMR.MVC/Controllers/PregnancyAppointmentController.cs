@@ -2,11 +2,13 @@
 using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.DetailVM;
 using AUF.EMR.MVC.Models.EditVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize(Policy = "User")]
     public class PregnancyAppointmentController : Controller
     {
         private readonly IPregnancyAppointmentService _pregAppointmentService;

@@ -10,9 +10,11 @@ using FastReport;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AUF.EMR.MVC.Controllers
 {
+    [Authorize(Policy = "User")]
     public class PatientRecordController : Controller
     {
         private readonly IPatientRecordService _patientRecordService;
@@ -184,16 +186,30 @@ namespace AUF.EMR.MVC.Controllers
         // POST: PatientRecordController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, string householdNo)
         {
+            if (string.IsNullOrWhiteSpace(householdNo))
+            {
+                return RedirectToAction("PageNotFound", "Error");
+            }
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                var patient = await _patientRecordService.GetPatientRecordWithDetails(id);
+                if (patient == null)
+                {
+                    return RedirectToAction("PageNotFound", "Error");
+                }
+
+                await _patientRecordService.Delete(patient);
+                return RedirectToAction(nameof(Index), new { householdNo = householdNo });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
             }
+
+            return RedirectToAction("Invalid", "Error");
         }
 
         public async Task<string> Print(string householdNo, int id, int householdMemberId)

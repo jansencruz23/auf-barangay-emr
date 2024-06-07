@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AUF.EMR.MVC.Controllers
 {
-    [Authorize(Policy = "Admin")]
+    
     public class UserController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -22,6 +22,7 @@ namespace AUF.EMR.MVC.Controllers
             _userManager = userManager;
         }
 
+        [Authorize(Policy = "Admin")]
         // GET: UserController
         public async Task<ActionResult> Index()
         {
@@ -32,6 +33,7 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
+        [Authorize(Policy = "Admin")]
         // GET: UserController/Profile/5
         public async Task<ActionResult> Profile(string id)
         {
@@ -42,12 +44,14 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
+        [Authorize(Policy = "Admin")]
         // GET: UserController/Create
         public ActionResult Create()
         {
             return RedirectToPage("/Account/Register", new { area = "Identity" });
         }
 
+        [Authorize(Policy = "Admin")]
         // GET: UserController/Edit/5
         public async Task<ActionResult> Edit(string id)
         {
@@ -66,6 +70,7 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // POST: UserController/Edit/5
+        [Authorize(Policy = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(string id, EditUserVM model)
@@ -128,6 +133,7 @@ namespace AUF.EMR.MVC.Controllers
 
         // GET: 
         [HttpGet]
+        [Authorize(Policy = "Admin")]
         public async Task<ActionResult> ResetPassword(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -145,6 +151,7 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // POST: 
+        [Authorize(Policy = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(string id, ResetPasswordVM model)
@@ -190,6 +197,7 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
+        [Authorize(Policy = "Admin")]
         public async Task<ActionResult> AdminChangePassword(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -207,6 +215,7 @@ namespace AUF.EMR.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "Admin")]
         public async Task<IActionResult> AdminChangePassword(ChangePasswordVM model)
         {
             if (!ModelState.IsValid)
@@ -237,6 +246,7 @@ namespace AUF.EMR.MVC.Controllers
 
         // POST: UserController/Delete/5
         [HttpPost]
+        [Authorize(Policy = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Delete(string id)
         {
@@ -261,5 +271,36 @@ namespace AUF.EMR.MVC.Controllers
                 return View();
             }
         }
+
+        [Authorize(Policy = "User")]
+        public async Task<ActionResult> UserProfile(string householdNo, string requestUrl)
+        {
+            try
+            {
+                var user = await _userManager.GetUserAsync(User);
+                var model = new DetailUserVM
+                {
+                    User = user,
+                    HouseholdNo = householdNo,
+                    RequestUrl = requestUrl
+                };
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Invalid", "Error");
+            }
+        }
+
+        //[HttpPost]
+        //[Authorize(Policy = "User")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> UserProfile(int id, DetailUserVM model)
+        //{
+        //    try
+        //    {
+        //        await _userManager.UpdateAsync(model.User);
+        //    }
+        //}
     }
 }

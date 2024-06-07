@@ -19,6 +19,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Microsoft.Identity.Client;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace AUF.EMR.MVC.Areas.Identity.Pages.Account
 {
@@ -67,6 +69,8 @@ namespace AUF.EMR.MVC.Areas.Identity.Pages.Account
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
+
+        public string ErrorMessage { get; set; }
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -178,15 +182,13 @@ namespace AUF.EMR.MVC.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
                     await _userManager.AddToRoleAsync(user, "User");
 
-                    return LocalRedirect(returnUrl);
+                    return RedirectToAction("Index", "User");
                 }
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-
-            // If we got this far, something failed, redisplay form
             return Page();
         }
 

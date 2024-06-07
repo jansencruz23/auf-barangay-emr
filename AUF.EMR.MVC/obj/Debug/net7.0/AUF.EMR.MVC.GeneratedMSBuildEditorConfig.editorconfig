@@ -472,6 +472,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX1ByZWduYW5jeVRyYWNraW5nTGlzdEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_ProfileLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX1Byb2ZpbGVMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Layouts/_WRAindex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dHNcX1dSQWluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -498,6 +502,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Navigations/_HouseholdNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9Ib3VzZWhvbGROYXYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Navigations/_ProfileNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmlnYXRpb25zXF9Qcm9maWxlTmF2YmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/Shared/Popups/_AlertError.cshtml]
@@ -554,6 +562,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/User/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/User/UserProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/arceg/Desktop/College Life/2nd Year/BSCS - Y2S2/CCS06/auf_ninoy_aquino_emr/auf-barangay-emr/AUF.EMR.MVC/Views/VaccinationAppointment/Create.cshtml]
