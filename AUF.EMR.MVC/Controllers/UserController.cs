@@ -273,17 +273,34 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         [Authorize(Policy = "User")]
-        public async Task<ActionResult> UserProfile()
+        public async Task<ActionResult> UserProfile(string householdNo, string requestUrl)
         {
             try
             {
                 var user = await _userManager.GetUserAsync(User);
-                return View(user);
+                var model = new DetailUserVM
+                {
+                    User = user,
+                    HouseholdNo = householdNo,
+                    RequestUrl = requestUrl
+                };
+                return View(model);
             }
             catch (Exception ex)
             {
                 return RedirectToAction("Invalid", "Error");
             }
         }
+
+        //[HttpPost]
+        //[Authorize(Policy = "User")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> UserProfile(int id, DetailUserVM model)
+        //{
+        //    try
+        //    {
+        //        await _userManager.UpdateAsync(model.User);
+        //    }
+        //}
     }
 }

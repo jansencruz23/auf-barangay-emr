@@ -8,7 +8,7 @@
 
 <div class="container mx-auto px-4 py-8">
     <div class="flex justify-between items-center mb-4">
-        <h1 class="text-2xl font-bold mb-8">Pregnancy Records</h1>
+        <h1 class="text-2xl font-bold mb-8 text-gray-800">Pregnancy Records</h1>
 
         <div class="flex justify-end space-x-2 mb-6">
 
@@ -55,30 +55,30 @@
                 <tbody>
                     @foreach (var item in Model.PregnancyRecords)
                     {
-                        <tr class="text-sm hover-household transition duration-300 ease-in-out">
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <tr class="text-sm hover-household transition duration-300 ease-in-out border-b border-gray-100 ">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Patient.FormattedFullName)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Age)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Husband)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Gravida)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Para)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.CellphoneNumber)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.EDC)
                             </td>
                             <!--Action Buttons-->
-                            <td class="border-b border-gray-100 px-4 py-2 text-left inline-flex items-center text-center text-lg">
+                            <td class="px-4 py-2 text-left inline-flex items-center text-center text-lg">
                                 <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>
 
                                 <button type="button" onclick="print('Print', 'PregnancyRecord', @Model.HouseholdNo, @item.Id, @item.PatientId)" class="text-blue-400 hover:text-blue-600 mr-2"><i class="fa-solid fa-print"></i></button>

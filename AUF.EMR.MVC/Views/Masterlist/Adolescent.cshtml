@@ -65,37 +65,37 @@
                 <tbody>
                     @foreach (var item in Model.HouseholdMembers)
                     {
-                        <tr class="text-sm hover-table-content transition duration-300 ease-in-out">
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                        <tr class="text-sm hover-table-content transition duration-300 ease-in-out border-b border-gray-100">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Household.HouseholdNo)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.FormattedFullName)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.NameOfMother)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.NameOfFather)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Sex)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Age)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @Html.DisplayFor(modelItem => item.Birthday)
                             </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @((item.IsNhts) ? "NHTS" : "Non NHTS")
                                 </td>
-                            <td class="border-b border-gray-100 px-4 py-2 text-left">
+                            <td class="px-4 py-2 text-left">
                                 @((item.IsInSchool.HasValue) ? (item.IsInSchool.Value ? "In School" : "Out of School Youth") : "") 
                             </td>
 
                             <!--Action Button-->
-                            <td class="border-b border-gray-100 px-4 py-2 text-left text-lg">
+                            <td class="px-4 py-2 text-left text-lg">
                                 <a asp-action="EditChildrenInfo" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-yellow-300 hover:text-yellow-400 mr-2">
                                     <i class="fas fa-edit"></i>
                                 </a>

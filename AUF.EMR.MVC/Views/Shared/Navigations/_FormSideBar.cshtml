@@ -204,9 +204,9 @@
                 </a>
             </li>
             <li>
-                <a asp-action="Index" asp-controller="PatientRecord" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("PatientRecord") && action.Equals("Index") ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a asp-action="Index" asp-controller="PatientRecord" asp-route-householdNo="@Model" class="nav-link @((controller.Equals("PatientRecord") || controller.Equals("VaccinationAppointment")) && inCrud ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     @{
-                        if (controller.Equals("PatientRecord") && action.Equals("Index"))
+                        if ((controller.Equals("PatientRecord") || controller.Equals("VaccinationAppointment")) && inCrud)
                         {
                             <img src="~/img/Nav/syringe.png" class="w-5 h-5" />
                         }
@@ -219,9 +219,9 @@
                 </a>
             </li>
             <li>
-                <a asp-action="Index" asp-controller="PregnancyRecord" asp-route-householdNo="@Model" class="nav-link @(controller.Equals("PregnancyRecord") && action.Equals("Index") ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a asp-action="Index" asp-controller="PregnancyRecord" asp-route-householdNo="@Model" class="nav-link @((controller.Equals("PregnancyRecord") || controller.Equals("PregnancyAppointment")) && inCrud ? "active" : "") flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     @{
-                        if (controller.Equals("PregnancyRecord") && action.Equals("Index"))
+                        if ((controller.Equals("PregnancyRecord") || controller.Equals("PregnancyAppointment")) && inCrud)
                         {
                             <img src="~/img/Nav/memo-circle-check.png" class="w-5 h-5" />
                         }
