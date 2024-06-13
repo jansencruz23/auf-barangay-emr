@@ -80,7 +80,7 @@
 
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">First Quarter Visit</dt>
-                    <dd class="text-gray-900"><p>@((Model.Household.FirstQtrVisit.HasValue) ? Model.Household.FirstQtrVisit.Value.ToString("MM-dd-yy") : "")</p></dd>
+                    <dd class="text-gray-900"><p>@((Model.Household.FirstQtrVisit.HasValue) ? Model.Household.FirstQtrVisit.Value.ToString("MM/dd/yy") : "")</p></dd>
                 </div>
 
                 <div class="flex items-center pb-2">
@@ -90,7 +90,7 @@
 
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Second Quarter Visit</dt>
-                    <dd class="text-gray-900"><p>@((Model.Household.SecondQtrVisit.HasValue) ? Model.Household.SecondQtrVisit.Value.ToString("MM-dd-yy") : "")</p></dd>
+                    <dd class="text-gray-900"><p>@((Model.Household.SecondQtrVisit.HasValue) ? Model.Household.SecondQtrVisit.Value.ToString("MM/dd/yy") : "")</p></dd>
                 </div>
 
                 <div class="flex items-center pb-2">
@@ -100,7 +100,7 @@
 
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Third Quarter Visit</dt>
-                    <dd class="text-gray-900"><p>@((Model.Household.ThirdQtrVisit.HasValue) ? Model.Household.ThirdQtrVisit.Value.ToString("MM-dd-yy") : "")</p></dd>
+                    <dd class="text-gray-900"><p>@((Model.Household.ThirdQtrVisit.HasValue) ? Model.Household.ThirdQtrVisit.Value.ToString("MM/dd/yy") : "")</p></dd>
                 </div>
 
                 <div class="flex items-center pb-2">
@@ -110,7 +110,7 @@
 
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Fourth Quarter Visit</dt>
-                    <dd class="text-gray-900"><p>@((Model.Household.FourthQtrVisit.HasValue) ? Model.Household.FourthQtrVisit.Value.ToString("MM-dd-yy") : "")</p></dd>
+                    <dd class="text-gray-900"><p>@((Model.Household.FourthQtrVisit.HasValue) ? Model.Household.FourthQtrVisit.Value.ToString("MM/dd/yy") : "")</p></dd>
                 </div>
 
                 <div class="flex items-center pb-2">
@@ -189,7 +189,7 @@
                                 @member.Age
                             </td>
                             <td class="px-4 py-2">
-                                @member.Birthday.ToString("MM-dd-yy")
+                                @member.Birthday.ToString("MM/dd/yy")
                             </td>
                             <td class="px-6 py-2 text-lg">
                                 <a asp-action="Details" asp-controller="HouseholdMember" asp-route-id="@member.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>

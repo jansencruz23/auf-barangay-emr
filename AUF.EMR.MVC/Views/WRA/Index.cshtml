@@ -64,11 +64,6 @@
                         <th class="px-4 py-2 text-left">
                             Age
                         </th>
-
-                        @*<th class="px-2 py-2 text-left">
-                        CivilStatus
-                        </th>*@
-
                         <th class="px-4 py-2 text-left">
                             To have Children?
                         </th>
@@ -76,15 +71,6 @@
                         <th class="px-4 py-2 text-left">
                             Current Plan
                         </th>
-
-                        @*                  <th>
-                        IsPlanChildrenSpacing
-                        </th>
-
-                        <th>
-                        IsPlanChildrenLimiting
-                        </th> *@
-
                         <th class="px-4 py-2 text-left">
                             Fucundity
                         </th>
@@ -96,31 +82,6 @@
                         <th class="px-4 py-2 text-left">
                             FP Type
                         </th>
-
-                        @*                  <th>
-                        ShiftToModern
-                        </th>
-
-                        <th>
-                        IsMFPUnmet
-                        </th>
-
-                        <th>
-                        AcceptModernFpMethod
-                        </th>
-
-                        <th>
-                        ModernFPMethod
-                        </th>
-
-                        <th>
-                        FPAcceptedDate
-                        </th>
-
-                        <th class="px-2 py-2 text-left">
-                        WRA
-                        </th>*@
-
                         <th class="px-4 py-2">
                             Actions
                         </th>
@@ -155,8 +116,8 @@
                                 @((item.IsFPModern.HasValue) ? (item.IsFPModern.Value ? "Modern" : "Traditional") : "")
                             </td>
                             <td class="px-4 py-2 inline-flex items-center text-center text-lg">
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="text-yellow-300 hover:text-yellow-400 mr-2"><i class="fas fa-edit"></i></a>
                                 <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="text-yellow-300 hover:text-yellow-400 mr-2"><i class="fas fa-edit"></i></a>
                                 <button data-modal-target="popup-modal-2" data-modal-toggle="popup-modal-2" data-member-id="@item.Id" class="delete-btn text-red-400 hover:text-red-500 mr-2"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>

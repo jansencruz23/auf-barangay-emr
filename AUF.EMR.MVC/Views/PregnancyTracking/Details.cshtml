@@ -58,77 +58,77 @@
 
         <div>
             <hr class="mb-2" />
-            <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 py-5">
+            <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 py-5 text-sm">
                 <div class="flex items-center">
-                    <dt class="text-gray-700 font-semibold mr-10 flex-shrink-0 w-40">Name</dt>
+                    <dt class="text-gray-700 font-semibold mr-10 flex-shrink-0 w-44">Name</dt>
                     <dd class="text-gray-900">@Model.PregnancyTracking.HouseholdMember.FullName</dd>
                 </div>
 
                 <div class="flex items-center ">
-                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Pregnancy Outcome</dt>
+                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Pregnancy Outcome</dt>
                     <dd class="text-gray-900">@Model.PregnancyTracking.PregnancyOutcome</dd>
                 </div>
 
                 <div class="flex items-center ">
-                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Age</dt>
+                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Age</dt>
                     <dd class="text-gray-900">@Model.PregnancyTracking.Age</dd>
                 </div>
 
                 <div class="flex items-center ">
-                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">24hrs after birth</dt>
+                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">24hrs after birth</dt>
                     <dd class="text-gray-900">@((Model.PregnancyTracking.PostnatalCheckUp24hrs.HasValue) ? Model.PregnancyTracking.PostnatalCheckUp24hrs.Value.ToString("MMM/dd/yyyy") : "")</dd>
                 </div>
 
                 <div class="flex items-center ">
-                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Gravidity</dt>
+                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Gravidity</dt>
                     <dd class="text-gray-900">@Model.PregnancyTracking.Gravidity</dd>
                 </div>
 
                 <div class="flex items-center ">
-                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">7 days after birth</dt>
+                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">7 days after birth</dt>
                     <dd class="text-gray-900">@((Model.PregnancyTracking.PostnatalCheckUp7days.HasValue) ? Model.PregnancyTracking.PostnatalCheckUp7days.Value.ToString("MMM/dd/yyyy") : "")</dd>
                 </div>
 
                 <div class="flex items-center ">
-                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Parity</dt>
+                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Parity</dt>
                     <dd class="text-gray-900">@Model.PregnancyTracking.Parity</dd>
                 </div>
 
                 <div class="flex items-center ">
-                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Civil Registration</dt>
+                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Civil Registration</dt>
                     <dd class="text-gray-900">@((Model.PregnancyTracking.PostnatalCheckUp24hrs.HasValue) ? Model.PregnancyTracking.PostnatalCheckUp24hrs.Value.ToString("MMM/dd/yyyy") : "")</dd>
                 </div>
 
                 <div class="flex items-center ">
-                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Expected Date of Delivery</dt>
+                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Expected Date of Delivery</dt>
                     <dd class="text-gray-900">@Model.PregnancyTracking.ExpectedDateOfDelivery.ToString("MMM/dd/yyyy")</dd>
                 </div>
 
                 <div></div>
 
                 <div class="flex items-center ">
-                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">1st Trimester Check-Up</dt>
+                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">1st Trimester Check-Up</dt>
                     <dd class="text-gray-900">@((Model.PregnancyTracking.FirstAntenatalCheckUp.HasValue) ? Model.PregnancyTracking.FirstAntenatalCheckUp.Value.ToString("MMM/dd/yyyy") : "")</dd>
                 </div>
 
                 <div></div>
 
                 <div class="flex items-center ">
-                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">2nd Trimester Check-Up</dt>
+                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">2nd Trimester Check-Up</dt>
                     <dd class="text-gray-900">@((Model.PregnancyTracking.SecondAntenatalCheckUp.HasValue) ? Model.PregnancyTracking.SecondAntenatalCheckUp.Value.ToString("MMM/dd/yyyy") : "")</dd>
                 </div>
 
                 <div></div>
 
                 <div class="flex items-center ">
-                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">3rd Trimester Check-Up</dt>
+                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">3rd Trimester Check-Up</dt>
                     <dd class="text-gray-900">@((Model.PregnancyTracking.ThirdAntenatalCheckUp.HasValue) ? Model.PregnancyTracking.ThirdAntenatalCheckUp.Value.ToString("MMM/dd/yyyy") : "")</dd>
                 </div>
 
                 <div></div>
 
                 <div class="flex items-center ">
-                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Other Check-Up</dt>
+                    <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Other Check-Up</dt>
                     <dd class="text-gray-900">@((Model.PregnancyTracking.MoreCheckUp.HasValue) ? Model.PregnancyTracking.MoreCheckUp.Value.ToString("MMM/dd/yyyy") : "")</dd>
                 </div>
             </dl>
