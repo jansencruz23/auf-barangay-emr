@@ -12,7 +12,7 @@
     var controller = this.ViewContext.RouteData.Values["controller"].ToString();
     var action = this.ViewContext.RouteData.Values["action"].ToString();
 
-    var household = new List<string> { "Index", "HouseholdProfile", "Edit", "Create" };
+    var household = new List<string> { "Index", "HouseholdProfile", "Edit", "Create", "Details" };
     var inHousehold = household.Contains(action ?? "", StringComparer.OrdinalIgnoreCase); 
 
     var masterlists = new List<string> { "Infant", "Newborn", "UnderFive", "SchoolAged", "Adolescent", "Adult", "SeniorCitizen", "Create", "Details", "EditChildrenInfo", "EditAdultInfo", "ChildDetails", "AdultDetails" };

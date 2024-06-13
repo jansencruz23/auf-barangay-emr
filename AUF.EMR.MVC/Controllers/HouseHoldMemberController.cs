@@ -49,15 +49,38 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHoldMemberController/Details/5
-        public async Task<ActionResult> Details(int id, string requestUrl)
+        public async Task<ActionResult> Details(int id, string householdNo)
         {
-            var model = new DetailHouseholdMemberVM
+            if (string.IsNullOrWhiteSpace(householdNo))
             {
-                HouseholdMember = await _houseHoldMemberService.GetHouseholdMemberWithDetails(id),
-                RequestUrl = requestUrl
-            };
+                return RedirectToAction("PageNotFound", "Error");
+            }
 
-            return View(model);
+            try
+            {
+                var member = await _houseHoldMemberService.GetHouseholdMemberWithDetails(id);
+                if (member == null)
+                {
+                    return RedirectToAction("PageNotFound", "Error");
+                }
+
+                var model = new DetailHouseholdMemberVM
+                {
+                    HouseholdMember = member,
+                    HouseholdNo = householdNo,
+                    RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
+                    FirstClassificationList = new ClassificationService().GetClassificationString(member.FirstQtrClassification),
+                    SecondClassificationList = new ClassificationService().GetClassificationString(member.SecondQtrClassification),
+                    ThirdClassificationList = new ClassificationService().GetClassificationString(member.ThirdQtrClassification),
+                    FourthClassificationList = new ClassificationService().GetClassificationString(member.FourthQtrClassification),
+                };
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Invalid", "Error", new { message = ex.Message });
+            }
         }
 
         // GET: HouseHoldMemberController/Create
@@ -123,7 +146,7 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: HouseHoldMemberController/Edit/5
-        public async Task<ActionResult> Edit(int id, string requestUrl)
+        public async Task<ActionResult> Edit(int id, string householdNo, string requestUrl)
         {
             if (id == 0)
             {
@@ -148,9 +171,9 @@ namespace AUF.EMR.MVC.Controllers
                 var model = new EditHouseholdMemberVM
                 {
                     HouseholdMember = member,
-                    RequestUrl = requestUrl,
                     HouseholdNo = member.Household.HouseholdNo,
                     AgePrefix = age,
+                    RequestUrl = requestUrl,
                     AgeSuffix = ageSuffix,
                     Classifications = classifications,
                     FirstQtrClassifications = new ClassificationService().MapSelected(member.FirstQtrClassification),

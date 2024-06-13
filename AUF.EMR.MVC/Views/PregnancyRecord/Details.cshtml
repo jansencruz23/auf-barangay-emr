@@ -215,7 +215,7 @@
                             </td>
                             <!--Action Buttons-->
                             <td class="px-4 py-2 inline-flex items-center text-center text-lg">
-                                <a asp-action="Edit" asp-controller="PregnancyAppointment" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-yellow-300 hover:text-yellow-400 mr-2">
+                                <a asp-action="Edit" asp-controller="PregnancyAppointment" asp-route-requestUrl="@Model.RequestUrl" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-yellow-300 hover:text-yellow-400 mr-2">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 <a asp-action="Details" asp-controller="PregnancyAppointment" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>

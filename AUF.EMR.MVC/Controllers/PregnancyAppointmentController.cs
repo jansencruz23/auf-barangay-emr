@@ -40,7 +40,8 @@ namespace AUF.EMR.MVC.Controllers
                 var model = new DetailPregnancyAppointmentVM
                 {
                     PregnancyAppointment = appointment,
-                    HouseholdNo = householdNo
+                    HouseholdNo = householdNo,
+                    RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
                 };
 
                 return View(model);
@@ -103,7 +104,7 @@ namespace AUF.EMR.MVC.Controllers
         }
 
         // GET: PregnancyAppointmentController/Edit/5
-        public async Task<ActionResult> Edit(int id, string householdNo)
+        public async Task<ActionResult> Edit(int id, string householdNo, string requestUrl)
         {
             if (string.IsNullOrWhiteSpace(householdNo) || id == 0)
             {
@@ -121,6 +122,7 @@ namespace AUF.EMR.MVC.Controllers
             {
                 HouseholdNo = householdNo,
                 PregnancyAppointment = appointment,
+                RequestUrl = requestUrl 
             };
 
             return View(model);

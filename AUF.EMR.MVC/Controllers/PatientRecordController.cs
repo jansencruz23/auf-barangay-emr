@@ -70,7 +70,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new DetailPatientRecordVM
             {
                 HouseholdNo = householdNo,
-                PatientRecord = record
+                PatientRecord = record,
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString,
             };
 
             return View(model);

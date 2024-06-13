@@ -79,7 +79,8 @@ namespace AUF.EMR.MVC.Controllers
             var model = new DetailPregnancyRecordVM
             {
                 HouseholdNo = householdNo,
-                PregnancyRecord = record
+                PregnancyRecord = record,
+                RequestUrl = HttpContext.Request.Path + HttpContext.Request.QueryString
             };
 
             return View(model);

@@ -1,4 +1,5 @@
 ﻿using AUF.EMR.MVC.Models;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace AUF.EMR.MVC.Services
 {
@@ -131,6 +132,26 @@ namespace AUF.EMR.MVC.Services
             }
 
             return newClassifications;
+        }
+
+        public List<string> GetClassificationString(string classifications)
+        {
+            var classificationList = new List<string>();
+            if (string.IsNullOrWhiteSpace(classifications))
+            {
+                return classificationList;
+            }
+
+            var mappedClassifications = MapSelected(classifications);
+            foreach (var classification in mappedClassifications)
+            {
+                if (classification.Selected)
+                {
+                    classificationList.Add(classification.Name);
+                }
+            }
+
+            return classificationList;
         }
     }
 }
