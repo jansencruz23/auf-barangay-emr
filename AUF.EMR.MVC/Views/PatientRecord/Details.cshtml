@@ -18,7 +18,7 @@
             <div class="space-x-2 mb-3 flex justify-end">
                 <div class="flex justify-end mb-6 gap-3">
                     <!--Print Button-->
-                    <div class="flex-shrink-0 inline-block bg-blue-500 hover:bg-blue-300 inline-flex items-center  text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out text-sm w-28">
+                    <div class="px-5 py-2.5 text-sm font-medium text-center inline-flex items-center text-white bg-blue-500 hover:bg-blue-400 rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-200">
                         <button type="button" onclick="print('Print', 'PatientRecord', '@Model.HouseholdNo', '@Model.PatientRecord.Id', '@Model.PatientRecord.PatientId')">
                             <svg class="w-5 h-5 text-white inline-block mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H8Zm-3 7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h1a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5Zm4 11a1 1 0 0 1-1-1v-4h8v4a1 1 0 0 1-1 1H9Z" clip-rule="evenodd" />
@@ -27,7 +27,7 @@
                         </button>
                     </div>
                     <a asp-action="Edit" asp-route-id="@Model.PatientRecord.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="px-5 py-2.5 text-sm font-medium text-center inline-flex items-center text-white bg-primary-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200">
-                        <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-white mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M11.32 6.176H5c-1.105 0-2 .949-2 2.118v10.588C3 20.052 3.895 21 5 21h11c1.105 0 2-.948 2-2.118v-7.75l-3.914 4.144A2.46 2.46 0 0 1 12.81 16l-2.681.568c-1.75.37-3.292-1.263-2.942-3.115l.536-2.839c.097-.512.335-.983.684-1.352l2.914-3.086Z" clip-rule="evenodd" />
                             <path fill-rule="evenodd" d="M19.846 4.318a2.148 2.148 0 0 0-.437-.692 2.014 2.014 0 0 0-.654-.463 1.92 1.92 0 0 0-1.544 0 2.014 2.014 0 0 0-.654.463l-.546.578 2.852 3.02.546-.579a2.14 2.14 0 0 0 .437-.692 2.244 2.244 0 0 0 0-1.635ZM17.45 8.721 14.597 5.7 9.82 10.76a.54.54 0 0 0-.137.27l-.536 2.84c-.07.37.239.696.588.622l2.682-.567a.492.492 0 0 0 .255-.145l4.778-5.06Z" clip-rule="evenodd" />
                         </svg>
@@ -129,19 +129,21 @@
     </div>
     <div class="bg-white shadow-md rounded-lg p-8">
         <div class="flex justify-between">
-            <h5 class="text-2xl font-bold text-gray-800 mb-4">Patient Appointments</h5>
+            <div>
+                <h1 class="text-xl">List of</h1>
+                <h1 class="text-2xl font-bold text-gray-800 mb-4">Patient Appointments</h1>
+            </div>
             <div class="flex justify-end mb-4">
-                <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PatientRecord.Id" asp-controller="VaccinationAppointment" class="px-5 py-2.5 text-sm font-medium text-center inline-flex items-center text-white bg-primary-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200">
-                    <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" d="M11.32 6.176H5c-1.105 0-2 .949-2 2.118v10.588C3 20.052 3.895 21 5 21h11c1.105 0 2-.948 2-2.118v-7.75l-3.914 4.144A2.46 2.46 0 0 1 12.81 16l-2.681.568c-1.75.37-3.292-1.263-2.942-3.115l.536-2.839c.097-.512.335-.983.684-1.352l2.914-3.086Z" clip-rule="evenodd" />
-                        <path fill-rule="evenodd" d="M19.846 4.318a2.148 2.148 0 0 0-.437-.692 2.014 2.014 0 0 0-.654-.463 1.92 1.92 0 0 0-1.544 0 2.014 2.014 0 0 0-.654.463l-.546.578 2.852 3.02.546-.579a2.14 2.14 0 0 0 .437-.692 2.244 2.244 0 0 0 0-1.635ZM17.45 8.721 14.597 5.7 9.82 10.76a.54.54 0 0 0-.137.27l-.536 2.84c-.07.37.239.696.588.622l2.682-.567a.492.492 0 0 0 .255-.145l4.778-5.06Z" clip-rule="evenodd" />
+                <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo" asp-route-recordId="@Model.PatientRecord.Id" asp-controller="VaccinationAppointment" class="px-5 py-2.5 text-sm max-h-12 font-medium text-center inline-flex items-center text-white bg-primary-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200">
+                    <svg class="h-5 w-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     </svg>
                     New Appointment
                 </a>
             </div>
         </div>
         
-        <hr class="mb-3" />
+        <hr class="mb-4" />
         <div style="overflow:auto;">
             <table class="table-auto w-full text-sm">
                 <thead>
@@ -220,7 +222,7 @@
         </div>
     </div>
     <div class="flex justify-end mt-8">
-        <a asp-action="Index" asp-route-householdNo="@Model.HouseholdNo" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back to List</a>
+        <a asp-action="Index" asp-route-householdNo="@Model.HouseholdNo" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 h-12 max-h-12">Back to List</a>
     </div>
 </div>
 

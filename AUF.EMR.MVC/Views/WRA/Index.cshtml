@@ -2,56 +2,35 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "Layouts/_WRAindex";
+    Layout = "Layouts/_FormLayout";
     ViewData["HouseholdNo"] = Model.HouseholdNo;
 }
 
 <div class="container mx-auto px-4 py-8">
-    <div class="flex justify-between items-center mb-3">
-        <h1 class="text-2xl font-bold mb-8 w-1/2">List of Women of Reproductive Age and Adolescent Women for Family Planning Services</h1>
+    <div class="bg-white shadow-md rounded-lg p-8">
+        <div class="flex justify-between items-center">
+            <div>
+                <h1 class="text-xl">List of</h1>
+                <h1 class="text-2xl font-bold text-gray-800 mb-8 w-3/4">Women of Reproductive Age and Adolescent Women for Family Planning Services</h1>
+            </div>
 
-        <div class="flex justify-end space-x-2 mb-6">
-            <button type="button" onclick="print('Print', 'WRA', @Model.HouseholdNo)" class="px-3 py-3 text-sm font-medium text-center inline-flex items-center text-white bg-primary-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200">
-                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H8Zm-3 7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h1a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5Zm4 11a1 1 0 0 1-1-1v-4h8v4a1 1 0 0 1-1 1H9Z" clip-rule="evenodd" />
-                </svg>
-                <span class="hidden md:inline font-medium">&nbsp; Print WRA</span>
-            </button>
+            <div class="flex justify-end space-x-2 mb-4">
+                <button type="button" onclick="print('Print', 'WRA', @Model.HouseholdNo)" class="px-3 h-12 max-h-12 w-24 py-3 text-sm font-medium text-center inline-flex items-center text-white bg-blue-500 hover:bg-blue-400 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200">
+                    <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H8Zm-3 7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h1a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5Zm4 11a1 1 0 0 1-1-1v-4h8v4a1 1 0 0 1-1 1H9Z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="hidden md:inline font-medium">&nbsp; Print</span>
+                </button>
 
-            <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo" class="px-3 py-3 text-sm font-medium text-center inline-flex items-center text-white bg-primary-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200" aria-label="Add WRA">
-                <svg class="h-5 w-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                </svg>
-                Add WRA
-            </a>
-        </div>
-    </div>
-
-    <div class="flex justify-between items-center mb-8">
-        <div class="flex-1 mr-4 relative">
-            <input type="text" class="w-full bg-white shadow-md rounded-lg p-3 pr-10 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-200 border-none"
-                   placeholder="Search...">
-            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <svg class="h-5 w-5 text-gray-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path d="M21 21l-5.2-5.2m.8-.8a8 8 0 1 1-10.6-10.6 8 8 0 0 1 10.6 10.6z"></path>
-                </svg>
+                <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo" class="px-5 py-2.5 max-h-12 text-sm w-36 font-medium text-center inline-flex items-center text-white bg-primary-50 rounded-lg focus:ring-4 focus:outline-none focus:ring-green-200" aria-label="Add WRA">
+                    <svg class="w-6 h-6 text-white mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M5 4a2 2 0 0 0-2 2v1h10.968l-1.9-2.28A2 2 0 0 0 10.532 4H5ZM3 19V9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm9-8.5a1 1 0 0 1 1 1V13h1.5a1 1 0 1 1 0 2H13v1.5a1 1 0 1 1-2 0V15H9.5a1 1 0 1 1 0-2H11v-1.5a1 1 0 0 1 1-1Z" clip-rule="evenodd" />
+                    </svg>
+                    Add WRA
+                </a>
             </div>
         </div>
-
-        <!--Search Button-->
-        <button type="submit" class="inline-flex items-center py-3 px-3 ms-2 text-sm font-medium text-white bg-blue-500 rounded-lg border border-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300 ease-in-out">
-            <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-            </svg>
-
-            Search
-        </button>
-    </div>
-
-
-    <div class="bg-white shadow-md rounded-lg p-8">
-
+        <hr class="mb-4" />
         <div style="overflow:auto;">
             <table class="table-auto w-full text-sm">
                 <thead>
