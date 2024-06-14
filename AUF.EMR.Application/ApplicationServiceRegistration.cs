@@ -23,8 +23,6 @@ namespace AUF.EMR.Application
             services.AddScoped<IWRAService, WRAService>();
             services.AddScoped<IPregnancyTrackingService, PregnancyTrackingService>();
             services.AddScoped<IBarangayService, BarangayService>();
-            services.AddScoped<ISummaryService, SummaryService>();
-            services.AddScoped<IRecordService, RecordService>();
             services.AddScoped<IDashboardService, DashboardService>();
             services.AddScoped<IPregnancyTrackingHHService, PregnancyTrackingHHService>();
             services.AddScoped<IFamilyPlanningService, FamilyPlanningService>();
@@ -34,6 +32,7 @@ namespace AUF.EMR.Application
             services.AddScoped<IVaccinationRecordService, VaccinationRecordService>();
             services.AddScoped<IPregnancyRecordService, PregnancyRecordService>();
             services.AddScoped<IPregnancyAppointmentService, PregnancyAppointmentService>();
+            services.AddScoped<ISummaryService, SummaryService>();
 
             return services;
         }

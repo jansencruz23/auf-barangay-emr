@@ -1189,6 +1189,9 @@ namespace AUF.EMR.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("EntityId")
+                        .HasColumnType("int");
+
                     b.Property<string>("EntityName")
                         .IsRequired()
                         .HasColumnType("longtext");

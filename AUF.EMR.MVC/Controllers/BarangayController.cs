@@ -47,7 +47,7 @@ namespace AUF.EMR.MVC.Controllers
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Invalid", "Error", new { message = ex.Message });
+                return RedirectToAction("Invalid", "Error", new { ex.Message });
             }
         }
 

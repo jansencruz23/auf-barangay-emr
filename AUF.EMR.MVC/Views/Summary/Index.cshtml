@@ -1,13 +1,23 @@
 ﻿@model SummaryVM
 
-@{
-    ViewData["Title"] = "Index";
-    ViewData["HouseholdNo"] = Model.HouseholdNo;
-}
+<p>Total Created and Modified: @Model.TotalForms</p>
 
-<h1>Index</h1>
+<p>Created HH Forms Today: @Model.CreatedHHForms</p>
+<p>Created HH Members Today: @Model.CreatedHHMembers</p>
+<p>Created WRA Forms Today: @Model.CreatedWRAForms</p>
+<p>Created Pregnancy Tracking Forms Today: @Model.CreatedPregTrackForms</p>
+<p>Created Family Planning Forms Today: @Model.CreatedFPForms</p>
+<p>Created Patient Record Forms Today: @Model.CreatedPatientForms</p>
+<p>Created Vaccination Appointments Today: @Model.CreatedVaccinationAppointments</p>
+<p>Created Pregnancy Record Forms Today: @Model.CreatedPregForms</p>
+<p>Created Pregnancy Appointments Today: @Model.CreatedPregAppointments</p>
 
-total modified forms today: @Model.TotalRecords.Count(m => m.Action.Equals("Modified"))
-total created forms today: @Model.TotalRecords.Count(m => m.Action.Equals("Added"))
-
-total adults: @Model.AdultCount
+<p>Modified HH Forms Today: @Model.ModifiedHHForms</p>
+<p>Modified HH Members Today: @Model.ModifiedHHMembers</p>
+<p>Modified WRA Forms Today: @Model.ModifiedWRAForms</p>
+<p>Modified Pregnancy Tracking Forms Today: @Model.ModifiedPregTrackForms</p>
+<p>Modified Family Planning Forms Today: @Model.ModifiedFPForms</p>
+<p>Modified Patient Record Forms Today: @Model.ModifiedPatientForms</p>
+<p>Modified Vaccination Appointments Today: @Model.ModifiedVaccinationAppointments</p>
+<p>Modified Pregnancy Record Forms Today: @Model.ModifiedPregForms</p>
+<p>Modified Pregnancy Appointments Today: @Model.ModifiedPregAppointments</p>

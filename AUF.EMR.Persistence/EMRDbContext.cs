@@ -117,6 +117,7 @@ namespace AUF.EMR.Persistence
                         var recordLog = new RecordLog
                         {
                             EntityName = modifiedEntity.Entity.GetType().Name,
+                            EntityId = modifiedEntity.Entity.Id,
                             Action = modifiedEntity.State.ToString(),
                             Timestamp = DateTime.Now,
                             ModifiedById = Guid.Parse(currentUserId)

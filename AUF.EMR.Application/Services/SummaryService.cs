@@ -1,10 +1,10 @@
-﻿using AUF.EMR.Application.Constants;
-using AUF.EMR.Application.Contracts.Persistence;
+﻿using AUF.EMR.Application.Contracts.Persistence;
 using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.Application.Services.Common;
 using AUF.EMR.Domain.Models;
+using AUF.EMR.Domain.Models.Enums;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,75 +13,50 @@ namespace AUF.EMR.Application.Services
 {
     public class SummaryService : ISummaryService
     {
-        private readonly ISummaryRepository _dashboardRepository;
-        private readonly IRecordRepository _recordRepository;
+        private readonly ISummaryRepository _repository;
 
-        public SummaryService(ISummaryRepository dashboardRepository,
-            IRecordRepository recordRepository)
+        public SummaryService(ISummaryRepository repository)
         {
-            _dashboardRepository = dashboardRepository;
-            _recordRepository = recordRepository;
+            _repository = repository;
         }
 
-        public async Task<IReadOnlyList<RecordLog>> GetAllCheckedToday(Guid id)
+        public async Task<int> GetCreatedFormsCount(FormType formType, DateRange dateRange, Guid userId)
         {
-            return await _recordRepository.GetRecordsToday(id);
+            DateTime startDate = GetStartingDate(dateRange);
+            DateTime endDate = DateTime.Now;
+
+            int count = await _repository.GetCreatedFormsCount(formType, startDate, endDate, userId);
+            return count;
+        }
+        
+        private DateTime GetStartingDate(DateRange dateRange)
+        {
+            return dateRange switch
+            {
+                DateRange.Daily => DateTime.Today,
+                DateRange.Weekly => DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek),
+                DateRange.Monthly => new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1),
+                DateRange.Yearly => new DateTime(DateTime.Now.Year, 1, 1),
+                _ => throw new ArgumentOutOfRangeException(nameof(DateRange), dateRange, null),
+            };
         }
 
-        public async Task<int> GetCheckedAdolescentToday(Guid id)
+        public async Task<int> GetModifiedFormsCount(FormType formType, DateRange dateRange, Guid userId)
         {
-            var startDate = DateTime.Today.AddYears(MasterlistAgeRange.AdolescentStart).AddDays(1);
-            var endDate = DateTime.Today.AddYears(MasterlistAgeRange.AdolescentEnd);
+            DateTime startDate = GetStartingDate(dateRange);
+            DateTime endDate = DateTime.Now;
 
-            return await _dashboardRepository.GetCheckedPatientsToday(id, startDate, endDate);
+            int count = await _repository.GetModifiedFormsCount(formType, startDate, endDate, userId);
+            return count;
         }
 
-        public async Task<int> GetCheckedAdultToday(Guid id)
+        public async Task<int> GetTotalFormsCount(DateRange dateRange, Guid userId)
         {
-            var startDate = DateTime.Today.AddYears(MasterlistAgeRange.AdultStart).AddDays(1);
-            var endDate = DateTime.Today.AddYears(MasterlistAgeRange.AdultEnd);
+            DateTime startDate = GetStartingDate(dateRange);
+            DateTime endDate = DateTime.Now;
 
-            return await _dashboardRepository.GetCheckedPatientsToday(id, startDate, endDate);
-        }
-
-        public async Task<int> GetCheckedInfantToday(Guid id)
-        {
-            var startDate = DateTime.Today.AddMonths(MasterlistAgeRange.InfantStart).AddDays(1);
-            var endDate = DateTime.Today.AddDays(MasterlistAgeRange.InfantEnd);
-
-            return await _dashboardRepository.GetCheckedPatientsToday(id, startDate, endDate);
-        }
-
-        public async Task<int> GetCheckedNewbornToday(Guid id)
-        {
-            var startDate = DateTime.Today.AddDays(MasterlistAgeRange.NewbornStart);
-            var endDate = DateTime.Today;
-
-            return await _dashboardRepository.GetCheckedPatientsToday(id, startDate, endDate);
-        }
-
-        public async Task<int> GetCheckedSchoolAgedToday(Guid id)
-        {
-            var startDate = DateTime.Today.AddYears(MasterlistAgeRange.SchoolAgedStart).AddDays(1);
-            var endDate = DateTime.Today.AddYears(MasterlistAgeRange.SchoolAgedEnd);
-
-            return await _dashboardRepository.GetCheckedPatientsToday(id, startDate, endDate);
-        }
-
-        public async Task<int> GetCheckedSeniorToday(Guid id)
-        {
-            var startDate = DateTime.MinValue;
-            var endDate = DateTime.Today.AddYears(MasterlistAgeRange.SeniorEnd);
-
-            return await _dashboardRepository.GetCheckedPatientsToday(id, startDate, endDate);
-        }
-
-        public async Task<int> GetCheckedUnderFiveToday(Guid id)
-        {
-            var startDate = DateTime.Today.AddYears(MasterlistAgeRange.UnderFiveStart).AddDays(1);
-            var endDate = DateTime.Today.AddYears(MasterlistAgeRange.UnderFiveEnd);
-
-            return await _dashboardRepository.GetCheckedPatientsToday(id, startDate, endDate);
+            int count = await _repository.GetTotalFormsCount(startDate, endDate, userId);
+            return count;
         }
     }
 }

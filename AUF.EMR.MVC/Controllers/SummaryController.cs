@@ -1,8 +1,9 @@
-﻿using AUF.EMR.Application.Contracts.Persistence;
-using AUF.EMR.Application.Contracts.Services;
+﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.Domain.Models.Enums;
+using AUF.EMR.Domain.Models.Identity;
 using AUF.EMR.MVC.Models.IndexVM;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -11,44 +12,60 @@ namespace AUF.EMR.MVC.Controllers
     [Authorize(Policy = "User")]
     public class SummaryController : Controller
     {
-        private readonly ISummaryService _dashboardService;
-        private readonly IBarangayService _brgyService;
-        private readonly IHttpContextAccessor _httpContext;
+        private readonly ISummaryService _summaryService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public SummaryController(ISummaryService dashboardService,
-            IBarangayService brgyService,
-            IHttpContextAccessor httpContext)
+        public SummaryController(ISummaryService summaryService,
+            IHttpContextAccessor httpContextAccessor,
+            UserManager<ApplicationUser> userManager)
         {
-            _dashboardService = dashboardService;
-            _brgyService = brgyService;
-            _httpContext = httpContext;
+            _summaryService = summaryService;
+            _httpContextAccessor = httpContextAccessor;
+            _userManager = userManager;
         }
 
-        // GET: SummaryController
         public async Task<ActionResult> Index()
         {
-            var user = _httpContext.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (user == null) 
+            try
             {
-                return View();
+                var userId = Guid.Parse(_httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                var user = (await _userManager.GetUserAsync(User)).FullName;
+
+                if (user == null || userId == null)
+                {
+                    return RedirectToAction("PageNotFound", "Error");
+                }
+
+                var model = new SummaryVM
+                {
+                    TotalForms = await _summaryService.GetTotalFormsCount(DateRange.Daily, userId),
+                    CreatedHHForms = await _summaryService.GetCreatedFormsCount(FormType.Household, DateRange.Daily, userId),
+                    CreatedHHMembers = await _summaryService.GetCreatedFormsCount(FormType.HouseholdMember, DateRange.Daily, userId),
+                    CreatedWRAForms = await _summaryService.GetCreatedFormsCount(FormType.WomanOfReproductiveAge, DateRange.Daily, userId),
+                    CreatedPregTrackForms = await _summaryService.GetCreatedFormsCount(FormType.PregnancyTracking, DateRange.Daily, userId),
+                    CreatedFPForms = await _summaryService.GetCreatedFormsCount(FormType.FamilyPlanningRecord, DateRange.Daily, userId),
+                    CreatedPatientForms = await _summaryService.GetCreatedFormsCount(FormType.PatientRecord, DateRange.Daily, userId),
+                    CreatedVaccinationAppointments = await _summaryService.GetCreatedFormsCount(FormType.PatientRecord, DateRange.Daily, userId),
+                    CreatedPregForms = await _summaryService.GetCreatedFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
+                    CreatedPregAppointments = await _summaryService.GetCreatedFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
+                    ModifiedHHForms = await _summaryService.GetModifiedFormsCount(FormType.Household, DateRange.Daily, userId),
+                    ModifiedHHMembers = await _summaryService.GetModifiedFormsCount(FormType.HouseholdMember, DateRange.Daily, userId),
+                    ModifiedWRAForms = await _summaryService.GetModifiedFormsCount(FormType.WomanOfReproductiveAge, DateRange.Daily, userId),
+                    ModifiedPregTrackForms = await _summaryService.GetModifiedFormsCount(FormType.PregnancyTracking, DateRange.Daily, userId),
+                    ModifiedPatientForms = await _summaryService.GetModifiedFormsCount(FormType.PatientRecord, DateRange.Daily, userId),
+                    ModifiedVaccinationAppointments = await _summaryService.GetModifiedFormsCount(FormType.PatientRecord, DateRange.Daily, userId),
+                    ModifiedPregForms = await _summaryService.GetModifiedFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
+                    ModifiedPregAppointments = await _summaryService.GetModifiedFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
+                };
+
+                return View(model);
+
             }
-
-            var userId = Guid.Parse(user);
-            var totalChecked = await _dashboardService.GetAllCheckedToday(userId);
-            var model = new SummaryVM
+            catch (Exception ex)
             {
-                NewbornCount = await _dashboardService.GetCheckedNewbornToday(userId),
-                InfantCount = await _dashboardService.GetCheckedInfantToday(userId),
-                UnderFiveCount = await _dashboardService.GetCheckedUnderFiveToday(userId),
-                SchoolAgedCount = await _dashboardService.GetCheckedSchoolAgedToday(userId),
-                AdolescentCount = await _dashboardService.GetCheckedAdolescentToday(userId),
-                AdultCount = await _dashboardService.GetCheckedAdultToday(userId),
-                SeniorCount = await _dashboardService.GetCheckedSeniorToday(userId),
-                TotalRecords = totalChecked,
-                Barangay = await _brgyService.GetBarangay()
-            };
-
-            return View(model);
+                return RedirectToAction("Invalid", "Error", new { ex.Message });
+            }
         }
     }
 }

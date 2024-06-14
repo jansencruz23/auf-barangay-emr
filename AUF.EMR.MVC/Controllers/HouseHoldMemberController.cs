@@ -233,9 +233,8 @@ namespace AUF.EMR.MVC.Controllers
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
+                return RedirectToAction("Invalid", "Error", new { message = ex.Message });
             }
-
-            return View(model);
         }
 
         // POST: HouseHoldMemberController/Delete/5
