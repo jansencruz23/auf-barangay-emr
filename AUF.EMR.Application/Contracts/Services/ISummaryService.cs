@@ -13,8 +13,9 @@ namespace AUF.EMR.Application.Contracts.Services
 {
     public interface ISummaryService 
     {
-        Task<int> GetCreatedFormsCount(FormType formType, DateRange dateRange, Guid userId);
+        Task<int> GetFormsCount(FormType formType, DateRange dateRange, Guid userId);
         Task<int> GetModifiedFormsCount(FormType formType, DateRange dateRange, Guid userId);
         Task<int> GetTotalFormsCount(DateRange dateRange, Guid userId);
+        Task<int> GetTotalFormsCount(DateRange dateRange, int offset, Guid userId);
     }
 }

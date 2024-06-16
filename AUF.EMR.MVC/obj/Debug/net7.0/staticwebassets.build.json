@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9qopNAzlV3Jkm/51hqiVZNSp+anIX+AQRf8ffUJdkL8=",
+  "Hash": "Ng4Q8aNlb1bBmZl2qU1q5nnmYXM5/cHbzcZXv3Lw9ps=",
   "Source": "AUF.EMR.MVC",
   "BasePath": "_content/AUF.EMR.MVC",
   "Mode": "Default",
@@ -1579,6 +1579,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\alpine\\alpine.min.js"
+    },
+    {
+      "Identity": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\apexcharts\\apex.min.js",
+      "SourceId": "AUF.EMR.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\",
+      "BasePath": "_content/AUF.EMR.MVC",
+      "RelativePath": "lib/apexcharts/apex.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\apexcharts\\apex.min.js"
     },
     {
       "Identity": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

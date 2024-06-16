@@ -125,6 +125,10 @@
       "PackagePath": "staticwebassets\\lib\\alpine\\alpine.min.js"
     },
     {
+      "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\apexcharts\\apex.min.js",
+      "PackagePath": "staticwebassets\\lib\\apexcharts\\apex.min.js"
+    },
+    {
       "Id": "D:\\User\\Jansen\\Self Study\\2024 - 02 - FEBRUARY\\ASP.NET CORE\\AUF.EMR\\AUF.EMR.MVC\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

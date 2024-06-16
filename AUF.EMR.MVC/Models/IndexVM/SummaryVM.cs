@@ -5,27 +5,18 @@ namespace AUF.EMR.MVC.Models.IndexVM
 {
     public class SummaryVM : BaseVM
     {
+        public string Name { get; set; }
         public int TotalForms { get; set; }
 
-        public int CreatedHHForms { get; set; }
-        public int CreatedHHMembers { get; set; }
-        public int CreatedWRAForms { get; set; }
-        public int CreatedPregTrackForms { get; set; }
-        public int CreatedFPForms { get; set; }
-        public int CreatedPatientForms { get; set; }
-        public int CreatedVaccinationAppointments { get; set; }
-        public int CreatedPregForms { get; set; }
-        public int CreatedPregAppointments { get; set; }
-
-        public int ModifiedHHForms { get; set; }
-        public int ModifiedHHMembers { get; set; }
-        public int ModifiedWRAForms { get; set; }
-        public int ModifiedPregTrackForms { get; set; }
-        public int ModifiedFPForms { get; set; }
-        public int ModifiedPatientForms { get; set; }
-        public int ModifiedVaccinationAppointments { get; set; }
-        public int ModifiedPregForms { get; set; }
-        public int ModifiedPregAppointments { get; set; }
+        public int HHForms { get; set; }
+        public int HHMembers { get; set; }
+        public int WRAForms { get; set; }
+        public int PregTrackForms { get; set; }
+        public int FPForms { get; set; }
+        public int PatientForms { get; set; }
+        public int VaccinationAppointments { get; set; }
+        public int PregForms { get; set; }
+        public int PregAppointments { get; set; }
 
         public int TotalDay7 { get; set; }
         public int TotalDay6 { get; set; }

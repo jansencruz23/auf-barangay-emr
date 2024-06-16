@@ -40,7 +40,7 @@
                                 <a asp-action="UserProfile" asp-route-householdNo="@ViewData["HouseholdNo"]" asp-controller="User" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Profile</a>
                             </li>
                             <li>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Summary</a>
+                                <a asp-action="Index" asp-controller="Summary" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Summary</a>
                             </li>
                             <form asp-area="Identity" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                 <button type="submit">Logout</button>

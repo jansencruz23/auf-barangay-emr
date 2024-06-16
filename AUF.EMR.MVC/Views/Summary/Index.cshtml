@@ -1,23 +1,393 @@
 ﻿@model SummaryVM
 
+@{
+    if (string.IsNullOrWhiteSpace(Model.HouseholdNo))
+    {
+        Layout = "Layouts/_ProfileLayout";
+    }
+    else
+    {
+        Layout = "Layouts/_FormLayout";
+    }
+
+    ViewData["HouseholdNo"] = Model.HouseholdNo;
+}
+    
+<main class="mt-8 flex justify-center items-center">
+    <div class="mx-4">
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-12">
+                <h2 class="text-3xl font-bold">Welcome to your Checkup Summary, @Model.Name</h2> <!--Fetch username here-->
+                <h2 class="text-1xl font-normal">for @DateTime.UtcNow.ToString("MMMM dd, yyyy")</h2>
+            </div>
+            <div class="col-span-12">
+                <div class="col-span-12 mt-2 flex flex-col lg:flex-row gap-2">
+                    <div class="bg-white shadow-lg rounded-lg p-4 flex-1" id="chartline"></div>
+                    <div class="bg-white shadow-lg rounded-lg p-4 flex-1" id="chartpie"></div>
+                </div>  
+            </div>
+            <div class="w-full">
+                <h5 class="text-gray-800 text-lg">Created & Modified Forms/Records</h5>
+            </div>
+            <div class="col-span-12 grid grid-cols-5 sm:grid-cols-7 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 2xl:grid-cols-7 gap-2">
+                <a class="transform hover:scale-105 transition duration-300 shadow-xl rounded-lg h-40" style="background-color: #6691C1" href="#">
+                    <div class="p-5">
+                        <div class="flex justify-between">
+                            <div class="rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-xs" style="background-color: #3C5C80">
+                                <span class="flex items-center text-sm" style="color: #DED7D7">HH</span>
+                            </div>
+                        </div>
+                        <div class="ml-2 w-full flex-1">
+                            <div>
+                                <div class="mt-3 text-2xl font-semibold leading-8" style="color:#F7F6F6">@Model.HHForms</div>
+                                <div class="mt-1 text-lg text-gray-600" style="color:#F7F6F6">Household</div>
+                                <div class="mt-1 text-xs text-gray-600" style="color:#F7F6F6">Forms</div>
+                            </div>
+                        </div>
+                    </div>  
+                </a>
+                <a class="transform hover:scale-105 transition duration-300 shadow-xl rounded-lg h-40" style="background-color: #AFCAFC" href="#">
+                    <div class="p-5">
+                        <div class="flex justify-between">
+                            <div class="rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-xs" style="background-color: #3C5C80">
+                                <span class="flex items-center text-sm" style="color: #DED7D7">HHM</span>
+                            </div>
+                        </div>
+                        <div class="ml-2 w-full flex-1">
+                            <div>
+                                <div class="mt-3 text-2xl font-semibold leading-8" style="color:#F7F6F6">@Model.HHMembers</div>
+                                <div class="mt-1 text-lg text-gray-600" style="color:#F7F6F6">Household</div>
+                                <div class="mt-1 text-xs text-gray-600" style="color:#F7F6F6">Members</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="transform hover:scale-105 transition  duration-300 shadow-xl rounded-lg h-40" style="background-color: #D2E0FB" href="#">
+                    <div class="p-5">
+                        <div class="flex justify-between">
+                            <div class="rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-base" style="background-color: #3C5C80">
+                                <span class="flex items-center text-sm" style="color: #DED7D7">WRA</span>
+                            </div>
+                        </div>
+                        <div class="ml-2 w-full flex-1">
+                            <div>
+                                <div class="mt-3 text-2xl font-semibold leading-8" style="color:#24384E">@Model.WRAForms</div>
+                                <div class="mt-1 text-lg text-gray-600" style="color:#24384E">W. Reproductive Age</div>
+                                <div class="mt-1 text-xs text-gray-600" style="color:#24384E">Forms</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="transform hover:scale-105 transition duration-300 shadow-xl rounded-lg h-40" style="background-color: #E8E3C9" href="#">
+                    <div class="p-5">
+                        <div class="flex justify-between">
+                            <div class="rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-base" style="background-color: #A49E83">
+                                <span class="flex items-center text-sm" style="color: #EEE9E9">NSMP</span>
+                            </div>
+                        </div>
+                        <div class="ml-2 w-full flex-1">
+                            <div>
+                                <div class="mt-3 text-2xl font-semibold leading-8" style="color:#24384E">@Model.PregTrackForms</div>
+                                <div class="mt-1 text-lg text-gray-600" style="color:#24384E">Pregnancy Tracking</div>
+                                <div class="mt-1 text-xs text-gray-600" style="color:#24384E">Forms</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="transform hover:scale-105 transition duration-300 shadow-xl rounded-lg h-40" style="background-color: #e6e5dc" href="#">
+                    <div class="p-5">
+                        <div class="flex justify-between">
+                            <div class="rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-base" style="background-color: #A49E83">
+                                <span class="flex items-center text-sm" style="color: #EEE9E9">FP</span>
+                            </div>
+                        </div>
+                        <div class="ml-2 w-full flex-1">
+                            <div>
+                                <div class="mt-3 text-2xl font-semibold leading-8" style="color:#24384E">@Model.FPForms</div>
+                                <div class="mt-1 text-lg text-gray-600" style="color:#24384E">Family Planning</div>
+                                <div class="mt-1 text-xs text-gray-600" style="color:#24384E">Records</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                </div>
+            <div class="col-span-12 grid grid-cols-4 sm:grid-cols-7 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 2xl:grid-cols-7 gap-2">
+                <a class="transform hover:scale-105 transition duration-300 shadow-xl rounded-lg h-40" style="background-color: #ACCB8F" href="#">
+                    <div class="p-5">
+                        <div class="flex justify-between">
+                            <div class="rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-base" style="background-color: #829D69">
+                                <span class="flex items-center text-sm" style="color: #EEE9E9">PR</span>
+                            </div>
+                        </div>
+                        <div class="ml-2 w-full flex-1">
+                            <div>
+                                <div class="mt-3 text-2xl font-semibold leading-8" style="color:#24384E">@Model.PatientForms</div>
+                                <div class="mt-1 text-lg text-gray-600" style="color:#24384E">Patient</div>
+                                <div class="mt-1 text-xs text-gray-600" style="color:#24384E">Records</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="transform hover:scale-105 transition duration-300 shadow-xl rounded-lg h-40" style="background-color: #ACCB8F" href="#">
+                    <div class="p-5">
+                        <div class="flex justify-between">
+                            <div class="rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-base" style="background-color: #829D69">
+                                <span class="flex items-center text-sm" style="color: #EEE9E9">VC</span>
+                            </div>
+                        </div>
+                        <div class="ml-2 w-full flex-1">
+                            <div>
+                                <div class="mt-3 text-2xl font-semibold leading-8" style="color:#F7F6F6">@Model.VaccinationAppointments</div>
+                                <div class="mt-1 text-lg text-gray-600" style="color:#F7F6F6">Vaccination</div>
+                                <div class="mt-1 text-xs text-gray-600" style="color:#F7F6F6">Appointments</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="transform hover:scale-105 transition duration-300 shadow-xl rounded-lg h-40" style="background-color: #ACCB8F" href="#">
+                    <div class="p-5">
+                        <div class="flex justify-between">
+                            <div class="rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-base" style="background-color: #829D69">
+                                <span class="flex items-center text-sm" style="color: #EEE9E9">PR</span>
+                            </div>
+                        </div>
+                        <div class="ml-2 w-full flex-1">
+                            <div>
+                                <div class="mt-3 text-2xl font-semibold leading-8" style="color:#F7F6F6">@Model.PregForms</div>
+                                <div class="mt-1 text-lg text-gray-600" style="color:#F7F6F6">Pregnancy</div>
+                                <div class="mt-1 text-xs text-gray-600" style="color:#F7F6F6">Records</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="transform hover:scale-105 transition duration-300 shadow-xl rounded-lg h-40" style="background-color: #ACCB8F" href="#">
+                    <div class="p-5">
+                        <div class="flex justify-between">
+                            <div class="rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-base" style="background-color: #829D69">
+                                <span class="flex items-center text-sm" style="color: #EEE9E9">PV</span>
+                            </div>
+                        </div>
+                        <div class="ml-2 w-full flex-1">
+                            <div>
+                                <div class="mt-3 text-2xl font-semibold leading-8" style="color:#F7F6F6">@Model.PregAppointments</div>
+                                <div class="mt-1 text-lg text-gray-600" style="color:#F7F6F6">Pregnancy</div>
+                                <div class="mt-1 text-xs text-gray-600" style="color:#F7F6F6">Appointments</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+@section Scripts {
+    @{
+        <script src="/lib/apexcharts/apex.min.js"></script>
+
+
+        <script>
+            var chart = document.querySelector('#chartline');
+
+            var currentDate = new Date();
+            var dateLabels = [];
+            for (var i = 6; i >= 0; i--) {
+                var date = new Date(currentDate);
+                date.setDate(currentDate.getDate() - i);
+                var formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                dateLabels.push(formattedDate);
+            }
+
+            var options = {
+                series: [{
+                    name: "Number of Checkups",
+                    data: [@Model.TotalDay7, @Model.TotalDay6, @Model.TotalDay5, @Model.TotalDay4, @Model.TotalDay3, @Model.TotalDay2, @Model.TotalDay1,],
+                    color: '#ACCB8F'
+                }],
+                chart: {
+                    height: 350,
+                    type: 'line',
+                    fontFamily: 'Poppins',
+                    zoom: {
+                        enabled: false
+                    }
+                },
+                dataLabels: {
+                    style: {
+                        color: '#333333',
+                        fontFamily: 'Poppins'
+                    },
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'straight',
+                    colors: '#ACCB8F'
+                },
+                title: {
+                    style: {
+                        fontSize: '20px',
+                        fontWeight: 'bold',
+                        color: '#333333',
+                        fontFamily: 'Poppins'
+                    },
+                    text: 'Total checkups for the past 7 days',
+                    align: 'left'
+                },
+                subtitle: {
+                    style: {
+                        fontSize: '14px',
+                        color: '#333333',
+                        fontFamily: 'Poppins'
+                    },
+                    text: 'Patients from ' + dateLabels[0] + ' - ' + dateLabels[6],
+                    align: 'left'
+                },
+                grid: {
+                    row: {
+                        colors: ['#f3f3f3', 'transparent'],
+                        opacity: 0.5
+                    },
+                },
+                xaxis: {
+                    categories: dateLabels,
+                    labels: {
+                        style: {
+                            fontFamily: 'Poppins'
+                        }
+                    }
+                }
+            };
+
+            var chartInstance = new ApexCharts(chart, options);
+            chartInstance.render();
+
+        </script>
+
+
+        <div id="chartpie"></div>
+        <script>
+            var chart = document.querySelector('#chartpie');
+            var seriesData = [@Model.HHForms, @Model.HHMembers, @Model.WRAForms, @Model.PregTrackForms, @Model.FPForms, @Model.PatientForms, @Model.VaccinationAppointments, @Model.PregForms, @Model.PregAppointments];
+            var totalSum = seriesData.reduce((acc, val) => acc + val, 0);
+
+            var options = {
+                series: seriesData,
+                chart: {
+                    height: 370,
+                    type: 'pie',
+                },
+                labels: ['Household', 'Member', 'WRA', 'Pregnancy Tracking', 'Family Planning', 'Patient Record', 'Vaccination Appointment', 'Pregnancy Record', 'Pregnancy Appointment'],
+                colors: ['#6691C1', '#AFCAFC', '#D2E0FB', '#E8E3C9', '#e6e5dc', '#BEE39B', '#ACCB8F', '#D2E0FB', '#D0ECB6'],
+                title: {
+                    text: 'Total Number of Created/Modified Forms',
+                    align: 'center',
+                    margin: 5,
+                    offsetX: 0,
+                    offsetY: 10,
+                    floating: false,
+                    style: {
+                        fontSize: '20px',
+                        fontWeight: 'bold',
+                        color: '#333333',
+                        fontFamily: 'Poppins'
+                    },
+                },
+                subtitle: {
+                    text: 'Total: ' + totalSum,
+                    align: 'center',
+                    margin: 10,
+                    offsetY: 38,
+                    style: {
+                        fontSize: '14px',
+                        color: '#333333',
+                        fontFamily: 'Poppins'
+                    }
+                },
+                plotOptions: {
+                    pie: {
+                        style: {
+                            fontFamily: 'Poppins'
+                        },
+                        dataLabels: {
+                            enabled: false,
+                            formatter: function (val, opts) {
+                                return opts.w.globals.labels[opts.seriesIndex] + ": " + val
+                            },
+                            style: {
+                                fontSize: '16px',
+                                color: '#333333',
+                                fontFamily: 'Poppins'
+                            }
+                        }
+                    }
+                },
+                legend: {
+                    show: true,
+                    position: 'bottom',
+                    horizontalAlign: 'center',
+                    verticalAlign: 'middle',
+                    floating: false,
+                    fontSize: '14px',
+                    offsetY: 10,
+                    color: '#333333',
+                    fontFamily: 'Poppins'
+                },
+                tooltip: {
+                    enabled: true,
+                    style: {
+                        fontFamily: 'Poppins'
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return val
+                        },
+                    }
+                },
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            height: 300
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }]
+            };
+
+            var chart = new ApexCharts(chart, options);
+            chart.render();
+        </script>
+
+    }
+}
+
+
+
+
+
+
+
+
+<p>Total day 1: @Model.TotalDay1</p>
+<p>Total day 2: @Model.TotalDay2</p>
+<p>Total day 3: @Model.TotalDay3</p>
+<p>Total day 4: @Model.TotalDay4</p>
+<p>Total day 5: @Model.TotalDay5</p>
+<p>Total day 6: @Model.TotalDay6</p>
+<p>Total day 7: @Model.TotalDay7</p>
+
+
 <p>Total Created and Modified: @Model.TotalForms</p>
 
-<p>Created HH Forms Today: @Model.CreatedHHForms</p>
-<p>Created HH Members Today: @Model.CreatedHHMembers</p>
-<p>Created WRA Forms Today: @Model.CreatedWRAForms</p>
-<p>Created Pregnancy Tracking Forms Today: @Model.CreatedPregTrackForms</p>
-<p>Created Family Planning Forms Today: @Model.CreatedFPForms</p>
-<p>Created Patient Record Forms Today: @Model.CreatedPatientForms</p>
-<p>Created Vaccination Appointments Today: @Model.CreatedVaccinationAppointments</p>
-<p>Created Pregnancy Record Forms Today: @Model.CreatedPregForms</p>
-<p>Created Pregnancy Appointments Today: @Model.CreatedPregAppointments</p>
-
-<p>Modified HH Forms Today: @Model.ModifiedHHForms</p>
-<p>Modified HH Members Today: @Model.ModifiedHHMembers</p>
-<p>Modified WRA Forms Today: @Model.ModifiedWRAForms</p>
-<p>Modified Pregnancy Tracking Forms Today: @Model.ModifiedPregTrackForms</p>
-<p>Modified Family Planning Forms Today: @Model.ModifiedFPForms</p>
-<p>Modified Patient Record Forms Today: @Model.ModifiedPatientForms</p>
-<p>Modified Vaccination Appointments Today: @Model.ModifiedVaccinationAppointments</p>
-<p>Modified Pregnancy Record Forms Today: @Model.ModifiedPregForms</p>
-<p>Modified Pregnancy Appointments Today: @Model.ModifiedPregAppointments</p>
+<p>Created HH Forms Today: @Model.HHForms</p>
+<p>Created HH Members Today: @Model.HHMembers</p>
+<p>Created WRA Forms Today: @Model.WRAForms</p>
+<p>Created Pregnancy Tracking Forms Today: @Model.PregTrackForms</p>
+<p>Created Family Planning Forms Today: @Model.FPForms</p>
+<p>Created Patient Record Forms Today: @Model.PatientForms</p>
+<p>Created Vaccination Appointments Today: @Model.VaccinationAppointments</p>
+<p>Created Pregnancy Record Forms Today: @Model.PregForms</p>
+<p>Created Pregnancy Appointments Today: @Model.PregAppointments</p>

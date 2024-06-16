@@ -1,6 +1,7 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Domain.Models.Enums;
 using AUF.EMR.Domain.Models.Identity;
+using AUF.EMR.MVC.Constants;
 using AUF.EMR.MVC.Models.IndexVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -25,12 +26,12 @@ namespace AUF.EMR.MVC.Controllers
             _userManager = userManager;
         }
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string householdNo)
         {
             try
             {
                 var userId = Guid.Parse(_httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-                var user = (await _userManager.GetUserAsync(User)).FullName;
+                var user = (await _userManager.GetUserAsync(User)).FirstName;
 
                 if (user == null || userId == null)
                 {
@@ -39,28 +40,28 @@ namespace AUF.EMR.MVC.Controllers
 
                 var model = new SummaryVM
                 {
+                    TotalDay1 = await _summaryService.GetTotalFormsCount(DateRange.Daily, DaysOffset.OFFSET1, userId),
+                    TotalDay2 = await _summaryService.GetTotalFormsCount(DateRange.Daily, DaysOffset.OFFSET2, userId),
+                    TotalDay3 = await _summaryService.GetTotalFormsCount(DateRange.Daily, DaysOffset.OFFSET3, userId),
+                    TotalDay4 = await _summaryService.GetTotalFormsCount(DateRange.Daily, DaysOffset.OFFSET4, userId),
+                    TotalDay5 = await _summaryService.GetTotalFormsCount(DateRange.Daily, DaysOffset.OFFSET5, userId),
+                    TotalDay6 = await _summaryService.GetTotalFormsCount(DateRange.Daily, DaysOffset.OFFSET6, userId),
+                    TotalDay7 = await _summaryService.GetTotalFormsCount(DateRange.Daily, DaysOffset.OFFSET7, userId),
+                    HouseholdNo = householdNo,
+                    Name = user,
                     TotalForms = await _summaryService.GetTotalFormsCount(DateRange.Daily, userId),
-                    CreatedHHForms = await _summaryService.GetCreatedFormsCount(FormType.Household, DateRange.Daily, userId),
-                    CreatedHHMembers = await _summaryService.GetCreatedFormsCount(FormType.HouseholdMember, DateRange.Daily, userId),
-                    CreatedWRAForms = await _summaryService.GetCreatedFormsCount(FormType.WomanOfReproductiveAge, DateRange.Daily, userId),
-                    CreatedPregTrackForms = await _summaryService.GetCreatedFormsCount(FormType.PregnancyTracking, DateRange.Daily, userId),
-                    CreatedFPForms = await _summaryService.GetCreatedFormsCount(FormType.FamilyPlanningRecord, DateRange.Daily, userId),
-                    CreatedPatientForms = await _summaryService.GetCreatedFormsCount(FormType.PatientRecord, DateRange.Daily, userId),
-                    CreatedVaccinationAppointments = await _summaryService.GetCreatedFormsCount(FormType.PatientRecord, DateRange.Daily, userId),
-                    CreatedPregForms = await _summaryService.GetCreatedFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
-                    CreatedPregAppointments = await _summaryService.GetCreatedFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
-                    ModifiedHHForms = await _summaryService.GetModifiedFormsCount(FormType.Household, DateRange.Daily, userId),
-                    ModifiedHHMembers = await _summaryService.GetModifiedFormsCount(FormType.HouseholdMember, DateRange.Daily, userId),
-                    ModifiedWRAForms = await _summaryService.GetModifiedFormsCount(FormType.WomanOfReproductiveAge, DateRange.Daily, userId),
-                    ModifiedPregTrackForms = await _summaryService.GetModifiedFormsCount(FormType.PregnancyTracking, DateRange.Daily, userId),
-                    ModifiedPatientForms = await _summaryService.GetModifiedFormsCount(FormType.PatientRecord, DateRange.Daily, userId),
-                    ModifiedVaccinationAppointments = await _summaryService.GetModifiedFormsCount(FormType.PatientRecord, DateRange.Daily, userId),
-                    ModifiedPregForms = await _summaryService.GetModifiedFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
-                    ModifiedPregAppointments = await _summaryService.GetModifiedFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
+                    HHForms = await _summaryService.GetFormsCount(FormType.Household, DateRange.Daily, userId),
+                    HHMembers = await _summaryService.GetFormsCount(FormType.HouseholdMember, DateRange.Daily, userId),
+                    WRAForms = await _summaryService.GetFormsCount(FormType.WomanOfReproductiveAge, DateRange.Daily, userId),
+                    PregTrackForms = await _summaryService.GetFormsCount(FormType.PregnancyTracking, DateRange.Daily, userId),
+                    FPForms = await _summaryService.GetFormsCount(FormType.FamilyPlanningRecord, DateRange.Daily, userId),
+                    PatientForms = await _summaryService.GetFormsCount(FormType.PatientRecord, DateRange.Daily, userId),
+                    VaccinationAppointments = await _summaryService.GetFormsCount(FormType.VaccinationAppointment, DateRange.Daily, userId),
+                    PregForms = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
+                    PregAppointments = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
                 };
 
                 return View(model);
-
             }
             catch (Exception ex)
             {
