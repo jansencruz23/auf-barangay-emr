@@ -4,6 +4,7 @@ namespace AUF.EMR.MVC.Models.IndexVM
 {
     public class DashboardVM : BaseVM
     {
+        public string Barangay { get; set; }
         public int HouseholdCount { get; set; } 
         public int HouseholdMemberCount { get; set; } 
         public int NewbornCount { get; set; } 

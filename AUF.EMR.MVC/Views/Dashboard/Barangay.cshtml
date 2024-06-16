@@ -4,14 +4,17 @@
     Layout = "Layouts/_HouseholdLayout";
 }
 
-<main class="mt-8 flex justify-center items-center">
+<section class="mt-8 flex justify-center items-center p-16">
     <div class="mx-4">
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-12">
-                <h2 class="text-lg font-medium">Ninoy Aquino Health Center Demographics</h2>
+                <h2 class="text-3xl font-bold">@Model.Barangay Health Center Demographics</h2>
             </div>
             <div class="col-span-12">
-                <div class="col-span-12 mt-5 flex flex-col lg:flex-row gap-2">
+                <h2 class="text-lg font-medium">There are currently <a asp-action="Index" asp-controller="Household" class="text-green-500 hover:text-green-700">@Model.HouseholdCount households</a>  registered within <span class="">Barangay @Model.Barangay</span></h2>
+            </div>
+            <div class="col-span-12">
+                <div class="col-span-12 flex flex-col lg:flex-row gap-2">
                     <div class="bg-white shadow-lg rounded-lg p-4 flex-1" id="chartbar"></div>
                     <div class="bg-white shadow-lg rounded-lg p-4 flex-1" id="chartpie"></div>
                 </div>
@@ -135,183 +138,189 @@
             <a asp-action="Index" asp-controller="Household" type="button" class="focus:outline-none text-white bg-primary-50 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Go Back</a>
         </div>
     </div>
-</main>
+</section>
 
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script>
-    var options = {
-        series: [{
-            data: [@Model.FamilyPlanningFormsCount, @Model.PatientRecordCount, @Model.PregnancyRecordCount, @Model.PregTrackCount, @Model.WRAFormCount]
-        }],
-        chart: {
-            type: 'bar',
-            height: 350,
-            fontFamily: 'Poppins',
-            toolbar: {
-                show: false
-            },
-            animations: {
-                enabled: true,
-                easing: 'easeinout',
-                speed: 800,
-                animateGradually: {
-                    enabled: true,
-                    delay: 150
+@section Scripts {
+    @{
+        <script src="/lib/apexcharts/apex.min.js"></script>
+
+
+        <script>
+            var options = {
+                series: [{
+                    data: [@Model.FamilyPlanningFormsCount, @Model.PatientRecordCount, @Model.PregnancyRecordCount, @Model.PregTrackCount, @Model.WRAFormCount]
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 350,
+                    fontFamily: 'Poppins',
+                    toolbar: {
+                        show: false
+                    },
+                    animations: {
+                        enabled: true,
+                        easing: 'easeinout',
+                        speed: 800,
+                        animateGradually: {
+                            enabled: true,
+                            delay: 150
+                        },
+                        dynamicAnimation: {
+                            enabled: true,
+                            speed: 350
+                        }
+                    },
                 },
-                dynamicAnimation: {
-                    enabled: true,
-                    speed: 350
-                }
-            },
-        },
-        plotOptions: {
-            bar: {
-                borderRadius: 4,
-                borderRadiusApplication: 'end',
-                horizontal: true,
-            }
-        },
-        dataLabels: {
-            enabled: false
-        },
-        xaxis: {
-            categories: ['Family Planning', 'Patient Record', 'Pregnancy Record', 'Pregnancy Track', "Women of Reproductive Age"],
-            labels: {
-                style: {
-                    fontFamily: 'Poppins'
-                }
-            }
-        },
-        title: {
-            text: 'Total Number of Forms',
-            margin: 20,
-            offsetY: -10,
-            floating: true,
-            style: {
-                fontSize: '16px',
-                fontFamily: 'Poppins',
-                fontWeight: 'bold',
-                color: '#333333'
-            }
-        },
-        tooltip: {
-            enabled: true,
-            shared: false,
-            onDatasetHover: {
-                highlightDataSeries: false,
-            },
-        },
-    };
-
-    var chart = new ApexCharts(document.querySelector("#chartbar"), options);
-    chart.render();
-
-    chart.tooltip.options.tooltip.theme = {
-        title: {
-            text: 'Total:'
-        }
-    };
-</script>
-
-
-
-
-<div id="chartpie"></div>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script>
-    var chart = document.querySelector('#chartpie');
-    var seriesData = [@Model.NewbornCount, @Model.InfantCount, @Model.UnderFiveCount, @Model.SchoolAgedCount, @Model.AdolescentsCount, @Model.AdultCount, @Model.SeniorCount];
-    var totalSum = seriesData.reduce((acc, val) => acc + val, 0);
-
-    var options = {
-        series: seriesData,
-        chart: {
-            height: 370,
-            type: 'pie',
-        },
-        labels: ['Newborn', 'Infant', 'Under-five', 'School-aged', 'Adolescents', 'Adult', 'Senior C.'],
-        colors: ['#6691C1', '#AFCAFC', '#D2E0FB', '#E8E3C9', '#D0ECB6', '#BEE39B', '#ACCB8F'],
-        title: {
-            text: 'Total Number of Households',
-            align: 'center',
-            margin: 5,
-            offsetX: 0,
-            offsetY: 10,
-            floating: false,
-            style: {
-                fontSize: '20px',
-                fontWeight: 'bold',
-                color: '#333333',
-                fontFamily: 'Poppins'
-            },
-        },
-        subtitle: {
-            text: 'Total: ' + totalSum, 
-            align: 'center',
-            margin: 10,
-            offsetY: 38,
-            style: {
-                fontSize: '14px',
-                color: '#333333',
-                fontFamily: 'Poppins'
-            }
-        },
-        plotOptions: {
-            pie: {
-                style: {
-                    fontFamily: 'Poppins'
+                plotOptions: {
+                    bar: {
+                        borderRadius: 4,
+                        borderRadiusApplication: 'end',
+                        horizontal: true,
+                    }
                 },
                 dataLabels: {
-                    enabled: false,
-                    formatter: function (val, opts) {
-                        return opts.w.globals.labels[opts.seriesIndex] + ": " + val
-                    },
+                    enabled: false
+                },
+                xaxis: {
+                    categories: ['Family Planning', 'Patient Record', 'Pregnancy Record', 'Pregnancy Track', "Women of Reproductive Age"],
+                    labels: {
+                        style: {
+                            fontFamily: 'Poppins'
+                        }
+                    }
+                },
+                title: {
+                    text: 'Total Number of Forms',
+                    margin: 20,
+                    offsetY: -10,
+                    floating: true,
                     style: {
                         fontSize: '16px',
+                        fontFamily: 'Poppins',
+                        fontWeight: 'bold',
+                        color: '#333333'
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    shared: false,
+                    onDatasetHover: {
+                        highlightDataSeries: false,
+                    },
+                },
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chartbar"), options);
+            chart.render();
+
+            chart.tooltip.options.tooltip.theme = {
+                title: {
+                    text: 'Total:'
+                }
+            };
+        </script>
+
+
+
+        <div id="chartpie"></div>
+        <script>
+            var chart = document.querySelector('#chartpie');
+            var seriesData = [@Model.NewbornCount, @Model.InfantCount, @Model.UnderFiveCount, @Model.SchoolAgedCount, @Model.AdolescentsCount, @Model.AdultCount, @Model.SeniorCount];
+            var totalSum = seriesData.reduce((acc, val) => acc + val, 0);
+
+            var options = {
+                series: seriesData,
+                chart: {
+                    height: 370,
+                    type: 'pie',
+                },
+                labels: ['Newborn', 'Infant', 'Under-five', 'School-aged', 'Adolescents', 'Adult', 'Senior C.'],
+                colors: ['#6691C1', '#AFCAFC', '#D2E0FB', '#E8E3C9', '#D0ECB6', '#BEE39B', '#ACCB8F'],
+                title: {
+                    text: 'Household Members Classifications',
+                    align: 'center',
+                    margin: 5,
+                    offsetX: 0,
+                    offsetY: 10,
+                    floating: false,
+                    style: {
+                        fontSize: '20px',
+                        fontWeight: 'bold',
+                        color: '#333333',
+                        fontFamily: 'Poppins'
+                    },
+                },
+                subtitle: {
+                    text: 'Total: ' + totalSum,
+                    align: 'center',
+                    margin: 10,
+                    offsetY: 38,
+                    style: {
+                        fontSize: '14px',
                         color: '#333333',
                         fontFamily: 'Poppins'
                     }
-                }
-            }
-        },
-        legend: {
-            show: true,
-            position: 'bottom',
-            horizontalAlign: 'center',
-            verticalAlign: 'middle',
-            floating: false,
-            fontSize: '14px',
-            offsetY: 10,
-            color: '#333333',
-            fontFamily: 'Poppins'
-        },
-        tooltip: {
-            enabled: true,
-            style: {
-                fontFamily: 'Poppins'
-            },
-            y: {
-                formatter: function (val) {
-                    return val
                 },
-            }
-        },
-        responsive: [{
-            breakpoint: 480,
-            options: {
-                chart: {
-                    height: 300
+                plotOptions: {
+                    pie: {
+                        style: {
+                            fontFamily: 'Poppins'
+                        },
+                        dataLabels: {
+                            enabled: false,
+                            formatter: function (val, opts) {
+                                return opts.w.globals.labels[opts.seriesIndex] + ": " + val
+                            },
+                            style: {
+                                fontSize: '16px',
+                                color: '#333333',
+                                fontFamily: 'Poppins'
+                            }
+                        }
+                    }
                 },
                 legend: {
-                    position: 'bottom'
-                }
-            }
-        }]
-    };
+                    show: true,
+                    position: 'bottom',
+                    horizontalAlign: 'center',
+                    verticalAlign: 'middle',
+                    floating: false,
+                    fontSize: '14px',
+                    offsetY: 10,
+                    color: '#333333',
+                    fontFamily: 'Poppins'
+                },
+                tooltip: {
+                    enabled: true,
+                    style: {
+                        fontFamily: 'Poppins'
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return val
+                        },
+                    }
+                },
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            height: 300
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }]
+            };
 
-    var chart = new ApexCharts(chart, options);
-    chart.render();
-</script>
+            var chart = new ApexCharts(chart, options);
+            chart.render();
+        </script>
+
+
+    }
+}
 
 
 

@@ -11,12 +11,15 @@ namespace AUF.EMR.MVC.Controllers
     {
         private readonly IDashboardService _dashboardService;
         private readonly IHouseholdService _householdService;
+        private readonly IBarangayService _brgyService;
 
         public DashboardController(IDashboardService dashboardService,
-            IHouseholdService householdService)
+            IHouseholdService householdService,
+            IBarangayService brgyService)
         {
             _dashboardService = dashboardService;
             _householdService = householdService;
+            _brgyService = brgyService;
         }
 
         // GET: DashboardController/Barangay
@@ -48,6 +51,7 @@ namespace AUF.EMR.MVC.Controllers
                     HHCount5 = await _dashboardService.GetHouseholdCount(5,5),
                     HHCount6 = await _dashboardService.GetHouseholdCount(6,6),
                     HHCount7 = await _dashboardService.GetHouseholdCount(7,7),
+                    Barangay = (await _brgyService.GetBarangay()).BarangayName
                 };
 
                 return View(model);
