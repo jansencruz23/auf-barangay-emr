@@ -68,5 +68,91 @@ namespace AUF.EMR.MVC.Controllers
                 return RedirectToAction("Invalid", "Error", new { ex.Message });
             }
         }
+
+        public async Task<ActionResult> Weekly(string householdNo)
+        {
+            try
+            {
+                var userId = Guid.Parse(_httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                var user = (await _userManager.GetUserAsync(User)).FirstName;
+
+                if (user == null || userId == null)
+                {
+                    return RedirectToAction("PageNotFound", "Error");
+                }
+
+                var model = new SummaryVM
+                {
+                    TotalDay1 = await _summaryService.GetTotalFormsCount(DateRange.Weekly, DaysOffset.OFFSET1, userId),
+                    TotalDay2 = await _summaryService.GetTotalFormsCount(DateRange.Weekly, DaysOffset.OFFSET2, userId),
+                    TotalDay3 = await _summaryService.GetTotalFormsCount(DateRange.Weekly, DaysOffset.OFFSET3, userId),
+                    TotalDay4 = await _summaryService.GetTotalFormsCount(DateRange.Weekly, DaysOffset.OFFSET4, userId),
+                    TotalDay5 = await _summaryService.GetTotalFormsCount(DateRange.Weekly, DaysOffset.OFFSET5, userId),
+                    TotalDay6 = await _summaryService.GetTotalFormsCount(DateRange.Weekly, DaysOffset.OFFSET6, userId),
+                    TotalDay7 = await _summaryService.GetTotalFormsCount(DateRange.Weekly, DaysOffset.OFFSET7, userId),
+                    HouseholdNo = householdNo,
+                    Name = user,
+                    TotalForms = await _summaryService.GetTotalFormsCount(DateRange.Weekly, userId),
+                    HHForms = await _summaryService.GetFormsCount(FormType.Household, DateRange.Weekly, userId),
+                    HHMembers = await _summaryService.GetFormsCount(FormType.HouseholdMember, DateRange.Weekly, userId),
+                    WRAForms = await _summaryService.GetFormsCount(FormType.WomanOfReproductiveAge, DateRange.Weekly, userId),
+                    PregTrackForms = await _summaryService.GetFormsCount(FormType.PregnancyTracking, DateRange.Weekly, userId),
+                    FPForms = await _summaryService.GetFormsCount(FormType.FamilyPlanningRecord, DateRange.Weekly, userId),
+                    PatientForms = await _summaryService.GetFormsCount(FormType.PatientRecord, DateRange.Weekly, userId),
+                    VaccinationAppointments = await _summaryService.GetFormsCount(FormType.VaccinationAppointment, DateRange.Weekly, userId),
+                    PregForms = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Weekly, userId),
+                    PregAppointments = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Weekly, userId),
+                };
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Invalid", "Error", new { ex.Message });
+            }
+        }
+
+        public async Task<ActionResult> Monthly(string householdNo)
+        {
+            try
+            {
+                var userId = Guid.Parse(_httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                var user = (await _userManager.GetUserAsync(User)).FirstName;
+
+                if (user == null || userId == null)
+                {
+                    return RedirectToAction("PageNotFound", "Error");
+                }
+
+                var model = new SummaryVM
+                {
+                    TotalDay1 = await _summaryService.GetTotalFormsCount(DateRange.Monthly, DaysOffset.OFFSET1, userId),
+                    TotalDay2 = await _summaryService.GetTotalFormsCount(DateRange.Monthly, DaysOffset.OFFSET2, userId),
+                    TotalDay3 = await _summaryService.GetTotalFormsCount(DateRange.Monthly, DaysOffset.OFFSET3, userId),
+                    TotalDay4 = await _summaryService.GetTotalFormsCount(DateRange.Monthly, DaysOffset.OFFSET4, userId),
+                    TotalDay5 = await _summaryService.GetTotalFormsCount(DateRange.Monthly, DaysOffset.OFFSET5, userId),
+                    TotalDay6 = await _summaryService.GetTotalFormsCount(DateRange.Monthly, DaysOffset.OFFSET6, userId),
+                    TotalDay7 = await _summaryService.GetTotalFormsCount(DateRange.Monthly, DaysOffset.OFFSET7, userId),
+                    HouseholdNo = householdNo,
+                    Name = user,
+                    TotalForms = await _summaryService.GetTotalFormsCount(DateRange.Monthly, userId),
+                    HHForms = await _summaryService.GetFormsCount(FormType.Household, DateRange.Monthly, userId),
+                    HHMembers = await _summaryService.GetFormsCount(FormType.HouseholdMember, DateRange.Monthly, userId),
+                    WRAForms = await _summaryService.GetFormsCount(FormType.WomanOfReproductiveAge, DateRange.Monthly, userId),
+                    PregTrackForms = await _summaryService.GetFormsCount(FormType.PregnancyTracking, DateRange.Monthly, userId),
+                    FPForms = await _summaryService.GetFormsCount(FormType.FamilyPlanningRecord, DateRange.Monthly, userId),
+                    PatientForms = await _summaryService.GetFormsCount(FormType.PatientRecord, DateRange.Monthly, userId),
+                    VaccinationAppointments = await _summaryService.GetFormsCount(FormType.VaccinationAppointment, DateRange.Monthly, userId),
+                    PregForms = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Monthly, userId),
+                    PregAppointments = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Monthly, userId),
+                };
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Invalid", "Error", new { ex.Message });
+            }
+        }
     }
 }
