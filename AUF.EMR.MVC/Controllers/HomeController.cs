@@ -16,7 +16,14 @@ namespace AUF.EMR.MVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Index", "User");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Household");
+            }
         }
 
         public IActionResult Privacy()
