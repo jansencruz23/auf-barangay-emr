@@ -13,7 +13,7 @@
     ViewData["HouseholdNo"] = Model.HouseholdNo;
 }
 
-<main class="mt-8 flex justify-center items-center">
+<main class="my-8 flex justify-center items-center">
     <div class="mx-4">
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-12">
@@ -32,7 +32,7 @@
                     </div>
 
                 </div>
-                <h2 class="text-1xl font-normal">for @DateTime.Now.ToString("MMMM yyyy")</h2>
+                <h2 class="font-normal">for @DateTime.Now.ToString("MMMM yyyy")</h2>
             </div>
             <div class="col-span-12">
                 <div class="col-span-12 mt-2 flex flex-col lg:flex-row gap-2">
@@ -42,6 +42,7 @@
             </div>
             <div class="col-span-12 mt-4">
                 <h5 class="text-gray-800 text-2xl font-bold">Created & Modified Forms/Records</h5>
+                <h5 class="text-gray-800">You have created or updated <span class="text-green-500">@Model.TotalForms form(s)</span> this month.</h5>
             </div>
             <div class="col-span-12 grid grid-cols-5 sm:grid-cols-7 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 2xl:grid-cols-7 gap-2">
                 <a class="transform hover:scale-105 transition duration-300 shadow-xl rounded-lg h-40" style="background-color: #6691C1" href="#">
@@ -204,7 +205,7 @@
                     e.preventDefault(); // Prevent the default link behavior
 
                     $.ajax({
-                        url: '@Url.Action("Weekly")',
+                        url: '@Url.Action("Weekly", "Summary", new { Model.HouseholdNo })',
                         type: 'GET',
                         success: function (result) {
                             $('#content').html(result);
@@ -221,7 +222,7 @@
                     e.preventDefault(); // Prevent the default link behavior
 
                     $.ajax({
-                        url: '@Url.Action("Index")',
+                        url: '@Url.Action("Index", "Summary", new { Model.HouseholdNo })',
                         type: 'GET',
                         success: function (result) {
                             $('#content').html(result);
@@ -412,30 +413,3 @@
 
     }
 }
-
-
-
-
-
-
-
-
-<p>Total day 1: @Model.TotalDay1</p>
-<p>Total day 2: @Model.TotalDay2</p>
-<p>Total day 3: @Model.TotalDay3</p>
-<p>Total day 4: @Model.TotalDay4</p>
-<p>Total day 5: @Model.TotalDay5</p>
-<p>Total day 6: @Model.TotalDay6</p>
-<p>Total day 7: @Model.TotalDay7</p>
-
-<p>Total Created and Modified: @Model.TotalForms</p>
-
-<p>Created HH Forms Today: @Model.HHForms</p>
-<p>Created HH Members Today: @Model.HHMembers</p>
-<p>Created WRA Forms Today: @Model.WRAForms</p>
-<p>Created Pregnancy Tracking Forms Today: @Model.PregTrackForms</p>
-<p>Created Family Planning Forms Today: @Model.FPForms</p>
-<p>Created Patient Record Forms Today: @Model.PatientForms</p>
-<p>Created Vaccination Appointments Today: @Model.VaccinationAppointments</p>
-<p>Created Pregnancy Record Forms Today: @Model.PregForms</p>
-<p>Created Pregnancy Appointments Today: @Model.PregAppointments</p>
