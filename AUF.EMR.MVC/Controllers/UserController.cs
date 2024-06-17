@@ -1,4 +1,5 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.Application.Services;
 using AUF.EMR.Domain.Models.Identity;
 using AUF.EMR.MVC.Models.DetailVM;
 using AUF.EMR.MVC.Models.EditVM;
@@ -24,13 +25,31 @@ namespace AUF.EMR.MVC.Controllers
 
         [Authorize(Policy = "Admin")]
         // GET: UserController
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string query)
         {
-            var model = new UserVM
+            try
             {
-                Users = await _userManager.GetUsersInRoleAsync("User"),
-            };
-            return View(model);
+                var users = await _userManager.GetUsersInRoleAsync("User");
+
+                if (!string.IsNullOrEmpty(query))
+                {
+                    users = users
+                        .Where(u => u.UserName.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+                            u.LastName.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+                            u.FirstName.Contains(query, StringComparison.OrdinalIgnoreCase))
+                        .ToList();
+                }
+
+                var model = new UserVM
+                {
+                    Users = users
+                };
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return View("Error");
+            }
         }
 
         [Authorize(Policy = "Admin")]

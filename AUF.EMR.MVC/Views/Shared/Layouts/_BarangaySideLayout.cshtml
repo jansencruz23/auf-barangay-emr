@@ -15,7 +15,7 @@
     <header>
         @await Html.PartialAsync("Navigations/_AdminNav");
     </header>
-    <div class="">
+    <div class="" id="content">
         <main role="main" class="">
             @await Html.PartialAsync("Navigations/_BarangaySideBar", ViewData["Barangay"]);
             <div class="p-4 sm:ml-72">
@@ -27,6 +27,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/flowbite/dist/flowbite.js"></script>
+    <script src="~/lib/flowbite/dist/datepicker.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
