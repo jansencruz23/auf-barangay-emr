@@ -148,23 +148,24 @@ namespace AUF.EMR.Persistence.Repositories
 
         public async Task<PaginatedList<Household>> GetHouseholdsWithDetails(int page)
         {
-            var households = _dbContext.Households
+            var households = await _dbContext.Households
                 .AsNoTracking()
                 .Include(h => h.HouseholdMembers.Where(m => m.Status))
                 .Where(h => h.Status)
-                .OrderByDescending(p => p.LastModified);
-
-            var pagedHouseholds = await PaginatedList<Household>.CreateAsync(households, page);
+                .OrderByDescending(p => p.LastModified)
+                .ToListAsync();
 
             foreach (var household in households)
             {
                 household.HouseholdMembers = household.HouseholdMembers
-                    .OrderBy(m => m.RelationshipToHouseholdHead == 1 ? 0 : m.RelationshipToHouseholdHead)
-                        .ThenBy(m => m.RelationshipToHouseholdHead == 2 ? 1 : m.RelationshipToHouseholdHead)
-                        .ThenBy(m => m.RelationshipToHouseholdHead == 3 || m.RelationshipToHouseholdHead == 4 ? m.Birthday : DateTime.MaxValue)
-                    .ToList();
+                .OrderBy(m => m.RelationshipToHouseholdHead == 1 ? 0 :
+                              m.RelationshipToHouseholdHead == 2 ? 1 :
+                              m.RelationshipToHouseholdHead == 3 || m.RelationshipToHouseholdHead == 4 ? 2 : 3)
+                .ThenBy(m => m.RelationshipToHouseholdHead == 3 || m.RelationshipToHouseholdHead == 4 ? m.Birthday : DateTime.MaxValue)
+                .ToList();
             }
 
+            var pagedHouseholds = await PaginatedList<Household>.CreateAsync(households, page);
             return pagedHouseholds;
         }
 

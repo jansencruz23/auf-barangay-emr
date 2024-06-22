@@ -679,10 +679,6 @@ namespace AUF.EMR.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Age")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<DateTime>("Birthday")
                         .HasColumnType("datetime(6)");
 

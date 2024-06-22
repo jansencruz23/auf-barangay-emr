@@ -7,7 +7,7 @@ namespace AUF.EMR.MVC.Models.CreateVM
     {
         public HouseholdMember HouseholdMember { get; set; }
         public int HouseholdId { get; set; }
-        public string AgeSuffix { get; set; }
+        //public string AgeSuffix { get; set; }
         public List<Classification>? Classifications { get; set; }
         public List<Classification>? FirstQtrClassifications { get; set; }
         public List<Classification>? SecondQtrClassifications { get; set; }

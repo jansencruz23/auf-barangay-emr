@@ -109,7 +109,7 @@ namespace AUF.EMR.MVC.Controllers
 
                 var householdMember = model.HouseholdMember;
 
-                householdMember.Age = $"{householdMember.Age} {model.AgeSuffix}";
+                //householdMember.Age = $"{householdMember.Age} {model.AgeSuffix}";
                 householdMember.FirstQtrClassification = firstQtrClassification;
                 householdMember.SecondQtrClassification = secondQtrClassification;
                 householdMember.ThirdQtrClassification = thirdQtrClassification;
@@ -146,17 +146,17 @@ namespace AUF.EMR.MVC.Controllers
 
                 var classificationService = new ClassificationService();
                 var classifications = classificationService.GetClassifications();               
-                var ageParts = member.Age.Split(" ");
-                var ageSuffix = ageParts.Length < 2 ? "yrs" : ageParts[1];
-                int.TryParse(ageParts[0], out int age);
+                //var ageParts = member.Age.Split(" ");
+                //var ageSuffix = ageParts.Length < 2 ? "yrs" : ageParts[1];
+                //int.TryParse(ageParts[0], out int age);
 
                 var model = new EditHouseholdMemberVM
                 {
                     HouseholdMember = member,
                     HouseholdNo = member.Household.HouseholdNo,
-                    AgePrefix = age,
+                    //AgePrefix = age,
                     RequestUrl = requestUrl,
-                    AgeSuffix = ageSuffix,
+                    //AgeSuffix = ageSuffix,
                     Classifications = classifications,
                     FirstQtrClassifications = new ClassificationService().MapSelected(member.FirstQtrClassification),
                     SecondQtrClassifications = new ClassificationService().MapSelected(member.SecondQtrClassification),
@@ -195,7 +195,7 @@ namespace AUF.EMR.MVC.Controllers
                 var fourthQtrClassification = _houseHoldMemberService.GetClassifications(model.FourthQtrClassifications);
 
                 var householdMember = model.HouseholdMember;
-                householdMember.Age = $"{model.AgePrefix} {model.AgeSuffix}";
+                //householdMember.Age = $"{model.AgePrefix} {model.AgeSuffix}";
 
                 householdMember.FirstQtrClassification = firstQtrClassification;
                 householdMember.SecondQtrClassification = secondQtrClassification;

@@ -87,8 +87,6 @@ namespace AUF.EMR.MVC.Controllers
                 HouseholdMember = member,
                 RequestUrl = requestUrl,
                 HouseholdNo = householdNo,
-                AgePrefix = age,
-                AgeSuffix = ageSuffix
             };
 
             return View(model);
@@ -112,7 +110,7 @@ namespace AUF.EMR.MVC.Controllers
             try
             {
                 var householdMember = model.HouseholdMember;
-                householdMember.Age = $"{model.AgePrefix} {model.AgeSuffix}";
+                //householdMember.Age = $"{model.AgePrefix} {model.AgeSuffix}";
                 var completed = await _householdMemberService.Update(householdMember);
 
                 return Redirect(model.RequestUrl);

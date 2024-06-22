@@ -84,9 +84,10 @@ namespace AUF.EMR.Persistence.Repositories
                 .AsNoTracking()
                 .Include(m => m.Household)
                 .Where(m => m.Household.Status && m.Household.HouseholdNo.Equals(houseHoldNo) && m.Status)
-                .OrderBy(m => m.RelationshipToHouseholdHead == 1 ? 0 : m.RelationshipToHouseholdHead)
-                    .ThenBy(m => m.RelationshipToHouseholdHead == 2 ? 1 : m.RelationshipToHouseholdHead)
-                    .ThenBy(m => m.RelationshipToHouseholdHead == 3 || m.RelationshipToHouseholdHead == 4 ? m.Birthday : DateTime.MaxValue)
+                .OrderBy(m => m.RelationshipToHouseholdHead == 1 ? 0 :
+                              m.RelationshipToHouseholdHead == 2 ? 1 :
+                              m.RelationshipToHouseholdHead == 3 || m.RelationshipToHouseholdHead == 4 ? 2 : 3)
+                .ThenBy(m => m.RelationshipToHouseholdHead == 3 || m.RelationshipToHouseholdHead == 4 ? m.Birthday : DateTime.MaxValue)
                 .ToListAsync();
 
             return houseHoldMembers;
