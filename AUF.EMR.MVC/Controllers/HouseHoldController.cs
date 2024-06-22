@@ -87,20 +87,6 @@ namespace AUF.EMR.MVC.Controllers
             return View(model);
         }
 
-        // GET: HouseHolds/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            var houseHold = await _houseHoldService.GetHouseholdWithDetails(id.Value);
-            var houseHoldMembers = await _houseHoldMemberService.GetHouseholdMembersWithDetails(houseHold.HouseholdNo);
-            var model = new CreateHouseholdProfileVM
-            {
-                Household = houseHold,
-                HouseholdMembers = houseHoldMembers
-            };
-
-            return View(model);
-        }
-
         // GET: HouseHolds/Create
         public IActionResult Create()
         {

@@ -30,24 +30,6 @@ namespace AUF.EMR.MVC.Controllers
             _mapper = mapper;
         }
 
-        // GET: HouseHoldMemberController
-        public async Task<ActionResult> Index(int id)
-        {
-            var household = await _houseHoldService.GetHouseholdWithDetails(id);
-            if (household == null)
-            {
-                return NotFound();
-            }
-
-            var model = new HouseholdMemberListVM
-            {
-                HouseholdMembers = household.HouseholdMembers,
-                Household = household,
-            };
-
-            return View(model);
-        }
-
         // GET: HouseHoldMemberController/Details/5
         public async Task<ActionResult> Details(int id, string householdNo)
         {

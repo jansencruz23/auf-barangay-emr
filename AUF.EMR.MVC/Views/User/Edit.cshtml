@@ -1,15 +1,17 @@
 ﻿@model EditUserVM
 
 @{
-   Layout = "Layouts/_BarangaySideLayout";
+    Layout = "Layouts/_BarangaySideLayout";
+    ViewData["Title"] = "Employee - Update";
 }
-
-<h1>@ViewData["Title"]</h1>
 
 <div class="container mx-auto px-4 py-8">
     <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form id="registerForm" method="post" enctype="multipart/form-data">
-            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Edit Employee</h1>
+            <div class="w-3/4">
+                <h1 class="text-xl">Update</h1>
+                <h1 class="text-2xl font-bold text-gray-800 mb-4">Employee Details</h1>
+            </div>
             <hr class="mb-4">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <input type="hidden" asp-for="User.Id" />
@@ -71,7 +73,7 @@
             </div>
             <div class="flex justify-end">
                 <a asp-action="Index" asp-controller="User" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back</a>
-                <button id="registerSubmit" type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Update Employee</button>
+                <button id="registerSubmit" type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Save</button>
             </div>
         </form>
         

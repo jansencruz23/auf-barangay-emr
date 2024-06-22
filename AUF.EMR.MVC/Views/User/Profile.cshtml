@@ -3,67 +3,72 @@
 
 @{
     Layout = "Layouts/_BarangaySideLayout";
+    ViewData["Title"] = "User Profile";
 }
 
-    <div class="container mx-auto px-4 py-8">
+<div class="container mx-auto px-4 py-8">
 
-        <div class="bg-white shadow-md rounded-lg p-8 mb-8">
-            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Profile of @Model.User.FullName</h1>
-            <hr class="mb-4">
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
+        <div class="flex justify-between">
+            <div class="w-3/4">
+                <h1 class="text-xl">Profile of</h1>
+                <h1 class="text-2xl font-bold text-gray-800 mb-4">@Model.User.FullName</h1>
+            </div>
+            <a asp-action="Edit" asp-route-id="@Model.User.Id" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg max-h-10 text-sm px-5 py-2.5 me-2 mb-2 w-20 flex items-center justify-center">Update</a>
+        </div>
+        <hr class="mb-4">
 
-            <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
-                <div class="flex items-center">
+        <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
+            <div class="flex items-center">
                 <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-36">First Name</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.FirstName)</dd>
-                </div>
-                <div class="flex items-center">
+                <dd class="text-gray-900">@Html.DisplayFor(model => model.User.FirstName)</dd>
+            </div>
+            <div class="flex items-center">
                 <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-36">Address</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.Address)</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-36">Middle Name</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.MiddleName)</dd>
-                </div>
-                <div class="flex items-center">
+                <dd class="text-gray-900">@Html.DisplayFor(model => model.User.Address)</dd>
+            </div>
+            <div class="flex items-center">
+                <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-36">Middle Name</dt>
+                <dd class="text-gray-900">@Html.DisplayFor(model => model.User.MiddleName)</dd>
+            </div>
+            <div class="flex items-center">
                 <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-36">Position</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.Position)</dd>
-                </div>
-                <div class="flex items-center">
+                <dd class="text-gray-900">@Html.DisplayFor(model => model.User.Position)</dd>
+            </div>
+            <div class="flex items-center">
                 <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-36">Last Name</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.LastName)</dd>
-                </div>
-                <div class="flex items-center">
+                <dd class="text-gray-900">@Html.DisplayFor(model => model.User.LastName)</dd>
+            </div>
+            <div class="flex items-center">
                 <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-36">Username</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.UserName)</dd>
-                </div>
-                <div class="flex items-center">
+                <dd class="text-gray-900">@Html.DisplayFor(model => model.User.UserName)</dd>
+            </div>
+            <div class="flex items-center">
                 <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-36">Profile Picture</dt>
-                    <dd class="text-gray-900">
+                <dd class="text-gray-900">
                     @if (!string.IsNullOrEmpty(Model.User.LogoBase64String))
                     {
                         <img src="data:image/png;base64,@Model.User.LogoBase64String" alt="Logo" width="100" height="100" class="rounded-lg">
                     }
-                    </dd>
-                </div>
-                <div class="flex items-center">
-                </div>
-                <div class="flex items-center">
-                <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-36">Date of Birth</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.Birthday)</dd>
-                </div>
-                <div class="flex items-center">
-                </div>
-                <div class="flex items-center">
-                <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-36">Contact No.</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.User.ContactNo)</dd>
-                </div>
-            </dl>
-
-            <div class="flex justify-end mt-8">
-                <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back</a>
-            <a asp-action="Edit" asp-route-id="@Model.User.Id" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 w-20 flex items-center justify-center">Edit</a>
+                </dd>
             </div>
-        </div>
+            <div class="flex items-center">
+            </div>
+            <div class="flex items-center">
+                <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-36">Date of Birth</dt>
+                <dd class="text-gray-900">@Html.DisplayFor(model => model.User.Birthday)</dd>
+            </div>
+            <div class="flex items-center">
+            </div>
+            <div class="flex items-center">
+                <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-36">Contact No.</dt>
+                <dd class="text-gray-900">@Html.DisplayFor(model => model.User.ContactNo)</dd>
+            </div>
+        </dl>
     </div>
+    <div class="flex justify-end mt-8">
+        <a asp-action="Index" class="focus:outline-none text-white bg-red-400 hover:bg-red-450 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Back to List</a>
+    </div>
+</div>
 
 
