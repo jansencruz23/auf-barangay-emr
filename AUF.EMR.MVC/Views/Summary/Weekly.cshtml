@@ -20,15 +20,15 @@
                 <div class="flex justify-between">
                     <h2 class="text-3xl font-bold text-gray-800">Welcome to your Checkup Summary, @Model.Name</h2> <!--Fetch username here-->
                     <div class="inline-flex rounded-md shadow-sm">
-                        <button id="daily-link" aria-current="page" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+                        <a asp-action="Index" asp-route-householdNo="@Model.HouseholdNo" aria-current="page" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
                             Daily
-                        </button>
+                        </a>
                         <button class="px-4 py-2 text-sm font-medium text-blue-700 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
                             Weekly
                         </button>
-                        <button id="monthly-link" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+                        <a asp-action="Monthly" asp-route-householdNo="@Model.HouseholdNo" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
                             Monthly
-                        </button>
+                        </a>
                     </div>
 
                 </div>
