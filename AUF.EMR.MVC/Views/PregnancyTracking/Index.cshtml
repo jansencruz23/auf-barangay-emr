@@ -150,6 +150,9 @@
                             Pregnancy Outcome
                         </th>
                         <th class="px-4 py-2 text-left">
+                            Last Updated
+                        </th>
+                        <th class="px-4 py-2 text-left">
                             Actions
                         </th>
                     </tr>
@@ -175,16 +178,19 @@
                                 @Html.DisplayFor(modelItem => item.ExpectedDateOfDelivery)
                             </td>
                             <td class="px-4 py-2">
-                                @Html.DisplayFor(modelItem => item.FirstAntenatalCheckUp)
+                                @item.FirstAntenatalCheckUp?.ToString("MMM dd, yyyy")
                             </td>
                             <td class="px-4 py-2">
-                                @Html.DisplayFor(modelItem => item.SecondAntenatalCheckUp)
+                                @item.SecondAntenatalCheckUp?.ToString("MMM dd, yyyy")
                             </td>
                             <td class="px-4 py-2">
-                                @Html.DisplayFor(modelItem => item.ThirdAntenatalCheckUp)
+                                @item.ThirdAntenatalCheckUp?.ToString("MMM dd, yyyy")
                             </td>
                             <td class="px-4 py-2">
                                 @Html.DisplayFor(modelItem => item.PregnancyOutcome)
+                            </td>
+                            <td class="px-4 py-2">
+                                @item.LastModified.ToString("MMM dd, yyyy")
                             </td>
                             <td class="px-4 py-2 inline-flex items-center text-center text-lg">
                                 <a asp-action="Details" asp-route-householdNo="@Model.HouseholdNo" asp-route-id="@item.Id" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>

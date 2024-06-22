@@ -42,15 +42,25 @@ namespace AUF.EMR.Persistence.Repositories
         {
             var record = await _dbContext.PatientRecords
                 .AsNoTracking()
-                .Include(p => p.VaccinationAppointments.Where(a => a.Status))
-                    .ThenInclude(v => v.VaccinationRecords)
-                            .ThenInclude(r => r.Vaccine)
                 .Include(p => p.Patient)
                     .ThenInclude(m => m.Household)
                 .Where(p => p.Status &&
                     p.Patient.Household.Status &&
                     p.Patient.Status)
                 .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (record != null)
+            {
+                record.VaccinationAppointments = await _dbContext.VaccinationAppointments
+                    .Where(a => a.PatientRecordId == id && a.Status)
+                    .Include(v => v.VaccinationRecords)
+                        .ThenInclude(r => r.Vaccine)
+                    .Include(v => v.PatientRecord)
+                        .ThenInclude(p => p.Patient)
+                            .ThenInclude(p => p.Household)
+                    .OrderByDescending(a => a.VaccinationDate)
+                    .ToListAsync();
+            }
 
             return record;
         }

@@ -78,7 +78,7 @@
                                 @Html.DisplayFor(modelItem => item.CellphoneNumber)
                             </td>
                             <td class="px-4 py-2 text-left">
-                                @Html.DisplayFor(modelItem => item.EDC)
+                                @item.EDC.ToString("MMM dd, yyyy")
                             </td>
                             <!--Action Buttons-->
                             <td class="px-4 py-2 text-left inline-flex items-center text-center text-lg">

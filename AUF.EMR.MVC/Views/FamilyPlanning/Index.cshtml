@@ -41,10 +41,10 @@
                             Spouse
                         </th>
                         <th class="py-2 text-left">
-                            Age
+                            Contact No.
                         </th>
                         <th class="py-2 text-left">
-                            Contact No.
+                            Date Acknowledgement
                         </th>
                         <th class="py-2 text-left">
                             Actions
@@ -69,10 +69,10 @@
                                 @item.SpouseLastName, @item.SpouseFirstName
                             </td>
                             <td class="border-b border-gray-100 py-2 text-left">
-                                @item.SpouseAge
+                                @Html.DisplayFor(modelItem => item.ContactNo)
                             </td>
                             <td class="border-b border-gray-100 py-2 text-left">
-                                @Html.DisplayFor(modelItem => item.ContactNo)
+                                @item.DateAcknowledgement.ToString("MMM dd, yyyy")
                             </td>
                             <td class="border-b border-gray-100 py-2 text-left inline-flex items-center text-center text-lg">
                                 <button type="button" onclick="print('Print', 'FamilyPlanning', @Model.HouseholdNo, @item.Id, @item.ClientHouseholdMemberId)" class="text-blue-400 hover:text-blue-600 mr-2"><i class="fa-solid fa-print"></i></button>

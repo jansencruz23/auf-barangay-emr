@@ -167,6 +167,9 @@
                             Birthday
                         </th>
                         <th class="px-4 py-2 text-left">
+                            Last Updated
+                        </th>
+                        <th class="px-4 py-2 text-left">
                             Actions
                         </th>
                     </tr>
@@ -189,7 +192,10 @@
                                 @member.Age
                             </td>
                             <td class="px-4 py-2">
-                                @member.Birthday.ToString("MM/dd/yy")
+                                @member.Birthday.ToString("MMM dd, yyyy")
+                            </td>
+                            <td class="px-4 py-2">
+                                @member.LastModified.ToString("MMM dd, yyyy")
                             </td>
                             <td class="px-6 py-2 text-lg">
                                 <a asp-action="Details" asp-controller="HouseholdMember" asp-route-id="@member.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>

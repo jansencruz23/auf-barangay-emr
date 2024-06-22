@@ -68,12 +68,12 @@
 
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">Birthday</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PregnancyRecord.Patient.Birthday)</dd>
+                    <dd class="text-gray-900">@Model.PregnancyRecord.Patient.Birthday.ToString("MMM dd, yyyy")</dd>
                 </div>
 
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">LMP</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PregnancyRecord.LMP)</dd>
+                    <dd class="text-gray-900">@Model.PregnancyRecord.LMP.ToString("MMM dd, yyyy")</dd>
                 </div>
 
                 <div class="flex items-center pb-2">
@@ -83,7 +83,7 @@
 
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-600 font-semibold mr-10 flex-shrink-0 w-40">EDC</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PregnancyRecord.EDC)</dd>
+                    <dd class="text-gray-900">@Model.PregnancyRecord.EDC.ToString("MMM dd, yyyy")</dd>
                 </div>
 
                 <div class="flex items-center pb-2">
@@ -178,7 +178,7 @@
                     {
                             <tr class="text-sm hover-table-content transition duration-300 ease-in-out border-b border-gray-100">
                             <td class="px-4 py-2">
-                                @Html.DisplayFor(modelItem => item.Date)
+                                @item.Date.ToString("MMM dd, yyyy")
                             </td>
                             <td class="px-4 py-2">
                                 @Html.DisplayFor(modelItem => item.Weight)

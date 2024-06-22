@@ -80,7 +80,7 @@
                 </div>
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Birthday</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.Patient.Birthday)</dd>
+                    <dd class="text-gray-900">@Model.PatientRecord.Patient.Birthday.ToString("MMM dd, yyyy")</dd>
                 </div>
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Mother's Age</dt>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Mother's Birthday</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.MotherBirthday)</dd>
+                    <dd class="text-gray-900">@Model.PatientRecord.MotherBirthday.ToString("MMM dd, yyyy")</dd>
                 </div>
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Sex</dt>
@@ -113,7 +113,7 @@
                 <div></div>
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Father's Birthday</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.PatientRecord.FatherBirthday)</dd>
+                    <dd class="text-gray-900">@Model.PatientRecord.FatherBirthday.ToString("MMM dd, yyyy")</dd>
                 </div>
                 <div class="flex items-center pb-2">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-40">Type of Delivery</dt>
@@ -175,12 +175,12 @@
                 <tbody>
                     @foreach (var appointment in Model.PatientRecord.VaccinationAppointments)
                     {
-                                <tr class="border-b border-gray-100 hover-table-content transition duration-300 ease-in-out">
+                        <tr class="border-b border-gray-100 hover-table-content transition duration-300 ease-in-out">
                             <td class="px-4 py-2">
                                 @Html.DisplayFor(modelItem => appointment.PatientRecord.Patient.FormattedFullName)
                             </td>
                             <td class="px-4 py-2">
-                                @Html.DisplayFor(modelItem => appointment.VaccinationDate)
+                                @appointment.VaccinationDate.ToString("MMM dd, yyyy")
                             </td>
                             <td class="px-4 py-2">
                                 @Html.DisplayFor(modelItem => appointment.Weight)

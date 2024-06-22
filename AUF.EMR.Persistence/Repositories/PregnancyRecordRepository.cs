@@ -64,6 +64,14 @@ namespace AUF.EMR.Persistence.Repositories
                     r.Patient.Household.Status)
                 .FirstOrDefaultAsync(r => r.Id == id);
 
+            if (record != null)
+            {
+                record.PregnancyAppointments = await _dbContext.PregnancyAppointments
+                    .Where(a => a.PregnancyRecordId == id && a.Status)
+                    .OrderByDescending(a => a.Date)
+                    .ToListAsync();
+            }
+
             return record;
         }
     }

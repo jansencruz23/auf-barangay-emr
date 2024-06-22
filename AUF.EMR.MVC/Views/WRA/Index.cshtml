@@ -53,13 +53,14 @@
                         <th class="px-4 py-2 text-left">
                             Fucundity
                         </th>
-
                         <th class="px-4 py-2 text-left">
                             Currently Using FP Method?
                         </th>
-
                         <th class="px-4 py-2 text-left">
                             FP Type
+                        </th>
+                        <th class="px-4 py-2 text-left">
+                            Last Updated
                         </th>
                         <th class="px-4 py-2">
                             Actions
@@ -93,6 +94,9 @@
                             </td>
                             <td class="px-4 py-2">
                                 @((item.IsFPModern.HasValue) ? (item.IsFPModern.Value ? "Modern" : "Traditional") : "")
+                            </td>
+                            <td class="px-4 py-2">
+                                @item.LastModified.ToString("MMM dd, yyyy")
                             </td>
                             <td class="px-4 py-2 inline-flex items-center text-center text-lg">
                                 <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>
