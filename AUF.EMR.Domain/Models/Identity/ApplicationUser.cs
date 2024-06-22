@@ -15,7 +15,7 @@ namespace AUF.EMR.Domain.Models.Identity
         public string? MiddleName { get; set; }
         public byte[]? Picture { get; set; }
 
-        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Birthday { get; set; }
         public string ContactNo { get; set; }
         public string Address { get; set; }
