@@ -11,7 +11,10 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
-            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Add Pregnancy Record</h1>
+            <div class="w-3/4">
+                <h1 class="text-xl">Create</h1>
+                <h1 class="text-2xl font-bold text-gray-800 mb-4">Pregnancy Record</h1>
+            </div>
             <hr class="mb-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>

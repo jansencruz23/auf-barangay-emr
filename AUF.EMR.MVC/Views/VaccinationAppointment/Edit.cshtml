@@ -15,12 +15,15 @@
             <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             <input type="hidden" asp-for="PatientId" value="@Model.PatientId" />
             <input type="hidden" asp-for="Appointment.Id" />
-            <h1 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Edit Vaccination Appointment</h1>
+            <div class="w-3/4">
+                <h1 class="text-xl">Update</h1>
+                <h1 class="text-2xl font-bold text-gray-800 mb-4">Vaccination Appointment</h1>
+            </div>
             <hr class="mb-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                     <div class="mb-4">
-                        <label asp-for="Appointment.VaccinationDate" class="block mb-2 text-sm font-medium text-gray-700">Father's Birthdate</label>
+                        <label asp-for="Appointment.VaccinationDate" class="block mb-2 text-sm font-medium text-gray-700">Vaccination Date</label>
                         <div class="relative w-full md:w-4/5 mb-4">
                             <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
