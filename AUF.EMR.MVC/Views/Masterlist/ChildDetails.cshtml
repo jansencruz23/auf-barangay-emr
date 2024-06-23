@@ -57,7 +57,7 @@
                 </div>
                 <div class="flex items-center">
                     <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Date of Birth:</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Birthday)</dd>
+                    <dd class="text-gray-900">@Model.HouseholdMember.Birthday.ToString("MMM dd, yyyy")</dd>
                 </div>
                 <div class="flex items-center">
                     <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">NHTS:</dt>

@@ -52,7 +52,7 @@
                             <td class="px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.NameOfFather)</td>
                             <td class="px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Sex)</td>
                             <td class="px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Age)</td>
-                            <td class="px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Birthday)</td>
+                            <td class="px-4 py-2 text-left">@item.Birthday.ToString("MMM dd, yyyy")</td>
                             <td class="px-4 py-2 text-left">@((item.IsNhts) ? "NHTS" : "Non NHTS")</td>
                             <td class="px-4 py-2 text-left">@((item.IsInSchool.HasValue) ? (item.IsInSchool.Value ? "In School" : "Out of School Youth") : "") </td>
                             <!--Action Button-->

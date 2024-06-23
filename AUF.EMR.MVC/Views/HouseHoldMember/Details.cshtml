@@ -53,11 +53,19 @@
                 </div>
                 <div class="flex items-center">
                     <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Date of Birth</dt>
-                    <dd class="text-gray-900">@Html.DisplayFor(model => model.HouseholdMember.Birthday)</dd>
+                    <dd class="text-gray-900">@Model.HouseholdMember.Birthday.ToString("MMM dd, yyyy")</dd>
                 </div>
-                                <div class="flex items-center">
+                <div class="flex items-center">
                     <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">SE Status</dt>
                     <dd class="text-gray-900">@((Model.HouseholdMember.IsNhts) ? "NHTS" : "Non-NHTS")</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Age When Last Updated</dt>
+                    <dd class="text-gray-900">@Model.HouseholdMember.LastVisitedAge</dd>
+                </div>
+                <div class="flex items-center">
+                    <dt class="flex-shrink-0 mr-10 w-52 text-gray-800 font-semibold">Last Updated Date</dt>
+                    <dd class="text-gray-900">@Model.HouseholdMember.LastModified.ToString("MMM dd, yyyy")</dd>
                 </div>
                 <h5 class="">Age/Health Risk Group Classification</h5>
                 <div class="flex items-start">

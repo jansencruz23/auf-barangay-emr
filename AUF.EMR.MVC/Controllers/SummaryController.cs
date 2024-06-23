@@ -58,7 +58,7 @@ namespace AUF.EMR.MVC.Controllers
                     PatientForms = await _summaryService.GetFormsCount(FormType.PatientRecord, DateRange.Daily, userId),
                     VaccinationAppointments = await _summaryService.GetFormsCount(FormType.VaccinationAppointment, DateRange.Daily, userId),
                     PregForms = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
-                    PregAppointments = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
+                    PregAppointments = await _summaryService.GetFormsCount(FormType.PregnancyAppointment, DateRange.Daily, userId),
                 };
 
                 return View(model);
@@ -101,7 +101,7 @@ namespace AUF.EMR.MVC.Controllers
                     PatientForms = await _summaryService.GetFormsCount(FormType.PatientRecord, DateRange.Weekly, userId),
                     VaccinationAppointments = await _summaryService.GetFormsCount(FormType.VaccinationAppointment, DateRange.Weekly, userId),
                     PregForms = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Weekly, userId),
-                    PregAppointments = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Weekly, userId),
+                    PregAppointments = await _summaryService.GetFormsCount(FormType.PregnancyAppointment, DateRange.Weekly, userId),
                 };
 
                 return View(model);
@@ -144,7 +144,7 @@ namespace AUF.EMR.MVC.Controllers
                     PatientForms = await _summaryService.GetFormsCount(FormType.PatientRecord, DateRange.Monthly, userId),
                     VaccinationAppointments = await _summaryService.GetFormsCount(FormType.VaccinationAppointment, DateRange.Monthly, userId),
                     PregForms = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Monthly, userId),
-                    PregAppointments = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Monthly, userId),
+                    PregAppointments = await _summaryService.GetFormsCount(FormType.PregnancyAppointment, DateRange.Monthly, userId),
                 };
 
                 return View(model);

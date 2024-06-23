@@ -3,6 +3,7 @@
 @{
     Layout = "Layouts/_FormLayout";
     ViewData["Title"] = "Dashboard - Household";
+    ViewData["HouseholdNo"] = Model.HouseholdNo;
 }
 
 
@@ -231,7 +232,7 @@
                 labels: ['Newborn', 'Infant', 'Under-five', 'School-aged', 'Adolescents', 'Adult', 'Senior C.'],
                 colors: ['#6691C1', '#AFCAFC', '#D2E0FB', '#E8E3C9', '#D0ECB6', '#BEE39B', '#ACCB8F'],
                 title: {
-                    text: 'Total Number of Patients',
+                    text: 'Total Number of Members',
                     align: 'center',
                     margin: 5,
                     offsetX: 0,

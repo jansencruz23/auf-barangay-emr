@@ -68,7 +68,7 @@
                     <tr class="text-sm hover-household transition duration-300 ease-in-out">
                         <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.FullName)</td>
                         <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Age)</td>
-                        <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Birthday)</td>
+                        <td class="border-b border-gray-100 px-4 py-2 text-left">@item.Birthday.ToString("MMM  dd, yyyy")</td>
                         <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Position)</td>
                         <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.ContactNo)</td>
                         <td class="border-b border-gray-100 px-4 py-2 text-left">@Html.DisplayFor(modelItem => item.Address)</td>

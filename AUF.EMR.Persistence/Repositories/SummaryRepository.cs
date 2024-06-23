@@ -55,7 +55,13 @@ namespace AUF.EMR.Persistence.Repositories
                 .AsNoTracking()
                 .Where(f => f.ModifiedById.Equals(userId) &&
                     f.Action.Equals("Added") &&
-                    !f.EntityName.Equals("PregnancyTrackingHH") &&
+                        !(f.EntityName.Equals("PregnancyTrackingHH") || 
+                        f.EntityName.Equals("ClientType") ||
+                        f.EntityName.Equals("MedicalHistory") ||
+                        f.EntityName.Equals("ObstetricalHistory") ||
+                        f.EntityName.Equals("PhysicalExamination") || 
+                        f.EntityName.Equals("RisksForSTI") || 
+                        f.EntityName.Equals("RisksForVAW")) &&
                     f.Timestamp >= startDate &&
                     f.Timestamp <= endDate)
                 .CountAsync();
@@ -64,6 +70,13 @@ namespace AUF.EMR.Persistence.Repositories
                 .AsNoTracking()
                 .Where(f => f.ModifiedById.Equals(userId) &&
                     f.Action.Equals("Modified") &&
+                        !(f.EntityName.Equals("PregnancyTrackingHH") ||
+                        f.EntityName.Equals("ClientType") ||
+                        f.EntityName.Equals("MedicalHistory") ||
+                        f.EntityName.Equals("ObstetricalHistory") ||
+                        f.EntityName.Equals("PhysicalExamination") ||
+                        f.EntityName.Equals("RisksForSTI") ||
+                        f.EntityName.Equals("RisksForVAW")) &&
                     f.Timestamp >= startDate &&
                     f.Timestamp <= endDate)
                 .GroupBy(f => new { f.EntityId, f.EntityName })
