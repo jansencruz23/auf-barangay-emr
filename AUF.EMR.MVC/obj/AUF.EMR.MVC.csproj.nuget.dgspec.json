@@ -55,6 +55,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.16, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
+            "MySqlBackup.NET": {
+              "target": "Package",
+              "version": "[2.3.8, )"
             }
           },
           "imports": [

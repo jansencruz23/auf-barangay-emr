@@ -598,3 +598,17 @@ D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.pdb
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\AUF.EMR.MVC.genruntimeconfig.cache
 D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\obj\Debug\net7.0\ref\AUF.EMR.MVC.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\Google.Protobuf.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\K4os.Compression.LZ4.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\K4os.Compression.LZ4.Streams.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\K4os.Hash.xxHash.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\MySql.Data.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\System.Diagnostics.DiagnosticSource.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\ZstdSharp.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\runtimes\win-x64\native\comerr64.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\runtimes\win-x64\native\gssapi64.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\runtimes\win-x64\native\k5sprt64.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\runtimes\win-x64\native\krb5_64.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\runtimes\win-x64\native\krbcc64.dll
+D:\User\Jansen\Self Study\2024 - 02 - FEBRUARY\ASP.NET CORE\AUF.EMR\AUF.EMR.MVC\bin\Debug\net7.0\MySqlBackup.dll

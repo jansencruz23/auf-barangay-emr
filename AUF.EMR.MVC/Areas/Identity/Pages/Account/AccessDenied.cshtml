@@ -4,7 +4,12 @@
     ViewData["Title"] = "Access denied";
 }
 
-<header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">You do not have access to this resource.</p>
-</header>
+<section>
+    <div class="flex h-screen justify-center items-center py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 flex">
+        <div class="mx-auto max-w-screen-sm text-center">
+            <p class="mt-4 mb-4 text-3xl tracking-tight font-bold md:text-4xl dark:text-white" style="color: #800000">Access Denied</p>
+            <p class="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">You do not have permission to access this page.</p>
+            <a asp-action="Index" asp-controller="Home" class="inline-flex font-medium rounded-lg text-sm px-5 py-2.5 text-center my-4" style="background-color: #ACCB8F; color: white;">Home</a>
+        </div>
+    </div>
+</section>

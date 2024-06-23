@@ -33,7 +33,7 @@ namespace AUF.EMR.MVC.Controllers
                 var userId = Guid.Parse(_httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
                 var user = (await _userManager.GetUserAsync(User)).FirstName;
 
-                if (user == null || userId == null)
+                if (user == null)
                 {
                     return RedirectToAction("PageNotFound", "Error");
                 }
@@ -76,7 +76,7 @@ namespace AUF.EMR.MVC.Controllers
                 var userId = Guid.Parse(_httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
                 var user = (await _userManager.GetUserAsync(User)).FirstName;
 
-                if (user == null || userId == null)
+                if (user == null)
                 {
                     return RedirectToAction("PageNotFound", "Error");
                 }
@@ -119,7 +119,7 @@ namespace AUF.EMR.MVC.Controllers
                 var userId = Guid.Parse(_httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
                 var user = (await _userManager.GetUserAsync(User)).FirstName;
 
-                if (user == null || userId == null)
+                if (user == null)
                 {
                     return RedirectToAction("PageNotFound", "Error");
                 }

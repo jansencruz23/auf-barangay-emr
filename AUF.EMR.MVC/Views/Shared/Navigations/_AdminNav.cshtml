@@ -36,6 +36,9 @@
                             <li>
                                 <a asp-action="AdminChangePassword" asp-controller="User" asp-route-id="@user.Id" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</a>
                             </li>
+                            <li>
+                                <a asp-action="Export" asp-controller="Database" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Backup Database</a>
+                            </li>
                             <form asp-area="Identity" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                 <button type="submit">Logout</button>
                             </form>

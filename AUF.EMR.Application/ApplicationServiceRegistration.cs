@@ -1,7 +1,9 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Application.Contracts.Services.Common;
+using AUF.EMR.Application.Contracts.Services.Data;
 using AUF.EMR.Application.Services;
 using AUF.EMR.Application.Services.Common;
+using AUF.EMR.Application.Services.Data;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -33,6 +35,8 @@ namespace AUF.EMR.Application
             services.AddScoped<IPregnancyRecordService, PregnancyRecordService>();
             services.AddScoped<IPregnancyAppointmentService, PregnancyAppointmentService>();
             services.AddScoped<ISummaryService, SummaryService>();
+
+            services.AddTransient<IDatabaseExportService, DatabaseExportService>();
 
             return services;
         }
