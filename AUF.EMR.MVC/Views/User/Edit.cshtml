@@ -34,7 +34,7 @@
                     </div>
                     <div class="mb-4">
                         <label asp-for="PictureFile" class="block mb-2 text-sm font-medium text-gray-700">Picture</label>
-                        <input asp-for="PictureFile" accept="image/*" type="file" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 md:w-4/5 p-2.5" accept="image/*" />
+                        <input asp-for="PictureFile" accept=".jpg, .png, .jpeg" required type="file" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 md:w-4/5 p-2.5" accept="image/*" />
                         <span asp-validation-for="PictureFile" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
