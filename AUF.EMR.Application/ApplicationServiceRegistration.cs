@@ -35,6 +35,7 @@ namespace AUF.EMR.Application
             services.AddScoped<IPregnancyRecordService, PregnancyRecordService>();
             services.AddScoped<IPregnancyAppointmentService, PregnancyAppointmentService>();
             services.AddScoped<ISummaryService, SummaryService>();
+            services.AddScoped<IDiabetesRiskService, DiabetesRiskService>();
 
             services.AddTransient<IDatabaseExportService, DatabaseExportService>();
 

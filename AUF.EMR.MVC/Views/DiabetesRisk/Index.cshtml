@@ -1,0 +1,125 @@
+﻿@model IEnumerable<AUF.EMR.Domain.Models.DiabetesRisk>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HouseholdMember)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeightInCm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeightInKg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bmi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WaistCircumferenceMen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WaistCircumferenceWomen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsPhysicallyActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EatsVegetablesEveryDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TakingHighBloodPressureMedication)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasHighBloodGlucose)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FamilyWithDiabeterRiskPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastModified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedById)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseholdMember.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeightInCm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightInKg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bmi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaistCircumferenceMen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaistCircumferenceWomen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPhysicallyActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EatsVegetablesEveryDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TakingHighBloodPressureMedication)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasHighBloodGlucose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FamilyWithDiabeterRiskPoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedById)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

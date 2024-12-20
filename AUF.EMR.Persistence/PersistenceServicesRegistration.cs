@@ -44,6 +44,7 @@ namespace AUF.EMR.Persistence
             services.AddScoped<IPregnancyRecordRepository, PregnancyRecordRepository>();
             services.AddScoped<IPregnancyAppointmentRepository, PregnancyAppointmentRepository>();
             services.AddScoped<ISummaryRepository, SummaryRepository>();
+            services.AddScoped<IDiabetesRiskRepository, DiabetesRiskRepository>();
 
             services.AddScoped<AdminSeeder>();
             services.AddScoped<BarangaySeeder>();
