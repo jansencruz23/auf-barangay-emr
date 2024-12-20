@@ -1,4 +1,4 @@
-﻿using AUF.EMR.Application.Contracts.Persistence.Common;
+﻿using AUF.EMR.Application.Contracts.Persistence;
 using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.Application.Services.Common;
 using AUF.EMR.Domain.Models;
@@ -7,17 +7,20 @@ namespace AUF.EMR.Application.Services;
 
 public sealed class DiabetesRiskService : GenericService<DiabetesRisk>, IDiabetesRiskService
 {
-    public DiabetesRiskService(IGenericRepository<DiabetesRisk> repository) : base(repository)
+    private readonly IDiabetesRiskRepository _diabetesRepository;
+
+    public DiabetesRiskService(IDiabetesRiskRepository diabetesRepository) : base(diabetesRepository)
     {
+        _diabetesRepository = diabetesRepository;
     }
 
-    public Task<List<DiabetesRisk>> GetDiabetesRiskWithDetails(string householdNo)
+    public async Task<List<DiabetesRisk>> GetDiabetesRiskWithDetails(string householdNo)
     {
-        throw new NotImplementedException();
+        return await _diabetesRepository.GetDiabetesRiskWithDetails(householdNo);
     }
 
-    public Task<DiabetesRisk> GetDiabetesRiskWithDetails(int id)
+    public async Task<DiabetesRisk> GetDiabetesRiskWithDetails(int id)
     {
-        throw new NotImplementedException();
+        return await _diabetesRepository.GetDiabetesRiskWithDetails(id);
     }
 }

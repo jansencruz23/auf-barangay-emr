@@ -1,0 +1,118 @@
+﻿@model AUF.EMR.Domain.Models.DiabetesRisk
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-8 mb-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
+            @* <input type="hidden" asp-for="HouseholdMemberId" value="@Model.HouseholdMemberId" /> *@
+            <div>
+                <h1 class="text-xl">Create</h1>
+                <h1 class="text-2xl font-bold text-gray-800 mb-4">Type 2 Diabetes Risk Assessment Form</h1>
+            </div>
+            <hr class="mb-4">
+        </form>
+    </div>
+</div>
+
+<h1>Create</h1>
+
+<h4>DiabetesRisk</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="HouseholdMemberId" class="control-label"></label>
+                <select asp-for="HouseholdMemberId" class ="form-control" asp-items="ViewBag.HouseholdMemberId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeightInCm" class="control-label"></label>
+                <input asp-for="HeightInCm" class="form-control" />
+                <span asp-validation-for="HeightInCm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WeightInKg" class="control-label"></label>
+                <input asp-for="WeightInKg" class="form-control" />
+                <span asp-validation-for="WeightInKg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bmi" class="control-label"></label>
+                <input asp-for="Bmi" class="form-control" />
+                <span asp-validation-for="Bmi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WaistCircumferenceMen" class="control-label"></label>
+                <input asp-for="WaistCircumferenceMen" class="form-control" />
+                <span asp-validation-for="WaistCircumferenceMen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WaistCircumferenceWomen" class="control-label"></label>
+                <input asp-for="WaistCircumferenceWomen" class="form-control" />
+                <span asp-validation-for="WaistCircumferenceWomen" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsPhysicallyActive" /> @Html.DisplayNameFor(model => model.IsPhysicallyActive)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="EatsVegetablesEveryDay" /> @Html.DisplayNameFor(model => model.EatsVegetablesEveryDay)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TakingHighBloodPressureMedication" /> @Html.DisplayNameFor(model => model.TakingHighBloodPressureMedication)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HasHighBloodGlucose" /> @Html.DisplayNameFor(model => model.HasHighBloodGlucose)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="FamilyWithDiabetesRiskPoints" class="control-label"></label>
+                <select asp-for="FamilyWithDiabetesRiskPoints" class="form-control"></select>
+                <span asp-validation-for="FamilyWithDiabetesRiskPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Status" /> @Html.DisplayNameFor(model => model.Status)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateCreated" class="control-label"></label>
+                <input asp-for="DateCreated" class="form-control" />
+                <span asp-validation-for="DateCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastModified" class="control-label"></label>
+                <input asp-for="LastModified" class="form-control" />
+                <span asp-validation-for="LastModified" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifiedById" class="control-label"></label>
+                <input asp-for="ModifiedById" class="form-control" />
+                <span asp-validation-for="ModifiedById" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

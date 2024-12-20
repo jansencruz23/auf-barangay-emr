@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AUF.EMR.Application.Contracts.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AUF.EMR.MVC.Controllers;
@@ -6,10 +7,18 @@ namespace AUF.EMR.MVC.Controllers;
 [Authorize(Policy = "User")]
 public class DiabetesRiskController : Controller
 {
-    // GET: DiabetesRiskController
-    public ActionResult Index(string householdNo)
+    private readonly IDiabetesRiskService _diabetesRiskService;
+
+    public DiabetesRiskController(IDiabetesRiskService diabetesRiskService)
     {
-        return View();
+        _diabetesRiskService = diabetesRiskService;
+    }
+
+    // GET: DiabetesRiskController
+    public async Task<ActionResult> Index(string householdNo)
+    {
+        var list = await _diabetesRiskService.GetDiabetesRiskWithDetails(householdNo);
+        return View(list);
     }
 
     // GET: DiabetesRiskController/Details/5
