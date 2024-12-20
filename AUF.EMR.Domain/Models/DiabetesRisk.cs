@@ -1,9 +1,12 @@
-﻿using AUF.EMR.Domain.Models.Enums.DiabetesRisk;
+﻿using AUF.EMR.Domain.Models.Common;
+using AUF.EMR.Domain.Models.Enums.DiabetesRisk;
 
 namespace AUF.EMR.Domain.Models;
 
-public class DiabetesRisk
+public class DiabetesRisk : BaseDomainEntity
 {
+    public int HouseholdMemberId { get; set; }
+    public HouseholdMember HouseholdMember { get; set; }
     public int Age { get; set; }
     public AgeRiskPoints AgeRiskPoints => MapAgeRisk();
     public double HeightInCm { get; set; }
