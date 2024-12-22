@@ -19,7 +19,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                     <div class="mb-4">
-                        <label asp-for="PatientRecord.PatientId" class="text-md font-bold text-gray-800">Patient ID</label>
+                        <label asp-for="PatientRecord.PatientId" class="text-md font-bold text-gray-800">Patient</label>
                         <select asp-for="PatientRecord.PatientId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" asp-items="@(new SelectList(Model.PatientList, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
                     </div>
                     <div class="mb-2 mt-8">

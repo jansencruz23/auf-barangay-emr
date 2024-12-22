@@ -1,4 +1,5 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.MVC.Models.CreateVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,9 +29,13 @@ public class DiabetesRiskController : Controller
     }
 
     // GET: DiabetesRiskController/Create
-    public ActionResult Create()
+    public ActionResult Create(string householdNo)
     {
-        return View();
+        var model = new CreateDiabetesRiskVM
+        {
+            HouseholdMemberId = 0
+        };
+        return View(model);
     }
 
     // POST: DiabetesRiskController/Create
