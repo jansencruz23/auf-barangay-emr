@@ -42,7 +42,7 @@
                         <h6 class="text-md font-bold text-gray-800">Body-mass index</h6>
                         <button class="text-sm font-medium text-blue-600">Calculate BMI</button>
                     </div>
-                    <!-- IF --> 
+                    <!-- IF -->
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.HeightInCm" class="block mb-2 text-sm font-medium text-gray-700">Height</label>
                         <input asp-for="DiabetesRisk.HeightInCm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
@@ -92,7 +92,7 @@
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-sm font-medium text-gray-700">Do you usually have daily at least 30 minutes of physical activity at work and/or during leisure time?</label>
-                        <div class="flex">
+                        <div class="">
                             <div class="flex items-center me-4">
                                 <input asp-for="DiabetesRisk.IsPhysicallyActive" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">Yes - 0 pts</label>
@@ -111,7 +111,7 @@
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-sm font-medium text-gray-700">How often do you eat vegetables, fruits, or berries?</label>
-                        <div class="flex">
+                        <div class="">
                             <div class="flex items-center me-4">
                                 <input asp-for="DiabetesRisk.EatsVegetablesEveryDay" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.EatsVegetablesEveryDay" class="ms-2 text-sm font-medium text-gray-900">Every day - 0 pts</label>
@@ -130,13 +130,13 @@
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-sm font-medium text-gray-700">Have you ever taken medication for high blood pressure on a regular basis?</label>
-                        <div class="flex">
+                        <div class="">
                             <div class="flex items-center me-4">
-                                <input asp-for="DiabetesRisk.TakingHighBloodPressureMedication" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <input asp-for="DiabetesRisk.TakingHighBloodPressureMedication" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.TakingHighBloodPressureMedication" class="ms-2 text-sm font-medium text-gray-900">No - 0 pts</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input asp-for="DiabetesRisk.TakingHighBloodPressureMedication" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <input asp-for="DiabetesRisk.TakingHighBloodPressureMedication" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.TakingHighBloodPressureMedication" class="ms-2 text-sm font-medium text-gray-900">Yes - 2 pts</label>
                             </div>
                         </div>
@@ -149,13 +149,13 @@
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-sm font-medium text-gray-700">Have you ever been found to have high blood glucode (eg. in a health examination, during an illness, during pregnancy?</label>
-                        <div class="flex">
+                        <div class="">
                             <div class="flex items-center me-4">
-                                <input asp-for="DiabetesRisk.HasHighBloodGlucose" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <input asp-for="DiabetesRisk.HasHighBloodGlucose" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.HasHighBloodGlucose" class="ms-2 text-sm font-medium text-gray-900">No - 0 pts</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input asp-for="DiabetesRisk.HasHighBloodGlucose" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <input asp-for="DiabetesRisk.HasHighBloodGlucose" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.HasHighBloodGlucose" class="ms-2 text-sm font-medium text-gray-900">Yes - 5 pts</label>
                             </div>
                         </div>

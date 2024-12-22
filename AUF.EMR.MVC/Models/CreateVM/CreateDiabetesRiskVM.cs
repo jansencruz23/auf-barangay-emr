@@ -7,6 +7,5 @@ namespace AUF.EMR.MVC.Models.CreateVM
     {
         public List<HouseholdMember>? MemberList { get; set; } = new();
         public DiabetesRisk DiabetesRisk { get; set; } = new();
-        public int HouseholdMemberId { get; set; }
     }
 }

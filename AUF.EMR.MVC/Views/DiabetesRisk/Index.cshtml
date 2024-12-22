@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AUF.EMR.Domain.Models.DiabetesRisk>
+﻿@model DiabetesRiskVM
 
 @{
     ViewData["Title"] = "Index";
@@ -7,67 +7,67 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" asp-route-householdNo="@Model.HouseholdNo">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.HouseholdMember)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].HouseholdMember)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Age)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].Age)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HeightInCm)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].HeightInCm)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WeightInKg)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].WeightInKg)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Bmi)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].Bmi)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WaistCircumferenceMen)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].WaistCircumferenceMen)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WaistCircumferenceWomen)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].WaistCircumferenceWomen)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsPhysicallyActive)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].IsPhysicallyActive)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EatsVegetablesEveryDay)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].EatsVegetablesEveryDay)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TakingHighBloodPressureMedication)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].TakingHighBloodPressureMedication)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HasHighBloodGlucose)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].HasHighBloodGlucose)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FamilyWithDiabetesRiskPoints)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].FamilyWithDiabetesRiskPoints)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].Status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateCreated)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].DateCreated)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastModified)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].LastModified)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ModifiedById)
+                @Html.DisplayNameFor(model => model.DiabetesRisks[0].ModifiedById)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.DiabetesRisks) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.HouseholdMember.FirstName)
+                @Html.DisplayFor(modelItem => item.HouseholdMember.FormattedFullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Age)

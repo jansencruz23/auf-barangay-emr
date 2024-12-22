@@ -17,8 +17,8 @@ public class DiabetesRisk : BaseDomainEntity
     public WaistCircumferenceWomenRiskPoints WaistCircumferenceWomenRiskPoints => MapWaistCircumferenceWomenRiskPoints();
     public double? WaistCircumferenceMen { get; set; }
     public double? WaistCircumferenceWomen { get; set; }
-    public bool IsPhysicallyActive { get; set; } // true = 0pts, false = 2pts
-    public bool EatsVegetablesEveryDay { get; set; } // true = 0pts, false = 2pts
+    public bool IsPhysicallyActive { get; set; } = true;// true = 0pts, false = 2pts
+    public bool EatsVegetablesEveryDay { get; set; } = true; // true = 0pts, false = 2pts
     public bool TakingHighBloodPressureMedication { get; set; } // true = 2pts, false = 0pts
     public bool HasHighBloodGlucose { get; set; } // true = 5pts, false = 0pts
     public FamilyWithDiabetesRiskPoints FamilyWithDiabetesRiskPoints { get; set; }

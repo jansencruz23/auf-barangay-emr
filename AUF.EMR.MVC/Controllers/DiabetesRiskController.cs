@@ -1,5 +1,6 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.MVC.Models.CreateVM;
+using AUF.EMR.MVC.Models.IndexVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,17 +10,27 @@ namespace AUF.EMR.MVC.Controllers;
 public class DiabetesRiskController : Controller
 {
     private readonly IDiabetesRiskService _diabetesRiskService;
+    private readonly IHouseholdMemberService _householdMemberService;
 
-    public DiabetesRiskController(IDiabetesRiskService diabetesRiskService)
+    public DiabetesRiskController(
+        IDiabetesRiskService diabetesRiskService,
+        IHouseholdMemberService householdMemberService)
     {
         _diabetesRiskService = diabetesRiskService;
+        _householdMemberService = householdMemberService;
     }
 
     // GET: DiabetesRiskController
     public async Task<ActionResult> Index(string householdNo)
     {
-        var list = await _diabetesRiskService.GetDiabetesRiskWithDetails(householdNo);
-        return View(list);
+        var diabetesRiskList = await _diabetesRiskService.GetDiabetesRiskWithDetails(householdNo);
+        var model = new DiabetesRiskVM
+        {
+            DiabetesRisks = diabetesRiskList,
+            HouseholdNo = householdNo
+        };
+
+        return View(model);
     }
 
     // GET: DiabetesRiskController/Details/5
@@ -29,11 +40,12 @@ public class DiabetesRiskController : Controller
     }
 
     // GET: DiabetesRiskController/Create
-    public ActionResult Create(string householdNo)
+    public async Task<ActionResult> Create(string householdNo)
     {
+        var members = await _householdMemberService.GetHouseholdMembersWithDetails(householdNo);
         var model = new CreateDiabetesRiskVM
         {
-            HouseholdMemberId = 0
+            MemberList = members,
         };
         return View(model);
     }
