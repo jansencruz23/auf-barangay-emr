@@ -37,6 +37,7 @@
                         <h6 class="text-md font-bold text-gray-800">Body-mass index</h6>
                         <button class="text-sm font-medium text-blue-600">Calculate BMI</button>
                     </div>
+                    <!-- IF --> 
                     <div class="mb-4">
                         <label asp-for="HeightInCm" class="block mb-2 text-sm font-medium text-gray-700">Height</label>
                         <input asp-for="HeightInCm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
@@ -57,7 +58,7 @@
                         <select id="relationshipToHead" asp-for="HouseholdMember.RelationshipToHouseholdHead" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
                             <option value="" selected>Select your BMI</option>
                             <option value="1">Lower than 25 kg/m² - 0 pts</option>
-                            <option value="2">25-30 kg/m² - 1 pts</option>
+                            <option value="2">25-30 kg/m² - 1 pt</option>
                             <option value="3">Higher than 30 kg/m² - 3 pts</option>
                         </select>
                         <span asp-validation-for="HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm text-red-700"></span>
@@ -77,7 +78,9 @@
                         </select>
                         <span asp-validation-for="HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-
+                </div>
+                <!-- Right Column -->
+                <div>
                     <!-- Physical Activity -->
                     <div class="mb-2 mt-8">
                         <h6 class="text-md font-bold text-gray-800">Physical Activity</h6>
@@ -87,181 +90,95 @@
                         <div class="flex">
                             <div class="flex items-center me-4">
                                 <input asp-for="IsPhysicallyActive" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
-                                <label asp-for="IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">Yes</label>
+                                <label asp-for="IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">Yes - 0 pts</label>
                             </div>
                             <div class="flex items-center me-4">
                                 <input asp-for="IsPhysicallyActive" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
-                                <label asp-for="IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">No</label>
+                                <label asp-for="IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">No - 2 pts</label>
                             </div>
                         </div>
                         <span asp-validation-for="IsPhysicallyActive" class="block mb-2 text-sm text-red-700"></span>
                     </div>
-                </div>
-                <!-- Right Column -->
 
-                <!-- Physical Activity -->
-                <div class="mb-2 mt-8">
-                    <h6 class="text-md font-bold text-gray-800">Physical Activity</h6>
-                </div>
-                <div class="mb-4">
-                    <label class="block mb-2 text-sm font-medium text-gray-700">Do you usually have daily at least 30 minutes of physical activity at work and/or during leisure time?</label>
-                    <div class="flex">
-                        <div class="flex items-center me-4">
-                            <input asp-for="IsPhysicallyActive" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
-                            <label asp-for="IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">Yes</label>
-                        </div>
-                        <div class="flex items-center me-4">
-                            <input asp-for="IsPhysicallyActive" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
-                            <label asp-for="IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">No</label>
-                        </div>
-                    </div>
-                    <span asp-validation-for="IsPhysicallyActive" class="block mb-2 text-sm text-red-700"></span>
-                </div>
-                <div>
-
+                    <!-- Healthy Food Intake -->
                     <div class="mb-2 mt-8">
-                        <h6 class="text-md font-bold text-gray-800">Others</h6>
+                        <h6 class="text-md font-bold text-gray-800">Healthy Food Intake</h6>
                     </div>
                     <div class="mb-4">
-                        <label asp-for="HouseholdMember.Remarks" class="block mb-2 text-sm font-medium text-gray-700">Remarks</label>
-                        <input asp-for="HouseholdMember.Remarks" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="HouseholdMember.Remarks" class="block mb-2 text-sm text-red-700"></span>
+                        <label class="block mb-2 text-sm font-medium text-gray-700">How often do you eat vegetables, fruits, or berries?</label>
+                        <div class="flex">
+                            <div class="flex items-center me-4">
+                                <input asp-for="EatsVegetablesEveryDay" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <label asp-for="EatsVegetablesEveryDay" class="ms-2 text-sm font-medium text-gray-900">Every day - 0 pts</label>
+                            </div>
+                            <div class="flex items-center me-4">
+                                <input asp-for="EatsVegetablesEveryDay" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <label asp-for="EatsVegetablesEveryDay" class="ms-2 text-sm font-medium text-gray-900">Not every day - 1 pt</label>
+                            </div>
+                        </div>
+                        <span asp-validation-for="EatsVegetablesEveryDay" class="block mb-2 text-sm text-red-700"></span>
                     </div>
+
+                    <!-- High Blood Pressure -->
                     <div class="mb-2 mt-8">
-                        <h6 class="text-md font-bold text-gray-800">NHTS Household</h6>
+                        <h6 class="text-md font-bold text-gray-800">High Blood Pressure</h6>
                     </div>
-                    <div class="mb-4 ">
-                        <label class="block mb-2 text-sm font-medium text-gray-700"></label>
-                        <div class="flex items-center me-4">
-                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsNhts" value="true" />
-                            <label class="ms-2 text-sm font-medium text-gray-900">NHTS</label>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Have you ever taken medication for high blood pressure on a regular basis?</label>
+                        <div class="flex">
+                            <div class="flex items-center me-4">
+                                <input asp-for="TakingHighBloodPressureMedication" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <label asp-for="TakingHighBloodPressureMedication" class="ms-2 text-sm font-medium text-gray-900">No - 0 pts</label>
+                            </div>
+                            <div class="flex items-center me-4">
+                                <input asp-for="TakingHighBloodPressureMedication" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <label asp-for="TakingHighBloodPressureMedication" class="ms-2 text-sm font-medium text-gray-900">Yes - 2 pts</label>
+                            </div>
                         </div>
-                        <div class="flex items-center me-4">
-                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsNhts" value="false" />
-                            <label class="ms-2 text-sm font-medium text-gray-900">Non NHTS</label>
-                        </div>
-                        <span asp-validation-for="HouseholdMember.IsNhts" class="block mb-2 text-sm text-red-700"></span>
+                        <span asp-validation-for="TakingHighBloodPressureMedication" class="block mb-2 text-sm text-red-700"></span>
                     </div>
+
+                    <!-- High Blood Glucose -->
                     <div class="mb-2 mt-8">
-                        <h6 class="text-md font-bold text-gray-800">School Status</h6>
+                        <h6 class="text-md font-bold text-gray-800">High Blood Glucose</h6>
                     </div>
-                    <div class="mb-4 ">
-                        <div class="block mb-2 text-sm font-medium text-gray-700">For ages 19 and below</div>
-                        <div class="flex items-center me-4">
-                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsInSchool" value="true" />
-                            <label class="ms-2 text-sm font-medium text-gray-900">In School</label>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Have you ever been found to have high blood glucode (eg. in a health examination, during an illness, during pregnancy?</label>
+                        <div class="flex">
+                            <div class="flex items-center me-4">
+                                <input asp-for="HasHighBloodGlucose" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <label asp-for="HasHighBloodGlucose" class="ms-2 text-sm font-medium text-gray-900">No - 0 pts</label>
+                            </div>
+                            <div class="flex items-center me-4">
+                                <input asp-for="HasHighBloodGlucose" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <label asp-for="HasHighBloodGlucose" class="ms-2 text-sm font-medium text-gray-900">Yes - 5 pts</label>
+                            </div>
                         </div>
-                        <div class="flex items-center me-4">
-                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsInSchool" value="false" />
-                            <label class="ms-2 text-sm font-medium text-gray-900">Out of School Youth</label>
-                        </div>
-                        <div class="flex items-center me-4">
-                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsInSchool" value="" />
-                            <label class="ms-2 text-sm font-medium text-gray-900">Not in School</label>
-                        </div>
+                        <span asp-validation-for="HasHighBloodGlucose" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+
+                    <!-- Family Diabetes History -->
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Family Diabetes History</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm font-medium text-gray-700">Have any of the members of your immediate family or other relative been diagnosed with diabetes (type 1 or type 2)?</label>
+                        <select id="relationshipToHead" asp-for="HouseholdMember.RelationshipToHouseholdHead" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                            <option value="" selected>Select an option</option>
+                            <option value="1">No - 0 pts</option>
+                            <option value="2">Yes; grandparent, aunt, unlce or first cousin - 3 pts</option>
+                            <option value="2">Yes; parent, brother, sister or own child - 5 pts</option>
+                        </select>
+                        <span asp-validation-for="HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
-</div>
-
-<h1>Create</h1>
-
-<h4>DiabetesRisk</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="HouseholdMemberId" class="control-label"></label>
-                <select asp-for="HouseholdMemberId" class="form-control" asp-items="ViewBag.HouseholdMemberId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HeightInCm" class="control-label"></label>
-                <input asp-for="HeightInCm" class="form-control" />
-                <span asp-validation-for="HeightInCm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WeightInKg" class="control-label"></label>
-                <input asp-for="WeightInKg" class="form-control" />
-                <span asp-validation-for="WeightInKg" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Bmi" class="control-label"></label>
-                <input asp-for="Bmi" class="form-control" />
-                <span asp-validation-for="Bmi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WaistCircumferenceMen" class="control-label"></label>
-                <input asp-for="WaistCircumferenceMen" class="form-control" />
-                <span asp-validation-for="WaistCircumferenceMen" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WaistCircumferenceWomen" class="control-label"></label>
-                <input asp-for="WaistCircumferenceWomen" class="form-control" />
-                <span asp-validation-for="WaistCircumferenceWomen" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsPhysicallyActive" /> @Html.DisplayNameFor(model => model.IsPhysicallyActive)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="EatsVegetablesEveryDay" /> @Html.DisplayNameFor(model => model.EatsVegetablesEveryDay)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="TakingHighBloodPressureMedication" /> @Html.DisplayNameFor(model => model.TakingHighBloodPressureMedication)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="HasHighBloodGlucose" /> @Html.DisplayNameFor(model => model.HasHighBloodGlucose)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="FamilyWithDiabetesRiskPoints" class="control-label"></label>
-                <select asp-for="FamilyWithDiabetesRiskPoints" class="form-control"></select>
-                <span asp-validation-for="FamilyWithDiabetesRiskPoints" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Status" /> @Html.DisplayNameFor(model => model.Status)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="DateCreated" class="control-label"></label>
-                <input asp-for="DateCreated" class="form-control" />
-                <span asp-validation-for="DateCreated" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastModified" class="control-label"></label>
-                <input asp-for="LastModified" class="form-control" />
-                <span asp-validation-for="LastModified" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ModifiedById" class="control-label"></label>
-                <input asp-for="ModifiedById" class="form-control" />
-                <span asp-validation-for="ModifiedById" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="flex justify-end">
+                <a @* asp-action="HouseholdProfile" asp-controller="Household" asp-route-householdNo="@Model.HouseholdNo" *@ class="focus:outline-none text-white bg-red-400 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 hover:bg-red-450 !important">Back</a>
+                <button type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add</button>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
