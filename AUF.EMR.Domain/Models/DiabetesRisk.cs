@@ -9,8 +9,8 @@ public class DiabetesRisk : BaseDomainEntity
     public HouseholdMember HouseholdMember { get; set; }
     public int Age { get; set; }
     public AgeRiskPoints AgeRiskPoints => MapAgeRisk();
-    public double HeightInCm { get; set; }
-    public double WeightInKg { get; set; }
+    public double? HeightInCm { get; set; }
+    public double? WeightInKg { get; set; }
     public double Bmi { get; private set; }
     public BmiRiskPoints BmiRiskPoints => MapBmiRisk();
     public WaistCircumferenceMenRiskPoints WaistCircumferenceMenRiskPoints => MapWaistCircumferenceMenRiskPoints();
@@ -37,7 +37,12 @@ public class DiabetesRisk : BaseDomainEntity
 
     public void CalculateBMI()
     {
-        Bmi = WeightInKg / Math.Pow(HeightInCm / 100, 2);
+        if (!HeightInCm.HasValue || !WeightInKg.HasValue)
+        {
+            Bmi = 0;
+        }
+
+        Bmi = WeightInKg.Value / Math.Pow(HeightInCm.Value / 100, 2);
     }
 
     private BmiRiskPoints MapBmiRisk()

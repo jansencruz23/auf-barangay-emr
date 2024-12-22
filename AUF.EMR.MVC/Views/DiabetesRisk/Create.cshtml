@@ -14,6 +14,154 @@
                 <h1 class="text-2xl font-bold text-gray-800 mb-4">Type 2 Diabetes Risk Assessment Form</h1>
             </div>
             <hr class="mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Left Column -->
+                <div>
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Choose the right alternative and add up your points.</h6>
+                    </div>
+                    <!-- Age -->
+                    <div class="mb-4">
+                        <label asp-for="HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm font-medium text-gray-700">Age</label>
+                        <select id="relationshipToHead" asp-for="HouseholdMember.RelationshipToHouseholdHead" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                            <option value="" selected>Select your age</option>
+                            <option value="1">Under 45 years old - 0 pts</option>
+                            <option value="2">45-54 years old - 2 pts</option>
+                            <option value="3">55-64 years old - 3 pts</option>
+                            <option value="4">Over 64 years old - 4 pts</option>
+                        </select>
+                        <span asp-validation-for="HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <!-- BMI -->
+                    <div class="mb-2 mt-8 w-full md:w-4/5 flex justify-between">
+                        <h6 class="text-md font-bold text-gray-800">Body-mass index</h6>
+                        <button class="text-sm font-medium text-blue-600">Calculate BMI</button>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="HeightInCm" class="block mb-2 text-sm font-medium text-gray-700">Height</label>
+                        <input asp-for="HeightInCm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="HeightInCm" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="WeightInKg" class="block mb-2 text-sm font-medium text-gray-700">Weight</label>
+                        <input asp-for="WeightInKg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="WeightInKg" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="Bmi" class="block mb-2 text-sm font-medium text-gray-700">BMI</label>
+                        <input asp-for="Bmi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="Bmi" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm font-medium text-gray-700">BMI Classification</label>
+                        <select id="relationshipToHead" asp-for="HouseholdMember.RelationshipToHouseholdHead" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                            <option value="" selected>Select your BMI</option>
+                            <option value="1">Lower than 25 kg/m² - 0 pts</option>
+                            <option value="2">25-30 kg/m² - 1 pts</option>
+                            <option value="3">Higher than 30 kg/m² - 3 pts</option>
+                        </select>
+                        <span asp-validation-for="HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+
+                    <!-- Waist Circumference -->
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Waist Circumference</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm font-medium text-gray-700">Waist Circumference measured below the ribs</label>
+                        <select id="relationshipToHead" asp-for="HouseholdMember.RelationshipToHouseholdHead" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                            <option value="" selected>Select your waist circumference</option>
+                            <option value="1">Less than 94 cm - 0 pts</option>
+                            <option value="2">94-102 cm - 3 pts</option>
+                            <option value="3">More than 102 cm - 4 pts</option>
+                        </select>
+                        <span asp-validation-for="HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+
+                    <!-- Physical Activity -->
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Physical Activity</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Do you usually have daily at least 30 minutes of physical activity at work and/or during leisure time?</label>
+                        <div class="flex">
+                            <div class="flex items-center me-4">
+                                <input asp-for="IsPhysicallyActive" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <label asp-for="IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">Yes</label>
+                            </div>
+                            <div class="flex items-center me-4">
+                                <input asp-for="IsPhysicallyActive" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <label asp-for="IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">No</label>
+                            </div>
+                        </div>
+                        <span asp-validation-for="IsPhysicallyActive" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                </div>
+                <!-- Right Column -->
+
+                <!-- Physical Activity -->
+                <div class="mb-2 mt-8">
+                    <h6 class="text-md font-bold text-gray-800">Physical Activity</h6>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 text-sm font-medium text-gray-700">Do you usually have daily at least 30 minutes of physical activity at work and/or during leisure time?</label>
+                    <div class="flex">
+                        <div class="flex items-center me-4">
+                            <input asp-for="IsPhysicallyActive" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                            <label asp-for="IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">Yes</label>
+                        </div>
+                        <div class="flex items-center me-4">
+                            <input asp-for="IsPhysicallyActive" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                            <label asp-for="IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">No</label>
+                        </div>
+                    </div>
+                    <span asp-validation-for="IsPhysicallyActive" class="block mb-2 text-sm text-red-700"></span>
+                </div>
+                <div>
+
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">Others</h6>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="HouseholdMember.Remarks" class="block mb-2 text-sm font-medium text-gray-700">Remarks</label>
+                        <input asp-for="HouseholdMember.Remarks" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <span asp-validation-for="HouseholdMember.Remarks" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">NHTS Household</h6>
+                    </div>
+                    <div class="mb-4 ">
+                        <label class="block mb-2 text-sm font-medium text-gray-700"></label>
+                        <div class="flex items-center me-4">
+                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsNhts" value="true" />
+                            <label class="ms-2 text-sm font-medium text-gray-900">NHTS</label>
+                        </div>
+                        <div class="flex items-center me-4">
+                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsNhts" value="false" />
+                            <label class="ms-2 text-sm font-medium text-gray-900">Non NHTS</label>
+                        </div>
+                        <span asp-validation-for="HouseholdMember.IsNhts" class="block mb-2 text-sm text-red-700"></span>
+                    </div>
+                    <div class="mb-2 mt-8">
+                        <h6 class="text-md font-bold text-gray-800">School Status</h6>
+                    </div>
+                    <div class="mb-4 ">
+                        <div class="block mb-2 text-sm font-medium text-gray-700">For ages 19 and below</div>
+                        <div class="flex items-center me-4">
+                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsInSchool" value="true" />
+                            <label class="ms-2 text-sm font-medium text-gray-900">In School</label>
+                        </div>
+                        <div class="flex items-center me-4">
+                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsInSchool" value="false" />
+                            <label class="ms-2 text-sm font-medium text-gray-900">Out of School Youth</label>
+                        </div>
+                        <div class="flex items-center me-4">
+                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsInSchool" value="" />
+                            <label class="ms-2 text-sm font-medium text-gray-900">Not in School</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 </div>
@@ -28,7 +176,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="HouseholdMemberId" class="control-label"></label>
-                <select asp-for="HouseholdMemberId" class ="form-control" asp-items="ViewBag.HouseholdMemberId"></select>
+                <select asp-for="HouseholdMemberId" class="form-control" asp-items="ViewBag.HouseholdMemberId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Age" class="control-label"></label>
@@ -116,3 +264,8 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
