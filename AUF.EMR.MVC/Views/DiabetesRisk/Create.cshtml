@@ -20,22 +20,29 @@
                     <div class="mb-2 mt-8">
                         <h6 class="text-md font-bold text-gray-800">Choose the right alternative and add up your points.</h6>
                     </div>
-                    <!-- Age -->
+                    <!-- Assessment for -->
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.HouseholdMemberId" class="block mb-2 text-sm font-medium text-gray-700">Assessment for</label>
-                        <select asp-for="DiabetesRisk.HouseholdMemberId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" asp-items="@(new SelectList(Model.MemberList, nameof(HouseholdMember.Id), nameof(HouseholdMember.FormattedFullName)))"></select>
+                        <select id="assessmentFor" asp-for="DiabetesRisk.HouseholdMemberId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
+                            <option value="">Select a member</option>    
+                            @foreach (var member in Model.MemberList)
+                            {
+                                <option value="@member.Id" data-age="@member.AgeYears">@member.FormattedFullName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="DiabetesRisk.HouseholdMemberId" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <!-- Age -->
                     <div class="mb-4">
-                        <label asp-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm font-medium text-gray-700">Age</label>
-                        <select id="relationshipToHead" asp-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                        <label asp-for="DiabetesRisk.AgeRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">Age</label>
+                        <select id="ageDropdown" asp-for="DiabetesRisk.AgeRiskPoints" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
                             <option value="" selected>Select your age</option>
-                            <option value="1">Under 45 years old - 0 pts</option>
+                            <option value="0">Under 45 years old - 0 pts</option>
                             <option value="2">45-54 years old - 2 pts</option>
                             <option value="3">55-64 years old - 3 pts</option>
                             <option value="4">Over 64 years old - 4 pts</option>
                         </select>
-                        <span asp-validation-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm text-red-700"></span>
+                        <span asp-validation-for="DiabetesRisk.AgeRiskPoints" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <!-- BMI -->
                     <div class="mb-2 mt-8 w-full md:w-4/5 flex justify-between">
@@ -190,4 +197,34 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <script>
+        document.getElementById("assessmentFor").addEventListener("change", function () {
+            const selectedOption = this.options[this.selectedIndex];
+            const age = parseInt(selectedOption.getAttribute("data-age"));
+            const ageDropdown = document.getElementById("ageDropdown");
+
+            ageDropdown.disabled = false;
+
+            if (!isNaN(age)) {
+                if (age < 45) {
+                    ageDropdown.value = "0"; // Under 45 years old - 0 pts
+                } else if (age >= 45 && age <= 54) {
+                    ageDropdown.value = "2"; // 45-54 years old - 2 pts
+                } else if (age >= 55 && age <= 64) {
+                    ageDropdown.value = "3"; // 55-64 years old - 3 pts
+                } else {
+                    ageDropdown.value = "4"; // Over 64 years old - 4 pts
+                }
+
+                // Disable the dropdown
+                ageDropdown.disabled = true;
+            } else {
+                // If no member is selected, reset the dropdown
+                ageDropdown.value = "";
+                ageDropdown.disabled = false; // Allow selection if no member is selected
+            }
+        });
+    </script>
 }
+

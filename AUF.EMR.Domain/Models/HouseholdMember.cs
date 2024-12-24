@@ -47,6 +47,7 @@ namespace AUF.EMR.Domain.Models
         public bool? NotInSchool { get => !IsInSchool; }
 
         public string Age { get => GetAgeWithSuffix(Birthday, DateTime.Today); }
+        public int AgeYears { get => DateTime.Today.Year - Birthday.Year; }
         public string? LastVisitedAge { get => GetAgeWithSuffix(Birthday, LastModified); } 
 
         public string FormattedFullName { get => $"{FirstName} {GetMiddleInitial()} {LastName}"; }
