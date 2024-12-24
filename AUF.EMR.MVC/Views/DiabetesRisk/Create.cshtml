@@ -47,33 +47,36 @@
                     <!-- BMI -->
                     <div class="mb-2 mt-8 w-full md:w-4/5 flex justify-between">
                         <h6 class="text-md font-bold text-gray-800">Body-mass index</h6>
-                        <button class="text-sm font-medium text-blue-600">Calculate BMI</button>
+                        <button id="toggleBmiFieldsButton" type="button" class="text-sm font-medium text-blue-600">Calculate BMI</button>
                     </div>
-                    <!-- IF -->
-                    <div class="mb-4">
-                        <label asp-for="DiabetesRisk.HeightInCm" class="block mb-2 text-sm font-medium text-gray-700">Height</label>
-                        <input asp-for="DiabetesRisk.HeightInCm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="DiabetesRisk.HeightInCm" class="block mb-2 text-sm text-red-700"></span>
+                    <!-- BMI Calculation Fields (hidden by default) -->
+                    <div id="bmiCalculationFields" style="display: none;">
+                        <div class="mb-4">
+                            <label asp-for="DiabetesRisk.HeightInCm" class="block mb-2 text-sm font-medium text-gray-700">Height</label>
+                            <input asp-for="DiabetesRisk.HeightInCm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                            <span asp-validation-for="DiabetesRisk.HeightInCm" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
+                        <div class="mb-4">
+                            <label asp-for="DiabetesRisk.WeightInKg" class="block mb-2 text-sm font-medium text-gray-700">Weight</label>
+                            <input asp-for="DiabetesRisk.WeightInKg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                            <span asp-validation-for="DiabetesRisk.WeightInKg" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
+                        <div class="mb-4">
+                            <label asp-for="DiabetesRisk.Bmi" class="block mb-2 text-sm font-medium text-gray-700">BMI</label>
+                            <input asp-for="DiabetesRisk.Bmi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                            <span asp-validation-for="DiabetesRisk.Bmi" class="block mb-2 text-sm text-red-700"></span>
+                        </div>
                     </div>
+                    <!-- BMI Dropdown -->
                     <div class="mb-4">
-                        <label asp-for="DiabetesRisk.WeightInKg" class="block mb-2 text-sm font-medium text-gray-700">Weight</label>
-                        <input asp-for="DiabetesRisk.WeightInKg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="DiabetesRisk.WeightInKg" class="block mb-2 text-sm text-red-700"></span>
-                    </div>
-                    <div class="mb-4">
-                        <label asp-for="DiabetesRisk.Bmi" class="block mb-2 text-sm font-medium text-gray-700">BMI</label>
-                        <input asp-for="DiabetesRisk.Bmi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                        <span asp-validation-for="DiabetesRisk.Bmi" class="block mb-2 text-sm text-red-700"></span>
-                    </div>
-                    <div class="mb-4">
-                        <label asp-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm font-medium text-gray-700">BMI Classification</label>
-                        <select id="relationshipToHead" asp-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                        <label asp-for="DiabetesRisk.BmiRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">BMI Classification</label>
+                        <select id="bmiClassification" asp-for="DiabetesRisk.BmiRiskPoints" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
                             <option value="" selected>Select your BMI</option>
-                            <option value="1">Lower than 25 kg/m² - 0 pts</option>
-                            <option value="2">25-30 kg/m² - 1 pt</option>
+                            <option value="0">Lower than 25 kg/m² - 0 pts</option>
+                            <option value="1">25-30 kg/m² - 1 pt</option>
                             <option value="3">Higher than 30 kg/m² - 3 pts</option>
                         </select>
-                        <span asp-validation-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm text-red-700"></span>
+                        <span asp-validation-for="DiabetesRisk.BmiRiskPoints" class="block mb-2 text-sm text-red-700"></span>
                     </div>
 
                     <!-- Waist Circumference -->
@@ -223,6 +226,19 @@
                 // If no member is selected, reset the dropdown
                 ageDropdown.value = "";
                 ageDropdown.disabled = false; // Allow selection if no member is selected
+            }
+        });
+
+        document.getElementById("toggleBmiFieldsButton").addEventListener("click", function () {
+            const bmiFields = document.getElementById("bmiCalculationFields");
+
+            // Toggle visibility
+            if (bmiFields.style.display === "none") {
+                bmiFields.style.display = "block"; // Show the fields
+                this.textContent = "Enter BMI Classification Manually"; // Update button text
+            } else {
+                bmiFields.style.display = "none"; // Hide the fields
+                this.textContent = "Calculate BMI"; // Update button text
             }
         });
     </script>
