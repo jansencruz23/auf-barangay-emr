@@ -27,7 +27,7 @@
                             <option value="">Select a member</option>
                             @foreach (var member in Model.MemberList)
                             {
-                                <option value="@member.Id" data-age="@member.AgeYears">@member.FormattedFullName</option>
+                                <option value="@member.Id" data-age="@member.AgeYears" data-sex="@member.Sex">@member.FormattedFullName</option>
                             }
                         </select>
                         <span asp-validation-for="DiabetesRisk.HouseholdMemberId" class="block mb-2 text-sm text-red-700"></span>
@@ -85,13 +85,22 @@
                     </div>
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm font-medium text-gray-700">Waist Circumference measured below the ribs</label>
-                        <select id="relationshipToHead" asp-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
-                            <option value="" selected>Select your waist circumference</option>
-                            <option value="1">Less than 94 cm - 0 pts</option>
-                            <option value="2">94-102 cm - 3 pts</option>
-                            <option value="3">More than 102 cm - 4 pts</option>
+                        <!-- MEN -->
+                        <select id="waistCircumferenceMen" style="display: block;" asp-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                            <option value="" selected>Select your waist circumference (Male)</option>
+                            <option value="0">Less than 94 cm - 0 pts</option>
+                            <option value="3">94-102 cm - 3 pts</option>
+                            <option value="4">More than 102 cm - 4 pts</option>
                         </select>
-                        <span asp-validation-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm text-red-700"></span>
+                        <span asp-validation-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="block mb-2 text-sm text-red-700"></span>
+                        <!-- WOMEN -->
+                        <select id="waistCircumferenceWomen" style="display: none;" asp-for="DiabetesRisk.WaistCircumferenceWomenRiskPoints" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                            <option value="" selected>Select your waist circumference (Female)</option>
+                            <option value="0">Less than 80 cm - 0 pts</option>
+                            <option value="3">80-88 cm - 3 pts</option>
+                            <option value="4">More than 88 cm - 4 pts</option>
+                        </select>
+                        <span asp-validation-for="DiabetesRisk.WaistCircumferenceWomenRiskPoints" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                 </div>
                 <!-- Right Column -->
@@ -202,10 +211,26 @@
     }
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ageDropdown = document.getElementById("ageDropdown");
+            const bmiClassification = document.getElementById("bmiClassification");
+            const waistCircumferenceForMen = document.getElementById("waistCircumferenceMen");
+            const waistCircumferenceForWomen = document.getElementById("waistCircumferenceWomen");
+
+            // Set to empty value initially
+            ageDropdown.value = "";
+            bmiClassification.value = "";
+            waistCircumferenceForMen.value = "";
+            waistCircumferenceForWomen.value = "";
+        });
+
         document.getElementById("assessmentFor").addEventListener("change", function () {
             const selectedOption = this.options[this.selectedIndex];
             const age = parseInt(selectedOption.getAttribute("data-age"));
             const ageDropdown = document.getElementById("ageDropdown");
+            const sex = selectedOption.getAttribute('data-sex');
+            const waistCircumferenceForMen = document.getElementById("waistCircumferenceMen");
+            const waistCircumferenceForWomen = document.getElementById("waistCircumferenceWomen");
 
             ageDropdown.disabled = false;
 
@@ -226,6 +251,17 @@
                 // If no member is selected, reset the dropdown
                 ageDropdown.value = "";
                 ageDropdown.disabled = false; // Allow selection if no member is selected
+            }
+
+            if (sex === 'M') {
+                waistCircumferenceForMen.style.display = "block";
+                waistCircumferenceForWomen.style.display = "none";
+                waistCircumferenceForMen.value = "";
+            }
+            else {
+                waistCircumferenceForMen.style.display = "none";
+                waistCircumferenceForWomen.style.display = "block";
+                waistCircumferenceForWomen.value = "";
             }
         });
 

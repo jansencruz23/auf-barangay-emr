@@ -29,7 +29,7 @@ namespace AUF.EMR.Application.Common
             return new PaginatedList<T>(items, count, pageIndex, pageSize);
         }
 
-        public static async Task<PaginatedList<T>> CreateAsync(IList<T> source, int pageIndex, int pageSize = 10)
+        public static PaginatedList<T> CreateAsync(IList<T> source, int pageIndex, int pageSize = 10)
         {
             var count = source.Count();
             var items = source.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();

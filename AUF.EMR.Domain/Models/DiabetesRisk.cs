@@ -13,10 +13,8 @@ public class DiabetesRisk : BaseDomainEntity
     public double? WeightInKg { get; set; }
     public double Bmi { get; private set; }
     public BmiRiskPoints BmiRiskPoints => MapBmiRisk();
-    public WaistCircumferenceMenRiskPoints WaistCircumferenceMenRiskPoints => MapWaistCircumferenceMenRiskPoints();
-    public WaistCircumferenceWomenRiskPoints WaistCircumferenceWomenRiskPoints => MapWaistCircumferenceWomenRiskPoints();
-    public double? WaistCircumferenceMen { get; set; }
-    public double? WaistCircumferenceWomen { get; set; }
+    public WaistCircumferenceMenRiskPoints WaistCircumferenceMenRiskPoints { get; set; }
+    public WaistCircumferenceWomenRiskPoints WaistCircumferenceWomenRiskPoints { get; set; }
     public bool IsPhysicallyActive { get; set; } = true;// true = 0pts, false = 2pts
     public bool EatsVegetablesEveryDay { get; set; } = true; // true = 0pts, false = 2pts
     public bool TakingHighBloodPressureMedication { get; set; } // true = 2pts, false = 0pts
@@ -51,30 +49,7 @@ public class DiabetesRisk : BaseDomainEntity
         {
             < 25 => BmiRiskPoints.Under25,
             >= 25 and <= 30 => BmiRiskPoints.Bmi25To30,
-            > 30 => BmiRiskPoints.Over30,
-            _ => throw new NotImplementedException()
-        };
-    }
-
-    private WaistCircumferenceMenRiskPoints MapWaistCircumferenceMenRiskPoints()
-    {
-        return WaistCircumferenceMen switch
-        {
-            < 94 => WaistCircumferenceMenRiskPoints.Under94,
-            >= 94 and <= 102 => WaistCircumferenceMenRiskPoints.Between94And102,
-            > 102 => WaistCircumferenceMenRiskPoints.Over102,
-            _ => throw new NotImplementedException()
-        };
-    }
-
-    private WaistCircumferenceWomenRiskPoints MapWaistCircumferenceWomenRiskPoints()
-    {
-        return WaistCircumferenceWomen switch
-        {
-            < 80 => WaistCircumferenceWomenRiskPoints.Under80,
-            >= 80 and <= 88 => WaistCircumferenceWomenRiskPoints.Between80And88,
-            > 88 => WaistCircumferenceWomenRiskPoints.Over88,
-            _ => throw new NotImplementedException()
+            > 30 => BmiRiskPoints.Over30
         };
     }
 
@@ -85,15 +60,8 @@ public class DiabetesRisk : BaseDomainEntity
         totalRiskScore += (int)AgeRiskPoints;
         totalRiskScore += (int)BmiRiskPoints;
 
-        if (WaistCircumferenceMen.HasValue)
-        {
-            totalRiskScore += (int)WaistCircumferenceMenRiskPoints;
-        }
-
-        if (WaistCircumferenceWomen.HasValue)
-        {
-            totalRiskScore += (int)WaistCircumferenceWomenRiskPoints;
-        }
+        totalRiskScore += (int)WaistCircumferenceMenRiskPoints;
+        totalRiskScore += (int)WaistCircumferenceWomenRiskPoints;
 
         totalRiskScore += IsPhysicallyActive ? 0 : 2;
         totalRiskScore += EatsVegetablesEveryDay ? 0 : 2;

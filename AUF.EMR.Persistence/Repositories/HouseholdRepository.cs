@@ -165,7 +165,7 @@ namespace AUF.EMR.Persistence.Repositories
                 .ToList();
             }
 
-            var pagedHouseholds = await PaginatedList<Household>.CreateAsync(households, page);
+            var pagedHouseholds = PaginatedList<Household>.CreateAsync(households, page);
             return pagedHouseholds;
         }
 
