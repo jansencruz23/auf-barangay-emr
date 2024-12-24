@@ -24,7 +24,7 @@
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.HouseholdMemberId" class="block mb-2 text-sm font-medium text-gray-700">Assessment for</label>
                         <select id="assessmentFor" asp-for="DiabetesRisk.HouseholdMemberId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
-                            <option value="">Select a member</option>    
+                            <option value="">Select a member</option>
                             @foreach (var member in Model.MemberList)
                             {
                                 <option value="@member.Id" data-age="@member.AgeYears">@member.FormattedFullName</option>
@@ -52,18 +52,18 @@
                     <!-- BMI Calculation Fields (hidden by default) -->
                     <div id="bmiCalculationFields" style="display: none;">
                         <div class="mb-4">
-                            <label asp-for="DiabetesRisk.HeightInCm" class="block mb-2 text-sm font-medium text-gray-700">Height</label>
-                            <input asp-for="DiabetesRisk.HeightInCm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                            <label asp-for="DiabetesRisk.HeightInCm" class="block mb-2 text-sm font-medium text-gray-700">Height in cm</label>
+                            <input id="heightInput" asp-for="DiabetesRisk.HeightInCm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="DiabetesRisk.HeightInCm" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
-                            <label asp-for="DiabetesRisk.WeightInKg" class="block mb-2 text-sm font-medium text-gray-700">Weight</label>
-                            <input asp-for="DiabetesRisk.WeightInKg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                            <label asp-for="DiabetesRisk.WeightInKg" class="block mb-2 text-sm font-medium text-gray-700">Weight in kg</label>
+                            <input id="weightInput" asp-for="DiabetesRisk.WeightInKg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="DiabetesRisk.WeightInKg" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
                             <label asp-for="DiabetesRisk.Bmi" class="block mb-2 text-sm font-medium text-gray-700">BMI</label>
-                            <input asp-for="DiabetesRisk.Bmi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                            <input id="bmiResult" disabled asp-for="DiabetesRisk.Bmi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                             <span asp-validation-for="DiabetesRisk.Bmi" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                     </div>
@@ -229,18 +229,62 @@
             }
         });
 
+        // Toggle calculate BMI button
         document.getElementById("toggleBmiFieldsButton").addEventListener("click", function () {
             const bmiFields = document.getElementById("bmiCalculationFields");
+            const bmiClassification = document.getElementById("bmiClassification");
 
             // Toggle visibility
             if (bmiFields.style.display === "none") {
                 bmiFields.style.display = "block"; // Show the fields
                 this.textContent = "Enter BMI Classification Manually"; // Update button text
+                bmiClassification.disabled = true;
             } else {
                 bmiFields.style.display = "none"; // Hide the fields
                 this.textContent = "Calculate BMI"; // Update button text
+                bmiClassification.disabled = false;
             }
         });
+
+        // Calculate BMI Function
+        function calculateBmi() {
+            const heightInput = document.getElementById("heightInput").value;
+            const weightInput = document.getElementById("weightInput").value;
+            const bmiResult = document.getElementById("bmiResult");
+
+            if (heightInput && weightInput) {
+                const heightInMeters = heightInput / 100;
+                const bmi = (weightInput / (heightInMeters * heightInMeters)).toFixed(2);
+
+                if (!isNaN(bmi) && bmi > 0) {
+                    bmiResult.value = bmi;
+
+                    // Automatically update BMI classification
+                    const bmiClassification = document.getElementById("bmiClassification");
+                    if (bmi < 25) {
+                        bmiClassification.value = "0"; // Lower than 25 kg/m² - 0 pts
+                    } else if (bmi >= 25 && bmi <= 30) {
+                        bmiClassification.value = "1"; // 25-30 kg/m² - 1 pt
+                    } else {
+                        bmiClassification.value = "3"; // Higher than 30 kg/m² - 3 pts
+                    }
+
+                    bmiClassification.disabled = true;
+                }
+                else {
+                    bmiResult.value = ""; // Clear BMI result if invalid
+                    bmiClassification.disabled = false;
+                }
+            }
+            else {
+                bmiResult.value = ""; // Clear BMI result if invalid
+                bmiClassification.disabled = false;
+            }
+        }
+
+        // Add event listeners for real-time BMI calculation
+        document.getElementById("heightInput").addEventListener("input", calculateBmi);
+        document.getElementById("weightInput").addEventListener("input", calculateBmi);
     </script>
 }
 
