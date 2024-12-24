@@ -46,6 +46,7 @@ public class DiabetesRiskController : Controller
         var model = new CreateDiabetesRiskVM
         {
             MemberList = members,
+            HouseholdNo = householdNo
         };
         return View(model);
     }
@@ -53,7 +54,7 @@ public class DiabetesRiskController : Controller
     // POST: DiabetesRiskController/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Create(IFormCollection collection)
+    public async Task<ActionResult> Create(CreateDiabetesRiskVM model)
     {
         try
         {

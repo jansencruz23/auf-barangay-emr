@@ -9,6 +9,7 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
             @* <input type="hidden" asp-for="HouseholdMemberId" value="@Model.HouseholdMemberId" /> *@
+            <input type="hidden" id="hiddenAgeField" asp-for="DiabetesRisk.AgeRiskPoints" />
             <div>
                 <h1 class="text-xl">Create</h1>
                 <h1 class="text-2xl font-bold text-gray-800 mb-4">Type 2 Diabetes Risk Assessment Form</h1>
@@ -35,7 +36,7 @@
                     <!-- Age -->
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.AgeRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">Age</label>
-                        <select id="ageDropdown" asp-for="DiabetesRisk.AgeRiskPoints" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                        <select id="ageDropdown" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
                             <option value="" selected>Select your age</option>
                             <option value="0">Under 45 years old - 0 pts</option>
                             <option value="2">45-54 years old - 2 pts</option>
@@ -52,19 +53,19 @@
                     <!-- BMI Calculation Fields (hidden by default) -->
                     <div id="bmiCalculationFields" style="display: none;">
                         <div class="mb-4">
-                            <label asp-for="DiabetesRisk.HeightInCm" class="block mb-2 text-sm font-medium text-gray-700">Height in cm</label>
-                            <input id="heightInput" asp-for="DiabetesRisk.HeightInCm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                            <span asp-validation-for="DiabetesRisk.HeightInCm" class="block mb-2 text-sm text-red-700"></span>
+                            <label asp-for="HeightInCm" class="block mb-2 text-sm font-medium text-gray-700">Height in cm</label>
+                            <input id="heightInput" asp-for="HeightInCm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                            <span asp-validation-for="HeightInCm" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
-                            <label asp-for="DiabetesRisk.WeightInKg" class="block mb-2 text-sm font-medium text-gray-700">Weight in kg</label>
-                            <input id="weightInput" asp-for="DiabetesRisk.WeightInKg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                            <span asp-validation-for="DiabetesRisk.WeightInKg" class="block mb-2 text-sm text-red-700"></span>
+                            <label asp-for="WeightInKg" class="block mb-2 text-sm font-medium text-gray-700">Weight in kg</label>
+                            <input id="weightInput" asp-for="WeightInKg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                            <span asp-validation-for="WeightInKg" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                         <div class="mb-4">
-                            <label asp-for="DiabetesRisk.Bmi" class="block mb-2 text-sm font-medium text-gray-700">BMI</label>
-                            <input id="bmiResult" disabled asp-for="DiabetesRisk.Bmi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
-                            <span asp-validation-for="DiabetesRisk.Bmi" class="block mb-2 text-sm text-red-700"></span>
+                            <label asp-for="Bmi" class="block mb-2 text-sm font-medium text-gray-700">BMI</label>
+                            <input id="bmiResult" disabled asp-for="Bmi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                            <span asp-validation-for="Bmi" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                     </div>
                     <!-- BMI Dropdown -->
@@ -92,7 +93,7 @@
                             <option value="3">94-102 cm - 3 pts</option>
                             <option value="4">More than 102 cm - 4 pts</option>
                         </select>
-                        <span asp-validation-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="block mb-2 text-sm text-red-700"></span>
+                        <span id="waistCircumferenceMenValidation" asp-validation-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="block mb-2 text-sm text-red-700"></span>
                         <!-- WOMEN -->
                         <select id="waistCircumferenceWomen" style="display: none;" asp-for="DiabetesRisk.WaistCircumferenceWomenRiskPoints" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
                             <option value="" selected>Select your waist circumference (Female)</option>
@@ -100,7 +101,7 @@
                             <option value="3">80-88 cm - 3 pts</option>
                             <option value="4">More than 88 cm - 4 pts</option>
                         </select>
-                        <span asp-validation-for="DiabetesRisk.WaistCircumferenceWomenRiskPoints" class="block mb-2 text-sm text-red-700"></span>
+                        <span id="waistCircumferenceWomenValidation" asp-validation-for="DiabetesRisk.WaistCircumferenceWomenRiskPoints" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                 </div>
                 <!-- Right Column -->
@@ -186,14 +187,14 @@
                         <h6 class="text-md font-bold text-gray-800">Family Diabetes History</h6>
                     </div>
                     <div class="mb-4">
-                        <label asp-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm font-medium text-gray-700">Have any of the members of your immediate family or other relative been diagnosed with diabetes (type 1 or type 2)?</label>
-                        <select id="relationshipToHead" asp-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                        <label asp-for="DiabetesRisk.FamilyWithDiabetesRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">Have any of the members of your immediate family or other relative been diagnosed with diabetes (type 1 or type 2)?</label>
+                        <select id="familyWithDiabetesRisk" asp-for="DiabetesRisk.FamilyWithDiabetesRiskPoints" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
                             <option value="" selected>Select an option</option>
-                            <option value="1">No - 0 pts</option>
-                            <option value="2">Yes; grandparent, aunt, unlce or first cousin - 3 pts</option>
-                            <option value="2">Yes; parent, brother, sister or own child - 5 pts</option>
+                            <option value="0">No - 0 pts</option>
+                            <option value="3">Yes; grandparent, aunt, unlce or first cousin - 3 pts</option>
+                            <option value="5">Yes; parent, brother, sister or own child - 5 pts</option>
                         </select>
-                        <span asp-validation-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm text-red-700"></span>
+                        <span asp-validation-for="DiabetesRisk.FamilyWithDiabetesRiskPoints" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                 </div>
             </div>
@@ -213,15 +214,17 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const ageDropdown = document.getElementById("ageDropdown");
-            const bmiClassification = document.getElementById("bmiClassification");
-            const waistCircumferenceForMen = document.getElementById("waistCircumferenceMen");
-            const waistCircumferenceForWomen = document.getElementById("waistCircumferenceWomen");
+            const bmiClassificationDropdown = document.getElementById("bmiClassification");
+            const waistCircumferenceForMenDropdown = document.getElementById("waistCircumferenceMen");
+            const waistCircumferenceForWomenDropdown = document.getElementById("waistCircumferenceWomen");
+            const familyWithDiabetesDropdown = document.getElementById("familyWithDiabetesRisk");
 
             // Set to empty value initially
             ageDropdown.value = "";
-            bmiClassification.value = "";
-            waistCircumferenceForMen.value = "";
-            waistCircumferenceForWomen.value = "";
+            bmiClassificationDropdown.value = "";
+            waistCircumferenceForMenDropdown.value = "";
+            waistCircumferenceForWomenDropdown.value = "";
+            familyWithDiabetesDropdown.value = "";
         });
 
         document.getElementById("assessmentFor").addEventListener("change", function () {
@@ -231,6 +234,9 @@
             const sex = selectedOption.getAttribute('data-sex');
             const waistCircumferenceForMen = document.getElementById("waistCircumferenceMen");
             const waistCircumferenceForWomen = document.getElementById("waistCircumferenceWomen");
+            const waistCircumferenceForMenValidation = document.getElementById("waistCircumferenceMenValidation");
+            const waistCircumferenceForWomenValidation = document.getElementById("waistCircumferenceWomenValidation");
+            const hiddenAgeField = document.getElementById("hiddenAgeField");
 
             ageDropdown.disabled = false;
 
@@ -247,19 +253,24 @@
 
                 // Disable the dropdown
                 ageDropdown.disabled = true;
+                hiddenAgeField.value = ageDropdown.value;
             } else {
                 // If no member is selected, reset the dropdown
                 ageDropdown.value = "";
                 ageDropdown.disabled = false; // Allow selection if no member is selected
+                hiddenAgeField.value = this.value;
             }
 
+            // Handle sex waist circumference fields visibility
             if (sex === 'M') {
                 waistCircumferenceForMen.style.display = "block";
                 waistCircumferenceForWomen.style.display = "none";
+                waistCircumferenceForWomenValidation.style.display = "none";
                 waistCircumferenceForMen.value = "";
             }
             else {
                 waistCircumferenceForMen.style.display = "none";
+                waistCircumferenceForMenValidation.style.display = "none";
                 waistCircumferenceForWomen.style.display = "block";
                 waistCircumferenceForWomen.value = "";
             }
@@ -323,4 +334,3 @@
         document.getElementById("weightInput").addEventListener("input", calculateBmi);
     </script>
 }
-
