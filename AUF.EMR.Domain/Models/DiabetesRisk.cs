@@ -8,7 +8,7 @@ public class DiabetesRisk : BaseDomainEntity
 {
     [Display(Name = "Household Member")]
     public int HouseholdMemberId { get; set; }
-    public HouseholdMember HouseholdMember { get; set; }
+    public HouseholdMember? HouseholdMember { get; set; }
 
     [Display(Name = "Age")]
     public AgeRiskPoints AgeRiskPoints { get; set; }
@@ -17,10 +17,10 @@ public class DiabetesRisk : BaseDomainEntity
     public BmiRiskPoints BmiRiskPoints { get; set; }
 
     [Display(Name = "Waist Circumference")]
-    public WaistCircumferenceMenRiskPoints WaistCircumferenceMenRiskPoints { get; set; }
+    public WaistCircumferenceMenRiskPoints? WaistCircumferenceMenRiskPoints { get; set; }
 
     [Display(Name = "Waist Circumference")]
-    public WaistCircumferenceWomenRiskPoints WaistCircumferenceWomenRiskPoints { get; set; }
+    public WaistCircumferenceWomenRiskPoints? WaistCircumferenceWomenRiskPoints { get; set; }
     public bool IsPhysicallyActive { get; set; } = true;// true = 0pts, false = 2pts
     public bool EatsVegetablesEveryDay { get; set; } = true; // true = 0pts, false = 2pts
     public bool TakingHighBloodPressureMedication { get; set; } // true = 2pts, false = 0pts
@@ -37,8 +37,15 @@ public class DiabetesRisk : BaseDomainEntity
         totalRiskScore += (int)AgeRiskPoints;
         totalRiskScore += (int)BmiRiskPoints;
 
-        totalRiskScore += (int)WaistCircumferenceMenRiskPoints;
-        totalRiskScore += (int)WaistCircumferenceWomenRiskPoints;
+        if (WaistCircumferenceMenRiskPoints.HasValue)
+        {
+            totalRiskScore += (int)WaistCircumferenceMenRiskPoints;
+        }
+
+        if (WaistCircumferenceWomenRiskPoints.HasValue)
+        {
+            totalRiskScore += (int)WaistCircumferenceWomenRiskPoints;
+        }
 
         totalRiskScore += IsPhysicallyActive ? 0 : 2;
         totalRiskScore += EatsVegetablesEveryDay ? 0 : 1;

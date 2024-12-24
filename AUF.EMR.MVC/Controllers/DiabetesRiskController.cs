@@ -42,13 +42,8 @@ public class DiabetesRiskController : Controller
     // GET: DiabetesRiskController/Create
     public async Task<ActionResult> Create(string householdNo)
     {
-        var members = await _householdMemberService.GetHouseholdMembersWithDetails(householdNo);
-        var model = new CreateDiabetesRiskVM
-        {
-            MemberList = members,
-            HouseholdNo = householdNo
-        };
-        return View(model);
+        var viewModel = await CreateDiabetesRiskVM(householdNo!);
+        return View(viewModel);
     }
 
     // POST: DiabetesRiskController/Create
@@ -56,14 +51,38 @@ public class DiabetesRiskController : Controller
     [ValidateAntiForgeryToken]
     public async Task<ActionResult> Create(CreateDiabetesRiskVM model)
     {
+        if (model == null)
+        {
+            return BadRequest();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            var viewModel = await CreateDiabetesRiskVM(model.HouseholdNo!);
+            return View(viewModel);
+        }
+
         try
         {
-            return RedirectToAction(nameof(Index));
+            var diabetesRisk = await _diabetesRiskService.Add(model.DiabetesRisk);
+            return RedirectToAction(nameof(Index), new { householdNo = model.HouseholdNo });
         }
         catch
         {
-            return View();
+            var viewModel = await CreateDiabetesRiskVM(model.HouseholdNo!);
+            return View(viewModel);
         }
+    }
+
+    private async Task<CreateDiabetesRiskVM> CreateDiabetesRiskVM(string householdNo)
+    {
+        var members = await _householdMemberService.GetHouseholdMembersWithDetails(householdNo);
+        var model = new CreateDiabetesRiskVM
+        {
+            MemberList = members,
+            HouseholdNo = householdNo
+        };
+        return model;
     }
 
     // GET: DiabetesRiskController/Edit/5
