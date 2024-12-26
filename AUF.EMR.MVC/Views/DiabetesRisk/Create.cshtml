@@ -226,6 +226,8 @@
             const waistWomenDropdown = document.getElementById("waistCircumferenceWomen");
             const physicalActivityInputs = document.querySelectorAll("input[name='DiabetesRisk.IsPhysicallyActive']");
             const vegetableIntakeInputs = document.querySelectorAll("input[name='DiabetesRisk.EatsVegetablesEveryDay']");
+            const highBloodPressureInputs = document.querySelectorAll("input[name='DiabetesRisk.TakingHighBloodPressureMedication']");
+            const highBloodGlucoseInputs = document.querySelectorAll("input[name='DiabetesRisk.HasHighBloodGlucose']");
             const familyHistoryDropdown = document.getElementById("familyWithDiabetesRisk");
             const riskScoreDisplay = document.getElementById("riskScore");
 
@@ -236,7 +238,7 @@
                 }
             });
 
-            [physicalActivityInputs, vegetableIntakeInputs].forEach(inputs => {
+            [physicalActivityInputs, vegetableIntakeInputs, highBloodPressureInputs, highBloodGlucoseInputs].forEach(inputs => {
                 inputs.forEach(input => {
                     input.addEventListener("change", calculateRiskScore);
                 });
@@ -256,14 +258,14 @@
                     ? parseInt(waistMenDropdown?.value || 0)
                     : parseInt(waistWomenDropdown?.value || 0);
 
-                // Get points for physical activity (Yes = 0, No = 2)
+                // Get points for radio options
                 const physicalActivityRisk = Array.from(physicalActivityInputs).find(input => input.checked)?.value === "false" ? 2 : 0;
-
-                // Get points for vegetable intake (Yes = 0, No = 1)
                 const vegetableIntakeRisk = Array.from(vegetableIntakeInputs).find(input => input.checked)?.value === "false" ? 1 : 0;
+                const highBloodPressureRisk = Array.from(highBloodPressureInputs).find(input => input.checked)?.value === "false" ? 0 : 2;
+                const highBloodGlucoseRisk = Array.from(highBloodGlucoseInputs).find(input => input.checked)?.value === "false" ? 0 : 5;
 
                 // Sum up the risk score
-                riskScore = ageRisk + bmiRisk + familyRisk + waistRisk + physicalActivityRisk + vegetableIntakeRisk;
+                riskScore = ageRisk + bmiRisk + familyRisk + waistRisk + physicalActivityRisk + vegetableIntakeRisk + highBloodPressureRisk + highBloodGlucoseRisk;
 
                 // Update the displayed risk score
                 riskScoreDisplay.textContent = riskScore;
@@ -285,7 +287,7 @@
 
             if (!isNaN(age)) {
                 if (age < 45) {
-                    ageDropdown.value = "0"; // Under 45 years old - 0 pts
+                    ageDropdown.value = "0.1"; // Under 45 years old - 0 pts
                 } else if (age >= 45 && age <= 54) {
                     ageDropdown.value = "2"; // 45-54 years old - 2 pts
                 } else if (age >= 55 && age <= 64) {
