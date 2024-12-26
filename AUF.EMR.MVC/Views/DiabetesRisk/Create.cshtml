@@ -267,8 +267,26 @@
                 // Sum up the risk score
                 riskScore = ageRisk + bmiRisk + familyRisk + waistRisk + physicalActivityRisk + vegetableIntakeRisk + highBloodPressureRisk + highBloodGlucoseRisk;
 
-                // Update the displayed risk score
-                riskScoreDisplay.textContent = riskScore;
+                // Remove all previous color classes
+                riskScoreDisplay.classList.remove("text-green-400", "text-yellow-400", "text-orange-500", "text-pink-500", "text-red-500");
+
+                // Add the appropriate color class based on the risk score
+                if (riskScore < 7) {
+                    riskScoreDisplay.classList.add("text-green-400");
+                    riskScoreDisplay.textContent = `${riskScore} - Low`;
+                } else if (riskScore >= 7 && riskScore <= 11) {
+                    riskScoreDisplay.classList.add("text-yellow-400");
+                    riskScoreDisplay.textContent = `${riskScore} - Slightly Elevated`;
+                } else if (riskScore >= 12 && riskScore <= 14) {
+                    riskScoreDisplay.classList.add("text-orange-500");
+                    riskScoreDisplay.textContent = `${riskScore} - Moderate`;
+                } else if (riskScore >= 15 && riskScore <= 20) {
+                    riskScoreDisplay.classList.add("text-pink-500");
+                    riskScoreDisplay.textContent = `${riskScore} - High`;
+                } else {
+                    riskScoreDisplay.classList.add("text-red-500");
+                    riskScoreDisplay.textContent = `${riskScore} - Very High`;
+                }
             }
         });
 

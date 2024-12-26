@@ -4310,6 +4310,10 @@ input:checked + .toggle-bg {
   --tw-text-opacity: 1;
   color: rgb(66 56 157 / var(--tw-text-opacity));
 }
+.text-amber-500 {
+    --tw-text-opacity: 1;
+    color: #f59e0b;
+}
 .text-orange-500 {
   --tw-text-opacity: 1;
   color: rgb(255 90 31 / var(--tw-text-opacity));
