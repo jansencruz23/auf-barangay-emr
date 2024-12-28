@@ -29,8 +29,9 @@ public class DiabetesRisk : BaseDomainEntity
     [Display(Name = "Family Diabetes History")]
     public FamilyWithDiabetesRiskPoints FamilyWithDiabetesRiskPoints { get; set; }
     public int TotalScore => CalculateTotalRiskScore();
+    public string Risk => GetRisk();
 
-    public int CalculateTotalRiskScore()
+    private int CalculateTotalRiskScore()
     {
         var totalRiskScore = 0;
 
@@ -54,5 +55,17 @@ public class DiabetesRisk : BaseDomainEntity
         totalRiskScore += (int)FamilyWithDiabetesRiskPoints;
 
         return totalRiskScore;
+    }
+
+    private string GetRisk()
+    {
+        return TotalScore switch
+        {
+            < 7 => "Low",
+            >= 7 and <= 11 => "Slightly elevated",
+            >= 12 and <= 14 => "Moderate",
+            >= 15 and <= 20 => "High",
+            > 20 => "Very high"
+        };
     }
 }

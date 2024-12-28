@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    ViewData["HouseholdNo"] = Model.HouseholdNo;
 }
 
 <div class="container mx-auto px-4 py-8">
@@ -212,7 +213,7 @@
                 </div>
             </div>
             <div class="flex justify-end">
-                <a @* asp-action="HouseholdProfile" asp-controller="Household" asp-route-householdNo="@Model.HouseholdNo" *@ class="focus:outline-none text-white bg-red-400 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 hover:bg-red-450 !important">Back</a>
+                <a asp-action="Index" asp-controller="DiabetesRisk" asp-route-householdNo="@Model.HouseholdNo" class="focus:outline-none text-white bg-red-400 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 hover:bg-red-450 !important">Back</a>
                 <button type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add</button>
             </div>
         </form>
