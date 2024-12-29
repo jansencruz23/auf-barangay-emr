@@ -1,6 +1,8 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.MVC.Models.CreateVM;
+using AUF.EMR.MVC.Models.DetailVM;
 using AUF.EMR.MVC.Models.IndexVM;
+using Google.Protobuf;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,9 +36,26 @@ public class DiabetesRiskController : Controller
     }
 
     // GET: DiabetesRiskController/Details/5
-    public ActionResult Details(int id)
+    public async Task<ActionResult> Details(int id, string householdNo)
     {
-        return View();
+        if (id == 0)
+        {
+            return BadRequest();
+        }
+
+        var diabetesRisk = await _diabetesRiskService.GetDiabetesRiskWithDetails(id);
+        if (diabetesRisk == null)
+        {
+            return NotFound();
+        }
+
+        var model = new DetailDiabetesRiskVM
+        {
+            DiabetesRisk = diabetesRisk,
+            HouseholdNo = householdNo
+        };
+
+        return View(model);
     }
 
     // GET: DiabetesRiskController/Create
