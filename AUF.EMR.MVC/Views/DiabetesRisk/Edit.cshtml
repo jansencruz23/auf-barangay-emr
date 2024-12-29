@@ -6,13 +6,15 @@
 
 <div class="container mx-auto px-4 py-8">
     <div class="bg-white shadow-md rounded-lg p-8 mb-8">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
-            <input type="hidden" asp-for="DiabetesRisk.HouseholdMemberId" value="@Model.DiabetesRisk.HouseholdMemberId" />
+            <input type="hidden" asp-for="DiabetesRisk.Id" />
+            <input type="hidden" asp-for="DiabetesRisk.DateCreated" />
+            <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             <input type="hidden" id="hiddenAgeField" asp-for="DiabetesRisk.AgeRiskPoints" />
             <div>
                 <div class="flex justify-between">
-                    <h1 class="text-xl">Create</h1>
+                    <h1 class="text-xl">Edit</h1>
                     <button data-modal-target="diabetesRiskInfoModal" data-modal-toggle="diabetesRiskInfoModal" type="button" class="border-blue-100 hover:bg-blue-100 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1 text-center items-center">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />

@@ -140,13 +140,28 @@ public class DiabetesRiskController : Controller
     [ValidateAntiForgeryToken]
     public async Task<ActionResult> Edit(EditDiabetesRiskVM model)
     {
+        if (model == null)
+        {
+            return BadRequest();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            var members = await _householdMemberService.GetHouseholdMembersWithDetails(model.HouseholdNo);
+            model.MemberList = members;
+            return View(model);
+        }
+
         try
         {
-            return RedirectToAction(nameof(Index));
+            await _diabetesRiskService.Update(model.DiabetesRisk);
+            return RedirectToAction(nameof(Index), new { model.HouseholdNo });
         }
         catch
         {
-            return View();
+            var members = await _householdMemberService.GetHouseholdMembersWithDetails(model.HouseholdNo);
+            model.MemberList = members;
+            return View(model);
         }
     }
 
