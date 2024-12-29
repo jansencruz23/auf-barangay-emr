@@ -57,7 +57,7 @@
                     <!-- Age -->
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.AgeRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">Age</label>
-                        <select id="ageDropdown" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                        <select id="ageDropdown" disabled class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
                             <option value="0">Under 45 years old - 0 pts</option>
                             <option value="2">45-54 years old - 2 pts</option>
                             <option value="3">55-64 years old - 3 pts</option>
@@ -107,7 +107,6 @@
                         <label asp-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">Waist Circumference measured below the ribs</label>
                         <!-- MEN -->
                         <select id="waistCircumferenceMen" style="display: @(Model.DiabetesRisk.HouseholdMember.Sex == 'M' ? "block" : "none");" asp-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
-                            <option value="0" selected>Select your waist circumference (Male)</option>
                             <option value="0">Less than 94 cm - 0 pts</option>
                             <option value="3">94-102 cm - 3 pts</option>
                             <option value="4">More than 102 cm - 4 pts</option>
@@ -115,7 +114,6 @@
                         <span id="waistCircumferenceMenValidation" asp-validation-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="block mb-2 text-sm text-red-700"></span>
                         <!-- WOMEN -->
                         <select id="waistCircumferenceWomen" style="display: @(Model.DiabetesRisk.HouseholdMember.Sex == 'F' ? "block" : "none");;" asp-for="DiabetesRisk.WaistCircumferenceWomenRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
-                            <option value="0" selected>Select your waist circumference (Female)</option>
                             <option value="0">Less than 80 cm - 0 pts</option>
                             <option value="3">80-88 cm - 3 pts</option>
                             <option value="4">More than 88 cm - 4 pts</option>
@@ -232,6 +230,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Select relevant inputs
+            const assessmentForDropdown = document.getElementById("assessmentFor");
             const ageDropdown = document.getElementById("ageDropdown");
             const bmiDropdown = document.getElementById("bmiClassification");
             const waistMenDropdown = document.getElementById("waistCircumferenceMen");
@@ -255,6 +254,10 @@
                     input.addEventListener("change", calculateRiskScore);
                 });
             });
+
+            // Dispatch a change event to calculate the initial risk score
+            const event = new Event("change");
+            assessmentForDropdown.dispatchEvent(event);
 
             // Calculate risk score
             function calculateRiskScore() {
@@ -300,7 +303,6 @@
                     riskScoreDisplay.textContent = `${riskScore} - Very High`;
                 }
             }
-
         });
 
         document.getElementById("assessmentFor").addEventListener("change", function () {
