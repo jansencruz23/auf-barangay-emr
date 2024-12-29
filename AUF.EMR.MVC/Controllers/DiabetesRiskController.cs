@@ -1,6 +1,7 @@
 ﻿using AUF.EMR.Application.Contracts.Services;
 using AUF.EMR.MVC.Models.CreateVM;
 using AUF.EMR.MVC.Models.DetailVM;
+using AUF.EMR.MVC.Models.EditVM;
 using AUF.EMR.MVC.Models.IndexVM;
 using Google.Protobuf;
 using Microsoft.AspNetCore.Authorization;
@@ -61,7 +62,7 @@ public class DiabetesRiskController : Controller
     // GET: DiabetesRiskController/Create
     public async Task<ActionResult> Create(string householdNo)
     {
-        var viewModel = await CreateDiabetesRiskVM(householdNo!);
+        var viewModel = await CreateCreateDiabetesRiskVM(householdNo!);
         return View(viewModel);
     }
 
@@ -77,7 +78,7 @@ public class DiabetesRiskController : Controller
 
         if (!ModelState.IsValid)
         {
-            var viewModel = await CreateDiabetesRiskVM(model.HouseholdNo!);
+            var viewModel = await CreateCreateDiabetesRiskVM(model.HouseholdNo!);
             return View(viewModel);
         }
 
@@ -88,12 +89,12 @@ public class DiabetesRiskController : Controller
         }
         catch
         {
-            var viewModel = await CreateDiabetesRiskVM(model.HouseholdNo!);
+            var viewModel = await CreateCreateDiabetesRiskVM(model.HouseholdNo!);
             return View(viewModel);
         }
     }
 
-    private async Task<CreateDiabetesRiskVM> CreateDiabetesRiskVM(string householdNo)
+    private async Task<CreateDiabetesRiskVM> CreateCreateDiabetesRiskVM(string householdNo)
     {
         var members = await _householdMemberService.GetHouseholdMembersWithDetails(householdNo);
         var model = new CreateDiabetesRiskVM
@@ -103,17 +104,41 @@ public class DiabetesRiskController : Controller
         };
         return model;
     }
+    private async Task<EditDiabetesRiskVM> CreateEditDiabetesRiskVM(string householdNo)
+    {
+        var members = await _householdMemberService.GetHouseholdMembersWithDetails(householdNo);
+        var model = new EditDiabetesRiskVM
+        {
+            MemberList = members,
+            HouseholdNo = householdNo
+        };
+        return model;
+    }
 
     // GET: DiabetesRiskController/Edit/5
-    public ActionResult Edit(int id)
+    public async Task<ActionResult> Edit(int id, string householdNo)
     {
-        return View();
+        if (id == 0)
+        {
+            return BadRequest();
+        }
+
+        var diabetesRisk = await _diabetesRiskService.GetDiabetesRiskWithDetails(id);
+        if (diabetesRisk == null)
+        {
+            return NotFound();
+        }
+
+        var model = await CreateEditDiabetesRiskVM(householdNo);
+        model.DiabetesRisk = diabetesRisk;
+
+        return View(model);
     }
 
     // POST: DiabetesRiskController/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(int id, IFormCollection collection)
+    public async Task<ActionResult> Edit(EditDiabetesRiskVM model)
     {
         try
         {

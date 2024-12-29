@@ -1,15 +1,14 @@
-﻿@model CreateDiabetesRiskVM
+﻿@model EditDiabetesRiskVM
 
 @{
-    ViewData["Title"] = "Create";
-    ViewData["HouseholdNo"] = Model.HouseholdNo;
+    ViewData["Title"] = "Edit";
 }
 
 <div class="container mx-auto px-4 py-8">
     <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
-            @* <input type="hidden" asp-for="HouseholdMemberId" value="@Model.HouseholdMemberId" /> *@
+            <input type="hidden" asp-for="DiabetesRisk.HouseholdMemberId" value="@Model.DiabetesRisk.HouseholdMemberId" />
             <input type="hidden" id="hiddenAgeField" asp-for="DiabetesRisk.AgeRiskPoints" />
             <div>
                 <div class="flex justify-between">
@@ -23,8 +22,17 @@
                 @await Html.PartialAsync("../Shared/Popups/_DiabetesRiskInfo")
                 <div class="flex justify-between">
                     <h1 class="text-2xl font-bold text-gray-800 mb-4">Type 2 Diabetes Risk Assessment Form</h1>
-                    <h1 class="text-xl font-bold text-gray-800 mb-4">Risk Score: 
-                        <span id="riskScore" class="text-green-400">0 - Low</span>
+                    <h1 class="text-xl font-bold text-gray-800 mb-4">
+                        Risk Score:
+
+                        @Html.Raw(Model.DiabetesRisk.TotalScore switch
+                            {
+                                < 7 => $"<span id='riskScore' class='text-green-400'> {Model.DiabetesRisk.TotalScore} Low</span>",
+                                >= 7 and <= 11 => $"<span id='riskScore' class='text-yellow-400'>{Model.DiabetesRisk.TotalScore} - Slightly Elevated</span>",
+                                >= 12 and <= 14 => $"<span id='riskScore' class='text-orange-500'>{Model.DiabetesRisk.TotalScore} - Moderate</span>",
+                                >= 15 and <= 20 => $"<span id='riskScore' class='text-pink-500'>{Model.DiabetesRisk.TotalScore} - High</span>",
+                                _ => $"<span id='riskScore' class='text-red-500'>{Model.DiabetesRisk.TotalScore} - Very High</span>"
+                            })
                     </h1>
                 </div>
             </div>
@@ -39,7 +47,6 @@
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.HouseholdMemberId" class="block mb-2 text-sm font-medium text-gray-700">Assessment for</label>
                         <select id="assessmentFor" asp-for="DiabetesRisk.HouseholdMemberId" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5">
-                            <option value="">Select a member</option>
                             @foreach (var member in Model.MemberList)
                             {
                                 <option value="@member.Id" data-age="@member.AgeYears" data-sex="@member.Sex">@member.FormattedFullName</option>
@@ -51,8 +58,7 @@
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.AgeRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">Age</label>
                         <select id="ageDropdown" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
-                            <option value="0" selected>Select your age</option>
-                            <option value="0.1">Under 45 years old - 0 pts</option>
+                            <option value="0">Under 45 years old - 0 pts</option>
                             <option value="2">45-54 years old - 2 pts</option>
                             <option value="3">55-64 years old - 3 pts</option>
                             <option value="4">Over 64 years old - 4 pts</option>
@@ -86,8 +92,7 @@
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.BmiRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">BMI Classification</label>
                         <select id="bmiClassification" asp-for="DiabetesRisk.BmiRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
-                            <option value="0" selected>Select your BMI</option>
-                            <option value="0.1">Lower than 25 kg/m² - 0 pts</option>
+                            <option value="0">Lower than 25 kg/m² - 0 pts</option>
                             <option value="1">25-30 kg/m² - 1 pt</option>
                             <option value="3">Higher than 30 kg/m² - 3 pts</option>
                         </select>
@@ -99,17 +104,17 @@
                         <h6 class="text-md font-bold text-gray-800">Waist Circumference</h6>
                     </div>
                     <div class="mb-4">
-                        <label asp-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm font-medium text-gray-700">Waist Circumference measured below the ribs</label>
+                        <label asp-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">Waist Circumference measured below the ribs</label>
                         <!-- MEN -->
-                        <select id="waistCircumferenceMen" style="display: block;" asp-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                        <select id="waistCircumferenceMen" style="display: @(Model.DiabetesRisk.HouseholdMember.Sex == 'M' ? "block" : "none");" asp-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
                             <option value="0" selected>Select your waist circumference (Male)</option>
-                            <option value="0.1">Less than 94 cm - 0 pts</option>
+                            <option value="0">Less than 94 cm - 0 pts</option>
                             <option value="3">94-102 cm - 3 pts</option>
                             <option value="4">More than 102 cm - 4 pts</option>
                         </select>
                         <span id="waistCircumferenceMenValidation" asp-validation-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="block mb-2 text-sm text-red-700"></span>
                         <!-- WOMEN -->
-                        <select id="waistCircumferenceWomen" style="display: none;" asp-for="DiabetesRisk.WaistCircumferenceWomenRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                        <select id="waistCircumferenceWomen" style="display: @(Model.DiabetesRisk.HouseholdMember.Sex == 'F' ? "block" : "none");;" asp-for="DiabetesRisk.WaistCircumferenceWomenRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
                             <option value="0" selected>Select your waist circumference (Female)</option>
                             <option value="0">Less than 80 cm - 0 pts</option>
                             <option value="3">80-88 cm - 3 pts</option>
@@ -203,8 +208,7 @@
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.FamilyWithDiabetesRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">Have any of the members of your immediate family or other relative been diagnosed with diabetes (type 1 or type 2)?</label>
                         <select id="familyWithDiabetesRisk" asp-for="DiabetesRisk.FamilyWithDiabetesRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
-                            <option value="0">Select an option</option>
-                            <option value="0.1">No - 0 pts</option>
+                            <option value="0">No - 0 pts</option>
                             <option value="3">Yes; grandparent, aunt, unlce or first cousin - 3 pts</option>
                             <option value="5">Yes; parent, brother, sister or own child - 5 pts</option>
                         </select>
@@ -296,6 +300,7 @@
                     riskScoreDisplay.textContent = `${riskScore} - Very High`;
                 }
             }
+
         });
 
         document.getElementById("assessmentFor").addEventListener("change", function () {
@@ -313,7 +318,7 @@
 
             if (!isNaN(age)) {
                 if (age < 45) {
-                    ageDropdown.value = "0.1"; // Under 45 years old - 0 pts
+                    ageDropdown.value = "0"; // Under 45 years old - 0 pts
                 } else if (age >= 45 && age <= 54) {
                     ageDropdown.value = "2"; // 45-54 years old - 2 pts
                 } else if (age >= 55 && age <= 64) {
@@ -384,7 +389,7 @@
                     // Automatically update BMI classification
                     const bmiClassification = document.getElementById("bmiClassification");
                     if (bmi < 25) {
-                        bmiClassification.value = "0.1"; // Lower than 25 kg/m² - 0 pts
+                        bmiClassification.value = "0"; // Lower than 25 kg/m² - 0 pts
                     } else if (bmi >= 25 && bmi <= 30) {
                         bmiClassification.value = "1"; // 25-30 kg/m² - 1 pt
                     } else {
