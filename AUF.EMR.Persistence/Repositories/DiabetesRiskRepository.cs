@@ -23,6 +23,7 @@ public sealed class DiabetesRiskRepository : GenericRepository<DiabetesRisk>, ID
             .Where(x => x.HouseholdMember.Household!.HouseholdNo.Equals(householdNo) 
                 && x.Status 
                 && x.HouseholdMember.Status)
+            .OrderByDescending(x => x.LastModified)
             .ToListAsync();
 
         return query;
