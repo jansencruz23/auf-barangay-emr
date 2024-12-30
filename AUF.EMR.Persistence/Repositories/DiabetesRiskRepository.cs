@@ -20,7 +20,9 @@ public sealed class DiabetesRiskRepository : GenericRepository<DiabetesRisk>, ID
             .AsNoTracking()
             .Include(x => x.HouseholdMember)
                 .ThenInclude(x => x.Household)
-            .Where(x => x.HouseholdMember.Household!.HouseholdNo.Equals(householdNo))
+            .Where(x => x.HouseholdMember.Household!.HouseholdNo.Equals(householdNo) 
+                && x.Status 
+                && x.HouseholdMember.Status)
             .ToListAsync();
 
         return query;
@@ -31,6 +33,7 @@ public sealed class DiabetesRiskRepository : GenericRepository<DiabetesRisk>, ID
         var query = await _dbContext.DiabetesRisks
             .AsNoTracking()
             .Include(x => x.HouseholdMember)
+            .Where(x => x.Status && x.HouseholdMember.Status)
             .FirstOrDefaultAsync(x => x.Id == id);
 
         return query;

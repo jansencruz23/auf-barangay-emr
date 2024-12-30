@@ -83,9 +83,7 @@
                             <!--Action Buttons-->
                             <td class="px-4 py-2 text-left inline-flex items-center text-center text-lg">
                                 <a asp-action="Details" asp-route-id="@item.Id" asp-route-householdNo="@Model.HouseholdNo" class="text-green-400 hover:text-green-500 mr-2"><i class="fas fa-eye"></i></a>
-
                                 <button type="button" onclick="print('Print', 'PregnancyRecord', @Model.HouseholdNo, @item.Id, @item.PatientId)" class="text-blue-400 hover:text-blue-600 mr-2"><i class="fa-solid fa-print"></i></button>
-
                                 <button data-modal-target="popup-modal-2" data-modal-toggle="popup-modal-2" data-member-id="@item.Id" class="delete-btn text-red-300 hover:text-red-400"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>
@@ -106,7 +104,7 @@
                 </svg>
                 <span class="sr-only">Close modal</span>
             </button>
-            <form id="deleteForm" asp-action="Delete" asp-controller="WRA" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl">
+            <form id="deleteForm" asp-action="Delete" asp-controller="PregnancyRecord" asp-route-householdNo="@Model.HouseholdNo" asp-route-requestUrl="@Model.RequestUrl">
                 <div class="p-4 md:p-5 text-center">
                     <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
