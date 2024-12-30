@@ -9,6 +9,7 @@
     <div class="bg-white shadow-md rounded-lg p-8 mb-8">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
+            <input type="hidden" asp-for="HouseholdNo" value="@Model.HouseholdNo" />
             @* <input type="hidden" asp-for="HouseholdMemberId" value="@Model.HouseholdMemberId" /> *@
             <input type="hidden" id="hiddenAgeField" asp-for="DiabetesRisk.AgeRiskPoints" />
             <div>
@@ -50,9 +51,9 @@
                     <!-- Age -->
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.AgeRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">Age</label>
-                        <select id="ageDropdown" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
-                            <option value="0" selected>Select your age</option>
-                            <option value="0.1">Under 45 years old - 0 pts</option>
+                        <select id="ageDropdown" required asp-for="DiabetesRisk.AgeRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                            <option value="" selected>Select your age</option>
+                            <option value="0">Under 45 years old - 0 pts</option>
                             <option value="2">45-54 years old - 2 pts</option>
                             <option value="3">55-64 years old - 3 pts</option>
                             <option value="4">Over 64 years old - 4 pts</option>
@@ -85,9 +86,9 @@
                     <!-- BMI Dropdown -->
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.BmiRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">BMI Classification</label>
-                        <select id="bmiClassification" asp-for="DiabetesRisk.BmiRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
-                            <option value="0" selected>Select your BMI</option>
-                            <option value="0.1">Lower than 25 kg/m² - 0 pts</option>
+                        <select id="bmiClassification" required asp-for="DiabetesRisk.BmiRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                            <option value="" selected>Select your BMI</option>
+                            <option value="0">Lower than 25 kg/m² - 0 pts</option>
                             <option value="1">25-30 kg/m² - 1 pt</option>
                             <option value="3">Higher than 30 kg/m² - 3 pts</option>
                         </select>
@@ -102,15 +103,15 @@
                         <label asp-for="DiabetesRisk.HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm font-medium text-gray-700">Waist Circumference measured below the ribs</label>
                         <!-- MEN -->
                         <select id="waistCircumferenceMen" style="display: block;" asp-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
-                            <option value="0" selected>Select your waist circumference (Male)</option>
-                            <option value="0.1">Less than 94 cm - 0 pts</option>
+                            <option value="" selected>Select your waist circumference (Male)</option>
+                            <option value="0">Less than 94 cm - 0 pts</option>
                             <option value="3">94-102 cm - 3 pts</option>
                             <option value="4">More than 102 cm - 4 pts</option>
                         </select>
                         <span id="waistCircumferenceMenValidation" asp-validation-for="DiabetesRisk.WaistCircumferenceMenRiskPoints" class="block mb-2 text-sm text-red-700"></span>
                         <!-- WOMEN -->
                         <select id="waistCircumferenceWomen" style="display: none;" asp-for="DiabetesRisk.WaistCircumferenceWomenRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
-                            <option value="0" selected>Select your waist circumference (Female)</option>
+                            <option value="" selected>Select your waist circumference (Female)</option>
                             <option value="0">Less than 80 cm - 0 pts</option>
                             <option value="3">80-88 cm - 3 pts</option>
                             <option value="4">More than 88 cm - 4 pts</option>
@@ -202,9 +203,9 @@
                     </div>
                     <div class="mb-4">
                         <label asp-for="DiabetesRisk.FamilyWithDiabetesRiskPoints" class="block mb-2 text-sm font-medium text-gray-700">Have any of the members of your immediate family or other relative been diagnosed with diabetes (type 1 or type 2)?</label>
-                        <select id="familyWithDiabetesRisk" asp-for="DiabetesRisk.FamilyWithDiabetesRiskPoints" class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
-                            <option value="0">Select an option</option>
-                            <option value="0.1">No - 0 pts</option>
+                        <select id="familyWithDiabetesRisk" asp-for="DiabetesRisk.FamilyWithDiabetesRiskPoints" required class="risk-factor bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                            <option value="" selected>Select an option</option>
+                            <option value="0">No - 0 pts</option>
                             <option value="3">Yes; grandparent, aunt, unlce or first cousin - 3 pts</option>
                             <option value="5">Yes; parent, brother, sister or own child - 5 pts</option>
                         </select>
@@ -313,7 +314,7 @@
 
             if (!isNaN(age)) {
                 if (age < 45) {
-                    ageDropdown.value = "0.1"; // Under 45 years old - 0 pts
+                    ageDropdown.value = "0"; // Under 45 years old - 0 pts
                 } else if (age >= 45 && age <= 54) {
                     ageDropdown.value = "2"; // 45-54 years old - 2 pts
                 } else if (age >= 55 && age <= 64) {
@@ -381,7 +382,7 @@
                     // Automatically update BMI classification
                     const bmiClassification = document.getElementById("bmiClassification");
                     if (bmi < 25) {
-                        bmiClassification.value = "0.1"; // Lower than 25 kg/m² - 0 pts
+                        bmiClassification.value = "0"; // Lower than 25 kg/m² - 0 pts
                     } else if (bmi >= 25 && bmi <= 30) {
                         bmiClassification.value = "1"; // 25-30 kg/m² - 1 pt
                     } else {

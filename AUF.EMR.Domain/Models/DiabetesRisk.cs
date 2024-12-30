@@ -10,11 +10,13 @@ public class DiabetesRisk : BaseDomainEntity
     public int HouseholdMemberId { get; set; }
     public HouseholdMember? HouseholdMember { get; set; }
 
+    [Required(ErrorMessage = "The Age field is required.")]
     [Display(Name = "Age")]
-    public AgeRiskPoints AgeRiskPoints { get; set; }
+    public AgeRiskPoints? AgeRiskPoints { get; set; }
 
+    [Required(ErrorMessage = "The BMI field is required.")]
     [Display(Name = "BMI")]
-    public BmiRiskPoints BmiRiskPoints { get; set; }
+    public BmiRiskPoints? BmiRiskPoints { get; set; }
 
     [Display(Name = "Waist Circumference")]
     public WaistCircumferenceMenRiskPoints? WaistCircumferenceMenRiskPoints { get; set; }
@@ -26,8 +28,9 @@ public class DiabetesRisk : BaseDomainEntity
     public bool TakingHighBloodPressureMedication { get; set; } // true = 2pts, false = 0pts
     public bool HasHighBloodGlucose { get; set; } // true = 5pts, false = 0pts
 
+    [Required(ErrorMessage = "The Family Diabetes History field is required.")]
     [Display(Name = "Family Diabetes History")]
-    public FamilyWithDiabetesRiskPoints FamilyWithDiabetesRiskPoints { get; set; }
+    public FamilyWithDiabetesRiskPoints? FamilyWithDiabetesRiskPoints { get; set; }
     public int TotalScore => CalculateTotalRiskScore();
     public string Risk => GetRisk();
 

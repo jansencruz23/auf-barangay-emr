@@ -165,24 +165,31 @@ public class DiabetesRiskController : Controller
         }
     }
 
-    // GET: DiabetesRiskController/Delete/5
-    public ActionResult Delete(int id)
-    {
-        return View();
-    }
-
     // POST: DiabetesRiskController/Delete/5
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Delete(int id, IFormCollection collection)
+    public async Task<ActionResult> Delete(int id, string householdNo)
     {
+        if (id == 0)
+        {
+            return BadRequest();
+        }
+
         try
         {
-            return RedirectToAction(nameof(Index));
+            var diabetesRisk = await _diabetesRiskService.GetDiabetesRiskWithDetails(id);
+            if (diabetesRisk == null)
+            {
+                return RedirectToAction("PageNotFound", "Error");
+            }
+
+            await _diabetesRiskService.Delete(diabetesRisk);
+            diabetesRisk = await _diabetesRiskService.GetDiabetesRiskWithDetails(id);
+            return RedirectToAction(nameof(Index), new { householdNo });
         }
         catch
         {
-            return View();
+            return BadRequest();
         }
     }
 }
