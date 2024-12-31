@@ -71,4 +71,29 @@ public class DiabetesRisk : BaseDomainEntity
             > 20 => "Very high"
         };
     }
+
+    // Props for printing
+    // Age risk
+    public bool? IsUnder45 => AgeRiskPoints == Enums.DiabetesRisk.AgeRiskPoints.Under45;
+    public bool? Is45To54 => AgeRiskPoints == Enums.DiabetesRisk.AgeRiskPoints.Age45To54;
+    public bool? Is55To64 => AgeRiskPoints == Enums.DiabetesRisk.AgeRiskPoints.Age55To64;
+    public bool? IsOver64 => AgeRiskPoints == Enums.DiabetesRisk.AgeRiskPoints.Over64;
+
+    // BMI risk
+    public bool? IsLower25 => BmiRiskPoints == Enums.DiabetesRisk.BmiRiskPoints.Under25;
+    public bool? Is25To30 => BmiRiskPoints == Enums.DiabetesRisk.BmiRiskPoints.Bmi25To30;
+    public bool? IsOver30 => BmiRiskPoints == Enums.DiabetesRisk.BmiRiskPoints.Over30;
+
+    // Waist circumference risk
+    public bool? IsMenUnder94 => WaistCircumferenceMenRiskPoints == Enums.DiabetesRisk.WaistCircumferenceMenRiskPoints.Under94 && HouseholdMember?.Sex == 'M';
+    public bool? IsMen94To102 => WaistCircumferenceMenRiskPoints == Enums.DiabetesRisk.WaistCircumferenceMenRiskPoints.Between94And102 && HouseholdMember?.Sex == 'M';
+    public bool? IsMenOver102 => WaistCircumferenceMenRiskPoints == Enums.DiabetesRisk.WaistCircumferenceMenRiskPoints.Over102 && HouseholdMember?.Sex == 'M';
+    public bool? IsWomenUnder80 => WaistCircumferenceWomenRiskPoints == Enums.DiabetesRisk.WaistCircumferenceWomenRiskPoints.Under80 && HouseholdMember?.Sex == 'F';
+    public bool? IsWomen80To88 => WaistCircumferenceWomenRiskPoints == Enums.DiabetesRisk.WaistCircumferenceWomenRiskPoints.Between80And88 && HouseholdMember?.Sex == 'F';
+    public bool? IsWomenOver88 => WaistCircumferenceWomenRiskPoints == Enums.DiabetesRisk.WaistCircumferenceWomenRiskPoints.Over88 && HouseholdMember?.Sex == 'F';
+
+    // Family with diabetes risk
+    public bool? IsNoFamilyDiabetes => FamilyWithDiabetesRiskPoints == Enums.DiabetesRisk.FamilyWithDiabetesRiskPoints.No;
+    public bool? IsExtendedFamilyDiabetes => FamilyWithDiabetesRiskPoints == Enums.DiabetesRisk.FamilyWithDiabetesRiskPoints.ExtendedFamily;
+    public bool? IsImmediateFamilyDiabetes => FamilyWithDiabetesRiskPoints == Enums.DiabetesRisk.FamilyWithDiabetesRiskPoints.ImmediateFamily;
 }
