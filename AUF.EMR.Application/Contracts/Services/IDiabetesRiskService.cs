@@ -7,4 +7,5 @@ public interface IDiabetesRiskService : IGenericService<DiabetesRisk>
 {
     Task<List<DiabetesRisk>> GetDiabetesRiskWithDetails(string householdNo);
     Task<DiabetesRisk> GetDiabetesRiskWithDetails(int id);
+    Task<List<DiabetesRisk>> GetDiabetesRiskForm(int id);
 }

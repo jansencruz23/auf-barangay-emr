@@ -14,6 +14,11 @@ public sealed class DiabetesRiskService : GenericService<DiabetesRisk>, IDiabete
         _diabetesRepository = diabetesRepository;
     }
 
+    public async Task<List<DiabetesRisk>> GetDiabetesRiskForm(int id)
+    {
+        return await _diabetesRepository.GetDiabetesRiskForm(id);
+    }
+
     public async Task<List<DiabetesRisk>> GetDiabetesRiskWithDetails(string householdNo)
     {
         return await _diabetesRepository.GetDiabetesRiskWithDetails(householdNo);
