@@ -1,7 +1,8 @@
 ﻿@model EditDiabetesRiskVM
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Diabetes Assessment Risk Form - Update";
+    ViewData["HouseholdNo"] = Model.HouseholdNo;
 }
 
 <div class="container mx-auto px-4 py-8">
@@ -29,11 +30,11 @@
 
                         @Html.Raw(Model.DiabetesRisk.TotalScore switch
                             {
-                                < 7 => $"<span id='riskScore' class='text-green-400'> {Model.DiabetesRisk.TotalScore} Low</span>",
-                                >= 7 and <= 11 => $"<span id='riskScore' class='text-yellow-400'>{Model.DiabetesRisk.TotalScore} - Slightly Elevated</span>",
+                                < 7 => $"<span id='riskScore' class='text-green-500'> {Model.DiabetesRisk.TotalScore} Low</span>",
+                                >= 7 and <= 11 => $"<span id='riskScore' class='text-yellow-500'>{Model.DiabetesRisk.TotalScore} - Slightly Elevated</span>",
                                 >= 12 and <= 14 => $"<span id='riskScore' class='text-orange-500'>{Model.DiabetesRisk.TotalScore} - Moderate</span>",
                                 >= 15 and <= 20 => $"<span id='riskScore' class='text-pink-500'>{Model.DiabetesRisk.TotalScore} - High</span>",
-                                _ => $"<span id='riskScore' class='text-red-500'>{Model.DiabetesRisk.TotalScore} - Very High</span>"
+                                _ => $"<span id='riskScore' class='text-red-600'>{Model.DiabetesRisk.TotalScore} - Very High</span>"
                             })
                     </h1>
                 </div>
@@ -289,10 +290,10 @@
 
                 // Add the appropriate color class based on the risk score
                 if (riskScore < 7) {
-                    riskScoreDisplay.classList.add("text-green-400");
+                    riskScoreDisplay.classList.add("text-green-500");
                     riskScoreDisplay.textContent = `${riskScore} - Low`;
                 } else if (riskScore >= 7 && riskScore <= 11) {
-                    riskScoreDisplay.classList.add("text-yellow-400");
+                    riskScoreDisplay.classList.add("text-yellow-500");
                     riskScoreDisplay.textContent = `${riskScore} - Slightly Elevated`;
                 } else if (riskScore >= 12 && riskScore <= 14) {
                     riskScoreDisplay.classList.add("text-orange-500");
@@ -301,7 +302,7 @@
                     riskScoreDisplay.classList.add("text-pink-500");
                     riskScoreDisplay.textContent = `${riskScore} - High`;
                 } else {
-                    riskScoreDisplay.classList.add("text-red-500");
+                    riskScoreDisplay.classList.add("text-red-600");
                     riskScoreDisplay.textContent = `${riskScore} - Very High`;
                 }
             }

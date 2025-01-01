@@ -1,7 +1,7 @@
 ﻿@model CreateDiabetesRiskVM
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Diabetes Assessment Risk Form - Create";
     ViewData["HouseholdNo"] = Model.HouseholdNo;
 }
 
@@ -25,7 +25,7 @@
                 <div class="flex justify-between">
                     <h1 class="text-2xl font-bold text-gray-800 mb-4">Type 2 Diabetes Risk Assessment Form</h1>
                     <h1 class="text-xl font-bold text-gray-800 mb-4">Risk Score: 
-                        <span id="riskScore" class="text-green-400">0 - Low</span>
+                        <span id="riskScore" class="text-green-500">0 - Low</span>
                     </h1>
                 </div>
             </div>
@@ -281,10 +281,10 @@
 
                 // Add the appropriate color class based on the risk score
                 if (riskScore < 7) {
-                    riskScoreDisplay.classList.add("text-green-400");
+                    riskScoreDisplay.classList.add("text-green-500");
                     riskScoreDisplay.textContent = `${riskScore} - Low`;
                 } else if (riskScore >= 7 && riskScore <= 11) {
-                    riskScoreDisplay.classList.add("text-yellow-400");
+                    riskScoreDisplay.classList.add("text-yellow-500");
                     riskScoreDisplay.textContent = `${riskScore} - Slightly Elevated`;
                 } else if (riskScore >= 12 && riskScore <= 14) {
                     riskScoreDisplay.classList.add("text-orange-500");
@@ -293,7 +293,7 @@
                     riskScoreDisplay.classList.add("text-pink-500");
                     riskScoreDisplay.textContent = `${riskScore} - High`;
                 } else {
-                    riskScoreDisplay.classList.add("text-red-500");
+                    riskScoreDisplay.classList.add("text-red-600");
                     riskScoreDisplay.textContent = `${riskScore} - Very High`;
                 }
             }

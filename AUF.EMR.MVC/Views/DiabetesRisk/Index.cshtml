@@ -54,11 +54,11 @@
                             <td class="px-4 py-2 text-left">
                                 @Html.Raw(item.Risk switch
                                     {
-                                        "Low" => $"<span class=\"px-2 py-1 rounded-full text-green-400 bg-green-100 text-sm font-semibold\">{item.Risk}</span>",
-                                        "Slightly elevated" => $"<span class=\"px-2 py-1 rounded-full text-yellow-400 bg-yellow-100 text-sm font-semibold\">{item.Risk}</span>",
+                                        "Low" => $"<span class=\"px-2 py-1 rounded-full text-green-500 bg-green-100 text-sm font-semibold\">{item.Risk}</span>",
+                                        "Slightly elevated" => $"<span class=\"px-2 py-1 rounded-full text-yellow-500 bg-yellow-100 text-sm font-semibold\">{item.Risk}</span>",
                                         "Moderate" => $"<span class=\"px-2 py-1 rounded-full text-orange-500 bg-orange-100 text-sm font-semibold\">{item.Risk}</span>",
                                         "High" => $"<span class=\"px-2 py-1 rounded-full text-pink-500 bg-pink-100 text-sm font-semibold\">{item.Risk}</span>",
-                                        "Very high" => $"<span class=\"px-2 py-1 rounded-full text-red-500 bg-red-100 text-sm font-semibold\">{item.Risk}</span>",
+                                        "Very high" => $"<span class=\"px-2 py-1 rounded-full text-red-600 bg-red-100 text-sm font-semibold\">{item.Risk}</span>",
                                         _ => $"<span class=\"px-2 py-1 rounded-full text-gray-400 bg-gray-100 text-sm font-semibold\">Unknown</span>"
 
                                     })
