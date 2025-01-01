@@ -95,27 +95,34 @@ namespace AUF.EMR.Domain.Models
 
         private string GetAgeWithSuffix(DateTime birthDate, DateTime toDate)
         {
-            int years = toDate.Year - birthDate.Year;
-            int months = toDate.Month - birthDate.Month;
-            int days = toDate.Day - birthDate.Day;
-
-            if (toDate.Equals(DateTime.MinValue))
+            // Ensure toDate is valid
+            if (toDate == DateTime.MinValue)
             {
                 toDate = DateTime.Today;
             }
 
+            // Initial calculations
+            int years = toDate.Year - birthDate.Year;
+            int months = toDate.Month - birthDate.Month;
+            int days = toDate.Day - birthDate.Day;
+
+            // Adjust for negative days
             if (days < 0)
             {
+                int previousMonth = toDate.Month == 1 ? 12 : toDate.Month - 1;
+                int previousYear = toDate.Month == 1 ? toDate.Year - 1 : toDate.Year;
+                days += DateTime.DaysInMonth(previousYear, previousMonth);
                 months--;
-                days += DateTime.DaysInMonth(toDate.Year, toDate.Month - 1);
             }
 
+            // Adjust for negative months
             if (months < 0)
             {
-                years--;
                 months += 12;
+                years--;
             }
 
+            // Return result with appropriate suffix
             if (years > 0)
             {
                 return $"{years} yrs";
