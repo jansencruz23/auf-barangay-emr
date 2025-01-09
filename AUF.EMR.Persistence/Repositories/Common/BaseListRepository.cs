@@ -46,7 +46,7 @@ namespace AUF.EMR.Persistence.Repositories.Common
                     m.Household.HouseholdNo.Equals(householdNo) && 
                     m.Status &&
                     m.Birthday >= startDate && 
-                    m.Birthday <= DateTime.Today)
+                    m.Birthday <= DateTime.Today.AddDays(1))
                 .ToListAsync();
 
             return newborns;
