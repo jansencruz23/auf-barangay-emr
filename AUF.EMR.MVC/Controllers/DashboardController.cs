@@ -44,6 +44,7 @@ namespace AUF.EMR.MVC.Controllers
                     FamilyPlanningFormsCount = await _dashboardService.GetFamilyPlanningFormCount(),
                     PatientRecordCount = await _dashboardService.GetPatientRecordCount(),
                     PregnancyRecordCount = await _dashboardService.GetPregnancyRecordCount(),
+                    DiabetesRiskRecordCount = await _dashboardService.GetDiabetesRiskRecordCount(),
                     HHCount1 = await _dashboardService.GetHouseholdCount(1),
                     HHCount2 = await _dashboardService.GetHouseholdCount(2,2),
                     HHCount3 = await _dashboardService.GetHouseholdCount(3,3),
@@ -93,6 +94,7 @@ namespace AUF.EMR.MVC.Controllers
                 FamilyPlanningFormsCount = await _dashboardService.GetFamilyPlanningFormCount(householdNo),
                 PatientRecordCount = await _dashboardService.GetPatientRecordCount(householdNo),
                 PregnancyRecordCount = await _dashboardService.GetPregnancyRecordCount(householdNo),
+                DiabetesRiskRecordCount = await _dashboardService.GetDiabetesRiskRecordCount(householdNo)
             };
 
             return View(model);

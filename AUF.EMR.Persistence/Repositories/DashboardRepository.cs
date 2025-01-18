@@ -300,5 +300,34 @@ namespace AUF.EMR.Persistence.Repositories
 
             return count;
         }
+
+        public async Task<int> GetDiabetesRiskRecordCount(string householdNo)
+        {
+            var count = await _dbContext.DiabetesRisks
+                .AsNoTracking()
+                .Include(w => w.HouseholdMember)
+                    .ThenInclude(m => m.Household)
+                .Where(w => w.HouseholdMember.Household.HouseholdNo.Equals(householdNo) &&
+                    w.Status &&
+                    w.HouseholdMember.Status &&
+                    w.HouseholdMember.Household.Status)
+                .CountAsync();
+
+            return count;
+        }
+
+        public async Task<int> GetDiabetesRiskRecordCount()
+        {
+            var count = await _dbContext.DiabetesRisks
+                .AsNoTracking()
+                    .Include(w => w.HouseholdMember)
+                        .ThenInclude(m => m.Household)
+                .Where(w => w.Status &&
+                    w.HouseholdMember.Status &&
+                    w.HouseholdMember.Household.Status)
+                .CountAsync();
+
+            return count;
+        }
     }
 }

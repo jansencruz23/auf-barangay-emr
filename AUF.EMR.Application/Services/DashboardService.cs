@@ -1,6 +1,7 @@
 ﻿using AUF.EMR.Application.Constants;
 using AUF.EMR.Application.Contracts.Persistence;
 using AUF.EMR.Application.Contracts.Services;
+using AUF.EMR.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,16 @@ namespace AUF.EMR.Application.Services
             var endDate = DateTime.Today.AddYears(MasterlistAgeRange.AdultEnd);
 
             return await _repository.GetMemberByAgeCount(householdNo, startDate, endDate);
+        }
+
+        public async Task<int> GetDiabetesRiskRecordCount(string householdNo)
+        {
+            return await _repository.GetDiabetesRiskRecordCount(householdNo);
+        }
+
+        public async Task<int> GetDiabetesRiskRecordCount()
+        {
+            return await _repository.GetDiabetesRiskRecordCount();
         }
 
         public async Task<int> GetFamilyPlanningFormCount()

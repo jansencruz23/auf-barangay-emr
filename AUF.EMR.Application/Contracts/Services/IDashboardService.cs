@@ -39,5 +39,7 @@ namespace AUF.EMR.Application.Contracts.Services
         Task<int> GetPatientRecordCount(string householdNo);
         Task<int> GetPregnancyRecordCount();
         Task<int> GetPregnancyRecordCount(string householdNo);
+        Task<int> GetDiabetesRiskRecordCount();
+        Task<int> GetDiabetesRiskRecordCount(string householdNo);
     }
 }
