@@ -127,7 +127,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-12 grid grid-cols-4 sm:grid-cols-7 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 2xl:grid-cols-7 gap-2">
+            <div class="col-span-12 grid grid-cols-5 sm:grid-cols-7 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 2xl:grid-cols-7 gap-2">
                 <a class="transform hover:scale-105 transition duration-300 shadow-xl rounded-lg h-40" style="background-color: #D0ECB6" href="#">
                     <div class="p-5">
                         <div class="flex justify-between">
@@ -188,6 +188,22 @@
                                 <div class="mt-3 text-2xl font-semibold leading-8" style="color:#F7F6F6">@Model.PregAppointments</div>
                                 <div class="mt-1 text-lg text-gray-600" style="color:#F7F6F6">Pregnancy</div>
                                 <div class="mt-1 text-xs text-gray-600" style="color:#F7F6F6">Appointments</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="transform hover:scale-105 transition duration-300 shadow-xl rounded-lg h-40" style="background-color: #7c9068" href="#">
+                    <div class="p-5">
+                        <div class="flex justify-between">
+                            <div class="rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-base" style="background-color: #829D69">
+                                <span class="flex items-center text-sm" style="color: #EEE9E9">DR</span>
+                            </div>
+                        </div>
+                        <div class="ml-2 w-full flex-1">
+                            <div>
+                                <div class="mt-3 text-2xl font-semibold leading-8" style="color:#F7F6F6">@Model.DiabetesRiskForms</div>
+                                <div class="mt-1 text-lg text-gray-600" style="color:#F7F6F6">Diabetes Risk</div>
+                                <div class="mt-1 text-xs text-gray-600" style="color:#F7F6F6">Assessment</div>
                             </div>
                         </div>
                     </div>
@@ -319,7 +335,7 @@
         <div id="chartpie"></div>
         <script>
             var chart = document.querySelector('#chartpie');
-            var seriesData = [@Model.HHForms, @Model.HHMembers, @Model.WRAForms, @Model.PregTrackForms, @Model.FPForms, @Model.PatientForms, @Model.VaccinationAppointments, @Model.PregForms, @Model.PregAppointments];
+            var seriesData = [@Model.HHForms, @Model.HHMembers, @Model.WRAForms, @Model.PregTrackForms, @Model.FPForms, @Model.PatientForms, @Model.VaccinationAppointments, @Model.PregForms, @Model.PregAppointments, @Model.DiabetesRiskForms];
             var totalSum = seriesData.reduce((acc, val) => acc + val, 0);
 
             var options = {
@@ -328,8 +344,8 @@
                     height: 370,
                     type: 'pie',
                 },
-                labels: ['Household', 'Member', 'WRA', 'Pregnancy Tracking', 'Family Planning', 'Patient Record', 'Vaccination Appointment', 'Pregnancy Record', 'Pregnancy Appointment'],
-                colors: ['#6691C1', '#AFCAFC', '#D2E0FB', '#E8E3C9', '#e6e5dc', '#D0ECB6', '#BEE39B', '#ACCB8F', '#9bb781'],
+                labels: ['Household', 'Member', 'WRA', 'Pregnancy Tracking', 'Family Planning', 'Patient Record', 'Vaccination Appointment', 'Pregnancy Record', 'Pregnancy Appointment', 'Diabetes Risk Assessment'],
+                colors: ['#6691C1', '#AFCAFC', '#D2E0FB', '#E8E3C9', '#e6e5dc', '#D0ECB6', '#BEE39B', '#ACCB8F', '#9bb781', '#7c9068'],
                 title: {
                     text: 'Total Number of Created/Modified Forms',
                     align: 'center',

@@ -10,6 +10,7 @@
         PatientRecord,
         VaccinationAppointment,
         PregnancyRecord,
-        PregnancyAppointment
+        PregnancyAppointment,
+        DiabetesRisk
     }
 }

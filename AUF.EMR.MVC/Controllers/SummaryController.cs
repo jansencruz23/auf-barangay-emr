@@ -59,6 +59,7 @@ namespace AUF.EMR.MVC.Controllers
                     VaccinationAppointments = await _summaryService.GetFormsCount(FormType.VaccinationAppointment, DateRange.Daily, userId),
                     PregForms = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Daily, userId),
                     PregAppointments = await _summaryService.GetFormsCount(FormType.PregnancyAppointment, DateRange.Daily, userId),
+                    DiabetesRiskForms = await _summaryService.GetFormsCount(FormType.DiabetesRisk, DateRange.Daily, userId)
                 };
 
                 return View(model);
@@ -102,6 +103,7 @@ namespace AUF.EMR.MVC.Controllers
                     VaccinationAppointments = await _summaryService.GetFormsCount(FormType.VaccinationAppointment, DateRange.Weekly, userId),
                     PregForms = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Weekly, userId),
                     PregAppointments = await _summaryService.GetFormsCount(FormType.PregnancyAppointment, DateRange.Weekly, userId),
+                    DiabetesRiskForms = await _summaryService.GetFormsCount(FormType.DiabetesRisk, DateRange.Weekly, userId)
                 };
 
                 return View(model);
@@ -145,6 +147,7 @@ namespace AUF.EMR.MVC.Controllers
                     VaccinationAppointments = await _summaryService.GetFormsCount(FormType.VaccinationAppointment, DateRange.Monthly, userId),
                     PregForms = await _summaryService.GetFormsCount(FormType.PregnancyRecord, DateRange.Monthly, userId),
                     PregAppointments = await _summaryService.GetFormsCount(FormType.PregnancyAppointment, DateRange.Monthly, userId),
+                    DiabetesRiskForms = await _summaryService.GetFormsCount(FormType.DiabetesRisk, DateRange.Monthly, userId)
                 };
 
                 return View(model);

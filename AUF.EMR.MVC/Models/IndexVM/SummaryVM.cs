@@ -17,6 +17,7 @@ namespace AUF.EMR.MVC.Models.IndexVM
         public int VaccinationAppointments { get; set; }
         public int PregForms { get; set; }
         public int PregAppointments { get; set; }
+        public int DiabetesRiskForms { get; set; }
 
         public int TotalDay7 { get; set; }
         public int TotalDay6 { get; set; }
