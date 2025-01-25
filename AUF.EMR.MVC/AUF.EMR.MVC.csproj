@@ -8,9 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Reports\DiabetesRiskForm.frx" />
     <None Remove="Reports\FamilyPlanning.frx" />
     <None Remove="Reports\HouseholdForm.frx" />
-    <None Remove="Reports\Masterlist.frx" />
+    <None Remove="Reports\Masterlist.frx" />    
     <None Remove="Reports\OralHealth.frx" />
     <None Remove="Reports\PatientRecordForm.frx" />
     <None Remove="Reports\PregnancyRecordForm.frx" />
@@ -19,6 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Reports\DiabetesRiskForm.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Reports\FamilyPlanning.frx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

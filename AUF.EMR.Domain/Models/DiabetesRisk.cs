@@ -23,10 +23,22 @@ public class DiabetesRisk : BaseDomainEntity
 
     [Display(Name = "Waist Circumference")]
     public WaistCircumferenceWomenRiskPoints? WaistCircumferenceWomenRiskPoints { get; set; }
-    public bool IsPhysicallyActive { get; set; } = true;// true = 0pts, false = 2pts
-    public bool EatsVegetablesEveryDay { get; set; } = true; // true = 0pts, false = 2pts
-    public bool TakingHighBloodPressureMedication { get; set; } // true = 2pts, false = 0pts
-    public bool HasHighBloodGlucose { get; set; } // true = 5pts, false = 0pts
+
+    [Required(ErrorMessage = "The Physical Activity field is required.")]
+    [Display(Name = "Physical Activity")]
+    public bool? IsPhysicallyActive { get; set; } // true = 0pts, false = 2pts
+
+    [Required(ErrorMessage = "The Healthy Food Intake field is required.")]
+    [Display(Name = "Healthy Food Intake")]
+    public bool? EatsVegetablesEveryDay { get; set; }  // true = 0pts, false = 2pts
+
+    [Required(ErrorMessage = "The High Blood Pressure field is required.")]
+    [Display(Name = "High Blood Pressure")]
+    public bool? TakingHighBloodPressureMedication { get; set; } // true = 2pts, false = 0pts
+
+    [Required(ErrorMessage = "The High Blood Glucose field is required.")]
+    [Display(Name = "High Blood Glucose")]
+    public bool? HasHighBloodGlucose { get; set; } // true = 5pts, false = 0pts
 
     [Required(ErrorMessage = "The Family Diabetes History field is required.")]
     [Display(Name = "Family Diabetes History")]
@@ -44,10 +56,10 @@ public class DiabetesRisk : BaseDomainEntity
         totalRiskScore += WaistCircumferenceWomenRiskPoints.HasValue ? (int)WaistCircumferenceWomenRiskPoints : 0;
         totalRiskScore += FamilyWithDiabetesRiskPoints.HasValue ? (int)FamilyWithDiabetesRiskPoints : 0;
 
-        totalRiskScore += IsPhysicallyActive ? 0 : 2;
-        totalRiskScore += EatsVegetablesEveryDay ? 0 : 1;
-        totalRiskScore += TakingHighBloodPressureMedication ? 2 : 0;
-        totalRiskScore += HasHighBloodGlucose ? 5 : 0;
+        totalRiskScore += IsPhysicallyActive.HasValue ? 0 : 2;
+        totalRiskScore += EatsVegetablesEveryDay.HasValue ? 0 : 1;
+        totalRiskScore += TakingHighBloodPressureMedication.HasValue ? 2 : 0;
+        totalRiskScore += HasHighBloodGlucose.HasValue ? 5 : 0;
 
         return totalRiskScore;
     }

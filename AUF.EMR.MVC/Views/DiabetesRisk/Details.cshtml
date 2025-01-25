@@ -72,19 +72,20 @@
 
                 <div class="flex items-center ">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">How often do you eat vegetables, fruits, or berries?</dt>
-                    <dd class="text-gray-900">@(Model.DiabetesRisk.EatsVegetablesEveryDay ? "0 pts - Every day" : "1 pt - Not every day")</dd>
+                    <dd class="text-gray-900">@(Model.DiabetesRisk.EatsVegetablesEveryDay.Value ? "0 pts - Every day" : "1 pt - Not every day")</dd>
                 </div>
 
                 <div class="flex items-center ">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Age</dt>
                     <dd class="text-gray-900">
                         @(
-                            (int)Model.DiabetesRisk.AgeRiskPoints switch
+                            (int)Model.DiabetesRisk.AgeRiskPoints.Value switch
                             {
                                 0 => "0 pts - Under 45 years",
                                 2 => "2 pts - 45-54 years",
                                 3 => "3 pts - 55-64 years",
                                 4 => "4 pts - Over 64 years",
+                                _ => "n/a"
                             }
                             )
                     </dd>
@@ -92,18 +93,19 @@
 
                 <div class="flex items-center ">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Do you regularly take medication for high blood pressure?</dt>
-                    <dd class="text-gray-900">@(Model.DiabetesRisk.TakingHighBloodPressureMedication ? "2 pts - Yes" : "0 pts - No")</dd>
+                    <dd class="text-gray-900">@(Model.DiabetesRisk.TakingHighBloodPressureMedication.Value ? "2 pts - Yes" : "0 pts - No")</dd>
                 </div>
 
                 <div class="flex items-center ">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Body-Mass Index</dt>
                     <dd class="text-gray-900">
                         @(
-                            (int)Model.DiabetesRisk.BmiRiskPoints switch
+                            (int)Model.DiabetesRisk.BmiRiskPoints.Value switch
                             {
                                 0 => "0 pts - Lower than 25 kg/m²",
                                 1 => "1 pts - 25-30 kg/m²",
                                 3 => "3 pts - Higher than 30 kg/m²",
+                                _ => "n/a"
                             }
                             )
                     </dd>
@@ -111,7 +113,7 @@
 
                 <div class="flex items-center ">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Have you ever been found to have high blood glucose?</dt>
-                    <dd class="text-gray-900">@(Model.DiabetesRisk.HasHighBloodGlucose ? "5 pts - Yes" : "0 pts - No")</dd>
+                    <dd class="text-gray-900">@(Model.DiabetesRisk.HasHighBloodGlucose.Value ? "5 pts - Yes" : "0 pts - No")</dd>
                 </div>
 
                 <div class="flex items-center ">
@@ -119,17 +121,19 @@
                     <dd class="text-gray-900">
                         @(
                             Model.DiabetesRisk.HouseholdMember.Sex == 'M' ?
-                            (int)Model.DiabetesRisk.WaistCircumferenceMenRiskPoints switch
+                            (int)Model.DiabetesRisk.WaistCircumferenceMenRiskPoints.Value switch
                             {
                                 0 => "0 pts - Lower than 94 cm",
                                 3 => "3 pts - 94-102 cm",
                                 4 => "4 pts - More than 102 cm",
+                                _ => "n/a"
                             } :
-                            (int)Model.DiabetesRisk.WaistCircumferenceWomenRiskPoints switch
+                            (int)Model.DiabetesRisk.WaistCircumferenceWomenRiskPoints.Value switch
                             {
                                 0 => "0 pts - Lower than 80 cm",
                                 3 => "3 pts - 80-88 cm",
                                 4 => "4 pts - More than 88 cm",
+                                _ => "n/a"
                             }
                         )
                     </dd>
@@ -139,11 +143,12 @@
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Does anyone in your immediate or extended family have diabetes?</dt>
                     <dd class="text-gray-900">
                         @(
-                            (int)Model.DiabetesRisk.FamilyWithDiabetesRiskPoints switch
+                            (int)Model.DiabetesRisk.FamilyWithDiabetesRiskPoints.Value switch
                             {
                                 0 => "0 pts - No",
                                 3 => "3 pts - Yes; grandparent, aunt, uncle or first cousin",
                                 5 => "5 pts - Yes; parent, brother, sister or own child",
+                                _ => "n/a"
                             }
                         )
                     </dd>
@@ -151,7 +156,7 @@
 
                 <div class="flex items-center ">
                     <dt class="text-gray-800 font-semibold mr-10 flex-shrink-0 w-44">Do you usually have daily at least 30 minutes of physical activity?</dt>
-                    <dd class="text-gray-900">@(Model.DiabetesRisk.IsPhysicallyActive ? "0 pts - Yes" : "2 pts - No")</dd>
+                    <dd class="text-gray-900">@(Model.DiabetesRisk.IsPhysicallyActive.Value ? "0 pts - Yes" : "2 pts - No")</dd>
                 </div>
                 
 
