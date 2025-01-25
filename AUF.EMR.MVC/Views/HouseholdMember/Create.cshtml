@@ -8,7 +8,7 @@
 
 <div class="container mx-auto px-4 py-8">
     <div class="bg-white shadow-md rounded-lg p-8 mb-8">
-        <form asp-action="Create">
+        <form asp-action="Create" id="createForm">
             <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
             <input type="hidden" asp-for="HouseholdMember.HouseholdId" value="@Model.HouseholdId" />
             <div>
@@ -24,7 +24,7 @@
                     </div>
                     <div class="mb-4">
                         <label asp-for="HouseholdMember.FirstName" class="block mb-2 text-sm font-medium text-gray-700">First Name</label>
-                        <input asp-for="HouseholdMember.FirstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <input asp-for="HouseholdMember.FirstName" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="HouseholdMember.FirstName" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
@@ -34,7 +34,7 @@
                     </div>
                     <div class="mb-4">
                         <label asp-for="HouseholdMember.LastName" class="block mb-2 text-sm font-medium text-gray-700">Last Name</label>
-                        <input asp-for="HouseholdMember.LastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <input asp-for="HouseholdMember.LastName" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="HouseholdMember.LastName" class="block mb-2 text-sm text-red-700"></span>
                     </div>
 
@@ -43,13 +43,13 @@
                         <ul class="items-center w-full md:w-4/5  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
                             <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                                 <div class="flex items-center ps-3">
-                                    <input asp-for="HouseholdMember.Sex" id="rbMale" type="radio" value="M" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <input asp-for="HouseholdMember.Sex" required id="rbMale" type="radio" value="M" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
                                     <label for="rbMale" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male</label>
                                 </div>
                             </li>
                             <li class="w-full dark:border-gray-600">
                                 <div class="flex items-center ps-3">
-                                    <input asp-for="HouseholdMember.Sex" id="rbFemale" type="radio" value="F" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <input asp-for="HouseholdMember.Sex" required id="rbFemale" type="radio" value="F" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
                                     <label for="rbFemale" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female</label>
                                 </div>
                             </li>
@@ -78,7 +78,7 @@
                                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                 </svg>
                             </div>
-                            <input datepicker asp-for="HouseholdMember.Birthday" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
+                            <input datepicker asp-for="HouseholdMember.Birthday" required type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date">
                             <span asp-validation-for="HouseholdMember.Birthday" class="block mb-2 text-sm text-red-700"></span>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                     </div>
                     <div class="mb-4">
                         <label asp-for="HouseholdMember.RelationshipToHouseholdHead" class="block mb-2 text-sm font-medium text-gray-700">Relationship to Household Head</label>
-                        <select id="relationshipToHead" asp-for="HouseholdMember.RelationshipToHouseholdHead" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
+                        <select id="relationshipToHead" asp-for="HouseholdMember.RelationshipToHouseholdHead" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full md:w-4/5">
                             <option value="" selected>Select relation to HH head</option>
                             <option value="1">Head</option>
                             <option value="2">Spouse</option>
@@ -291,16 +291,16 @@
                         <span asp-validation-for="HouseholdMember.Remarks" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-2 mt-8">
-                        <h6 class="text-md font-bold text-gray-800">NHTS Household</h6>
+                        <h6 class="text-md font-bold text-gray-800">National Household Targeting System (NHTS) Household</h6>
                     </div>
                     <div class="mb-4 ">
                         <label class="block mb-2 text-sm font-medium text-gray-700"></label>
                         <div class="flex items-center me-4">
-                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsNhts" value="true" />
+                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" required type="radio" asp-for="HouseholdMember.IsNhts" value="true" />
                             <label class="ms-2 text-sm font-medium text-gray-900">NHTS</label>
                         </div>
                         <div class="flex items-center me-4">
-                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsNhts" value="false" />
+                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" required type="radio" asp-for="HouseholdMember.IsNhts" value="false" />
                             <label class="ms-2 text-sm font-medium text-gray-900">Non NHTS</label>
                         </div>
                         <span asp-validation-for="HouseholdMember.IsNhts" class="block mb-2 text-sm text-red-700"></span>
@@ -333,6 +333,32 @@
         </form>
     </div>
 </div>
+
+<div id="errorModal" tabindex="-1" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="relative p-4 w-full max-w-md">
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <button type="button" onclick="closeModal()" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Close modal</span>
+            </button>
+            <div class="p-4 md:p-5 text-center">
+                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <h3 class="mb-5 text-lg font-normal text-gray-500">The form is not complete. Please fill in all required fields.</h3>
+                <button onclick="closeModal()" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -385,10 +411,20 @@
     });
 </script>
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
+<script>
+    document.getElementById("createForm").addEventListener("submit", function (event) {
+        if (!this.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
 
+            // Show modal
+            document.getElementById("errorModal").classList.remove("hidden");
+
+        }
+    });
+
+    function closeModal() {
+        document.getElementById("errorModal").classList.add("hidden");
+    }
+</script>
 

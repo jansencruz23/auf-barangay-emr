@@ -37,17 +37,17 @@
                     </div>
                     <div class="mb-4">
                         <label asp-for="HouseholdMember.FirstName" class="block mb-2 text-sm font-medium text-gray-700">First Name</label>
-                        <input asp-for="HouseholdMember.FirstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <input asp-for="HouseholdMember.FirstName" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="HouseholdMember.FirstName" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
                         <label asp-for="HouseholdMember.MotherMaidenName" class="block mb-2 text-sm font-medium text-gray-700">Mother's Maiden Name</label>
-                        <input asp-for="HouseholdMember.MotherMaidenName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <input asp-for="HouseholdMember.MotherMaidenName"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="HouseholdMember.MotherMaidenName" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
                         <label asp-for="HouseholdMember.LastName" class="block mb-2 text-sm font-medium text-gray-700">Last Name</label>
-                        <input asp-for="HouseholdMember.LastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
+                        <input asp-for="HouseholdMember.LastName" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-4/5 p-2.5" />
                         <span asp-validation-for="HouseholdMember.LastName" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-4">
@@ -55,13 +55,13 @@
                         <ul class="items-center w-full md:w-4/5  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
                             <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                                 <div class="flex items-center ps-3">
-                                    <input asp-for="HouseholdMember.Sex" id="rbMale" type="radio" value="M" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <input asp-for="HouseholdMember.Sex" id="rbMale" required type="radio" value="M" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
                                     <label for="rbMale" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male</label>
                                 </div>
                             </li>
                             <li class="w-full dark:border-gray-600">
                                 <div class="flex items-center ps-3">
-                                    <input asp-for="HouseholdMember.Sex" id="rbFemale" type="radio" value="F" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    <input asp-for="HouseholdMember.Sex" id="rbFemale" required type="radio" value="F" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
                                     <label for="rbFemale" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female</label>
                                 </div>
                             </li>
@@ -95,16 +95,16 @@
                 </div>
                 <div>
                     <div class="mb-2 mt-8">
-                        <h6 class="text-md font-bold text-gray-800">NHTS Household</h6>
+                        <h6 class="text-md font-bold text-gray-800">National Household Targeting System (NHTS) Household</h6>
                     </div>
                     <div class="mb-4 ">
                         <label class="block mb-2 text-sm font-medium text-gray-700"></label>
                         <div class="flex items-center me-4">
-                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsNhts" value="true" />
+                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" required type="radio" asp-for="HouseholdMember.IsNhts" value="true" />
                             <label class="ms-2 text-sm font-medium text-gray-900">NHTS</label>
                         </div>
                         <div class="flex items-center me-4">
-                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" type="radio" asp-for="HouseholdMember.IsNhts" value="false" />
+                            <input class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500" required type="radio" asp-for="HouseholdMember.IsNhts" value="false" />
                             <label class="ms-2 text-sm font-medium text-gray-900">Non NHTS</label>
                         </div>
                     </div>

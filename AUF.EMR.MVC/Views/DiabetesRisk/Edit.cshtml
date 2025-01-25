@@ -7,7 +7,7 @@
 
 <div class="container mx-auto px-4 py-8">
     <div class="bg-white shadow-md rounded-lg p-8 mb-8">
-        <form asp-action="Edit">
+        <form asp-action="Edit" id="createForm">
             <div asp-validation-summary="ModelOnly" class="block mb-2 text-sm text-red-700"></div>
             <input type="hidden" asp-for="DiabetesRisk.Id" />
             <input type="hidden" asp-for="DiabetesRisk.DateCreated" />
@@ -134,11 +134,11 @@
                         <label class="block mb-2 text-sm font-medium text-gray-700">Do you usually have daily at least 30 minutes of physical activity at work and/or during leisure time?</label>
                         <div class="">
                             <div class="flex items-center me-4">
-                                <input asp-for="DiabetesRisk.IsPhysicallyActive" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <input asp-for="DiabetesRisk.IsPhysicallyActive" required value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">Yes - 0 pts</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input asp-for="DiabetesRisk.IsPhysicallyActive" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <input asp-for="DiabetesRisk.IsPhysicallyActive" required value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.IsPhysicallyActive" class="ms-2 text-sm font-medium text-gray-900">No - 2 pts</label>
                             </div>
                         </div>
@@ -153,11 +153,11 @@
                         <label class="block mb-2 text-sm font-medium text-gray-700">How often do you eat vegetables, fruits, or berries?</label>
                         <div class="">
                             <div class="flex items-center me-4">
-                                <input asp-for="DiabetesRisk.EatsVegetablesEveryDay" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <input asp-for="DiabetesRisk.EatsVegetablesEveryDay" required  value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.EatsVegetablesEveryDay" class="ms-2 text-sm font-medium text-gray-900">Every day - 0 pts</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input asp-for="DiabetesRisk.EatsVegetablesEveryDay" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <input asp-for="DiabetesRisk.EatsVegetablesEveryDay" required value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.EatsVegetablesEveryDay" class="ms-2 text-sm font-medium text-gray-900">Not every day - 1 pt</label>
                             </div>
                         </div>
@@ -172,11 +172,11 @@
                         <label class="block mb-2 text-sm font-medium text-gray-700">Have you ever taken medication for high blood pressure on a regular basis?</label>
                         <div class="">
                             <div class="flex items-center me-4">
-                                <input asp-for="DiabetesRisk.TakingHighBloodPressureMedication" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <input asp-for="DiabetesRisk.TakingHighBloodPressureMedication" required value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.TakingHighBloodPressureMedication" class="ms-2 text-sm font-medium text-gray-900">No - 0 pts</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input asp-for="DiabetesRisk.TakingHighBloodPressureMedication" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <input asp-for="DiabetesRisk.TakingHighBloodPressureMedication" required value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.TakingHighBloodPressureMedication" class="ms-2 text-sm font-medium text-gray-900">Yes - 2 pts</label>
                             </div>
                         </div>
@@ -191,11 +191,11 @@
                         <label class="block mb-2 text-sm font-medium text-gray-700">Have you ever been found to have high blood glucose (eg. in a health examination, during an illness, during pregnancy?</label>
                         <div class="">
                             <div class="flex items-center me-4">
-                                <input asp-for="DiabetesRisk.HasHighBloodGlucose" value="false" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <input asp-for="DiabetesRisk.HasHighBloodGlucose" value="false" required  type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.HasHighBloodGlucose" class="ms-2 text-sm font-medium text-gray-900">No - 0 pts</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input asp-for="DiabetesRisk.HasHighBloodGlucose" value="true" type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
+                                <input asp-for="DiabetesRisk.HasHighBloodGlucose" value="true" required type="radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500">
                                 <label asp-for="DiabetesRisk.HasHighBloodGlucose" class="ms-2 text-sm font-medium text-gray-900">Yes - 5 pts</label>
                             </div>
                         </div>
@@ -222,6 +222,26 @@
                 <button type="submit" class="focus:outline-none text-white bg-primary-50 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add</button>
             </div>
         </form>
+    </div>
+</div>
+
+<div id="errorModal" tabindex="-1" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="relative p-4 w-full max-w-md">
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <button type="button" onclick="closeModal()" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Close modal</span>
+            </button>
+            <div class="p-4 md:p-5 text-center">
+                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <h3 class="mb-5 text-lg font-normal text-gray-500">The form is not complete. Please fill in all required fields.</h3>
+                <button onclick="closeModal()" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">Close</button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -279,14 +299,14 @@
                 // Get points for radio options
                 const physicalActivityRisk = Array.from(physicalActivityInputs).find(input => input.checked)?.value === "false" ? 2 : 0;
                 const vegetableIntakeRisk = Array.from(vegetableIntakeInputs).find(input => input.checked)?.value === "false" ? 1 : 0;
-                const highBloodPressureRisk = Array.from(highBloodPressureInputs).find(input => input.checked)?.value === "false" ? 0 : 2;
-                const highBloodGlucoseRisk = Array.from(highBloodGlucoseInputs).find(input => input.checked)?.value === "false" ? 0 : 5;
+                const highBloodPressureRisk = Array.from(highBloodPressureInputs).find(input => input.checked)?.value === "true" ? 2 : 0;
+                const highBloodGlucoseRisk = Array.from(highBloodGlucoseInputs).find(input => input.checked)?.value === "true" ? 5 : 0;
 
                 // Sum up the risk score
                 riskScore = ageRisk + bmiRisk + familyRisk + waistRisk + physicalActivityRisk + vegetableIntakeRisk + highBloodPressureRisk + highBloodGlucoseRisk;
 
                 // Remove all previous color classes
-                riskScoreDisplay.classList.remove("text-green-400", "text-yellow-400", "text-orange-500", "text-pink-500", "text-red-500");
+                riskScoreDisplay.classList.remove("text-green-500", "text-yellow-500", "text-orange-500", "text-pink-500", "text-red-600");
 
                 // Add the appropriate color class based on the risk score
                 if (riskScore < 7) {
@@ -313,6 +333,7 @@
             const age = parseInt(selectedOption.getAttribute("data-age"));
             const ageDropdown = document.getElementById("ageDropdown");
             const sex = selectedOption.getAttribute('data-sex');
+            const ageValidation = document.getElementById("ageValidation");
             const waistCircumferenceForMen = document.getElementById("waistCircumferenceMen");
             const waistCircumferenceForWomen = document.getElementById("waistCircumferenceWomen");
             const waistCircumferenceForMenValidation = document.getElementById("waistCircumferenceMenValidation");
@@ -335,22 +356,32 @@
                 // Disable the dropdown
                 ageDropdown.disabled = true;
                 hiddenAgeField.value = ageDropdown.value;
+                ageValidation.style.display = "none";
             } else {
                 // If no member is selected, reset the dropdown
                 ageDropdown.disabled = false; // Allow selection if no member is selected
                 hiddenAgeField.value = this.value;
+                ageValidation.style.display = "block";
             }
 
             // Handle sex waist circumference fields visibility
             if (sex === 'M') {
                 waistCircumferenceForMen.style.display = "block";
+                waistCircumferenceForMen.setAttribute("required", "required");
                 waistCircumferenceForWomen.style.display = "none";
+                waistCircumferenceForWomen.value = "";
+                waistCircumferenceForWomen.removeAttribute("required");
                 waistCircumferenceForWomenValidation.style.display = "none";
+                waistCircumferenceForMenValidation.style.display = "block";
             }
             else {
                 waistCircumferenceForMen.style.display = "none";
+                waistCircumferenceForWomen.setAttribute("required", "required");
                 waistCircumferenceForMenValidation.style.display = "none";
                 waistCircumferenceForWomen.style.display = "block";
+                waistCircumferenceForWomenValidation.style.display = "block";
+                waistCircumferenceForMen.removeAttribute("required");
+                waistCircumferenceForMen.value = "";
             }
 
             // Dispatch a change event
@@ -418,5 +449,22 @@
         // Add event listeners for real-time BMI calculation
         document.getElementById("heightInput").addEventListener("input", calculateBmi);
         document.getElementById("weightInput").addEventListener("input", calculateBmi);
+    </script>
+
+    <script>
+        document.getElementById("createForm").addEventListener("submit", function (event) {
+            if (!this.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                // Show modal
+                document.getElementById("errorModal").classList.remove("hidden");
+
+            }
+        });
+
+        function closeModal() {
+            document.getElementById("errorModal").classList.add("hidden");
+        }
     </script>
 }
