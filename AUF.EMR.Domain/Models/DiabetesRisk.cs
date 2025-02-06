@@ -56,10 +56,10 @@ public class DiabetesRisk : BaseDomainEntity
         totalRiskScore += WaistCircumferenceWomenRiskPoints.HasValue ? (int)WaistCircumferenceWomenRiskPoints : 0;
         totalRiskScore += FamilyWithDiabetesRiskPoints.HasValue ? (int)FamilyWithDiabetesRiskPoints : 0;
 
-        totalRiskScore += IsPhysicallyActive.HasValue ? 0 : 2;
-        totalRiskScore += EatsVegetablesEveryDay.HasValue ? 0 : 1;
-        totalRiskScore += TakingHighBloodPressureMedication.HasValue ? 2 : 0;
-        totalRiskScore += HasHighBloodGlucose.HasValue ? 5 : 0;
+        totalRiskScore += IsPhysicallyActive.HasValue ? (IsPhysicallyActive.Value ? 0 : 2) : 0;
+        totalRiskScore += EatsVegetablesEveryDay.HasValue ? (EatsVegetablesEveryDay.Value ? 0 : 1) : 0;
+        totalRiskScore += TakingHighBloodPressureMedication.HasValue ? (TakingHighBloodPressureMedication.Value ? 2 : 0) : 0;
+        totalRiskScore += HasHighBloodGlucose.HasValue ? (HasHighBloodGlucose.Value ? 5 : 0) : 0;
 
         return totalRiskScore;
     }
