@@ -40,6 +40,8 @@ namespace AUF.EMR.Domain.Models
         public string Barangay { get; set; }
         public string City { get; set; }
         public string Province { get; set; }
+
+        [RegularExpression(@"^09\d{9}$", ErrorMessage = "Contact number must start with '09' and be exactly 11 digits.")]
         public string ContactNo { get; set; }
         public bool IsNHTS { get; set; }
         public bool IsHeadPhilhealthMember { get; set; }

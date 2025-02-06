@@ -42,7 +42,7 @@
                     </div>
                     <div class="mb-4">
                         <label asp-for="Household.ContactNo" class="block mb-2 text-sm font-medium text-gray-700">Contact Number</label>
-                        <input asp-for="Household.ContactNo" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" />
+                        <input asp-for="Household.ContactNo" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/4 p-2.5" pattern="^09\d{9}$" />
                         <span asp-validation-for="Household.ContactNo" class="block mb-2 text-sm text-red-700"></span>
                     </div>
                     <div class="mb-2 mt-8">
