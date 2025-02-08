@@ -39,6 +39,8 @@ namespace AUF.EMR.Persistence.Seeders
                     LastName = "Admin",
                     Position = "Admin",
                     Birthday = DateTime.Now,
+                    ContactNo = "09123456789",
+                    Address = "Admin Address"
                 };
 
                 var result = _userManager.CreateAsync(adminUser, "admin").Result;
