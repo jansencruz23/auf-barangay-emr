@@ -1,6 +1,6 @@
 ﻿<script>
     function print(action, controller, householdNo) {
-
+        console.log("HouseholdNo passed to print: " + householdNo);
         $.ajax({
             url: `/${controller}/${action}?householdNo=${householdNo}`,
             type: "GET",
